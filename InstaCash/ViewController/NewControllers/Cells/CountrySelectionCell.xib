@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="countryCell" id="xYm-ZF-EeW" customClass="CountrySelectionCell" customModule="InstaCash" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="255" height="67"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                <rect key="frame" x="0.0" y="0.0" width="255" height="67"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jkQ-mL-5lW">
+                        <rect key="frame" x="1" y="1" width="253" height="65"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <color key="backgroundColor" red="0.81960784313725488" green="0.81960784313725488" blue="0.81960784313725488" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="jkQ-mL-5lW" secondAttribute="bottom" constant="1" id="7mS-zA-AC8"/>
+                <constraint firstItem="jkQ-mL-5lW" firstAttribute="top" secondItem="xYm-ZF-EeW" secondAttribute="top" constant="1" id="9jJ-NX-0wD"/>
+                <constraint firstItem="jkQ-mL-5lW" firstAttribute="leading" secondItem="xYm-ZF-EeW" secondAttribute="leading" constant="1" id="MF0-Dd-xW8"/>
+                <constraint firstAttribute="trailing" secondItem="jkQ-mL-5lW" secondAttribute="trailing" constant="1" id="Ws2-KJ-T1C"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="BEY-VV-A7a"/>
+            <size key="customSize" width="255" height="67"/>
+            <connections>
+                <outlet property="lblCountry" destination="jkQ-mL-5lW" id="FOJ-is-nfe"/>
+            </connections>
+            <point key="canvasLocation" x="512.8125" y="88.204225352112672"/>
+        </collectionViewCell>
+    </objects>
+</document>

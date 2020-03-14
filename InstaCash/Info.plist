@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>App u</key>
+	<string></string>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>$(PRODUCT_NAME)</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>4.1.2</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>com.zerowaste.instacash</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>InstaCashC2BDeepLink</string>
+				<string>com.googleusercontent.apps.923206721363-bt9d6f1vq711p02hkppqhc7q5itj8of4</string>
+				<string>fb234758716862711</string>
+			</array>
+		</dict>
+	</array>
+	<key>CFBundleVersion</key>
+	<string>4.0.40</string>
+	<key>Fabric</key>
+	<dict>
+		<key>APIKey</key>
+		<string>a55dcf35f427c98c02b49fa0c4b5b0a621e77a63</string>
+		<key>Kits</key>
+		<array>
+			<dict>
+				<key>KitInfo</key>
+				<dict/>
+				<key>KitName</key>
+				<string>Crashlytics</string>
+			</dict>
+		</array>
+	</dict>
+	<key>FacebookAppID</key>
+	<string>234758716862711</string>
+	<key>FacebookAutoLogAppEventsEnabled</key>
+	<false/>
+	<key>FacebookDisplayName</key>
+	<string>Instant Consumer Tech</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>truesdk</string>
+		<string>fbapi</string>
+		<string>fb-messenger-share-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
+	</array>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>Bluetooth Permission needed for Diagnosing the bluetooth hardware.</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>Calendar Usage Required</string>
+	<key>NSCameraUsageDescription</key>
+	<string>The Camera is needed to check the Camera.</string>
+	<key>NSContactsUsageDescription</key>
+	<string>Contacts Permission needed </string>
+	<key>NSFaceIDUsageDescription</key>
+	<string>Face Id access required to test FaceId functionality</string>
+	<key>NSLocationUsageDescription</key>
+	<string>This app requires access to your location for country selection and displayed to complete the GPS Test</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>This app requires access to your location for country selection and displayed to complete the GPS Test</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Microphone permission required to check the Mic and Speaker</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Photo library access required to check the camera</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Photo library access required to save a picture clicked by you</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Comfortaa-Bold.ttf</string>
+		<string>Comfortaa-Light.ttf</string>
+		<string>Comfortaa-Regular.ttf</string>
+		<string>Roboto-Black.ttf</string>
+		<string>Roboto-BlackItalic.ttf</string>
+		<string>Roboto-Bold.ttf</string>
+		<string>Roboto-BoldItalic.ttf</string>
+		<string>Roboto-Italic.ttf</string>
+		<string>Roboto-Light.ttf</string>
+		<string>Roboto-LightItalic.ttf</string>
+		<string>Roboto-Medium.ttf</string>
+		<string>Roboto-MediumItalic.ttf</string>
+		<string>Roboto-Regular.ttf</string>
+		<string>Roboto-Thin.ttf</string>
+		<string>Roboto-ThinItalic.ttf</string>
+	</array>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>armv7</string>
+	</array>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+	</array>
+	<key>UISupportedInterfaceOrientations~ipad</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
+</dict>
+</plist>

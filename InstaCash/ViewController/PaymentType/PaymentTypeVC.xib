@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PaymentTypeVC" customModule="InstaCash" customModuleProvider="target">
+            <connections>
+                <outlet property="tblViewPaymentType" destination="d6N-9k-MmH" id="rSs-sU-sSk"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h9h-jF-8K1">
+                    <rect key="frame" x="10" y="30" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="XSe-1L-sRq"/>
+                        <constraint firstAttribute="height" constant="40" id="tHy-Im-VQ2"/>
+                    </constraints>
+                    <state key="normal" image="backBlack"/>
+                    <connections>
+                        <action selector="onClickBack:" destination="-1" eventType="touchUpInside" id="hMN-gv-P0l"/>
+                    </connections>
+                </button>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="d6N-9k-MmH">
+                    <rect key="frame" x="0.0" y="80" width="320" height="488"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="WYE-b5-P0d"/>
+                        <outlet property="delegate" destination="-1" id="h6p-Gu-4R7"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="d6N-9k-MmH" secondAttribute="trailing" id="6CB-dr-m8h"/>
+                <constraint firstItem="h9h-jF-8K1" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="8qq-WQ-Cmu"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="d6N-9k-MmH" secondAttribute="bottom" id="Wog-lj-eUj"/>
+                <constraint firstItem="d6N-9k-MmH" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="bQs-Pa-yK8"/>
+                <constraint firstItem="d6N-9k-MmH" firstAttribute="top" secondItem="h9h-jF-8K1" secondAttribute="bottom" constant="10" id="nYZ-K0-XuR"/>
+                <constraint firstItem="h9h-jF-8K1" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="raX-YJ-tpw"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="129.375" y="153.16901408450704"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="backBlack" width="16" height="16"/>
+    </resources>
+</document>

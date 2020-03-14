@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SendAppLinkPopUp" customModule="InstaCash" customModuleProvider="target">
+            <connections>
+                <outlet property="activitySendLink" destination="ueS-Ow-IoG" id="FkQ-ym-pXh"/>
+                <outlet property="btnSendLink" destination="x5F-eY-A5R" id="I2A-WD-wry"/>
+                <outlet property="btnShare" destination="EY1-TJ-K9R" id="2gD-TI-P95"/>
+                <outlet property="lblLineCountryCode" destination="OmX-zc-udF" id="Y7b-Jv-ygf"/>
+                <outlet property="txtCountryCode" destination="xUX-or-thj" id="nCW-oS-q11"/>
+                <outlet property="txtEmailAddress" destination="CfD-Dd-EQT" id="tkg-bT-vhG"/>
+                <outlet property="txtMobileNumber" destination="tHd-QW-bqc" id="TbV-zj-2yV"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="viewPopUp" destination="gVn-el-rgu" id="zNa-iD-tbf"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gVn-el-rgu">
+                    <rect key="frame" x="22" y="204" width="276" height="160"/>
+                    <subviews>
+                        <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xUX-or-thj">
+                            <rect key="frame" x="12" y="15" width="40" height="35"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="40" id="aWa-oq-qjS"/>
+                                <constraint firstAttribute="height" constant="35" id="bwx-kP-BQK"/>
+                            </constraints>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mobile Number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tHd-QW-bqc">
+                            <rect key="frame" x="68" y="15" width="168" height="35"/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="bVj-BI-k9z"/>
+                            </connections>
+                        </textField>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x5F-eY-A5R">
+                            <rect key="frame" x="52.5" y="65" width="171" height="35"/>
+                            <color key="backgroundColor" red="0.26274509800000001" green="0.5450980392" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="171" id="0qW-1T-ANQ"/>
+                                <constraint firstAttribute="height" constant="35" id="pag-PL-amr"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="15" maxY="0.0"/>
+                            <state key="normal" title="Send App Link" image="sendAppLink"/>
+                            <connections>
+                                <action selector="btnSendAppLink:" destination="-1" eventType="touchUpInside" id="Gkn-iG-khq"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EY1-TJ-K9R">
+                            <rect key="frame" x="52.5" y="115" width="171" height="43"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="43" id="NCL-jR-kN3"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="15" maxY="0.0"/>
+                            <state key="normal" title="Share" image="shareApp">
+                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="btnSharePressed:" destination="-1" eventType="touchUpInside" id="7jz-UQ-A39"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KMd-Rq-HRs">
+                            <rect key="frame" x="244" y="12" width="20" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="20" id="ViB-Yb-hIi"/>
+                                <constraint firstAttribute="height" constant="20" id="ehj-bU-Gna"/>
+                            </constraints>
+                            <state key="normal" backgroundImage="closeGray"/>
+                            <connections>
+                                <action selector="btnClosedTapped:" destination="-1" eventType="touchUpInside" id="k2z-aN-JbK"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OmX-zc-udF">
+                            <rect key="frame" x="12" y="50" width="40" height="1"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="bs4-7p-xox"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H3l-cm-jNM">
+                            <rect key="frame" x="68" y="50" width="168" height="1"/>
+                            <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="ICr-wx-wko"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-mail" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CfD-Dd-EQT">
+                            <rect key="frame" x="12" y="15" width="224" height="35"/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                        </textField>
+                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="ueS-Ow-IoG">
+                            <rect key="frame" x="197" y="22.5" width="20" height="20"/>
+                            <color key="color" red="0.0" green="0.49803921569999998" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </activityIndicatorView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="H3l-cm-jNM" firstAttribute="trailing" secondItem="tHd-QW-bqc" secondAttribute="trailing" id="4vb-yd-AU9"/>
+                        <constraint firstItem="EY1-TJ-K9R" firstAttribute="leading" secondItem="x5F-eY-A5R" secondAttribute="leading" id="6Uu-in-pLU"/>
+                        <constraint firstItem="xUX-or-thj" firstAttribute="top" secondItem="gVn-el-rgu" secondAttribute="top" constant="15" id="76O-sV-oZn"/>
+                        <constraint firstItem="OmX-zc-udF" firstAttribute="trailing" secondItem="xUX-or-thj" secondAttribute="trailing" id="7dv-X0-CpH"/>
+                        <constraint firstItem="ueS-Ow-IoG" firstAttribute="leading" secondItem="tHd-QW-bqc" secondAttribute="trailing" constant="-39" id="BYQ-9l-a55"/>
+                        <constraint firstItem="CfD-Dd-EQT" firstAttribute="leading" secondItem="xUX-or-thj" secondAttribute="leading" id="Hqw-q4-sRT"/>
+                        <constraint firstItem="CfD-Dd-EQT" firstAttribute="top" secondItem="xUX-or-thj" secondAttribute="top" id="La5-CN-2zt"/>
+                        <constraint firstItem="CfD-Dd-EQT" firstAttribute="trailing" secondItem="tHd-QW-bqc" secondAttribute="trailing" id="Oov-jr-Yom"/>
+                        <constraint firstItem="KMd-Rq-HRs" firstAttribute="leading" secondItem="tHd-QW-bqc" secondAttribute="trailing" constant="8" id="R6H-9x-lrW"/>
+                        <constraint firstItem="CfD-Dd-EQT" firstAttribute="bottom" secondItem="xUX-or-thj" secondAttribute="bottom" id="Rmd-db-iP0"/>
+                        <constraint firstItem="ueS-Ow-IoG" firstAttribute="centerY" secondItem="tHd-QW-bqc" secondAttribute="centerY" id="Vse-dh-vqY"/>
+                        <constraint firstItem="x5F-eY-A5R" firstAttribute="centerX" secondItem="gVn-el-rgu" secondAttribute="centerX" id="X8H-9K-WCI"/>
+                        <constraint firstItem="EY1-TJ-K9R" firstAttribute="top" secondItem="x5F-eY-A5R" secondAttribute="bottom" constant="15" id="XEe-WS-Z9o"/>
+                        <constraint firstItem="tHd-QW-bqc" firstAttribute="leading" secondItem="xUX-or-thj" secondAttribute="trailing" constant="16" id="YZo-Qw-lvc"/>
+                        <constraint firstItem="OmX-zc-udF" firstAttribute="leading" secondItem="xUX-or-thj" secondAttribute="leading" id="Z8N-MD-yaU"/>
+                        <constraint firstItem="xUX-or-thj" firstAttribute="leading" secondItem="gVn-el-rgu" secondAttribute="leading" constant="12" id="fnB-d9-PyU"/>
+                        <constraint firstItem="tHd-QW-bqc" firstAttribute="bottom" secondItem="xUX-or-thj" secondAttribute="bottom" id="gDE-6R-iSV"/>
+                        <constraint firstItem="KMd-Rq-HRs" firstAttribute="top" secondItem="gVn-el-rgu" secondAttribute="top" constant="12" id="gkx-Tl-9Bz"/>
+                        <constraint firstItem="x5F-eY-A5R" firstAttribute="top" secondItem="tHd-QW-bqc" secondAttribute="bottom" constant="15" id="gyJ-2T-Ol5"/>
+                        <constraint firstItem="tHd-QW-bqc" firstAttribute="top" secondItem="xUX-or-thj" secondAttribute="top" id="ijf-4Y-Asp"/>
+                        <constraint firstItem="H3l-cm-jNM" firstAttribute="top" secondItem="tHd-QW-bqc" secondAttribute="bottom" id="kT6-SI-baC"/>
+                        <constraint firstItem="EY1-TJ-K9R" firstAttribute="trailing" secondItem="x5F-eY-A5R" secondAttribute="trailing" id="kf9-yo-vqz"/>
+                        <constraint firstAttribute="height" constant="160" id="pni-sh-gwq"/>
+                        <constraint firstItem="H3l-cm-jNM" firstAttribute="leading" secondItem="tHd-QW-bqc" secondAttribute="leading" id="qDx-wP-f5n"/>
+                        <constraint firstAttribute="trailing" secondItem="KMd-Rq-HRs" secondAttribute="trailing" constant="12" id="tsv-pr-JVN"/>
+                        <constraint firstItem="OmX-zc-udF" firstAttribute="top" secondItem="xUX-or-thj" secondAttribute="bottom" id="xGv-vu-wL6"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.66666666669999997" alpha="0.25917701201643839" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="gVn-el-rgu" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="22" id="Hr7-O8-FRT"/>
+                <constraint firstItem="gVn-el-rgu" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="c3g-EG-daY"/>
+                <constraint firstItem="gVn-el-rgu" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ssr-ho-Ufc"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="gVn-el-rgu" secondAttribute="trailing" constant="22" id="tO1-Qp-ZZw"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="138.75" y="143.66197183098592"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="closeGray" width="24" height="24"/>
+        <image name="sendAppLink" width="24" height="24"/>
+        <image name="shareApp" width="24" height="24"/>
+    </resources>
+</document>

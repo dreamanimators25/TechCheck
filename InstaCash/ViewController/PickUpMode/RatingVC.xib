@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Bold.ttf">
+            <string>Roboto-Bold</string>
+        </array>
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RatingVC" customModule="InstaCash" customModuleProvider="target">
+            <connections>
+                <outlet property="btnSubmit" destination="yd8-h7-YDf" id="coP-aC-OfV"/>
+                <outlet property="lblTransactionId" destination="FpD-vR-eVn" id="epn-gF-sNe"/>
+                <outlet property="view" destination="U83-7j-IZM" id="QsE-hi-Srf"/>
+                <outlet property="viewRating" destination="cTt-K7-66B" id="X4X-Tj-0Di"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="U83-7j-IZM">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dCJ-4O-oJS">
+                    <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                    <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jBj-pi-3hB" customClass="GradientView" customModule="Instacash" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="20" width="320" height="160"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="jBj-pi-3hB" secondAttribute="height" multiplier="1:0.5" id="0XB-9j-AXk"/>
+                    </constraints>
+                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="successRight" translatesAutoresizingMaskIntoConstraints="NO" id="RHu-cn-hm7">
+                    <rect key="frame" x="89" y="17.5" width="142.5" height="142.5"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payment Processed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="96R-Il-hN3">
+                    <rect key="frame" x="83.5" y="200" width="153" height="20"/>
+                    <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="17"/>
+                    <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transaction ID: 229" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FpD-vR-eVn">
+                    <rect key="frame" x="91" y="225" width="138" height="19"/>
+                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                    <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How was your experience with us?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wL3-wa-H6o">
+                    <rect key="frame" x="38" y="274" width="244.5" height="19"/>
+                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                    <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yd8-h7-YDf" customClass="shadowCornerButton" customModule="Instacash" customModuleProvider="target">
+                    <rect key="frame" x="20" y="494" width="280" height="44"/>
+                    <color key="backgroundColor" red="0.094117647060000004" green="0.60784313729999995" blue="0.17254901959999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="18"/>
+                    <state key="normal" title="Done">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="btnSubmitPressed:" destination="-1" eventType="touchUpInside" id="JpY-bM-1bV"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please take your SIM card out of the phone if it is present in this device " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MOk-zP-a7p">
+                    <rect key="frame" x="32" y="393" width="256" height="28.5"/>
+                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
+                    <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If you’d like to get your phone erased in front of you, please ask our executive to do a factory reset." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mfD-lu-6cP">
+                    <rect key="frame" x="32" y="431.5" width="256" height="42.5"/>
+                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
+                    <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cTt-K7-66B" customClass="FloatRatingView" customModule="InstaCash" customModuleProvider="target">
+                    <rect key="frame" x="80" y="323" width="160" height="27.5"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="blankStar"/>
+                        <userDefinedRuntimeAttribute type="image" keyPath="fullImage" value="fillStar"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="minRating">
+                            <integer key="value" value="0"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="maxRating">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="wL3-wa-H6o" firstAttribute="centerX" secondItem="U83-7j-IZM" secondAttribute="centerX" id="1kv-0I-DGl"/>
+                <constraint firstItem="96R-Il-hN3" firstAttribute="centerX" secondItem="U83-7j-IZM" secondAttribute="centerX" id="9PS-pv-LLf"/>
+                <constraint firstItem="yd8-h7-YDf" firstAttribute="leading" secondItem="qBJ-EE-jMc" secondAttribute="leading" constant="20" id="D48-ne-ijc"/>
+                <constraint firstItem="qBJ-EE-jMc" firstAttribute="bottom" secondItem="dCJ-4O-oJS" secondAttribute="bottom" id="MUL-np-OPn"/>
+                <constraint firstItem="dCJ-4O-oJS" firstAttribute="top" secondItem="qBJ-EE-jMc" secondAttribute="top" id="OcI-9c-0va"/>
+                <constraint firstItem="FpD-vR-eVn" firstAttribute="centerX" secondItem="U83-7j-IZM" secondAttribute="centerX" id="OtU-6O-BjS"/>
+                <constraint firstItem="cTt-K7-66B" firstAttribute="height" secondItem="qBJ-EE-jMc" secondAttribute="height" multiplier="0.05" id="PJP-ha-24Z"/>
+                <constraint firstItem="cTt-K7-66B" firstAttribute="top" secondItem="wL3-wa-H6o" secondAttribute="bottom" constant="30" id="UBU-PL-uy6"/>
+                <constraint firstItem="RHu-cn-hm7" firstAttribute="bottom" secondItem="jBj-pi-3hB" secondAttribute="bottom" constant="-20" id="VVB-q9-gbs"/>
+                <constraint firstItem="96R-Il-hN3" firstAttribute="top" secondItem="jBj-pi-3hB" secondAttribute="bottom" constant="20" id="W7F-zR-ALC"/>
+                <constraint firstItem="cTt-K7-66B" firstAttribute="width" secondItem="qBJ-EE-jMc" secondAttribute="width" multiplier="0.5" id="Xfy-Xj-FMr"/>
+                <constraint firstItem="mfD-lu-6cP" firstAttribute="width" secondItem="qBJ-EE-jMc" secondAttribute="width" multiplier="0.8" id="Ynb-2M-xAI"/>
+                <constraint firstItem="yd8-h7-YDf" firstAttribute="height" secondItem="qBJ-EE-jMc" secondAttribute="height" multiplier="0.08" id="b9k-zP-eep"/>
+                <constraint firstItem="qBJ-EE-jMc" firstAttribute="bottom" secondItem="yd8-h7-YDf" secondAttribute="bottom" constant="30" id="bO6-hZ-2OS"/>
+                <constraint firstItem="qBJ-EE-jMc" firstAttribute="trailing" secondItem="yd8-h7-YDf" secondAttribute="trailing" constant="20" id="dEN-ll-h5p"/>
+                <constraint firstItem="mfD-lu-6cP" firstAttribute="top" secondItem="MOk-zP-a7p" secondAttribute="bottom" constant="10" id="eE4-iC-bBZ"/>
+                <constraint firstItem="qBJ-EE-jMc" firstAttribute="trailing" secondItem="jBj-pi-3hB" secondAttribute="trailing" id="hrL-Tu-eIl"/>
+                <constraint firstItem="dCJ-4O-oJS" firstAttribute="leading" secondItem="U83-7j-IZM" secondAttribute="leading" id="iYU-TW-zym"/>
+                <constraint firstItem="MOk-zP-a7p" firstAttribute="centerX" secondItem="mfD-lu-6cP" secondAttribute="centerX" id="jF3-AO-dON"/>
+                <constraint firstItem="RHu-cn-hm7" firstAttribute="centerX" secondItem="U83-7j-IZM" secondAttribute="centerX" id="kfD-im-NX4"/>
+                <constraint firstItem="qBJ-EE-jMc" firstAttribute="trailing" secondItem="dCJ-4O-oJS" secondAttribute="trailing" id="lCR-5I-lDo"/>
+                <constraint firstItem="FpD-vR-eVn" firstAttribute="top" secondItem="96R-Il-hN3" secondAttribute="bottom" constant="5" id="nje-7Q-gkC"/>
+                <constraint firstItem="cTt-K7-66B" firstAttribute="centerX" secondItem="U83-7j-IZM" secondAttribute="centerX" id="nt7-Zv-4Yv"/>
+                <constraint firstItem="wL3-wa-H6o" firstAttribute="top" secondItem="FpD-vR-eVn" secondAttribute="bottom" constant="30" id="oUh-5i-wLx"/>
+                <constraint firstItem="jBj-pi-3hB" firstAttribute="top" secondItem="qBJ-EE-jMc" secondAttribute="top" id="qJA-4c-YHM"/>
+                <constraint firstItem="mfD-lu-6cP" firstAttribute="centerX" secondItem="U83-7j-IZM" secondAttribute="centerX" id="qQr-OH-o45"/>
+                <constraint firstItem="jBj-pi-3hB" firstAttribute="leading" secondItem="qBJ-EE-jMc" secondAttribute="leading" id="tFt-fw-bbN"/>
+                <constraint firstItem="MOk-zP-a7p" firstAttribute="width" secondItem="mfD-lu-6cP" secondAttribute="width" id="tcm-J0-i4I"/>
+                <constraint firstItem="yd8-h7-YDf" firstAttribute="top" secondItem="mfD-lu-6cP" secondAttribute="bottom" constant="20" id="tuv-93-wBm"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="qBJ-EE-jMc"/>
+            <point key="canvasLocation" x="872" y="56"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="blankStar" width="31.5" height="30"/>
+        <image name="fillStar" width="31.5" height="30"/>
+        <image name="successRight" width="142.5" height="142.5"/>
+    </resources>
+</document>

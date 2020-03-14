@@ -1,0 +1,6 @@
+framework module Pods_InstaCashTests {
+  umbrella header "Pods-InstaCashTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

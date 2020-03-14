@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BlueToothTestingVC" customModule="InstaCash" customModuleProvider="target">
+            <connections>
+                <outlet property="internalImageView" destination="ShG-I8-RvG" id="flP-tx-cxs"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please make sure Bluetooth, GPS and Wifi are enabled on your device and press begin to start the tests." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pIN-jX-7gC">
+                    <rect key="frame" x="42.5" y="242" width="235" height="88"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="88" id="Iih-LF-OST"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KBq-JU-dPH">
+                    <rect key="frame" x="15" y="509" width="290" height="44"/>
+                    <color key="backgroundColor" red="0.094117647060000004" green="0.60784313729999995" blue="0.17254901959999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <state key="normal" title="Begin Tests">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="btnBeginTestPressed:" destination="-1" eventType="touchUpInside" id="QJS-Na-u0x"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="internal.gif" translatesAutoresizingMaskIntoConstraints="NO" id="ShG-I8-RvG">
+                    <rect key="frame" x="42.5" y="187" width="235" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="235" id="YTd-Tt-Eoo"/>
+                        <constraint firstAttribute="height" constant="30" id="cPC-3g-dR0"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="ShG-I8-RvG" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="2La-Qr-4hC"/>
+                <constraint firstItem="ShG-I8-RvG" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="167" id="AD0-tF-RSf"/>
+                <constraint firstItem="KBq-JU-dPH" firstAttribute="height" secondItem="fnl-2z-Ty3" secondAttribute="height" multiplier="0.08" id="Boe-Ca-jro"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="KBq-JU-dPH" secondAttribute="bottom" constant="15" id="DM2-Zs-4kq"/>
+                <constraint firstItem="pIN-jX-7gC" firstAttribute="trailing" secondItem="ShG-I8-RvG" secondAttribute="trailing" id="Gfc-JG-vOn"/>
+                <constraint firstItem="pIN-jX-7gC" firstAttribute="top" secondItem="ShG-I8-RvG" secondAttribute="bottom" constant="25" id="Rxa-Hw-b3a"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="KBq-JU-dPH" secondAttribute="trailing" constant="15" id="fhO-mh-oIY"/>
+                <constraint firstItem="pIN-jX-7gC" firstAttribute="leading" secondItem="ShG-I8-RvG" secondAttribute="leading" id="jG2-HA-kG2"/>
+                <constraint firstItem="KBq-JU-dPH" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="ulb-NU-833"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="internal.gif" width="312" height="312"/>
+    </resources>
+</document>

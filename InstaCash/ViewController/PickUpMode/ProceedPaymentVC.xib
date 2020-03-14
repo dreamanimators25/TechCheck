@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Bold.ttf">
+            <string>Roboto-Bold</string>
+        </array>
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProceedPaymentVC" customModule="InstaCash" customModuleProvider="target">
+            <connections>
+                <outlet property="btnSwipe" destination="rwm-Pl-xcA" id="oSP-Vl-LR2"/>
+                <outlet property="lblAccountNumber" destination="tDW-P7-SCa" id="0bc-uw-yPO"/>
+                <outlet property="lblAmount" destination="UiO-gp-gJA" id="Tz6-Ud-lbg"/>
+                <outlet property="lblPaymentMode" destination="PTJ-8p-V97" id="3px-YD-Rn9"/>
+                <outlet property="view" destination="NKh-7t-TSi" id="Nqj-26-yvQ"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="NKh-7t-TSi">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BVe-HS-dqj">
+                    <rect key="frame" x="10" y="30" width="30" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="30" id="xqf-rM-NP7"/>
+                    </constraints>
+                    <state key="normal" image="back"/>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4/4" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="siR-yL-hsA">
+                    <rect key="frame" x="290" y="58.5" width="20" height="15.5"/>
+                    <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="13"/>
+                    <color key="textColor" red="0.15686274510000001" green="0.69019607839999997" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payment Mode: Bank" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PTJ-8p-V97">
+                    <rect key="frame" x="80" y="132" width="160.5" height="20"/>
+                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="payment" translatesAutoresizingMaskIntoConstraints="NO" id="5qQ-kU-DLG">
+                    <rect key="frame" x="55.5" y="179.5" width="209" height="209"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rwm-Pl-xcA" customClass="shadowCornerButton" customModule="Instacash" customModuleProvider="target">
+                    <rect key="frame" x="20" y="494" width="280" height="44"/>
+                    <color key="backgroundColor" red="0.094117647060000004" green="0.60784313729999995" blue="0.17254901959999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="18"/>
+                    <state key="normal" title="Swipe here to process payment">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="btnSwipePressed:" destination="-1" eventType="touchUpInside" id="Fyt-fL-CCo"/>
+                    </connections>
+                </button>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Z98-x4-Ukg">
+                    <rect key="frame" x="48" y="408.5" width="224" height="50"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Iso-AM-HGj">
+                            <rect key="frame" x="0.0" y="0.0" width="139.5" height="50"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZAQ-9U-PgP">
+                                    <rect key="frame" x="0.0" y="0.0" width="139.5" height="20"/>
+                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                    <color key="textColor" red="0.38431372549999998" green="0.38431372549999998" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ExG-Gf-jxu">
+                                    <rect key="frame" x="0.0" y="30" width="139.5" height="20"/>
+                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                    <color key="textColor" red="0.38431372549999998" green="0.38431372549999998" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="zdH-hk-yqC">
+                            <rect key="frame" x="149.5" y="0.0" width="74.5" height="50"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="****4553" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tDW-P7-SCa">
+                                    <rect key="frame" x="0.0" y="0.0" width="74.5" height="20"/>
+                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RM365" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UiO-gp-gJA">
+                                    <rect key="frame" x="0.0" y="30" width="74.5" height="20"/>
+                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                </stackView>
+                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="Qun-yL-ZrE">
+                    <rect key="frame" x="20" y="65" width="250" height="2"/>
+                    <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="progressTintColor" red="0.094117647060000004" green="0.60784313729999995" blue="0.17254901959999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="trackTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </progressView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="rwm-Pl-xcA" firstAttribute="leading" secondItem="NKh-7t-TSi" secondAttribute="leading" constant="20" id="5Sj-tH-Mw4"/>
+                <constraint firstItem="Qun-yL-ZrE" firstAttribute="top" secondItem="BVe-HS-dqj" secondAttribute="bottom" constant="5" id="7FT-4N-Vnx"/>
+                <constraint firstItem="5qQ-kU-DLG" firstAttribute="centerY" secondItem="NKh-7t-TSi" secondAttribute="centerY" id="8Ko-7T-Rhy"/>
+                <constraint firstItem="BVe-HS-dqj" firstAttribute="leading" secondItem="mFR-SX-mtD" secondAttribute="leading" constant="10" id="8bu-u9-bbm"/>
+                <constraint firstItem="mFR-SX-mtD" firstAttribute="bottom" secondItem="rwm-Pl-xcA" secondAttribute="bottom" constant="30" id="BQB-lH-u0f"/>
+                <constraint firstItem="rwm-Pl-xcA" firstAttribute="height" secondItem="mFR-SX-mtD" secondAttribute="height" multiplier="0.08" id="Kgl-20-1JV"/>
+                <constraint firstItem="BVe-HS-dqj" firstAttribute="width" secondItem="BVe-HS-dqj" secondAttribute="height" multiplier="1:1" id="NIq-pS-rAl"/>
+                <constraint firstItem="Z98-x4-Ukg" firstAttribute="top" secondItem="5qQ-kU-DLG" secondAttribute="bottom" constant="20" id="Nbi-4E-jtT"/>
+                <constraint firstItem="siR-yL-hsA" firstAttribute="centerY" secondItem="Qun-yL-ZrE" secondAttribute="centerY" id="Ojl-aX-6uI"/>
+                <constraint firstItem="Z98-x4-Ukg" firstAttribute="width" secondItem="mFR-SX-mtD" secondAttribute="width" multiplier="0.7" id="UHj-5S-lSV"/>
+                <constraint firstItem="Z98-x4-Ukg" firstAttribute="centerX" secondItem="NKh-7t-TSi" secondAttribute="centerX" id="UKT-K2-vAQ"/>
+                <constraint firstItem="PTJ-8p-V97" firstAttribute="centerY" secondItem="NKh-7t-TSi" secondAttribute="centerY" multiplier="0.5" id="VTh-kz-EJa"/>
+                <constraint firstItem="Qun-yL-ZrE" firstAttribute="leading" secondItem="NKh-7t-TSi" secondAttribute="leading" constant="20" id="WWj-RS-lAQ"/>
+                <constraint firstItem="5qQ-kU-DLG" firstAttribute="centerX" secondItem="NKh-7t-TSi" secondAttribute="centerX" id="Wjt-hl-kPy"/>
+                <constraint firstItem="BVe-HS-dqj" firstAttribute="top" secondItem="mFR-SX-mtD" secondAttribute="top" constant="10" id="X01-AM-UKB"/>
+                <constraint firstItem="siR-yL-hsA" firstAttribute="leading" secondItem="Qun-yL-ZrE" secondAttribute="trailing" constant="20" id="cK2-aN-Onf"/>
+                <constraint firstItem="mFR-SX-mtD" firstAttribute="trailing" secondItem="siR-yL-hsA" secondAttribute="trailing" constant="10" id="dhb-Q3-r7O"/>
+                <constraint firstItem="PTJ-8p-V97" firstAttribute="centerX" secondItem="NKh-7t-TSi" secondAttribute="centerX" id="hYD-5I-s1k"/>
+                <constraint firstItem="mFR-SX-mtD" firstAttribute="trailing" secondItem="rwm-Pl-xcA" secondAttribute="trailing" constant="20" id="oTg-XH-ZpJ"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="mFR-SX-mtD"/>
+            <point key="canvasLocation" x="-66" y="231"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="back" width="32" height="32"/>
+        <image name="payment" width="209" height="209"/>
+    </resources>
+</document>

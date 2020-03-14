@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Bold.ttf">
+            <string>Roboto-Bold</string>
+        </array>
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OrderStatus2" customModule="InstaCash" customModuleProvider="target">
+            <connections>
+                <outlet property="lblPrice" destination="d22-Na-E16" id="qS7-Lt-nXU"/>
+                <outlet property="view" destination="oH3-TD-jM7" id="Mrx-Lf-YIj"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="oH3-TD-jM7">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vhM-3E-vAv">
+                    <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                    <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get ready to be RM 524 richer!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d22-Na-E16">
+                    <rect key="frame" x="44" y="246" width="232.5" height="20"/>
+                    <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="17"/>
+                    <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The next step for you is to download the app on this device you are selling and diagnose. Good luck!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fhn-Jw-zcK">
+                    <rect key="frame" x="16" y="271" width="288" height="56.5"/>
+                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                    <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wsp-xz-ySG" customClass="shadowCornerButton" customModule="InstaCash" customModuleProvider="target">
+                    <rect key="frame" x="20" y="347.5" width="280" height="43.5"/>
+                    <color key="backgroundColor" red="0.094117647060000004" green="0.60784313729999995" blue="0.17254901959999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="18"/>
+                    <state key="normal" title="See order status">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="onClickStatus:" destination="-1" eventType="touchUpInside" id="isW-3W-7Bq"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ypy-QZ-kvq" customClass="GradientView" customModule="InstaCash" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="20" width="320" height="160"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="ypy-QZ-kvq" secondAttribute="height" multiplier="1:0.5" id="SJQ-2K-BqY"/>
+                    </constraints>
+                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="successRight" translatesAutoresizingMaskIntoConstraints="NO" id="Wcv-NZ-BdN">
+                    <rect key="frame" x="89" y="17.5" width="142.5" height="142.5"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="wsp-xz-ySG" firstAttribute="top" secondItem="Fhn-Jw-zcK" secondAttribute="bottom" constant="20" id="0ju-Q8-nA9"/>
+                <constraint firstItem="ypy-QZ-kvq" firstAttribute="top" secondItem="3h9-KK-elX" secondAttribute="top" id="55s-44-Pzk"/>
+                <constraint firstItem="ypy-QZ-kvq" firstAttribute="leading" secondItem="3h9-KK-elX" secondAttribute="leading" id="5EO-DM-fZi"/>
+                <constraint firstItem="3h9-KK-elX" firstAttribute="trailing" secondItem="vhM-3E-vAv" secondAttribute="trailing" id="5LM-ab-jXh"/>
+                <constraint firstItem="3h9-KK-elX" firstAttribute="bottom" secondItem="vhM-3E-vAv" secondAttribute="bottom" id="Fip-hH-K62"/>
+                <constraint firstItem="Fhn-Jw-zcK" firstAttribute="width" secondItem="3h9-KK-elX" secondAttribute="width" multiplier="0.9" id="H3c-Wn-pSW"/>
+                <constraint firstItem="vhM-3E-vAv" firstAttribute="top" secondItem="3h9-KK-elX" secondAttribute="top" id="IIa-8T-3yC"/>
+                <constraint firstItem="Wcv-NZ-BdN" firstAttribute="bottom" secondItem="ypy-QZ-kvq" secondAttribute="bottom" constant="-20" id="MFI-Ut-QQP"/>
+                <constraint firstItem="Fhn-Jw-zcK" firstAttribute="top" secondItem="d22-Na-E16" secondAttribute="bottom" constant="5" id="Xad-BQ-lpZ"/>
+                <constraint firstItem="wsp-xz-ySG" firstAttribute="height" secondItem="3h9-KK-elX" secondAttribute="height" multiplier="0.08" id="g7m-JH-swA"/>
+                <constraint firstItem="d22-Na-E16" firstAttribute="centerX" secondItem="oH3-TD-jM7" secondAttribute="centerX" id="kS7-iq-3M9"/>
+                <constraint firstItem="3h9-KK-elX" firstAttribute="trailing" secondItem="ypy-QZ-kvq" secondAttribute="trailing" id="lQ2-f9-Yek"/>
+                <constraint firstItem="wsp-xz-ySG" firstAttribute="leading" secondItem="3h9-KK-elX" secondAttribute="leading" constant="20" id="nb2-A8-wCE"/>
+                <constraint firstItem="vhM-3E-vAv" firstAttribute="leading" secondItem="oH3-TD-jM7" secondAttribute="leading" id="pbS-h8-94a"/>
+                <constraint firstItem="Fhn-Jw-zcK" firstAttribute="centerX" secondItem="oH3-TD-jM7" secondAttribute="centerX" id="sZJ-UA-oth"/>
+                <constraint firstItem="wsp-xz-ySG" firstAttribute="centerY" secondItem="oH3-TD-jM7" secondAttribute="centerY" multiplier="1.3" id="tuy-rM-jzo"/>
+                <constraint firstItem="3h9-KK-elX" firstAttribute="trailing" secondItem="wsp-xz-ySG" secondAttribute="trailing" constant="20" id="wxt-e1-k9h"/>
+                <constraint firstItem="Wcv-NZ-BdN" firstAttribute="centerX" secondItem="oH3-TD-jM7" secondAttribute="centerX" id="zen-cb-L4f"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="3h9-KK-elX"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="successRight" width="142.5" height="142.5"/>
+    </resources>
+</document>

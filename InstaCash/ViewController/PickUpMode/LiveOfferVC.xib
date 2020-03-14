@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LiveOfferVC" customModule="InstaCash" customModuleProvider="target">
+            <connections>
+                <outlet property="activityAgree" destination="wTq-KF-LTp" id="50D-bh-ghA"/>
+                <outlet property="activityCancel" destination="VDv-je-tTo" id="HBf-lD-lol"/>
+                <outlet property="btnAgree" destination="l1k-ev-IbP" id="4vK-nU-dAH"/>
+                <outlet property="btnAgreeWidthConstraint" destination="OH0-kB-4kL" id="I45-7A-Zh9"/>
+                <outlet property="btnCancel" destination="s07-3A-MQT" id="cLH-8U-u2p"/>
+                <outlet property="btnCancelWidthConstraint" destination="2yi-Y3-iux" id="az2-CO-8hw"/>
+                <outlet property="btnRefresh" destination="yF8-bU-GP7" id="dBK-Xh-g4r"/>
+                <outlet property="lblCurrentOfferPrice" destination="UTd-Cn-BVM" id="Omg-MQ-nsR"/>
+                <outlet property="lblLiveOfferPrice" destination="PaB-Ca-gd5" id="60I-0Q-Hrr"/>
+                <outlet property="lblOldOfferedPrice" destination="9sg-Lk-7uN" id="qm1-qE-Kxb"/>
+                <outlet property="refreshDataActivity" destination="0XI-rK-HMl" id="quV-uR-oYM"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appLogo" translatesAutoresizingMaskIntoConstraints="NO" id="fpq-CB-341">
+                    <rect key="frame" x="130" y="40" width="60" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="1Dm-4V-ce1"/>
+                        <constraint firstAttribute="height" constant="60" id="Glh-RC-yZJ"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LIVE OFFER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ila-Ai-ZvF">
+                    <rect key="frame" x="110.5" y="128" width="99" height="22"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                    <color key="textColor" red="0.0" green="0.49803921569999998" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Old Offered Price" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CTh-wa-vZe">
+                    <rect key="frame" x="15" y="196" width="131" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="131" id="ZiL-VZ-jL1"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9sg-Lk-7uN">
+                    <rect key="frame" x="163.5" y="196" width="141.5" height="0.0"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Offered Price" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c3K-Ql-RAN">
+                    <rect key="frame" x="15" y="224" width="131" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UTd-Cn-BVM">
+                    <rect key="frame" x="163.5" y="224" width="141.5" height="0.0"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Live Offer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8zJ-6j-4xo">
+                    <rect key="frame" x="15" y="252" width="131" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PaB-Ca-gd5">
+                    <rect key="frame" x="163.5" y="252" width="141.5" height="0.0"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yF8-bU-GP7">
+                    <rect key="frame" x="184" y="282" width="121" height="43"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="43" id="OJj-bi-U5n"/>
+                        <constraint firstAttribute="width" constant="121" id="bVB-km-g3B"/>
+                    </constraints>
+                    <state key="normal" title="Refresh Offer">
+                        <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="btnRefreshPressed:" destination="-1" eventType="touchUpInside" id="kwu-e6-quc"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l1k-ev-IbP">
+                    <rect key="frame" x="30" y="457" width="260" height="40"/>
+                    <color key="backgroundColor" red="0.0" green="0.49803921569999998" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="260" id="OH0-kB-4kL"/>
+                        <constraint firstAttribute="height" constant="40" id="fvh-um-bJK"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="Swipe Here To Agree With Price">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s07-3A-MQT">
+                    <rect key="frame" x="30" y="513" width="260" height="40"/>
+                    <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="260" id="2yi-Y3-iux"/>
+                        <constraint firstAttribute="height" constant="40" id="MBX-Pq-48i"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="Swipe Here To Cancel This Order">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="VDv-je-tTo">
+                    <rect key="frame" x="150" y="523" width="20" height="20"/>
+                </activityIndicatorView>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="0XI-rK-HMl">
+                    <rect key="frame" x="136" y="293.5" width="20" height="20"/>
+                </activityIndicatorView>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="wTq-KF-LTp">
+                    <rect key="frame" x="150" y="467" width="20" height="20"/>
+                </activityIndicatorView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="yF8-bU-GP7" firstAttribute="trailing" secondItem="PaB-Ca-gd5" secondAttribute="trailing" id="2fO-PO-Q15"/>
+                <constraint firstItem="s07-3A-MQT" firstAttribute="top" secondItem="l1k-ev-IbP" secondAttribute="bottom" constant="16" id="4v7-UI-Bwn"/>
+                <constraint firstItem="l1k-ev-IbP" firstAttribute="centerX" secondItem="s07-3A-MQT" secondAttribute="centerX" id="6qY-np-EOM"/>
+                <constraint firstItem="PaB-Ca-gd5" firstAttribute="leading" secondItem="UTd-Cn-BVM" secondAttribute="leading" id="Dg4-RN-daG"/>
+                <constraint firstItem="wTq-KF-LTp" firstAttribute="centerX" secondItem="l1k-ev-IbP" secondAttribute="centerX" id="EeK-EE-qJO"/>
+                <constraint firstItem="yF8-bU-GP7" firstAttribute="leading" secondItem="0XI-rK-HMl" secondAttribute="trailing" constant="28" id="HOv-iz-awI"/>
+                <constraint firstItem="UTd-Cn-BVM" firstAttribute="trailing" secondItem="9sg-Lk-7uN" secondAttribute="trailing" id="JEE-RY-vd5"/>
+                <constraint firstItem="UTd-Cn-BVM" firstAttribute="leading" secondItem="9sg-Lk-7uN" secondAttribute="leading" id="LBJ-zG-i6A"/>
+                <constraint firstItem="c3K-Ql-RAN" firstAttribute="top" secondItem="CTh-wa-vZe" secondAttribute="bottom" constant="12" id="M5d-LX-XrZ"/>
+                <constraint firstItem="c3K-Ql-RAN" firstAttribute="trailing" secondItem="CTh-wa-vZe" secondAttribute="trailing" id="Mf7-O0-saN"/>
+                <constraint firstItem="PaB-Ca-gd5" firstAttribute="top" secondItem="8zJ-6j-4xo" secondAttribute="top" id="OnP-Cy-pkR"/>
+                <constraint firstItem="8zJ-6j-4xo" firstAttribute="leading" secondItem="c3K-Ql-RAN" secondAttribute="leading" id="P4A-dO-RL9"/>
+                <constraint firstItem="yF8-bU-GP7" firstAttribute="top" secondItem="PaB-Ca-gd5" secondAttribute="bottom" constant="30" id="PEZ-ur-utF"/>
+                <constraint firstItem="CTh-wa-vZe" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="S2m-i5-p0M"/>
+                <constraint firstItem="fpq-CB-341" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="WDg-Ss-EUk"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="s07-3A-MQT" secondAttribute="bottom" constant="15" id="WiK-2r-s6f"/>
+                <constraint firstItem="c3K-Ql-RAN" firstAttribute="leading" secondItem="CTh-wa-vZe" secondAttribute="leading" id="XCe-LX-xjO"/>
+                <constraint firstItem="9sg-Lk-7uN" firstAttribute="top" secondItem="CTh-wa-vZe" secondAttribute="top" id="ZHT-nY-KOV"/>
+                <constraint firstItem="fpq-CB-341" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="d5W-wF-iYP"/>
+                <constraint firstItem="PaB-Ca-gd5" firstAttribute="trailing" secondItem="UTd-Cn-BVM" secondAttribute="trailing" id="dJd-OP-Iw5"/>
+                <constraint firstItem="0XI-rK-HMl" firstAttribute="centerY" secondItem="yF8-bU-GP7" secondAttribute="centerY" id="dbG-bo-0Xy"/>
+                <constraint firstItem="8zJ-6j-4xo" firstAttribute="top" secondItem="c3K-Ql-RAN" secondAttribute="bottom" constant="12" id="eEt-xH-eSK"/>
+                <constraint firstItem="Ila-Ai-ZvF" firstAttribute="centerX" secondItem="fpq-CB-341" secondAttribute="centerX" id="emm-lo-bJn"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="9sg-Lk-7uN" secondAttribute="trailing" constant="15" id="f31-gT-Fkh"/>
+                <constraint firstItem="UTd-Cn-BVM" firstAttribute="top" secondItem="c3K-Ql-RAN" secondAttribute="top" id="g7t-Il-XuI"/>
+                <constraint firstItem="9sg-Lk-7uN" firstAttribute="leading" secondItem="CTh-wa-vZe" secondAttribute="trailing" constant="17.5" id="hFa-qI-axW"/>
+                <constraint firstItem="s07-3A-MQT" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="hcm-LS-S7z"/>
+                <constraint firstItem="Ila-Ai-ZvF" firstAttribute="top" secondItem="fpq-CB-341" secondAttribute="bottom" constant="28" id="nby-6B-beC"/>
+                <constraint firstItem="8zJ-6j-4xo" firstAttribute="trailing" secondItem="c3K-Ql-RAN" secondAttribute="trailing" id="oC0-2X-W4F"/>
+                <constraint firstItem="VDv-je-tTo" firstAttribute="centerY" secondItem="s07-3A-MQT" secondAttribute="centerY" id="piD-9S-FKn"/>
+                <constraint firstItem="CTh-wa-vZe" firstAttribute="top" secondItem="Ila-Ai-ZvF" secondAttribute="bottom" constant="46" id="q4y-hc-t8O"/>
+                <constraint firstItem="VDv-je-tTo" firstAttribute="centerX" secondItem="s07-3A-MQT" secondAttribute="centerX" id="qeG-BA-3kg"/>
+                <constraint firstItem="wTq-KF-LTp" firstAttribute="centerY" secondItem="l1k-ev-IbP" secondAttribute="centerY" id="qhS-VT-akw"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="63.75" y="77.112676056338032"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="appLogo" width="43" height="43"/>
+    </resources>
+</document>

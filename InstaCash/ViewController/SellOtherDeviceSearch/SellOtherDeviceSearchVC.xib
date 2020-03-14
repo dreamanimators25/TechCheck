@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SellOtherDeviceSearchVC" customModule="InstaCash" customModuleProvider="target">
+            <connections>
+                <outlet property="searchActivityIndicator" destination="ue8-Ms-lSF" id="xel-bS-whi"/>
+                <outlet property="searchBarProduct" destination="itS-YG-suU" id="xyi-CO-roi"/>
+                <outlet property="tableViewProduct" destination="aT4-H4-fOv" id="erF-ug-9d1"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wvi-Is-2wn">
+                    <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c9r-4S-sQD">
+                            <rect key="frame" x="10" y="2" width="40" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="40" id="8Qd-e2-Gdl"/>
+                                <constraint firstAttribute="height" constant="40" id="tAw-RU-dw0"/>
+                            </constraints>
+                            <state key="normal" image="backBlack"/>
+                            <connections>
+                                <action selector="btnBackPressed:" destination="-1" eventType="touchUpInside" id="dig-iv-et6"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sell Another Device" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xQg-2Z-IhW">
+                            <rect key="frame" x="87" y="12" width="146" height="20"/>
+                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                            <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rVz-jV-bti">
+                            <rect key="frame" x="280" y="10" width="30" height="22"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="30" id="Qsq-iN-5Li"/>
+                            </constraints>
+                            <state key="normal" image="carousel"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="c9r-4S-sQD" firstAttribute="leading" secondItem="wvi-Is-2wn" secondAttribute="leading" constant="10" id="3Yn-51-5Iy"/>
+                        <constraint firstItem="rVz-jV-bti" firstAttribute="top" secondItem="wvi-Is-2wn" secondAttribute="top" constant="10" id="5LW-VS-gI5"/>
+                        <constraint firstItem="c9r-4S-sQD" firstAttribute="centerY" secondItem="wvi-Is-2wn" secondAttribute="centerY" id="BvE-nQ-c21"/>
+                        <constraint firstItem="xQg-2Z-IhW" firstAttribute="centerX" secondItem="wvi-Is-2wn" secondAttribute="centerX" id="UeC-qq-qJN"/>
+                        <constraint firstAttribute="bottom" secondItem="rVz-jV-bti" secondAttribute="bottom" constant="12" id="dde-v7-L8a"/>
+                        <constraint firstItem="xQg-2Z-IhW" firstAttribute="centerY" secondItem="c9r-4S-sQD" secondAttribute="centerY" id="j1v-os-LC6"/>
+                        <constraint firstAttribute="trailing" secondItem="rVz-jV-bti" secondAttribute="trailing" constant="10" id="sfT-3K-zI0"/>
+                    </constraints>
+                </view>
+                <searchBar contentMode="redraw" placeholder="Search for your Device..." translatesAutoresizingMaskIntoConstraints="NO" id="itS-YG-suU">
+                    <rect key="frame" x="0.0" y="62" width="320" height="56"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="A89-e5-XsE"/>
+                    </connections>
+                </searchBar>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="ue8-Ms-lSF">
+                    <rect key="frame" x="150" y="80" width="20" height="20"/>
+                </activityIndicatorView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aT4-H4-fOv">
+                    <rect key="frame" x="0.0" y="118" width="320" height="450"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="ecU-sw-02d"/>
+                        <outlet property="delegate" destination="-1" id="k4Y-u5-1tD"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="ue8-Ms-lSF" firstAttribute="centerY" secondItem="itS-YG-suU" secondAttribute="centerY" id="4nx-sG-DLg"/>
+                <constraint firstItem="itS-YG-suU" firstAttribute="top" secondItem="wvi-Is-2wn" secondAttribute="bottom" constant="-2" id="6NC-9L-C8H"/>
+                <constraint firstItem="ue8-Ms-lSF" firstAttribute="centerX" secondItem="itS-YG-suU" secondAttribute="centerX" id="9nw-Io-2nr"/>
+                <constraint firstItem="itS-YG-suU" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="AVS-eZ-zFB"/>
+                <constraint firstItem="aT4-H4-fOv" firstAttribute="top" secondItem="itS-YG-suU" secondAttribute="bottom" id="AYo-Ye-vbm"/>
+                <constraint firstItem="aT4-H4-fOv" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="BEl-UN-T2G"/>
+                <constraint firstAttribute="trailing" secondItem="wvi-Is-2wn" secondAttribute="trailing" id="SFy-Fh-zAN"/>
+                <constraint firstItem="itS-YG-suU" firstAttribute="top" secondItem="wvi-Is-2wn" secondAttribute="bottom" constant="-2" id="aQ8-av-8lH"/>
+                <constraint firstAttribute="bottom" secondItem="aT4-H4-fOv" secondAttribute="bottom" id="gRu-Gz-6bC"/>
+                <constraint firstItem="wvi-Is-2wn" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="nhn-da-muI"/>
+                <constraint firstAttribute="trailing" secondItem="aT4-H4-fOv" secondAttribute="trailing" id="s6R-OP-PVe"/>
+                <constraint firstItem="wvi-Is-2wn" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="tOQ-l6-ZsD"/>
+                <constraint firstAttribute="trailing" secondItem="itS-YG-suU" secondAttribute="trailing" id="vO9-sG-v2z"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="backBlack" width="16" height="16"/>
+        <image name="carousel" width="26.5" height="18.5"/>
+    </resources>
+</document>

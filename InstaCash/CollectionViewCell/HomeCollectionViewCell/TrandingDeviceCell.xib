@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Comfortaa-Bold.ttf">
+            <string>Comfortaa-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="trandingDeviceCell" id="gTV-IL-0wX" customClass="TrandingDeviceCell" customModule="InstaCash" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="120" height="190"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="120" height="190"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5od-37-ghT">
+                        <rect key="frame" x="0.0" y="0.0" width="120" height="190"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iPhonePlaceHolder" translatesAutoresizingMaskIntoConstraints="NO" id="09h-lY-N5i">
+                                <rect key="frame" x="4" y="8" width="112" height="110"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="110" id="Il8-gP-gVy"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iPhone 6s kjgkghghgjhgjhghghjgjhghjgjhg" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NtV-zn-Bxs">
+                                <rect key="frame" x="4" y="126" width="112" height="37"/>
+                                <fontDescription key="fontDescription" name="Comfortaa-Bold" family="Comfortaa" pointSize="11"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8,000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4mm-yw-AG5">
+                                <rect key="frame" x="4" y="171" width="112" height="13.5"/>
+                                <fontDescription key="fontDescription" name="Comfortaa-Bold" family="Comfortaa" pointSize="12"/>
+                                <color key="textColor" red="0.0" green="0.49803921569999998" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="4mm-yw-AG5" firstAttribute="top" secondItem="NtV-zn-Bxs" secondAttribute="bottom" constant="8" id="10b-UJ-xW5"/>
+                            <constraint firstItem="NtV-zn-Bxs" firstAttribute="trailing" secondItem="09h-lY-N5i" secondAttribute="trailing" id="5uQ-7t-FHJ"/>
+                            <constraint firstAttribute="trailing" secondItem="09h-lY-N5i" secondAttribute="trailing" constant="4" id="KGf-bF-RgL"/>
+                            <constraint firstItem="4mm-yw-AG5" firstAttribute="trailing" secondItem="NtV-zn-Bxs" secondAttribute="trailing" id="U6p-vd-p41"/>
+                            <constraint firstItem="4mm-yw-AG5" firstAttribute="leading" secondItem="NtV-zn-Bxs" secondAttribute="leading" id="ZHh-O5-Iwa"/>
+                            <constraint firstItem="09h-lY-N5i" firstAttribute="top" secondItem="5od-37-ghT" secondAttribute="top" constant="8" id="cBd-y7-ZiV"/>
+                            <constraint firstItem="NtV-zn-Bxs" firstAttribute="top" secondItem="09h-lY-N5i" secondAttribute="bottom" constant="8" id="iii-0e-WC3"/>
+                            <constraint firstItem="09h-lY-N5i" firstAttribute="leading" secondItem="5od-37-ghT" secondAttribute="leading" constant="4" id="pO7-zF-eZ1"/>
+                            <constraint firstItem="NtV-zn-Bxs" firstAttribute="leading" secondItem="09h-lY-N5i" secondAttribute="leading" id="qjj-XH-k0V"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="5od-37-ghT" secondAttribute="trailing" id="7Aa-DJ-oDY"/>
+                <constraint firstAttribute="bottom" secondItem="5od-37-ghT" secondAttribute="bottom" id="GAT-jL-xko"/>
+                <constraint firstItem="5od-37-ghT" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="m2c-7b-JO4"/>
+                <constraint firstItem="5od-37-ghT" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="wXD-Ba-UA8"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <connections>
+                <outlet property="imgDevice" destination="09h-lY-N5i" id="Su3-qC-Dzk"/>
+                <outlet property="lblPhoneName" destination="NtV-zn-Bxs" id="k3k-UW-8s2"/>
+                <outlet property="lblPrice" destination="4mm-yw-AG5" id="Y9b-rq-ba2"/>
+                <outlet property="viewBg" destination="5od-37-ghT" id="vjp-bJ-reC"/>
+            </connections>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="iPhonePlaceHolder" width="227" height="300"/>
+    </resources>
+</document>
