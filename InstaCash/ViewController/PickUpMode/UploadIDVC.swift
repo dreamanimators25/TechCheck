@@ -13,7 +13,6 @@ class UploadIDVC: UIViewController,UIImagePickerControllerDelegate,UINavigationC
     override func viewDidLoad() {
         super.viewDidLoad()
         //setNavigationBar()
-        // Do any additional setup after loading the view.
     }
 
     // MARK:- navigation bar setup.
@@ -111,7 +110,6 @@ class UploadIDVC: UIViewController,UIImagePickerControllerDelegate,UINavigationC
 
     @IBAction func btnUploadIDPressed(_ sender: UIButton) {
         SetActionSetForMoreOptionAttachment()
-        
     }
     
 

@@ -25,16 +25,12 @@ class RatingVC: UIViewController, FloatRatingViewDelegate {
         viewRating.type = .halfRatings
         
         lblTransactionId.text = "Transaction Id :"  + getTrsactID
-        // Do any additional setup after loading the view.
     }
-
 
     @IBAction func btnContinuePressed(_ sender: UIButton) {
         obj_app.setRotControllersWithSideMenu(sendMyOrderArray: [HomeModel](), sendBrandArray: [HomeModel](), SendPupularDevoice: [HomeModel](), SendMyCurrentDevice: [HomeModel](), isComingFromWelcome: false,strAppCodeGet:"")
     }
-    
-    
-    
+        
     func rating(){
         guard let url = URL(string: "https://itunes.apple.com/in/app/instacash-sell-used-phone/id1310320724?mt=8") else {
             return //be safe

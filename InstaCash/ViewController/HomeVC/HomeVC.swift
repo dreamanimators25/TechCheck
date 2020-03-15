@@ -697,8 +697,8 @@ class HomeVC: UIViewController, UIScrollViewDelegate,UICollectionViewDelegate,UI
         btnMoreBrands.clipsToBounds = true
         
         //setViewDynamicaly()
-        // Do any additional setup after loading the view.
     }
+    
 //    open func takeScreenshot(_ shouldSave: Bool = true) -> UIImage? {
 //        var screenshotImage :UIImage?
 //        let layer = UIApplication.shared.keyWindow!.layer
@@ -713,6 +713,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate,UICollectionViewDelegate,UI
 //        }
 //        return screenshotImage
 //    }
+    
     func btnDiagnosisUISet(){
         
         //s.
@@ -866,6 +867,8 @@ class HomeVC: UIViewController, UIScrollViewDelegate,UICollectionViewDelegate,UI
         if isComingFromWelcomeScreen{
             //setViewDynamicaly()
         }
+    
+        
     }
     
     //MARK:-
@@ -1593,6 +1596,9 @@ class HomeVC: UIViewController, UIScrollViewDelegate,UICollectionViewDelegate,UI
     
     @IBAction func onClickGetQuote(_ sender: Any) {
         
+        userDefaults.removeObject(forKey: "ChangeModeComingFromDiadnosis")
+        userDefaults.setValue("", forKey: "ChangeModeComingFromDiadnosis")
+        
         let vc = Sell1()
         vc.strDevie = self.lblPhoneName.text!
         vc.imgView = self.imgPhone
@@ -1612,6 +1618,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate,UICollectionViewDelegate,UI
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         if collectionView == collectionViewPopular{
             let cellPopular = collectionView.dequeueReusableCell(withReuseIdentifier: "trandingDeviceCell", for: indexPath) as! TrandingDeviceCell
             cellPopular.lblPhoneName.text = arrPopularDeviceGetData[indexPath.row].strPopularName
@@ -1623,22 +1630,22 @@ class HomeVC: UIViewController, UIScrollViewDelegate,UICollectionViewDelegate,UI
             return cellPopular
         }
         else{
-        let cellOrders = collectionView.dequeueReusableCell(withReuseIdentifier: "yoursOrderCell", for: indexPath) as! YoursOrderCell
+            let cellOrders = collectionView.dequeueReusableCell(withReuseIdentifier: "yoursOrderCell", for: indexPath) as! YoursOrderCell
             let dict = arrShowMyOrders[indexPath.row] as! NSDictionary
             cellOrders.lblOrderDate.text = arrMyOderGetData[indexPath.row].strMyOrderDate
             cellOrders.lblOrderName.text = dict.value(forKey: "productName") as? String
             let imgURL = URL(string:(dict.value(forKey: "productImage") as? String)!)!
             cellOrders.imgOrder.sd_setImage(with: imgURL)
-        return cellOrders
+            return cellOrders
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-         if collectionView == collectionViewPopular{
+        if collectionView == collectionViewPopular{
             return CGSize(width: collectionViewPopular.frame.width/3, height:200)
         }
-         else{
-        return CGSize(width: collectionViewOrders.frame.width, height:collectionViewOrders.frame.height)
+        else{
+            return CGSize(width: collectionViewOrders.frame.width, height:collectionViewOrders.frame.height)
         }
     }
     
@@ -1790,11 +1797,12 @@ class HomeVC: UIViewController, UIScrollViewDelegate,UICollectionViewDelegate,UI
         let web = WebServies()
         web.postRequest(urlString: strURL, paramDict: (parameters as! Dictionary<String, AnyObject>), completionHandler: completionHandler)
     }
+    
     func fireWebServiceForVerificationCode(strVerificationCode:String,withProcessCode:String)
     {
-        if reachability?.connection.description != "No Connection"{
+        if reachability?.connection.description != "No Connection" {
             var strAppCode = ""
-            if withProcessCode == "Yes"{
+            if withProcessCode == "Yes" {
                 strAppCode = "1"
             }
             else{
@@ -1809,6 +1817,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate,UICollectionViewDelegate,UI
                 _ = KeychainWrapper.standard.set(uuID, forKey: "UUIDValue")
                 strUudid = uuID
             }
+            
            // let imEINumber = userDefaults.value(forKey: "imei_number") as! String
             Alert.ShowProgressHud(Onview: self.view)
             let strBaseURL = userDefaults.value(forKey: "baseURL") as! String
@@ -1823,6 +1832,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate,UICollectionViewDelegate,UI
                 "customerId":CustomUserDefault.getUserId(),
                 "uniqueIdentifire":strUudid + "~" + strUudid
             ]
+            print(parameters)
             
             self.diagnosisPost(strURL: strUrl, parameters: parameters as NSDictionary, completionHandler: {responseObject , error in
                 Alert.HideProgressHud(Onview: self.view)
@@ -1882,7 +1892,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate,UICollectionViewDelegate,UI
     
     func fireWebServiceGettingConfrimPrice(isPressedConfirmButton:Bool)
     {
-          //    self.isConfrimOrderApiSucess = true
+        // self.isConfrimOrderApiSucess = true
         if reachability?.connection.description != "No Connection"{
             if isPressedConfirmButton == true{
                 activityConfirmOrder.startAnimating()
@@ -1933,6 +1943,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate,UICollectionViewDelegate,UI
             let jsonStringforMetaDetails1 = NSString(data: jsonData1, encoding: String.Encoding.utf8.rawValue)! as String
             
             let strSkipData = userDefaults.value(forKey: "SkipDateForConfirmOrder") as! String
+            
             let parameters : [String : Any] = [
                 "apiKey" : key,
                 "userName" : apiAuthenticateUserName,
@@ -1952,10 +1963,12 @@ class HomeVC: UIViewController, UIScrollViewDelegate,UICollectionViewDelegate,UI
                 "skipStr":strSkipData,
                 "ipAddress":""
             ]
+            print(parameters)
+            
             self.diagnosisPost(strURL: strUrl, parameters: parameters as NSDictionary, completionHandler: {responseObject , error in
-                if isPressedConfirmButton == true{
+                if isPressedConfirmButton == true {
                     self.activityConfirmOrder.stopAnimating()
-                }
+                } 
                 if error == nil {
                     if responseObject?["status"] as! String == "Success"{
                         self.isConfrimOrderApiSucess = true

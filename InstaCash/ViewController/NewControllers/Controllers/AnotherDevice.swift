@@ -34,13 +34,17 @@ class AnotherDevice: UIViewController, UICollectionViewDelegate, UICollectionVie
         
         collectionViewCompany.register(UINib(nibName: "SearchManufactureCell", bundle: nil), forCellWithReuseIdentifier: "searchCell")
 
-        // Do any additional setup after loading the view.
     }
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
+        userDefaults.removeObject(forKey: "ChangeModeComingFromDiadnosis")
+        userDefaults.setValue("", forKey: "ChangeModeComingFromDiadnosis")
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {        
         return 1
-        
     }
     
     func didPullToRefresh(){

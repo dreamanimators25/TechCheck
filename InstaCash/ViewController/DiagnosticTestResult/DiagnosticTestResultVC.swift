@@ -148,7 +148,7 @@ class DiagnosticTestResultVC: UIViewController,UITableViewDelegate,UITableViewDa
             arrFunctionalTest.append(model)
         }
         
-        if userDefaults.value(forKey: "volume") as! Bool == false{
+        if userDefaults.value(forKey: "volume") as! Bool == false {
             let model = ModelCompleteDiagnosticFlow()
             model.priority = 4
             model.strTestType = "Volume"
@@ -373,7 +373,7 @@ class DiagnosticTestResultVC: UIViewController,UITableViewDelegate,UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0{
+        if section == 0 {
             if arrFailedAndSkipedTest.count > 0 {
                 return  arrFailedAndSkipedTest.count
             }
@@ -387,6 +387,7 @@ class DiagnosticTestResultVC: UIViewController,UITableViewDelegate,UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
     if arrFailedAndSkipedTest.count > 0{
         if indexPath.section == 0{
             let cellfailed = tableView.dequeueReusableCell(withIdentifier: "testResultCell", for: indexPath) as! TestResultCell
@@ -432,20 +433,17 @@ class DiagnosticTestResultVC: UIViewController,UITableViewDelegate,UITableViewDa
                 vc.isComingFromTestResult = true
                 vc.resultJSON = self.resultJSON
                 self.present(vc, animated: true, completion: nil)
-                
             }
             else if  arrFailedAndSkipedTest[indexPath.row].strTestType == "Rotation"{
                 let vc  = RotationVC()
                 vc.isComingFromTestResult = true
                 vc.resultJSON = self.resultJSON
-
                 self.present(vc, animated: true, completion: nil)
             }
             else if  arrFailedAndSkipedTest[indexPath.row].strTestType == "Proximity"{
                 let vc  = SensorReadVC()
                 vc.isComingFromTestResult = true
                 vc.resultJSON = self.resultJSON
-
                 self.present(vc, animated: true, completion: nil)
             }
             else if  arrFailedAndSkipedTest[indexPath.row].strTestType == "Volume"{
@@ -458,21 +456,18 @@ class DiagnosticTestResultVC: UIViewController,UITableViewDelegate,UITableViewDa
                 let vc  = EarPhoneVC()
                 vc.isComingFromTestResult = true
                 vc.resultJSON = self.resultJSON
-
                 self.present(vc, animated: true, completion: nil)
             }
             else if  arrFailedAndSkipedTest[indexPath.row].strTestType == "Charger"{
                 let vc  = DeviceChargerVC()
                 vc.isComingFromTestResult = true
                 vc.resultJSON = self.resultJSON
-
                 self.present(vc, animated: true, completion: nil)
             }
             else if  arrFailedAndSkipedTest[indexPath.row].strTestType == "Camera"{
                 let vc  = CameraVC()
                 vc.isComingFromTestResult = true
                 vc.resultJSON = self.resultJSON
-
                 self.present(vc, animated: true, completion: nil)
             }
             else if  arrFailedAndSkipedTest[indexPath.row].strTestType == "FingerPrint"{
@@ -511,7 +506,6 @@ class DiagnosticTestResultVC: UIViewController,UITableViewDelegate,UITableViewDa
             popup.dismiss(animated: true, completion: nil)
         }
         
-        
         // Add buttons to dialog
         // Alternatively, you can use popup.addButton(buttonOne)
         // to add a single button
@@ -541,7 +535,6 @@ class DiagnosticTestResultVC: UIViewController,UITableViewDelegate,UITableViewDa
         db.titleFont      = UIFont(name: "HelveticaNeue-Medium", size: 16)!
         
         
-        
         // Customize cancel button appearance
         let cb = CancelButton.appearance()
         cb.titleFont      = UIFont(name: "HelveticaNeue-Medium", size: 16)!
@@ -568,12 +561,12 @@ class DiagnosticTestResultVC: UIViewController,UITableViewDelegate,UITableViewDa
                 vc.resultJSONGet = self.resultJSON
                 self.present(vc, animated: true, completion: nil)
             }
-            else if userDefaults.value(forKey: "ChangeModeComingFromDiadnosis") as! String == "Pickup"{
+            else if userDefaults.value(forKey: "ChangeModeComingFromDiadnosis") as! String == "Pickup" {
                 let vc = MisMatchVC()
                 vc.resultJSONGet = self.resultJSON
                 self.present(vc, animated: true, completion: nil)
             }
-            else{
+            else {
                 let vc = QuriesVC()
                 vc.resultJSON = self.resultJSON
                 let nav = UINavigationController(rootViewController: vc)
@@ -596,6 +589,5 @@ class DiagnosticTestResultVC: UIViewController,UITableViewDelegate,UITableViewDa
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    
 
 }

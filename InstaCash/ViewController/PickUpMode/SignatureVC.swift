@@ -18,8 +18,6 @@ class SignatureVC: UIViewController,YPSignatureDelegate {
         super.viewDidLoad()
         setNavigationBar()
         signatureView.delegate = self
-
-        // Do any additional setup after loading the view.
     }
 
     // MARK:- navigation bar setup.
@@ -39,9 +37,9 @@ class SignatureVC: UIViewController,YPSignatureDelegate {
         let leftBarButton = UIBarButtonItem(customView: btnMenu)
         navigationItem.leftBarButtonItem = leftBarButton
     }
+    
     //MARK:- button action methods
     @objc func btnSideMenuPressed() -> Void {
-        
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -69,19 +67,22 @@ class SignatureVC: UIViewController,YPSignatureDelegate {
             Alert.showAlert(strMessage: "Signature on white screen then click on save.", Onview: self)
         }
     }
+    
     @IBAction func btnClear(_ sender: UIButton) {
         self.signatureView.clear()
-
     }
     
     // MARK: - Delegate Methods
     func didStart(_ view : YPDrawSignatureView) {
+        
     }
     
     // didFinish() is called rigth after the last touch of a gesture is registered in the view.
     // Can be used to enabe scrolling in a scroll view if it has previous been disabled.
     func didFinish(_ view : YPDrawSignatureView) {
+        
     }
+    
     //MARK:- APi for verification code
     func signaturePost(strURL : String , parameters:NSDictionary, completionHandler: @escaping (NSDictionary?, NSError?) -> ()) {
         let web = WebServies()
@@ -95,11 +96,14 @@ class SignatureVC: UIViewController,YPSignatureDelegate {
             var strUrl = ""
             var parameters = [String: Any]()
             strUrl = strBaseURL + "pickupComplete"
+            
             parameters  = [
                 "userName" : apiAuthenticateUserName,
                 "apiKey" : key,
                 "orderItemId":userDefaults.value(forKey: "ChangeModeOrderId") as! String
             ]
+            
+            print(parameters)
             
             self.signaturePost(strURL: strUrl, parameters: parameters as NSDictionary, completionHandler: {responseObject , error in
                 Alert.HideProgressHud(Onview: self.view)
@@ -124,8 +128,7 @@ class SignatureVC: UIViewController,YPSignatureDelegate {
                         
                     }
                     else{
-                        //Alert.showAlert(strMessage:responseObject?["status"] as! NSString , Onview: self)
-                        
+                        Alert.showAlert(strMessage:responseObject?["status"] as! NSString , Onview: self)
                     }
                     
                 }
@@ -159,18 +162,22 @@ class SignatureVC: UIViewController,YPSignatureDelegate {
     
     func fireWebServiceForMetchingDataForPickUp(signatureData:String)
     {
-        if reachability?.connection.description != "No Connection"{
+        if reachability?.connection.description != "No Connection" {
+            
             Alert.ShowProgressHud(Onview: self.view)
             let strBaseURL = userDefaults.value(forKey: "baseURL") as! String
             var strUrl = ""
             var parameters = [String: Any]()
             strUrl = strBaseURL + "pickupDeclaration"
+            
             parameters  = [
                 "userName" : apiAuthenticateUserName,
                 "apiKey" : key,
                 "idProofImage": "(" + self.strGetUploadBill + "," + signatureData,
                 "orderItemId":userDefaults.value(forKey: "ChangeModeOrderId") as! String
             ]
+            
+            print(parameters)
             
             self.signaturePost(strURL: strUrl, parameters: parameters as NSDictionary, completionHandler: {responseObject , error in
                
@@ -193,12 +200,12 @@ class SignatureVC: UIViewController,YPSignatureDelegate {
                                 
                             if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
                                 
-                            let vc = PickUpItemsVC()
-                            vc.strGetAccountNumber = responseObject?["accountNumber"] as! String
-                            let amount = responseObject?["paymentAmount"] as! Int64
-                            vc.strGetPaymentAmount = String(format: "%d", amount)
-                            vc.strGetPaymentMode = responseObject?["paymentMode"] as! String
-                            self.navigationController?.pushViewController(vc, animated: true)
+                                let vc = PickUpItemsVC()
+                                vc.strGetAccountNumber = responseObject?["accountNumber"] as! String
+                                let amount = responseObject?["paymentAmount"] as! Int64
+                                vc.strGetPaymentAmount = String(format: "%d", amount)
+                                vc.strGetPaymentMode = responseObject?["paymentMode"] as! String
+                                self.navigationController?.pushViewController(vc, animated: true)
                             }
                             else{
                                 let amount = responseObject?["paymentAmount"] as! Int64
@@ -206,7 +213,6 @@ class SignatureVC: UIViewController,YPSignatureDelegate {
                             }
                         }
                        
-                        
                     }
                     else{
                         Alert.showAlert(strMessage:responseObject?["msg"] as! NSString , Onview: self)

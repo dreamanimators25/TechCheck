@@ -115,6 +115,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         
         // Connect to FCM since connection may have failed when attempted before having a token.
     }
+    
     func connectToFcm() {
         Messaging.messaging().connect { (error) in
             if (error != nil) {
@@ -141,6 +142,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         let request = UNNotificationRequest(identifier: "InstaCashMessage", content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
     }
+    
     func convertToDictionary(text: String) -> [String: Any]? {
         if let data = text.data(using: .utf8) {
             do {
@@ -150,6 +152,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         }
         return nil
     }
+    
     //MARK:- firebase delegates methods
     
 //    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
@@ -194,7 +197,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     {
         NSLog("Prakhar3")
         completionHandler(UIBackgroundFetchResult.newData)
-        
     }
     
     @available(iOS 10.0, *)
@@ -375,6 +377,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         IQKeyboardManager.sharedManager().enable = true
         SDKSettings.enableLoggingBehavior(.appEvents)
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        
         //Setup TruecallerSDK
         if TCTrueSDK.sharedManager().isSupported() {
             userDefaults.setValue(true, forKey: "isTrueCallerSupported")
@@ -383,6 +386,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         else{
             userDefaults.setValue(false, forKey: "isTrueCallerSupported")
         }
+        
         FirebaseApp.configure()
         
         //Fabric.with([Crashlytics.self])

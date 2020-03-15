@@ -284,10 +284,10 @@ class PickUpQuestionVC: UIViewController,UITableViewDelegate,UITableViewDataSour
         //var arrAppCode = [String]()
         var arrSelectedCountWithIndex = [Int]()
         
-        for obj in 0..<arrQuestionForPickUp.count{
-            for index in 0..<arrQuestionForPickUp[obj].arrQuestionTypes.count{
-                if arrQuestionForPickUp[obj].arrQuestionTypes[index].isSelected == true{
-//                    arrAppCode.insert(arrQuestionForPickUp[obj].arrQuestionTypes[index].strQuestionValueAppCodde, at: index)
+        for obj in 0..<arrQuestionForPickUp.count {
+            for index in 0..<arrQuestionForPickUp[obj].arrQuestionTypes.count {
+                if arrQuestionForPickUp[obj].arrQuestionTypes[index].isSelected == true {
+                //                    arrAppCode.insert(arrQuestionForPickUp[obj].arrQuestionTypes[index].strQuestionValueAppCodde, at: index)
                     strSaveAppcode = strSaveAppcode + arrQuestionForPickUp[obj].arrQuestionTypes[index].strQuestionValueAppCodde + ";"
                     arrSelectedCountWithIndex.insert(obj, at: obj)
                     

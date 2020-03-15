@@ -29,7 +29,6 @@ class PickUpItemsVC: UIViewController,UITextFieldDelegate {
     var isAllreadyFire = false
 
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationBar()
@@ -60,7 +59,6 @@ class PickUpItemsVC: UIViewController,UITextFieldDelegate {
         viewTop.layer.borderColor = UIColor.black.cgColor
         txtYes.addTarget(self, action: #selector(self.textFieldDidChange(textField:)), for: UIControlEvents.editingChanged)
 
-        // Do any additional setup after loading the view.
     }
     
     func showViewDynamically(){
@@ -125,11 +123,13 @@ class PickUpItemsVC: UIViewController,UITextFieldDelegate {
         let leftBarButton = UIBarButtonItem(customView: btnMenu)
         navigationItem.leftBarButtonItem = leftBarButton
     }
+    
     //MARK:- button action methods
     @objc func btnSideMenuPressed() -> Void {
         
         self.navigationController?.popViewController(animated: true)
     }
+    
     //MARK:- Button action Methods
     
     @IBAction func btnDevicePressed(_ sender: UIButton) {
@@ -208,15 +208,15 @@ class PickUpItemsVC: UIViewController,UITextFieldDelegate {
    // validateandCallAPI()
     }
     
-    func validateandCallAPI(){
-        if txtYes.text?.count == 3{
-            if txtYes.text == "YES"{
-                if isDeviceSelected == true{
+    func validateandCallAPI() {
+        if txtYes.text?.count == 3 {
+            if txtYes.text == "YES" {
+                if isDeviceSelected == true {
                     txtYes.resignFirstResponder()
                     self.fireWebServiceForOrderPlaced()
                     
                 }
-                else{
+                else {
                     Alert.showAlert(strMessage: "Select Device", Onview: self)
                 }
                 
@@ -275,11 +275,14 @@ class PickUpItemsVC: UIViewController,UITextFieldDelegate {
             var strUrl = ""
             var parameters = [String: Any]()
             strUrl = strBaseURL + "pickupComplete"
+            
             parameters  = [
                 "userName" : apiAuthenticateUserName,
                 "apiKey" : key,
                 "orderItemId":userDefaults.value(forKey: "ChangeModeOrderId") as! String
             ]
+            
+            print(parameters)
             
             self.pickItemPost(strURL: strUrl, parameters: parameters as NSDictionary, completionHandler: {responseObject , error in
                 Alert.HideProgressHud(Onview: self.view)

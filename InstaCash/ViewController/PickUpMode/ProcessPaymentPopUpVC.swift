@@ -31,11 +31,7 @@ class ProcessPaymentPopUpVC: UIViewController {
         self.lblStatus.text = strGetPaymentStatus
         self.lblTransactionId.text = strGetTransactionId
         self.lblAmount.text = strGetPaymentAmount
-
-
-        // Do any additional setup after loading the view.
     }
-
 
     @IBAction func btnRefreshStatusPressed(_ sender: UIButton) {
         fireWebService()
@@ -46,7 +42,6 @@ class ProcessPaymentPopUpVC: UIViewController {
         vc.getTrsactID = self.strGetTransactionId
         self.present(vc, animated: true, completion: nil)
     }
-    
     
     //MARK:- APi for verification code
     func verificationPost(strURL : String , parameters:NSDictionary, completionHandler: @escaping (NSDictionary?, NSError?) -> ()) {
@@ -62,6 +57,7 @@ class ProcessPaymentPopUpVC: UIViewController {
             var strUrl = ""
             var parameters = [String: Any]()
             strUrl = strBaseURL + "paymentProcess"
+            
             parameters  = [
                 "userName" : apiAuthenticateUserName,
                 "apiKey" : key,
@@ -70,8 +66,12 @@ class ProcessPaymentPopUpVC: UIViewController {
                 "paymentCode":"",
                 "orderItemId":userDefaults.value(forKey: "ChangeModeOrderId") as! String
             ]
+            
+            print(parameters)
+            
             self.verificationPost(strURL: strUrl, parameters: parameters as NSDictionary, completionHandler: {responseObject , error in
                 self.activityRefresh.stopAnimating()
+                
                 if error == nil {
                     if responseObject?["status"] as! String == "Success"{
                         if responseObject?["paymentStatus"] as! String == "Payment Successful" {

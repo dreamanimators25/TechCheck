@@ -28,8 +28,8 @@ class ProceedPaymentVC: UIViewController {
         self.lblAccountNumber.text = "Account Number: " + getAccountNumber
         self.lblAmount.text = "Payment Amount: " + getAmount
 
-        // Do any additional setup after loading the view.
     }
+    
     // MARK:- navigation bar setup.
     func setNavigationBar() -> Void
     {
@@ -46,21 +46,25 @@ class ProceedPaymentVC: UIViewController {
         let leftBarButton = UIBarButtonItem(customView: btnMenu)
         navigationItem.leftBarButtonItem = leftBarButton
     }
+    
     //MARK:- button action methods
     @objc func btnSideMenuPressed() -> Void {
         self.navigationController?.popViewController(animated: true)
     }
+    
     @IBAction func btnSwipePressed(_ sender: UIButton) {
         
         let alertController = UIAlertController(title: "Verification Code", message: "This mode can only be run if an order has been placed for this device.If you don't have a code yet please call our customer care tp get a new code.", preferredStyle: UIAlertControllerStyle.alert)
+        
         alertController.addTextField { (textField : UITextField!) -> Void in
             textField.placeholder = "Enter Verification Code"
         }
+        
         let saveAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { alert -> Void in
             let firstTextField = alertController.textFields![0] as UITextField
             if !(firstTextField.text?.isEmpty)!{
                 self.fireWebServiceForVerificationCode(strGetCode: firstTextField.text!)
-            
+                
                 
             }
         })
@@ -71,7 +75,6 @@ class ProceedPaymentVC: UIViewController {
         alertController.addAction(cancelAction)
         
         self.present(alertController, animated: true, completion: nil)
-     
         
     }
     
@@ -84,13 +87,13 @@ class ProceedPaymentVC: UIViewController {
     func fireWebServiceForVerificationCode(strGetCode:String)
     {
         
-        
         if reachability?.connection.description != "No Connection"{
             Alert.ShowProgressHud(Onview: self.view)
             let strBaseURL = userDefaults.value(forKey: "baseURL") as! String
             var strUrl = ""
             var parameters = [String: Any]()
             strUrl = strBaseURL + "paymentProcess"
+            
             parameters  = [
                 "userName" : apiAuthenticateUserName,
                 "apiKey" : key,
@@ -99,6 +102,8 @@ class ProceedPaymentVC: UIViewController {
                 "paymentCode":"",
                 "orderItemId":userDefaults.value(forKey: "ChangeModeOrderId") as! String
             ]
+            
+            print(parameters)
             
             self.verificationPost(strURL: strUrl, parameters: parameters as NSDictionary, completionHandler: {responseObject , error in
                 Alert.HideProgressHud(Onview: self.view)

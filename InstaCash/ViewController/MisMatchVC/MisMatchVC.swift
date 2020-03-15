@@ -353,20 +353,20 @@ class MisMatchVC: UIViewController {
                     
                     if responseObject?["status"] as! String == "Success" {
                         if responseObject?["match"] as! String == "true" {
-                            /*
+                            
                             // show popup
                             self.lblPrice.isHidden = true
                             self.lblResultMisMatch.isHidden = true
                             self.lblConditionString.isHidden = true
-                            //self.btnAgree.isHidden = true
-                            //self.btnCancel.isHidden = true
+                            self.btnAgree.isHidden = true
+                            self.btnCancel.isHidden = true
                             
                             
                             DispatchQueue.main.async {
                                 let vc = UploadIDVC()
                                 let nav = UINavigationController(rootViewController: vc)
                                 self.present(nav, animated: true, completion: nil)
-                            }*/
+                            }
                         }
                         else {
                             let swipeAgreeButton = UISwipeGestureRecognizer(target: self, action: #selector(self.btnAgreePressed))
@@ -380,8 +380,8 @@ class MisMatchVC: UIViewController {
                             self.lblPrice.isHidden = false
                             self.lblResultMisMatch.isHidden = false
                             self.lblConditionString.isHidden = false
-                            //self.btnAgree.isHidden = false
-                            //self.btnCancel.isHidden = false
+                            self.btnAgree.isHidden = false
+                            self.btnCancel.isHidden = false
  
                             
                             self.strDiagnosisId = responseObject?["msg"] as! String

@@ -38,7 +38,6 @@ class LiveOfferVC: UIViewController {
         swipeCancelButton.direction = .right
         self.btnCancel.addGestureRecognizer(swipeCancelButton)
         fireWebServiceForRefreshData()
-        // Do any additional setup after loading the view.
     }
 
     @IBAction func btnRefreshPressed(_ sender: UIButton) {
@@ -63,6 +62,7 @@ class LiveOfferVC: UIViewController {
             self.fireWebServiceForLiveAgreePrice(isforCancel: false)
         }
     }
+    
     @objc func btnSwipteToCancelPressed(_ sender: UIButton) {
         btnAgree.isUserInteractionEnabled = false
         UIView.animate(withDuration: 0.25, animations: {
@@ -105,6 +105,8 @@ class LiveOfferVC: UIViewController {
                     "status":"failed",
                     "orderItemId":userDefaults.value(forKey: "ChangeModeOrderId") as! String
                 ]
+                
+                print(parameters)
             }
             else{
                 strUrl = strBaseURL + "updateOfferStatus"
@@ -115,6 +117,8 @@ class LiveOfferVC: UIViewController {
                     "status":"success",
                     "orderItemId":userDefaults.value(forKey: "ChangeModeOrderId") as! String
                 ]
+                
+                print(parameters)
             }
             self.livePost(strURL: strUrl, parameters: parameters as NSDictionary, completionHandler: {responseObject , error in
                 if error == nil {
@@ -185,6 +189,7 @@ class LiveOfferVC: UIViewController {
         }
         
     }
+    
     func setButtonFrame(isforCancelDone:Bool){
         self.btnAgree.isUserInteractionEnabled = true
         self.btnCancel.isUserInteractionEnabled = true
@@ -221,6 +226,9 @@ class LiveOfferVC: UIViewController {
                     "apiKey" : key,
                     "offerId":strOfferID
                 ]
+            
+            print(parameters)
+            
             self.livePost(strURL: strUrl, parameters: parameters as NSDictionary, completionHandler: {responseObject , error in
                 self.refreshDataActivity.stopAnimating()
                 if error == nil {
