@@ -109,7 +109,7 @@ class PickUpCodeVC: UIViewController {
     {
         if reachability?.connection.description != "No Connection" {
             var strAppCode = ""
-            if withProcessCode == "diagnosemode"{
+            if withProcessCode == "diagnosemode" {
                 strAppCode = "1"
             }
             else{

@@ -12,7 +12,6 @@ var aboutText : ((_ title : String,_ html : String) -> (Void))?
 
 class AboutPageVC: UIViewController {
 
-    @IBOutlet weak var aboutImageTextView: UITextView!
     @IBOutlet weak var aboutTextView: UITextView!
     
     override func viewDidLoad() {
@@ -31,14 +30,10 @@ class AboutPageVC: UIViewController {
         aboutText = { (title,html) in
             
             let combination = NSMutableAttributedString()
-            //combination.append(title.htmlToAttributedString ?? NSMutableAttributedString())
+            combination.append(title.htmlToAttributedString ?? NSMutableAttributedString())
             combination.append(html.htmlToAttributedString ?? NSMutableAttributedString())
             self.aboutTextView.attributedText = combination
             
-            
-            let combination1 = NSMutableAttributedString()
-            combination1.append(title.htmlToAttributedString ?? NSMutableAttributedString())
-            self.aboutImageTextView.attributedText = combination1
         }
     }
 
