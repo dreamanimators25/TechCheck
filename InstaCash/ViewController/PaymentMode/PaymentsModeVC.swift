@@ -1102,10 +1102,10 @@ class PaymentsModeVC: UIViewController {
             
             if donationMoney == "" {
                 smallParam["donateTo"] = ""
-                smallParam["donateAmount"] = ""
+                smallParam["donationAmount"] = ""
             }else {
                 smallParam["donateTo"] = "NSS"
-                smallParam["donateAmount"] = donationMoney
+                smallParam["donationAmount"] = donationMoney
             }
             
             let parametersHome : [String : Any] = [
@@ -1142,6 +1142,8 @@ class PaymentsModeVC: UIViewController {
                 //"promoterId":strPromoterId,
                 
                 //"paymentDetails" : smallParam,
+                "donateTo" : "NSS",
+                "donationAmount" : donationMoney,
                 
                 "quotationId":self.quatationId3,
                 "preferredDate":"",

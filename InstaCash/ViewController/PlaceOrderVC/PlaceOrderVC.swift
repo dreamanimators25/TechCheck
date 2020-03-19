@@ -555,12 +555,15 @@ class PlaceOrderVC: UIViewController,UITextFieldDelegate,CLLocationManagerDelega
     }
     
     func lockAndPlaceOrderApiForMalasiya() {
-        if reachability?.connection.description != "No Connection"{
+        
+        if reachability?.connection.description != "No Connection" {
 
         let strValue = "STON01,"
         var userSelectedProductAppcodes = ""
         var producdID = ""
-       // var imEINumber = ""
+        
+        // var imEINumber = ""
+            
         if userDefaults.value(forKeyPath: "OrderPlaceFordiagnosis") as! Bool  == true {
             producdID = CustomUserDefault.getProductId()
           //  imEINumber = userDefaults.value(forKey: "imei_number") as! String
@@ -603,7 +606,8 @@ class PlaceOrderVC: UIViewController,UITextFieldDelegate,CLLocationManagerDelega
             }
         let couponAmount = String(format: "%d", (userDefaults.value(forKeyPath: "couponCodePrice") as? Int)!)
         //let finalAmount = String(format: "%d", (userDefaults.value(forKeyPath: "productPriceFromAPI") as? Int)!)
-        let parametersHome : [String : Any] = [
+        
+            let parametersHome : [String : Any] = [
             "apiKey" : key,
             "userName" : apiAuthenticateUserName,
             //"mobile":txtMobileNumber.text!,
@@ -630,8 +634,10 @@ class PlaceOrderVC: UIViewController,UITextFieldDelegate,CLLocationManagerDelega
             
             //userDefaults.value(forKeyPath: "orderPinCode") as? String ?? ""
         ]
+            
         self.apiPayment(strURL: strUrl, parameters: parametersHome as NSDictionary, completionHandler: {responseObject , error in
             Alert.HideProgressHud(Onview: self.view)
+            
             if error == nil {
                 if responseObject?["status"] as! String == "Success"{
                     // firebase analytics event

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,6 +17,8 @@
                 <outlet property="btnAgree" destination="UUK-Cf-cnb" id="7vc-bj-x73"/>
                 <outlet property="btnCancel" destination="egC-18-xEr" id="cIo-ra-8yr"/>
                 <outlet property="lblConditionString" destination="wRF-vr-2X4" id="2iY-sz-sIG"/>
+                <outlet property="lblNewCond" destination="ppX-BT-SQx" id="m0O-kL-Pwi"/>
+                <outlet property="lblOldCond" destination="Ubl-Gd-iq0" id="JVl-iI-OXi"/>
                 <outlet property="lblPrice" destination="rmD-oy-UYc" id="ghm-rD-WzA"/>
                 <outlet property="lblResultMisMatch" destination="zVH-fd-slX" id="eKd-Gk-hhK"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -45,19 +47,19 @@
                                     <color key="textColor" red="0.0" green="0.49803921569999998" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Old Condition" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ubl-Gd-iq0">
-                                    <rect key="frame" x="122.5" y="74.5" width="81" height="14.5"/>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Old Condition" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ubl-Gd-iq0">
+                                    <rect key="frame" x="119.5" y="74.5" width="81" height="14.5"/>
                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
-                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Condition" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ppX-BT-SQx">
-                                    <rect key="frame" x="213.5" y="74.5" width="86.5" height="14.5"/>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Condition" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ppX-BT-SQx">
+                                    <rect key="frame" x="203.5" y="74.5" width="86.5" height="14.5"/>
                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
-                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="New Price:-" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zVH-fd-slX">
+                                <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" text="New Price:-" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zVH-fd-slX">
                                     <rect key="frame" x="20" y="99" width="280" height="424"/>
                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -66,20 +68,21 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstItem="zVH-fd-slX" firstAttribute="top" secondItem="Ubl-Gd-iq0" secondAttribute="bottom" constant="10" id="30k-Cq-lsA"/>
                                 <constraint firstItem="zVH-fd-slX" firstAttribute="top" secondItem="ppX-BT-SQx" secondAttribute="bottom" constant="10" id="3Qn-oZ-pSJ"/>
                                 <constraint firstItem="wRF-vr-2X4" firstAttribute="centerX" secondItem="gan-j9-xlN" secondAttribute="centerX" id="5C3-G2-z1R"/>
                                 <constraint firstItem="wRF-vr-2X4" firstAttribute="top" secondItem="gan-j9-xlN" secondAttribute="top" constant="20" id="C5J-t5-Vq7"/>
+                                <constraint firstItem="Ubl-Gd-iq0" firstAttribute="centerX" secondItem="gan-j9-xlN" secondAttribute="centerX" id="GND-u7-NQD"/>
                                 <constraint firstItem="zVH-fd-slX" firstAttribute="leading" secondItem="rmD-oy-UYc" secondAttribute="leading" id="Lrz-Om-vih"/>
+                                <constraint firstItem="Ubl-Gd-iq0" firstAttribute="centerY" secondItem="ppX-BT-SQx" secondAttribute="centerY" id="OQb-pW-KnP"/>
                                 <constraint firstItem="zVH-fd-slX" firstAttribute="trailing" secondItem="rmD-oy-UYc" secondAttribute="trailing" id="R4u-Se-coD"/>
-                                <constraint firstItem="ppX-BT-SQx" firstAttribute="leading" secondItem="Ubl-Gd-iq0" secondAttribute="trailing" constant="10" id="Rmn-ZN-fm6"/>
                                 <constraint firstItem="rmD-oy-UYc" firstAttribute="top" secondItem="wRF-vr-2X4" secondAttribute="bottom" constant="8" id="SIW-nz-zCF"/>
+                                <constraint firstItem="zVH-fd-slX" firstAttribute="top" secondItem="Ubl-Gd-iq0" secondAttribute="bottom" constant="10" id="YSw-QC-oSz"/>
                                 <constraint firstAttribute="height" constant="650" id="Z3I-tc-yL8"/>
                                 <constraint firstItem="rmD-oy-UYc" firstAttribute="leading" secondItem="gan-j9-xlN" secondAttribute="leading" constant="20" id="iUn-2h-uWD"/>
                                 <constraint firstItem="ppX-BT-SQx" firstAttribute="top" secondItem="rmD-oy-UYc" secondAttribute="bottom" constant="10" id="jHb-Sc-Qmq"/>
-                                <constraint firstItem="Ubl-Gd-iq0" firstAttribute="centerY" secondItem="ppX-BT-SQx" secondAttribute="centerY" id="ous-y0-eQn"/>
+                                <constraint firstItem="Ubl-Gd-iq0" firstAttribute="top" secondItem="rmD-oy-UYc" secondAttribute="bottom" constant="10" id="rIQ-sV-Lst"/>
                                 <constraint firstAttribute="trailing" secondItem="rmD-oy-UYc" secondAttribute="trailing" constant="20" id="xwz-BD-grE"/>
-                                <constraint firstItem="ppX-BT-SQx" firstAttribute="trailing" secondItem="rmD-oy-UYc" secondAttribute="trailing" id="y5E-Tc-lXT"/>
+                                <constraint firstItem="ppX-BT-SQx" firstAttribute="trailing" secondItem="rmD-oy-UYc" secondAttribute="trailing" constant="-10" id="y5E-Tc-lXT"/>
                             </constraints>
                         </view>
                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="egC-18-xEr">

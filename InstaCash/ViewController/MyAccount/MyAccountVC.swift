@@ -21,10 +21,13 @@ class MyAccountVC: UIViewController {
     @IBOutlet weak var lblEmail: UILabel!
     @IBOutlet weak var lblUserName: UILabel!
     @IBOutlet weak var imgUser: UIImageView!
+    
     var arrOrderListData = [OrderListModel]()
     let reachability: Reachability? = Reachability()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setNavigationBar()
         if reachability?.connection.description != "No Connection"{
             OrderListModel.fetchOrderListFromServer(isInterNet:true,getController: self) { (arrOrderListData) in
@@ -42,6 +45,7 @@ class MyAccountVC: UIViewController {
         else{
             Alert.showAlert(strMessage: "No Connection found", Onview: self)
         }
+        
         imgUser.layer.cornerRadius = imgUser.frame.size.height/2
         imgUser.clipsToBounds = true
         viewMiddle.layer.cornerRadius = 5
@@ -55,6 +59,7 @@ class MyAccountVC: UIViewController {
         viewBottom.layer.shadowOffset = CGSize(width: 2, height: 2)
         viewBottom.layer.shadowOpacity = 0.5
         viewBottom.layer.shadowRadius = 2.0
+        
         if CustomUserDefault.isUserIdExit(){
             imgUser.isHidden = false
             lblPhoneNumber.text = CustomUserDefault.getPhoneNumber()
@@ -67,12 +72,10 @@ class MyAccountVC: UIViewController {
         }
         else{
             imgVerify.isHidden = true
-
         }
-            
        
-        // Do any additional setup after loading the view.
     }
+    
     // MARK:- navigation bar setup.
     func setNavigationBar() -> Void
     {
@@ -91,30 +94,33 @@ class MyAccountVC: UIViewController {
         navigationItem.leftBarButtonItem = leftBarButton
         
         if CustomUserDefault.isUserIdExit(){
-        //Right menu
-        let btnLogout = UIButton(frame: CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: 25, height: 25)))
-        let widthConstraint1 = btnLogout.widthAnchor.constraint(equalToConstant: 25)
-        let heightConstraint1 = btnLogout.heightAnchor.constraint(equalToConstant: 25)
-        heightConstraint1.isActive = true
-        widthConstraint1.isActive = true
-        btnLogout.setImage(UIImage(named: "more"), for: .normal)
-        btnLogout.addTarget(self, action: #selector(MyAccountVC.btnLogOutPressed), for: .touchUpInside)
-        let rightBarButtonCity = UIBarButtonItem(customView: btnLogout)
-        navigationItem.rightBarButtonItem = rightBarButtonCity
+            //Right menu
+            let btnLogout = UIButton(frame: CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: 25, height: 25)))
+            let widthConstraint1 = btnLogout.widthAnchor.constraint(equalToConstant: 25)
+            let heightConstraint1 = btnLogout.heightAnchor.constraint(equalToConstant: 25)
+            heightConstraint1.isActive = true
+            widthConstraint1.isActive = true
+            btnLogout.setImage(UIImage(named: "more"), for: .normal)
+            btnLogout.addTarget(self, action: #selector(MyAccountVC.btnLogOutPressed), for: .touchUpInside)
+            let rightBarButtonCity = UIBarButtonItem(customView: btnLogout)
+            navigationItem.rightBarButtonItem = rightBarButtonCity
         }
         
         
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     //MARK:- button action methods
     @objc func btnSideMenuPressed() -> Void {
         
         self.menuContainerViewController.toggleLeftSideMenuCompletion({() -> Void in
         })
     }
+    
     @objc func btnLogOutPressed(sender:UIButton){
         let alertController = UIAlertController(title: "LOG-OUT", message: "Are you sure you want to log-out?", preferredStyle: .alert)
         
@@ -132,8 +138,6 @@ class MyAccountVC: UIViewController {
         
         self.navigationController!.present(alertController, animated: true, completion: nil)
         
-    
-       
     }
     
     @IBAction func btnCreatePreessed(_ sender: UIButton) {
@@ -228,10 +232,8 @@ class MyAccountVC: UIViewController {
         userDefaults.removeObject(forKey: "question_FifteenQuestion")
         userDefaults.removeObject(forKey: "question_sixteenQuestion")
 
-
     }
     
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -239,6 +241,5 @@ class MyAccountVC: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
 
 }

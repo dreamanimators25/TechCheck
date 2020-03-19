@@ -23,6 +23,9 @@ class HistoryListTblCell: UITableViewCell {
         
         DispatchQueue.main.async {
             UIView.addShadowOn4side(baseView: self.viewBG)
+        }
+        
+        DispatchQueue.main.async {
             self.lblSeeDetail.layer.cornerRadius = 5.0
         }
         

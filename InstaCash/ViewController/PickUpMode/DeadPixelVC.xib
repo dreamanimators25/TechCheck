@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,8 +23,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DeadPixelVC" customModule="InstaCash" customModuleProvider="target">
             <connections>
-                <outlet property="deadPixelInfo" destination="mwQ-EX-GQz" id="Xc4-pP-J6q"/>
+                <outlet property="deadPixelGifImage" destination="Eae-ab-Cjc" id="Kbp-h3-GOY"/>
                 <outlet property="deadPixelInfoImage" destination="nzM-j7-cwm" id="FK2-S3-nI8"/>
+                <outlet property="deadPixelInfoLbl" destination="mwQ-EX-GQz" id="2aJ-lV-KUA"/>
                 <outlet property="lblPrice" destination="5iK-II-cEN" id="K8Y-AF-45K"/>
                 <outlet property="startTestBtn" destination="Nwf-cl-URl" id="ysj-Iy-r1i"/>
                 <outlet property="view" destination="M7f-4u-SDY" id="p0P-Pp-B0G"/>
@@ -81,22 +82,22 @@
                         <constraint firstItem="JKr-js-bkv" firstAttribute="leading" secondItem="WI0-sJ-lyK" secondAttribute="leading" id="rzg-4q-aMN"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checking touchscreen" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tTd-2J-tUL">
-                    <rect key="frame" x="76" y="132" width="168" height="20"/>
-                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checking screen for white or black dot" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tTd-2J-tUL">
+                    <rect key="frame" x="24" y="132.5" width="272" height="19"/>
+                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dead_pixel.gif" translatesAutoresizingMaskIntoConstraints="NO" id="Eae-ab-Cjc">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dead_pixel.gif" translatesAutoresizingMaskIntoConstraints="NO" id="Eae-ab-Cjc">
                     <rect key="frame" x="0.0" y="147" width="320" height="274"/>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe your finger along the gray lines. Press “Start’ to begin checking for dead pixels." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mwQ-EX-GQz">
-                    <rect key="frame" x="48" y="162" width="224" height="46"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We will show you white screen with maximum brightness for 8-10 seconds. Please tell us if you see a black dot." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mwQ-EX-GQz">
+                    <rect key="frame" x="32" y="161.5" width="256" height="46"/>
                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
                     <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gvG-yL-XSg">
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gvG-yL-XSg">
                     <rect key="frame" x="123" y="211" width="74" height="32"/>
                     <state key="normal">
                         <attributedString key="attributedTitle">
@@ -110,7 +111,7 @@
                         </attributedString>
                     </state>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="touchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="nzM-j7-cwm">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dead pixel" translatesAutoresizingMaskIntoConstraints="NO" id="nzM-j7-cwm">
                     <rect key="frame" x="55.5" y="264.5" width="209" height="209"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nwf-cl-URl" customClass="shadowCornerButton" customModule="InstaCash" customModuleProvider="target">
@@ -149,7 +150,7 @@
                 <constraint firstItem="nzM-j7-cwm" firstAttribute="centerX" secondItem="M7f-4u-SDY" secondAttribute="centerX" id="RK6-OV-sO4"/>
                 <constraint firstItem="mwQ-EX-GQz" firstAttribute="top" secondItem="tTd-2J-tUL" secondAttribute="bottom" constant="10" id="Ujp-Qa-qgS"/>
                 <constraint firstItem="Hnq-wZ-tA7" firstAttribute="leading" secondItem="M7f-4u-SDY" secondAttribute="leading" constant="20" id="WNS-zN-eGm"/>
-                <constraint firstItem="mwQ-EX-GQz" firstAttribute="width" secondItem="qSO-uk-gII" secondAttribute="width" multiplier="0.7" id="XPr-iq-XYr"/>
+                <constraint firstItem="mwQ-EX-GQz" firstAttribute="width" secondItem="qSO-uk-gII" secondAttribute="width" multiplier="0.8" id="XPr-iq-XYr"/>
                 <constraint firstItem="Jyb-EE-47g" firstAttribute="centerY" secondItem="Hnq-wZ-tA7" secondAttribute="centerY" id="bkg-oW-WND"/>
                 <constraint firstItem="Nwf-cl-URl" firstAttribute="leading" secondItem="M7f-4u-SDY" secondAttribute="leading" constant="20" id="duL-1k-Ff8"/>
                 <constraint firstItem="gvG-yL-XSg" firstAttribute="centerY" secondItem="M7f-4u-SDY" secondAttribute="centerY" multiplier="0.8" id="gdU-m2-bTD"/>
@@ -166,8 +167,8 @@
         </view>
     </objects>
     <resources>
-        <image name="back" width="32" height="32"/>
+        <image name="back" width="51.200000762939453" height="51.200000762939453"/>
+        <image name="dead pixel" width="209" height="209"/>
         <image name="dead_pixel.gif" width="550" height="385"/>
-        <image name="touchScreen" width="209" height="209"/>
     </resources>
 </document>

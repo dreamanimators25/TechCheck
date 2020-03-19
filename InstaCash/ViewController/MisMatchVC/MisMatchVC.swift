@@ -21,6 +21,9 @@ class MisMatchVC: UIViewController {
     @IBOutlet weak var lblPrice: UILabel!
     @IBOutlet weak var lblConditionString: UILabel!
     
+    @IBOutlet weak var lblOldCond: UILabel!
+    @IBOutlet weak var lblNewCond: UILabel!
+    
     let reachability: Reachability? = Reachability()
     var resultJSONGet = JSON()
     var strDiagnosisFailed = ""
@@ -31,6 +34,10 @@ class MisMatchVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.lblOldCond.isHidden = true
+        self.lblNewCond.isHidden = true
+        
         
         //if (userDefaults.value(forKey: "countryName") as? String)?.contains("India") != nil {
             
@@ -149,6 +156,7 @@ class MisMatchVC: UIViewController {
                             self.present(alertController, animated: true, completion: nil)
                         }
                         else{
+                            
                             let swipeAgreeButton = UISwipeGestureRecognizer(target: self, action: #selector(self.btnAgreePressed))
                             swipeAgreeButton.direction = .right
                             self.btnAgree.addGestureRecognizer(swipeAgreeButton)
@@ -173,6 +181,9 @@ class MisMatchVC: UIViewController {
                             
                             if let attributedString = try? NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil) {
                                 self.lblResultMisMatch.attributedText = attributedString
+                                
+                                self.lblOldCond.isHidden = false
+                                self.lblNewCond.isHidden = false
                             }
                         }
                         
@@ -338,7 +349,7 @@ class MisMatchVC: UIViewController {
                 "userName" : apiAuthenticateUserName,
                 "apiKey" : key,
                 "newInputData": strFinalCodeValues,
-                //"isAppCode":"1",
+                "isAppCode":"1",
                 "orderItemId":userDefaults.value(forKey: "ChangeModeOrderId") as! String
             ]
             
@@ -369,6 +380,7 @@ class MisMatchVC: UIViewController {
                             }
                         }
                         else {
+                            
                             let swipeAgreeButton = UISwipeGestureRecognizer(target: self, action: #selector(self.btnAgreePressed))
                             swipeAgreeButton.direction = .right
                             self.btnAgree.addGestureRecognizer(swipeAgreeButton)
@@ -399,6 +411,9 @@ class MisMatchVC: UIViewController {
                                 let data = Data(resultData.utf8)
                                 if let attributedString = try? NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil) {
                                     self.lblResultMisMatch.attributedText = attributedString
+                                    
+                                    self.lblOldCond.isHidden = false
+                                    self.lblNewCond.isHidden = false
                                 }
                             }
                             else {
@@ -411,6 +426,9 @@ class MisMatchVC: UIViewController {
                                 let data = Data(resultData.utf8)
                                 if let attributedString = try? NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil) {
                                     self.lblResultMisMatch.attributedText = attributedString
+                                    
+                                    self.lblOldCond.isHidden = false
+                                    self.lblNewCond.isHidden = false
                                 }
                             }
                         }
@@ -811,7 +829,6 @@ class MisMatchVC: UIViewController {
             returnDictionary.setValue("-1", forKey: "Camera")
             strDiagnosisFailed = strDiagnosisFailed + "CISS01,"
             
-            
         }
         if resultJSONGet["Fingerprint Scanner"].int == 1{
             // returnDictionary = ["Fingerprint Scanner":"1"]
@@ -822,7 +839,6 @@ class MisMatchVC: UIViewController {
             // returnDictionary = ["Fingerprint Scanner":"1"]
             returnDictionary.setValue("-1", forKey: "Fingerprint Scanner")
             strDiagnosisFailed = strDiagnosisFailed + "CISS12,"
-            
             
         }
         else if  resultJSONGet["Fingerprint Scanner"].int == -2{
@@ -893,7 +909,6 @@ class MisMatchVC: UIViewController {
                 //returnDictionary = ["NFC":"1"]
                 returnDictionary.setValue("-2", forKey: "NFC")
                 
-                
             }
             else{
                 //   returnDictionary = ["NFC":"0"]
@@ -907,6 +922,7 @@ class MisMatchVC: UIViewController {
             returnDictionary.setValue("1", forKey: "Vibrator")
             returnDictionary.setValue("1", forKey: "MIC")
             returnDictionary.setValue("1", forKey: "Autofocus")
+            
         }
         
         
@@ -920,10 +936,9 @@ class MisMatchVC: UIViewController {
         //        ]
         
         
-        
         //  "Speaker"
         // "Microphone"
+        
     }
-
 
 }

@@ -483,7 +483,7 @@ class BankTransfer: UIViewController,UITextFieldDelegate {
                 smallParam["donateAmount"] = ""
             }else {
                 smallParam["donateTo"] = "NSS"
-                smallParam["donateAmount"] = donation
+                smallParam["donationAmount"] = donation
             }
             
             let parametersHome : [String : Any] = [
@@ -519,7 +519,9 @@ class BankTransfer: UIViewController,UITextFieldDelegate {
                 "couponAmount":couponAmount, //1
                 //"promoterId":strPromoterId, //0
                 
-                "paymentDetails" : smallParam,
+                //"paymentDetails" : smallParam,
+                "donateTo" : "NSS",
+                "donationAmount" : donation,
                 
                 "quotationId":quatationId4, //0
                 "preferredDate":"", //0

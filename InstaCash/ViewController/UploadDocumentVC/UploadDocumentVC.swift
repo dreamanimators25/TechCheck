@@ -530,7 +530,7 @@ class UploadDocumentVC: UIViewController,UIImagePickerControllerDelegate,UINavig
                               "pincode" : userDetails5["pincode"] ?? "",
                               "city" : userDetails5["city"] ?? "",
                               "paymentType" : selectePaymentType5,
-            ]
+                              ]
             
             
             smallParam["Account_Holders_Name"] = bankDETAILS["Account_Holders_Name"] ?? ""
@@ -547,10 +547,13 @@ class UploadDocumentVC: UIViewController,UIImagePickerControllerDelegate,UINavig
             
             if donation5 == "" {
                 smallParam["donateTo"] = ""
-                smallParam["donateAmount"] = ""
+                smallParam["donationAmount"] = ""
             }else {
+                //smallParam["donateTo"] = "NSS"
+                //smallParam["donateAmount"] = donation5
+                
                 smallParam["donateTo"] = "NSS"
-                smallParam["donateAmount"] = donation5
+                smallParam["donationAmount"] = donation5
             }
             
             let parametersHome : [String : Any] = [
@@ -585,7 +588,10 @@ class UploadDocumentVC: UIViewController,UIImagePickerControllerDelegate,UINavig
                 "couponAmount":couponAmount, //1
                 //"promoterId":strPromoterId, //0
                 
-                "paymentDetails" : smallParam,
+                //"paymentDetails" : smallParam,
+                "donateTo" : "NSS",
+                "donationAmount" : donation5,
+                
                 
                 "quotationId":quatationId5, //0
                 "preferredDate":"", //0
@@ -600,14 +606,16 @@ class UploadDocumentVC: UIViewController,UIImagePickerControllerDelegate,UINavig
                 print("\(String(describing: responseObject) ) , \(String(describing: error))")
                 
                 if error == nil {
-                    if responseObject?["status"] as! String == "Success"{
+                    if responseObject?["status"] as! String == "Success" {
+                        
                         /*
                          UIViewController().showAlert("InstaCash", message: "Your order has been successfully placed.", alertButtonTitles: ["OK"], alertButtonStyles: [.default], vc: self
                          , completion: { (ind) in
                          
                          //let vc = HomeVC()
                          //self.navigationController?.pushViewController(vc, animated: true)
-                         })*/
+                         })
+                         */
                         
                         
                         

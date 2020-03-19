@@ -73,6 +73,7 @@ class OrderListModel {
         
         let strBaseURL = userDefaults.value(forKey: "baseURL") as! String
         let strUrl = strBaseURL + "orderList"
+        print(strUrl)
         
         let parametersHome : [String : Any] = [
             "apiKey" : key,
@@ -80,22 +81,47 @@ class OrderListModel {
             "customerId" : customerID
         ]
         
+        print(parametersHome)
+        
         self.cityApiPost(strURL: strUrl, parameters: parametersHome as NSDictionary, completionHandler: {responseObject , error in
             Alert.HideProgressHud(Onview: getController.view)
+            print(responseObject ?? [:])
+            
             if error == nil {
-                if responseObject?["status"] as! String == "Success"{
+                if responseObject?["status"] as! String == "Success" {
                     let arrCity = responseObject?.value(forKeyPath: "msg")as! NSArray
-                    for obj in 0..<arrCity.count{
+                   
+                    for obj in 0..<arrCity.count {
+                        
                         let dict = arrCity[obj] as! NSDictionary
                         let strOrderId = dict.value(forKeyPath: "orderId") as? String
                         let strRefrencenumber = dict.value(forKeyPath: "referenceNumber") as? String
                         let strDate = dict.value(forKeyPath: "orderDate") as? String
+                        
+                        //Sameer on 19/3/20
+                        /*
                         let arrOrderItem = dict.value(forKeyPath: "orderItem") as! NSArray
-                        for index in 0..<arrOrderItem.count{
+                        
+                        for index in 0..<arrOrderItem.count {
                             let dictOrderItem = arrOrderItem[index] as? [String : Any]
                             let memberItem = OrderListModel(orderListDict: dictOrderItem! , strOrderIdGet: strOrderId!, strRefrenceNumber: strRefrencenumber!, strOrderDate: strDate!)//OrderListModel(orderListDict: dict as! [String : Any],)
                             orderList.append(memberItem)
+                        }*/
+                        
+                        //*
+                        let arrOrderItem = dict.value(forKeyPath: "orderItem") as! [[String:Any]]
+                        
+                        if arrOrderItem.count > 1 {
+                            let dictOrderItem = arrOrderItem.last
+                            let memberItem = OrderListModel(orderListDict: dictOrderItem ?? [:], strOrderIdGet: strOrderId!, strRefrenceNumber: strRefrencenumber!, strOrderDate: strDate!)
+                            orderList.append(memberItem)
+                        }else {
+                            let dictOrderItem = arrOrderItem[0]
+                            let memberItem = OrderListModel(orderListDict: dictOrderItem , strOrderIdGet: strOrderId!, strRefrenceNumber: strRefrencenumber!, strOrderDate: strDate!)
+                            orderList.append(memberItem)
                         }
+                        //*/
+                        
                     }
                     DispatchQueue.main.async {
                         completion(orderList)

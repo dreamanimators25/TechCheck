@@ -18,8 +18,9 @@ import AVFoundation
 class DeadPixelVC: UIViewController {
     
     @IBOutlet weak var lblPrice: UILabel!
-    @IBOutlet weak var deadPixelInfo: UILabel!
+    @IBOutlet weak var deadPixelInfoLbl: UILabel!
     @IBOutlet weak var deadPixelInfoImage: UIImageView!
+    @IBOutlet weak var deadPixelGifImage: UIImageView!
     @IBOutlet weak var startTestBtn: UIButton!
     
     var resultJSON = JSON()
@@ -29,9 +30,12 @@ class DeadPixelVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.deadPixelGifImage.isHidden = true
 
-        deadPixelInfoImage.loadGif(name: "dead_pixel")
-        lblPrice.text = CustomUserDefault.getCurrency()
+        //s. 18/3/20
+        //deadPixelInfoImage.loadGif(name: "dead_pixel")
+        //lblPrice.text = CustomUserDefault.getCurrency()
     }
     
     @objc func setRandomBackgroundColor() {
@@ -140,10 +144,15 @@ class DeadPixelVC: UIViewController {
         checkVibrator()
         checkAudio()
         timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(self.setRandomBackgroundColor), userInfo: nil, repeats: true)
-        self.view.backgroundColor = UIColor(red: 255/255, green: 0/255, blue: 0/255, alpha: 1)
+        //self.view.backgroundColor = UIColor(red: 255/255, green: 0/255, blue: 0/255, alpha: 1) //s. 18/3/20
+        
         self.startTestBtn.isHidden = true
-        self.deadPixelInfo.isHidden = true
+        self.deadPixelInfoLbl.isHidden = true
         self.deadPixelInfoImage.isHidden = true
+        
+        //S. 18/3/20
+        self.deadPixelGifImage.isHidden = false
+        deadPixelInfoImage.loadGif(name: "dead_pixel") //s. 18/3/20
     }
     
     func checkVibrator(){
@@ -162,6 +171,16 @@ class DeadPixelVC: UIViewController {
         AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
     }
     
+    func checkAudio(){
+        guard let filePath = Bundle.main.path(forResource: "whistle", ofType: "mp3") else {
+            return
+        }
+        
+        let url = URL(fileURLWithPath: filePath)
+        print(url)
+        playUsingAVAudioPlayer(url: url)
+    }
+    
     func playUsingAVAudioPlayer(url: URL) {
         self.resultJSON["Speakers"].int = 1
         self.resultJSON["MIC"].int = 1
@@ -171,16 +190,6 @@ class DeadPixelVC: UIViewController {
             audioPlayer?.play()
         } catch {
         }
-    }
-    
-    func checkAudio(){
-        guard let filePath = Bundle.main.path(forResource: "whistle", ofType: "mp3") else {
-            return
-        }
-        
-        let url = URL(fileURLWithPath: filePath)
-        print(url)
-        playUsingAVAudioPlayer(url: url)
     }
 
 }

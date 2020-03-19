@@ -165,16 +165,18 @@ class PickUpCodeVC: UIViewController {
                             
                             if CustomUserDefault.getProductId() == responseObject?["productId"] as? String {
                                 
-                                DispatchQueue.main.async {
+                                //DispatchQueue.main.async {
                                     userDefaults.set("Diagnosis", forKey: "ChangeModeComingFromDiadnosis")
                                     
-                                    self.dismiss(animated: true, completion: {
-                                        let vc = ScreenTestingVC()
-                                        let navController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController
-                                        navController?.pushViewController(vc, animated: true)
-                                    })
+                                    DispatchQueue.main.async {
+                                        self.dismiss(animated: false, completion: {
+                                            let vc = ScreenTestingVC()
+                                            let navController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController
+                                            navController?.pushViewController(vc, animated: true)
+                                        })
+                                    }
                                     
-                                }
+                                //}
                             }else {
                                 Alert.showAlertWithTitle(strTitle: "InstaCash", strMessage: "Device doesn't Match! Please change your device, through which you place the order.", Onview: self)
                             }
@@ -183,7 +185,7 @@ class PickUpCodeVC: UIViewController {
                             
                             if CustomUserDefault.getProductId() == responseObject?["productId"] as? String {
                                 
-                                DispatchQueue.main.async {
+                                //DispatchQueue.main.async {
                                     userDefaults.set("Pickup", forKey: "ChangeModeComingFromDiadnosis")
                                     
                                     //Set array for questions
@@ -193,15 +195,15 @@ class PickUpCodeVC: UIViewController {
                                     let myData = NSKeyedArchiver.archivedData(withRootObject: arrPickUpQuestion)
                                     userDefaults.set(myData, forKey: "PickUpQuestions")
                                     
-                                    
-                                    self.dismiss(animated: true, completion: {
-                                        let vc = ScreenTestPickUp()
-                                        let navController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController
-                                        navController?.pushViewController(vc, animated: true)
-                                                                            
-                                    })
-                                    
-                                }
+                                    DispatchQueue.main.async {
+                                        self.dismiss(animated: false, completion: {
+                                            let vc = ScreenTestPickUp()
+                                            let navController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController
+                                            navController?.pushViewController(vc, animated: true)
+                                        })
+                                    }
+                                  
+                                //}
                             }else {
                                 Alert.showAlertWithTitle(strTitle: "InstaCash", strMessage: "Device doesn't Match! Please change your device, through which you place the order.", Onview: self)
                             }

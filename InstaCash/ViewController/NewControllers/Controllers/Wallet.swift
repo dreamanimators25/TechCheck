@@ -144,7 +144,9 @@ class Wallet: UIViewController {
             "couponAmount":couponAmount, //1
             //"promoterId":strPromoterId, //0
             
-            "paymentDetails" : smallParam,
+            //"paymentDetails" : smallParam,
+            "donateTo" : "NSS",
+            "donationAmount" : "",
             
             "quotationId":QuatID, //0
             "preferredDate":"", //0

@@ -8,8 +8,8 @@
 
 import Foundation
 import UIKit
-class HistoryModel{
-    
+
+class HistoryModel {
     
     var strOrderId:String?
     var orderDate:String?
@@ -18,6 +18,7 @@ class HistoryModel{
     var strOrderImageURL:String?
     var strSumaryHistory:String?
     var isCollapsable = false
+    
     init(historyListDict: [String: Any]) {
         self.strOrderId = historyListDict["productId"] as? String
         self.orderDate = historyListDict["orderDate"] as? String
@@ -29,6 +30,7 @@ class HistoryModel{
 
         self.isCollapsable = false
     }
+    
     //MARK:- web service methods
     
     static  func historyApiPost(strURL : String , parameters:NSDictionary, completionHandler: @escaping (NSDictionary?, NSError?) -> ()) {
@@ -37,9 +39,11 @@ class HistoryModel{
     }
     
     static func fetchHistoryListFromServer(isInterNet:Bool,getController:UIViewController,completion: @escaping ([HistoryModel]) -> Void ) {
+        
         Alert.ShowProgressHud(Onview: getController.view)
         var historyList = [HistoryModel]()
         var mobileNumber = ""
+        
         if CustomUserDefault.isUserIdExit(){
             mobileNumber = CustomUserDefault.getPhoneNumber() ?? ""
         }
@@ -57,6 +61,7 @@ class HistoryModel{
             "page":"",
             "limit":"-1"
         ]
+        
         self.historyApiPost(strURL: strUrl, parameters: parametersHome as NSDictionary, completionHandler: {responseObject , error in
             Alert.HideProgressHud(Onview: getController.view)
             if error == nil {

@@ -41,7 +41,7 @@ class MyOrderVC: UIViewController,UITableViewDelegate,UITableViewDataSource,Upda
             }
         }
         else{
-            if reachability?.connection.description != "No Connection"{
+            if reachability?.connection.description != "No Connection" {
                 OrderListModel.fetchOrderListFromServer(isInterNet:true,getController: self) { (arrOrderList) in
                     
                     if arrOrderList.count > 0 {
@@ -165,7 +165,7 @@ class MyOrderVC: UIViewController,UITableViewDelegate,UITableViewDataSource,Upda
             }*/
             
             let arrProgress = self.arrOrderListCopy.filter { demo in
-                return demo.strStatus == "Unverified" || demo.strStatus == "Verified" || demo.strStatus == "Out_for_pickup" || demo.strStatus == "Pending_Payment"
+                return demo.strStatus == "Unverified" || demo.strStatus == "Verified" || demo.strStatus == "Out for pickup" || demo.strStatus == "Pending Payment"
             }
             
             self.arrOrderList = arrProgress
@@ -189,7 +189,7 @@ class MyOrderVC: UIViewController,UITableViewDelegate,UITableViewDataSource,Upda
             }*/
             
             let arrComplete = self.arrOrderListCopy.filter { demo in
-                return demo.strStatus == "Completed" || demo.strStatus == "Rejected" || demo.strStatus == "Pacman_cancelled" || demo.strStatus == "User_cancelled"
+                return demo.strStatus == "Completed" || demo.strStatus == "Rejected" || demo.strStatus == "Pacman cancelled" || demo.strStatus == "User cancelled"
             }
             
             self.arrOrderList = arrComplete
@@ -250,23 +250,24 @@ class MyOrderVC: UIViewController,UITableViewDelegate,UITableViewDataSource,Upda
         // cellOrderHeader.lblPrice.text = CustomUserDefault.getCurrency() + modelOrder.strProductAmount!
         
         cellOrderHeader.lblVerified.text = modelOrder.strStatus
+        //print(modelOrder.strStatus ?? "")
         
         switch modelOrder.strStatus {
         case "Unverified":
             cellOrderHeader.lblVerified.backgroundColor = #colorLiteral(red: 1, green: 0.5960784314, blue: 0, alpha: 1)
         case "Verified":
             cellOrderHeader.lblVerified.backgroundColor = #colorLiteral(red: 0.1176470588, green: 0.5333333333, blue: 0.8980392157, alpha: 1)
-        case "Out_for_pickup":
+        case "Out for pickup":
             cellOrderHeader.lblVerified.backgroundColor = #colorLiteral(red: 0.1568627451, green: 0.6901960784, blue: 0.2392156863, alpha: 1)
-        case "pending_Payment":
+        case "pending Payment":
             cellOrderHeader.lblVerified.backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
         case "Complete":
             cellOrderHeader.lblVerified.backgroundColor = #colorLiteral(red: 0.1058823529, green: 0.368627451, blue: 0.1254901961, alpha: 1)
         case "Rejected":
             cellOrderHeader.lblVerified.backgroundColor = #colorLiteral(red: 0.7176470588, green: 0.1098039216, blue: 0.1098039216, alpha: 1)
-        case "Pacman_cancelled":
+        case "Pacman cancelled":
             cellOrderHeader.lblVerified.backgroundColor = #colorLiteral(red: 0.937254902, green: 0.3254901961, blue: 0.3137254902, alpha: 1)
-        case "User_cancelled":
+        case "User cancelled":
             cellOrderHeader.lblVerified.backgroundColor = #colorLiteral(red: 0.937254902, green: 0.3254901961, blue: 0.3137254902, alpha: 1)
         default:
             print("no color")
