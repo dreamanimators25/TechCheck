@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,6 +20,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignatureVC" customModule="InstaCash" customModuleProvider="target">
             <connections>
+                <outlet property="signatureBaseView" destination="hpR-fV-sav" id="EnR-TJ-0PA"/>
                 <outlet property="signatureView" destination="j41-vE-RRe" id="OUh-Wj-X7o"/>
                 <outlet property="view" destination="E23-wx-foQ" id="UCg-x3-jX9"/>
             </connections>
@@ -61,7 +62,7 @@
                     <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DHL-i4-ZEH" customClass="shadowCornerButton" customModule="Instacash" customModuleProvider="target">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DHL-i4-ZEH" customClass="shadowCornerButton" customModule="InstaCash" customModuleProvider="target">
                     <rect key="frame" x="20" y="494" width="128" height="44"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="18"/>
@@ -77,7 +78,7 @@
                         <action selector="btnClear:" destination="-1" eventType="touchUpInside" id="PeH-lG-b0b"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wzh-Nf-rWM" customClass="shadowCornerButton" customModule="Instacash" customModuleProvider="target">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wzh-Nf-rWM" customClass="shadowCornerButton" customModule="InstaCash" customModuleProvider="target">
                     <rect key="frame" x="172" y="494" width="128" height="44"/>
                     <color key="backgroundColor" red="0.094117647060000004" green="0.60784313729999995" blue="0.17254901959999999" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="18"/>
@@ -93,6 +94,10 @@
                         <action selector="btnSave:" destination="-1" eventType="touchUpInside" id="4lX-wn-s6D"/>
                     </connections>
                 </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hpR-fV-sav">
+                    <rect key="frame" x="19" y="211.5" width="282" height="263.5"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j41-vE-RRe" customClass="YPDrawSignatureView" customModule="InstaCash" customModuleProvider="target">
                     <rect key="frame" x="20" y="212.5" width="280" height="261.5"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -106,12 +111,16 @@
                 <constraint firstItem="Stj-9g-I6q" firstAttribute="centerX" secondItem="E23-wx-foQ" secondAttribute="centerX" id="BRb-sn-don"/>
                 <constraint firstItem="BPd-ax-tcA" firstAttribute="centerX" secondItem="E23-wx-foQ" secondAttribute="centerX" id="FUc-za-Kpq"/>
                 <constraint firstItem="AFX-B0-Cse" firstAttribute="trailing" secondItem="j41-vE-RRe" secondAttribute="trailing" constant="20" id="Hdc-7E-FRt"/>
+                <constraint firstItem="hpR-fV-sav" firstAttribute="centerY" secondItem="j41-vE-RRe" secondAttribute="centerY" id="Qsj-MK-Z1W"/>
                 <constraint firstItem="AFX-B0-Cse" firstAttribute="bottom" secondItem="wzh-Nf-rWM" secondAttribute="bottom" constant="30" id="T1N-ih-O2F"/>
                 <constraint firstItem="Stj-9g-I6q" firstAttribute="top" secondItem="BPd-ax-tcA" secondAttribute="bottom" constant="10" id="Wj1-Um-Zan"/>
                 <constraint firstItem="wzh-Nf-rWM" firstAttribute="width" secondItem="AFX-B0-Cse" secondAttribute="width" multiplier="0.4" id="Xd6-tQ-RhF"/>
+                <constraint firstItem="hpR-fV-sav" firstAttribute="width" secondItem="j41-vE-RRe" secondAttribute="width" constant="2" id="Y2X-6S-XUd"/>
                 <constraint firstItem="AFX-B0-Cse" firstAttribute="trailing" secondItem="nyU-Bv-bmO" secondAttribute="trailing" constant="10" id="ZFu-w2-WTf"/>
+                <constraint firstItem="hpR-fV-sav" firstAttribute="centerX" secondItem="j41-vE-RRe" secondAttribute="centerX" id="ZuJ-l7-G41"/>
                 <constraint firstItem="AFX-B0-Cse" firstAttribute="trailing" secondItem="wzh-Nf-rWM" secondAttribute="trailing" constant="20" id="atU-Xx-Das"/>
                 <constraint firstItem="BPd-ax-tcA" firstAttribute="centerY" secondItem="E23-wx-foQ" secondAttribute="centerY" multiplier="0.5" id="ejO-vF-JXe"/>
+                <constraint firstItem="hpR-fV-sav" firstAttribute="height" secondItem="j41-vE-RRe" secondAttribute="height" constant="2" id="f0v-NR-ybk"/>
                 <constraint firstItem="DHL-i4-ZEH" firstAttribute="height" secondItem="wzh-Nf-rWM" secondAttribute="height" id="fLd-4B-8rI"/>
                 <constraint firstItem="wzh-Nf-rWM" firstAttribute="height" secondItem="AFX-B0-Cse" secondAttribute="height" multiplier="0.08" id="hxb-pm-1Gr"/>
                 <constraint firstItem="DHL-i4-ZEH" firstAttribute="leading" secondItem="AFX-B0-Cse" secondAttribute="leading" constant="20" id="iG6-jR-1Lm"/>
@@ -131,6 +140,6 @@
         </view>
     </objects>
     <resources>
-        <image name="back" width="32" height="32"/>
+        <image name="back" width="51.200000762939453" height="51.200000762939453"/>
     </resources>
 </document>

@@ -150,6 +150,7 @@ class LiveOfferVC: UIViewController {
                                     DispatchQueue.main.async {
                                         let vc = UploadIDVC()
                                         let nav = UINavigationController(rootViewController: vc)
+                                        nav.navigationBar.isHidden = true
                                         self.present(nav, animated: true, completion: nil)
                                     }
 

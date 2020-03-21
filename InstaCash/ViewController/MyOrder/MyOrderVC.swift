@@ -29,6 +29,7 @@ class MyOrderVC: UIViewController,UITableViewDelegate,UITableViewDataSource,Upda
     override func viewDidLoad() {
         super.viewDidLoad()
         //setNavigationBar()
+        
         tblViewOrderLust.register(UINib(nibName: "OrderHeaderCell", bundle: nil), forCellReuseIdentifier: "orderHeaderCell")
         tblViewOrderLust.register(UINib(nibName: "OrderListCollapsableCell", bundle: nil), forCellReuseIdentifier: "orderListCollapsableCell")
        

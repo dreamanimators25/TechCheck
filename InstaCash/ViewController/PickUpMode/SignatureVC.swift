@@ -12,11 +12,20 @@ class SignatureVC: UIViewController,YPSignatureDelegate {
 
     @IBOutlet weak var signatureView: YPDrawSignatureView!
     let reachability: Reachability? = Reachability()
+    @IBOutlet weak var signatureBaseView: UIView!
 
     var strGetUploadBill = ""
+    
     override func viewDidLoad() {
+        
+        DispatchQueue.main.async {
+            self.signatureBaseView.layer.borderWidth = 1.0
+            self.signatureBaseView.layer.borderColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)
+        }
+        
         super.viewDidLoad()
-        setNavigationBar()
+        
+        //setNavigationBar()
         signatureView.delegate = self
     }
 

@@ -23,6 +23,7 @@ class MisMatchVC: UIViewController {
     
     @IBOutlet weak var lblOldCond: UILabel!
     @IBOutlet weak var lblNewCond: UILabel!
+    @IBOutlet weak var ResultBaseView: UIView!
     
     let reachability: Reachability? = Reachability()
     var resultJSONGet = JSON()
@@ -184,6 +185,12 @@ class MisMatchVC: UIViewController {
                                 
                                 self.lblOldCond.isHidden = false
                                 self.lblNewCond.isHidden = false
+                                
+                                DispatchQueue.main.async {
+                                    self.ResultBaseView.layer.borderWidth = 1.0
+                                    self.ResultBaseView.layer.borderColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)
+                                }
+                                
                             }
                         }
                         
@@ -376,6 +383,7 @@ class MisMatchVC: UIViewController {
                             DispatchQueue.main.async {
                                 let vc = UploadIDVC()
                                 let nav = UINavigationController(rootViewController: vc)
+                                nav.navigationBar.isHidden = true
                                 self.present(nav, animated: true, completion: nil)
                             }
                         }
@@ -414,6 +422,12 @@ class MisMatchVC: UIViewController {
                                     
                                     self.lblOldCond.isHidden = false
                                     self.lblNewCond.isHidden = false
+                                    
+                                    DispatchQueue.main.async {
+                                        self.ResultBaseView.layer.borderWidth = 1.0
+                                        self.ResultBaseView.layer.borderColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)
+                                    }
+                                    
                                 }
                             }
                             else {
@@ -429,6 +443,12 @@ class MisMatchVC: UIViewController {
                                     
                                     self.lblOldCond.isHidden = false
                                     self.lblNewCond.isHidden = false
+                                    
+                                    DispatchQueue.main.async {
+                                        self.ResultBaseView.layer.borderWidth = 1.0
+                                        self.ResultBaseView.layer.borderColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)
+                                    }
+                                    
                                 }
                             }
                         }
@@ -632,6 +652,7 @@ class MisMatchVC: UIViewController {
                                             userDefaults.setValue(orderItemId, forKey: "ChangeModeOrderId")
                                             let vc = UploadIDVC()
                                             let nav = UINavigationController(rootViewController: vc)
+                                            nav.navigationBar.isHidden = true
                                             self.present(nav, animated: true, completion: nil)
                                         }
                                     }

@@ -26,6 +26,8 @@ class BankTransfer: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var txtConfirmAccountNumber: UITextField!
     @IBOutlet weak var txtIfsc: UITextField!
     @IBOutlet weak var txtBranch: UITextField!
+    
+    var totalNumberCount = 0
  
     var strPaymentProcessMode = "1"
     
@@ -45,7 +47,16 @@ class BankTransfer: UIViewController,UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+            totalNumberCount = 10
+        }else if CustomUserDefault.getCurrency() == "RM" {
+            totalNumberCount = 8
+        }else {
+            totalNumberCount = 8
+        }
+        
         txtIfsc.delegate = self
+        txtMobileNumber.delegate = self
         
         if selectePaymentType4 == "NEFT" {
             self.lblTitle.text = "NEFT"
@@ -108,6 +119,8 @@ class BankTransfer: UIViewController,UITextFieldDelegate {
             
             if txtMobileNumber.text!.isEmpty {
                 Alert.showAlert(strMessage: "Please enter mobile number" as NSString, Onview: self)
+            }else if txtMobileNumber.text?.count ?? 0 < totalNumberCount {
+                Alert.showAlert(strMessage: "Please enter Valid mobile number", Onview: self)
             }else{
                 self.setPaymentDetailsFromServer()
             }
@@ -604,6 +617,25 @@ class BankTransfer: UIViewController,UITextFieldDelegate {
                 self.razorpayApiCheckFromServer()
             }
         }
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+            
+            // YOU SHOULD FIRST CHECK FOR THE BACKSPACE. IF BACKSPACE IS PRESSED ALLOW IT
+            
+            if string == "" {
+                return true
+            }
+            
+            if let characterCount = textField.text?.count {
+                // CHECK FOR CHARACTER COUNT IN TEXT FIELD
+                if characterCount == totalNumberCount {
+                    // RESIGN FIRST RERSPONDER TO HIDE KEYBOARD
+                    return textField.resignFirstResponder()
+                }
+            }
+            return true
+            
     }
     
 }

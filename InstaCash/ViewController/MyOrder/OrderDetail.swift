@@ -126,12 +126,14 @@ class OrderDetail: UIViewController,UIPopoverPresentationControllerDelegate {
                 
                 if error == nil {
                     
-                    if responseObject?["status"] as! String == "Success"{
+                    if responseObject?["status"] as! String == "Success" {
                         
                         let dictDetail = responseObject?["msg"] as! NSArray
                         let itemDetail = dictDetail[0] as? NSDictionary
+                        //let itemDetail = dictDetail.lastObject as? NSDictionary
                         let item = itemDetail?.value(forKey: "itemDetails") as? NSArray
-                        let finalItem = item?[0] as? NSDictionary
+                        //let finalItem = item?[0] as? NSDictionary
+                        let finalItem = item?.lastObject as? NSDictionary
                         
                         
                         if let imagURL = URL.init(string: finalItem?.value(forKey: "productImage") as? String ?? "") {
@@ -158,7 +160,19 @@ class OrderDetail: UIViewController,UIPopoverPresentationControllerDelegate {
                         let orderCurrentStatus = finalItem?.value(forKey: "status") as? String ?? ""
                         print(orderCurrentStatus)
                         
-                        if orderCurrentStatus == "Completed" || orderCurrentStatus == "Rejected" || orderCurrentStatus == "Pacman_cancelled" || orderCurrentStatus == "Pending_Payment" {
+                        /*
+                        case "Complete":
+                        case "Rejected":
+                        case "Pacman cancelled":
+                        case "pending Payment":
+                         
+                        case "Unverified":
+                        case "Verified":
+                        case "Out for pickup":
+                        case "User cancelled":
+                        */
+                        
+                        if orderCurrentStatus == "Completed" || orderCurrentStatus == "Rejected" || orderCurrentStatus == "Pacman cancelled" || orderCurrentStatus == "Pending Payment" {
                             self.orderFinalStatusView?.isHidden = false
                             self.stackViewHeight?.constant = 210
                             self.lblOrderFinalStatus?.text = orderCurrentStatus
