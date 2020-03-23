@@ -10,29 +10,79 @@ import UIKit
 
 class PickUpItemsVC: UIViewController,UITextFieldDelegate {
     
-    @IBOutlet weak var btnEarPhones: UIButton!
-    @IBOutlet weak var btnOriginalCharger: UIButton!
-    @IBOutlet weak var btnBox: UIButton!
-    @IBOutlet weak var viewBox: UIView!
+    @IBOutlet weak var viewDevice: UIView!
+    @IBOutlet weak var btnDevice: UIButton!
     
-    @IBOutlet weak var btnValidBill: UIButton!
-    @IBOutlet weak var txtYes: UITextField!
-    @IBOutlet weak var viewEarPhones: UIView!
-    @IBOutlet weak var viewOriginalCharger: UIView!
     @IBOutlet weak var viewValidBill: UIView!
+    @IBOutlet weak var btnValidBill: UIButton!
+    
+    @IBOutlet weak var viewBox: UIView!
+    @IBOutlet weak var btnBox: UIButton!
+    
+    @IBOutlet weak var viewEarPhones: UIView!
+    @IBOutlet weak var btnEarPhones: UIButton!
+    
+    @IBOutlet weak var viewOriginalCharger: UIView!
+    @IBOutlet weak var btnOriginalCharger: UIButton!
+    
+    @IBOutlet weak var itemHeightConstraint: NSLayoutConstraint! //s.
     @IBOutlet weak var viewTop: UIView!
-    var isDeviceSelected = false
+    @IBOutlet weak var viewTopLbl: UILabel!
+    
+    
+    //@IBOutlet weak var yesBtn: UIButton!
+    //@IBOutlet weak var txtYes: UITextField! //s.
+    //@IBOutlet weak var btnOriginalCharger: UIButton! //s.
+    //@IBOutlet weak var viewEarPhones: UIView! //s.
+    //@IBOutlet weak var viewOriginalCharger: UIView! //s.
+    
+    
     let reachability: Reachability? = Reachability()
     var strGetAccountNumber = ""
     var strGetPaymentAmount = ""
     var strGetPaymentMode = ""
     var isAllreadyFire = false
 
+    var totalButton = 1
+    var totalSelectedButton = 0
+    var isDeviceSelected = true
+    var isValidBillSelected = true
+    var isBoxSelected = true
+    var isEarphoneSelected = true
+    var isChargerSelected = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNavigationBar()
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.clickYes(sender:)))
+        tapGesture.numberOfTapsRequired = 1
+        self.viewTopLbl.addGestureRecognizer(tapGesture)
+        
+        //self.txtYes.delegate = self //s.
+        
+        //let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector)  //Tap function will call when user tap on button
+        //tapGesture.numberOfTapsRequired = 1
+        //viewTopLbl.addGestureRecognizer(tapGesture)
+        
+        viewTop.alpha = 0
+        viewTop.isUserInteractionEnabled = true
+        self.itemHeightConstraint.constant = 65
+        
+        //setNavigationBar() //s.
+        
         showViewDynamically()
+        
+        viewDevice.layer.cornerRadius = CGFloat(btnCornerRadius)
+        viewDevice.clipsToBounds = true
+        viewDevice.layer.borderWidth = 1.0
+        viewDevice.layer.borderColor = UIColor.black.cgColor
+        
+        
+        viewValidBill.layer.cornerRadius = CGFloat(btnCornerRadius)
+        viewValidBill.clipsToBounds = true
+        viewValidBill.layer.borderWidth = 1.0
+        viewValidBill.layer.borderColor = UIColor.black.cgColor
+        
         viewBox.layer.cornerRadius = CGFloat(btnCornerRadius)
         viewBox.clipsToBounds = true
         viewBox.layer.borderWidth = 1.0
@@ -48,61 +98,105 @@ class PickUpItemsVC: UIViewController,UITextFieldDelegate {
         viewOriginalCharger.layer.borderWidth = 1.0
         viewOriginalCharger.layer.borderColor = UIColor.black.cgColor
         
-        viewValidBill.layer.cornerRadius = CGFloat(btnCornerRadius)
-        viewValidBill.clipsToBounds = true
-        viewValidBill.layer.borderWidth = 1.0
-        viewValidBill.layer.borderColor = UIColor.black.cgColor
         
-        viewTop.layer.cornerRadius = CGFloat(btnCornerRadius)
-        viewTop.clipsToBounds = true
-        viewTop.layer.borderWidth = 1.0
-        viewTop.layer.borderColor = UIColor.black.cgColor
-        txtYes.addTarget(self, action: #selector(self.textFieldDidChange(textField:)), for: UIControlEvents.editingChanged)
+        //viewTop.layer.cornerRadius = CGFloat(btnCornerRadius)
+        //viewTop.clipsToBounds = true
+        //viewTop.layer.borderWidth = 1.0
+        //viewTop.layer.borderColor = UIColor.black.cgColor
+        
+        //txtYes.addTarget(self, action: #selector(self.textFieldDidChange(textField:)), for: UIControlEvents.editingChanged) //s.
 
     }
     
     func showViewDynamically(){
+        
+        isDeviceSelected = false
+        viewDevice.isHidden = false
+        
         if userDefaults.value(forKey: "isShowValidBill") as! Bool == true{
-            viewValidBill.backgroundColor = UIColor.white
+            //viewValidBill.backgroundColor = UIColor.white
             btnValidBill.isUserInteractionEnabled = true
             viewValidBill.alpha = 1.0
+            
+            viewValidBill.isHidden = false
+            isValidBillSelected = false
+            totalButton += 1
         }
         else{
-            viewValidBill.backgroundColor = UIColor.lightGray
-            viewValidBill.alpha = 0.4
+            //viewValidBill.backgroundColor = UIColor.lightGray
             btnValidBill.isUserInteractionEnabled = false
-        }
-        if userDefaults.value(forKey: "isShowEarPhone") as! Bool == true{
-            viewEarPhones.backgroundColor = UIColor.white
-            btnEarPhones.isUserInteractionEnabled = true
-            viewEarPhones.alpha = 1.0
-        }
-        else{
-            viewEarPhones.backgroundColor = UIColor.lightGray
-            viewEarPhones.alpha = 0.4
-            btnEarPhones.isUserInteractionEnabled = false
-        }
-        
-        if userDefaults.value(forKey: "isShowCharger") as! Bool == true{
-            viewOriginalCharger.backgroundColor = UIColor.white
-            btnOriginalCharger.isUserInteractionEnabled = true
-            viewOriginalCharger.alpha = 1.0
-        }
-        else{
-            viewOriginalCharger.backgroundColor = UIColor.lightGray
-            viewOriginalCharger.alpha = 0.4
-            btnOriginalCharger.isUserInteractionEnabled = false
+            viewValidBill.alpha = 0.4
+            
+            viewValidBill.isHidden = true
+            isValidBillSelected = true
         }
         
         if userDefaults.value(forKey: "isShowBox") as! Bool == true{
-            viewBox.backgroundColor = UIColor.white
+            //viewBox.backgroundColor = UIColor.white
             btnBox.isUserInteractionEnabled = true
             viewBox.alpha = 1.0
+            
+            viewBox.isHidden = false
+            isBoxSelected = false
+            totalButton += 1
         }
         else{
-            viewBox.backgroundColor = UIColor.lightGray
-            viewBox.alpha = 0.4
+            //viewBox.backgroundColor = UIColor.lightGray
             btnBox.isUserInteractionEnabled = false
+            viewBox.alpha = 0.4
+            
+            viewBox.isHidden = true
+            isBoxSelected = true
+        }
+        
+        if userDefaults.value(forKey: "isShowEarPhone") as! Bool == true{
+            //viewEarPhones.backgroundColor = UIColor.white
+            btnEarPhones.isUserInteractionEnabled = true
+            viewEarPhones.alpha = 1.0
+            
+            viewEarPhones.isHidden = false
+            isEarphoneSelected = false
+            totalButton += 1
+        }
+        else{
+            //viewEarPhones.backgroundColor = UIColor.lightGray
+            btnEarPhones.isUserInteractionEnabled = false
+            viewEarPhones.alpha = 0.4
+            
+            viewEarPhones.isHidden = true
+            isEarphoneSelected = true
+        }
+        
+        if userDefaults.value(forKey: "isShowCharger") as! Bool == true{
+            //viewOriginalCharger.backgroundColor = UIColor.white
+            btnOriginalCharger.isUserInteractionEnabled = true
+            viewOriginalCharger.alpha = 1.0
+            
+            viewOriginalCharger.isHidden = false
+            isChargerSelected = false
+            totalButton += 1
+        }
+        else{
+            //viewOriginalCharger.backgroundColor = UIColor.lightGray
+            btnOriginalCharger.isUserInteractionEnabled = false
+            viewOriginalCharger.alpha = 0.4
+            
+            viewOriginalCharger.isHidden = true
+            isChargerSelected = true
+        }
+        
+        
+        switch totalButton {
+        case 1:
+            self.itemHeightConstraint.constant = 50
+        case 2:
+            self.itemHeightConstraint.constant = 100
+        case 3:
+            self.itemHeightConstraint.constant = 155
+        case 4:
+            self.itemHeightConstraint.constant = 210
+        default:
+            self.itemHeightConstraint.constant = 265
         }
         
     }
@@ -126,7 +220,6 @@ class PickUpItemsVC: UIViewController,UITextFieldDelegate {
     
     //MARK:- button action methods
     @objc func btnSideMenuPressed() -> Void {
-        
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -137,89 +230,146 @@ class PickUpItemsVC: UIViewController,UITextFieldDelegate {
         if sender.isSelected{
             sender.isSelected = false
             isDeviceSelected = false
-            viewTop.backgroundColor = UIColor.white
-
+            //viewDevice.backgroundColor = UIColor.white
+            
+            totalSelectedButton -= 1
+            viewTop.alpha = 0
+            viewTop.isUserInteractionEnabled = false
+            //viewTop.backgroundColor = UIColor.white
         }
         else{
             sender.isSelected = true
             isDeviceSelected = true
-            viewTop.backgroundColor = navColor
-
+            //viewDevice.backgroundColor = navColor
+            
+            totalSelectedButton += 1
+            
+            if totalSelectedButton == totalButton {
+                viewTop.alpha = 1
+                viewTop.isUserInteractionEnabled = true
+            }
+            
+            //viewTop.backgroundColor = navColor
         }
         //validateandCallAPI()
-
     }
     
     @IBAction func btnValidBillPressed(_ sender: UIButton) {
         if sender.isSelected{
             sender.isSelected = false
-            viewValidBill.backgroundColor = UIColor.white
+            //viewValidBill.backgroundColor = UIColor.white
             
+            totalSelectedButton -= 1
+            viewTop.alpha = 0
+            viewTop.isUserInteractionEnabled = false
         }
         else{
             sender.isSelected = true
-            viewValidBill.backgroundColor = navColor
+            //viewValidBill.backgroundColor = navColor
+            
+            totalSelectedButton += 1
+            
+            if totalSelectedButton == totalButton {
+                viewTop.alpha = 1
+                viewTop.isUserInteractionEnabled = true
+            }
             
         }
         //validateandCallAPI()
-
     }
     
     @IBAction func btnBoxPressed(_ sender: UIButton) {
         if sender.isSelected{
             sender.isSelected = false
-            viewBox.backgroundColor = UIColor.white
+            //viewBox.backgroundColor = UIColor.white
             
+            totalSelectedButton -= 1
+            viewTop.alpha = 0
+            viewTop.isUserInteractionEnabled = false
         }
         else{
             sender.isSelected = true
-            viewBox.backgroundColor = navColor
+            //viewBox.backgroundColor = navColor
+            
+            totalSelectedButton += 1
+            
+            if totalSelectedButton == totalButton {
+                viewTop.alpha = 1
+                viewTop.isUserInteractionEnabled = true
+            }
             
         }
         //validateandCallAPI()
-
+    }
+    
+    @IBAction func btnEarPhonePressed(_ sender: UIButton) {
+        if sender.isSelected{
+            sender.isSelected = false
+            //viewEarPhones.backgroundColor = UIColor.white
+            
+            totalSelectedButton -= 1
+            viewTop.alpha = 0
+            viewTop.isUserInteractionEnabled = false
+        }
+        else{
+            sender.isSelected = true
+            //viewEarPhones.backgroundColor = navColor
+            
+            totalSelectedButton += 1
+            
+            if totalSelectedButton == totalButton {
+                viewTop.alpha = 1
+                viewTop.isUserInteractionEnabled = true
+            }
+            
+        }
+        // validateandCallAPI()
     }
     
     @IBAction func btnOriginolChargerPressed(_ sender: UIButton) {
         if sender.isSelected{
             sender.isSelected = false
-            viewOriginalCharger.backgroundColor = UIColor.white
+            //viewOriginalCharger.backgroundColor = UIColor.white
             
+            totalSelectedButton -= 1
+            viewTop.alpha = 0
+            viewTop.isUserInteractionEnabled = false
         }
         else{
             sender.isSelected = true
-            viewOriginalCharger.backgroundColor = navColor
+            //viewOriginalCharger.backgroundColor = navColor
+            
+            totalSelectedButton += 1
+            
+            if totalSelectedButton == totalButton {
+                viewTop.alpha = 1
+                viewTop.isUserInteractionEnabled = true
+            }
             
         }
        // validateandCallAPI()
-
-    }
-    @IBAction func btnEarPhonePressed(_ sender: UIButton) {
-        if sender.isSelected{
-            sender.isSelected = false
-            viewEarPhones.backgroundColor = UIColor.white
-            
-        }
-        else{
-            sender.isSelected = true
-            viewEarPhones.backgroundColor = navColor
-            
-        }
-   // validateandCallAPI()
     }
     
+    @IBAction func btnYesClicked(_ sender: UIButton) {
+        self.fireWebServiceForOrderPlaced()
+    }
+    
+    @objc func clickYes(sender:UITapGestureRecognizer){
+        // ...
+        self.fireWebServiceForOrderPlaced()
+    }
+    
+    /*
     func validateandCallAPI() {
         if txtYes.text?.count == 3 {
             if txtYes.text == "YES" {
                 if isDeviceSelected == true {
                     txtYes.resignFirstResponder()
                     self.fireWebServiceForOrderPlaced()
-                    
                 }
                 else {
                     Alert.showAlert(strMessage: "Select Device", Onview: self)
                 }
-                
             }
         }
     }
@@ -235,7 +385,6 @@ class PickUpItemsVC: UIViewController,UITextFieldDelegate {
                 else{
                     Alert.showAlert(strMessage: "Select Device", Onview: self)
                 }
-                
             }
         }
     }
@@ -248,17 +397,14 @@ class PickUpItemsVC: UIViewController,UITextFieldDelegate {
                     if isAllreadyFire == false{
                         self.fireWebServiceForOrderPlaced()
                     }
-                    
                 }
                 else{
                     Alert.showAlert(strMessage: "Select Device", Onview: self)
                 }
-                
             }
         }
-
     }
-    
+    */
     
     
     //MARK:- APi for verification code
@@ -285,6 +431,9 @@ class PickUpItemsVC: UIViewController,UITextFieldDelegate {
             print(parameters)
             
             self.pickItemPost(strURL: strUrl, parameters: parameters as NSDictionary, completionHandler: {responseObject , error in
+                
+                print(responseObject ?? [:])
+                
                 Alert.HideProgressHud(Onview: self.view)
                 if error == nil {
                     
@@ -309,7 +458,7 @@ class PickUpItemsVC: UIViewController,UITextFieldDelegate {
                     else{
                         self.isAllreadyFire = false
 
-                        //Alert.showAlert(strMessage:responseObject?["status"] as! NSString , Onview: self)
+                        Alert.showAlert(strMessage:responseObject?["status"] as! NSString , Onview: self)
                         
                     }
                     

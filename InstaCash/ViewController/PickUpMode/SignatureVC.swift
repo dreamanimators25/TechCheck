@@ -115,6 +115,9 @@ class SignatureVC: UIViewController,YPSignatureDelegate {
             print(parameters)
             
             self.signaturePost(strURL: strUrl, parameters: parameters as NSDictionary, completionHandler: {responseObject , error in
+                
+                print(responseObject ?? [:])
+                
                 Alert.HideProgressHud(Onview: self.view)
                 if error == nil {
                     
@@ -189,6 +192,8 @@ class SignatureVC: UIViewController,YPSignatureDelegate {
             print(parameters)
             
             self.signaturePost(strURL: strUrl, parameters: parameters as NSDictionary, completionHandler: {responseObject , error in
+                
+                print(responseObject ?? [:])
                
                 //if (userDefaults.value(forKey: "countryName") as? String)?.contains("India") != nil {
                     
@@ -216,7 +221,7 @@ class SignatureVC: UIViewController,YPSignatureDelegate {
                                 vc.strGetPaymentMode = responseObject?["paymentMode"] as! String
                                 self.navigationController?.pushViewController(vc, animated: true)
                             }
-                            else{
+                            else {
                                 let amount = responseObject?["paymentAmount"] as! Int64
                                 self.fireWebServiceForOrderPlacedMalasiya(getAmount: String(format: "%d", amount), getAccountNumber: responseObject?["accountNumber"] as! String, getStatusMode: responseObject?["paymentMode"] as! String)
                             }

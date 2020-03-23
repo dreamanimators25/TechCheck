@@ -164,7 +164,6 @@ class MisMatchVC: UIViewController {
                             
                             let swipeCancelButton = UISwipeGestureRecognizer(target: self, action: #selector(self.btnCancelPressed))
                             swipeCancelButton.direction = .right
-                        
                             self.btnCancel.addGestureRecognizer(swipeCancelButton)
                             
                             self.lblPrice.isHidden = false
@@ -262,29 +261,44 @@ class MisMatchVC: UIViewController {
                 
                 if strAppCodes.contains("CACC01;CACC02;CACC03;"){
                     UserDefaults.standard.set(true, forKey: "isShowEarPhone")
-                    UserDefaults.standard.set(true, forKey: "isShowCharger")
                     UserDefaults.standard.set(true, forKey: "isShowBox")
+                    UserDefaults.standard.set(true, forKey: "isShowCharger")
                 }
                 else{
                     if strAppCodes.contains("CACC01;CACC02;"){
                         UserDefaults.standard.set(true, forKey: "isShowEarPhone")
-                        UserDefaults.standard.set(false, forKey: "isShowCharger")
                         UserDefaults.standard.set(true, forKey: "isShowBox")
+                        UserDefaults.standard.set(false, forKey: "isShowCharger")
                     }
                     else if strAppCodes.contains("CACC01;CACC03;"){
                         UserDefaults.standard.set(true, forKey: "isShowEarPhone")
-                        UserDefaults.standard.set(true, forKey: "isShowCharger")
                         UserDefaults.standard.set(false, forKey: "isShowBox")
+                        UserDefaults.standard.set(true, forKey: "isShowCharger")
+                    }
+                    else if strAppCodes.contains("CACC02;CACC03;"){
+                        UserDefaults.standard.set(false, forKey: "isShowEarPhone")
+                        UserDefaults.standard.set(true, forKey: "isShowBox")
+                        UserDefaults.standard.set(true, forKey: "isShowCharger")
                     }
                     else if strAppCodes.contains("CACC01;"){
                         UserDefaults.standard.set(true, forKey: "isShowEarPhone")
-                        UserDefaults.standard.set(false, forKey: "isShowCharger")
                         UserDefaults.standard.set(false, forKey: "isShowBox")
+                        UserDefaults.standard.set(false, forKey: "isShowCharger")
+                    }
+                    else if strAppCodes.contains("CACC02;"){
+                        UserDefaults.standard.set(false, forKey: "isShowEarPhone")
+                        UserDefaults.standard.set(true, forKey: "isShowBox")
+                        UserDefaults.standard.set(false, forKey: "isShowCharger")
+                    }
+                    else if strAppCodes.contains("CACC03;"){
+                        UserDefaults.standard.set(false, forKey: "isShowEarPhone")
+                        UserDefaults.standard.set(false, forKey: "isShowBox")
+                        UserDefaults.standard.set(true, forKey: "isShowCharger")
                     }
                     else{
                         UserDefaults.standard.set(false, forKey: "isShowEarPhone")
-                        UserDefaults.standard.set(false, forKey: "isShowCharger")
                         UserDefaults.standard.set(false, forKey: "isShowBox")
+                        UserDefaults.standard.set(false, forKey: "isShowCharger")
                     }
                 }
                 

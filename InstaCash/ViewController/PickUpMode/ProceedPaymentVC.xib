@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -54,7 +54,7 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="payment" translatesAutoresizingMaskIntoConstraints="NO" id="5qQ-kU-DLG">
                     <rect key="frame" x="55.5" y="179.5" width="209" height="209"/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rwm-Pl-xcA" customClass="shadowCornerButton" customModule="Instacash" customModuleProvider="target">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rwm-Pl-xcA" customClass="shadowCornerButton" customModule="InstaCash" customModuleProvider="target">
                     <rect key="frame" x="20" y="494" width="280" height="44"/>
                     <color key="backgroundColor" red="0.094117647060000004" green="0.60784313729999995" blue="0.17254901959999999" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="18"/>
@@ -71,19 +71,19 @@
                     </connections>
                 </button>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Z98-x4-Ukg">
-                    <rect key="frame" x="48" y="408.5" width="224" height="50"/>
+                    <rect key="frame" x="16" y="408.5" width="288" height="50"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Iso-AM-HGj">
-                            <rect key="frame" x="0.0" y="0.0" width="139.5" height="50"/>
+                            <rect key="frame" x="0.0" y="0.0" width="179.5" height="50"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZAQ-9U-PgP">
-                                    <rect key="frame" x="0.0" y="0.0" width="139.5" height="20"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="179.5" height="20"/>
                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                     <color key="textColor" red="0.38431372549999998" green="0.38431372549999998" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ExG-Gf-jxu">
-                                    <rect key="frame" x="0.0" y="30" width="139.5" height="20"/>
+                                    <rect key="frame" x="0.0" y="30" width="179.5" height="20"/>
                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                     <color key="textColor" red="0.38431372549999998" green="0.38431372549999998" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
@@ -91,15 +91,15 @@
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="zdH-hk-yqC">
-                            <rect key="frame" x="149.5" y="0.0" width="74.5" height="50"/>
+                            <rect key="frame" x="189.5" y="0.0" width="98.5" height="50"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="****4553" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tDW-P7-SCa">
-                                    <rect key="frame" x="0.0" y="0.0" width="74.5" height="20"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="98.5" height="20"/>
                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RM365" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UiO-gp-gJA">
-                                    <rect key="frame" x="0.0" y="30" width="74.5" height="20"/>
+                                    <rect key="frame" x="0.0" y="30" width="98.5" height="20"/>
                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -126,7 +126,7 @@
                 <constraint firstItem="BVe-HS-dqj" firstAttribute="width" secondItem="BVe-HS-dqj" secondAttribute="height" multiplier="1:1" id="NIq-pS-rAl"/>
                 <constraint firstItem="Z98-x4-Ukg" firstAttribute="top" secondItem="5qQ-kU-DLG" secondAttribute="bottom" constant="20" id="Nbi-4E-jtT"/>
                 <constraint firstItem="siR-yL-hsA" firstAttribute="centerY" secondItem="Qun-yL-ZrE" secondAttribute="centerY" id="Ojl-aX-6uI"/>
-                <constraint firstItem="Z98-x4-Ukg" firstAttribute="width" secondItem="mFR-SX-mtD" secondAttribute="width" multiplier="0.7" id="UHj-5S-lSV"/>
+                <constraint firstItem="Z98-x4-Ukg" firstAttribute="width" secondItem="mFR-SX-mtD" secondAttribute="width" multiplier="0.9" id="UHj-5S-lSV"/>
                 <constraint firstItem="Z98-x4-Ukg" firstAttribute="centerX" secondItem="NKh-7t-TSi" secondAttribute="centerX" id="UKT-K2-vAQ"/>
                 <constraint firstItem="PTJ-8p-V97" firstAttribute="centerY" secondItem="NKh-7t-TSi" secondAttribute="centerY" multiplier="0.5" id="VTh-kz-EJa"/>
                 <constraint firstItem="Qun-yL-ZrE" firstAttribute="leading" secondItem="NKh-7t-TSi" secondAttribute="leading" constant="20" id="WWj-RS-lAQ"/>
@@ -142,7 +142,7 @@
         </view>
     </objects>
     <resources>
-        <image name="back" width="32" height="32"/>
+        <image name="back" width="51.200000762939453" height="51.200000762939453"/>
         <image name="payment" width="209" height="209"/>
     </resources>
 </document>

@@ -620,7 +620,8 @@ class BankTransfer: UIViewController,UITextFieldDelegate {
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-            
+        
+        if textField == txtMobileNumber {
             // YOU SHOULD FIRST CHECK FOR THE BACKSPACE. IF BACKSPACE IS PRESSED ALLOW IT
             
             if string == "" {
@@ -634,6 +635,7 @@ class BankTransfer: UIViewController,UITextFieldDelegate {
                     return textField.resignFirstResponder()
                 }
             }
+        }
             return true
             
     }

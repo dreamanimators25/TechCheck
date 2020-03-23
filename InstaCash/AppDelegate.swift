@@ -43,7 +43,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     
     //When need to navigate to HomeVC
     func setRootVCNavigateToHomeVC() {
-        let vc = HomeVC()
+        //let vc = HomeVC()
+        let vc = PickUpItemsVC()
         nav = UINavigationController.init(rootViewController: vc)
         self.window?.rootViewController = nav
         self.window?.makeKeyAndVisible()

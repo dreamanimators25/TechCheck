@@ -23,7 +23,9 @@ class ProceedPaymentVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNavigationBar()
+        
+        //setNavigationBar() //s.
+        
         self.lblPaymentMode.text = "Payment Mode: " + getAcountMode
         self.lblAccountNumber.text = "Account Number: " + getAccountNumber
         self.lblAmount.text = "Payment Amount: " + getAmount
@@ -64,13 +66,13 @@ class ProceedPaymentVC: UIViewController {
             let firstTextField = alertController.textFields![0] as UITextField
             if !(firstTextField.text?.isEmpty)!{
                 self.fireWebServiceForVerificationCode(strGetCode: firstTextField.text!)
-                
-                
             }
         })
+        
         let cancelAction = UIAlertAction(title: "CANCEL", style: UIAlertActionStyle.default, handler: {
             (action : UIAlertAction!) -> Void in
         })
+        
         alertController.addAction(saveAction)
         alertController.addAction(cancelAction)
         
@@ -106,9 +108,13 @@ class ProceedPaymentVC: UIViewController {
             print(parameters)
             
             self.verificationPost(strURL: strUrl, parameters: parameters as NSDictionary, completionHandler: {responseObject , error in
+                
                 Alert.HideProgressHud(Onview: self.view)
+                
                 if error == nil {
-                    if responseObject?["status"] as! String == "Success"{
+                    
+                    if responseObject?["status"] as! String == "Success" {
+                        
                         let vc = ProcessPaymentPopUpVC()
                         vc.getVerificationCode = strGetCode
                         vc.strGetPaymentAmount = self.getAmount

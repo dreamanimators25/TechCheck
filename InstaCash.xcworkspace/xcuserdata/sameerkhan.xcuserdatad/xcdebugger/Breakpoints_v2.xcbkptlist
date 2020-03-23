@@ -58,7 +58,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "InstaCash/ViewController/HomeVC/HomeVC.swift"
-            timestampString = "605985690.053117"
+            timestampString = "606597290.553555"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1392"
@@ -74,7 +74,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "InstaCash/ViewController/HomeVC/HomeVC.swift"
-            timestampString = "605985690.053178"
+            timestampString = "606597290.554148"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1692"
@@ -90,7 +90,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "InstaCash/ViewController/HomeVC/HomeVC.swift"
-            timestampString = "605985690.0532351"
+            timestampString = "606597290.5545681"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1837"
@@ -105,8 +105,8 @@
                   symbolName = "InstaCash.HomeVC.fireWebServiceForVerificationCode(strVerificationCode: Swift.String, withProcessCode: Swift.String) -&gt; ()"
                   moduleName = "InstaCash"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/Sam%20HD/InstaCash/March-2020/21:3:20/Insta_iOS-master/InstaCash/ViewController/HomeVC/HomeVC.swift"
-                  timestampString = "606489732.598888"
+                  urlString = "file:///Volumes/Sam%20HD/InstaCash/March-2020/23:3:20/Insta_iOS-master/InstaCash/ViewController/HomeVC/HomeVC.swift"
+                  timestampString = "606646853.774244"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "1837"
@@ -120,8 +120,8 @@
                   symbolName = "closure #1 (Swift.Optional&lt;__C.NSDictionary&gt;, Swift.Optional&lt;__C.NSError&gt;) -&gt; () in InstaCash.HomeVC.fireWebServiceForVerificationCode(strVerificationCode: Swift.String, withProcessCode: Swift.String) -&gt; ()"
                   moduleName = "InstaCash"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/Sam%20HD/InstaCash/March-2020/21:3:20/Insta_iOS-master/InstaCash/ViewController/HomeVC/HomeVC.swift"
-                  timestampString = "606489732.601125"
+                  urlString = "file:///Volumes/Sam%20HD/InstaCash/March-2020/23:3:20/Insta_iOS-master/InstaCash/ViewController/HomeVC/HomeVC.swift"
+                  timestampString = "606646853.7765"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "1838"
@@ -137,280 +137,8 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "InstaCash/ViewController/PickUpMode/DeadPixelVC.swift"
-            timestampString = "606228638.392678"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
-            landmarkName = "setRandomBackgroundColor()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "InstaCash/ViewController/PickUpMode/DeadPixelVC.swift"
-            timestampString = "606228638.393227"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
-            landmarkName = "setRandomBackgroundColor()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "InstaCash/ViewController/PickUpMode/PickUpQuestionFlow/PickUpQuestionVC.swift"
-            timestampString = "606161557.735276"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "InstaCash/ViewController/PickUpMode/PickUpQuestionFlow/PickUpQuestionVC.swift"
-            timestampString = "606161557.735424"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "InstaCash/ViewController/MisMatchVC/MisMatchVC.swift"
-            timestampString = "606481220.8809299"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "viewDidAppear(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "InstaCash/ViewController/MisMatchVC/MisMatchVC.swift"
-            timestampString = "606481220.881461"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
-            landmarkName = "viewDidAppear(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "InstaCash/ViewController/MisMatchVC/MisMatchVC.swift"
-            timestampString = "606481220.88192"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "363"
-            endingLineNumber = "363"
-            landmarkName = "fireWebServiceForMetchingDataForPickUp()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "InstaCash/ViewController/MisMatchVC/MisMatchVC.swift"
-            timestampString = "606481220.882321"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "249"
-            endingLineNumber = "249"
-            landmarkName = "fireWebServiceForMetchingDataForPickUp()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "InstaCash/ViewController/MisMatchVC/MisMatchVC.swift"
-            timestampString = "606481220.882748"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "368"
-            endingLineNumber = "368"
-            landmarkName = "fireWebServiceForMetchingDataForPickUp()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "InstaCash/ViewController/MisMatchVC/MisMatchVC.swift"
-            timestampString = "606481220.883118"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "433"
-            endingLineNumber = "433"
-            landmarkName = "fireWebServiceForMetchingDataForPickUp()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;__C.NSDictionary&gt;, Swift.Optional&lt;__C.NSError&gt;) -&gt; () in InstaCash.MisMatchVC.fireWebServiceForMetchingDataForPickUp() -&gt; ()"
-                  moduleName = "InstaCash"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/Sam%20HD/InstaCash/March-2020/21:3:20/Insta_iOS-master/InstaCash/ViewController/MisMatchVC/MisMatchVC.swift"
-                  timestampString = "606489732.650629"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "434"
-                  endingLineNumber = "434"
-                  offsetFromSymbolStart = "12024">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;__C.NSDictionary&gt;, Swift.Optional&lt;__C.NSError&gt;) -&gt; () in InstaCash.MisMatchVC.fireWebServiceForMetchingDataForPickUp() -&gt; ()"
-                  moduleName = "InstaCash"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/Sam%20HD/InstaCash/March-2020/21:3:20/Insta_iOS-master/InstaCash/ViewController/MisMatchVC/MisMatchVC.swift"
-                  timestampString = "606489732.653156"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "434"
-                  endingLineNumber = "434"
-                  offsetFromSymbolStart = "18224">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "InstaCash/ViewController/MisMatchVC/MisMatchVC.swift"
-            timestampString = "606481220.883472"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "456"
-            endingLineNumber = "456"
-            landmarkName = "fireWebServiceForMetchingDataForPickUp()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "InstaCash/ViewController/MisMatchVC/MisMatchVC.swift"
-            timestampString = "606481220.884029"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "461"
-            endingLineNumber = "461"
-            landmarkName = "fireWebServiceForMetchingDataForPickUp()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "InstaCash/ViewController/MisMatchVC/MisMatchVC.swift"
-            timestampString = "606481220.884408"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "473"
-            endingLineNumber = "473"
-            landmarkName = "fireWebServiceForMetchingDataForPickUp()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "InstaCash/ViewController/MisMatchVC/MisMatchVC.swift"
-            timestampString = "606481220.88495"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "409"
-            endingLineNumber = "409"
-            landmarkName = "fireWebServiceForMetchingDataForPickUp()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "InstaCash/ViewController/MisMatchVC/MisMatchVC.swift"
-            timestampString = "606481220.8853951"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "391"
-            endingLineNumber = "391"
-            landmarkName = "fireWebServiceForMetchingDataForPickUp()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "InstaCash/ViewController/HomeVC/HomeVC.swift"
-            timestampString = "605985690.054078"
+            timestampString = "606597290.554976"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1318"
@@ -426,7 +154,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "InstaCash/ViewController/HomeVC/HomeVC.swift"
-            timestampString = "605985690.054145"
+            timestampString = "606597290.555361"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1322"
@@ -442,7 +170,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "InstaCash/ViewController/HomeVC/HomeVC.swift"
-            timestampString = "605985690.054298"
+            timestampString = "606597290.555748"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1354"
@@ -634,7 +362,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "InstaCash/ViewController/NewControllers/Controllers/BankTransfer.swift"
-            timestampString = "606481220.886171"
+            timestampString = "606596730.187222"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "469"
@@ -650,7 +378,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "InstaCash/ViewController/NewControllers/Controllers/BankTransfer.swift"
-            timestampString = "606481220.886256"
+            timestampString = "606596730.187309"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "481"
@@ -666,7 +394,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "InstaCash/ViewController/NewControllers/Controllers/BankTransfer.swift"
-            timestampString = "606481220.886323"
+            timestampString = "606596730.187378"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "495"
@@ -682,7 +410,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "InstaCash/ViewController/NewControllers/Controllers/BankTransfer.swift"
-            timestampString = "606481220.886418"
+            timestampString = "606596730.1874419"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "498"
@@ -698,7 +426,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "InstaCash/ViewController/NewControllers/Controllers/BankTransfer.swift"
-            timestampString = "606481220.886506"
+            timestampString = "606596730.187503"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "246"
@@ -714,7 +442,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "InstaCash/ViewController/NewControllers/Controllers/BankTransfer.swift"
-            timestampString = "606481220.8865761"
+            timestampString = "606596730.187564"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "381"
@@ -793,86 +521,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "InstaCash/ViewController/PickUpModeScreens/PickUpCodeVC.swift"
-            timestampString = "606487282.20213"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "174"
-            endingLineNumber = "174"
-            landmarkName = "fireWebServiceForVerificationCode(strVerificationCode:withProcessCode:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "InstaCash/ViewController/PickUpModeScreens/PickUpCodeVC.swift"
-            timestampString = "606487282.20272"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "181"
-            endingLineNumber = "181"
-            landmarkName = "fireWebServiceForVerificationCode(strVerificationCode:withProcessCode:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "InstaCash/ViewController/PickUpModeScreens/PickUpCodeVC.swift"
-            timestampString = "606487282.203083"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "185"
-            endingLineNumber = "185"
-            landmarkName = "fireWebServiceForVerificationCode(strVerificationCode:withProcessCode:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "InstaCash/ViewController/PickUpModeScreens/PickUpCodeVC.swift"
-            timestampString = "606487282.203411"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "200"
-            endingLineNumber = "200"
-            landmarkName = "fireWebServiceForVerificationCode(strVerificationCode:withProcessCode:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "InstaCash/ViewController/MyOrder/MyOrderVC.swift"
-            timestampString = "606490696.675853"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "InstaCash/ViewController/MyOrder/MyOrderVC.swift"
             timestampString = "606490696.675926"
             startingColumnNumber = "9223372036854775807"
@@ -905,8 +553,8 @@
                   symbolName = "InstaCash.PaymentsModeVC.btnNextTapped(__C.UIButton) -&gt; ()"
                   moduleName = "InstaCash"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/Sam%20HD/InstaCash/March-2020/21:3:20/Insta_iOS-master/InstaCash/ViewController/PaymentMode/PaymentsModeVC.swift"
-                  timestampString = "606489732.894197"
+                  urlString = "file:///Volumes/Sam%20HD/InstaCash/March-2020/23:3:20/Insta_iOS-master/InstaCash/ViewController/PaymentMode/PaymentsModeVC.swift"
+                  timestampString = "606646853.926283"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "939"
@@ -920,8 +568,8 @@
                   symbolName = "InstaCash.PaymentsModeVC.btnNextTapped(__C.UIButton) -&gt; ()"
                   moduleName = "InstaCash"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/Sam%20HD/InstaCash/March-2020/21:3:20/Insta_iOS-master/InstaCash/ViewController/PaymentMode/PaymentsModeVC.swift"
-                  timestampString = "606489732.896423"
+                  urlString = "file:///Volumes/Sam%20HD/InstaCash/March-2020/23:3:20/Insta_iOS-master/InstaCash/ViewController/PaymentMode/PaymentsModeVC.swift"
+                  timestampString = "606646853.9285491"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "939"
@@ -954,7 +602,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "InstaCash/ViewController/NewControllers/Controllers/BankTransfer.swift"
-            timestampString = "606481220.886964"
+            timestampString = "606596730.187764"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "545"
@@ -1018,7 +666,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "InstaCash/ViewController/NewControllers/Controllers/BankTransfer.swift"
-            timestampString = "606481220.887159"
+            timestampString = "606596730.187886"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "136"
@@ -1098,75 +746,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "InstaCash/ViewController/PickUpMode/LiveOfferVC.swift"
-            timestampString = "606481220.887311"
+            timestampString = "606596730.1880291"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "151"
-            endingLineNumber = "151"
-            landmarkName = "fireWebServiceForLiveAgreePrice(isforCancel:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "InstaCash/ViewController/PickUpMode/LiveOfferVC.swift"
-            timestampString = "606481220.887376"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
-            landmarkName = "fireWebServiceForLiveAgreePrice(isforCancel:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "InstaCash/ViewController/PickUpMode/LiveOfferVC.swift"
-            timestampString = "606481220.887436"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
-            landmarkName = "fireWebServiceForLiveAgreePrice(isforCancel:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "InstaCash/ViewController/PickUpMode/LiveOfferVC.swift"
-            timestampString = "606481220.887519"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
-            landmarkName = "fireWebServiceForLiveAgreePrice(isforCancel:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "InstaCash/ViewController/PickUpMode/LiveOfferVC.swift"
-            timestampString = "606481220.8875819"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "152"
-            endingLineNumber = "152"
+            startingLineNumber = "163"
+            endingLineNumber = "163"
             landmarkName = "fireWebServiceForLiveAgreePrice(isforCancel:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1178,43 +762,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "InstaCash/ViewController/MisMatchVC/MisMatchVC.swift"
-            timestampString = "606481220.887643"
+            timestampString = "606646852.6428109"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "384"
-            endingLineNumber = "384"
-            landmarkName = "fireWebServiceForMetchingDataForPickUp()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "InstaCash/ViewController/MisMatchVC/MisMatchVC.swift"
-            timestampString = "606481220.88808"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "376"
-            endingLineNumber = "376"
-            landmarkName = "fireWebServiceForMetchingDataForPickUp()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "InstaCash/ViewController/MisMatchVC/MisMatchVC.swift"
-            timestampString = "606481220.888433"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "652"
-            endingLineNumber = "652"
+            startingLineNumber = "666"
+            endingLineNumber = "666"
             landmarkName = "fireWebServiceForAgreePrice(isforCancel:isShowLiveProcess:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1226,11 +778,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "InstaCash/ViewController/MisMatchVC/MisMatchVC.swift"
-            timestampString = "606481220.889038"
+            timestampString = "606646852.642931"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "648"
-            endingLineNumber = "648"
+            startingLineNumber = "662"
+            endingLineNumber = "662"
             landmarkName = "fireWebServiceForAgreePrice(isforCancel:isShowLiveProcess:)"
             landmarkType = "7">
             <Locations>
@@ -1241,12 +793,12 @@
                   symbolName = "closure #1 (__C.UIAlertAction) -&gt; () in closure #1 (Swift.Optional&lt;__C.NSDictionary&gt;, Swift.Optional&lt;__C.NSError&gt;) -&gt; () in InstaCash.MisMatchVC.fireWebServiceForAgreePrice(isforCancel: Swift.Bool, isShowLiveProcess: Swift.Bool) -&gt; ()"
                   moduleName = "InstaCash"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/Sam%20HD/InstaCash/March-2020/21:3:20/Insta_iOS-master/InstaCash/ViewController/MisMatchVC/MisMatchVC.swift"
-                  timestampString = "606489732.9908"
+                  urlString = "file:///Volumes/Sam%20HD/InstaCash/March-2020/23:3:20/Insta_iOS-master/InstaCash/ViewController/MisMatchVC/MisMatchVC.swift"
+                  timestampString = "606646853.992903"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "648"
-                  endingLineNumber = "648"
+                  startingLineNumber = "662"
+                  endingLineNumber = "662"
                   offsetFromSymbolStart = "820">
                </Location>
                <Location
@@ -1256,12 +808,12 @@
                   symbolName = "closure #1 () -&gt; () in closure #1 (__C.UIAlertAction) -&gt; () in closure #1 (Swift.Optional&lt;__C.NSDictionary&gt;, Swift.Optional&lt;__C.NSError&gt;) -&gt; () in InstaCash.MisMatchVC.fireWebServiceForAgreePrice(isforCancel: Swift.Bool, isShowLiveProcess: Swift.Bool) -&gt; ()"
                   moduleName = "InstaCash"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/Sam%20HD/InstaCash/March-2020/21:3:20/Insta_iOS-master/InstaCash/ViewController/MisMatchVC/MisMatchVC.swift"
-                  timestampString = "606489732.993031"
+                  urlString = "file:///Volumes/Sam%20HD/InstaCash/March-2020/23:3:20/Insta_iOS-master/InstaCash/ViewController/MisMatchVC/MisMatchVC.swift"
+                  timestampString = "606646853.9953181"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "649"
-                  endingLineNumber = "649"
+                  startingLineNumber = "663"
+                  endingLineNumber = "663"
                   offsetFromSymbolStart = "36">
                </Location>
             </Locations>
@@ -1274,11 +826,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "InstaCash/ViewController/MisMatchVC/MisMatchVC.swift"
-            timestampString = "606481220.8894269"
+            timestampString = "606646852.642996"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "592"
-            endingLineNumber = "592"
+            startingLineNumber = "655"
+            endingLineNumber = "655"
             landmarkName = "fireWebServiceForAgreePrice(isforCancel:isShowLiveProcess:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1290,11 +842,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "InstaCash/ViewController/MisMatchVC/MisMatchVC.swift"
-            timestampString = "606481230.235531"
+            timestampString = "606646852.643055"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "540"
-            endingLineNumber = "540"
+            startingLineNumber = "599"
+            endingLineNumber = "599"
             landmarkName = "fireWebServiceForAgreePrice(isforCancel:isShowLiveProcess:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1306,11 +858,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "InstaCash/ViewController/MisMatchVC/MisMatchVC.swift"
-            timestampString = "606481248.914198"
+            timestampString = "606646852.6431119"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "641"
-            endingLineNumber = "641"
+            startingLineNumber = "577"
+            endingLineNumber = "577"
             landmarkName = "fireWebServiceForAgreePrice(isforCancel:isShowLiveProcess:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1321,44 +873,12 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "InstaCash/ViewController/PickUpMode/UploadIDVC.swift"
-            timestampString = "606481491.714359"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
-            landmarkName = "imagePickerController(_:didFinishPickingMediaWithInfo:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "InstaCash/ViewController/PickUpModeScreens/PickUpCodeVC.swift"
-            timestampString = "606487282.204217"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "153"
-            endingLineNumber = "153"
-            landmarkName = "fireWebServiceForVerificationCode(strVerificationCode:withProcessCode:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "InstaCash/ViewController/MisMatchVC/MisMatchVC.swift"
-            timestampString = "606481888.017638"
+            timestampString = "606646852.64317"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "525"
-            endingLineNumber = "525"
+            startingLineNumber = "543"
+            endingLineNumber = "543"
             landmarkName = "btnCancelPressed()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1370,11 +890,43 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "InstaCash/ViewController/MisMatchVC/MisMatchVC.swift"
-            timestampString = "606481912.129144"
+            timestampString = "606646852.643224"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "581"
-            endingLineNumber = "581"
+            startingLineNumber = "547"
+            endingLineNumber = "547"
+            landmarkName = "btnCancelPressed()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "InstaCash/ViewController/MisMatchVC/MisMatchVC.swift"
+            timestampString = "606646852.64328"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "513"
+            endingLineNumber = "513"
+            landmarkName = "btnAgreePressed()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "InstaCash/ViewController/MisMatchVC/MisMatchVC.swift"
+            timestampString = "606646852.643338"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "675"
+            endingLineNumber = "675"
             landmarkName = "fireWebServiceForAgreePrice(isforCancel:isShowLiveProcess:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1386,11 +938,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "InstaCash/ViewController/MisMatchVC/MisMatchVC.swift"
-            timestampString = "606481914.2851911"
+            timestampString = "606646852.6433949"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "571"
-            endingLineNumber = "571"
+            startingLineNumber = "679"
+            endingLineNumber = "679"
             landmarkName = "fireWebServiceForAgreePrice(isforCancel:isShowLiveProcess:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1401,13 +953,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "InstaCash/ViewController/MisMatchVC/MisMatchVC.swift"
-            timestampString = "606481916.224841"
+            filePath = "InstaCash/ViewController/PickUpMode/LiveOfferVC.swift"
+            timestampString = "606596730.192101"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "560"
-            endingLineNumber = "560"
-            landmarkName = "fireWebServiceForAgreePrice(isforCancel:isShowLiveProcess:)"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
+            landmarkName = "fireWebServiceForLiveAgreePrice(isforCancel:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1417,13 +969,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "InstaCash/ViewController/MisMatchVC/MisMatchVC.swift"
-            timestampString = "606481931.376583"
+            filePath = "InstaCash/ViewController/PickUpMode/SignatureVC.swift"
+            timestampString = "606596730.192169"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "597"
-            endingLineNumber = "597"
-            landmarkName = "fireWebServiceForAgreePrice(isforCancel:isShowLiveProcess:)"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
+            landmarkName = "fireWebServiceForOrderPlacedMalasiya(getAmount:getAccountNumber:getStatusMode:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1433,13 +985,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "InstaCash/ViewController/MisMatchVC/MisMatchVC.swift"
-            timestampString = "606481939.846601"
+            filePath = "InstaCash/ViewController/PickUpMode/SignatureVC.swift"
+            timestampString = "606596730.192235"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "625"
-            endingLineNumber = "625"
-            landmarkName = "fireWebServiceForAgreePrice(isforCancel:isShowLiveProcess:)"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
+            landmarkName = "fireWebServiceForOrderPlacedMalasiya(getAmount:getAccountNumber:getStatusMode:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1449,13 +1001,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "InstaCash/ViewController/MisMatchVC/MisMatchVC.swift"
-            timestampString = "606481965.895638"
+            filePath = "InstaCash/ViewController/PickUpMode/PickUpItemsVC.swift"
+            timestampString = "606646852.643507"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "608"
-            endingLineNumber = "608"
-            landmarkName = "fireWebServiceForAgreePrice(isforCancel:isShowLiveProcess:)"
+            startingLineNumber = "440"
+            endingLineNumber = "440"
+            landmarkName = "fireWebServiceForOrderPlaced()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1465,13 +1017,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "InstaCash/ViewController/MyOrder/OrderDetail.swift"
-            timestampString = "606490696.676529"
+            filePath = "InstaCash/ViewController/PickUpMode/PickUpItemsVC.swift"
+            timestampString = "606646852.644082"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
-            landmarkName = "fireWebServiceForOrderDetail()"
+            startingLineNumber = "446"
+            endingLineNumber = "446"
+            landmarkName = "fireWebServiceForOrderPlaced()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1481,13 +1033,173 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "InstaCash/ViewController/MyOrder/OrderDetail.swift"
-            timestampString = "606490696.677017"
+            filePath = "InstaCash/ViewController/PickUpMode/PickUpItemsVC.swift"
+            timestampString = "606646852.6447459"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "469"
+            endingLineNumber = "469"
+            landmarkName = "fireWebServiceForOrderPlaced()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.NSDictionary&gt;, Swift.Optional&lt;__C.NSError&gt;) -&gt; () in InstaCash.PickUpItemsVC.fireWebServiceForOrderPlaced() -&gt; ()"
+                  moduleName = "InstaCash"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Sam%20HD/InstaCash/March-2020/23:3:20/Insta_iOS-master/InstaCash/ViewController/PickUpMode/PickUpItemsVC.swift"
+                  timestampString = "606646854.070345"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "470"
+                  endingLineNumber = "470"
+                  offsetFromSymbolStart = "2692">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (__C.UIAlertAction) -&gt; () in closure #1 (Swift.Optional&lt;__C.NSDictionary&gt;, Swift.Optional&lt;__C.NSError&gt;) -&gt; () in InstaCash.PickUpItemsVC.fireWebServiceForOrderPlaced() -&gt; ()"
+                  moduleName = "InstaCash"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Sam%20HD/InstaCash/March-2020/23:3:20/Insta_iOS-master/InstaCash/ViewController/PickUpMode/PickUpItemsVC.swift"
+                  timestampString = "606646854.072607"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "472"
+                  endingLineNumber = "472"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "InstaCash/ViewController/PickUpMode/PickUpItemsVC.swift"
+            timestampString = "606646852.645401"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "426"
+            endingLineNumber = "426"
+            landmarkName = "fireWebServiceForOrderPlaced()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "InstaCash/ViewController/PickUpMode/PickUpItemsVC.swift"
+            timestampString = "606646852.646168"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "484"
+            endingLineNumber = "484"
+            landmarkName = "fireWebServiceForOrderPlaced()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "InstaCash.PickUpItemsVC.fireWebServiceForOrderPlaced() -&gt; ()"
+                  moduleName = "InstaCash"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Sam%20HD/InstaCash/March-2020/23:3:20/Insta_iOS-master/InstaCash/ViewController/PickUpMode/PickUpItemsVC.swift"
+                  timestampString = "606646854.088039"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "484"
+                  endingLineNumber = "484"
+                  offsetFromSymbolStart = "2680">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (__C.UIAlertAction) -&gt; () in InstaCash.PickUpItemsVC.fireWebServiceForOrderPlaced() -&gt; ()"
+                  moduleName = "InstaCash"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Sam%20HD/InstaCash/March-2020/23:3:20/Insta_iOS-master/InstaCash/ViewController/PickUpMode/PickUpItemsVC.swift"
+                  timestampString = "606646854.090317"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "486"
+                  endingLineNumber = "486"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "InstaCash/ViewController/PickUpMode/PickUpItemsVC.swift"
+            timestampString = "606646852.6468019"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "431"
+            endingLineNumber = "431"
+            landmarkName = "fireWebServiceForOrderPlaced()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "InstaCash/ViewController/PickUpMode/PickUpItemsVC.swift"
+            timestampString = "606646852.647373"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "354"
+            endingLineNumber = "354"
+            landmarkName = "btnYesClicked(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "InstaCash/ViewController/HomeVC/HomeVC.swift"
+            timestampString = "606597290.55826"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
+            landmarkName = "didPullToRefresh()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "InstaCash/ViewController/LoginVC/LoginVC.swift"
+            timestampString = "606597712.134201"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "125"
             endingLineNumber = "125"
-            landmarkName = "fireWebServiceForOrderDetail()"
+            landmarkName = "btnGPlusPressed(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1497,13 +1209,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "InstaCash/ViewController/MyOrder/OrderDetail.swift"
-            timestampString = "606490696.677349"
+            filePath = "InstaCash/ViewController/LoginVC/LoginVC.swift"
+            timestampString = "606597736.285637"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "129"
-            endingLineNumber = "129"
-            landmarkName = "fireWebServiceForOrderDetail()"
+            startingLineNumber = "338"
+            endingLineNumber = "338"
+            landmarkName = "fireWebServiceForFbLogin(userName:socialId:email:strProfile:strFbOrGp:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1513,13 +1225,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "InstaCash/ViewController/MyOrder/OrderDetail.swift"
-            timestampString = "606490696.677668"
+            filePath = "InstaCash/ViewController/LoginVC/LoginVC.swift"
+            timestampString = "606597738.413582"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "161"
-            endingLineNumber = "161"
-            landmarkName = "fireWebServiceForOrderDetail()"
+            startingLineNumber = "342"
+            endingLineNumber = "342"
+            landmarkName = "fireWebServiceForFbLogin(userName:socialId:email:strProfile:strFbOrGp:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1529,13 +1241,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "InstaCash/ViewController/MyOrder/OrderDetail.swift"
-            timestampString = "606490696.677992"
+            filePath = "InstaCash/ViewController/LoginVC/LoginVC.swift"
+            timestampString = "606597744.303056"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "176"
-            endingLineNumber = "176"
-            landmarkName = "fireWebServiceForOrderDetail()"
+            startingLineNumber = "377"
+            endingLineNumber = "377"
+            landmarkName = "fireWebServiceForFbLogin(userName:socialId:email:strProfile:strFbOrGp:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1545,13 +1257,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "InstaCash/ViewController/MyOrder/OrderDetail.swift"
-            timestampString = "606490696.678302"
+            filePath = "InstaCash/ViewController/LoginVC/LoginVC.swift"
+            timestampString = "606597745.497555"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "143"
-            endingLineNumber = "143"
-            landmarkName = "fireWebServiceForOrderDetail()"
+            startingLineNumber = "383"
+            endingLineNumber = "383"
+            landmarkName = "fireWebServiceForFbLogin(userName:socialId:email:strProfile:strFbOrGp:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1561,13 +1273,109 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "InstaCash/ViewController/MyOrder/OrderDetail.swift"
-            timestampString = "606490696.678615"
+            filePath = "InstaCash/ViewController/WelcomeVC/WelcomeVC.swift"
+            timestampString = "606597841.773998"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137"
-            landmarkName = "fireWebServiceForOrderDetail()"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "InstaCash/ViewController/WelcomeVC/WelcomeVC.swift"
+            timestampString = "606597843.028373"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "InstaCash/ViewController/WelcomeVC/WelcomeVC.swift"
+            timestampString = "606597844.090135"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "InstaCash/ViewController/PickUpMode/PickUpItemsVC.swift"
+            timestampString = "606646852.6482"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "358"
+            endingLineNumber = "358"
+            landmarkName = "clickYes(sender:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "InstaCash/ViewController/PickUpMode/PickUpItemsVC.swift"
+            timestampString = "606646973.884331"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "435"
+            endingLineNumber = "435"
+            landmarkName = "fireWebServiceForOrderPlaced()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "InstaCash/ViewController/PickUpMode/PickUpItemsVC.swift"
+            timestampString = "606647001.737763"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "461"
+            endingLineNumber = "461"
+            landmarkName = "fireWebServiceForOrderPlaced()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "InstaCash/ViewController/PickUpMode/ProceedPaymentVC.swift"
+            timestampString = "606647300.345206"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
+            landmarkName = "fireWebServiceForVerificationCode(strGetCode:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

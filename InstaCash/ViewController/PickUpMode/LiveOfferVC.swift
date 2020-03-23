@@ -121,6 +121,9 @@ class LiveOfferVC: UIViewController {
                 print(parameters)
             }
             self.livePost(strURL: strUrl, parameters: parameters as NSDictionary, completionHandler: {responseObject , error in
+                
+                print(responseObject ?? [:])
+                
                 if error == nil {
                     if isforCancel{
                         self.activityCancel.stopAnimating()
