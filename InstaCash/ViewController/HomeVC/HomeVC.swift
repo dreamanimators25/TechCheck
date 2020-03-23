@@ -1336,11 +1336,11 @@ class HomeVC: UIViewController, UIScrollViewDelegate,UICollectionViewDelegate,UI
     @IBAction @objc func btnSearchPressed(_ sender:UIButton){
         let vc  = AnotherDevice()
         self.navigationController?.pushViewController(vc, animated: true)
-        
     }
     
     @IBAction func btnPromotionAndOfferPressed(_ sender:UIButton){
-
+        let vc  = OffersAndPromotionsVC()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func btnCityPressed(sender:UIButton){
@@ -1353,6 +1353,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate,UICollectionViewDelegate,UI
     @IBAction func btnDiagnosticPressed(_ sender: UIButton) {
         sendToControllerToCompletediagnosisProcess()
     }
+    
     func pushToControllerToProceedDiagnosos(){
         // firebase analytics event
         if arrMyCurrentDeviceSend.count > 0 {

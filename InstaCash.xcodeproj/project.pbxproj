@@ -114,6 +114,8 @@
 		52BD9A4D23C9FD9F004CCCD6 /* FloatingItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52BD9A4B23C9FD9F004CCCD6 /* FloatingItemCell.xib */; };
 		52BD9A5023CA0A19004CCCD6 /* CustomerSupportVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BD9A4E23CA0A19004CCCD6 /* CustomerSupportVC.swift */; };
 		52BD9A5123CA0A19004CCCD6 /* CustomerSupportVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52BD9A4F23CA0A19004CCCD6 /* CustomerSupportVC.xib */; };
+		59E4BE862429202100F59107 /* OffersAndPromotionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E4BE842429202100F59107 /* OffersAndPromotionsVC.swift */; };
+		59E4BE872429202100F59107 /* OffersAndPromotionsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59E4BE852429202100F59107 /* OffersAndPromotionsVC.xib */; };
 		745B1F646E31132D7C5DB2A2 /* Pods_InstaCash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9F5E785D57A5CB7DDA6DFC4 /* Pods_InstaCash.framework */; };
 		951EC7EE213FC64F006BD4B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951EC7ED213FC64F006BD4B2 /* AppDelegate.swift */; };
 		951EC7F5213FC651006BD4B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 951EC7F4213FC651006BD4B2 /* Assets.xcassets */; };
@@ -522,6 +524,8 @@
 		52BD9A4B23C9FD9F004CCCD6 /* FloatingItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FloatingItemCell.xib; sourceTree = "<group>"; };
 		52BD9A4E23CA0A19004CCCD6 /* CustomerSupportVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerSupportVC.swift; sourceTree = "<group>"; };
 		52BD9A4F23CA0A19004CCCD6 /* CustomerSupportVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomerSupportVC.xib; sourceTree = "<group>"; };
+		59E4BE842429202100F59107 /* OffersAndPromotionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffersAndPromotionsVC.swift; sourceTree = "<group>"; };
+		59E4BE852429202100F59107 /* OffersAndPromotionsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OffersAndPromotionsVC.xib; sourceTree = "<group>"; };
 		71F0D5EC54E113DB020910AA /* Pods-InstaCashUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaCashUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstaCashUITests/Pods-InstaCashUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9359F43AE0E298EB730D42DF /* Pods-InstaCashTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaCashTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstaCashTests/Pods-InstaCashTests.release.xcconfig"; sourceTree = "<group>"; };
 		951EC7EA213FC64F006BD4B2 /* InstaCash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstaCash.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1081,6 +1085,15 @@
 			path = TPKeyboardAvoidingClasses;
 			sourceTree = "<group>";
 		};
+		59E4BE8324291F9F00F59107 /* OfferAndPromotions */ = {
+			isa = PBXGroup;
+			children = (
+				59E4BE842429202100F59107 /* OffersAndPromotionsVC.swift */,
+				59E4BE852429202100F59107 /* OffersAndPromotionsVC.xib */,
+			);
+			path = OfferAndPromotions;
+			sourceTree = "<group>";
+		};
 		951EC7E1213FC64F006BD4B2 = {
 			isa = PBXGroup;
 			children = (
@@ -1150,6 +1163,7 @@
 		951EC81B213FC9F8006BD4B2 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				59E4BE8324291F9F00F59107 /* OfferAndPromotions */,
 				521B2DCB23EAFC6C00887C03 /* PickUpModeScreens */,
 				521B2DC623EAFC3D00887C03 /* UserAccount */,
 				5210BD1023A6158200E980E6 /* SellOtherDeviceSearch */,
@@ -2313,6 +2327,7 @@
 				FBFDA7FF21537B6600667DC6 /* PaymentsModeVC.xib in Resources */,
 				FBFB3E2B21511143002924A3 /* CityCell.xib in Resources */,
 				35F8AE1D234F3EFE0004F3CF /* CountrySelection.xib in Resources */,
+				59E4BE872429202100F59107 /* OffersAndPromotionsVC.xib in Resources */,
 				FB3E0313215B5D88003E99D8 /* QuriesVC.xib in Resources */,
 				FBD0BDF8215231B20025C196 /* QuestionCardTypeCell.xib in Resources */,
 				5229ACBF23FC34A0002C7FB7 /* MyHistoryListVC.xib in Resources */,
@@ -2623,6 +2638,7 @@
 				FBFB3E5321512935002924A3 /* IQUIViewController+Additions.swift in Sources */,
 				35E284E3236FF795002F3C70 /* BankTransfer.swift in Sources */,
 				35F8AE17234F3EFE0004F3CF /* CountrySelection.swift in Sources */,
+				59E4BE862429202100F59107 /* OffersAndPromotionsVC.swift in Sources */,
 				FBFDA7FE21537B6600667DC6 /* PaymentsModeVC.swift in Sources */,
 				52BD9A5023CA0A19004CCCD6 /* CustomerSupportVC.swift in Sources */,
 				FB9C6FF7215A1E6600F93B85 /* RotationVC.swift in Sources */,
