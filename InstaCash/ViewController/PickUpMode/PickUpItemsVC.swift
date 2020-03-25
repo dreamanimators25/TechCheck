@@ -75,28 +75,28 @@ class PickUpItemsVC: UIViewController,UITextFieldDelegate {
         viewDevice.layer.cornerRadius = CGFloat(btnCornerRadius)
         viewDevice.clipsToBounds = true
         viewDevice.layer.borderWidth = 1.0
-        viewDevice.layer.borderColor = UIColor.black.cgColor
+        viewDevice.layer.borderColor = UIColor.darkGray.cgColor
         
         
         viewValidBill.layer.cornerRadius = CGFloat(btnCornerRadius)
         viewValidBill.clipsToBounds = true
         viewValidBill.layer.borderWidth = 1.0
-        viewValidBill.layer.borderColor = UIColor.black.cgColor
+        viewValidBill.layer.borderColor = UIColor.darkGray.cgColor
         
         viewBox.layer.cornerRadius = CGFloat(btnCornerRadius)
         viewBox.clipsToBounds = true
         viewBox.layer.borderWidth = 1.0
-        viewBox.layer.borderColor = UIColor.black.cgColor
+        viewBox.layer.borderColor = UIColor.darkGray.cgColor
         
         viewEarPhones.layer.cornerRadius = CGFloat(btnCornerRadius)
         viewEarPhones.clipsToBounds = true
         viewEarPhones.layer.borderWidth = 1.0
-        viewEarPhones.layer.borderColor = UIColor.black.cgColor
+        viewEarPhones.layer.borderColor = UIColor.darkGray.cgColor
         
         viewOriginalCharger.layer.cornerRadius = CGFloat(btnCornerRadius)
         viewOriginalCharger.clipsToBounds = true
         viewOriginalCharger.layer.borderWidth = 1.0
-        viewOriginalCharger.layer.borderColor = UIColor.black.cgColor
+        viewOriginalCharger.layer.borderColor = UIColor.darkGray.cgColor
         
         
         //viewTop.layer.cornerRadius = CGFloat(btnCornerRadius)
@@ -230,34 +230,33 @@ class PickUpItemsVC: UIViewController,UITextFieldDelegate {
         if sender.isSelected{
             sender.isSelected = false
             isDeviceSelected = false
-            //viewDevice.backgroundColor = UIColor.white
+            viewDevice.backgroundColor = UIColor.white
+            btnDevice.titleLabel?.textColor = UIColor.darkGray
             
             totalSelectedButton -= 1
             viewTop.alpha = 0
             viewTop.isUserInteractionEnabled = false
-            //viewTop.backgroundColor = UIColor.white
         }
         else{
             sender.isSelected = true
             isDeviceSelected = true
-            //viewDevice.backgroundColor = navColor
+            viewDevice.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+            btnDevice.titleLabel?.textColor = UIColor.white
             
             totalSelectedButton += 1
-            
             if totalSelectedButton == totalButton {
                 viewTop.alpha = 1
                 viewTop.isUserInteractionEnabled = true
             }
             
-            //viewTop.backgroundColor = navColor
         }
-        //validateandCallAPI()
     }
     
     @IBAction func btnValidBillPressed(_ sender: UIButton) {
         if sender.isSelected{
             sender.isSelected = false
-            //viewValidBill.backgroundColor = UIColor.white
+            viewValidBill.backgroundColor = UIColor.white
+            btnValidBill.titleLabel?.textColor = UIColor.darkGray
             
             totalSelectedButton -= 1
             viewTop.alpha = 0
@@ -265,23 +264,23 @@ class PickUpItemsVC: UIViewController,UITextFieldDelegate {
         }
         else{
             sender.isSelected = true
-            //viewValidBill.backgroundColor = navColor
+            viewValidBill.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+            btnValidBill.titleLabel?.textColor = UIColor.white
             
             totalSelectedButton += 1
-            
             if totalSelectedButton == totalButton {
                 viewTop.alpha = 1
                 viewTop.isUserInteractionEnabled = true
             }
             
         }
-        //validateandCallAPI()
     }
     
     @IBAction func btnBoxPressed(_ sender: UIButton) {
         if sender.isSelected{
             sender.isSelected = false
-            //viewBox.backgroundColor = UIColor.white
+            viewBox.backgroundColor = UIColor.white
+            btnBox.titleLabel?.textColor = UIColor.darkGray
             
             totalSelectedButton -= 1
             viewTop.alpha = 0
@@ -289,23 +288,23 @@ class PickUpItemsVC: UIViewController,UITextFieldDelegate {
         }
         else{
             sender.isSelected = true
-            //viewBox.backgroundColor = navColor
+            viewBox.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+            btnBox.titleLabel?.textColor = UIColor.white
             
             totalSelectedButton += 1
-            
             if totalSelectedButton == totalButton {
                 viewTop.alpha = 1
                 viewTop.isUserInteractionEnabled = true
             }
             
         }
-        //validateandCallAPI()
     }
     
     @IBAction func btnEarPhonePressed(_ sender: UIButton) {
         if sender.isSelected{
             sender.isSelected = false
-            //viewEarPhones.backgroundColor = UIColor.white
+            viewEarPhones.backgroundColor = UIColor.white
+            btnEarPhones.titleLabel?.textColor = UIColor.darkGray
             
             totalSelectedButton -= 1
             viewTop.alpha = 0
@@ -313,23 +312,23 @@ class PickUpItemsVC: UIViewController,UITextFieldDelegate {
         }
         else{
             sender.isSelected = true
-            //viewEarPhones.backgroundColor = navColor
+            viewEarPhones.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+            btnEarPhones.titleLabel?.textColor = UIColor.white
             
             totalSelectedButton += 1
-            
             if totalSelectedButton == totalButton {
                 viewTop.alpha = 1
                 viewTop.isUserInteractionEnabled = true
             }
             
         }
-        // validateandCallAPI()
     }
     
     @IBAction func btnOriginolChargerPressed(_ sender: UIButton) {
         if sender.isSelected{
             sender.isSelected = false
-            //viewOriginalCharger.backgroundColor = UIColor.white
+            viewOriginalCharger.backgroundColor = UIColor.white
+            btnOriginalCharger.titleLabel?.textColor = UIColor.darkGray
             
             totalSelectedButton -= 1
             viewTop.alpha = 0
@@ -337,17 +336,16 @@ class PickUpItemsVC: UIViewController,UITextFieldDelegate {
         }
         else{
             sender.isSelected = true
-            //viewOriginalCharger.backgroundColor = navColor
+            viewOriginalCharger.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+            btnOriginalCharger.titleLabel?.textColor = UIColor.white
             
             totalSelectedButton += 1
-            
             if totalSelectedButton == totalButton {
                 viewTop.alpha = 1
                 viewTop.isUserInteractionEnabled = true
             }
             
         }
-       // validateandCallAPI()
     }
     
     @IBAction func btnYesClicked(_ sender: UIButton) {

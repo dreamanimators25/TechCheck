@@ -17,6 +17,7 @@ class OrderDetailSummaryVC: UIViewController,UITableViewDataSource,UITableViewDe
     var arrKey = [String]()
     var arrValue = [String]()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,8 +32,41 @@ class OrderDetailSummaryVC: UIViewController,UITableViewDataSource,UITableViewDe
                 let arrStr1 : [String?] = item?.components(separatedBy: "->") ?? [""]
                 
                 if arrStr1.count > 1 {
-                    self.arrKey.append(arrStr1[0] ?? "")
-                    self.arrValue.append(arrStr1[1] ?? "")
+                    
+                    if arrStr1[0] == "Select the available original accessories" {
+                        
+                        var completeString = ""
+                        
+                        if summaryStr.contains("Earphone;") {
+                            completeString = "Earphone"
+                        }
+                        
+                        if summaryStr.contains("Box;") {
+                            if completeString == "" {
+                                completeString = completeString + "Box"
+                            }else {
+                                completeString = completeString + "\nBox"
+                            }
+                        }
+                        
+                        if summaryStr.contains("Original Charger;") {
+                            
+                            if completeString == "" {
+                                completeString = completeString + "Original Charger"
+                            }else {
+                                completeString = completeString + "\nOriginal Charger"
+                            }
+                            
+                        }
+                        
+                        self.arrKey.append(arrStr1[0] ?? "")
+                        //self.arrValue.append(arrStr1[1] ?? "")
+                        self.arrValue.append(completeString)
+                    }else {
+                        self.arrKey.append(arrStr1[0] ?? "")
+                        self.arrValue.append(arrStr1[1] ?? "")
+                    }
+                    
                 }
                 
             }

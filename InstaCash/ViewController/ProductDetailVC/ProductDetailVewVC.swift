@@ -1550,11 +1550,55 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                     self.lblPrice.text = CustomUserDefault.getCurrency() + price.formattedWithSeparator
                     
                     //s.
-                    let arrSummaryString : [String?] = (responseObject?["summaryText"] as! String).components(separatedBy: ";")
+                    let finalSummaryText = responseObject?["summaryText"] as! String
+                    let arrSummaryString : [String?] = finalSummaryText.components(separatedBy: ";")
                     
                     for item in arrSummaryString {
                         //if item != "Original Charger" && item != " faulty Or cracked sound" && item != "" {
+                        
+                        if item != "" {
+                            let arrStr1 : [String?] = item?.components(separatedBy: "->") ?? [""]
                             
+                            if arrStr1.count > 1 {
+                                
+                                if arrStr1[0] == "Select the available accessories" {
+                                    
+                                    var completeString = ""
+                                    
+                                    if finalSummaryText.contains("Earphone;") {
+                                        completeString = "Earphone"
+                                    }
+                                    
+                                    if finalSummaryText.contains("Box;") {
+                                        if completeString == "" {
+                                            completeString = completeString + "Box"
+                                        }else {
+                                            completeString = completeString + "\nBox"
+                                        }
+                                    }
+                                    
+                                    if finalSummaryText.contains("Original Charger;") {
+                                        
+                                        if completeString == "" {
+                                            completeString = completeString + "Original Charger"
+                                        }else {
+                                            completeString = completeString + "\nOriginal Charger"
+                                        }
+                                        
+                                    }
+                                    
+                                    self.arrKey.append(arrStr1[0] ?? "")
+                                    //self.arrValue.append(arrStr1[1] ?? "")
+                                    self.arrValue.append(completeString)
+                                }else {
+                                    self.arrKey.append(arrStr1[0] ?? "")
+                                    self.arrValue.append(arrStr1[1] ?? "")
+                                }
+                                
+                            }
+                        }
+                        
+                        /*
                         if item != "" {
                             let arrStr1 : [String?] = item?.components(separatedBy: "->") ?? [""]
                             
@@ -1562,8 +1606,8 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                                 self.arrKey.append(arrStr1[0] ?? "")
                                 self.arrValue.append(arrStr1[1] ?? "")
                             }
-                            
-                        }
+                        }*/
+                        
                     }
                
                     let imgURL = URL.init(string: self.deviceImageUrl)

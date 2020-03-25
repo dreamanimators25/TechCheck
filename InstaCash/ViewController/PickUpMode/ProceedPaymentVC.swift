@@ -27,8 +27,11 @@ class ProceedPaymentVC: UIViewController {
         //setNavigationBar() //s.
         
         self.lblPaymentMode.text = "Payment Mode: " + getAcountMode
-        self.lblAccountNumber.text = "Account Number: " + getAccountNumber
-        self.lblAmount.text = "Payment Amount: " + getAmount
+        //self.lblAccountNumber.text = "Account Number: " + getAccountNumber
+        //self.lblAmount.text = "Payment Amount: " + getAmount
+        
+        self.lblAccountNumber.text = getAccountNumber
+        self.lblAmount.text = getAmount
 
     }
     

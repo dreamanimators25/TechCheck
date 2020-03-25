@@ -107,19 +107,47 @@ class UserAccountVC: UIViewController {
     }
     
     @IBAction func btnPickUpPressed(_ sender: UIButton) {
+        
+        /*
         let vc = PickUpCodeVC()
         vc.isComeFromVC = "pickupmode"
         vc.modalPresentationStyle = .overCurrentContext
         vc.modalTransitionStyle = .crossDissolve
         present(vc, animated: true, completion: nil)
+        */
+        
+        DispatchQueue.main.async {
+            let vc = PickUpCodeVC()
+            let nav = UINavigationController(rootViewController: vc)
+            nav.navigationBar.isHidden = true
+            vc.isComeFromVC = "pickupmode"
+            nav.modalPresentationStyle = .overCurrentContext
+            nav.modalTransitionStyle = .crossDissolve
+            self.present(nav, animated: true, completion: nil)
+        }
+        
     }
     
     @IBAction func btnDiagnoseModePressed(_ sender: UIButton) {
+        
+        /*
         let vc = PickUpCodeVC()
         vc.isComeFromVC = "diagnosemode"
         vc.modalPresentationStyle = .overCurrentContext
         vc.modalTransitionStyle = .crossDissolve
         present(vc, animated: true, completion: nil)
+        */
+        
+        DispatchQueue.main.async {
+            let vc = PickUpCodeVC()
+            let nav = UINavigationController(rootViewController: vc)
+            nav.navigationBar.isHidden = true
+            vc.isComeFromVC = "diagnosemode"
+            nav.modalPresentationStyle = .overCurrentContext
+            nav.modalTransitionStyle = .crossDissolve
+            self.present(nav, animated: true, completion: nil)
+        }
+        
     }
     
     @IBAction func btnLogoutPressed(_ sender: UIButton) {

@@ -167,14 +167,20 @@ class PickUpCodeVC: UIViewController {
                                 
                                 //DispatchQueue.main.async {
                                     userDefaults.set("Diagnosis", forKey: "ChangeModeComingFromDiadnosis")
-                                    
+                                
+                                DispatchQueue.main.async {
+                                    let vc =  ScreenTestingVC()
+                                    self.navigationController?.pushViewController(vc, animated: true)
+                                }
+                                
+                                /*
                                     DispatchQueue.main.async {
                                         self.dismiss(animated: false, completion: {
                                             let vc = ScreenTestingVC()
                                             let navController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController
                                             navController?.pushViewController(vc, animated: true)
                                         })
-                                    }
+                                    }*/
                                     
                                 //}
                             }else {
@@ -194,14 +200,20 @@ class PickUpCodeVC: UIViewController {
                                     userDefaults.removeObject(forKey: "PickUpQuestions")
                                     let myData = NSKeyedArchiver.archivedData(withRootObject: arrPickUpQuestion)
                                     userDefaults.set(myData, forKey: "PickUpQuestions")
-                                    
+                                
+                                DispatchQueue.main.async {
+                                    let vc = ScreenTestPickUp()
+                                    self.navigationController?.pushViewController(vc, animated: true)
+                                }
+                                
+                                /*
                                     DispatchQueue.main.async {
                                         self.dismiss(animated: false, completion: {
                                             let vc = ScreenTestPickUp()
                                             let navController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController
                                             navController?.pushViewController(vc, animated: true)
                                         })
-                                    }
+                                    }*/
                                   
                                 //}
                             }else {
