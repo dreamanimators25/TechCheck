@@ -73,22 +73,68 @@
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="6PJ-ub-hk7">
                     <rect key="frame" x="10" y="74" width="300" height="329"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Waf-q2-UYP" customClass="cornerImageView" customModule="InstaCash" customModuleProvider="target">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f1m-fN-9gK">
                             <rect key="frame" x="0.0" y="0.0" width="300" height="159.5"/>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                    <real key="value" value="10"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
-                        </imageView>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fGM-dH-P4A" customClass="cornerImageView" customModule="InstaCash" customModuleProvider="target">
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Waf-q2-UYP" customClass="cornerImageView" customModule="InstaCash" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="159.5"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </imageView>
+                                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MdU-TF-9gu">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="159.5"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <connections>
+                                        <action selector="clickOppo:" destination="-1" eventType="touchUpInside" id="gS1-5m-qUF"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="MdU-TF-9gu" secondAttribute="trailing" id="Fmc-1b-yDu"/>
+                                <constraint firstItem="Waf-q2-UYP" firstAttribute="top" secondItem="f1m-fN-9gK" secondAttribute="top" id="ICh-Cv-kSF"/>
+                                <constraint firstAttribute="trailing" secondItem="Waf-q2-UYP" secondAttribute="trailing" id="PPh-Q4-pKN"/>
+                                <constraint firstAttribute="bottom" secondItem="MdU-TF-9gu" secondAttribute="bottom" id="Tv7-zy-buZ"/>
+                                <constraint firstItem="MdU-TF-9gu" firstAttribute="top" secondItem="f1m-fN-9gK" secondAttribute="top" id="bNI-Mi-8q9"/>
+                                <constraint firstAttribute="bottom" secondItem="Waf-q2-UYP" secondAttribute="bottom" id="c2S-Jr-PO1"/>
+                                <constraint firstItem="MdU-TF-9gu" firstAttribute="leading" secondItem="f1m-fN-9gK" secondAttribute="leading" id="kwV-L9-znx"/>
+                                <constraint firstItem="Waf-q2-UYP" firstAttribute="leading" secondItem="f1m-fN-9gK" secondAttribute="leading" id="vDE-HH-4Dh"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="avk-Qd-p7B">
                             <rect key="frame" x="0.0" y="169.5" width="300" height="159.5"/>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                    <real key="value" value="10"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
-                        </imageView>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fGM-dH-P4A" customClass="cornerImageView" customModule="InstaCash" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="159.5"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </imageView>
+                                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IGf-LM-yHK">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="159.5"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <connections>
+                                        <action selector="clickHomeCredit:" destination="-1" eventType="touchUpInside" id="PkT-wb-TVY"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="IGf-LM-yHK" secondAttribute="trailing" id="310-Ky-MRN"/>
+                                <constraint firstItem="IGf-LM-yHK" firstAttribute="leading" secondItem="avk-Qd-p7B" secondAttribute="leading" id="TyF-YU-tO0"/>
+                                <constraint firstAttribute="bottom" secondItem="fGM-dH-P4A" secondAttribute="bottom" id="c0P-NV-nJa"/>
+                                <constraint firstAttribute="bottom" secondItem="IGf-LM-yHK" secondAttribute="bottom" id="hk2-jA-CLF"/>
+                                <constraint firstItem="fGM-dH-P4A" firstAttribute="top" secondItem="avk-Qd-p7B" secondAttribute="top" id="kjk-10-0PD"/>
+                                <constraint firstItem="IGf-LM-yHK" firstAttribute="top" secondItem="avk-Qd-p7B" secondAttribute="top" id="m0R-3f-K42"/>
+                                <constraint firstAttribute="trailing" secondItem="fGM-dH-P4A" secondAttribute="trailing" id="vED-GS-eao"/>
+                                <constraint firstItem="fGM-dH-P4A" firstAttribute="leading" secondItem="avk-Qd-p7B" secondAttribute="leading" id="wKC-Cg-vps"/>
+                            </constraints>
+                        </view>
                     </subviews>
                 </stackView>
             </subviews>

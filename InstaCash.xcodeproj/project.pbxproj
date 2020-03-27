@@ -114,6 +114,9 @@
 		52BD9A4D23C9FD9F004CCCD6 /* FloatingItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52BD9A4B23C9FD9F004CCCD6 /* FloatingItemCell.xib */; };
 		52BD9A5023CA0A19004CCCD6 /* CustomerSupportVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BD9A4E23CA0A19004CCCD6 /* CustomerSupportVC.swift */; };
 		52BD9A5123CA0A19004CCCD6 /* CustomerSupportVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52BD9A4F23CA0A19004CCCD6 /* CustomerSupportVC.xib */; };
+		59057666242E5DB900FEF541 /* OfferPromotionPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59057664242E5DB900FEF541 /* OfferPromotionPopUpVC.swift */; };
+		59057667242E5DB900FEF541 /* OfferPromotionPopUpVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59057665242E5DB900FEF541 /* OfferPromotionPopUpVC.xib */; };
+		5907E17A242CD5500038CD47 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5907E17C242CD5500038CD47 /* Localizable.strings */; };
 		59E4BE862429202100F59107 /* OffersAndPromotionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E4BE842429202100F59107 /* OffersAndPromotionsVC.swift */; };
 		59E4BE872429202100F59107 /* OffersAndPromotionsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59E4BE852429202100F59107 /* OffersAndPromotionsVC.xib */; };
 		745B1F646E31132D7C5DB2A2 /* Pods_InstaCash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9F5E785D57A5CB7DDA6DFC4 /* Pods_InstaCash.framework */; };
@@ -524,6 +527,13 @@
 		52BD9A4B23C9FD9F004CCCD6 /* FloatingItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FloatingItemCell.xib; sourceTree = "<group>"; };
 		52BD9A4E23CA0A19004CCCD6 /* CustomerSupportVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerSupportVC.swift; sourceTree = "<group>"; };
 		52BD9A4F23CA0A19004CCCD6 /* CustomerSupportVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomerSupportVC.xib; sourceTree = "<group>"; };
+		59057664242E5DB900FEF541 /* OfferPromotionPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferPromotionPopUpVC.swift; sourceTree = "<group>"; };
+		59057665242E5DB900FEF541 /* OfferPromotionPopUpVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OfferPromotionPopUpVC.xib; sourceTree = "<group>"; };
+		5907E17B242CD5500038CD47 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5907E17D242CD58B0038CD47 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		5907E17E242CD58D0038CD47 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		5907E17F242CD59E0038CD47 /* hi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hi; path = hi.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		5907E180242CD59F0038CD47 /* hi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hi; path = hi.lproj/Localizable.strings; sourceTree = "<group>"; };
 		59E4BE842429202100F59107 /* OffersAndPromotionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffersAndPromotionsVC.swift; sourceTree = "<group>"; };
 		59E4BE852429202100F59107 /* OffersAndPromotionsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OffersAndPromotionsVC.xib; sourceTree = "<group>"; };
 		71F0D5EC54E113DB020910AA /* Pods-InstaCashUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaCashUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstaCashUITests/Pods-InstaCashUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1090,6 +1100,8 @@
 			children = (
 				59E4BE842429202100F59107 /* OffersAndPromotionsVC.swift */,
 				59E4BE852429202100F59107 /* OffersAndPromotionsVC.xib */,
+				59057664242E5DB900FEF541 /* OfferPromotionPopUpVC.swift */,
+				59057665242E5DB900FEF541 /* OfferPromotionPopUpVC.xib */,
 			);
 			path = OfferAndPromotions;
 			sourceTree = "<group>";
@@ -1097,6 +1109,7 @@
 		951EC7E1213FC64F006BD4B2 = {
 			isa = PBXGroup;
 			children = (
+				5907E17C242CD5500038CD47 /* Localizable.strings */,
 				FB57273C21E9BDC100CE1FC2 /* BridgeHeader.h */,
 				951EC7EC213FC64F006BD4B2 /* InstaCash */,
 				951EC801213FC652006BD4B2 /* InstaCashTests */,
@@ -2281,6 +2294,8 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
+				hi,
 			);
 			mainGroup = 951EC7E1213FC64F006BD4B2;
 			productRefGroup = 951EC7EB213FC64F006BD4B2 /* Products */;
@@ -2436,6 +2451,7 @@
 				FB9C6FF2215A197900F93B85 /* dead_pixel.gif in Resources */,
 				FB9C6FEF215A197900F93B85 /* earphone_jack.gif in Resources */,
 				FB9C6FF1215A197900F93B85 /* charging.gif in Resources */,
+				5907E17A242CD5500038CD47 /* Localizable.strings in Resources */,
 				FBD42BAF2175D7BA00E7EF86 /* SearchProductCell.xib in Resources */,
 				521B2DCA23EAFC6100887C03 /* UserAccountVC.xib in Resources */,
 				FB9C6FFF215A48B800F93B85 /* SensorReadVC.xib in Resources */,
@@ -2450,6 +2466,7 @@
 				520D5C8323A7498000C85EB6 /* ProductSummaryTblViewCell.xib in Resources */,
 				FBF7545E217DC694002DC44A /* DeadPixelVC.xib in Resources */,
 				FB63090321562F00003DA09F /* LockPricePopUp.xib in Resources */,
+				59057667242E5DB900FEF541 /* OfferPromotionPopUpVC.xib in Resources */,
 				FBFDFA0F217EE5580014A2F8 /* PickUpItemsVC.xib in Resources */,
 				FB324C54214D3D9A00D18398 /* MobileNumberVC.xib in Resources */,
 				C3CC35C3224B4ACE00289D4E /* face-id.svg in Resources */,
@@ -2715,6 +2732,7 @@
 				3587CEAE2350490200CA0627 /* TouchScreen.swift in Sources */,
 				FBFB3E2A21511143002924A3 /* CityCell.swift in Sources */,
 				35B06DC0234644BE00F5503F /* ToastView.swift in Sources */,
+				59057666242E5DB900FEF541 /* OfferPromotionPopUpVC.swift in Sources */,
 				FBFB3E6721513976002924A3 /* SelectModelCell.swift in Sources */,
 				FB18F96D2224024B00FDD884 /* PromoterOTPVC.swift in Sources */,
 				FBA3A65621BBE35600CEE9E4 /* HeaderDetailCell.swift in Sources */,
@@ -2824,10 +2842,22 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		5907E17C242CD5500038CD47 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5907E17B242CD5500038CD47 /* en */,
+				5907E17E242CD58D0038CD47 /* zh-Hans */,
+				5907E180242CD59F0038CD47 /* hi */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		951EC7F6213FC651006BD4B2 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				951EC7F7213FC651006BD4B2 /* Base */,
+				5907E17D242CD58B0038CD47 /* zh-Hans */,
+				5907E17F242CD59E0038CD47 /* hi */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -2839,6 +2869,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -2900,6 +2931,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
