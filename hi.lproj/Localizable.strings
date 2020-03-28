@@ -50,52 +50,167 @@
 
 // 21. MYMaxisVC
 
-// 21. MYSamsungVC
+// 22. MYSamsungVC
 
-// 21. SGFastPayVC
+// 23. SGFastPayVC
 
-// 21. SGPaynowVC
+// 24. SGPaynowVC
 
-// 21. PaymentTypeVC
+// 25. PaymentTypeVC
 
-// 21. OrderStatus1
+// 26. OrderStatus1
 
-// 21. OrderStatus2
+// 27. OrderStatus2
 
-// 21. FillDetailLater
+// 28. FillDetailLater
 
-// 21. ProductConditionVC
+// 29. ProductConditionVC
 
-// 21. PromocodePopUpVC
+// 30. PromocodePopUpVC
 
-// 21. Float Category/Location ViewController //
+// 31. LockPricePopUp
 
-// 21. Float Category/Location ViewController //
+// 32. BankDetailVC
 
-// 21. Float Category/Location ViewController //
+// 33. DeviceInfoVC
 
-// 21. Float Category/Location ViewController //
+// 34. VolumeCheckerVC
 
-// 21. Float Category/Location ViewController //
+// 35. ScreenTestingVC
 
-// 21. Float Category/Location ViewController //
+// 36. RotationVC
 
-// 21. Float Category/Location ViewController //
+// 37. SensorReadVC
 
-// 21. Float Category/Location ViewController //
+// 38. EarPhoneVC
 
-// 21. Float Category/Location ViewController //
+// 39. DeviceChargerVC
 
-// 21. Float Category/Location ViewController //
+// 40. CameraVC
 
-// 21. Float Category/Location ViewController //
+// 41. FingerPrintDevice
 
-// 21. Float Category/Location ViewController //
+// 42. BlueToothTestingVC
 
-// 21. Float Category/Location ViewController //
+// 43. DiagnosticTestResultVC
 
-// 21. Float Category/Location ViewController //
+// 44. QuriesVC
 
-// 21. Float Category/Location ViewController //
+// 45. MyAddresses
 
-// 21. Float Category/Location ViewController //
+// 46. MyAccountVC
+
+// 47. QuriesVC
+
+// 48. MyAddresses
+
+// 49. MyAccountVC
+
+// 50. MyOrderVC
+
+// 51. OrderDetail
+
+// 52. CustomerSupportVC
+
+// 53. HistoryVC
+
+// 54. HowItWorkVC
+
+// 55. AboutUsVC
+
+// 56. ChangeAppModeVC
+
+// 57. TermsConditionVC
+
+// 58. ContactUsVC
+
+// 59. UploadDocumentVC
+
+// 60. MisMatchVC
+
+// 61. PickUpQuestionVC
+
+// 62. ScreenTestPickUp
+
+// 63. DeadPixelVC
+
+// 64. UploadIDVC
+
+// 65. SignatureVC
+
+// 66. PickUpItemsVC
+
+// 67. ProceedPaymentVC
+
+// 68. ProcessPaymentPopUpVC
+
+// 69. RatingVC
+
+// 70. LiveOfferVC
+
+// 71. TimeLineVC
+
+// 72. OtherDeviceQuestionFlow
+
+// 73. DiagnosisQuestionFlowVC
+
+// 74. PramotterVC
+
+// 75. PromoterOTPVC
+
+// 76. AnotherDevice
+
+// 77. StartDevice1
+
+// 78. ExactQuote
+
+// 79. ChangeModePopUpVC
+
+// 80. Sell2
+
+// 81. CountrySelection
+
+// 82. StartDevice
+
+// 83. Sell1
+
+// 84. TouchScreen
+
+// 85. Speaker
+
+// 86. Voucher
+
+// 87. BankTransfer
+
+// 88. Wallet
+
+// 89. Profile
+
+// 90. NotificationNew
+
+// 91. OrderFinalVC
+
+// 92. SellOtherDeviceSearchVC
+
+// 93. UserAccountVC
+
+// 94. AboutVC
+
+// 95. AboutPageVC
+
+// 96. TnCPageVC
+
+// 97. HowItWorkPageVC
+
+// 98. FaqPageVC
+
+// 99. MyHistoryListVC
+
+// 100. PickUpCodeVC
+
+// 101. ItemPickUpVC
+
+// 102. OffersAndPromotionsVC
+
+// 103. OfferPromotionPopUpVC
+

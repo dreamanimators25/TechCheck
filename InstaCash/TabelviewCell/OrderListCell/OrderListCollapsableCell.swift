@@ -11,6 +11,7 @@ import UIKit
 class OrderListCollapsableCell: UITableViewCell {
 
     @IBOutlet weak var lblAnswer: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

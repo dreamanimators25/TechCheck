@@ -110,7 +110,11 @@ class OfferPromotionPopUpVC: UIViewController,UITextFieldDelegate {
             
             if isComeFromVC == "oppoMode" {
                 //let param = ["tradeupIMEI" : KeychainWrapper.standard.string(forKey: "UUIDValue")! + "~" + KeychainWrapper.standard.string(forKey: "UUIDValue")!] as [String:Any]
+                
                 let param = ["tradeupIMEI" : promoTextField.text ?? ""] as [String:Any]
+                
+                //let param = ["tradeupIMEI" : "862194041595479"] as [String:Any]
+                
                 do {
                     let jsonData = try JSONSerialization.data(withJSONObject: param, options: [])
                     if let jsonString = String(data: jsonData, encoding: String.Encoding.utf8) {
@@ -121,7 +125,7 @@ class OfferPromotionPopUpVC: UIViewController,UITextFieldDelegate {
                     print(error)
                 }
                 
-                
+                userDefaults.set(jsonST, forKey: "additionalInfo")
                 parameters  = [
                     "userName" : apiAuthenticateUserName,
                     "apiKey" : key,
@@ -141,12 +145,12 @@ class OfferPromotionPopUpVC: UIViewController,UITextFieldDelegate {
                     print(error)
                 }
                 
-                
+                userDefaults.set(jsonST, forKey: "additionalInfo")
                 parameters  = [
                     "userName" : apiAuthenticateUserName,
                     "apiKey" : key,
                     "promoterId" : promoterId,
-                    "employeeId" : promoTextField.text ?? "",
+                    "tradeInIMEI" : promoTextField.text ?? "",
                     "data" : jsonST,
                 ]
             }
@@ -164,11 +168,17 @@ class OfferPromotionPopUpVC: UIViewController,UITextFieldDelegate {
                         
                         let dict = responseObject?["msg"] as! [String:Any]
                         
-                        print(dict["address"] as? String ?? "")
-                        print(dict["paymentInformation"] as? String ?? "")
-                        print(dict["paymentMode"] as? String ?? "")
-                        print(dict["couponCode"] as? String ?? "")
-                        print(dict["promoterName"] as? String ?? "")
+                        DispatchQueue.main.async {
+                            userDefaults.set("Offer&Promotions", forKey: "promoter")
+                            
+                            if dict["couponCode"] as? String != "" {
+                                userDefaults.set("\(dict["couponCode"] as? String ?? "")", forKey: "promotionCouponCode")
+                            }
+                                                        
+                            let vc = Sell1()
+                            self.navigationController?.pushViewController(vc, animated: true)
+                            
+                        }
                         
                     }else {
                         Alert.showAlert(strMessage:responseObject?["msg"] as! NSString , Onview: self)

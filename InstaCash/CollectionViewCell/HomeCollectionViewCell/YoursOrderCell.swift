@@ -14,6 +14,7 @@ class YoursOrderCell: UICollectionViewCell {
     @IBOutlet weak var lblOrderDate: UILabel!
     @IBOutlet weak var lblOrderName: UILabel!
     @IBOutlet weak var imgOrder: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

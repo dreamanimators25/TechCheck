@@ -464,6 +464,14 @@ class BankTransfer: UIViewController,UITextFieldDelegate {
                 strPromoterId = userDefaults.value(forKey: "promoter_id") as! String
             }
             
+            //Sameer - 28/3/20
+            if userDefaults.value(forKey: "promoterID") == nil {
+                strPromoterId = ""
+            }
+            else{
+                strPromoterId = userDefaults.value(forKey: "promoterID") as! String
+            }
+            
             
             let strBaseURL = userDefaults.value(forKey: "baseURL") as! String
             let strUrl = strBaseURL + "orderCreate"
@@ -499,7 +507,7 @@ class BankTransfer: UIViewController,UITextFieldDelegate {
                 smallParam["donationAmount"] = donation
             }
             
-            let parametersHome : [String : Any] = [
+            var parametersHome : [String : Any] = [
                 "userName" : apiAuthenticateUserName, //1
                 "apiKey" : key, //1
                 "mobile":CustomUserDefault.getPhoneNumber() ?? "", //1
@@ -530,7 +538,7 @@ class BankTransfer: UIViewController,UITextFieldDelegate {
                 
                 "couponCode":userDefaults.value(forKey: "orderPromoCode") as? String ?? "", //1
                 "couponAmount":couponAmount, //1
-                //"promoterId":strPromoterId, //0
+                "promoterId":strPromoterId, //0
                 
                 //"paymentDetails" : smallParam,
                 "donateTo" : "NSS",
@@ -541,6 +549,10 @@ class BankTransfer: UIViewController,UITextFieldDelegate {
                 "preferredTime":"", //0
                 //"additionalInformation":"", //0
             ]
+            
+            if let addInfo = userDefaults.value(forKey: "additionalInfo") {
+                parametersHome["additionalInformation"] = addInfo
+            }
             
             print(strUrl)
             self.orderCreateApiPost(strURL: strUrl, parameters: parametersHome as NSDictionary, completionHandler: {responseObject , error in

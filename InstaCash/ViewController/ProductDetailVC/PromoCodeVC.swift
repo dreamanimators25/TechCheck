@@ -155,6 +155,12 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
         }
         
         txtAmount.delegate = self
+        
+        //Sameer - 28/3/20
+        if userDefaults.value(forKey: "promotionCouponCode") != nil {
+            self.applyPromoCode()
+        }
+        
     }
     
     // MARK:- navigation bar setup.
@@ -490,19 +496,44 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
         }
         
         let strBaseURL = userDefaults.value(forKey: "baseURL") as! String
-        let strUrl = strBaseURL + "couponCode"
+        var strUrl = strBaseURL + "couponCode"
         
-        let parametersHome : [String : Any] = [
-            "apiKey" : key,
-            "userName" : apiAuthenticateUserName,
-            "productId":producdID,
-            "couponCode":txtPromocode.text!,
-            "productQuote":String(getFinalPrice),
-            "city":CustomUserDefault.getCityId(),
-            "quotationId":quatationId
-        ]
+        var parametersHome = [String:Any]()
+        
+        //Sameer - 28/3/20
+        if let couponAvailable = userDefaults.value(forKey: "promotionCouponCode") {
+            
+            //strUrl = "https://sbox.getinstacash.in/ic-web/instaCash/api/v5/public/" + "couponCode"
+            
+            strUrl = "https://getinstacash.in/instaCash/api/v5/public/couponCode"
+            
+             parametersHome = [
+                "apiKey" : key,
+                "userName" : apiAuthenticateUserName,
+                "productId":producdID,
+                "couponCode":couponAvailable as! String,
+                "productQuote":String(getFinalPrice),
+                "city":CustomUserDefault.getCityId(),
+                "quotationId":quatationId
+            ]
+            
+        }else {
+             parametersHome = [
+                "apiKey" : key,
+                "userName" : apiAuthenticateUserName,
+                "productId":producdID,
+                "couponCode":txtPromocode.text!,
+                "productQuote":String(getFinalPrice),
+                "city":CustomUserDefault.getCityId(),
+                "quotationId":quatationId
+            ]
+        }
+        
+        print(parametersHome)
         
         self.promoApiPost(strURL: strUrl, parameters: parametersHome as NSDictionary, completionHandler: {responseObject , error in
+            
+            print(responseObject ?? [:])
             
             self.activityIndicatorePromoCode.stopAnimating()
             self.btnApply.isUserInteractionEnabled = true
@@ -538,11 +569,18 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
                     print(self.finalPriceSet) //s.
                     
                     
-                    let vc  = PromocodePopUpVC()
-                    vc.strConditionURL = (responseObject?.value(forKeyPath: "msg.link") as? String)!
-                    vc.arrTermsCondition = (responseObject?.value(forKeyPath: "msg.html") as? NSArray)!
-                    vc.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-                    self.navigationController?.present(vc, animated: true, completion: nil)
+                    //Sameer - 28/3/20
+                    if userDefaults.value(forKey: "promotionCouponCode") != nil {
+                    
+                    }else {
+                        
+                        let vc  = PromocodePopUpVC()
+                        vc.strConditionURL = (responseObject?.value(forKeyPath: "msg.link") as? String)!
+                        vc.arrTermsCondition = (responseObject?.value(forKeyPath: "msg.html") as? NSArray)!
+                        vc.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+                        self.navigationController?.present(vc, animated: true, completion: nil)
+                        
+                    }                    
                     
                 }
                 else{

@@ -12,6 +12,7 @@ class CountryCell: UITableViewCell {
 
     @IBOutlet weak var imgCountry: UIImageView!
     @IBOutlet weak var lblCountry: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

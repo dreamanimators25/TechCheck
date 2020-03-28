@@ -66,10 +66,10 @@ class Sell1: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        DispatchQueue.main.async {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
             UIView.addShadowOn4side(baseView: self.viewBG)
         }
-        
+       
     }
     
     //MARK: IBActions

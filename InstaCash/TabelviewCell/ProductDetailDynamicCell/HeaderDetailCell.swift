@@ -13,6 +13,7 @@ class HeaderDetailCell: UITableViewCell {
     @IBOutlet weak var lblTotalPrice: UILabel!
     @IBOutlet weak var lblProductName: UILabel!
     @IBOutlet weak var imgProduct: UIImageView!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

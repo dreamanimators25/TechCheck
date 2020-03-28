@@ -87,6 +87,13 @@ class Wallet: UIViewController {
             strPromoterId = userDefaults.value(forKey: "promoter_id") as! String
         }
         
+        //Sameer - 28/3/20
+        if userDefaults.value(forKey: "promoterID") == nil {
+            strPromoterId = ""
+        }
+        else{
+            strPromoterId = userDefaults.value(forKey: "promoterID") as! String
+        }
         
         let strBaseURL = userDefaults.value(forKey: "baseURL") as! String
         let strUrl = strBaseURL + "orderCreate"
@@ -111,7 +118,7 @@ class Wallet: UIViewController {
                           "donateAmount" : "31",
         ]
        
-        let parametersHome : [String : Any] = [
+        var parametersHome : [String : Any] = [
             "userName" : apiAuthenticateUserName, //1
             "apiKey" : key, //1
             "mobile":CustomUserDefault.getPhoneNumber() ?? "", //1
@@ -142,7 +149,7 @@ class Wallet: UIViewController {
             
             "couponCode":userDefaults.value(forKey: "orderPromoCode") as? String ?? "", //1
             "couponAmount":couponAmount, //1
-            //"promoterId":strPromoterId, //0
+            "promoterId":strPromoterId, //0
             
             //"paymentDetails" : smallParam,
             "donateTo" : "NSS",
@@ -153,6 +160,12 @@ class Wallet: UIViewController {
             "preferredTime":"", //0
             //"additionalInformation":"", //0
         ]
+        
+        if let addInfo = userDefaults.value(forKey: "additionalInfo") {
+            parametersHome["additionalInformation"] = addInfo
+        }
+        
+        print(parametersHome)
         
         self.orderCreateApiPost(strURL: strUrl, parameters: parametersHome as NSDictionary, completionHandler: {responseObject , error in
          

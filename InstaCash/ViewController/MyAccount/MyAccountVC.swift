@@ -172,6 +172,13 @@ class MyAccountVC: UIViewController {
         CustomUserDefault.removePhoneNumber()
         CustomUserDefault.removeUserEmail()
         
+        //Sameer - 28/3/20
+        userDefaults.removeObject(forKey: "promoterID")
+        userDefaults.removeObject(forKey: "promoter")
+        userDefaults.removeObject(forKey: "promotionCouponCode")
+        userDefaults.removeObject(forKey: "additionalInfo")
+        //
+        
         userDefaults.set(false, forKey: "baseURL")
         userDefaults.removeObject(forKey: "countryName")
         userDefaults.set(false, forKey: "OrderPlaceFordiagnosis")

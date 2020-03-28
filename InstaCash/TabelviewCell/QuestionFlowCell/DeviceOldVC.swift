@@ -13,6 +13,7 @@ class DeviceOldVC: UITableViewCell {
     @IBOutlet weak var lbltitle: UILabel!
     @IBOutlet weak var imgLogo: UIImageView!
     @IBOutlet weak var viewBg: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

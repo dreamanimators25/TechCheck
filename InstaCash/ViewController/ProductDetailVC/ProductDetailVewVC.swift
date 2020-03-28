@@ -1394,12 +1394,22 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
         var returnMetaDetails : NSMutableDictionary = [:]
         let IMEINumer = KeychainWrapper.standard.string(forKey: "UUIDValue")!
         var strPromoterId = ""
+        
         if userDefaults.value(forKey: "promoter_id") == nil {
             strPromoterId = ""
         }
         else{
             strPromoterId = userDefaults.value(forKey: "promoter_id") as! String
         }
+        
+        //Sameer - 28/3/20
+        if userDefaults.value(forKey: "promoterID") == nil {
+            strPromoterId = ""
+        }
+        else{
+            strPromoterId = userDefaults.value(forKey: "promoterID") as! String
+        }
+        
 
         if isComingFromOnPhoneDiagnostic{
             strSourceOfQuote = "diagnosis"
@@ -1481,7 +1491,7 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
         }
         
         
-        let parametersHome : [String : Any] = [
+        var parametersHome : [String : Any] = [
             "apiKey" : key,
             "userName" : apiAuthenticateUserName,
             "productId":productId,
@@ -1501,7 +1511,15 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
             "ipAddress":"",
             "promoterId":strPromoterId
         ]
+        
+        if let addInfo = userDefaults.value(forKey: "additionalInfo") {
+            parametersHome["additionalInformation"] = addInfo
+        }
+        
+        print(parametersHome)
+        
         self.orderApiPost(strURL: strUrl, parameters: parametersHome as NSDictionary, completionHandler: {responseObject , error in
+            
             if isRefreshPrice{
                 //self.refreshActivityIndicator.stopAnimating()
             }
@@ -1509,6 +1527,7 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                 Alert.HideProgressHud(Onview: self.view)
             }
             print("\(String(describing: responseObject) ) , \(String(describing: error))")
+            print(responseObject ?? [:])
 
             if error == nil {
                 if responseObject?["status"] as! String == "Success"{
@@ -1561,7 +1580,7 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                             
                             if arrStr1.count > 1 {
                                 
-                                if arrStr1[0] == "Select the available accessories" {
+                                if arrStr1[0] == "Select the available accessories" || arrStr1[0] == "Select the available original accessories" {
                                     
                                     var completeString = ""
                                     

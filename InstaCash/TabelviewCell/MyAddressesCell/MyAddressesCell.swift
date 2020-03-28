@@ -13,6 +13,7 @@ class MyAddressesCell: UITableViewCell {
     @IBOutlet weak var lblPincode: UILabel!
     @IBOutlet weak var lblLandMark: UILabel!
     @IBOutlet weak var lblAddress: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

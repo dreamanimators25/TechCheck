@@ -109,6 +109,8 @@ class OffersAndPromotionsVC: UIViewController {
                         
                         let imgArray = responseObject?["msg"] as! [[String:Any]]
                         
+                        userDefaults.set((imgArray[0]["promoterId"] as? String ?? ""), forKey: "promoterID")
+                        
                         // Oppo
                         self.oppoPromoterId = imgArray[0]["promoterId"] as? String ?? ""
                         self.oppoAddInfo = imgArray[0]["additionalInformation"] as? String ?? ""

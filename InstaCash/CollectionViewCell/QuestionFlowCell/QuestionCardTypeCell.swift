@@ -9,6 +9,7 @@
 import UIKit
 
 class QuestionCardTypeCell: UICollectionViewCell {
+    
     @IBOutlet weak var lblTitle: UILabel!
     
     override func awakeFromNib() {

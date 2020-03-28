@@ -9,11 +9,12 @@
 import UIKit
 
 class TrandingDeviceCell: UICollectionViewCell {
+
     @IBOutlet weak var viewBg: UIView!
-    
     @IBOutlet weak var imgDevice: UIImageView!
     @IBOutlet weak var lblPrice: UILabel!
     @IBOutlet weak var lblPhoneName: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         viewBg.layer.cornerRadius = CGFloat(viewCornerRadius)

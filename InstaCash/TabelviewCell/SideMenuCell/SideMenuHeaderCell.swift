@@ -15,6 +15,7 @@ class SideMenuHeaderCell: UITableViewCell {
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var btnSignIn: UIButton!
     @IBOutlet weak var imgUser: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

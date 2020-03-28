@@ -19,7 +19,13 @@ class OrderFinalVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        //Sameer - 28/3/20
+        userDefaults.removeObject(forKey: "promoterID")
+        userDefaults.removeObject(forKey: "promoter")
+        userDefaults.removeObject(forKey: "promotionCouponCode")
+        userDefaults.removeObject(forKey: "additionalInfo")
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

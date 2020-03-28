@@ -11,6 +11,7 @@ import UIKit
 class PaymentTypeFooter: UITableViewCell {
 
     @IBOutlet weak var btnPlaceOrder: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

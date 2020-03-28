@@ -12,6 +12,7 @@ class FunctionalQuestionCell: UITableViewCell {
 
     @IBOutlet weak var viewBg: UIView!
     @IBOutlet weak var lbltitle: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         viewBg.layer.cornerRadius = 3.0

@@ -9,6 +9,7 @@
 import UIKit
 
 class SelectBrandCell: UICollectionViewCell {
+    
     @IBOutlet weak var lblBrandName: UILabel!
     @IBOutlet weak var imgMobile: UIImageView!
     

@@ -9,10 +9,12 @@
 import UIKit
 
 class SideMenuListingCell: UITableViewCell {
+    
     @IBOutlet weak var lblLine: UILabel!
     @IBOutlet weak var lblComunication: UILabel!
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var imgLogo: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

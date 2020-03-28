@@ -13,6 +13,7 @@ class QuestionPickUpCell: UITableViewCell {
     @IBOutlet weak var viewData: UIView!
     @IBOutlet weak var lblQuestion: UILabel!
     @IBOutlet weak var collectionViewQuestionValues: UICollectionView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

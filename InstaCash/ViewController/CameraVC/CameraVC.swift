@@ -11,6 +11,7 @@ import AVFoundation
 import DKCamera
 import PopupDialog
 import SwiftyJSON
+
 class CameraVC: UIViewController {
     
     @IBOutlet weak var lblPrice: UILabel!

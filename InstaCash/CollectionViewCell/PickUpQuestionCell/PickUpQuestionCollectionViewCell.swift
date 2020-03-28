@@ -9,6 +9,7 @@
 import UIKit
 
 class PickUpQuestionCollectionViewCell: UICollectionViewCell {
+    
     @IBOutlet weak var lblValues: UILabel!
     @IBOutlet weak var imgValues: UIImageView!
     @IBOutlet weak var circleImageView: UIImageView!

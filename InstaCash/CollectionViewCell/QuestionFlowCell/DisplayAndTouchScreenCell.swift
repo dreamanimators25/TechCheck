@@ -12,6 +12,7 @@ class DisplayAndTouchScreenCell: UICollectionViewCell {
 
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var imgLogo: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

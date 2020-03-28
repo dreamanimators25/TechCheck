@@ -11,6 +11,7 @@ import UIKit
 class NewProductQuoteHeaderCell: UITableViewCell {
 
     @IBOutlet weak var lblPrice: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

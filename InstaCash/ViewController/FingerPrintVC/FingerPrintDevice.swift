@@ -14,14 +14,14 @@ import SwiftyJSON
 class FingerPrintDevice: UIViewController {
     
     @IBOutlet weak var lblPrice: UILabel!
+    @IBOutlet weak var biometricImage: UIImageView!
     
     //@IBOutlet weak var btnScanFingerPrint: UIButton!
     
     var resultJSON = JSON()
     var isComingFromTestResult = false
     var isComingFromProductquote = false
-
-    @IBOutlet weak var biometricImage: UIImageView!
+    
     var isCancel = false
     
     override func viewDidLoad() {

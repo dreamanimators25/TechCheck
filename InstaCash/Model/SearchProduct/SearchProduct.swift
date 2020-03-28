@@ -21,10 +21,7 @@ class SearchProduct{
         self.strProductName = searchProductListDict["name"] as? String
         self.strProductImage = searchProductListDict["image"] as? String
         self.strproductBrandName = searchProductListDict["brandName"] as? String
-        self.strSmartPhone = searchProductListDict["categoryName"] as? String
-
-       
-        
+        self.strSmartPhone = searchProductListDict["categoryName"] as? String        
     }
     //MARK:- web service methods
     

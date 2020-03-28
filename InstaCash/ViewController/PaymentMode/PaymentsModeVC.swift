@@ -1071,6 +1071,13 @@ class PaymentsModeVC: UIViewController {
                 strPromoterId = userDefaults.value(forKey: "promoter_id") as! String
             }
             
+            //Sameer - 28/3/20
+            if userDefaults.value(forKey: "promoterID") == nil {
+                strPromoterId = ""
+            }
+            else{
+                strPromoterId = userDefaults.value(forKey: "promoterID") as! String
+            }
             
             let strBaseURL = userDefaults.value(forKey: "baseURL") as! String
             let strUrl = strBaseURL + "orderCreate"
@@ -1108,7 +1115,7 @@ class PaymentsModeVC: UIViewController {
                 smallParam["donationAmount"] = donationMoney
             }
             
-            let parametersHome : [String : Any] = [
+            var parametersHome : [String : Any] = [
                 "userName" : apiAuthenticateUserName,
                 "apiKey" : key,
                 "mobile":CustomUserDefault.getPhoneNumber() ?? "",
@@ -1139,7 +1146,7 @@ class PaymentsModeVC: UIViewController {
                 
                 "couponCode":userDefaults.value(forKey: "orderPromoCode") as? String ?? "",
                 "couponAmount":couponAmount,
-                //"promoterId":strPromoterId,
+                "promoterId":strPromoterId,
                 
                 //"paymentDetails" : smallParam,
                 "donateTo" : "NSS",
@@ -1150,6 +1157,10 @@ class PaymentsModeVC: UIViewController {
                 "preferredTime":"",
                 //"additionalInformation":"",
             ]
+            
+            if let addInfo = userDefaults.value(forKey: "additionalInfo") {
+                parametersHome["additionalInformation"] = addInfo
+            }
             
             print(strUrl)
             print(parametersHome)

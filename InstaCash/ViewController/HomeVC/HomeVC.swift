@@ -287,6 +287,14 @@ class HomeVC: UIViewController, UIScrollViewDelegate,UICollectionViewDelegate,UI
         }
         
         userDefaults.removeObject(forKey: "promoter_id")
+        
+        //Sameer - 28/3/20
+        userDefaults.removeObject(forKey: "promoterID")
+        userDefaults.removeObject(forKey: "promoter")
+        userDefaults.removeObject(forKey: "promotionCouponCode")
+        userDefaults.removeObject(forKey: "additionalInfo")
+        
+        
         userDefaults.setValue(false, forKey: "isSkippedRotation")
         //self.title = "InstaCash"
         scrlViewHome.alwaysBounceVertical = true

@@ -7,9 +7,11 @@
 //
 
 import UIKit
+
 protocol ShowVerificationCodeDelegate {
     func showVerificationCodePopUp(processFor:String)
 }
+
 class ChangeModePopUpVC: UIViewController {
 
     @IBOutlet weak var lblSubtitle: UILabel!

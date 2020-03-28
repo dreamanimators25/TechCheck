@@ -204,6 +204,13 @@ class UserAccountVC: UIViewController {
         
         CustomUserDefault.removePinCode() //s.
         
+        //Sameer - 28/3/20
+        userDefaults.removeObject(forKey: "promoterID")
+        userDefaults.removeObject(forKey: "promoter")
+        userDefaults.removeObject(forKey: "promotionCouponCode")
+        userDefaults.removeObject(forKey: "additionalInfo")
+        //
+        
         UserDefaults.standard.removeObject(forKey: "placeOrderAddress") //s.
         UserDefaults.standard.removeObject(forKey: "address2") //s.
         UserDefaults.standard.removeObject(forKey: "accountNumber") //s.

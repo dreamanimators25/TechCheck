@@ -5,3 +5,212 @@
   Created by Sameer Khan on 26/03/20.
   Copyright © 2020 Prakhar Gupta. All rights reserved.
 */
+
+//******* Mendatory Fields IN COMPLETE APP *******//
+
+// 1. AppDelegate
+
+// 2. CountryVC
+
+// 3. WelcomeVC
+
+// 4. LoginVC
+
+// 5. SideMenuVC
+
+// 6. SearchProductVC
+
+// 7. HomeVC
+
+// 8. MobileNumberVC
+
+// 9. CityVC
+
+// 10. BrandModelTypeVC
+
+// 11. ProductDetailVewVC
+
+// 12. SendAppLinkPopUp
+
+// 13. OrderPlacePopUp
+
+// 14. PromoCodeVC
+
+// 15. SellerDetailsVC
+
+// 16. PlaceOrderVC
+
+// 17. IMEIVC
+
+// 18. PaymentsModeVC
+
+// 19. MYBankDetailVC
+
+// 20. MYCendolVC
+
+// 21. MYMaxisVC
+
+// 22. MYSamsungVC
+
+// 23. SGFastPayVC
+
+// 24. SGPaynowVC
+
+// 25. PaymentTypeVC
+
+// 26. OrderStatus1
+
+// 27. OrderStatus2
+
+// 28. FillDetailLater
+
+// 29. ProductConditionVC
+
+// 30. PromocodePopUpVC
+
+// 31. LockPricePopUp
+
+// 32. BankDetailVC
+
+// 33. DeviceInfoVC
+
+// 34. VolumeCheckerVC
+
+// 35. ScreenTestingVC
+
+// 36. RotationVC
+
+// 37. SensorReadVC
+
+// 38. EarPhoneVC
+
+// 39. DeviceChargerVC
+
+// 40. CameraVC
+
+// 41. FingerPrintDevice
+
+// 42. BlueToothTestingVC
+
+// 43. DiagnosticTestResultVC
+
+// 44. QuriesVC
+
+// 45. MyAddresses
+
+// 46. MyAccountVC
+
+// 47. QuriesVC
+
+// 48. MyAddresses
+
+// 49. MyAccountVC
+
+// 50. MyOrderVC
+
+// 51. OrderDetail
+
+// 52. CustomerSupportVC
+
+// 53. HistoryVC
+
+// 54. HowItWorkVC
+
+// 55. AboutUsVC
+
+// 56. ChangeAppModeVC
+
+// 57. TermsConditionVC
+
+// 58. ContactUsVC
+
+// 59. UploadDocumentVC
+
+// 60. MisMatchVC
+
+// 61. PickUpQuestionVC
+
+// 62. ScreenTestPickUp
+
+// 63. DeadPixelVC
+
+// 64. UploadIDVC
+
+// 65. SignatureVC
+
+// 66. PickUpItemsVC
+
+// 67. ProceedPaymentVC
+
+// 68. ProcessPaymentPopUpVC
+
+// 69. RatingVC
+
+// 70. LiveOfferVC
+
+// 71. TimeLineVC
+
+// 72. OtherDeviceQuestionFlow
+
+// 73. DiagnosisQuestionFlowVC
+
+// 74. PramotterVC
+
+// 75. PromoterOTPVC
+
+// 76. AnotherDevice
+
+// 77. StartDevice1
+
+// 78. ExactQuote
+
+// 79. ChangeModePopUpVC
+
+// 80. Sell2
+
+// 81. CountrySelection
+
+// 82. StartDevice
+
+// 83. Sell1
+
+// 84. TouchScreen
+
+// 85. Speaker
+
+// 86. Voucher
+
+// 87. BankTransfer
+
+// 88. Wallet
+
+// 89. Profile
+
+// 90. NotificationNew
+
+// 91. OrderFinalVC
+
+// 92. SellOtherDeviceSearchVC
+
+// 93. UserAccountVC
+
+// 94. AboutVC
+
+// 95. AboutPageVC
+
+// 96. TnCPageVC
+
+// 97. HowItWorkPageVC
+
+// 98. FaqPageVC
+
+// 99. MyHistoryListVC
+
+// 100. PickUpCodeVC
+
+// 101. ItemPickUpVC
+
+// 102. OffersAndPromotionsVC
+
+// 103. OfferPromotionPopUpVC
+

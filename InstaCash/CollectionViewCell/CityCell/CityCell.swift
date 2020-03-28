@@ -11,6 +11,7 @@ import UIKit
 class CityCell: UICollectionViewCell {
 
     @IBOutlet weak var cityName: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         contentView.layer.cornerRadius = CGFloat(btnCornerRadius)
