@@ -17,6 +17,7 @@ class CityVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UITex
     @IBOutlet weak var cityPicker: UIPickerView!
     @IBOutlet weak var collectionViewCity: UICollectionView!
     @IBOutlet weak var txtPinCode: UITextField!
+    
     var arrCityData = [CityModel]()
     var states = [String]()
     var cities = [String]()
@@ -126,7 +127,6 @@ class CityVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UITex
             
         }
        
-        // Do any additional setup after loading the view.
     }
 
     @IBAction func btnOkPressed(_ sender: UIButton) {
@@ -249,7 +249,6 @@ class CityVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UITex
                 txtPinCode.text = pincode
             }
             
-            
             break
             
         default:
@@ -274,19 +273,17 @@ class CityVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UITex
     
     }
     
-
-    
     @IBAction func btnCancelPressed(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
 
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -294,6 +291,5 @@ class CityVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UITex
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
 
 }

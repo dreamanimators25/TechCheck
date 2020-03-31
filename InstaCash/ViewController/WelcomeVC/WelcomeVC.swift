@@ -13,6 +13,7 @@ class WelcomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataS
 
     @IBOutlet weak var pageControllerWelcome: UIPageControl!
     @IBOutlet weak var collectionViewWelcome: UICollectionView!
+    
     var arrImages = [UIImage]()
     var arrTitle = [String]()
     var arrDescription = [String]()

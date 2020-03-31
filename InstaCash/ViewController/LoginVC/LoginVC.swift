@@ -19,6 +19,7 @@ class LoginVC: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate,TCTrueSDKD
     @IBOutlet weak var btnFb: UIButton!
     @IBOutlet weak var btnTrueCaller: UIButton!
     let reachability: Reachability? = Reachability()
+    
     var strTrueCallerId = ""
     var strTrueCallerName = ""
     var strTrueCallerImage = ""
@@ -120,12 +121,15 @@ class LoginVC: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate,TCTrueSDKD
             }
         }
     }
+    
     @IBAction func btnGPlusPressed(_ sender: UIButton) {
         GIDSignIn.sharedInstance().delegate = self
         GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().signIn()
     }
+    
     @IBAction func btnContinueGuestPressed(_ sender: UIButton) {
+    
     }
     
     //MARK:- get fbUser data
@@ -250,9 +254,11 @@ class LoginVC: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate,TCTrueSDKD
         // Perform any operations when the user disconnects from app here.
         // ...
     }
+    
     func signInWillDispatch(signIn: GIDSignIn!, error: Error!,_: Error!) {
         //myActivityIndicator.stopAnimating()
     }
+    
     func sign(_ signIn: GIDSignIn!,
               present viewController: UIViewController!) {
         self.present(viewController, animated: true, completion: nil)
@@ -263,6 +269,7 @@ class LoginVC: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate,TCTrueSDKD
               dismiss viewController: UIViewController!) {
         self.dismiss(animated: true, completion: nil)
     }
+    
     //MARK:- textfield flight
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if (textField.text?.utf8CString.count)! > 10

@@ -11,9 +11,7 @@ import UIKit
 class MobileNumberVC: UIViewController,UITextFieldDelegate {
     
     @IBOutlet weak var btnResend: UIButton!
-    
     @IBOutlet weak var btnSend: UIButton!
-    
     @IBOutlet weak var txt1: UITextField!
     @IBOutlet weak var txt2: UITextField!
     @IBOutlet weak var txt3: UITextField!
@@ -37,7 +35,6 @@ class MobileNumberVC: UIViewController,UITextFieldDelegate {
         txt3.autocorrectionType = .no
         txt4.autocorrectionType = .no
         
-        // Do any additional setup after loading the view.
     }
     
     //MARK:- uitextfield delegate methpds
@@ -134,12 +131,11 @@ class MobileNumberVC: UIViewController,UITextFieldDelegate {
             
             if (userDefaults.value(forKey: "FCMToken") != nil){
                 strGCMToken = userDefaults.value(forKey: "FCMToken") as! String
-                
             }
             else{
                 strGCMToken = ""
-                
             }
+            
             Alert.ShowProgressHud(Onview: self.view)
             let strBaseURL = userDefaults.value(forKey: "baseURL") as! String
             var strUrl = ""
@@ -180,7 +176,7 @@ class MobileNumberVC: UIViewController,UITextFieldDelegate {
                 Alert.HideProgressHud(Onview: self.view)
                 if error == nil {
                     
-                    if responseObject?["status"] as! String == "Success"{
+                    if responseObject?["status"] as! String == "Success" {
                         
                         if isResend == false{
                             if internalOTP == "0"{
@@ -191,10 +187,10 @@ class MobileNumberVC: UIViewController,UITextFieldDelegate {
                                 CustomUserDefault.setUserId(data: dictUser.value(forKey: "customerId") as! String)
                                 CustomUserDefault.setUserName(data: dictUser.value(forKey: "name") as! String)
                                 
-                                if self.isComingToCheckForPlaceOrder{
+                                if self.isComingToCheckForPlaceOrder {
                                     obj_app.setRootWithMrnuForPlaceOreder(isComingFrom:true)
                                 }
-                                else{
+                                else {
                                     obj_app.setRotControllersWithSideMenu(sendMyOrderArray: [HomeModel](), sendBrandArray: [HomeModel](), SendPupularDevoice: [HomeModel](), SendMyCurrentDevice: [HomeModel](), isComingFromWelcome: false,strAppCodeGet:"")
                                 }
                             }
@@ -306,7 +302,7 @@ class MobileNumberVC: UIViewController,UITextFieldDelegate {
     
     func fireWebServiceForMobileNumberLogin(isResend:Bool)
     {
-        if reachability?.connection.description != "No Connection"{
+        if reachability?.connection.description != "No Connection" {
             var strGCMToken = ""
             var internalOTP = ""
             
@@ -393,16 +389,19 @@ class MobileNumberVC: UIViewController,UITextFieldDelegate {
                                             CustomUserDefault.setUserId(data: dictUser.value(forKey: "userId") as! String)
                                             
                                         }
+                                        
                                         if dictUser.value(forKey: "customerId") != nil {
                                             CustomUserDefault.setUserId(data: dictUser.value(forKey: "customerId") as! String)
                                             
                                         }
+                                        
                                         if self.isComingToCheckForPlaceOrder{
                                             obj_app.setRootWithMrnuForPlaceOreder(isComingFrom:true)
                                         }
                                         else{
                                             obj_app.setRotControllersWithSideMenu(sendMyOrderArray: [HomeModel](), sendBrandArray: [HomeModel](), SendPupularDevoice: [HomeModel](), SendMyCurrentDevice: [HomeModel](), isComingFromWelcome: false,strAppCodeGet:"")
                                         }
+                                        
                                     }
                                 }
                                 else{

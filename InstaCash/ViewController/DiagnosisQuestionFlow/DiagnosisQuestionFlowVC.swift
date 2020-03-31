@@ -13,10 +13,10 @@ class DiagnosisQuestionFlowVC: UIViewController,UITableViewDelegate,UITableViewD
 
     @IBOutlet weak var btnSubmit: UIButton!
     @IBOutlet weak var tblViewDiagnosisQuestion: UITableView!
+    
     var arrQuestionForQuestion = [PickUpQuestionModel]()
     var resultJSON = JSON()
     let reachability: Reachability? = Reachability()
-    
     var selectedId = String() //s.
     var selectedName = String() //s.
     var selectedImageUrl = String() //s.

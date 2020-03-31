@@ -11,10 +11,11 @@ import UIKit
 class IMEIVC: UIViewController,UITextFieldDelegate {
 
     @IBOutlet weak var imeiEditText: UITextField!
+    
     var myDeviceDict = NSMutableDictionary()
     var arrMyCurrentDeviceGet = [HomeModel]()
-
     var isComingForProcessmode = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationBar()
@@ -38,6 +39,7 @@ class IMEIVC: UIViewController,UITextFieldDelegate {
         let leftBarButton = UIBarButtonItem(customView: btnBack)
         navigationItem.leftBarButtonItem = leftBarButton
     }
+    
     //MARK:- button action methods
     
     @objc func btnBackPressed() -> Void {

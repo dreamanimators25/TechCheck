@@ -109,13 +109,14 @@ class PlaceOrderVC: UIViewController,UITextFieldDelegate,CLLocationManagerDelega
         let heightConstraint = btnBack.heightAnchor.constraint(equalToConstant: 25)
         heightConstraint.isActive = true
         widthConstraint.isActive = true
+        
         if isComingFromLogin {
             btnBack.setImage(UIImage(named: "sideMenu"), for: .normal)
         }
         else{
             btnBack.setImage(UIImage(named: "back"), for: .normal)
-
         }
+        
         btnBack.addTarget(self, action: #selector(PlaceOrderVC.btnBackPressed), for: .touchUpInside)
 
         let leftBarButton = UIBarButtonItem(customView: btnBack)
@@ -169,12 +170,9 @@ class PlaceOrderVC: UIViewController,UITextFieldDelegate,CLLocationManagerDelega
             
             self.getProcessPaymentMode()
             
-            
 //            }
 //            else{
 //                self.getProcessPaymentMode()
-//
-//
 //            }
         }
     }
@@ -462,7 +460,6 @@ class PlaceOrderVC: UIViewController,UITextFieldDelegate,CLLocationManagerDelega
                     }
                 }
                 
-                
               //  self.txtAddressLin1.text = name + "," + subLocality + "," + city + "," + country
                 
             }
@@ -512,7 +509,7 @@ class PlaceOrderVC: UIViewController,UITextFieldDelegate,CLLocationManagerDelega
         self.apiPayment(strURL: strUrl, parameters: parametersHome as NSDictionary, completionHandler: {responseObject , error in
             Alert.HideProgressHud(Onview: self.view)
             if error == nil {
-                if responseObject?["status"] as! String == "Success"{
+                if responseObject?["status"] as! String == "Success" {
                     //let strProcess = responseObject?.value(forKeyPath: "msg.process") as? String //s.
                     //let badchar = CharacterSet(charactersIn: "[]") //s.
                     //let cleanedstring = strProcess!.components(separatedBy: badchar).joined() //s.

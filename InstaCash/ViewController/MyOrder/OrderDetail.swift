@@ -152,11 +152,11 @@ class OrderDetail: UIViewController,UIPopoverPresentationControllerDelegate {
                         //let price = Int(finalItem?.value(forKey: "amount") as? String ?? "")?.formattedWithSeparator
                         //self.lblPrice?.text = txt + (price ?? "0")
                         
-                        let str = "\(itemDetail?.value(forKey: "customerName") as? String ?? "") \n \(itemDetail?.value(forKey: "mobile") as? String ?? "")"
+                        let str = "\(itemDetail?.value(forKey: "customerName") as? String ?? "") \n\(itemDetail?.value(forKey: "mobile") as? String ?? "")"
                         self.lblName?.text = str
                         
                         self.lblAddress?.text = "\(itemDetail?.value(forKey: "address") as? String ?? "") \(itemDetail?.value(forKey: "city") as? String ?? "")"
-                        
+                                                
                         let orderCurrentStatus = finalItem?.value(forKey: "status") as? String ?? ""
                         print(orderCurrentStatus)
                         

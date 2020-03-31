@@ -309,10 +309,12 @@ class MisMatchVC: UIViewController {
                     UserDefaults.standard.set(true, forKey: "isShowValidBill")
                 }
                 
-                userSelectedProductAppcodes =  "STON01;" + strAppCodes + strDiagnosisFailed
+                //userSelectedProductAppcodes =  "STON01;" + strAppCodes + strDiagnosisFailed // sameer 31/3/2020
+                userSelectedProductAppcodes = strAppCodes + strDiagnosisFailed
             }
             else{
-                userSelectedProductAppcodes =  "STON01;" + strAppCodes + strDiagnosisFailed
+                //userSelectedProductAppcodes =  "STON01;" + strAppCodes + strDiagnosisFailed // sameer 31/3/2020
+                userSelectedProductAppcodes = strAppCodes + strDiagnosisFailed
             }
             
             var strFinalCodeValues = userSelectedProductAppcodes.replacingOccurrences(of: ",,,", with: ";")

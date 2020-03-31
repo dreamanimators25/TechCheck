@@ -15,7 +15,7 @@ import SwiftyJSON
 import SystemServices
 import MessageUI
 
-class HomeVC: UIViewController, UIScrollViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,ShowVerificationCodeDelegate,UITableViewDataSource, UITableViewDelegate,MFMailComposeViewControllerDelegate {
+class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, ShowVerificationCodeDelegate, UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate {
     
     @IBOutlet weak var lblPriceDropMessage: UILabel!
     @IBOutlet weak var activityConfirmOrder: UIActivityIndicatorView!
@@ -107,7 +107,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate,UICollectionViewDelegate,UI
     var floatingImageArrayMY:[UIImage] = [#imageLiteral(resourceName: "chatSupport"),#imageLiteral(resourceName: "callSupport"),#imageLiteral(resourceName: "mailSupport")]
     
     //MARK:- show custom delegate methods
-    func showVerificationCodePopUp(processFor: String){
+    func showVerificationCodePopUp(processFor: String) {
         var strTitle = ""
         
         if processFor == "Yes"{
@@ -533,7 +533,6 @@ class HomeVC: UIViewController, UIScrollViewDelegate,UICollectionViewDelegate,UI
                             
                         }
                         
-                      
                         //self.setViewDynamicaly()
                     }
                     else{
@@ -676,7 +675,8 @@ class HomeVC: UIViewController, UIScrollViewDelegate,UICollectionViewDelegate,UI
  
         //setNavigationBar()
         collectionViewOrders.register(UINib(nibName: "YoursOrderCell", bundle: nil), forCellWithReuseIdentifier: "yoursOrderCell")
-          collectionViewPopular.register(UINib(nibName: "TrandingDeviceCell", bundle: nil), forCellWithReuseIdentifier: "trandingDeviceCell")
+        collectionViewPopular.register(UINib(nibName: "TrandingDeviceCell", bundle: nil), forCellWithReuseIdentifier: "trandingDeviceCell")
+        
         viewConfirmOrder.layer.cornerRadius = CGFloat(btnCornerRadius)
         viewConfirmOrder.clipsToBounds = true
         viewMiddle.layer.cornerRadius = CGFloat(btnCornerRadius)
@@ -764,7 +764,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate,UICollectionViewDelegate,UI
                     btnImage = "chargerCable"
                 }
                 else if userDefaults.value(forKey: "camera_complete") as! Bool == false{
-                    btntitle = "Continue Camers Test"
+                    btntitle = "Continue Camera Test"
                     btnImage = "cameraSkippedTest"
                 }
                 else if userDefaults.value(forKey: "fingerprint_complete") as! Bool == false{
@@ -811,7 +811,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate,UICollectionViewDelegate,UI
                     btnImage = "hardWareButtonTest"
                 }
                 else if (userDefaults.value(forKey: "camera_complete") as? Bool != nil) == false {
-                    btntitle = "Continue Camers Test"
+                    btntitle = "Continue Camera Test"
                     btnImage = "cameraSkippedTest"
                 }
                 else if (userDefaults.value(forKey: "fingerprint_complete") as? Bool != nil) == false {
@@ -1567,37 +1567,46 @@ class HomeVC: UIViewController, UIScrollViewDelegate,UICollectionViewDelegate,UI
 //
 //        }
     }
+    
     @IBAction func btnDeviceBrand1Pressed(_ sender: UIButton) {
         moveToBrandTypeController(withId: sender.tag)
     }
+    
     @IBAction func btnDeviceBrand2Pressed(_ sender: UIButton) {
         moveToBrandTypeController(withId: sender.tag)
 
     }
+    
     @IBAction func btnDeviceBrand3Pressed(_ sender: UIButton) {
         //moveToBrandTypeController(withId: sender.tag)
 
     }
+    
     @IBAction func btnDeviceBrand4Pressed(_ sender: UIButton) {
         //moveToBrandTypeController(withId: sender.tag)
 
     }
+    
     @IBAction func btnDeviceBrand5Pressed(_ sender: UIButton) {
         //moveToBrandTypeController(withId: sender.tag)
 
     }
+    
     @IBAction func btnDeviceBrand6Pressed(_ sender: UIButton) {
         //moveToBrandTypeController(withId: sender.tag)
 
     }
+    
     @IBAction func btnDeviceBrand7Pressed(_ sender: UIButton) {
         //moveToBrandTypeController(withId: sender.tag)
 
     }
+    
     @IBAction func btnDeviceBrand8Pressed(_ sender: UIButton) {
         //moveToBrandTypeController(withId: sender.tag)
 
     }
+    
     @IBAction func btnDeviceBrand9Pressed(_ sender: UIButton) {
         //moveToBrandTypeController(withId: sender.tag)
 
@@ -1833,6 +1842,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate,UICollectionViewDelegate,UI
             var strUrl = ""
             var parameters = [String: Any]()
             strUrl = strBaseURL + "appModeCode"
+            
             parameters  = [
                 "userName" : apiAuthenticateUserName,
                 "apiKey" : key,
@@ -1841,6 +1851,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate,UICollectionViewDelegate,UI
                 "customerId":CustomUserDefault.getUserId(),
                 "uniqueIdentifire":strUudid + "~" + strUudid
             ]
+            
             print(parameters)
             
             self.diagnosisPost(strURL: strUrl, parameters: parameters as NSDictionary, completionHandler: {responseObject , error in

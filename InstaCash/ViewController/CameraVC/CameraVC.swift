@@ -19,7 +19,6 @@ class CameraVC: UIViewController {
     var resultJSON = JSON()
     var isComingFromTestResult = false
     var isComingFromProductquote = false
-
     var isFrontClick = false
     var isBackClick = false
     
@@ -107,16 +106,13 @@ class CameraVC: UIViewController {
     }
     
     @IBAction func onClickBack(_ sender: UIButton) {
-        
         self.dismiss(animated: true, completion: nil)
-        
     }
     
     @IBAction func btnSkipPressed(_ sender: UIButton) {
         // Prepare the popup assets
         let title = "Camera Diagnosis"
         let message = "If you skip this test there would be a substantial decline in the price offered. Do you still want to skip?"
-        
         
         // Create the dialog
         let popup = PopupDialog(title: title, message: message,buttonAlignment: .horizontal, transitionStyle: .bounceDown, tapGestureDismissal: false, panGestureDismissal :false)
@@ -196,7 +192,6 @@ class CameraVC: UIViewController {
         db.titleFont      = UIFont(name: "HelveticaNeue-Medium", size: 16)!
         
         
-        
         // Customize cancel button appearance
         let cb = CancelButton.appearance()
         cb.titleFont      = UIFont(name: "HelveticaNeue-Medium", size: 16)!
@@ -210,7 +205,6 @@ class CameraVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
     
     // MARK: - Navigation
 

@@ -15,6 +15,7 @@ import SwiftyJSON
 import CoreBluetooth
 
 class BlueToothTestingVC: UIViewController,CBCentralManagerDelegate {
+    
     var location = CLLocation()
     var wifiSSID = String()
     var mcc = String()
@@ -27,6 +28,7 @@ class BlueToothTestingVC: UIViewController,CBCentralManagerDelegate {
     var iscomingFromHome = false
 
     @IBOutlet weak var internalImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if iscomingFromHome == true {
@@ -42,8 +44,8 @@ class BlueToothTestingVC: UIViewController,CBCentralManagerDelegate {
         userDefaults.setValue(false, forKey: "GPS")
         userDefaults.setValue(false, forKey: "Battery")
 
-        // Do any additional setup after loading the view.
     }
+    
     //MARK:- bluetooth delegates methods
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
         switch central.state {
@@ -200,7 +202,6 @@ class BlueToothTestingVC: UIViewController,CBCentralManagerDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-
     
     // MARK: - Navigation
 

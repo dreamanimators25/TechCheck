@@ -15,15 +15,16 @@ import SwiftyJSON
 class DeviceChargerVC: UIViewController {
     
     @IBOutlet weak var viewGuide: UIView!
+    @IBOutlet weak var chargerInfoImage: UIImageView!
     
     var resultJSON = JSON()
     var imagePicker: UIImagePickerController!
     var isComingFromTestResult = false
     var isComingFromProductquote = false
-
-    @IBOutlet weak var chargerInfoImage: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         if isComingFromTestResult == false && isComingFromProductquote == false{
             userDefaults.removeObject(forKey: "charger_complete")
             userDefaults.setValue(false, forKey: "charger_complete")
@@ -41,12 +42,9 @@ class DeviceChargerVC: UIViewController {
     }
     
     @IBAction func btnStartPressed(_ sender: UIButton) {
-        
         //self.viewGuide.isHidden = false
         let btn = UIButton()
-        
         self.btnSkipPressed(btn)
-        
     }
     
     @IBAction func onClickBack(_ sender: UIButton) {
@@ -99,7 +97,6 @@ class DeviceChargerVC: UIViewController {
         }
         
         
-        
         // Add buttons to dialog
         // Alternatively, you can use popup.addButton(buttonOne)
         // to add a single button
@@ -127,7 +124,6 @@ class DeviceChargerVC: UIViewController {
         // Customize default button appearance
         let db = DefaultButton.appearance()
         db.titleFont      = UIFont(name: "HelveticaNeue-Medium", size: 16)!
-        
         
         
         // Customize cancel button appearance
@@ -173,19 +169,18 @@ class DeviceChargerVC: UIViewController {
 
         }
         
-        
     }
     
     
     @objc func batteryLevelDidChange(notification: NSNotification){
         // The battery's level did change (98%, 99%, ...)
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
     
     // MARK: - Navigation
 

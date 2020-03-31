@@ -206,7 +206,6 @@ class ScreenTestingVC: UIViewController,RecorderDelegate {
         btnBack.addTarget(self, action: #selector(ScreenTestingVC.btnBackPressed), for: .touchUpInside)
         let leftBarButton = UIBarButtonItem(customView: btnBack)
         navigationItem.leftBarButtonItem = leftBarButton
-        
     }
     
     //MARK:- button action methods

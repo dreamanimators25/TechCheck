@@ -117,15 +117,17 @@ class OfferPromotionPopUpVC: UIViewController,UITextFieldDelegate {
                 
                 do {
                     let jsonData = try JSONSerialization.data(withJSONObject: param, options: [])
-                    if let jsonString = String(data: jsonData, encoding: String.Encoding.utf8) {
+                    if let jsonString = NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue) {
                         print(jsonString)
-                        jsonST = jsonString
+                        jsonST = jsonString as String
                     }
                 } catch {
                     print(error)
                 }
                 
                 userDefaults.set(jsonST, forKey: "additionalInfo")
+ 
+                
                 parameters  = [
                     "userName" : apiAuthenticateUserName,
                     "apiKey" : key,
@@ -135,17 +137,20 @@ class OfferPromotionPopUpVC: UIViewController,UITextFieldDelegate {
                 ]
             }else {
                 let param = ["employeeId" : promoTextField.text ?? ""] as [String:Any]
+                
                 do {
                     let jsonData = try JSONSerialization.data(withJSONObject: param, options: [])
-                    if let jsonString = String(data: jsonData, encoding: String.Encoding.utf8) {
+                                        
+                    if let jsonString = NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue) {
                         print(jsonString)
-                        jsonST = jsonString
+                        jsonST = jsonString as String
                     }
                 } catch {
                     print(error)
                 }
                 
                 userDefaults.set(jsonST, forKey: "additionalInfo")
+                
                 parameters  = [
                     "userName" : apiAuthenticateUserName,
                     "apiKey" : key,

@@ -115,6 +115,8 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
     var arrSkippedDataDumyAnswer = ["Flawless","Flawless","Flawless","Flawless","Flawless","Flawless","Flawless","Flawless"]
     
     var priceProduct = ""
+    
+    var increaseHeight = 0
 
     /*var childScrollView: UIScrollView {
         //return tableView
@@ -125,13 +127,12 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
     //MARK:- custom delegate
     func showPromoCode(){
         //let strPriceUpTo = userDefaults.value(forKey: "Product_UpToPrice") as? String
-            let vc = PromoCodeVC()
-            vc.getFinalPrice = self.priceSend
-            vc.strProductName = userDefaults.value(forKey: "productName") as? String ?? ""
-            vc.strProductImg = userDefaults.value(forKey: "otherProductDeviceImage") as? String ?? ""
-            vc.pickUpChargeGet = self.pickUpCharges
-            self.navigationController?.pushViewController(vc, animated: true)
-        
+        let vc = PromoCodeVC()
+        vc.getFinalPrice = self.priceSend
+        vc.strProductName = userDefaults.value(forKey: "productName") as? String ?? ""
+        vc.strProductImg = userDefaults.value(forKey: "otherProductDeviceImage") as? String ?? ""
+        vc.pickUpChargeGet = self.pickUpCharges
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     //MARK:- broadcast methods
@@ -141,6 +142,7 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
         //save json
         userDefaults.removeObject(forKey: "Diagnosis_DataSave_forConfirmOrder")
         userDefaults.setValue(self.getReturnJson.rawString(), forKey: "Diagnosis_DataSave_forConfirmOrder")
+        
         if arrSkippedData.count > 0 {
             let strObject = notification.userInfo?["TestPassName"] as? String
             for i in 0..<arrSkippedData.count{
@@ -441,10 +443,8 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
             }
             strSkipData = strSkipData + "CISS02;"
 
-            
         }
  
-        
         //if (userDefaults.value(forKey: "countryName") as? String)?.contains("India") != nil {
             
         if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
@@ -485,6 +485,7 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
             strSkipData = strSkipData + "CISS01;"
 
         }
+        
         if getReturnJson["Fingerprint Scanner"].int == -1{
             let model = ModelSkippedData()
             model.isSkipped = true
@@ -1274,9 +1275,7 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
     //MARK:- button action methods
     
     @IBAction func onClickBack(_ sender: Any) {
-        
         _ = self.navigationController?.popViewController(animated: true)
-        
     }
         
     @IBAction func btnLockPricePressed(_ sender: UIButton) {
@@ -1411,7 +1410,7 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
         }
         
 
-        if isComingFromOnPhoneDiagnostic{
+        if isComingFromOnPhoneDiagnostic {
             strSourceOfQuote = "diagnosis"
             userDefaults.set(true, forKey: "OrderPlaceFordiagnosis")
             productId = CustomUserDefault.getProductId()
@@ -1449,14 +1448,17 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
             productId = userDefaults.value(forKey: "otherProductDeviceID") as! String
         }
         
-        let  userSelectedProductAppcodes =  "STON01," + strGetFinalAppCodeValues + strDiagnosisFailed
+        // sameer on 31/3/20
+        //let  userSelectedProductAppcodes =  "STON01," + strGetFinalAppCodeValues + strDiagnosisFailed
+        let  userSelectedProductAppcodes = strGetFinalAppCodeValues + strDiagnosisFailed
+        
         userDefaults.removeObject(forKey: "failedDiagnosData")
         userDefaults.set(strDiagnosisFailed, forKey: "failedDiagnosData")
         
         let strFinalCodeValues = userSelectedProductAppcodes.replacingOccurrences(of: ",,", with: ",")
         let converComaToSemocolum = strFinalCodeValues.replacingOccurrences(of: ",", with: ";")
 
-        if isComingFromOnPhoneDiagnostic{
+        if isComingFromOnPhoneDiagnostic {
             userDefaults.removeObject(forKey: "Final_AppCodes_Diagnosis")
             userDefaults.set(converComaToSemocolum, forKey: "Final_AppCodes_Diagnosis")
             userDefaults.removeObject(forKey: "Final_AppCodes")
@@ -1489,7 +1491,6 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
         else{
             jsonStringforMetaDetails = ""
         }
-        
         
         var parametersHome : [String : Any] = [
             "apiKey" : key,
@@ -1526,6 +1527,7 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
             else{
                 Alert.HideProgressHud(Onview: self.view)
             }
+            
             print("\(String(describing: responseObject) ) , \(String(describing: error))")
             print(responseObject ?? [:])
 
@@ -1560,11 +1562,10 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                     let price = Int(responseObject?["totalPromoterAmount"] as! Int)
                     
                     self.quatationID = String(responseObject?["quotationId"] as? String ?? "")
+                    
                     //let finalPrice = price! - chareges
-                    
                     //self.productPrice = finalPrice
-                    
-                   // self.lblPriceScroolUp.text = CustomUserDefault.getCurrency() + price!.formattedWithSeparator //"\(finalPrice)"
+                    //self.lblPriceScroolUp.text = CustomUserDefault.getCurrency() + price!.formattedWithSeparator //"\(finalPrice)"
                     
                     self.lblPrice.text = CustomUserDefault.getCurrency() + price.formattedWithSeparator
                     
@@ -1581,6 +1582,7 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                             if arrStr1.count > 1 {
                                 
                                 if arrStr1[0] == "Select the available accessories" || arrStr1[0] == "Select the available original accessories" {
+                                    // IN Case .........
                                     
                                     var completeString = ""
                                     
@@ -1597,19 +1599,195 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                                     }
                                     
                                     if finalSummaryText.contains("Original Charger;") {
-                                        
                                         if completeString == "" {
                                             completeString = completeString + "Original Charger"
                                         }else {
                                             completeString = completeString + "\nOriginal Charger"
                                         }
-                                        
                                     }
                                     
                                     self.arrKey.append(arrStr1[0] ?? "")
                                     //self.arrValue.append(arrStr1[1] ?? "")
                                     self.arrValue.append(completeString)
-                                }else {
+                                    
+                                }else if arrStr1[0] == "Device Condition" {
+                                    // MY & SG Case .........
+                                    
+                                    var completeString = ""
+                                    
+                                    if finalSummaryText.contains("Bloated Battery;") {
+                                        completeString = "Bloated Battery"
+                                    }
+                                    
+                                    if finalSummaryText.contains("Liquid Damage;") {
+                                        if completeString == "" {
+                                            completeString = completeString + "Liquid Damage"
+                                        }else {
+                                            completeString = completeString + "\nLiquid Damage"
+                                        }
+                                    }
+                                    
+                                    if finalSummaryText.contains("Ghost Touch;") {
+                                        if completeString == "" {
+                                            completeString = completeString + "Ghost Touch"
+                                        }else {
+                                            completeString = completeString + "\nGhost Touch"
+                                        }
+                                    }
+                                    
+                                    if finalSummaryText.contains("Sim Card Tray Broken;") {
+                                        if completeString == "" {
+                                            completeString = completeString + "Sim Card Tray Broken"
+                                        }else {
+                                            completeString = completeString + "\nSim Card Tray Broken"
+                                        }
+                                    }
+                                    
+                                    if finalSummaryText.contains("Home and Power Button;") {
+                                        if completeString == "" {
+                                            completeString = completeString + "Home and Power Button"
+                                        }else {
+                                            completeString = completeString + "\nHome and Power Button"
+                                        }
+                                    }
+                                    
+                                    self.arrKey.append(arrStr1[0] ?? "")
+                                    //self.arrValue.append(arrStr1[1] ?? "")
+                                    self.arrValue.append(completeString)
+                                
+                                }else if arrStr1[0] == "Select the functional issues of your device" {
+                                    // IN Case .........
+                                    
+                                    var completeString = ""
+                                    
+                                    if finalSummaryText.contains("Front Or Back Camera - Not working or faulty;") {
+                                        completeString = "Front Or Back Camera - Not working or faulty"
+                                    }
+                                    
+                                    if finalSummaryText.contains("Volume Button not working;") {
+                                        if completeString == "" {
+                                            completeString = completeString + "Volume Button not working"
+                                        }else {
+                                            completeString = completeString + "\nVolume Button not working"
+                                            
+                                        }
+                                    }
+                                    
+                                    if finalSummaryText.contains("Power/Home Button Faulty;") {
+                                        if completeString == "" {
+                                            completeString = completeString + "Power/Home Button Faulty"
+                                        }else {
+                                            completeString = completeString + "\nPower/Home Button Faulty"
+                                            
+                                        }
+                                    }
+                                    
+                                    if finalSummaryText.contains("Hard or Not Working;") {
+                                        if completeString == "" {
+                                            completeString = completeString + "Hard or Not Working"
+                                        }else {
+                                            completeString = completeString + "\nHard or Not Working"
+                                            
+                                        }
+                                    }
+                                    
+                                    if finalSummaryText.contains("Wifi Or Bluetooth Or GPS Not Working;") {
+                                        if completeString == "" {
+                                            completeString = completeString + "Wifi Or Bluetooth Or GPS Not Working"
+                                        }else {
+                                            completeString = completeString + "\nWifi Or Bluetooth Or GPS Not Working"
+                                            
+                                        }
+                                    }
+                                    
+                                    if finalSummaryText.contains("Charging Defect;") {
+                                        if completeString == "" {
+                                            completeString = completeString + "Charging Defect"
+                                        }else {
+                                            completeString = completeString + "\nCharging Defect"
+                                            
+                                        }
+                                    }
+                                    
+                                    if finalSummaryText.contains("unable to charge the phone;") {
+                                        if completeString == "" {
+                                            completeString = completeString + "unable to charge the phone"
+                                        }else {
+                                            completeString = completeString + "\nunable to charge the phone"
+                                            self.increaseHeight += 1
+                                        }
+                                    }
+                                    
+                                    if finalSummaryText.contains("Battery Faulty or Very Low Battery Back up;") {
+                                        if completeString == "" {
+                                            completeString = completeString + "Battery Faulty or Very Low Battery Back up"
+                                        }else {
+                                            completeString = completeString + "\nBattery Faulty or Very Low Battery Back up"
+                                            
+                                        }
+                                    }
+                                    
+                                    if finalSummaryText.contains("Speakers not working;") {
+                                        if completeString == "" {
+                                            completeString = completeString + "Speakers not working"
+                                        }else {
+                                            completeString = completeString + "\nSpeakers not working"
+                                            self.increaseHeight += 1
+                                        }
+                                    }
+                                    
+                                    if finalSummaryText.contains("faulty Or cracked sound;") {
+                                        if completeString == "" {
+                                            completeString = completeString + "faulty Or cracked sound"
+                                        }else {
+                                            completeString = completeString + "\nfaulty Or cracked sound"
+                                            self.increaseHeight += 1
+                                        }
+                                    }
+                                    
+                                    if finalSummaryText.contains("Microphone Not Working;") {
+                                        if completeString == "" {
+                                            completeString = completeString + "Microphone Not Working"
+                                        }else {
+                                            completeString = completeString + "\nMicrophone Not Working"
+                                            self.increaseHeight += 1
+                                        }
+                                    }
+                                    
+                                    if finalSummaryText.contains("GSM (Call Function) is not-working normally;") {
+                                        if completeString == "" {
+                                            completeString = completeString + "GSM (Call Function) is not-working normally"
+                                        }else {
+                                            completeString = completeString + "\nGSM (Call Function) is not-working normally"
+                                            self.increaseHeight += 1
+                                        }
+                                    }
+                                    
+                                    if finalSummaryText.contains("Earphone Jack is damaged or not-working;") {
+                                        if completeString == "" {
+                                            completeString = completeString + "Earphone Jack is damaged or not-working"
+                                        }else {
+                                            completeString = completeString + "\nEarphone Jack is damaged or not-working"
+                                            self.increaseHeight += 1
+                                        }
+                                    }
+                                    
+                                    if finalSummaryText.contains("Fingerprint Sensor Not-working;") {
+                                        if completeString == "" {
+                                            completeString = completeString + "Fingerprint Sensor Not-working"
+                                        }else {
+                                            completeString = completeString + "\nFingerprint Sensor Not-working"
+                                            self.increaseHeight += 1
+                                        }
+                                    }
+                                    
+                                    self.arrKey.append(arrStr1[0] ?? "")
+                                    //self.arrValue.append(arrStr1[1] ?? "")
+                                    self.arrValue.append(completeString)
+                                    
+                                }
+                                
+                                else {
                                     self.arrKey.append(arrStr1[0] ?? "")
                                     self.arrValue.append(arrStr1[1] ?? "")
                                 }
@@ -1634,20 +1812,20 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                     self.lblProductName.text = self.deviceName
                     
                     self.tableView.contentSize = CGSize(width: self.tableView.frame.width, height: ((CGFloat(self.arrKey.count)) * 50))
-                    self.heightOftbl.constant = (CGFloat(self.arrKey.count) * 50) + 20
+                    //self.heightOftbl.constant = (CGFloat(self.arrKey.count) * 50) + 40
+                    self.heightOftbl.constant = (CGFloat(self.arrKey.count + self.increaseHeight) * 50) + 40
                     self.tableView.reloadData()
                     
                     //s.
                     
-                     if self.isComingFromOnPhoneDiagnostic{
+                    if self.isComingFromOnPhoneDiagnostic {
                         if userDefaults.value(forKeyPath: "promoter_id") == nil{
                             userDefaults.setValue(true, forKey: "isShowUIOnHomeForOrder")
-
                         }
                         else{
                             userDefaults.setValue(false, forKey: "isShowUIOnHomeForOrder")
-
                         }
+                        
                         // save date for show confirm UI in home controller
                         let date = Date()
                         let formatter = DateFormatter()
@@ -1711,20 +1889,15 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                 else{
                     // failed
                     Alert.showAlert(strMessage: "oops,No data found", Onview: self)
-                    
                 }
-               
                 
             }
             else{
                 debugPrint(error as Any)
-                
                 Alert.showAlert(strMessage: "Seems connection loss from server", Onview: self)
-                
             }
             
         })
-        
         
     }
     
@@ -1815,8 +1988,6 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
             //returnDictionary = ["Camera":"-1"]
             returnDictionary.setValue("-1", forKey: "Camera")
             strDiagnosisFailed = strDiagnosisFailed + "CISS01,"
-            
-            
         }
         if getReturnJson["Fingerprint Scanner"].int == 1{
             // returnDictionary = ["Fingerprint Scanner":"1"]
@@ -1887,13 +2058,10 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
         {
             //returnDictionary = ["NFC":"1"]
             returnDictionary.setValue("-2", forKey: "NFC")
-            
-            
         }
         else{
             //   returnDictionary = ["NFC":"0"]
             returnDictionary.setValue("1", forKey: "NFC")
-            
         }
         
         returnDictionary.setValue("1", forKey: "SMS verification")

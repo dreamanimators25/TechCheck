@@ -41,7 +41,7 @@ class BankDetailVC: UIViewController,UITextFieldDelegate {
         setNavigationBar()
         //setViewDynamic()
         
-        if reachability?.connection.description != "No Connection"{
+        if reachability?.connection.description != "No Connection" {
             getUIComponentsToCreateUIDynamic()
         }
         else{
@@ -309,6 +309,7 @@ class BankDetailVC: UIViewController,UITextFieldDelegate {
         let web = WebServies()
         web.postRequest(urlString: strURL, paramDict: (parameters as! Dictionary<String, AnyObject>), completionHandler: completionHandler)
     }
+    
     func getUIComponentsToCreateUIDynamic() {
         Alert.ShowProgressHud(Onview: self.view)
         let strBaseURL = userDefaults.value(forKey: "baseURL") as! String

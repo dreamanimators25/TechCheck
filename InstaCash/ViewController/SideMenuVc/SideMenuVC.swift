@@ -12,22 +12,25 @@ import MFSideMenu
 class SideMenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     @IBOutlet weak var tblViewSideMenu: UITableView!
+    
     var arrLogoImage: [UIImage] = [
         UIImage(named: "myOrders")!,UIImage(named: "home")!,UIImage(named: "myAccount")!,UIImage(named: "myOrders")!,UIImage(named: "History")!,UIImage(named: "works")!,UIImage(named: "aboutUs")!,UIImage(named: "termsCondition")!,UIImage(named: "faq")!,UIImage(named: "contactUs")!,UIImage(named: "share")!,
         ]
     
     var arrTitle:[String] = ["","Home","MyAccount","MyOrders","History","How It Works","About Us","Terms & Conditions","FAQ","Contact Us","Share"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavBar()
         viewSetDynamic()
-        // Do any additional setup after loading the view.
     }
+    
     //MARK: set nav bar
     func setNavBar(){
         self.navigationController?.navigationBar.isHidden = false
         self.navigationController?.navigationBar.isTranslucent = false
     }
+    
     //MARK:- set view dynamicaly
     func viewSetDynamic(){
         //if (userDefaults.value(forKey: "countryName") as? String)?.contains("India") != nil {
@@ -46,11 +49,13 @@ class SideMenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
             ]
            arrTitle =  ["","Home","MyAccount","MyOrders","History","How It Works","About Us","Terms & Conditions","FAQ","Contact Us","Share"]
         }
+        
         //Register tableview cell
         tblViewSideMenu.register(UINib(nibName: "SideMenuHeaderCell", bundle: nil), forCellReuseIdentifier: "sideMenuHeaderCell")
         tblViewSideMenu.register(UINib(nibName: "SideMenuListingCell", bundle: nil), forCellReuseIdentifier: "sideMenuListingCell")
         
     }
+    
     //MARK:- login pressed method
     @objc func btnLoginPressed(sender:UIButton){
         let navigationControllers = self.menuContainerViewController.centerViewController as! UINavigationController
@@ -60,6 +65,7 @@ class SideMenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         navigationControllers.viewControllers = controllers
         self.menuContainerViewController.menuState = MFSideMenuStateClosed
     }
+    
     //MARK:- Tableview delegate/Source methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 11
@@ -73,6 +79,7 @@ class SideMenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
             return 60.0
         }
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0{
             let headerCell = tableView.dequeueReusableCell(withIdentifier: "sideMenuHeaderCell", for: indexPath) as! SideMenuHeaderCell
@@ -267,6 +274,7 @@ class SideMenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         self.menuContainerViewController.menuState = MFSideMenuStateClosed
         
     }
+    
     func goToMyAccountController()
     {
         let navigationControllers = self.menuContainerViewController.centerViewController as! UINavigationController
@@ -294,6 +302,7 @@ class SideMenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         navigationControllers.viewControllers = controllers
         self.menuContainerViewController.menuState = MFSideMenuStateClosed
     }
+    
     func goToMyHowToWorkController()
     {
         let navigationControllers = self.menuContainerViewController.centerViewController as! UINavigationController
@@ -302,6 +311,7 @@ class SideMenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         navigationControllers.viewControllers = controllers
         self.menuContainerViewController.menuState = MFSideMenuStateClosed
     }
+    
     func goToMyTermsConditionController()
     {
         //if (userDefaults.value(forKey: "countryName") as? String)?.contains("India") != nil {
@@ -356,13 +366,13 @@ class SideMenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         }
         
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     
-    /*
      // MARK: - Navigation
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -370,6 +380,5 @@ class SideMenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
      // Get the new view controller using segue.destinationViewController.
      // Pass the selected object to the new view controller.
      }
-     */
     
 }

@@ -9,15 +9,16 @@
 import UIKit
 
 class SendAppLinkPopUp: UIViewController,UITextFieldDelegate {
+    
     @IBOutlet weak var lblLineCountryCode: UILabel!
     @IBOutlet weak var txtEmailAddress: UITextField!
-    
     @IBOutlet weak var activitySendLink: UIActivityIndicatorView!
     @IBOutlet weak var txtCountryCode: UITextField!
     @IBOutlet weak var btnShare: UIButton!
     @IBOutlet weak var btnSendLink: UIButton!
     @IBOutlet weak var txtMobileNumber: UITextField!
     @IBOutlet weak var viewPopUp: UIView!
+    
     var isAndroidPhone = false
     let reachability: Reachability? = Reachability()
     var getProductName = ""
@@ -113,11 +114,10 @@ class SendAppLinkPopUp: UIViewController,UITextFieldDelegate {
             }
              else{
                 if reachability?.connection.description != "No Connection"{
-                sendLinkAppService()
+                    sendLinkAppService()
                 }
                 else{
                     showAlertMessage(strMessage: "No connection found")
-
                 }
 
             }
@@ -192,6 +192,7 @@ class SendAppLinkPopUp: UIViewController,UITextFieldDelegate {
             return true
         }
     }
+    
     //MARK:- webservice data
     func sendLinkApiPost(strURL : String , parameters:NSDictionary, completionHandler: @escaping (NSDictionary?, NSError?) -> ()) {
         let web = WebServies()

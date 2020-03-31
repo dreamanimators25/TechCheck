@@ -266,6 +266,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
 //        return true
 //
 //    }
+    
     //MARK:- true caller active method
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Swift.Void) -> Bool {
         if userActivity.activityType == NSUserActivityTypeBrowsingWeb {

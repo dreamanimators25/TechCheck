@@ -11,6 +11,7 @@ import UIKit
 class ProductConditionVC: UIViewController {
 
     var strProductIdGet = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
       setNavigationBar()
@@ -34,11 +35,12 @@ class ProductConditionVC: UIViewController {
         navigationItem.leftBarButtonItem = leftBarButton
         
     }
-    //MARK:- button action methods
     
+    //MARK:- button action methods
     @objc func btnBackPressed() -> Void {
         self.navigationController?.popViewController(animated: true)
     }
+    
     @IBAction func btnLetsBeginPressed(_ sender: UIButton) {
        // let vc = DeiceSwitchOnVC()
         let vc = OtherDeviceQuestionFlow()
@@ -47,9 +49,10 @@ class ProductConditionVC: UIViewController {
       //  vc.isComingFrom = "Not Diagnosis"
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
     }
     
     // MARK: - Navigation

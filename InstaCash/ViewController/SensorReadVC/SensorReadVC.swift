@@ -11,11 +11,10 @@ import SwiftyJSON
 class SensorReadVC: UIViewController {
     
     @IBOutlet weak var lblPrice: UILabel!
-    
     @IBOutlet weak var viewGuide: UIView!
-
     //@IBOutlet weak var proximityText: UILabel!
     @IBOutlet weak var proximityImageView: UIImageView!
+    
     var resultJSON = JSON()
     var isComingFromTestResult = false
     var isComingFromProductquote = false
@@ -37,11 +36,10 @@ class SensorReadVC: UIViewController {
         lblPrice.text = CustomUserDefault.getCurrency()
         //self.set()
         
-        
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         AppOrientationUtility.lockOrientation(.portrait)
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -168,6 +166,7 @@ class SensorReadVC: UIViewController {
         // Present dialog
         self.present(popup, animated: true, completion: nil)
     }*/
+    
     @objc func proximityChanged(notification: NSNotification) {
         if (notification.object as? UIDevice) != nil {
             let device = UIDevice.current
@@ -209,21 +208,18 @@ class SensorReadVC: UIViewController {
             
         }
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     @IBAction func onClickGuide(_ sender: Any) {
-        
         self.viewGuide.isHidden = false
-        
     }
     
     @IBAction func onClickBack(_ sender: Any) {
-        
         self.dismiss(animated: true, completion: nil)
-        
     }
     
     /*@IBAction func onClickSkip(_ sender: Any) {
@@ -236,9 +232,7 @@ class SensorReadVC: UIViewController {
     }*/
     
     @IBAction func onClickStart(_ sender: Any) {
-        
         self.viewGuide.isHidden = true
-        
     }
     
     

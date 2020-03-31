@@ -20,11 +20,10 @@ class DiagnosticTestResultVC: UIViewController,UITableViewDelegate,UITableViewDa
     
     @IBOutlet weak var lblTests: UILabel!
     @IBOutlet weak var imgPhone: UIImageView!
-    
     @IBOutlet weak var lblPrice: UILabel!
     @IBOutlet weak var lblPhone: UILabel!
-    
     @IBOutlet weak var tblViewTest: UITableView!
+    
     var arrFailedAndSkipedTest = [ModelCompleteDiagnosticFlow]()
     var arrFunctionalTest = [ModelCompleteDiagnosticFlow]()
     var arrMyCurrentDeviceSend = [HomeModel]()
@@ -349,9 +348,9 @@ class DiagnosticTestResultVC: UIViewController,UITableViewDelegate,UITableViewDa
         }
         
         if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
-            self.lblTests.text = "Your device passed \(arrFunctionalTest.count)/15 tests!"
+            self.lblTests.text = "Your device passed" + " \(arrFunctionalTest.count)" + "/15 tests!"
         }else {
-            self.lblTests.text = "Your device passed \(arrFunctionalTest.count)/13 tests!"
+            self.lblTests.text = "Your device passed" + " \(arrFunctionalTest.count)" + "/13 tests!"
         }
         
         
@@ -405,7 +404,6 @@ class DiagnosticTestResultVC: UIViewController,UITableViewDelegate,UITableViewDa
             cellFunction.imgReTry.isHidden = false
             cellFunction.lblReTry.isHidden = true
 
-
             return cellFunction
         }
         }
@@ -415,7 +413,6 @@ class DiagnosticTestResultVC: UIViewController,UITableViewDelegate,UITableViewDa
             cellFunction.lblName.text = arrFunctionalTest[indexPath.row].strTestType
             //cellFunction.imgReTry.isHidden = true
             //cellFunction.lblReTry.isHidden = true
-
 
             return cellFunction
         }

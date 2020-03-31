@@ -36,7 +36,7 @@ class OrderStatus1: UIViewController {
         }*/
         
         removeAllQuestionFlowCache()
-        // Do any additional setup after loading the view.
+
     }
     
     func removeAllQuestionFlowCache(){
@@ -119,23 +119,20 @@ class OrderStatus1: UIViewController {
         btnMenu.addTarget(self, action: #selector(FillDetailLater.btnSideMenuPressed), for: .touchUpInside)
         let leftBarButton = UIBarButtonItem(customView: btnMenu)
         navigationItem.leftBarButtonItem = leftBarButton
-        
     }
     
     @objc func btnSideMenuPressed() -> Void {
-        
         obj_app.setRotControllersWithSideMenu(sendMyOrderArray: [HomeModel](), sendBrandArray: [HomeModel](), SendPupularDevoice: [HomeModel](), SendMyCurrentDevice: [HomeModel](), isComingFromWelcome: false,strAppCodeGet:"")
-        
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
     }
     
     @IBAction func onClickStatus(_ sender: Any) {
-        
         let vc = OrderStatus2()
         self.navigationController?.pushViewController(vc, animated: true)
-        
     }
+    
 }

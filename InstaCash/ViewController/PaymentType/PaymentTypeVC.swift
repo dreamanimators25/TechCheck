@@ -77,7 +77,7 @@ class PaymentTypeVC: UIViewController,UITableViewDelegate,UITableViewDataSource 
         }
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 0{
+        if indexPath.row == 0 {
             let cellHeader = tableView.dequeueReusableCell(withIdentifier: "paymentTypeHeader", for: indexPath) as! PaymentTypeHeader
             let amount = userDefaults.value(forKeyPath: "productPriceFromAPI") as? Int
 //            let coupon = userDefaults.value(forKeyPath: "couponCodePrice") as? Int
@@ -149,9 +149,7 @@ class PaymentTypeVC: UIViewController,UITableViewDelegate,UITableViewDataSource 
     }
     
     @IBAction func onClickBack(_ sender: Any) {
-        
         _ = self.navigationController?.popViewController(animated: true)
-        
     }
     
     //MARK:- web service methods
@@ -160,6 +158,7 @@ class PaymentTypeVC: UIViewController,UITableViewDelegate,UITableViewDataSource 
         let web = WebServies()
         web.postRequest(urlString: strURL, paramDict: (parameters as! Dictionary<String, AnyObject>), completionHandler: completionHandler)
     }
+    
     func getPaymentType() {
         
         Alert.ShowProgressHud(Onview: self.view)
@@ -183,6 +182,7 @@ class PaymentTypeVC: UIViewController,UITableViewDelegate,UITableViewDataSource 
                 paymentTagValue = "smg"
             }
         }
+        
         let parametersHome : [String : Any] = [
             "apiKey" : key,
             "userName" : apiAuthenticateUserName,
@@ -192,7 +192,9 @@ class PaymentTypeVC: UIViewController,UITableViewDelegate,UITableViewDataSource 
             "paymentTag":paymentTagValue,
             "pincode":userDefaults.value(forKey: "orderPinCode") as? String ?? "" //110011
         ]
+        
         print(parametersHome)
+        
         self.apiPayment(strURL: strUrl, parameters: parametersHome as NSDictionary, completionHandler: {responseObject , error in
             Alert.HideProgressHud(Onview: self.view)
             if error == nil {
@@ -228,15 +230,17 @@ class PaymentTypeVC: UIViewController,UITableViewDelegate,UITableViewDataSource 
         
         let strBaseURL = userDefaults.value(forKey: "baseURL") as! String
         let strUrl = strBaseURL + "getServices"
+       
         let parametersHome : [String : Any] = [
             "apiKey" : key,
             "userName" : apiAuthenticateUserName,
             "categoryId":"15",
             "pincode":userDefaults.value(forKey: "orderPinCode") as? String ?? "" //110011
         ]
+        
         self.apiPayment(strURL: strUrl, parameters: parametersHome as NSDictionary, completionHandler: {responseObject , error in
             if error == nil {
-                if responseObject?["status"] as! String == "Success"{
+                if responseObject?["status"] as! String == "Success" {
                     let strProcess = responseObject?.value(forKeyPath: "msg.process") as? String
                     let badchar = CharacterSet(charactersIn: "[]")
                     let cleanedstring = strProcess!.components(separatedBy: badchar).joined()
@@ -404,7 +408,6 @@ class PaymentTypeVC: UIViewController,UITableViewDelegate,UITableViewDataSource 
     }
     
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -412,6 +415,6 @@ class PaymentTypeVC: UIViewController,UITableViewDelegate,UITableViewDataSource 
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
+    
 
 }

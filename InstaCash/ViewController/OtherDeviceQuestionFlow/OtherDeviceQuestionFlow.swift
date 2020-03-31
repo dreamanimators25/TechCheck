@@ -14,12 +14,13 @@ class OtherDeviceQuestionFlow: UIViewController,UITableViewDelegate,UITableViewD
     
     @IBOutlet weak var btnSubmit: UIButton!
     @IBOutlet weak var tblViewOtherDeviceQuestions: UITableView!
+    
+    let reachability: Reachability? = Reachability()
+    
     var arrQuestionForOtherDevices = [PickUpQuestionModel]()
     var resultJSON = JSON()
-    let reachability: Reachability? = Reachability()
     var strNavTitle = ""
     var strGetProductID = ""
-    
     var selectedId = String() //s.
     var selectedName = String() //s.
     var selectedImageUrl = String() //s.
@@ -28,19 +29,21 @@ class OtherDeviceQuestionFlow: UIViewController,UITableViewDelegate,UITableViewD
         super.viewDidLoad()
         btnSubmit.isHidden = true
         setNavigationBar()
+        
         //Register tableview cell
         Analytics.logEvent("start_diagnosis_test", parameters: [
             "event_category":"start diagnosis",
             "event_action":"start diagnosis with screen test",
             "event_label":"screen test" 
             ])
+        
         userDefaults.removeObject(forKey: "otherProductDeviceID")
         userDefaults.setValue(strGetProductID, forKey: "otherProductDeviceID")
         tblViewOtherDeviceQuestions.register(UINib(nibName: "QuestionPickUpCell", bundle: nil), forCellReuseIdentifier: "questionPickUpCell")
         self.tblViewOtherDeviceQuestions.rowHeight = UITableViewAutomaticDimension
         self.tblViewOtherDeviceQuestions.estimatedRowHeight = 170
         self.fetchOtherDeviceQuestionFromServer()
-        // Do any additional setup after loading the view.
+        
     }
     
     // MARK:- navigation bar setup.
@@ -62,6 +65,7 @@ class OtherDeviceQuestionFlow: UIViewController,UITableViewDelegate,UITableViewD
         navigationItem.leftBarButtonItem = leftBarButton
         
     }
+    
     @objc func btnBackPressed(){
         self.navigationController?.popViewController(animated: true)
     }
@@ -70,6 +74,7 @@ class OtherDeviceQuestionFlow: UIViewController,UITableViewDelegate,UITableViewD
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrQuestionForOtherDevices.count
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "questionPickUpCell", for: indexPath) as! QuestionPickUpCell
         cell.collectionViewQuestionValues.delegate = self
@@ -134,9 +139,11 @@ class OtherDeviceQuestionFlow: UIViewController,UITableViewDelegate,UITableViewD
             return 1380.0
         }*/
     }
+    
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
@@ -145,6 +152,7 @@ class OtherDeviceQuestionFlow: UIViewController,UITableViewDelegate,UITableViewD
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return arrQuestionForOtherDevices[collectionView.tag].arrQuestionTypes.count
     }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "pickUpQuestionCollectionViewCell", for: indexPath as IndexPath) as! PickUpQuestionCollectionViewCell
         cell.layer.cornerRadius = 5.0
@@ -156,7 +164,9 @@ class OtherDeviceQuestionFlow: UIViewController,UITableViewDelegate,UITableViewD
             let imgURL = URL(string:arrQuestionForOtherDevices[collectionView.tag].arrQuestionTypes[indexPath.row].strQuestionValueImage)
             cell.imgValues.sd_setImage(with: imgURL)
         }
+        
         cell.lblValues.text  = arrQuestionForOtherDevices[collectionView.tag].arrQuestionTypes[indexPath.row].strQuestionValue
+        
         if arrQuestionForOtherDevices[collectionView.tag].arrQuestionTypes[indexPath.row].isSelected == true{
             cell.viewMain.backgroundColor = navColor
             cell.lblValues.textColor = UIColor.white
@@ -166,12 +176,14 @@ class OtherDeviceQuestionFlow: UIViewController,UITableViewDelegate,UITableViewD
             cell.lblValues.textColor = UIColor.black
             
         }
+        
         return cell
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.size.width - 5, height:40)
-        
     }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if (arrQuestionForOtherDevices[collectionView.tag].strViewType == "checkbox") &&  (arrQuestionForOtherDevices[collectionView.tag].arrQuestionTypes.count > 2 ) {
             if arrQuestionForOtherDevices[collectionView.tag].arrQuestionTypes[indexPath.row].isSelected == true{
@@ -185,7 +197,6 @@ class OtherDeviceQuestionFlow: UIViewController,UITableViewDelegate,UITableViewD
                         arrQuestionForOtherDevices[collectionView.tag].arrQuestionTypes[k].isSelected = false
                     }
                     arrQuestionForOtherDevices[collectionView.tag].strAnswerName = "None Of These"
-                    
                 }
                 else{
                     for k in 0..<arrQuestionForOtherDevices[collectionView.tag].arrQuestionTypes.count{
@@ -195,15 +206,19 @@ class OtherDeviceQuestionFlow: UIViewController,UITableViewDelegate,UITableViewD
                                 
                             }
                             arrQuestionForOtherDevices[collectionView.tag].arrQuestionTypes[k].isSelected = false
-                            
                         }
                     }
                     arrQuestionForOtherDevices[collectionView.tag].strAnswerName =                  arrQuestionForOtherDevices[collectionView.tag].strAnswerName + "," + arrQuestionForOtherDevices[collectionView.tag].arrQuestionTypes[indexPath.row].strQuestionValue
                 }
                 arrQuestionForOtherDevices[collectionView.tag].arrQuestionTypes[indexPath.row].isSelected = true
             }
+            
             //  collectionView.reloadItems(at: [indexPath])
-            collectionView.reloadData()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                collectionView.reloadData()
+            }
+            //collectionView.reloadData() // sam
+            
             //            if arrQuestionForPickUp.count != collectionView.tag + 1{
             //                let indexPath = NSIndexPath(row: collectionView.tag + 1, section: 0)
             //                self.tblViewPickUpQuestion.scrollToRow(at: indexPath as IndexPath, at: .top, animated: true)
@@ -227,12 +242,20 @@ class OtherDeviceQuestionFlow: UIViewController,UITableViewDelegate,UITableViewD
                 arrQuestionForOtherDevices[collectionView.tag].strAnswerName = arrQuestionForOtherDevices[collectionView.tag].arrQuestionTypes[indexPath.row].strQuestionValue
                 
             }
-            if arrQuestionForOtherDevices.count == collectionView.tag + 1 || arrQuestionForOtherDevices.count == collectionView.tag + 2{
-                collectionView.reloadData()
+            if arrQuestionForOtherDevices.count == collectionView.tag + 1 || arrQuestionForOtherDevices.count == collectionView.tag + 2 {
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    collectionView.reloadData()
+                }
+                //collectionView.reloadData() //sam
             }
             else{
-                collectionView.reloadItems(at: [indexPath])
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    collectionView.reloadItems(at: [indexPath])
+                }
+                //collectionView.reloadItems(at: [indexPath]) //sam
             }
+            
             if arrQuestionForOtherDevices.count != collectionView.tag + 1{
                 let indexPath = NSIndexPath(row: collectionView.tag + 1, section: 0)
                 self.tblViewOtherDeviceQuestions.scrollToRow(at: indexPath as IndexPath, at: .top, animated: true)
@@ -251,7 +274,8 @@ class OtherDeviceQuestionFlow: UIViewController,UITableViewDelegate,UITableViewD
         //var arrAppCode = [String]()
         var arrSelectedCountWithIndex = [Int]()
         var count = -1
-        for obj in 0..<arrQuestionForOtherDevices.count{
+        
+        for obj in 0..<arrQuestionForOtherDevices.count {
             for index in 0..<arrQuestionForOtherDevices[obj].arrQuestionTypes.count{
                 if arrQuestionForOtherDevices[obj].arrQuestionTypes[index].isSelected == true{
                     count = count + 1
@@ -265,6 +289,7 @@ class OtherDeviceQuestionFlow: UIViewController,UITableViewDelegate,UITableViewD
                 
             }
         }
+        
         let unique = Array(Set(arrSelectedCountWithIndex))
         if unique.count == arrQuestionForOtherDevices.count{
             //Done
@@ -309,8 +334,14 @@ class OtherDeviceQuestionFlow: UIViewController,UITableViewDelegate,UITableViewD
                 "userName" : apiAuthenticateUserName,
                 "productId": strGetProductID
             ]
+            
+            print(parametersHome)
+            
             self.otherQuestionFlowApiPost(strURL: strUrl, parameters: parametersHome as NSDictionary, completionHandler: {responseObject , error in
+                
                 Alert.HideProgressHud(Onview: self.view)
+                print(responseObject ?? [])
+                
                 if error == nil {
                     if responseObject?["status"] as! String == "Success"{
                         let dictQuestion = responseObject?["msg"] as! NSDictionary
@@ -321,6 +352,7 @@ class OtherDeviceQuestionFlow: UIViewController,UITableViewDelegate,UITableViewD
                         self.selectedImageUrl = dictQuestion.value(forKey: "image") as? String ?? ""
 
                         let arrData = responseObject?.value(forKeyPath: "msg.questions") as! NSArray
+                        
                         for index in 0..<arrData.count{
                             let dict = arrData[index] as? NSDictionary
                             // self.arrShowQuestion.insert(dict!, at: count)
@@ -328,6 +360,7 @@ class OtherDeviceQuestionFlow: UIViewController,UITableViewDelegate,UITableViewD
                             var arrQuestionValue = [PickUpQuestionTypesModel]()
                             modelQuestion.strViewType = dict?.value(forKey: "viewType") as! String
                             modelQuestion.strAppViewType = dict?.value(forKey: "appViewType") as! String
+                            
                             // put questionvalue here
                             var  arrQuestionValues = NSArray()
                             if dict?.value(forKey: "type") as! String == "specification"{
@@ -338,6 +371,7 @@ class OtherDeviceQuestionFlow: UIViewController,UITableViewDelegate,UITableViewD
                                 arrQuestionValues = dict?.value(forKey: "conditionValue") as! NSArray
                                 modelQuestion.strQuestionName = dict?.value(forKey: "conditionSubHead") as! String
                             }
+                            
                             if arrQuestionValues.count > 0{
                                 for obj in 0..<arrQuestionValues.count{
                                     let dictValue = arrQuestionValues[obj] as! NSDictionary
@@ -349,12 +383,13 @@ class OtherDeviceQuestionFlow: UIViewController,UITableViewDelegate,UITableViewD
                                     arrQuestionValue.insert(modelQuestionVal, at: obj)
                                 }
                             }
+                            
                             modelQuestion.arrQuestionTypes = arrQuestionValue
                             self.arrQuestionForOtherDevices.insert(modelQuestion, at: index)
                             
-                            
                         }
-                        if self.arrQuestionForOtherDevices.count > 0{
+                        
+                        if self.arrQuestionForOtherDevices.count > 0 {
                             self.btnSubmit.isHidden = false
                             for i in 0..<self.arrQuestionForOtherDevices.count{
                                 if self.arrQuestionForOtherDevices[i].strViewType == "checkbox"{
@@ -381,7 +416,11 @@ class OtherDeviceQuestionFlow: UIViewController,UITableViewDelegate,UITableViewD
                                     }
                                 }
                             }
-                            self.tblViewOtherDeviceQuestions.reloadData()
+                            
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
+                                self.tblViewOtherDeviceQuestions.reloadData()
+                            })
+                            //self.tblViewOtherDeviceQuestions.reloadData()
                             
                         }
                         

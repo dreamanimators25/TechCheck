@@ -97,16 +97,16 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="PQb-Bh-zpZ">
-                    <rect key="frame" x="48" y="264" width="224" height="38.5"/>
+                    <rect key="frame" x="32" y="264" width="256" height="38.5"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Henry Boi +60166666666" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9KS-rP-ro9">
-                            <rect key="frame" x="0.0" y="0.0" width="112" height="33"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Henry Boi +60166666666" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9KS-rP-ro9">
+                            <rect key="frame" x="0.0" y="0.0" width="128" height="33"/>
                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                             <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99 Jalan Strawberry, Taman Ciku, 789877, Melaka, Malaysia" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UZm-08-8P8">
-                            <rect key="frame" x="112" y="0.0" width="112" height="33"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99 Jalan Strawberry, Taman Ciku, 789877, Melaka, Malaysia" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UZm-08-8P8">
+                            <rect key="frame" x="128" y="0.0" width="128" height="38.5"/>
                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                             <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -318,7 +318,7 @@
                 <constraint firstItem="PQb-Bh-zpZ" firstAttribute="height" secondItem="REe-Hg-EjH" secondAttribute="height" multiplier="0.07" id="sx7-9w-fIz"/>
                 <constraint firstItem="REe-Hg-EjH" firstAttribute="trailing" secondItem="CxB-6Z-QYW" secondAttribute="trailing" constant="20" id="udj-SY-Ss1"/>
                 <constraint firstItem="4n9-sa-GfD" firstAttribute="centerX" secondItem="9rM-KV-pMC" secondAttribute="centerX" id="x89-gb-l8m"/>
-                <constraint firstItem="PQb-Bh-zpZ" firstAttribute="width" secondItem="REe-Hg-EjH" secondAttribute="width" multiplier="0.7" id="xsA-zj-nNX"/>
+                <constraint firstItem="PQb-Bh-zpZ" firstAttribute="width" secondItem="REe-Hg-EjH" secondAttribute="width" multiplier="0.8" id="xsA-zj-nNX"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="REe-Hg-EjH"/>
             <point key="canvasLocation" x="386.25" y="169.01408450704224"/>

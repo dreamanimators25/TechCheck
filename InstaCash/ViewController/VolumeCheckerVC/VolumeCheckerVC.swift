@@ -127,7 +127,6 @@ class VolumeCheckerVC: UIViewController {
                 }
                 userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
                 
-                
             }
             self.action()
         })

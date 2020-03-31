@@ -8,209 +8,824 @@
 
 //******* Mendatory Fields IN COMPLETE APP *******//
 
+//// Alert messages
+"No connection found" = "No connection found";
+
+
 // 1. AppDelegate
 
 // 2. CountryVC
+"Please enter mobile number" = "Please enter mobile number";
+"Please enter valid mobile number" = "Please enter valid mobile number";
+"India" = "India";
+"Malaysia" = "Malaysia";
+"Singapore" = "Singapore";
+"Login with Google" = "Login with Google";
+"Login" = "Login";
+"or login with mobile" = "or login with mobile";
+"Enter Number" = "Enter Number";
+"No Connection found" = "No Connection found";
 
 // 3. WelcomeVC
+"Product" = "Product";
+"Diagnose" = "Diagnose";
+"Value" = "Value";
+"Pickup" = "Pickup";
+"Payment" = "Payment";
+"Select the Product and conditions you wish to sell" = "Select the Product and conditions you wish to sell";
+"Diagnose your device for any functional issues" = "Diagnose your device for any functional issues";
+"Get immediate price for it" = "Get immediate price for it";
+"Quick pickup of the device from your doorstep" = "Quick pickup of the device from your doorstep";
+"Get paid for the device Immediately after pickup" = "Get paid for the device Immediately after pickup";
 
 // 4. LoginVC
+"Please login in truecaller app " = "Please login in truecaller app ";
+"InstaCash" = "InstaCash";
+"Continue with Facebook" = "Continue with Facebook";
+"Continue with Truecaller" = "Continue with Truecaller";
+"Continue with Mobile Number" = "Continue with Mobile Number";
+"Continue with Google" = "Continue with Google";
+"Continue as Guest" = "Continue as Guest";
 
 // 5. SideMenuVC
+"Home" = "Home";
+"MyAccount" = "MyAccount";
+"MyOrders" = "MyOrders";
+"History" = "History";
+"Promoters" = "Promoters";
+"How It Works" = "How It Works";
+"About Us" = "About Us";
+"Terms & Conditions" = "Terms & Conditions";
+"FAQ" = "FAQ";
+"Contact Us" = "Contact Us";
+"Share" = "Share";
+"SEARCH" = "SEARCH";
+"SignIn" = "SignIn";
 
 // 6. SearchProductVC
+"No Record Found" = "No Record Found";
+"Type at least three charachers to better search" = "Type at least three charachers to better search";
+"Search Here..." = "Search Here...";
+"No Result Found" = "No Result Found";
 
 // 7. HomeVC
+"  Call  " = "  Call  ";
+"  Mail  " = "  Mail  ";
+"  Zopim Chat  " = "  Zopim Chat  ";
+"  WhatsApp  " = "  WhatsApp  ";
+"Diagnosis Code" = "Diagnosis Code";
+"Pickup Code" = "Pickup Code";
+"This mode can only be run if an order has been placed for this device.If you don't have a code yet please call our customer care to get a new code." = "This mode can only be run if an order has been placed for this device.If you don't have a code yet please call our customer care to get a new code.";
+"Enter Verification Code" = "Enter Verification Code";
+"Please Login First" = "Please Login First";
+"CANCEL" = "CANCEL";
+"Hurry!! Your Offer Of " = "Hurry!! Your Offer Of ";
+" May Drop In Few Days" = " May Drop In Few Days";
+"Run Diagnostics" = "Run Diagnostics";
+"Continue Rotation Test" = "Continue Rotation Test";
+"Continue Proximity Test" = "Continue Proximity Test";
+"Continue Volume Test" = "Continue Volume Test";
+"Continue Earphone Test" = "Continue Earphone Test";
+"Continue charger Test" = "Continue charger Test";
+"Continue Camera Test" = "Continue Camera Test";
+"Continue Fingerprint Test" = "Continue Fingerprint Test";
+"Continue Bluetooth Test" = "Continue Bluetooth Test";
+"Start Trade-in" = "Start Trade-in";
+"Device is not map,Please try later" = "Device is not map,Please try later";
+"Oops! Mail Service not available." = "Oops! Mail Service not available.";
+"Message Subject" = "Message Subject";
+"Message content." = "Message content.";
+"Your device doesn't support this feature." = "Your device doesn't support this feature.";
+"Sell" = "Sell";
+"Find out how much cash you’ll get by selling this device." = "Find out how much cash you’ll get by selling this device.";
+"Get quote for this device" = "Get quote for this device";
+"No bargaining. No headaches!" = "No bargaining. No headaches!";
+"Takes 5 mins. Save time." = "Takes 5 mins. Save time.";
+"Get a quote from anywhere. Convenient and casual." = "Get a quote from anywhere. Convenient and casual.";
+"Accurate and market-leading prices. Scam-free." = "Accurate and market-leading prices. Scam-free.";
+"Got another device to sell? See how much its worth." = "Got another device to sell? See how much its worth.";
+"See Promotions and Offers" = "See Promotions and Offers";
+"THIS DEVICE" = "THIS DEVICE";
+"get upto" = "get upto";
+"Run Diagnostics" = "Run Diagnostics";
+"YOUR ORDERS" = "YOUR ORDERS";
+"Start from the beginning" = "Start from the beginning";
+"DEVICE BY BRAND" = "DEVICE BY BRAND";
+"Apple" = "Apple";
+"Others" = "Others";
+"MORE BRANDS" = "MORE BRANDS";
+"TRENDING DEVICES" = "TRENDING DEVICES";
+"Awesome! One last thing..." = "Awesome! One last thing...";
+"Hurry!! your offer of 10000 may drop on few days" = "Hurry!! your offer of 10000 may drop on few days";
+"Confirm Order" = "Confirm Order";
+"Later" = "Later";
+"Price of this phone is drop." = "Price of this phone is drop.";
 
 // 8. MobileNumberVC
+"Please enter OTP with 4 digits" = "Please enter OTP with 4 digits";
+"Confirm verification code" = "Confirm verification code";
+"Resend verification code" = "Resend verification code";
 
 // 9. CityVC
+"No Cites Found" = "No Cites Found";
+"Please Enter Your Pin Code" = "Please Enter Your Pin Code";
+"Enter Post Code" = "Enter Post Code";
+"OK" = "OK";
+"Select city *" = "Select city *";
 
 // 10. BrandModelTypeVC
+"Seems Connection Found" = "Seems Connection Found";
+"Sell Another Device" = "Sell Another Device";
+"Select Brand" = "Select Brand";
+"Select Model" = "Select Model";
 
 // 11. ProductDetailVewVC
+"Place order" = "Place order";
+"Place order @ " = "Place order @ ";
+"Note:- your Quote is lower than " = "Note:- your Quote is lower than ";
+" beacause certain tests were failed or skipped" = " beacause certain tests were failed or skipped";
+"oops,No data found" = "oops,No data found";
+"Seems connection loss from server" = "Seems connection loss from server";
+"Product Details" = "Product Details";
+"Quotation" = "Quotation";
+"Your device is worth" = "Your device is worth";
+"The price is based on your self-reported device condition." = "The price is based on your self-reported device condition.";
+"Hurry, prices may drop in few days..." = "Hurry, prices may drop in few days...";
+"PLACE ORDER" = "PLACE ORDER";
 
 // 12. SendAppLinkPopUp
+"Enter valid mobile number" = "Enter valid mobile number";
+"Please enter E-mail address" = "Please enter E-mail address";
+"Please Enter Correct Email Address" = "Please Enter Correct Email Address";
+"oops,something went wrong" = "oops,something went wrong";
+"Mobile Number" = "Mobile Number";
+"Send App Link" = "Send App Link";
+"Share" = "Share";
+"E-mail" = "E-mail";
 
 // 13. OrderPlacePopUp
 
 // 14. PromoCodeVC
+"I want to donate ₹" = "I want to donate ₹";
+"to Narayan Seva Sansthan." = "to Narayan Seva Sansthan.";
+"I want to donate" = "I want to donate";
+"to World Wide Fund for Nature." = "to World Wide Fund for Nature.";
+"Please Enter Valid Amount" = "Please Enter Valid Amount";
+"Please Enter valid coupon code" = "Please Enter valid coupon code";
+"Invalid coupon code" = "Invalid coupon code";
+"Summary" = "Summary";
+"Subtotal Amount" = "Subtotal Amount";
+"Pickup Charge" = "Pickup Charge";
+"Promo offer" = "Promo offer";
+"Total" = "Total";
+"Have a promo code? Click here." = "Have a promo code? Click here.";
+"I want to donate ₹ 30 to Narayan Sewa Sansthan." = "I want to donate ₹ 30 to Narayan Sewa Sansthan.";
+"Change Amount" = "Change Amount";
+"Enter Amount" = "Enter Amount";
+"NEXT" = "NEXT";
+"Please enter promo code" = "Please enter promo code";
+"APPLY" = "APPLY";
 
 // 15. SellerDetailsVC
+"Device quoted is: " = "Device quoted is: ";
+"Please enter name" = "Please enter name";
+"User Detail" = "User Detail";
+"Your details" = "Your details";
+"Enter Name" = "Enter Name";
+"Enter Email Id" = "Enter Email Id";
+"Enter Mobile Number" = "Enter Mobile Number";
 
 // 16. PlaceOrderVC
+"Place Order" = "Place Order";
+"Please enter address line 1" = "Please enter address line 1";
+"Please enter pincode" = "Please enter pincode";
+"Pincode not match with your city." = "Pincode not match with your city.";
+"Enter valid Code" = "Enter valid Code";
+"Location" = "Location";
+"Pick up details" = "Pick up details";
+"We come to you and pick up your device. We also pay you on the spot." = "We come to you and pick up your device. We also pay you on the spot.";
+"Get my location" = "Get my location";
+"Address Line 1" = "Address Line 1";
+"Address Line 2" = "Address Line 2";
+"City" = "City";
+"Pincode" = "Pincode";
+"Next" = "Next";
 
 // 17. IMEIVC
+"IMEI of your device will be required to identify device at the time of order pickup, so it will be synced with our server." = "IMEI of your device will be required to identify device at the time of order pickup, so it will be synced with our server.";
+"Agree" = "Agree";
+"Invalid IMEI Number Entered." = "Invalid IMEI Number Entered.";
+"Please Enter a valid 15-digit IMEI Number" = "Please Enter a valid 15-digit IMEI Number";
+"Disagree" = "Disagree";
+"Please Enter IMEI of your device" = "Please Enter IMEI of your device";
+"IMEI Number" = "IMEI Number";
+"CONTINUE" = "CONTINUE";
+"Dial *#06# from the device to get the IMEI number of the device." = "Dial *#06# from the device to get the IMEI number of the device.";
 
 // 18. PaymentsModeVC
+"NEFT" = "NEFT";
+"IMPS" = "IMPS";
+"BANK" = "BANK";
+"FASTPAY" = "FASTPAY";
+"Fastpay" = "Fastpay";
+"PAYNOW" = "PAYNOW";
+"Paynow" = "Paynow";
+"PAYTM" = "PAYTM";
+"CENDOL VOUCHER" = "CENDOL VOUCHER";
+"MAXIS" = "MAXIS";
+"SAMSUNG" = "SAMSUNG";
+"Gateway charges" = "Gateway charges";
+"Payment Mode" = "Payment Mode";
+"Select Payment Mode" = "Select Payment Mode";
+"Choose one payment option" = "Choose one payment option";
+"Payable amount" = "Payable amount";
+"Payable" = "Payable";
+"Wallet" = "Wallet";
+"PAYTM WALLET" = "PAYTM WALLET";
+"Other" = "Other";
+"Selected Payment Mode" = "Selected Payment Mode";
 
 // 19. MYBankDetailVC
+"Select Bank Name" = "Select Bank Name";
+"Please enter account holder's name" = "Please enter account holder's name";
+"Please enter account number" = "Please enter account number";
+"Please select your bank" = "Please select your bank";
+"Transfer Details" = "Transfer Details";
+"Please Enter the details" = "Please Enter the details";
+"Bank Holders Name" = "Bank Holders Name";
+"Bank Account Number" = "Bank Account Number";
+"SKIP" = "SKIP";
+"PROCEED" = "PROCEED";
 
 // 20. MYCendolVC
+"ASHITA" = "ASHITA";
 
 // 21. MYMaxisVC
+"Please enter promoter ID" = "Please enter promoter ID";
+"Please enter referrel ID" = "Please enter referrel ID";
+"Promoter ID" = "Promoter ID";
+"Referral ID" = "Referral ID";
 
 // 22. MYSamsungVC
+"Please enter samsung order ID" = "Please enter samsung order ID";
+"Account Holders Name" = "Account Holders Name";
+"Account Number" = "Account Number";
+"Samsung OrderID" = "Samsung OrderID";
 
 // 23. SGFastPayVC
+"Please enter SwiftBic ID" = "Please enter SwiftBic ID";
+"SwiftBic" = "SwiftBic";
 
 // 24. SGPaynowVC
 
 // 25. PaymentTypeVC
+"Select any payment mode" = "Select any payment mode";
 
 // 26. OrderStatus1
+// Not used in project //
 
 // 27. OrderStatus2
+// Not used in project //
 
 // 28. FillDetailLater
+// Not used in project //
 
 // 29. ProductConditionVC
+"Product Condition" = "Product Condition";
+"Tell us More about the product.The following screens will have a few questions regarding the product's condition select appropriate answer to the questions and instantly get the best price for your product. " = "Tell us More about the product.The following screens will have a few questions regarding the product's condition select appropriate answer to the questions and instantly get the best price for your product. ";
+"LET'S BEGIN" = "LET'S BEGIN";
 
 // 30. PromocodePopUpVC
+"Coupon Terms & Conditions" = "Coupon Terms & Conditions";
+"Detailed Terms and Conditions" = "Detailed Terms and Conditions";
 
 // 31. LockPricePopUp
+"Hurry, prices may drop in a few days…" = "Hurry, prices may drop in a few days…";
+"Lock price" = "Lock price";
 
 // 32. BankDetailVC
+// Not used in project //
+"Are You Sure" = "Are You Sure";
+"This would overwrite the payment details.Are you sure you want to continue?" = "This would overwrite the payment details.Are you sure you want to continue?";
+"No" = "No";
+"Yes" = "Yes";
+"Please Enter " = "Please Enter ";
+"This would reject all the changes made so far. Are you sure you want to discard all the changes?" = "This would reject all the changes made so far. Are you sure you want to discard all the changes?";
 
 // 33. DeviceInfoVC
+"Market Price" = "Market Price";
+"InstaCash Price" = "InstaCash Price";
+"The price stated above depends on the condition of the device. A final price offer will be quoted after you run the device diagnosis." = "The price stated above depends on the condition of the device. A final price offer will be quoted after you run the device diagnosis.";
+"Getting an exact quote takes 5 mins. Ready to roll? Just grab your earphone and data cable for respective diagnosis." = "Getting an exact quote takes 5 mins. Ready to roll? Just grab your earphone and data cable for respective diagnosis.";
+"Get exact quote" = "Get exact quote";
 
 // 34. VolumeCheckerVC
+"Hardware Button Diagnosis" = "Hardware Button Diagnosis";
+"If you skip this test there would be a substantial decline in the price offered. Do you still want to skip?" = "If you skip this test there would be a substantial decline in the price offered. Do you still want to skip?";
+"Checking hardware buttons" = "Checking hardware buttons";
+"Follow the instructions below to complete check." = "Follow the instructions below to complete check.";
+"Press volume up button" = "Press volume up button";
+"Press volume down button" = "Press volume down button";
 
 // 35. ScreenTestingVC
+"Screen Diagnosis Test Failed!" = "Screen Diagnosis Test Failed!";
+"Do you want to retry the test?" = "Do you want to retry the test?";
+"Checking screen calibration" = "Checking screen calibration";
+"Press “Start’ and follow the path" = "Press “Start’ and follow the path";
+"Guide me" = "Guide me";
+"Start" = "Start";
+"Retry" = "Retry";
 
 // 36. RotationVC
+"Auto Rotation Diagnosis" = "Auto Rotation Diagnosis";
+"Checking device rotation" = "Checking device rotation";
+"Please ensure device rotation option is enabled. Press “Start’ and rotate your device as seen below." = "Please ensure device rotation option is enabled. Press “Start’ and rotate your device as seen below.";
 
 // 37. SensorReadVC
+"Checking proximity sensors" = "Checking proximity sensors";
+"Wave your hand on the device’s screen." = "Wave your hand on the device’s screen.";
+"It’s not working." = "It’s not working.";
 
 // 38. EarPhoneVC
+"Earphone Jack Diagnosis" = "Earphone Jack Diagnosis";
+"Checking earphone" = "Checking earphone";
+"Press “Start’ and follow instructions." = "Press “Start’ and follow instructions.";
 
 // 39. DeviceChargerVC
+"Device Charger Diagnosis" = "Device Charger Diagnosis";
+"Checking charger" = "Checking charger";
 
 // 40. CameraVC
+"Camera Diagnosis" = "Camera Diagnosis";
+"Checking cameras" = "Checking cameras";
+"Get ready to smile. We’re making sure this device is selfie-ready!" = "Get ready to smile. We’re making sure this device is selfie-ready!";
+"1. Tap anywhere on the screen to autofocus" = "1. Tap anywhere on the screen to autofocus";
+"2. Press capture to take a shot!" = "2. Press capture to take a shot!";
+"Start Camera Check" = "Start Camera Check";
 
 // 41. FingerPrintDevice
+"FingerPrint Scanner Diagnosis" = "FingerPrint Scanner Diagnosis";
+"Enable fingerprint" = "Enable fingerprint";
+"Go to Settings -> Touch ID & Passcode" = "Go to Settings -> Touch ID & Passcode";
+"Settings" = "Settings";
+"Cancel" = "Cancel";
+"Checking fingerprint scanner" = "Checking fingerprint scanner";
+"Then you will place your finger on the fingerprint scanner like you normally would during unlock." = "Then you will place your finger on the fingerprint scanner like you normally would during unlock.";
+"First, please enable fingerprint function." = "First, please enable fingerprint function.";
 
 // 42. BlueToothTestingVC
+"Checking Network..." = "Checking Network...";
+"Checking GPS..." = "Checking GPS...";
+"Checking WiFi..." = "Checking WiFi...";
+"Tests Complete!" = "Tests Complete!";
+"Please make sure Bluetooth, GPS and Wifi are enabled on your device and press begin to start the tests." = "Please make sure Bluetooth, GPS and Wifi are enabled on your device and press begin to start the tests.";
+"Begin Tests" = "Begin Tests";
 
 // 43. DiagnosticTestResultVC
+"I'm done" = "I'm done";
+"Screen" = "Screen";
+"Rotation" = "Rotation";
+"Proximity" = "Proximity";
+"Volume" = "Volume";
+"Earphone" = "Earphone";
+"Charger" = "Charger";
+"Camera" = "Camera";
+"FingerPrint" = "FingerPrint";
+"NFC" = "NFC";
+"GSM" = "GSM";
+"Bluetooth" = "Bluetooth";
+"Storage" = "Storage";
+"GPS" = "GPS";
+"Battery" = "Battery";
+"WIFI" = "WIFI";
+"Failed and Skipped Tests" = "Failed and Skipped Tests";
+"Functional Checks" = "Functional Checks";
+"Your device passed" = "Your device passed";
+"/15 tests!" = "/15 tests!";
+"/13 tests!" = "/13 tests!";
+"Quit Diagnosis" = "Quit Diagnosis";
+"Are you sure you want to quit?" = "Are you sure you want to quit?";
+"Your device could be worth" = "Your device could be worth";
+"Note: Your quotation is lower because of the following issues. Click retry for a better quotation." = "Note: Your quotation is lower because of the following issues. Click retry for a better quotation.";
+"Place order at RM 376 instead" = "Place order at RM 376 instead";
+"Your device passed 6/15 tests!" = "Your device passed 6/15 tests!";
 
 // 44. QuriesVC
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 
 // 45. MyAddresses
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 
 // 46. MyAccountVC
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 
 // 47. QuriesVC
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 
 // 48. MyAddresses
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 
 // 49. MyAccountVC
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 
 // 50. MyOrderVC
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 
 // 51. OrderDetail
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 
 // 52. CustomerSupportVC
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 
 // 53. HistoryVC
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 
 // 54. HowItWorkVC
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 
 // 55. AboutUsVC
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 
 // 56. ChangeAppModeVC
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 
 // 57. TermsConditionVC
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 
 // 58. ContactUsVC
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 
 // 59. UploadDocumentVC
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 
 // 60. MisMatchVC
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 
 // 61. PickUpQuestionVC
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 
 // 62. ScreenTestPickUp
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 
 // 63. DeadPixelVC
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 
 // 64. UploadIDVC
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 
 // 65. SignatureVC
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 
 // 66. PickUpItemsVC
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 
 // 67. ProceedPaymentVC
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 
 // 68. ProcessPaymentPopUpVC
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 
 // 69. RatingVC
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 
 // 70. LiveOfferVC
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 
 // 71. TimeLineVC
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 
 // 72. OtherDeviceQuestionFlow
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 
 // 73. DiagnosisQuestionFlowVC
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 
 // 74. PramotterVC
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 
 // 75. PromoterOTPVC
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 
 // 76. AnotherDevice
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 
 // 77. StartDevice1
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 
 // 78. ExactQuote
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 
 // 79. ChangeModePopUpVC
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 
 // 80. Sell2
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 
 // 81. CountrySelection
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 
 // 82. StartDevice
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 
 // 83. Sell1
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 
 // 84. TouchScreen
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 
 // 85. Speaker
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 
 // 86. Voucher
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 
 // 87. BankTransfer
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 
 // 88. Wallet
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 
 // 89. Profile
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 
 // 90. NotificationNew
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 
 // 91. OrderFinalVC
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 
 // 92. SellOtherDeviceSearchVC
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 
 // 93. UserAccountVC
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 
 // 94. AboutVC
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 
 // 95. AboutPageVC
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 
 // 96. TnCPageVC
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 
 // 97. HowItWorkPageVC
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 
 // 98. FaqPageVC
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 
 // 99. MyHistoryListVC
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 
 // 100. PickUpCodeVC
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 
 // 101. ItemPickUpVC
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 
 // 102. OffersAndPromotionsVC
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 
 // 103. OfferPromotionPopUpVC
-
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";

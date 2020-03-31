@@ -13,6 +13,7 @@ import SwiftGifOrigin
 import SwiftyJSON
 
 class EarPhoneVC: UIViewController {
+    
     var resultJSON = JSON()
     let session = AVAudioSession.sharedInstance()
     var isComingFromTestResult = false
@@ -46,9 +47,7 @@ class EarPhoneVC: UIViewController {
     }
     
     @IBAction func onClickBack(_ sender: UIButton) {
-        
         self.dismiss(animated: true, completion: nil)
-        
     }
     
     @IBAction func btnStartPressed(_ sender: UIButton) {
@@ -85,7 +84,6 @@ class EarPhoneVC: UIViewController {
         // Prepare the popup assets
         let title = "Earphone Jack Diagnosis"
         let message = "If you skip this test there would be a substantial decline in the price offered. Do you still want to skip?"
-        
         
         // Create the dialog
         let popup = PopupDialog(title: title, message: message,buttonAlignment: .horizontal, transitionStyle: .bounceDown, tapGestureDismissal: false, panGestureDismissal :false)
@@ -151,7 +149,6 @@ class EarPhoneVC: UIViewController {
         db.titleFont      = UIFont(name: "HelveticaNeue-Medium", size: 16)!
         
         
-        
         // Customize cancel button appearance
         let cb = CancelButton.appearance()
         cb.titleFont      = UIFont(name: "HelveticaNeue-Medium", size: 16)!
@@ -160,6 +157,7 @@ class EarPhoneVC: UIViewController {
         // Present dialog
         self.present(popup, animated: true, completion: nil)
     }
+    
     @objc dynamic private func audioRouteChangeListener(notification:NSNotification) {
         let audioRouteChangeReason = notification.userInfo![AVAudioSessionRouteChangeReasonKey] as! UInt
         switch audioRouteChangeReason {
@@ -230,6 +228,7 @@ class EarPhoneVC: UIViewController {
             break
         }
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

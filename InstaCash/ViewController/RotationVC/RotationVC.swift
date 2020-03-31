@@ -13,13 +13,12 @@ import PopupDialog
 class RotationVC: UIViewController {
     
     @IBOutlet weak var lblPrice: UILabel!
-    
     @IBOutlet weak var viewGuid: UIView!
-
     @IBOutlet weak var AutoRotationImage: UIImageView!
     @IBOutlet weak var AutoRotationImageView: UIImageView!
     //@IBOutlet weak var AutoRotationText: UITextView!
     @IBOutlet weak var beginBtn: UIButton!
+    
     var isComingFromTestResult = false
     var isComingFromProductquote = false
 
@@ -28,17 +27,17 @@ class RotationVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         if isComingFromTestResult == false && isComingFromProductquote == false{
             if userDefaults.value(forKey: "screen_complete") == nil {
                 userDefaults.removeObject(forKey: "rotation_complete")
                 userDefaults.setValue(false, forKey: "rotation_complete")
             }
-            
         }
    
         setNavigationBar()
         AutoRotationImage.loadGif(name: "rotation")
-        // Do any additional setup after loading the view.
+        
         NotificationCenter.default.addObserver(self, selector: #selector(self.rotated), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
         
         lblPrice.text = CustomUserDefault.getCurrency()
@@ -67,24 +66,18 @@ class RotationVC: UIViewController {
         navigationItem.leftBarButtonItem = leftBarButton
         
     }
-    //MARK:- button action methods
     
+    //MARK:- button action methods
     @IBAction func onClickBack(_ sender: Any) {
-        
         self.dismiss(animated: true, completion: nil)
-        
     }
     
     @IBAction func onClickStart(_ sender: Any) {
-        
         self.viewGuid.isHidden = true
-        
     }
     
     @IBAction func onClickGuide(_ sender: Any) {
-        
         self.viewGuid.isHidden = false
-        
     }
     
     @objc func btnBackPressed() -> Void {
@@ -197,6 +190,7 @@ class RotationVC: UIViewController {
             //AutoRotationImageView.image = UIImage(named: "landscape_image")!
         }
     }
+    
     @objc func rotated()
     {
         if(UIDeviceOrientationIsLandscape(UIDevice.current.orientation))
@@ -249,19 +243,17 @@ class RotationVC: UIViewController {
 
             }
             userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
-
-           
            
         }
         }
         
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
     
     // MARK: - Navigation
 

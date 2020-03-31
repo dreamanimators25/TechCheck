@@ -111,7 +111,7 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
         DispatchQueue.main.async {
             if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
                 
-                self.lblDonateDest.text = "I want to donate ₹ \(self.Donation) to Narayan Seva Sansthan."
+                self.lblDonateDest.text = "I want to donate ₹" + " \(self.Donation) " + "to Narayan Seva Sansthan."
                 self.NssImageViewHeight.constant = 80.0
                 self.stkView1.isHidden = false
                 //self.stkView2.isHidden = true
@@ -123,7 +123,7 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
                 self.donateAmount = 100
                 self.Donation = 100
                 
-                self.lblDonateDest.text = "I want to donate \(CustomUserDefault.getCurrency()) \(self.Donation) to World Wide Fund for Nature."
+                self.lblDonateDest.text = "I want to donate" + " \(CustomUserDefault.getCurrency()) \(self.Donation)" + "to World Wide Fund for Nature."
                 self.NssImageViewHeight.constant = 0.0
                 self.stkView1.isHidden = false
                 //self.stkView2.isHidden = true
@@ -178,7 +178,6 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
         btnBack.addTarget(self, action: #selector(PromoCodeVC.btnBackPressed), for: .touchUpInside)
         let leftBarButton = UIBarButtonItem(customView: btnBack)
         navigationItem.leftBarButtonItem = leftBarButton
-        
     }
     
     //MARK:- textfield delegate
@@ -191,11 +190,11 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
                 
                 if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
                     
-                    lblDonateDest.text = "I want to donate ₹ \(Donation) to Narayan Seva Sansthan."
+                    lblDonateDest.text =  "I want to donate ₹" + " \(self.Donation) " + "to Narayan Seva Sansthan."
                     
                 }else {
-                    
-                    lblDonateDest.text = "I want to donate \(CustomUserDefault.getCurrency()) \(Donation) to World Wide Fund for Nature."
+
+                    lblDonateDest.text = "I want to donate" + " \(CustomUserDefault.getCurrency()) \(self.Donation)" + "to World Wide Fund for Nature."
                 }
                 
                 donateAmount = Donation
@@ -213,11 +212,12 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
                 
                 if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
                     
-                    lblDonateDest.text = "I want to donate ₹ \(txtAmount.text ?? "0") to Narayan Seva Sansthan."
+                    lblDonateDest.text = "I want to donate ₹" + " \(txtAmount.text ?? "0") " + "to Narayan Seva Sansthan."
+                    //lblDonateDest.text = "I want to donate ₹ \(txtAmount.text ?? "0") to Narayan Seva Sansthan."
                     
                 }else {
-                    
-                    lblDonateDest.text = "I want to donate \(CustomUserDefault.getCurrency()) \(txtAmount.text ?? "0") to World Wide Fund for Nature."
+                    lblDonateDest.text = "I want to donate" + " \(CustomUserDefault.getCurrency()) \(txtAmount.text ?? "0")" + "to World Wide Fund for Nature."
+                    //lblDonateDest.text = "I want to donate \(CustomUserDefault.getCurrency()) \(txtAmount.text ?? "0") to World Wide Fund for Nature."
                 }
                 
                 

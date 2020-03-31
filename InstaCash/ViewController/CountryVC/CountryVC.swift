@@ -54,7 +54,7 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
         setNavBar()
         // This function set view border and shadow
         //get country from firebase
-        if reachability?.connection.description != "No Connection"{
+        if reachability?.connection.description != "No Connection" {
         CountryModel.fetchCountryFromFireBase(isInterNet:true,getController: self) { (arrCountry) in
             Alert.HideProgressHud(Onview: self.view)
             if arrCountry.count > 0{
@@ -80,6 +80,7 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
     override func viewDidAppear(_ animated: Bool) {
         
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         //Disable gesture pop to controller
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
@@ -96,7 +97,6 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
 //        }
     }
 
-    
     // MARK: - Notification oberserver methods
     
     @objc func didBecomeActive() {
@@ -868,12 +868,14 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
     
     //MARK:- func setLocation Framework
     func setLocation(){
+        
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
         locationManager.startMonitoringSignificantLocationChanges()
         // Here you can check whether you have allowed the permission or not.
+        
         if CLLocationManager.locationServicesEnabled()
         {
             switch(CLLocationManager.authorizationStatus())

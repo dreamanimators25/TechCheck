@@ -16,13 +16,14 @@ class SearchProductVC: UIViewController,UICollectionViewDelegate,UICollectionVie
     @IBOutlet weak var lblMessage: UILabel!
     @IBOutlet weak var collectionViewProduct: UICollectionView!
     let reachability: Reachability? = Reachability()
-
     var arrSearchData = [SearchProduct]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationBar()
+        
          collectionViewProduct.register(UINib(nibName: "SearchProductCell", bundle: nil), forCellWithReuseIdentifier: "searchProductCell")
-        // Do any additional setup after loading the view.
+        
     }
     
     // MARK:- navigation bar setup.
@@ -42,6 +43,7 @@ class SearchProductVC: UIViewController,UICollectionViewDelegate,UICollectionVie
         navigationItem.leftBarButtonItem = leftBarButton
         
     }
+    
     //MARK:- button action methods
     @objc func btnBackPressed() -> Void {
         self.navigationController?.popViewController(animated: true)
@@ -66,6 +68,7 @@ class SearchProductVC: UIViewController,UICollectionViewDelegate,UICollectionVie
         return CGSize(width: collectionView.frame.size.width/2-5, height:220)
         
     }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 //        if  CustomUserDefault.getProductId() == arrSearchData[indexPath.row].strProductId{
 //            let imei = UserDefaults.standard.string(forKey: "imei_number")
@@ -174,7 +177,6 @@ class SearchProductVC: UIViewController,UICollectionViewDelegate,UICollectionVie
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText == "" {
            
-            
         }
     }
     

@@ -158,7 +158,6 @@ class FingerPrintDevice: UIViewController {
     }
     
     @IBAction func btnBackPressed(_ sender: UIButton) {
-        
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -238,7 +237,6 @@ class FingerPrintDevice: UIViewController {
         db.titleFont      = UIFont(name: "HelveticaNeue-Medium", size: 16)!
         
         
-        
         // Customize cancel button appearance
         let cb = CancelButton.appearance()
         cb.titleFont      = UIFont(name: "HelveticaNeue-Medium", size: 16)!
@@ -251,7 +249,6 @@ class FingerPrintDevice: UIViewController {
         
         //let btn = UIButton()
         //self.btnSkipPressed(btn)
-        
         //btnScanFingerPrint.isHidden = false
         
         BioMetricAuthenticator.authenticateWithBioMetrics(reason: "", success: {
@@ -404,7 +401,6 @@ class FingerPrintDevice: UIViewController {
     }
     
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -412,6 +408,6 @@ class FingerPrintDevice: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
+
 
 }
