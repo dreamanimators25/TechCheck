@@ -17,13 +17,14 @@ class Speaker: UIViewController {
         
         lblPrice.text = CustomUserDefault.getCurrency()
 
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func onClickGuideMe(sender: AnyObject) {
+        
     }
     
     @IBAction func onClickStart(sender: AnyObject) {
+    
     }
     
 }

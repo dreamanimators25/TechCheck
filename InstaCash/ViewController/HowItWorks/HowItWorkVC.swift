@@ -13,8 +13,9 @@ class HowItWorkVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationBar()
-        // Do any additional setup after loading the view.
+        
     }
+    
     // MARK:- navigation bar setup.
     func setNavigationBar() -> Void
     {
@@ -32,17 +33,18 @@ class HowItWorkVC: UIViewController {
         let leftBarButton = UIBarButtonItem(customView: btnMenu)
         navigationItem.leftBarButtonItem = leftBarButton
     }
+    
     //MARK:- button action methods
     @objc func btnSideMenuPressed() -> Void {
         
         self.menuContainerViewController.toggleLeftSideMenuCompletion({() -> Void in
         })
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
     }
-    
 
     // MARK: - Navigation
 

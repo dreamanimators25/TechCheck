@@ -82,7 +82,6 @@ class Profile: UIViewController, UITextFieldDelegate {
             //self.userImgView?.sd_setImage(with: imgUrl)
         }
         
-        
     }
     
     func cityMatchiPost(strURL : String , parameters:NSDictionary, completionHandler: @escaping (NSDictionary?, NSError?) -> ()) {
@@ -102,8 +101,11 @@ class Profile: UIViewController, UITextFieldDelegate {
             "pincode":txtPostCode.text!
         ]
         
+        print(parametersHome)
+        
         self.cityMatchiPost(strURL: strUrl, parameters: parametersHome as NSDictionary, completionHandler: {responseObject , error in
             
+            print(responseObject ?? [:])
             //self.activityPincode.stopAnimating()
             
             if error == nil {

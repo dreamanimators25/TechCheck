@@ -496,7 +496,7 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
         }
         
         let strBaseURL = userDefaults.value(forKey: "baseURL") as! String
-        var strUrl = strBaseURL + "couponCode"
+        let strUrl = strBaseURL + "couponCode"
         
         var parametersHome = [String:Any]()
         
@@ -504,8 +504,7 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
         if let couponAvailable = userDefaults.value(forKey: "promotionCouponCode") {
             
             //strUrl = "https://sbox.getinstacash.in/ic-web/instaCash/api/v5/public/" + "couponCode"
-            
-            strUrl = "https://getinstacash.in/instaCash/api/v5/public/couponCode"
+            //strUrl = "https://getinstacash.in/instaCash/api/v5/public/couponCode"
             
              parametersHome = [
                 "apiKey" : key,

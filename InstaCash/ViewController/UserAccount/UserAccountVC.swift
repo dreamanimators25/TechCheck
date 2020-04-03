@@ -50,7 +50,6 @@ class UserAccountVC: UIViewController {
         }
         
         
-        
         //To set shadow on multiple views
         DispatchQueue.main.async {
             UIView.addShadowOn4side(baseView: self.historyView)

@@ -101,10 +101,8 @@ class OfferPromotionPopUpVC: UIViewController,UITextFieldDelegate {
             strUrl = strBaseURL + "promoterInformation"
             
             //strUrl = "https://sbox.getinstacash.in/ic-web/instaCash/api/v5/public/" + "promoterInformation"
-            
-            strUrl = "https://getinstacash.in/instaCash/api/v5/public/promoterInformation"
+            //strUrl = "https://getinstacash.in/instaCash/api/v5/public/promoterInformation"
             print(strUrl)
-            
             
             var jsonST = String()
             
@@ -126,13 +124,12 @@ class OfferPromotionPopUpVC: UIViewController,UITextFieldDelegate {
                 }
                 
                 userDefaults.set(jsonST, forKey: "additionalInfo")
- 
                 
                 parameters  = [
                     "userName" : apiAuthenticateUserName,
                     "apiKey" : key,
                     "promoterId" : promoterId,
-                    "tradeInIMEI" : promoTextField.text ?? "", //KeychainWrapper.standard.string(forKey: "UUIDValue")! + "~" + KeychainWrapper.standard.string(forKey: "UUIDValue")!,
+                    "tradeInIMEI" : KeychainWrapper.standard.string(forKey: "UUIDValue")! + "~" + KeychainWrapper.standard.string(forKey: "UUIDValue")!,
                     "data" : jsonST,
                 ]
             }else {
@@ -155,7 +152,7 @@ class OfferPromotionPopUpVC: UIViewController,UITextFieldDelegate {
                     "userName" : apiAuthenticateUserName,
                     "apiKey" : key,
                     "promoterId" : promoterId,
-                    "tradeInIMEI" : promoTextField.text ?? "",
+                    "tradeInIMEI" : KeychainWrapper.standard.string(forKey: "UUIDValue")! + "~" + KeychainWrapper.standard.string(forKey: "UUIDValue")!,
                     "data" : jsonST,
                 ]
             }

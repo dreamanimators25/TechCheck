@@ -137,8 +137,8 @@ class SellOtherDeviceSearchVC: UIViewController,UITableViewDelegate,UITableViewD
             
             self.mobileApiPost(strURL: strUrl, parameters: parameters as NSDictionary, completionHandler: {responseObject , error in
                 //self.searchActivityIndicator.stopAnimating()
+
                 Alert.HideProgressHud(Onview: self.view)
-                
                 print(responseObject ?? [:])
                 
                 if error == nil {
@@ -147,7 +147,6 @@ class SellOtherDeviceSearchVC: UIViewController,UITableViewDelegate,UITableViewD
                             if arrSearchList is NSArray {
                                 
                                 self.arrSearchProduct.removeAll()
-                                
                                 let arrFinalSearchList = arrSearchList as! NSArray
                                 
                                 for index in 0..<arrFinalSearchList.count{

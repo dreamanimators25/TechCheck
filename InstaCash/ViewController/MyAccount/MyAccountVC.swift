@@ -39,7 +39,6 @@ class MyAccountVC: UIViewController {
                 else{
                     self.lblOrderDEscription.text = "No New orders to show.click on Create new order to start selling your used electronics."
                 }
-                
             }
         }
         else{
@@ -116,7 +115,6 @@ class MyAccountVC: UIViewController {
     
     //MARK:- button action methods
     @objc func btnSideMenuPressed() -> Void {
-        
         self.menuContainerViewController.toggleLeftSideMenuCompletion({() -> Void in
         })
     }

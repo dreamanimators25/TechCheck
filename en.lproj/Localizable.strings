@@ -143,7 +143,7 @@
 "Place order" = "Place order";
 "Place order @ " = "Place order @ ";
 "Note:- your Quote is lower than " = "Note:- your Quote is lower than ";
-" beacause certain tests were failed or skipped" = " beacause certain tests were failed or skipped";
+" because certain tests were failed or skipped" = " because certain tests were failed or skipped";
 "oops,No data found" = "oops,No data found";
 "Seems connection loss from server" = "Seems connection loss from server";
 "Product Details" = "Product Details";
@@ -152,6 +152,30 @@
 "The price is based on your self-reported device condition." = "The price is based on your self-reported device condition.";
 "Hurry, prices may drop in few days..." = "Hurry, prices may drop in few days...";
 "PLACE ORDER" = "PLACE ORDER";
+"Select the available accessories" = "Select the available accessories";
+"Select the available original accessories" = "Select the available original accessories";
+"Device Condition" = "Device Condition";
+"Bloated Battery" = "Bloated Battery";
+"Liquid Damage" = "Liquid Damage";
+"Ghost Touch" = "Ghost Touch";
+"Sim Card Tray Broken" = "Sim Card Tray Broken";
+"Home and Power Button" = "Home and Power Button";
+"Select the functional issues of your device" = "Select the functional issues of your device";
+"Front Or Back Camera - Not working or faulty" = "Front Or Back Camera - Not working or faulty";
+"Volume Button not working" = "Volume Button not working";
+"Power/Home Button Faulty" = "Power/Home Button Faulty";
+"Hard or Not Working" = "Hard or Not Working";
+"Wifi Or Bluetooth Or GPS Not Working" = "Wifi Or Bluetooth Or GPS Not Working";
+"Charging Defect" = "Charging Defect";
+"unable to charge the phone" = "unable to charge the phone";
+"Battery Faulty or Very Low Battery Back up" = "Battery Faulty or Very Low Battery Back up";
+"Speakers not working" = "Speakers not working";
+"faulty Or cracked sound" = "faulty Or cracked sound";
+"Microphone Not Working" = "Microphone Not Working";
+"GSM (Call Function) is not-working normally" = "GSM (Call Function) is not-working normally";
+"Earphone Jack is damaged or not-working" = "Earphone Jack is damaged or not-working";
+"Fingerprint Sensor Not-working" = "Fingerprint Sensor Not-working";
+
 
 // 12. SendAppLinkPopUp
 "Enter valid mobile number" = "Enter valid mobile number";
@@ -411,421 +435,336 @@
 "Your device passed 6/15 tests!" = "Your device passed 6/15 tests!";
 
 // 44. QuriesVC
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+"Physical condition related quries" = "Physical condition related quries";
+"Almost Done!!" = "Almost Done!!";
+"Please tell us about a few physical details of your phone." = "Please tell us about a few physical details of your phone.";
 
 // 45. MyAddresses
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+// Not used in project //
+"VIEW ALL ORDERS" = "VIEW ALL ORDERS";
+"Click on View all order to see your order listing." = "Click on View all order to see your order listing.";
+"No New orders to show.click on Create new order to start selling your used electronics." = "No New orders to show.click on Create new order to start selling your used electronics.";
+"User Profile" = "User Profile";
+"more" = "more";
+"LOG-OUT" = "LOG-OUT";
+"Are you sure you want to log-out?" = "Are you sure you want to log-out?";
 
-// 46. MyAccountVC
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+// 46. QuriesVC
+// Not used in project //
 
-// 47. QuriesVC
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+// 47. MyAddresses
+// Not used in project //
 
-// 48. MyAddresses
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+// 48. MyAccountVC
+// Not used in project //
 
-// 49. MyAccountVC
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+// 49. MyOrderVC
+"My Order" = "My Order";
+"Unverified" = "Unverified";
+"Verified" = "Verified";
+"Out for pickup" = "Out for pickup";
+"Pending Payment" = "Pending Payment";
+"Completed" = "Completed";
+"Rejected" = "Rejected";
+"Pacman cancelled" = "Pacman cancelled";
+"User cancelled" = "User cancelled";
+"Order date: " = "Order date: ";
+"Quoted price: " = "Quoted price: ";
+"Payment Mode: " = "Payment Mode: ";
+"Order ID: " = "Order ID: ";
+"Place Order!" = "Place Order!";
+"You are converting this Price Lock to a new Order.The price locked is subject to the conditions provided at the time of locking the price.In case of any mismatch in the conditions,a new price will be quoted. " = "You are converting this Price Lock to a new Order.The price locked is subject to the conditions provided at the time of locking the price.In case of any mismatch in the conditions,a new price will be quoted. ";
+"MAYBE LATER" = "MAYBE LATER";
+"Place Order successfully" = "Place Order successfully";
+"Orders" = "Orders";
+"ALL" = "ALL";
+"IN PROGRESS" = "IN PROGRESS";
+"COMPLETED" = "COMPLETED";
 
-// 50. MyOrderVC
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+// 50. OrderDetail
+"Pick up: " = "Pick up: ";
+"Pick up schedule for " = "Pick up schedule for ";
+"Cashed out" = "Cashed out";
+" on " = " on ";
+"Quoted price:" = "Quoted price:";
+"   Device Information   " = "   Device Information   ";
+"Order placed" = "Order placed";
+"In Progress" = "In Progress";
+"Contact Customer Support" = "Contact Customer Support";
 
-// 51. OrderDetail
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+// 51. CustomerSupportVC
+"Customer Support" = "Customer Support";
+"Email" = "Email";
+"Call" = "Call";
+"Chat" = "Chat";
+"FAQs" = "FAQs";
 
-// 52. CustomerSupportVC
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+// 52. OrderDetailSummaryVC
+"Box" = "Box";
+"Original Charger" = "Original Charger";
+"Order Summary" = "Order Summary";
 
 // 53. HistoryVC
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+"No History Found" = "No History Found";
 
 // 54. HowItWorkVC
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+// Not used in project //
 
 // 55. AboutUsVC
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+// Not used in project //
 
 // 56. ChangeAppModeVC
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+// Not used in project //
 
 // 57. TermsConditionVC
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+"No internet conection" = "No internet conection";
 
 // 58. ContactUsVC
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+// Not used in project //
 
 // 59. UploadDocumentVC
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+"UPLOAD BILL" = "UPLOAD BILL";
+"Please add at least one image to processed." = "Please add at least one image to processed.";
+"Gallery" = "Gallery";
+"Success" = "Success";
+"Documents Upload" = "Documents Upload";
+"Upload Images" = "Upload Images";
+"Upload Image" = "Upload Image";
+"Phone Image" = "Phone Image";
+"Upload Your phone front  Image" = "Upload Your phone front  Image";
+"Upload Your phone back  Image" = "Upload Your phone back  Image";
+"Upload Your phone bill  Image" = "Upload Your phone bill  Image";
 
 // 60. MisMatchVC
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+"Swipe Here To Disagree This Order" = "Swipe Here To Disagree This Order";
+"Swipe Here To Cancel This Order" = "Swipe Here To Cancel This Order";
+"Daignosis successfully completed!" = "Daignosis successfully completed!";
+"Order successfully Cancelled!" = "Order successfully Cancelled!";
+"Order successfully updated!" = "Order successfully updated!";
+"Swipe Here To Agree With Price" = "Swipe Here To Agree With Price";
+"Conditional Mismatch Found!" = "Conditional Mismatch Found!";
+"New Price:-" = "New Price:-";
+"Old Condition" = "Old Condition";
+"New Condition" = "New Condition";
 
 // 61. PickUpQuestionVC
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+"Select All values" = "Select All values";
+"SUBMIT" = "SUBMIT";
 
 // 62. ScreenTestPickUp
 "" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
 
 // 63. DeadPixelVC
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+"Dead Pixel Test" = "Dead Pixel Test";
+"Did you see any black or white spots on the screen?" = "Did you see any black or white spots on the screen?";
+"Checking screen for white or black dot" = "Checking screen for white or black dot";
+"We will show you white screen with maximum brightness for 8-10 seconds. Please tell us if you see a black dot." = "We will show you white screen with maximum brightness for 8-10 seconds. Please tell us if you see a black dot.";
 
 // 64. UploadIDVC
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+"UPLOAD Document" = "UPLOAD Document";
+"Press the button below to upload image of a valid Id Proof of the customer." = "Press the button below to upload image of a valid Id Proof of the customer.";
+"Upload ID Image" = "Upload ID Image";
 
 // 65. SignatureVC
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+"Signature" = "Signature";
+"Signature on white screen then click on save." = "Signature on white screen then click on save.";
+"Order Complete!" = "Order Complete!";
+"Pickup is complete now.Continue to Process the payment" = "Pickup is complete now.Continue to Process the payment";
+"Pocess Payment" = "Pocess Payment";
+"Customer Signature" = "Customer Signature";
+"Please ask the customer to sign on the screen and press save" = "Please ask the customer to sign on the screen and press save";
+"Clear" = "Clear";
+"Upload" = "Upload";
 
 // 66. PickUpItemsVC
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+"Click the Items Picked Up" = "Click the Items Picked Up";
+"   Device" = "   Device";
+"   Valid Bill" = "   Valid Bill";
+"   Box" = "   Box";
+"   Earphone" = "   Earphone";
+"   Original Charger" = "   Original Charger";
+"Please make sure to package all the items listed below carefully and properly before dispatching it to the return center." = "Please make sure to package all the items listed below carefully and properly before dispatching it to the return center.";
+"Please click YES in the box below to accept that this device is not stolen and that the details of the device provided by you are correct to the best of your knowledge and that you’ve read our terms and conditions and fully agree with them" = "Please click YES in the box below to accept that this device is not stolen and that the details of the device provided by you are correct to the best of your knowledge and that you’ve read our terms and conditions and fully agree with them";
 
 // 67. ProceedPaymentVC
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+"Verification Code" = "Verification Code";
+"This mode can only be run if an order has been placed for this device.If you don't have a code yet please call our customer care tp get a new code." = "This mode can only be run if an order has been placed for this device.If you don't have a code yet please call our customer care tp get a new code.";
+"Swipe here to process payment" = "Swipe here to process payment";
+"Account Number :" = "Account Number :";
+"Amount :" = "Amount :";
 
 // 68. ProcessPaymentPopUpVC
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+"Payment processed!" = "Payment processed!";
+"Transaction id" = "Transaction id";
+"Transaction amount" = "Transaction amount";
+"Complete Order" = "Complete Order";
+"Refresh Status" = "Refresh Status";
 
 // 69. RatingVC
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+"Transaction Id :" = "Transaction Id :";
+"Payment Processed" = "Payment Processed";
+"Transaction ID:" = "Transaction ID:";
+"How was your experience with us?" = "How was your experience with us?";
+"Done" = "Done";
+"Please take your SIM card out of the phone if it is present in this device " = "Please take your SIM card out of the phone if it is present in this device ";
+"If you’d like to get your phone erased in front of you, please ask our executive to do a factory reset." = "If you’d like to get your phone erased in front of you, please ask our executive to do a factory reset.";
 
 // 70. LiveOfferVC
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+"Order successfully Canceled!" = "Order successfully Canceled!";
+"LIVE OFFER" = "LIVE OFFER";
+"Old Offered Price" = "Old Offered Price";
+"Current Offered Price" = "Current Offered Price";
+"Live Offer" = "Live Offer";
+"Refresh Offer" = "Refresh Offer";
 
 // 71. TimeLineVC
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+// Not used in project //
 
 // 72. OtherDeviceQuestionFlow
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+"Get Quote" = "Get Quote";
 
 // 73. DiagnosisQuestionFlowVC
 "" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
 
 // 74. PramotterVC
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+// Not used in project //
 
 // 75. PromoterOTPVC
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+// Not used in project //
 
 // 76. AnotherDevice
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+"Search by manufacturer" = "Search by manufacturer";
+"Popular devices" = "Popular devices";
 
 // 77. StartDevice1
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+"I’m Ready" = "I’m Ready";
+"You will need your charger and earphones." = "You will need your charger and earphones.";
+"Hi! You’re about to diagnose your phone to help us give you an exact quote." = "Hi! You’re about to diagnose your phone to help us give you an exact quote.";
 
 // 78. ExactQuote
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+// Not used in project //
 
 // 79. ChangeModePopUpVC
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+// Not used in project //
 
 // 80. Sell2
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+"Pick up schedule for Sep 1, 2018" = "Pick up schedule for Sep 1, 2018";
+"Get" = "Get";
+"50 more when you pass failed tests. Retry now" = "50 more when you pass failed tests. Retry now";
+"Update order" = "Update order";
+"Retry Now" = "Retry Now";
 
 // 81. CountrySelection
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+"Please select state" = "Please select state";
+"Please select city" = "Please select city";
+"Areas we serve" = "Areas we serve";
 
 // 82. StartDevice
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+"Start device condition reporting" = "Start device condition reporting";
+"We’re almost there. The final thing we need from you is an honest self-report of the device condition." = "We’re almost there. The final thing we need from you is an honest self-report of the device condition.";
+"Awesome! One last thing…" = "Awesome! One last thing…";
 
 // 83. Sell1
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+"Quote" = "Quote";
+"Getting an exact quote takes 5 mins. Ready to roll?" = "Getting an exact quote takes 5 mins. Ready to roll?";
+"GET EXACT QUOTE" = "GET EXACT QUOTE";
 
 // 84. TouchScreen
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+// Not used in project //
 
 // 85. Speaker
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+// Not used in project //
 
 // 86. Voucher
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+// Not used in project //
 
 // 87. BankTransfer
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+"DONATION" = "DONATION";
+"Please enter your bank name" = "Please enter your bank name";
+"Please enter confirm account number" = "Please enter confirm account number";
+"Account Number doesn't match!" = "Account Number doesn't match!";
+"Please enter IFSC Code" = "Please enter IFSC Code";
+"Please enter bank branch" = "Please enter bank branch";
+"Enter valid IFSC Code" = "Enter valid IFSC Code";
+"Account Holder Name" = "Account Holder Name";
+"Bank Name" = "Bank Name";
+"Confirm Account Number" = "Confirm Account Number";
+"IFSC" = "IFSC";
+"Bank Branch" = "Bank Branch";
 
 // 88. Wallet
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+// Not used in project //
 
 // 89. Profile
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+"Account" = "Account";
+"Save" = "Save";
+"Logout" = "Logout";
+"Name" = "Name";
+"Email address" = "Email address";
+"Address" = "Address";
+"Postcode" = "Postcode";
+"Bank Transfer" = "Bank Transfer";
+"Optional" = "Optional";
+"Input your account details" = "Input your account details";
+"Name on Card" = "Name on Card";
 
 // 90. NotificationNew
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+"Notifications" = "Notifications";
 
 // 91. OrderFinalVC
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+"Get ready to be " = "Get ready to be ";
+" richer!" = " richer!";
+"Your order has been placed successfully. Your Order ID is " = "Your order has been placed successfully. Your Order ID is ";
+" Our team will get in touch with you shortly to verity the order and schedule the pickup. For any queries please call 0141-4232323 (10:00am - 07:00pm.)" = " Our team will get in touch with you shortly to verity the order and schedule the pickup. For any queries please call 0141-4232323 (10:00am - 07:00pm.)";
+" Our team will get in touch with you shortly to verity the order and schedule the pickup. For any queries please call +60365273417 (08:30am - 06:00pm Mon - Fri)" = " Our team will get in touch with you shortly to verity the order and schedule the pickup. For any queries please call +60365273417 (08:30am - 06:00pm Mon - Fri)";
+"SEE ORDER STATUS" = "SEE ORDER STATUS";
 
 // 92. SellOtherDeviceSearchVC
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+"Search for your Device..." = "Search for your Device...";
 
 // 93. UserAccountVC
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+"Service not available!" = "Service not available!";
+"HISTORY" = "HISTORY";
+"ABOUT" = "ABOUT";
+"SHARE" = "SHARE";
+"PROMOTER LOGIN" = "PROMOTER LOGIN";
+"PARTNER ACCESS" = "PARTNER ACCESS";
+"DIAGNOSE MODE" = "DIAGNOSE MODE";
+"PICKUP MODE" = "PICKUP MODE";
+"LOGOUT" = "LOGOUT";
 
 // 94. AboutVC
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+"TERMS & CONDITIONS" = "TERMS & CONDITIONS";
+"HOW IT WORK" = "HOW IT WORK";
 
 // 95. AboutPageVC
-"" = "";
-"" = "";
-"" = "";
-"" = "";
 "" = "";
 
 // 96. TnCPageVC
 "" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
 
 // 97. HowItWorkPageVC
-"" = "";
-"" = "";
-"" = "";
-"" = "";
 "" = "";
 
 // 98. FaqPageVC
 "" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
 
 // 99. MyHistoryListVC
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+"My History" = "My History";
+"No Data Found!" = "No Data Found!";
 
 // 100. PickUpCodeVC
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+"Please Enter 8 digit Code" = "Please Enter 8 digit Code";
+"Device doesn't Match! Please change your device, through which you place the order." = "Device doesn't Match! Please change your device, through which you place the order.";
 
 // 101. ItemPickUpVC
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+// Not used in project //
 
 // 102. OffersAndPromotionsVC
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+"Offers and Promotions" = "Offers and Promotions";
 
 // 103. OfferPromotionPopUpVC
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+"IMEI of new Phone" = "IMEI of new Phone";
+"Agent ID" = "Agent ID";
+"Please Enter Valid IMEI" = "Please Enter Valid IMEI";
+"Please Enter Valid Agent ID" = "Please Enter Valid Agent ID";

@@ -262,8 +262,6 @@ class UploadDocumentVC: UIViewController,UIImagePickerControllerDelegate,UINavig
         arrJsonObject.add(jsonObject)
         
         
-        
-        
         //self.fireWebServiceForConvertToOrder() //s.
         
         //btnUpload.isEnabled = true //s.
@@ -369,12 +367,6 @@ class UploadDocumentVC: UIViewController,UIImagePickerControllerDelegate,UINavig
             Alert.showAlert(strMessage: "No connection found", Onview: self)
         }
     }
-    
-    
-    
-    
-    
-    
     
     
     //MARK:- webservice Set Payment detaisl
@@ -629,7 +621,6 @@ class UploadDocumentVC: UIViewController,UIImagePickerControllerDelegate,UINavig
                          */
                         
                         
-                        
                         self.placedOrderId = responseObject?["msg"] as? String ?? ""
  
                         
@@ -645,7 +636,6 @@ class UploadDocumentVC: UIViewController,UIImagePickerControllerDelegate,UINavig
                             self.navigationController?.pushViewController(vc, animated: true)
                         }
                         */
-                        
                         
                     }
                     else{

@@ -39,7 +39,6 @@ class MisMatchVC: UIViewController {
         self.lblOldCond.isHidden = true
         self.lblNewCond.isHidden = true
         
-        
         //if (userDefaults.value(forKey: "countryName") as? String)?.contains("India") != nil {
             
         if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {

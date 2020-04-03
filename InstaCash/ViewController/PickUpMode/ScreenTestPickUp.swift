@@ -41,6 +41,7 @@ class ScreenTestPickUp: UIViewController {
 
     @IBOutlet weak var btnStartScreenTest: UIButton!
     @IBOutlet weak var screenTestViewPickup: UIImageView!
+    
     var obstacleViews : [UIView] = []
     var flags: [Bool] = []
     var countdownTimer: Timer!

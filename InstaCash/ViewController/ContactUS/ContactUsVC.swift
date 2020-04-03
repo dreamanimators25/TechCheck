@@ -13,6 +13,7 @@ class ContactUsVC: UIViewController,MFMailComposeViewControllerDelegate {
 
     @IBOutlet weak var lblMailService: UILabel!
     @IBOutlet weak var viewMiddle: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         lblMailService.isHidden = true
@@ -20,12 +21,10 @@ class ContactUsVC: UIViewController,MFMailComposeViewControllerDelegate {
         viewMiddle.layer.cornerRadius = CGFloat(btnCornerRadius)
         viewMiddle.clipsToBounds = true
         
-        // Do any additional setup after loading the view.
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         dismiss(animated: true, completion: nil)
-        
     }
    
     @IBAction func btnCallPressed(_ sender: UIButton) {
@@ -105,8 +104,6 @@ class ContactUsVC: UIViewController,MFMailComposeViewControllerDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
     
     // MARK: - Navigation
 

@@ -378,13 +378,18 @@ class MyOrderVC: UIViewController,UITableViewDelegate,UITableViewDataSource,Upda
             let strBaseURL = userDefaults.value(forKey: "baseURL") as! String
             let strUrl =  strBaseURL + "priceLocktoNeworder"
             var parameters = [String: Any]()
+            
             parameters  = [
                 "userName" : apiAuthenticateUserName,
                 "apiKey" : key,
                 "orderItemId": getModel.strOrderItemId!
             ]
+            print(parameters)
+            
             self.CovertApiPost(strURL: strUrl, parameters: parameters as NSDictionary, completionHandler: {responseObject , error in
+                
                 Alert.HideProgressHud(Onview: self.view)
+                print(responseObject ?? [:])
                 
                 if error == nil {
                     

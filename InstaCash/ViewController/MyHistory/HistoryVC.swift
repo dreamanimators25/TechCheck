@@ -17,9 +17,11 @@ class HistoryVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setNavigationBar()
         tblViewHistory.register(UINib(nibName: "OrderHeaderCell", bundle: nil), forCellReuseIdentifier: "orderHeaderCell")
         tblViewHistory.register(UINib(nibName: "HistoryCollabsableCell", bundle: nil), forCellReuseIdentifier: "historyCollabsableCell")
+       
         if reachability?.connection.description != "No Connection"{
             HistoryModel.fetchHistoryListFromServer(isInterNet:true,getController: self) { (arrHistoryList) in
                 if arrHistoryList.count > 0{
@@ -38,7 +40,7 @@ class HistoryVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         else{
             Alert.showAlert(strMessage: "No Connection found", Onview: self)
         }
-        // Do any additional setup after loading the view.
+        
     }
 
     // MARK:- navigation bar setup.
@@ -58,14 +60,13 @@ class HistoryVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         let leftBarButton = UIBarButtonItem(customView: btnMenu)
         navigationItem.leftBarButtonItem = leftBarButton
     }
+    
     //MARK:- button action methods
     @objc func btnSideMenuPressed() -> Void {
         
         self.menuContainerViewController.toggleLeftSideMenuCompletion({() -> Void in
         })
     }
-    
-
     
     //MARK:- Tableview delegate/Source methods
     
@@ -83,7 +84,6 @@ class HistoryVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         }
     }
     
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0{
             return 200
@@ -91,18 +91,20 @@ class HistoryVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         else{
             return  UITableViewAutomaticDimension
         }
-        
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             let cellOrderHeader = tableView.dequeueReusableCell(withIdentifier: "orderHeaderCell", for: indexPath) as! OrderHeaderCell
             let modelOrder = arrHistoryList[indexPath.section]
+            
             if modelOrder.isCollapsable == true{
                 cellOrderHeader.downArrow.image = UIImage(named: "upArrow")
             }
             else{
                 cellOrderHeader.downArrow.image = UIImage(named: "downArrow")
             }
+            
             cellOrderHeader.lblDate.text = modelOrder.orderDate
             let amount = Int(modelOrder.strOrderAmount!)
 
@@ -153,14 +155,11 @@ class HistoryVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         
     }
     
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
-
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation

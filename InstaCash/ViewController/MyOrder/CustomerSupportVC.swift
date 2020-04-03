@@ -12,6 +12,7 @@ import MessageUI
 class CustomerSupportVC: UIViewController,MFMailComposeViewControllerDelegate {
     
     @IBOutlet weak var faqTextView: UITextView!
+    
     var emailAddress = String()
     var phoneNumber = String()
     

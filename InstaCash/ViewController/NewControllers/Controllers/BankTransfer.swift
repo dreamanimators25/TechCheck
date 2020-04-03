@@ -216,6 +216,8 @@ class BankTransfer: UIViewController,UITextFieldDelegate {
                 "quotationId" : quatationId4, //0
             ]
             
+            print(parametersHome)
+            
             self.paymentStructureApiPost(strURL: strUrl, parameters: parametersHome as NSDictionary, completionHandler: {responseObject , error in
                 
                 Alert.HideProgressHud(Onview: self.view)
@@ -239,8 +241,6 @@ class BankTransfer: UIViewController,UITextFieldDelegate {
                             
                             //Neft or Imps
                             
-                            
-                            
                         }else {
                             
                             //Donation
@@ -262,7 +262,6 @@ class BankTransfer: UIViewController,UITextFieldDelegate {
         }else{
             Alert.showAlert(strMessage: "No Connection Found", Onview: self)
         }
-
         
     }
     
@@ -355,6 +354,8 @@ class BankTransfer: UIViewController,UITextFieldDelegate {
                 "isOffer" : "1",
                 "paymentCode": selectePaymentType4,
             ]
+            
+            print(parametersHome)
             
             self.setPaymentDetailsApiPost(strURL: strUrl, parameters: parametersHome as NSDictionary, completionHandler: {responseObject , error in
                 
@@ -554,7 +555,9 @@ class BankTransfer: UIViewController,UITextFieldDelegate {
                 parametersHome["additionalInformation"] = addInfo
             }
             
+            print(parametersHome)
             print(strUrl)
+            
             self.orderCreateApiPost(strURL: strUrl, parameters: parametersHome as NSDictionary, completionHandler: {responseObject , error in
                 
                 Alert.HideProgressHud(Onview: self.view)

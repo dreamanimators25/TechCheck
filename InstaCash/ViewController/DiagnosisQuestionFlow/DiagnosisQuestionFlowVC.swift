@@ -82,6 +82,8 @@ class DiagnosisQuestionFlowVC: UIViewController,UITableViewDelegate,UITableViewD
             "productId": CustomUserDefault.getProductId()
         ]
             
+        print(parametersHome)
+            
         self.questionFlowApiPost(strURL: strUrl, parameters: parametersHome as NSDictionary, completionHandler: {responseObject , error in
             Alert.HideProgressHud(Onview: self.view)
             if error == nil {
@@ -329,7 +331,10 @@ class DiagnosisQuestionFlowVC: UIViewController,UITableViewDelegate,UITableViewD
                 arrQuestionForQuestion[collectionView.tag].arrQuestionTypes[indexPath.row].isSelected = true
             }
             //  collectionView.reloadItems(at: [indexPath])
-            collectionView.reloadData()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                collectionView.reloadData()
+            }
+            //collectionView.reloadData()
             //            if arrQuestionForPickUp.count != collectionView.tag + 1{
             //                let indexPath = NSIndexPath(row: collectionView.tag + 1, section: 0)
             //                self.tblViewPickUpQuestion.scrollToRow(at: indexPath as IndexPath, at: .top, animated: true)
@@ -353,11 +358,18 @@ class DiagnosisQuestionFlowVC: UIViewController,UITableViewDelegate,UITableViewD
                 arrQuestionForQuestion[collectionView.tag].strAnswerName = arrQuestionForQuestion[collectionView.tag].arrQuestionTypes[indexPath.row].strQuestionValue
 
             }
-            if arrQuestionForQuestion.count == collectionView.tag + 1 || arrQuestionForQuestion.count == collectionView.tag + 2{
-                collectionView.reloadData()
+            if arrQuestionForQuestion.count == collectionView.tag + 1 || arrQuestionForQuestion.count == collectionView.tag + 2
+            {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    collectionView.reloadData()
+                }
+                //collectionView.reloadData()
             }
             else{
-                collectionView.reloadItems(at: [indexPath])
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    collectionView.reloadItems(at: [indexPath])
+                }
+                //collectionView.reloadItems(at: [indexPath])
             }
             if arrQuestionForQuestion.count != collectionView.tag + 1{
                 let indexPath = NSIndexPath(row: collectionView.tag + 1, section: 0)

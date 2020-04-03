@@ -31,7 +31,6 @@ class StartDevice1: UIViewController {
         
         // apply check for diagnose process, start from begning
         let vc = ScreenTestingVC()
-        
         self.navigationController?.pushViewController(vc, animated: true)
         
     }

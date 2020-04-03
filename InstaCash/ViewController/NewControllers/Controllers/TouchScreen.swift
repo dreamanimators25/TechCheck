@@ -12,19 +12,18 @@ class TouchScreen: UIViewController {
     
     @IBOutlet var lblPrice: UILabel!
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
         lblPrice.text = CustomUserDefault.getCurrency()
-
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func onClickGuideMe(sender: AnyObject) {
+    
     }
     
     @IBAction func onClickStart(sender: AnyObject) {
+    
     }
     
 }

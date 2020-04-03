@@ -1382,12 +1382,11 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
         if isRefreshPrice{
             //refreshActivityIndicator.startAnimating()
             self.createSkippedDataForShowData(isRefreshForData: true)
-
         }
         else{
             Alert.ShowProgressHud(Onview: self.view)
-
         }
+        
         var strSourceOfQuote = ""
         var productId = ""
         var returnMetaDetails : NSMutableDictionary = [:]
@@ -1411,6 +1410,7 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
         
 
         if isComingFromOnPhoneDiagnostic {
+            
             strSourceOfQuote = "diagnosis"
             userDefaults.set(true, forKey: "OrderPlaceFordiagnosis")
             productId = CustomUserDefault.getProductId()
@@ -1431,6 +1431,7 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
             returnMetaDetails.setValue(BatteryLevel, forKey: "BattaryLevel")
             returnMetaDetails.setValue(SystemSharedServices.fullyCharged, forKey: "BattaryFullyCharged")
             returnMetaDetails.setValue(KeychainWrapper.standard.string(forKey: "UUIDValue")!, forKey: "UUDIDValue")
+            
             if SystemSharedServices.jailbroken == 4783242{
                 returnMetaDetails.setValue("No", forKey: "JailBroken")
             }
@@ -1450,7 +1451,13 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
         
         // sameer on 31/3/20
         //let  userSelectedProductAppcodes =  "STON01," + strGetFinalAppCodeValues + strDiagnosisFailed
-        let  userSelectedProductAppcodes = strGetFinalAppCodeValues + strDiagnosisFailed
+        var userSelectedProductAppcodes = ""
+        if isComingFromOnPhoneDiagnostic{
+            userSelectedProductAppcodes =  "STON01," + strGetFinalAppCodeValues + strDiagnosisFailed
+        }
+        else{
+            userSelectedProductAppcodes = strGetFinalAppCodeValues + strDiagnosisFailed
+        }
         
         userDefaults.removeObject(forKey: "failedDiagnosData")
         userDefaults.set(strDiagnosisFailed, forKey: "failedDiagnosData")
@@ -1468,6 +1475,7 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
             userDefaults.removeObject(forKey: "Final_AppCodes")
             userDefaults.set(converComaToSemocolum, forKey: "Final_AppCodes")
         }
+        
         var userId = ""
         if CustomUserDefault.isUserIdExit(){
             userId = CustomUserDefault.getUserId()
@@ -1857,7 +1865,7 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                         
                         self.lblPrice.text = CustomUserDefault.getCurrency() + priceSkipQuote
                         //self.lblPriceScroolUp.text = CustomUserDefault.getCurrency() + priceSkipQuote
-                        let myString = "Note:- your Quote is lower than " + CustomUserDefault.getCurrency() + priceSkipQuote + " beacause certain tests were failed or skipped"
+                        let myString = "Note:- your Quote is lower than " + CustomUserDefault.getCurrency() + priceSkipQuote + " because certain tests were failed or skipped"
                         //  let attrString = NSAttributedString(string: myString)
                         let attribute = NSMutableAttributedString.init(string: myString)
                         let strCount = CustomUserDefault.getCurrency() + priceSkipQuote

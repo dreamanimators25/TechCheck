@@ -19,7 +19,7 @@ class AboutUsVC: UIViewController,MFMailComposeViewControllerDelegate,PushToHome
         let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
 
         lblVersion.text = "Version " + version!
-        // Do any additional setup after loading the view.
+        
     }
     
     //MARK:- custom delegate metthods

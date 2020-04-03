@@ -25,9 +25,8 @@ class Sell2: UIViewController {
         self.lblPhoneName.text = strDevie
         self.imgPhone.image = imgView.image
         
-        lblGetMore.text = "Get \(CustomUserDefault.getCurrency()) 50 more when you pass failed tests. Retry now"
-        lblGetMore1.text = "Get \(CustomUserDefault.getCurrency()) 50 more when you pass failed tests. Retry now"
+        lblGetMore.text = "Get" + " \(CustomUserDefault.getCurrency()) " + "50 more when you pass failed tests. Retry now"
+        lblGetMore1.text = "Get" + " \(CustomUserDefault.getCurrency()) " + "50 more when you pass failed tests. Retry now"
         
-        // Do any additional setup after loading the view.
     }
 }

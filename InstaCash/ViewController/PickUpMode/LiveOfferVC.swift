@@ -20,8 +20,8 @@ class LiveOfferVC: UIViewController {
     @IBOutlet weak var lblLiveOfferPrice: UILabel!
     @IBOutlet weak var lblCurrentOfferPrice: UILabel!
     @IBOutlet weak var lblOldOfferedPrice: UILabel!
-    
     @IBOutlet weak var btnRefresh: UIButton!
+    
     let reachability: Reachability? = Reachability()
     var strGetConditionString = ""
     var strGetDiagnosisID = ""
@@ -89,7 +89,6 @@ class LiveOfferVC: UIViewController {
         web.postRequest(urlString: strURL, paramDict: (parameters as! Dictionary<String, AnyObject>), completionHandler: completionHandler)
     }
     
-    
     func fireWebServiceForLiveAgreePrice(isforCancel:Bool)
     {
         if reachability?.connection.description != "No Connection"{
@@ -117,7 +116,7 @@ class LiveOfferVC: UIViewController {
                     "status":"success",
                     "orderItemId":userDefaults.value(forKey: "ChangeModeOrderId") as! String
                 ]
-                
+
                 print(parameters)
             }
             self.livePost(strURL: strUrl, parameters: parameters as NSDictionary, completionHandler: {responseObject , error in
@@ -249,7 +248,6 @@ class LiveOfferVC: UIViewController {
                 else
                 {
                     
-             
                     
                 }
             })

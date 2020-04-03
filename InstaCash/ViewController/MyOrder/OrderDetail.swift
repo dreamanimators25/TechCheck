@@ -59,7 +59,7 @@ class OrderDetail: UIViewController,UIPopoverPresentationControllerDelegate {
         
         self.lblDate1?.text = "Pick up: " + newDate
         self.lblDate2?.text = "Pick up schedule for " + newDate
-        self.lblDate3?.text = "Cashed out \(CustomUserDefault.getCurrency()) \(Int(orderDetail.strProductAmount ?? "")?.formattedWithSeparator ?? "") on " + newDate
+        self.lblDate3?.text = "Cashed out" + " \(CustomUserDefault.getCurrency()) \(Int(orderDetail.strProductAmount ?? "")?.formattedWithSeparator ?? "")" + " on " + newDate
         
         DispatchQueue.main.async {
             self.btnDeviceInfo?.layer.cornerRadius = 5.0
@@ -142,7 +142,7 @@ class OrderDetail: UIViewController,UIPopoverPresentationControllerDelegate {
                         
                         self.lblPhoneName?.text = finalItem?.value(forKey: "productName") as? String ?? ""
                         
-                        let txt = "Quoted price: \(CustomUserDefault.getCurrency()) "
+                        let txt = "Quoted price:" + " \(CustomUserDefault.getCurrency()) "
                         
                         if let amount = Int(finalItem?.value(forKey: "amount") as? String ?? "") {
                             let price = amount.formattedWithSeparator

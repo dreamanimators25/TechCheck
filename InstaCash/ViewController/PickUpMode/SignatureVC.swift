@@ -11,9 +11,9 @@ import UIKit
 class SignatureVC: UIViewController,YPSignatureDelegate {
 
     @IBOutlet weak var signatureView: YPDrawSignatureView!
-    let reachability: Reachability? = Reachability()
     @IBOutlet weak var signatureBaseView: UIView!
-
+    
+    let reachability: Reachability? = Reachability()
     var strGetUploadBill = ""
     
     override func viewDidLoad() {
