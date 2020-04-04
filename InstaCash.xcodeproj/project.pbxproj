@@ -117,6 +117,8 @@
 		59057666242E5DB900FEF541 /* OfferPromotionPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59057664242E5DB900FEF541 /* OfferPromotionPopUpVC.swift */; };
 		59057667242E5DB900FEF541 /* OfferPromotionPopUpVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59057665242E5DB900FEF541 /* OfferPromotionPopUpVC.xib */; };
 		5907E17A242CD5500038CD47 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5907E17C242CD5500038CD47 /* Localizable.strings */; };
+		59B67ACC2438FA3E00F4B321 /* LanguagePopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B67ACA2438FA3E00F4B321 /* LanguagePopUpVC.swift */; };
+		59B67ACD2438FA3E00F4B321 /* LanguagePopUpVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59B67ACB2438FA3E00F4B321 /* LanguagePopUpVC.xib */; };
 		59E4BE862429202100F59107 /* OffersAndPromotionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E4BE842429202100F59107 /* OffersAndPromotionsVC.swift */; };
 		59E4BE872429202100F59107 /* OffersAndPromotionsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59E4BE852429202100F59107 /* OffersAndPromotionsVC.xib */; };
 		745B1F646E31132D7C5DB2A2 /* Pods_InstaCash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9F5E785D57A5CB7DDA6DFC4 /* Pods_InstaCash.framework */; };
@@ -534,6 +536,8 @@
 		5907E17E242CD58D0038CD47 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		5907E17F242CD59E0038CD47 /* hi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hi; path = hi.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		5907E180242CD59F0038CD47 /* hi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hi; path = hi.lproj/Localizable.strings; sourceTree = "<group>"; };
+		59B67ACA2438FA3E00F4B321 /* LanguagePopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagePopUpVC.swift; sourceTree = "<group>"; };
+		59B67ACB2438FA3E00F4B321 /* LanguagePopUpVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LanguagePopUpVC.xib; sourceTree = "<group>"; };
 		59E4BE842429202100F59107 /* OffersAndPromotionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffersAndPromotionsVC.swift; sourceTree = "<group>"; };
 		59E4BE852429202100F59107 /* OffersAndPromotionsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OffersAndPromotionsVC.xib; sourceTree = "<group>"; };
 		71F0D5EC54E113DB020910AA /* Pods-InstaCashUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaCashUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstaCashUITests/Pods-InstaCashUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -992,11 +996,13 @@
 			children = (
 				521B2DC723EAFC6100887C03 /* UserAccountVC.swift */,
 				521B2DC823EAFC6100887C03 /* UserAccountVC.xib */,
+				5229ACBC23FC34A0002C7FB7 /* MyHistoryListVC.swift */,
+				5229ACBD23FC34A0002C7FB7 /* MyHistoryListVC.xib */,
+				59B67ACA2438FA3E00F4B321 /* LanguagePopUpVC.swift */,
+				59B67ACB2438FA3E00F4B321 /* LanguagePopUpVC.xib */,
 				52210BBC23FBA01E00C87FDB /* AboutVC.swift */,
 				52210BBD23FBA01E00C87FDB /* AboutVC.xib */,
 				5229ACBB23FC1C35002C7FB7 /* AboutPages */,
-				5229ACBC23FC34A0002C7FB7 /* MyHistoryListVC.swift */,
-				5229ACBD23FC34A0002C7FB7 /* MyHistoryListVC.xib */,
 			);
 			path = UserAccount;
 			sourceTree = "<group>";
@@ -2419,6 +2425,7 @@
 				FBFC836C2152640600562D42 /* FunctionalQuestionCell.xib in Resources */,
 				52160CC123FBD22800A09035 /* AboutPageVC.xib in Resources */,
 				52210BBF23FBA01E00C87FDB /* AboutVC.xib in Resources */,
+				59B67ACD2438FA3E00F4B321 /* LanguagePopUpVC.xib in Resources */,
 				52088965239FD407005B9E27 /* ListViewCollectionViewCell.xib in Resources */,
 				FB9C7020215A580C00F93B85 /* FingerPrintDevice.xib in Resources */,
 				FB9C7009215A4F4F00F93B85 /* EarPhoneVC.xib in Resources */,
@@ -2777,6 +2784,7 @@
 				FB324C53214D3D9A00D18398 /* MobileNumberVC.swift in Sources */,
 				FBF9B3B72155091C00F80113 /* PromocodePopUpVC.swift in Sources */,
 				FBFDA80C2153864300667DC6 /* PaymentCell.swift in Sources */,
+				59B67ACC2438FA3E00F4B321 /* LanguagePopUpVC.swift in Sources */,
 				FBF74ECE214FD4A000DB73BE /* KeychainWrapper.swift in Sources */,
 				FB07E09021DA0466002A04AD /* PromoCodeVC.swift in Sources */,
 				FBFD43AF21B2546900C26E8A /* PickUpQuestionTypesModel.swift in Sources */,

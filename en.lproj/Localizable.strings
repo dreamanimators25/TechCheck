@@ -25,6 +25,11 @@
 "or login with mobile" = "or login with mobile";
 "Enter Number" = "Enter Number";
 "No Connection found" = "No Connection found";
+"   Select Your Country" = "   Select Your Country";
+"   Select Your Language" = "   Select Your Language";
+"English" = "English";
+"Chinese" = "Chinese";
+"Hindi" = "Hindi";
 
 // 3. WelcomeVC
 "Product" = "Product";
@@ -727,6 +732,7 @@
 "HISTORY" = "HISTORY";
 "ABOUT" = "ABOUT";
 "SHARE" = "SHARE";
+"LANGUAGE" = "LANGUAGE";
 "PROMOTER LOGIN" = "PROMOTER LOGIN";
 "PARTNER ACCESS" = "PARTNER ACCESS";
 "DIAGNOSE MODE" = "DIAGNOSE MODE";
@@ -756,6 +762,8 @@
 // 100. PickUpCodeVC
 "Please Enter 8 digit Code" = "Please Enter 8 digit Code";
 "Device doesn't Match! Please change your device, through which you place the order." = "Device doesn't Match! Please change your device, through which you place the order.";
+"Invalid Diagnose Code" = "Invalid Diagnose Code";
+"Invalid Pickup Code" = "Invalid Pickup Code";
 
 // 101. ItemPickUpVC
 // Not used in project //

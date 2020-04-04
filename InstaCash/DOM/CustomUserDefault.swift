@@ -8,7 +8,36 @@ import UIKit
 import SystemConfiguration
 
 
+//For save and Get User Data in UserDefaults
+extension UserDefaults {
+
+    //Save language code
+    func saveLanguageCode(langCode : String) {
+        
+        let defaults = UserDefaults.standard
+        defaults.setValue(langCode, forKey: "langCode")
+        defaults.synchronize()
+    }
+    
+    //Get language code
+    func getLanguageCode(key : String) -> String? {
+        
+        let defaults = UserDefaults.standard
+        let langCODE = defaults.value(forKey: key)
+        
+        if langCODE != nil {
+            return (langCODE as? String)!
+        }
+        
+        defaults.synchronize()
+        
+        return nil
+    }
+    
+}
+
 class CustomUserDefault: NSObject {
+    
     
     static  func setUserId(data : String)  {
         UserDefaults.standard.set(data, forKey: "UserId")
@@ -252,6 +281,7 @@ class CustomUserDefault: NSObject {
         let date = dateFormatter.date(from: strGetDate)
         return date ?? Date()
     }
+    
     static func dateToStringConvertor(strGetDate:Date) -> String{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MMM-yyyy HH:MM"
@@ -261,9 +291,8 @@ class CustomUserDefault: NSObject {
         return newDate
     }
     
-    
-    
 }
+
 extension Formatter {
     static let withSeparator: NumberFormatter = {
         let formatter = NumberFormatter()
@@ -272,6 +301,7 @@ extension Formatter {
         return formatter
     }()
 }
+
 extension BinaryInteger {
     var formattedWithSeparator: String {
         return Formatter.withSeparator.string(for: self) ?? ""

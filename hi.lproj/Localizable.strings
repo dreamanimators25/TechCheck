@@ -25,6 +25,11 @@
 "or login with mobile" = "या मोबाइल से लॉगिन करें";
 "Enter Number" = "नंबर डालें";
 "No Connection found" = "कोई कनेक्शन नहीं मिला";
+"   Select Your Country" = "   अपने देश का चयन करें";
+"   Select Your Language" = "   अपनी भाषा का चयन करें";
+"English" = "अंग्रेज़ी";
+"Chinese" = "चीनी";
+"Hindi" = "हिन्दी";
 
 // 3. WelcomeVC
 "Product" = "उत्पाद";
@@ -727,6 +732,7 @@
 "HISTORY" = "इतिहास";
 "ABOUT" = "के बारे में";
 "SHARE" = "साझा करें";
+"LANGUAGE" = "भाषा";
 "PROMOTER LOGIN" = "प्रोमोटर लॉग इन करें";
 "PARTNER ACCESS" = "साझीदार पहुंच";
 "DIAGNOSE MODE" = "विश्लेषण मोड";
@@ -756,6 +762,8 @@
 // 100. PickUpCodeVC
 "Please Enter 8 digit Code" = "कृपया 8 अंक कोड दर्ज करें";
 "Device doesn't Match! Please change your device, through which you place the order." = "डिवाइस मेल नहीं खाता! कृपया अपना डिवाइस बदलें, जिसके माध्यम से आप ऑर्डर देते हैं।";
+"Invalid Diagnose Code" = "अमान्य निदान कोड";
+"Invalid Pickup Code" = "अमान्य पिकअप कोड";
 
 // 101. ItemPickUpVC
 // Not used in project //

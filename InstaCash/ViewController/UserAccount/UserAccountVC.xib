@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,13 +23,22 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UserAccountVC" customModule="InstaCash" customModuleProvider="target">
             <connections>
+                <outlet property="aboutLbl" destination="rnE-KJ-0Sf" id="7ho-wG-TN7"/>
                 <outlet property="aboutView" destination="YRU-4g-zdJ" id="57f-g8-T3a"/>
+                <outlet property="accountLbl" destination="Upq-dX-8PP" id="idv-u9-XGL"/>
+                <outlet property="diagnoseModeLbl" destination="blF-PC-2J8" id="zRm-If-Zq2"/>
                 <outlet property="diagnoseView" destination="BDU-N0-OiL" id="e4J-jS-esn"/>
+                <outlet property="historyLbl" destination="e0U-qQ-0v3" id="NKg-Ek-Vhu"/>
                 <outlet property="historyView" destination="KTD-fv-C9U" id="Nym-8m-zLZ"/>
+                <outlet property="languageLbl" destination="eLV-u3-ZQ0" id="N9h-bP-6Qg"/>
+                <outlet property="languageView" destination="Pe5-8C-NvE" id="Per-Of-eNX"/>
+                <outlet property="logoutLbl" destination="c4C-U7-2eC" id="ktE-3c-mDy"/>
                 <outlet property="logoutView" destination="Yfg-av-edX" id="sr8-nF-4I2"/>
                 <outlet property="partnerView" destination="2Co-Ei-rST" id="K1G-OH-YNI"/>
                 <outlet property="pickUpView" destination="Gwd-uH-yQ1" id="ZFZ-j7-6I9"/>
+                <outlet property="pickupModeLbl" destination="lUP-Lc-yNV" id="oTK-Yq-3cy"/>
                 <outlet property="promoterView" destination="dyg-wu-OBo" id="5ie-T8-NAh"/>
+                <outlet property="shareLbl" destination="ZuX-bo-UHo" id="7XI-ai-aNC"/>
                 <outlet property="shareView" destination="NM8-a8-orU" id="7Te-1g-RI6"/>
                 <outlet property="userEmailLbl" destination="Yqs-Js-p23" id="OjL-k2-A3g"/>
                 <outlet property="userImgView" destination="QWs-zP-qkI" id="gyW-uH-bd4"/>
@@ -78,7 +87,7 @@
                     <rect key="frame" x="0.0" y="84" width="320" height="444"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xhb-N3-EcV">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="570"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="630"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gOE-ZC-XeQ">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
@@ -135,7 +144,7 @@
                                     </constraints>
                                 </view>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="uUm-KH-eZL">
-                                    <rect key="frame" x="20" y="210" width="280" height="350"/>
+                                    <rect key="frame" x="20" y="210" width="280" height="410"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KTD-fv-C9U">
                                             <rect key="frame" x="0.0" y="0.0" width="280" height="50"/>
@@ -245,8 +254,44 @@
                                                 <constraint firstAttribute="trailing" secondItem="wCO-ac-BRq" secondAttribute="trailing" id="uNW-Bs-kcw"/>
                                             </constraints>
                                         </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pe5-8C-NvE">
+                                            <rect key="frame" x="0.0" y="180" width="280" height="50"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blackArrowForwrd" translatesAutoresizingMaskIntoConstraints="NO" id="tUF-rE-Lsp">
+                                                    <rect key="frame" x="250" y="17.5" width="15" height="15"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="15" id="XOS-lo-guS"/>
+                                                        <constraint firstAttribute="height" constant="15" id="nZg-J7-Ati"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LANGUAGE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eLV-u3-ZQ0">
+                                                    <rect key="frame" x="15" y="15.5" width="82.5" height="19"/>
+                                                    <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
+                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PO1-5s-ci7">
+                                                    <rect key="frame" x="0.0" y="0.0" width="280" height="50"/>
+                                                    <connections>
+                                                        <action selector="btnLanguagePressed:" destination="-1" eventType="touchUpInside" id="deb-wo-MRB"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="PO1-5s-ci7" secondAttribute="trailing" id="6Ja-fP-xpp"/>
+                                                <constraint firstItem="PO1-5s-ci7" firstAttribute="top" secondItem="Pe5-8C-NvE" secondAttribute="top" id="6S5-RH-WT5"/>
+                                                <constraint firstAttribute="bottom" secondItem="PO1-5s-ci7" secondAttribute="bottom" id="L8X-k2-vjo"/>
+                                                <constraint firstAttribute="trailing" secondItem="tUF-rE-Lsp" secondAttribute="trailing" constant="15" id="Ltq-Um-SdE"/>
+                                                <constraint firstItem="eLV-u3-ZQ0" firstAttribute="leading" secondItem="Pe5-8C-NvE" secondAttribute="leading" constant="15" id="Q9j-ZA-rcg"/>
+                                                <constraint firstItem="tUF-rE-Lsp" firstAttribute="centerY" secondItem="Pe5-8C-NvE" secondAttribute="centerY" id="lkO-kb-CtY"/>
+                                                <constraint firstAttribute="height" constant="50" id="qfX-c3-5q6"/>
+                                                <constraint firstItem="PO1-5s-ci7" firstAttribute="leading" secondItem="Pe5-8C-NvE" secondAttribute="leading" id="wds-gE-8hZ"/>
+                                                <constraint firstItem="eLV-u3-ZQ0" firstAttribute="centerY" secondItem="Pe5-8C-NvE" secondAttribute="centerY" id="zuc-Nn-g42"/>
+                                            </constraints>
+                                        </view>
                                         <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dyg-wu-OBo">
-                                            <rect key="frame" x="0.0" y="175" width="280" height="50"/>
+                                            <rect key="frame" x="0.0" y="235" width="280" height="50"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blackArrowForwrd" translatesAutoresizingMaskIntoConstraints="NO" id="qnx-th-5OD">
                                                     <rect key="frame" x="250" y="17.5" width="15" height="15"/>
@@ -282,7 +327,7 @@
                                             </constraints>
                                         </view>
                                         <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Co-Ei-rST">
-                                            <rect key="frame" x="0.0" y="175" width="280" height="50"/>
+                                            <rect key="frame" x="0.0" y="235" width="280" height="50"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blackArrowForwrd" translatesAutoresizingMaskIntoConstraints="NO" id="ebU-3f-eEH">
                                                     <rect key="frame" x="250" y="17.5" width="15" height="15"/>
@@ -318,7 +363,7 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BDU-N0-OiL">
-                                            <rect key="frame" x="0.0" y="180" width="280" height="50"/>
+                                            <rect key="frame" x="0.0" y="240" width="280" height="50"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blackArrowForwrd" translatesAutoresizingMaskIntoConstraints="NO" id="DPj-t0-JLo">
                                                     <rect key="frame" x="250" y="17.5" width="15" height="15"/>
@@ -354,7 +399,7 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gwd-uH-yQ1">
-                                            <rect key="frame" x="0.0" y="240" width="280" height="50"/>
+                                            <rect key="frame" x="0.0" y="300" width="280" height="50"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blackArrowForwrd" translatesAutoresizingMaskIntoConstraints="NO" id="5TS-HZ-6KQ">
                                                     <rect key="frame" x="250" y="17.5" width="15" height="15"/>
@@ -390,7 +435,7 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yfg-av-edX">
-                                            <rect key="frame" x="0.0" y="300" width="280" height="50"/>
+                                            <rect key="frame" x="0.0" y="360" width="280" height="50"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blackArrowForwrd" translatesAutoresizingMaskIntoConstraints="NO" id="haq-Pq-7s1">
                                                     <rect key="frame" x="250" y="17.5" width="15" height="15"/>
@@ -505,10 +550,10 @@
     </objects>
     <resources>
         <image name="GAccount" width="20" height="20"/>
-        <image name="blackArrowForwrd" width="50" height="50"/>
+        <image name="blackArrowForwrd" width="75" height="75"/>
         <image name="noti" width="21.5" height="22.5"/>
         <image name="order" width="18" height="21.5"/>
         <image name="sell" width="15" height="23"/>
-        <image name="userPlaceHolder" width="256" height="256"/>
+        <image name="userPlaceHolder" width="42.421173095703125" height="42.421173095703125"/>
     </resources>
 </document>

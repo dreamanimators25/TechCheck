@@ -9,7 +9,11 @@
 import UIKit
 import SDWebImage
 
+var changeLanguage : (() -> (Void))?
+
 class UserAccountVC: UIViewController {
+    
+    @IBOutlet weak var accountLbl: UILabel!
     
     @IBOutlet weak var userImgView: UIImageView!
     @IBOutlet weak var userNameLbl: UILabel!
@@ -19,11 +23,20 @@ class UserAccountVC: UIViewController {
     @IBOutlet weak var historyView: UIView!
     @IBOutlet weak var aboutView: UIView!
     @IBOutlet weak var shareView: UIView!
+    @IBOutlet weak var languageView: UIView!
     @IBOutlet weak var promoterView: UIView!
     @IBOutlet weak var partnerView: UIView!
     @IBOutlet weak var pickUpView: UIView!
     @IBOutlet weak var diagnoseView: UIView!
     @IBOutlet weak var logoutView: UIView!
+    
+    @IBOutlet weak var historyLbl: UILabel!
+    @IBOutlet weak var aboutLbl: UILabel!
+    @IBOutlet weak var shareLbl: UILabel!
+    @IBOutlet weak var languageLbl: UILabel!
+    @IBOutlet weak var diagnoseModeLbl: UILabel!
+    @IBOutlet weak var pickupModeLbl: UILabel!
+    @IBOutlet weak var logoutLbl: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +68,7 @@ class UserAccountVC: UIViewController {
             UIView.addShadowOn4side(baseView: self.historyView)
             UIView.addShadowOn4side(baseView: self.aboutView)
             UIView.addShadowOn4side(baseView: self.shareView)
+            UIView.addShadowOn4side(baseView: self.languageView)
             UIView.addShadowOn4side(baseView: self.promoterView)
             UIView.addShadowOn4side(baseView: self.partnerView)
             UIView.addShadowOn4side(baseView: self.pickUpView)
@@ -62,6 +76,23 @@ class UserAccountVC: UIViewController {
             UIView.addShadowOn4side(baseView: self.logoutView)
         }
         
+        changeLanguage = {
+            self.changeLanguageOfUI()
+        }
+        
+    }
+    
+    //MARK: Custom Methods
+    func changeLanguageOfUI() {
+                
+        self.accountLbl.text = self.accountLbl.text?.localized(lang: langCode)
+        self.historyLbl.text = self.historyLbl.text?.localized(lang: langCode)
+        self.aboutLbl.text = self.aboutLbl.text?.localized(lang: langCode)
+        self.shareLbl.text = self.shareLbl.text?.localized(lang: langCode)
+        self.languageLbl.text = self.languageLbl.text?.localized(lang: langCode)
+        self.diagnoseModeLbl.text = self.diagnoseModeLbl.text?.localized(lang: langCode)
+        self.pickupModeLbl.text = self.pickupModeLbl.text?.localized(lang: langCode)
+        self.logoutLbl.text = self.logoutLbl.text?.localized(lang: langCode)
     }
     
     //MARK: IBActions
@@ -99,10 +130,26 @@ class UserAccountVC: UIViewController {
         }
     }
     
+    @IBAction func btnLanguagePressed(_ sender: UIButton) {
+        
+        DispatchQueue.main.async {
+            let vc = LanguagePopUpVC()
+            let nav = UINavigationController(rootViewController: vc)
+            nav.navigationBar.isHidden = true
+            
+            nav.modalPresentationStyle = .overCurrentContext
+            nav.modalTransitionStyle = .crossDissolve
+            self.present(nav, animated: true, completion: nil)
+        }
+        
+    }
+    
     @IBAction func btnPromoterLoginPressed(_ sender: UIButton) {
+        
     }
     
     @IBAction func btnPartnerAccessPressed(_ sender: UIButton) {
+    
     }
     
     @IBAction func btnPickUpPressed(_ sender: UIButton) {
@@ -202,6 +249,9 @@ class UserAccountVC: UIViewController {
         CustomUserDefault.removeUserEmail()
         
         CustomUserDefault.removePinCode() //s.
+        
+        //4/4/2020
+        userDefaults.removeObject(forKey: "langCode")
         
         //Sameer - 28/3/20
         userDefaults.removeObject(forKey: "promoterID")

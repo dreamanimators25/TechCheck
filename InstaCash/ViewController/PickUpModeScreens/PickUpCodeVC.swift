@@ -221,7 +221,14 @@ class PickUpCodeVC: UIViewController {
                             }
                         }
                     }else {
-                        Alert.showAlert(strMessage:responseObject?["msg"] as! NSString , Onview: self)
+                        
+                        if withProcessCode == "diagnosemode" {
+                            Alert.showAlert(strMessage:"Invalid Diagnose Code" , Onview: self)
+                        }else {
+                            Alert.showAlert(strMessage:"Invalid Pickup Code" , Onview: self)
+                        }
+                        
+                        //Alert.showAlert(strMessage:responseObject?["msg"] as! NSString , Onview: self)
                     }
                 }
                 else

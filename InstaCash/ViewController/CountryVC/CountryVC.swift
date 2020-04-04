@@ -14,8 +14,6 @@ import GoogleSignIn
 
 class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GIDSignInUIDelegate,UITextFieldDelegate {
     
-    @IBOutlet weak var btnGPlus: UIButton!
-    
     @IBOutlet weak var btnIndia: UIButton!
     @IBOutlet weak var btnMalaysia: UIButton!
     @IBOutlet weak var btnSingapore: UIButton!
@@ -27,10 +25,23 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
     @IBOutlet weak var lblPhilipines: UILabel!
     
     @IBOutlet weak var txtPhoneNumer: UITextField!
-    
+    @IBOutlet weak var btnGPlus: UIButton!
     @IBOutlet weak var btnNext: UIButton!
     @IBOutlet weak var lblMessage: UILabel!
     @IBOutlet weak var imgInterNetOff: UIImageView!
+    
+    @IBOutlet weak var lblSelCountry: UILabel!
+    @IBOutlet weak var lblSelLanguage: UILabel!
+    @IBOutlet weak var engView: UIView!
+    @IBOutlet weak var chinaView: UIView!
+    @IBOutlet weak var hindiView: UIView!
+    @IBOutlet weak var engImgView: UIImageView!
+    @IBOutlet weak var chinaImgView: UIImageView!
+    @IBOutlet weak var hindiImgView: UIImageView!
+    @IBOutlet weak var engLbl: UILabel!
+    @IBOutlet weak var chinaLbl: UILabel!
+    @IBOutlet weak var hindiLbl: UILabel!
+    @IBOutlet weak var lblOrLoginWith: UILabel!
     
     let reachability: Reachability? = Reachability()
     var arrCountry = [CountryModel]()
@@ -48,6 +59,9 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
     //MARK:- view life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.changeLanguageOfUI()
+                
         txtPhoneNumer.autocorrectionType = .no
         getCountryBySimCard()
         //Set navigation Bar
@@ -77,13 +91,61 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
         }
 
     }
+    
     override func viewDidAppear(_ animated: Bool) {
+        
+    }
+    
+    func changeLanguageOfUI() {
+        
+        //txtField_email.attributedPlaceholder = NSAttributedString(string: "Email".localized(lang: langCode!),attributes: [NSForegroundColorAttributeName: UIColor.white])
+        
+        self.lblSelCountry.text = "   Select Your Country".localized(lang: langCode)
+        self.lblIndia.text = "India".localized(lang: langCode)
+        self.lblMalaysia.text = "Malaysia".localized(lang: langCode)
+        self.lblSingapore.text = "Singapore".localized(lang: langCode)
+        self.lblSelLanguage.text = "   Select Your Language".localized(lang: langCode)
+        self.engLbl.text = "English".localized(lang: langCode)
+        self.chinaLbl.text = "Chinese".localized(lang: langCode)
+        self.hindiLbl.text = "Hindi".localized(lang: langCode)
+        self.btnGPlus.setTitle("Login with Google".localized(lang: langCode), for: UIControlState.normal)
+        self.txtPhoneNumer.placeholder = "Enter Number".localized(lang: langCode)
+        self.lblOrLoginWith.text = "or login with mobile".localized(lang: langCode)
+        self.btnNext.setTitle("Login".localized(lang: langCode), for: UIControlState.normal)
+        
+    }
+    
+    func setModifiedUI() {
+        //English Language
+        self.engView.layer.borderColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
+        self.engView.layer.borderWidth = 0.8
+        self.engView.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+        self.engLbl.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        self.engImgView.image = #imageLiteral(resourceName: "Selected")
+        
+        //Chinese Language
+        self.chinaView.layer.borderColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
+        self.chinaView.layer.borderWidth = 0.8
+        self.chinaView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        self.chinaLbl.textColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)
+        self.chinaImgView.image = #imageLiteral(resourceName: "unCheck")
+        
+        //Hindi Language
+        self.hindiView.layer.borderColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
+        self.hindiView.layer.borderWidth = 0.8
+        self.hindiView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        self.hindiLbl.textColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)
+        self.hindiImgView.image = #imageLiteral(resourceName: "unCheck")
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         //Disable gesture pop to controller
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        
+        //Sameer on 4/4/20
+        self.setModifiedUI()
+        
 //        NotificationCenter.default.addObserver(self, selector: #selector(didBecomeActive), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
 //         NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
         // set location
@@ -136,15 +198,15 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
     
     func setCountryValue(str:String)
     {
-        if(str == "India")
+        if(str == "India".localized(lang: langCode))
         {
             self.onClickSelectCountry(btnIndia)
         }
-        else if(str == "Malaysia")
+        else if(str == "Malaysia".localized(lang: langCode))
         {
             self.onClickSelectCountry(btnMalaysia)
         }
-        else if(str == "Singapore")
+        else if(str == "Singapore".localized(lang: langCode))
         {
             self.onClickSelectCountry(btnSingapore)
         }
@@ -194,6 +256,81 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
     }*/
 
     //MARK:- button action methods
+    
+    @IBAction func btnEnglishLanguagePressed(_ sender: UIButton) {
+        
+        languageCode = "en"
+        userDefaults.saveLanguageCode(langCode: languageCode)
+        langCode = languageCode
+   
+        self.changeLanguageOfUI()
+        
+        //English Language
+        self.engView.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+        self.engLbl.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        self.engImgView.image = #imageLiteral(resourceName: "Selected")
+        
+        //Chinese Language
+        self.chinaView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        self.chinaLbl.textColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)
+        self.chinaImgView.image = #imageLiteral(resourceName: "unCheck")
+        
+        //Hindi Language
+        self.hindiView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        self.hindiLbl.textColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)
+        self.hindiImgView.image = #imageLiteral(resourceName: "unCheck")
+        
+    }
+    
+    @IBAction func btnChineseLanguagePressed(_ sender: UIButton) {
+        
+        languageCode = "zh-Hans"
+        userDefaults.saveLanguageCode(langCode: languageCode)
+        langCode = languageCode
+        
+        self.changeLanguageOfUI()
+        
+        //English Language
+        self.engView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        self.engLbl.textColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)
+        self.engImgView.image = #imageLiteral(resourceName: "unCheck")
+        
+        //Chinese Language
+        self.chinaView.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+        self.chinaLbl.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        self.chinaImgView.image = #imageLiteral(resourceName: "Selected")
+        
+        //Hindi Language
+        self.hindiView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        self.hindiLbl.textColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)
+        self.hindiImgView.image = #imageLiteral(resourceName: "unCheck")
+    
+    }
+    
+    @IBAction func btnHindiLanguagePressed(_ sender: UIButton) {
+        
+        languageCode = "hi"
+        userDefaults.saveLanguageCode(langCode: languageCode)
+        langCode = languageCode
+        
+        self.changeLanguageOfUI()
+        
+        //English Language
+        self.engView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        self.engLbl.textColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)
+        self.engImgView.image = #imageLiteral(resourceName: "unCheck")
+        
+        //Chinese Language
+        self.chinaView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        self.chinaLbl.textColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)
+        self.chinaImgView.image = #imageLiteral(resourceName: "unCheck")
+        
+        //Hindi Language
+        self.hindiView.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+        self.hindiLbl.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        self.hindiImgView.image = #imageLiteral(resourceName: "Selected")
+    
+    }
     
     @IBAction func btnGPlusPressed(_ sender: UIButton) {
         GIDSignIn.sharedInstance().delegate = self

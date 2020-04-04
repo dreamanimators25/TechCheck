@@ -39,7 +39,7 @@
                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4bx-fo-6w0">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                             <subviews>
-                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QYs-jo-ns4">
+                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QYs-jo-ns4" customClass="cornerView" customModule="InstaCash" customModuleProvider="target">
                                     <rect key="frame" x="20" y="201.5" width="280" height="145"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xze-3J-hT7">
@@ -124,6 +124,11 @@
                                         <constraint firstItem="6cT-Ki-vCc" firstAttribute="top" secondItem="2Ax-dz-tdl" secondAttribute="bottom" constant="20" id="pHx-f9-jaO"/>
                                         <constraint firstAttribute="height" constant="145" id="tqR-tE-fzQ"/>
                                     </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="5"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
                                 </view>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

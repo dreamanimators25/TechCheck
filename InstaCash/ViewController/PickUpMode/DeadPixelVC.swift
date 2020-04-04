@@ -18,6 +18,7 @@ import AVFoundation
 class DeadPixelVC: UIViewController {
     
     @IBOutlet weak var lblPrice: UILabel!
+    @IBOutlet weak var titleInfoLbl: UILabel!
     @IBOutlet weak var deadPixelInfoLbl: UILabel!
     @IBOutlet weak var deadPixelInfoImage: UIImageView!
     @IBOutlet weak var deadPixelGifImage: UIImageView!
@@ -31,11 +32,13 @@ class DeadPixelVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.deadPixelGifImage.isHidden = true
+        //4/4/20
+        //self.deadPixelGifImage.isHidden = true
 
         //s. 18/3/20
-        //deadPixelInfoImage.loadGif(name: "dead_pixel")
+        self.deadPixelGifImage.loadGif(name: "dead_pixel")
         //lblPrice.text = CustomUserDefault.getCurrency()
+        
     }
     
     @objc func setRandomBackgroundColor() {
@@ -101,6 +104,7 @@ class DeadPixelVC: UIViewController {
             // to add a single button
             popup.addButtons([buttonOne, buttonTwo])
             popup.dismiss(animated: true, completion: nil)
+            
             // Customize dialog appearance
             let pv = PopupDialogDefaultView.appearance()
             pv.titleFont    = UIFont(name: "HelveticaNeue-Medium", size: 20)!
@@ -143,16 +147,20 @@ class DeadPixelVC: UIViewController {
     @IBAction func startDeadPixelTestPressed(sender: AnyObject?) {
         checkVibrator()
         checkAudio()
+        
         timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(self.setRandomBackgroundColor), userInfo: nil, repeats: true)
         //self.view.backgroundColor = UIColor(red: 255/255, green: 0/255, blue: 0/255, alpha: 1) //s. 18/3/20
         
         self.startTestBtn.isHidden = true
         self.deadPixelInfoLbl.isHidden = true
+        self.titleInfoLbl.isHidden = true
         self.deadPixelInfoImage.isHidden = true
+        self.deadPixelGifImage.isHidden = true
         
         //S. 18/3/20
-        self.deadPixelGifImage.isHidden = false
-        deadPixelInfoImage.loadGif(name: "dead_pixel") //s. 18/3/20
+        //S. 4/4/20
+        //self.deadPixelGifImage.isHidden = false
+        //deadPixelInfoImage.loadGif(name: "dead_pixel") //s. 18/3/20
     }
     
     func checkVibrator(){

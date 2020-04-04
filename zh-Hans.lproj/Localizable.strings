@@ -25,6 +25,11 @@
 "or login with mobile" = "或使用手机登录";
 "Enter Number" = "输入号码";
 "No Connection found" = "未找到连接";
+"   Select Your Country" = "   选择您的国家";
+"   Select Your Language" = "   选择你的语言";
+"English" = "英语";
+"Chinese" = "中文";
+"Hindi" = "印地语";
 
 // 3. WelcomeVC
 "Product" = "产品";
@@ -727,6 +732,7 @@
 "HISTORY" = "历史";
 "ABOUT" = "关于";
 "SHARE" = "分享";
+"LANGUAGE" = "语言";
 "PROMOTER LOGIN" = "发起人登录";
 "PARTNER ACCESS" = "客户访问";
 "DIAGNOSE MODE" = "诊断模式";
@@ -756,6 +762,8 @@
 // 100. PickUpCodeVC
 "Please Enter 8 digit Code" = "请输入8位代码";
 "Device doesn't Match! Please change your device, through which you place the order." = "设备不匹配！请更改设备，以便通过它下订单。";
+"Invalid Diagnose Code" = "无效的诊断代码";
+"Invalid Pickup Code" = "无效的代答代码";
 
 // 101. ItemPickUpVC
 // Not used in project //

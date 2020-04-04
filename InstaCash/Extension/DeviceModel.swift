@@ -53,6 +53,10 @@ public extension UIDevice {
         default:                                        return identifier
         }
     }
+    
+    //
+    
+    
     func totalDiskSpaceInBytes() -> Int64 {
         do {
             guard let totalDiskSpaceInBytes = try FileManager.default.attributesOfFileSystem(forPath: NSHomeDirectory())[FileAttributeKey.systemSize] as? Int64 else {
@@ -126,4 +130,17 @@ extension UIView {
         baseView.layer.shadowPath = shadowPath.cgPath
     }
     
+}
+
+//For localization of language
+
+extension String {
+    
+    func localized(lang:String) -> String {
+        
+        let path = Bundle.main.path(forResource: lang, ofType: "lproj")
+        let bundle = Bundle(path: path!)        
+        return (bundle?.localizedString(forKey: self, value: "", table: nil))!
+        
+    }
 }

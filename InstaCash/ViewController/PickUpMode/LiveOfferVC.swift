@@ -233,15 +233,25 @@ class LiveOfferVC: UIViewController {
             print(parameters)
             
             self.livePost(strURL: strUrl, parameters: parameters as NSDictionary, completionHandler: {responseObject , error in
+                
+                print(responseObject ?? [:])
+                
                 self.refreshDataActivity.stopAnimating()
                 if error == nil {
                     if responseObject?["status"] as! String == "Success"{
+                        /*
                         self.lblOldOfferedPrice.text = CustomUserDefault.getCurrency() + (responseObject?["payOriginalOFPAmount"] as! String)
                         self.lblCurrentOfferPrice.text = CustomUserDefault.getCurrency() + (responseObject?["payOriginalOFPAmount"] as! String)
+                        self.lblLiveOfferPrice.text = CustomUserDefault.getCurrency() + (responseObject?["payManualOfferAmount"] as! String)
+                        */
+                        
+                        self.lblOldOfferedPrice.text = CustomUserDefault.getCurrency() + (responseObject?["payOriginalOFPAmount"] as! String)
+                        self.lblCurrentOfferPrice.text = CustomUserDefault.getCurrency() + (responseObject?["payMismatchQuotedAmount"] as! String)
                         self.lblLiveOfferPrice.text = CustomUserDefault.getCurrency() + (responseObject?["payManualOfferAmount"] as! String)
                         
                     }
                     else{
+                        
                     }
                     
                 }
