@@ -21,6 +21,17 @@ class UploadDocumentVC: UIViewController,UIImagePickerControllerDelegate,UINavig
     @IBOutlet weak var imgViewPhoneBack: UIImageView!
     @IBOutlet weak var imgViewPhoneBill: UIImageView!
     
+    @IBOutlet weak var lblUploadImages: UILabel!
+    @IBOutlet weak var lblUploadImage: UILabel!
+    @IBOutlet weak var lblPhoneImage: UILabel!
+    @IBOutlet weak var lblPhoneFrontImage: UILabel!
+    @IBOutlet weak var lblPhoneBackImage: UILabel!
+    @IBOutlet weak var lblBillImage: UILabel!
+    @IBOutlet weak var lblPhoneBillImage: UILabel!
+    @IBOutlet weak var btnSkip: UIButton!
+    @IBOutlet weak var btnProceed: UIButton!
+    
+    
     let imagePicker = UIImagePickerController()
     
     var delegate:UpdateOrderListDelegate?
@@ -57,6 +68,24 @@ class UploadDocumentVC: UIViewController,UIImagePickerControllerDelegate,UINavig
     let jsonObject : NSMutableDictionary = NSMutableDictionary()
     var arrJsonObject : NSMutableArray = NSMutableArray()
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.changeLanguageOfUI()
+    }
+    
+    func changeLanguageOfUI() {
+        
+        self.lblUploadImages.text = "Upload Images".localized(lang: langCode)
+        self.lblUploadImage.text = "Upload Image".localized(lang: langCode)
+        self.lblPhoneImage.text = "Phone Image".localized(lang: langCode)
+        self.lblPhoneFrontImage.text = "Upload Your phone front  Image".localized(lang: langCode)
+        self.lblPhoneBackImage.text = "Upload Your phone back  Image".localized(lang: langCode)
+        self.lblBillImage.text = "Bill Image".localized(lang: langCode)
+        self.lblPhoneBillImage.text = "Upload Your phone bill  Image".localized(lang: langCode)
+        
+        self.btnSkip.setTitle("SKIP".localized(lang: langCode), for: UIControlState.normal)
+        self.btnProceed.setTitle("PROCEED".localized(lang: langCode), for: UIControlState.normal)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,7 +125,7 @@ class UploadDocumentVC: UIViewController,UIImagePickerControllerDelegate,UINavig
     // MARK:- navigation bar setup.
     func setNavigationBar() -> Void
     {
-        self.title = "UPLOAD BILL"
+        self.title = "UPLOAD BILL".localized(lang: langCode)
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.isNavigationBarHidden = false
         self.navigationController?.navigationBar.barTintColor = navColor
@@ -153,9 +182,9 @@ class UploadDocumentVC: UIViewController,UIImagePickerControllerDelegate,UINavig
     }
     
     @IBAction func btnOrderCreatePressed(_ sender: UIButton) {
-        guard self.frontImage == "Phone Front Image" || self.backImage == "Phone Back Image" || self.billImage == "Phone Bill Image" else {
+        guard self.frontImage == "Phone Front Image".localized(lang: langCode) || self.backImage == "Phone Back Image".localized(lang: langCode) || self.billImage == "Phone Bill Image".localized(lang: langCode) else {
             
-            Alert.showAlertWithTitle(strTitle: "", strMessage: "Please add at least one image to processed.", Onview: self)
+            Alert.showAlertWithTitle(strTitle: "", strMessage: "Please add at least one image to processed.".localized(lang: langCode) as NSString, Onview: self)
             
             return
         }
@@ -170,20 +199,20 @@ class UploadDocumentVC: UIViewController,UIImagePickerControllerDelegate,UINavig
     {
         let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
-        let cameraAction = UIAlertAction(title: "Camera", style: .default, handler:
+        let cameraAction = UIAlertAction(title: "Camera".localized(lang: langCode), style: .default, handler:
         {
             (alert: UIAlertAction!) -> Void in
             self.importImageFromGallery(src: "Camera")
         })
         
-        let galleryiAction = UIAlertAction(title: "Gallery", style: .default, handler:
+        let galleryiAction = UIAlertAction(title: "Gallery".localized(lang: langCode), style: .default, handler:
         {
             (alert: UIAlertAction!) -> Void in
             self.importImageFromGallery(src: "Photo Library")
             
         })
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler:
+        let cancelAction = UIAlertAction(title: "Cancel".localized(lang: langCode), style: .cancel, handler:
         {
             (alert: UIAlertAction!) -> Void in
         })
@@ -234,15 +263,15 @@ class UploadDocumentVC: UIViewController,UIImagePickerControllerDelegate,UINavig
         switch self.btnTap {
         case 1:
             imageTitle = "Phone Front Image"
-            frontImage = "Phone Front Image"
+            frontImage = "Phone Front Image".localized(lang: langCode)
             self.imgViewPhoneFront.image = self.selectedImage
         case 2:
             imageTitle = "Phone Back Image"
-            backImage = "Phone Back Image"
+            backImage = "Phone Back Image".localized(lang: langCode)
             self.imgViewPhoneBack.image = self.selectedImage
         default:
             imageTitle = "Phone Bill Image"
-            billImage = "Phone Bill Image"
+            billImage = "Phone Bill Image".localized(lang: langCode)
             self.imgViewPhoneBill.image = self.selectedImage
         }
         
@@ -323,9 +352,9 @@ class UploadDocumentVC: UIViewController,UIImagePickerControllerDelegate,UINavig
                         
                         self.delegate?.updateOrderList()
                         
-                        let alert = UIAlertController(title: "Success", message: "Documents Upload",         preferredStyle: UIAlertControllerStyle.alert)
+                        let alert = UIAlertController(title: "Success".localized(lang: langCode), message: "Documents Upload".localized(lang: langCode),         preferredStyle: UIAlertControllerStyle.alert)
                         
-                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { _ in
+                        alert.addAction(UIAlertAction(title: "OK".localized(lang: langCode), style: UIAlertActionStyle.default, handler: { _ in
                             
                             let vc = OrderFinalVC()
                             vc.finalPrice = self.getFinalPrice5
@@ -344,7 +373,7 @@ class UploadDocumentVC: UIViewController,UIImagePickerControllerDelegate,UINavig
                 }
                 else
                 {
-                    Alert.showAlert(strMessage: "Seems connection loss from server", Onview: self)
+                    Alert.showAlert(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
                     
                     /*
                     self.delegate?.updateOrderList()
@@ -364,7 +393,7 @@ class UploadDocumentVC: UIViewController,UIImagePickerControllerDelegate,UINavig
         }
         else
         {
-            Alert.showAlert(strMessage: "No connection found", Onview: self)
+            Alert.showAlert(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
         }
     }
     
@@ -436,12 +465,12 @@ class UploadDocumentVC: UIViewController,UIImagePickerControllerDelegate,UINavig
                 }
                 else{
                     debugPrint(error as Any)
-                    Alert.showAlert(strMessage: "Seems connection loss from server", Onview: self)
+                    Alert.showAlert(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
                 }
             })
             
         }else{
-            Alert.showAlert(strMessage: "No Connection Found", Onview: self)
+            Alert.showAlert(strMessage: "No Connection Found".localized(lang: langCode) as NSString, Onview: self)
         }
         
     }
@@ -645,12 +674,12 @@ class UploadDocumentVC: UIViewController,UIImagePickerControllerDelegate,UINavig
                 }
                 else{
                     debugPrint(error as Any)
-                    Alert.showAlert(strMessage: "Seems connection loss from server", Onview: self)
+                    Alert.showAlert(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
                 }
             })
             
         }else{
-            Alert.showAlert(strMessage: "No Connection Found", Onview: self)
+            Alert.showAlert(strMessage: "No Connection Found".localized(lang: langCode) as NSString, Onview: self)
         }
         
     }

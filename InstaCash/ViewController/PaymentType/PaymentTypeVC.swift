@@ -37,16 +37,17 @@ class PaymentTypeVC: UIViewController,UITableViewDelegate,UITableViewDataSource 
             getProcessPaymentMode()
         }
         else {
-            Alert.showAlert(strMessage: "No connection found", Onview: self)
+            Alert.showAlert(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
         }
         
     }
+    
 
     //MARK:- button action methods
     
     @objc func btnOlaceOrderPlaces() {
         if strPaymentcode == ""{
-            Alert.showAlert(strMessage: "Select any payment mode", Onview: self)
+            Alert.showAlert(strMessage: "Select any payment mode".localized(lang: langCode) as NSString, Onview: self)
         }
         else {
             
@@ -216,7 +217,7 @@ class PaymentTypeVC: UIViewController,UITableViewDelegate,UITableViewDataSource 
                 
             }
             else{
-                Alert.showAlert(strMessage: "Seems connection loss from server", Onview: self)
+                Alert.showAlert(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
                 
             }
             
@@ -281,7 +282,6 @@ class PaymentTypeVC: UIViewController,UITableViewDelegate,UITableViewDataSource 
             producdID = userDefaults.value(forKey: "otherProductDeviceID") as! String
             strValue = ""
             userSelectedProductAppcodes =  strValue + strQuestionAppCodes
-           
 
         }
     
@@ -393,7 +393,7 @@ class PaymentTypeVC: UIViewController,UITableViewDelegate,UITableViewDataSource 
                 
             }
             else{
-                Alert.showAlert(strMessage: "Seems connection loss from server", Onview: self)
+                Alert.showAlert(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
                 
             }
             

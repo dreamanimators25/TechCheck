@@ -18,8 +18,10 @@ class ChangeModePopUpVC: UIViewController {
     @IBOutlet weak var lbltile: UILabel!
     @IBOutlet weak var imgLogo: UIImageView!
     @IBOutlet weak var viewMiddle: UIView!
+    
     var strProcessForDiagnosis = ""
     var delegate:ShowVerificationCodeDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewMiddle.layer.cornerRadius = CGFloat(btnCornerRadius)
@@ -35,7 +37,7 @@ class ChangeModePopUpVC: UIViewController {
             lbltile.text = "Entering Pickup Mode"
             lblSubtitle.text = "The app is now enterning the Pickup mode.Do you want to continue?"
         }
-        // Do any additional setup after loading the view.
+        
     }
 
     @IBAction func btnYesPressed(_ sender: UIButton) {

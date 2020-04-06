@@ -11,13 +11,28 @@ import Alamofire
 
 class SellOtherDeviceSearchVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate {
     
-    @IBOutlet weak var searchBarProduct: UISearchBar!
     @IBOutlet weak var tableViewProduct: UITableView!
     @IBOutlet weak var searchActivityIndicator: UIActivityIndicatorView!
     
-    let reachability: Reachability? = Reachability()
+    @IBOutlet weak var lblSellAnother: UILabel!
+    @IBOutlet weak var searchBarProduct: UISearchBar!
     
+    let reachability: Reachability? = Reachability()
     var arrSearchProduct = [SearchProduct]()
+    
+    func changeLanguageOfUI() {
+        
+        self.lblSellAnother.text = "Sell Another Device".localized(lang: langCode)
+        self.searchBarProduct.placeholder = "Search for your Device...".localized(lang: langCode)
+        
+        //self.btnSeeOrderStatus.setTitle("SEE ORDER STATUS".localized(lang: langCode), for: UIControlState.normal)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.changeLanguageOfUI()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

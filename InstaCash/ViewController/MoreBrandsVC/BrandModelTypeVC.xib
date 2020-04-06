@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,7 +19,9 @@
             <connections>
                 <outlet property="collectionViewModel" destination="ZX6-25-RXh" id="Pst-gT-Tyi"/>
                 <outlet property="collectionViewSelectModel" destination="Yld-DC-Vou" id="nYk-BX-mXS"/>
+                <outlet property="lblSelectBrand" destination="NcX-HP-kBa" id="1ug-K4-4cT"/>
                 <outlet property="lblSelectModel" destination="TZD-lg-eyB" id="Fon-4z-bw1"/>
+                <outlet property="lblSellAnotherDevice" destination="KIw-cN-aLS" id="BIk-DC-eqJ"/>
                 <outlet property="searchActivityIndicator" destination="9co-TY-WG5" id="EGY-d3-Gb2"/>
                 <outlet property="searchBarBrand" destination="Ft3-tG-oLM" id="6gX-HY-bWe"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

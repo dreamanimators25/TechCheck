@@ -13,6 +13,9 @@ class OrderFinalVC: UIViewController {
     @IBOutlet weak var lbl1: UILabel!
     @IBOutlet weak var lbl2: UILabel!
     
+    @IBOutlet weak var lblNowIsnt: UILabel!
+    @IBOutlet weak var btnSeeOrderStatus: UIButton!
+    
     var finalPrice = 0
     var orderID = ""
     var str3 = NSAttributedString()
@@ -28,17 +31,25 @@ class OrderFinalVC: UIViewController {
         
     }
     
+    func changeLanguageOfUI() {
+        
+        self.lblNowIsnt.text = "Now isn't that easy? :)".localized(lang: langCode)
+        self.btnSeeOrderStatus.setTitle("SEE ORDER STATUS".localized(lang: langCode), for: UIControlState.normal)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-                
-        lbl1.text = "Get ready to be " + CustomUserDefault.getCurrency() + " \(finalPrice.formattedWithSeparator)" + " richer!"
         
-        let str1 = NSAttributedString.init(string: "Your order has been placed successfully. Your Order ID is ")
+        self.changeLanguageOfUI()
+                
+        lbl1.text = "Get ready to be ".localized(lang: langCode) + CustomUserDefault.getCurrency() + " \(finalPrice.formattedWithSeparator)" + " richer!".localized(lang: langCode)
+        
+        let str1 = NSAttributedString.init(string: "Your order has been placed successfully. Your Order ID is ".localized(lang: langCode))
         
         if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
-            str3 = NSAttributedString.init(string: " Our team will get in touch with you shortly to verity the order and schedule the pickup. For any queries please call 0141-4232323 (10:00am - 07:00pm.)")
+            str3 = NSAttributedString.init(string: " Our team will get in touch with you shortly to verity the order and schedule the pickup. For any queries please call 0141-4232323 (10:00am - 07:00pm.)".localized(lang: langCode))
         }else {
-            str3 = NSAttributedString.init(string: " Our team will get in touch with you shortly to verity the order and schedule the pickup. For any queries please call +60365273417 (08:30am - 06:00pm Mon - Fri)")
+            str3 = NSAttributedString.init(string: " Our team will get in touch with you shortly to verity the order and schedule the pickup. For any queries please call +60365273417 (08:30am - 06:00pm Mon - Fri)".localized(lang: langCode))
         }
         
         

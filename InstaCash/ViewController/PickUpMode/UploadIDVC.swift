@@ -10,15 +10,29 @@ import UIKit
 
 class UploadIDVC: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
 
+    @IBOutlet weak var titleInfoLbl: UILabel!
+    @IBOutlet weak var btnUploadIdImage: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //setNavigationBar()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.changeLanguageOfUI()
+    }
+    
+    func changeLanguageOfUI() {
+        
+        self.titleInfoLbl.text = "Press the button below to upload image of a valid Id Proof of the customer.".localized(lang: langCode)
+        
+        self.btnUploadIdImage.setTitle("Upload ID Image".localized(lang: langCode), for: UIControlState.normal)
     }
 
     // MARK:- navigation bar setup.
     func setNavigationBar() -> Void
     {
-        self.title = "UPLOAD Document"
+        self.title = "UPLOAD Document".localized(lang: langCode)
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.isNavigationBarHidden = false
         self.navigationController?.navigationBar.barTintColor = navColor
@@ -43,19 +57,19 @@ class UploadIDVC: UIViewController,UIImagePickerControllerDelegate,UINavigationC
     {
         let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
-        let cameraAction = UIAlertAction(title: "Camera", style: .default, handler:
+        let cameraAction = UIAlertAction(title: "Camera".localized(lang: langCode), style: .default, handler:
         {
             (alert: UIAlertAction!) -> Void in
             self.importImageFromGallery(src: "Camera")
         })
         
-        let galleryiAction = UIAlertAction(title: "Gallery", style: .default, handler:
+        let galleryiAction = UIAlertAction(title: "Gallery".localized(lang: langCode), style: .default, handler:
         {
             (alert: UIAlertAction!) -> Void in
             self.importImageFromGallery(src: "Photo Library")
         })
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler:
+        let cancelAction = UIAlertAction(title: "Cancel".localized(lang: langCode), style: .cancel, handler:
         {
             (alert: UIAlertAction!) -> Void in
             

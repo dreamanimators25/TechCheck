@@ -15,17 +15,40 @@ class LiveOfferVC: UIViewController {
     @IBOutlet weak var refreshDataActivity: UIActivityIndicatorView!
     @IBOutlet weak var activityCancel: UIActivityIndicatorView!
     @IBOutlet weak var activityAgree: UIActivityIndicatorView!
-    @IBOutlet weak var btnCancel: UIButton!
-    @IBOutlet weak var btnAgree: UIButton!
     @IBOutlet weak var lblLiveOfferPrice: UILabel!
     @IBOutlet weak var lblCurrentOfferPrice: UILabel!
     @IBOutlet weak var lblOldOfferedPrice: UILabel!
+    
+    @IBOutlet weak var lblLiveOffer: UILabel!
+    @IBOutlet weak var lblOldOffered: UILabel!
+    @IBOutlet weak var lblCurrentOffered: UILabel!
+    @IBOutlet weak var lblLiveOffered: UILabel!
     @IBOutlet weak var btnRefresh: UIButton!
+    @IBOutlet weak var btnAgree: UIButton!
+    @IBOutlet weak var btnCancel: UIButton!
+    
     
     let reachability: Reachability? = Reachability()
     var strGetConditionString = ""
     var strGetDiagnosisID = ""
     var strOfferID = ""
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.changeLanguageOfUI()
+    }
+    
+    func changeLanguageOfUI() {
+   
+        self.lblLiveOffer.text = "LIVE OFFER".localized(lang: langCode)
+        self.lblOldOffered.text = "Old Offered Price".localized(lang: langCode)
+        self.lblCurrentOffered.text = "Current Offered Price".localized(lang: langCode)
+        self.lblLiveOffered.text = "Live Offer".localized(lang: langCode)
+        
+        self.btnRefresh.setTitle("Refresh Offer".localized(lang: langCode), for: UIControlState.normal)
+        self.btnAgree.setTitle("Swipe Here To Agree With Price".localized(lang: langCode), for: UIControlState.normal)
+        self.btnCancel.setTitle("Swipe Here To Cancel This Order".localized(lang: langCode), for: UIControlState.normal)
+        
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -142,9 +165,11 @@ class LiveOfferVC: UIViewController {
                             mesasge = "Order successfully updated!"
                         }
                         //userDefaults.removeObject(forKey: "ChangeModeOrderId")
-                        let alertController = UIAlertController(title: "InstaCash", message:mesasge, preferredStyle: .alert)
-                        let sendButton = UIAlertAction(title: "Ok", style: .default, handler: { (action) -> Void in
-                            if userDefaults.value(forKey: "ChangeModeComingFromDiadnosis") as? String == "Pickup"{
+                        let alertController = UIAlertController(title: "InstaCash".localized(lang: langCode), message:mesasge.localized(lang: langCode), preferredStyle: .alert)
+                        
+                        let sendButton = UIAlertAction(title: "Ok".localized(lang: langCode), style: .default, handler: { (action) -> Void in
+                            if userDefaults.value(forKey: "ChangeModeComingFromDiadnosis") as? String == "Pickup" {
+                                
                                 if isforCancel{
                                     obj_app.setRotControllersWithSideMenu(sendMyOrderArray: [HomeModel](), sendBrandArray: [HomeModel](), SendPupularDevoice: [HomeModel](), SendMyCurrentDevice: [HomeModel](), isComingFromWelcome: false,strAppCodeGet:"")
                                 }
@@ -178,7 +203,7 @@ class LiveOfferVC: UIViewController {
                 {
                     self.setButtonFrame(isforCancelDone: isforCancel)
                     
-                    Alert.showAlert(strMessage: "Seems connection loss from server", Onview: self)
+                    Alert.showAlert(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
                     
                 }
             })
@@ -188,7 +213,7 @@ class LiveOfferVC: UIViewController {
         {
             self.setButtonFrame(isforCancelDone: isforCancel)
             
-            Alert.showAlert(strMessage: "No connection found", Onview: self)
+            Alert.showAlert(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
         }
         
     }
@@ -203,7 +228,7 @@ class LiveOfferVC: UIViewController {
             self.btnCancel.frame.origin.x = self.view.frame.size.width/2 - 130
             self.btnCancel.layer.cornerRadius = 0
             self.btnCancel.clipsToBounds = true
-            self.btnCancel.setTitle("Swipe Here To Cancel This Order", for: .normal)
+            self.btnCancel.setTitle("Swipe Here To Cancel This Order".localized(lang: langCode), for: .normal)
         }
         else{
             self.btnAgree.frame.size.width = 260
@@ -212,7 +237,7 @@ class LiveOfferVC: UIViewController {
             self.btnAgree.frame.origin.x = self.view.frame.size.width/2 - 130
             self.btnAgree.layer.cornerRadius = 0
             self.btnAgree.clipsToBounds = true
-            self.btnAgree.setTitle("Swipe Here To Agree With Price", for: .normal)
+            self.btnAgree.setTitle("Swipe Here To Agree With Price".localized(lang: langCode), for: .normal)
         }
     }
     

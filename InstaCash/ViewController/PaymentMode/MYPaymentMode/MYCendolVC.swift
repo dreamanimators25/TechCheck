@@ -12,6 +12,13 @@ class MYCendolVC: UIViewController {
     
     @IBOutlet weak var tncTextView: UITextView!
     
+    @IBOutlet weak var lblAshita: UILabel!
+    @IBOutlet weak var lblTransferDetail: UILabel!
+    @IBOutlet weak var lblPleaseEnter: UILabel!
+    @IBOutlet weak var btnSkip: UIButton!
+    @IBOutlet weak var btnProceed: UIButton!
+    
+    
     let reachability: Reachability? = Reachability()
     var quatationId = String()
     var selectedPaymentType = String()
@@ -30,6 +37,23 @@ class MYCendolVC: UIViewController {
         self.getPaymentDetailsFromServer()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.changeLanguageOfUI()
+    }
+    
+    func changeLanguageOfUI() {
+       
+        self.lblAshita.text = "ASHITA".localized(lang: langCode)
+        self.lblTransferDetail.text = "Transfer Details".localized(lang: langCode)
+        self.lblPleaseEnter.text = "Please Enter the details".localized(lang: langCode)
+        
+        self.btnSkip.setTitle("SKIP".localized(lang: langCode), for: UIControlState.normal)
+        self.btnProceed.setTitle("PROCEED".localized(lang: langCode), for: UIControlState.normal)
+        
+    }
+    
     //MARK:- button action methods
     
     @IBAction func btnBackTapped(_ sender: UIButton) {
@@ -98,12 +122,12 @@ class MYCendolVC: UIViewController {
                 }
                 else{
                     debugPrint(error as Any)
-                    Alert.showAlert(strMessage: "Seems connection loss from server", Onview: self)
+                    Alert.showAlert(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
                 }
             })
             
         }else{
-            Alert.showAlert(strMessage: "No Connection Found", Onview: self)
+            Alert.showAlert(strMessage: "No Connection Found".localized(lang: langCode) as NSString, Onview: self)
         }
         
     }
@@ -167,12 +191,12 @@ class MYCendolVC: UIViewController {
                 }
                 else{
                     debugPrint(error as Any)
-                    Alert.showAlert(strMessage: "Seems connection loss from server", Onview: self)
+                    Alert.showAlert(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
                 }
             })
             
         }else{
-            Alert.showAlert(strMessage: "No Connection Found", Onview: self)
+            Alert.showAlert(strMessage: "No Connection Found".localized(lang: langCode) as NSString, Onview: self)
         }
         
     }

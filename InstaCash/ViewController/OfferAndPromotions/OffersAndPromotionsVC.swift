@@ -12,6 +12,7 @@ class OffersAndPromotionsVC: UIViewController {
     
     @IBOutlet weak var oppoImgView: UIImageView!
     @IBOutlet weak var homeCreditImgView: UIImageView!
+    @IBOutlet weak var lblOfferPromotions: UILabel!
     
     let reachability: Reachability? = Reachability()
     
@@ -27,10 +28,14 @@ class OffersAndPromotionsVC: UIViewController {
         self.fireWebServiceForOfferAndPromotions()
     }
     
+    func changeLanguageOfUI() {
+        self.lblOfferPromotions.text = "Offers and Promotions".localized(lang: langCode)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        
+        self.changeLanguageOfUI()
     }
     
     //MARK : IBActions
@@ -138,7 +143,7 @@ class OffersAndPromotionsVC: UIViewController {
             })
         }
         else {
-            Alert.showAlert(strMessage: "No connection found", Onview: self)
+            Alert.showAlert(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
         }
     }
     

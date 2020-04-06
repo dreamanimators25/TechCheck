@@ -26,7 +26,6 @@ class WelcomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataS
     var isWelcomeSend = false
 
 
-
     @IBOutlet weak var btnDone: UIButton!
     @IBOutlet weak var btnArrow: UIButton!
     let reachability: Reachability? = Reachability()
@@ -34,10 +33,13 @@ class WelcomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataS
     //MARK:- view life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // register collectionview cell
          collectionViewWelcome.register(UINib(nibName: "WelcomeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "welcomeCollectionViewCell")
+        
         //Set navigation Bar
         setNavBar()
+        
         //Set array static values
         arrTitle = ["Product","Diagnose","Value","Pickup","Payment"]
         arrDescription = ["Select the Product and conditions you wish to sell","Diagnose your device for any functional issues","Get immediate price for it","Quick pickup of the device from your doorstep","Get paid for the device Immediately after pickup"]
@@ -84,8 +86,8 @@ class WelcomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "welcomeCollectionViewCell", for: indexPath) as! WelcomeCollectionViewCell
         //Fill statck values according to array
-            cell.lblTitle.text = arrTitle[indexPath.row]
-            cell.lblDescription.text = arrDescription[indexPath.row]
+            cell.lblTitle.text = arrTitle[indexPath.row].localized(lang: langCode)
+            cell.lblDescription.text = arrDescription[indexPath.row].localized(lang: langCode)
             cell.imgLogo.image = arrImages[indexPath.row]
 
         return cell
@@ -137,10 +139,11 @@ class WelcomeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataS
         pageCount = Int(currentIndex)
         hideUnhideArrowAndDoneButton(withPageCount: pageCount)
     }
+    
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
         btnArrow.isUserInteractionEnabled = true
-
     }
+    
     //MARK:- method to hide/UnHide
     func hideUnhideArrowAndDoneButton(withPageCount:Int){
         if withPageCount == 4{

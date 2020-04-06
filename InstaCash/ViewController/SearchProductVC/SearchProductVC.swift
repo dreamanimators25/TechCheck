@@ -26,12 +26,19 @@ class SearchProductVC: UIViewController,UICollectionViewDelegate,UICollectionVie
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.searchBarProduct.placeholder = "Search Here...".localized(lang: langCode)
+        self.lblMessage.text = "No Result Found".localized(lang: langCode)
+    }
+    
     // MARK:- navigation bar setup.
     func setNavigationBar() -> Void
     {
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.isNavigationBarHidden = false
-        self.title = "InstaCash"
+        self.title = "InstaCash".localized(lang: langCode)
         let btnBack = UIButton(frame: CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: 25, height: 25)))
         let widthConstraint = btnBack.widthAnchor.constraint(equalToConstant: 25)
         let heightConstraint = btnBack.heightAnchor.constraint(equalToConstant: 25)
@@ -156,7 +163,7 @@ class SearchProductVC: UIViewController,UICollectionViewDelegate,UICollectionVie
                 else{
                     self.collectionViewProduct.isHidden = true
                     self.lblMessage.isHidden = false
-                    self.lblMessage.text = "No Record Found"
+                    self.lblMessage.text = "No Record Found".localized(lang: langCode)
                 }
             })
             
@@ -168,7 +175,7 @@ class SearchProductVC: UIViewController,UICollectionViewDelegate,UICollectionVie
         else{
             self.collectionViewProduct.isHidden = true
             self.lblMessage.isHidden = false
-            self.lblMessage.text = "Type at least three charachers to better search"
+            self.lblMessage.text = "Type at least three charachers to better search".localized(lang: langCode)
 
         }
         

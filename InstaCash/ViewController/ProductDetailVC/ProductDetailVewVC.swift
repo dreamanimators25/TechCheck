@@ -23,17 +23,18 @@ class ModelSkippedData: NSObject {
 
 class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate,UITableViewDataSource,UITableViewDelegate {
     
-    /*@IBOutlet weak var lblPromoter: UILabel!
+    /*
+    @IBOutlet weak var lblPromoter: UILabel!
     @IBOutlet weak var refreshActivityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var viewBottomAnimtePlaceOrder: UIView!
     @IBOutlet weak var placeOrderPopUpConstraint: NSLayoutConstraint!
     @IBOutlet weak var imgScroolProductTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var imgNoteWarning: UIImageView!
-    @IBOutlet weak var lblPlaceOrderNote: UILabel!*/
-    @IBOutlet weak var btnPlaceOrder: UIButton!
-    @IBOutlet weak var btnLockPrice: UIButton!
-    @IBOutlet weak var viewForBorder: UIView!
-    /*@IBOutlet weak var viewBottomForShadow: UIView!
+    @IBOutlet weak var lblPlaceOrderNote: UILabel!
+    */
+    
+    /*
+    @IBOutlet weak var viewBottomForShadow: UIView!
     @IBOutlet weak var collectionViewHeightConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var btnPlaceOrderHeightConstraint: NSLayoutConstraint!
@@ -66,7 +67,12 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
     @IBOutlet weak var lblLine1: UILabel!
     @IBOutlet weak var lblCollectionviewTitle: UILabel!
     
-    @IBOutlet weak var lblPriceworthtitle: UILabel!*/
+    @IBOutlet weak var lblPriceworthtitle: UILabel!
+    */
+    
+    
+    @IBOutlet weak var btnLockPrice: UIButton!
+    @IBOutlet weak var viewForBorder: UIView!
     
     @IBOutlet weak var lblPrice: UILabel!
     @IBOutlet weak var lblProductName: UILabel!
@@ -88,6 +94,12 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
     var quatationID = String() //s.
     
     //@IBOutlet weak var viewTop: UIView!
+    @IBOutlet weak var lblQuote: UILabel!
+    @IBOutlet weak var lblYourDeviceWorth: UILabel!
+    @IBOutlet weak var lblthePriceBased: UILabel!
+    @IBOutlet weak var lblHurry: UILabel!
+    @IBOutlet weak var btnPlaceOrder: UIButton!
+    
     
     var isSwipeTop = false
     var swipeUpAndDown = UISwipeGestureRecognizer()
@@ -113,11 +125,8 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
     var arrSkippedData = [ModelSkippedData]()
     var arrSkippedDataDumyQuestion = ["Display & Touch Screen your","Device Body (Back Panel / Cover)","Display & Touch Screen your","Device Body (Back Panel / Cover)","Display & Touch Screen your","Device Body (Back Panel / Cover)","Display & Touch Screen your","Device Body (Back Panel / Cover)"]
     var arrSkippedDataDumyAnswer = ["Flawless","Flawless","Flawless","Flawless","Flawless","Flawless","Flawless","Flawless"]
-    
     var priceProduct = ""
-    
     var increaseHeight = 0
-
     /*var childScrollView: UIScrollView {
         //return tableView
     }*/
@@ -160,7 +169,7 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                 //self.fetchOrderFromServer(isRefreshPrice: true)
             }
             else{
-                Alert.showAlert(strMessage: "No connection found", Onview: self)
+                Alert.showAlert(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
             }
             //collectionViewFailedTest.reloadData()
         }
@@ -191,6 +200,16 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
         self.viewForBorder.layer.borderWidth = 1.0
         self.viewForBorder.layer.borderColor = UIColor.gray.cgColor
         
+        self.changeLanguageOfUI()
+    }
+    
+    func changeLanguageOfUI() {
+        
+        self.lblQuote.text = "Quotation".localized(lang: langCode)
+        self.lblYourDeviceWorth.text = "Your device is worth".localized(lang: langCode)
+        self.lblthePriceBased.text = "The price is based on your self-reported device condition.".localized(lang: langCode)
+        self.lblHurry.text = "Hurry, prices may drop in few days...".localized(lang: langCode)
+        self.btnPlaceOrder.setTitle("PLACE ORDER".localized(lang: langCode), for: UIControlState.normal)
     }
 
     func reSetDiagnosHomeUIProcess(){
@@ -297,6 +316,7 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
             //collectionViewFailedTest.register(UINib(nibName: "TestFailedAndSkipCell", bundle: nil), forCellWithReuseIdentifier: "testFailedAndSkipCell")
             //tableView.register(UINib(nibName: "NewProductQuoteHeaderCell", bundle: nil), forCellReuseIdentifier: "newProductQuoteHeaderCell")
             //tableView.register(UINib(nibName: "QuestionAndAnswerCell", bundle: nil), forCellReuseIdentifier: "questionAndAnswerCell")
+            
             Analytics.logEvent("finish_diagnosis_test", parameters: [
                 "event_category":"finish diagnosis",
                 "event_action":"finish diagnosis test",
@@ -304,11 +324,12 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                 ])
             userDefaults.set(0, forKey: "couponCodePrice")
             userDefaults.set("", forKey: "orderPromoCode")
+            
             if reachability?.connection.description != "No Connection"{
                 //self.fetchOrderFromServer(isRefreshPrice: false)
             }
             else{
-                Alert.showAlert(strMessage: "No connection found", Onview: self)
+                Alert.showAlert(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
             }
             //        if UIScreen.main.bounds.size.height <= 568{
             //            //iphone 4,5
@@ -1595,12 +1616,12 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                                     var completeString = ""
                                     
                                     if finalSummaryText.contains("Earphone;") {
-                                        completeString = "Earphone"
+                                        completeString = "Earphone".localized(lang: langCode)
                                     }
                                     
                                     if finalSummaryText.contains("Box;") {
                                         if completeString == "" {
-                                            completeString = completeString + "Box"
+                                            completeString = completeString + "Box".localized(lang: langCode)
                                         }else {
                                             completeString = completeString + "\nBox"
                                         }
@@ -1608,7 +1629,7 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                                     
                                     if finalSummaryText.contains("Original Charger;") {
                                         if completeString == "" {
-                                            completeString = completeString + "Original Charger"
+                                            completeString = completeString + "Original Charger".localized(lang: langCode)
                                         }else {
                                             completeString = completeString + "\nOriginal Charger"
                                         }
@@ -1624,12 +1645,12 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                                     var completeString = ""
                                     
                                     if finalSummaryText.contains("Bloated Battery;") {
-                                        completeString = "Bloated Battery"
+                                        completeString = "Bloated Battery".localized(lang: langCode)
                                     }
                                     
                                     if finalSummaryText.contains("Liquid Damage;") {
                                         if completeString == "" {
-                                            completeString = completeString + "Liquid Damage"
+                                            completeString = completeString + "Liquid Damage".localized(lang: langCode)
                                         }else {
                                             completeString = completeString + "\nLiquid Damage"
                                         }
@@ -1637,7 +1658,7 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                                     
                                     if finalSummaryText.contains("Ghost Touch;") {
                                         if completeString == "" {
-                                            completeString = completeString + "Ghost Touch"
+                                            completeString = completeString + "Ghost Touch".localized(lang: langCode)
                                         }else {
                                             completeString = completeString + "\nGhost Touch"
                                         }
@@ -1645,7 +1666,7 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                                     
                                     if finalSummaryText.contains("Sim Card Tray Broken;") {
                                         if completeString == "" {
-                                            completeString = completeString + "Sim Card Tray Broken"
+                                            completeString = completeString + "Sim Card Tray Broken".localized(lang: langCode)
                                         }else {
                                             completeString = completeString + "\nSim Card Tray Broken"
                                         }
@@ -1653,7 +1674,7 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                                     
                                     if finalSummaryText.contains("Home and Power Button;") {
                                         if completeString == "" {
-                                            completeString = completeString + "Home and Power Button"
+                                            completeString = completeString + "Home and Power Button".localized(lang: langCode)
                                         }else {
                                             completeString = completeString + "\nHome and Power Button"
                                         }
@@ -1669,12 +1690,12 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                                     var completeString = ""
                                     
                                     if finalSummaryText.contains("Front Or Back Camera - Not working or faulty;") {
-                                        completeString = "Front Or Back Camera - Not working or faulty"
+                                        completeString = "Front Or Back Camera - Not working or faulty".localized(lang: langCode)
                                     }
                                     
                                     if finalSummaryText.contains("Volume Button not working;") {
                                         if completeString == "" {
-                                            completeString = completeString + "Volume Button not working"
+                                            completeString = completeString + "Volume Button not working".localized(lang: langCode)
                                         }else {
                                             completeString = completeString + "\nVolume Button not working"
                                             
@@ -1683,7 +1704,7 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                                     
                                     if finalSummaryText.contains("Power/Home Button Faulty;") {
                                         if completeString == "" {
-                                            completeString = completeString + "Power/Home Button Faulty"
+                                            completeString = completeString + "Power/Home Button Faulty".localized(lang: langCode)
                                         }else {
                                             completeString = completeString + "\nPower/Home Button Faulty"
                                             
@@ -1692,7 +1713,7 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                                     
                                     if finalSummaryText.contains("Hard or Not Working;") {
                                         if completeString == "" {
-                                            completeString = completeString + "Hard or Not Working"
+                                            completeString = completeString + "Hard or Not Working".localized(lang: langCode)
                                         }else {
                                             completeString = completeString + "\nHard or Not Working"
                                             
@@ -1701,7 +1722,7 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                                     
                                     if finalSummaryText.contains("Wifi Or Bluetooth Or GPS Not Working;") {
                                         if completeString == "" {
-                                            completeString = completeString + "Wifi Or Bluetooth Or GPS Not Working"
+                                            completeString = completeString + "Wifi Or Bluetooth Or GPS Not Working".localized(lang: langCode)
                                         }else {
                                             completeString = completeString + "\nWifi Or Bluetooth Or GPS Not Working"
                                             
@@ -1710,7 +1731,7 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                                     
                                     if finalSummaryText.contains("Charging Defect;") {
                                         if completeString == "" {
-                                            completeString = completeString + "Charging Defect"
+                                            completeString = completeString + "Charging Defect".localized(lang: langCode)
                                         }else {
                                             completeString = completeString + "\nCharging Defect"
                                             
@@ -1719,7 +1740,7 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                                     
                                     if finalSummaryText.contains("unable to charge the phone;") {
                                         if completeString == "" {
-                                            completeString = completeString + "unable to charge the phone"
+                                            completeString = completeString + "unable to charge the phone".localized(lang: langCode)
                                         }else {
                                             completeString = completeString + "\nunable to charge the phone"
                                             self.increaseHeight += 1
@@ -1728,7 +1749,7 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                                     
                                     if finalSummaryText.contains("Battery Faulty or Very Low Battery Back up;") {
                                         if completeString == "" {
-                                            completeString = completeString + "Battery Faulty or Very Low Battery Back up"
+                                            completeString = completeString + "Battery Faulty or Very Low Battery Back up".localized(lang: langCode)
                                         }else {
                                             completeString = completeString + "\nBattery Faulty or Very Low Battery Back up"
                                             
@@ -1737,7 +1758,7 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                                     
                                     if finalSummaryText.contains("Speakers not working;") {
                                         if completeString == "" {
-                                            completeString = completeString + "Speakers not working"
+                                            completeString = completeString + "Speakers not working".localized(lang: langCode)
                                         }else {
                                             completeString = completeString + "\nSpeakers not working"
                                             self.increaseHeight += 1
@@ -1746,7 +1767,7 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                                     
                                     if finalSummaryText.contains("faulty Or cracked sound;") {
                                         if completeString == "" {
-                                            completeString = completeString + "faulty Or cracked sound"
+                                            completeString = completeString + "faulty Or cracked sound".localized(lang: langCode)
                                         }else {
                                             completeString = completeString + "\nfaulty Or cracked sound"
                                             self.increaseHeight += 1
@@ -1755,7 +1776,7 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                                     
                                     if finalSummaryText.contains("Microphone Not Working;") {
                                         if completeString == "" {
-                                            completeString = completeString + "Microphone Not Working"
+                                            completeString = completeString + "Microphone Not Working".localized(lang: langCode)
                                         }else {
                                             completeString = completeString + "\nMicrophone Not Working"
                                             self.increaseHeight += 1
@@ -1764,7 +1785,7 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                                     
                                     if finalSummaryText.contains("GSM (Call Function) is not-working normally;") {
                                         if completeString == "" {
-                                            completeString = completeString + "GSM (Call Function) is not-working normally"
+                                            completeString = completeString + "GSM (Call Function) is not-working normally".localized(lang: langCode)
                                         }else {
                                             completeString = completeString + "\nGSM (Call Function) is not-working normally"
                                             self.increaseHeight += 1
@@ -1773,7 +1794,7 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                                     
                                     if finalSummaryText.contains("Earphone Jack is damaged or not-working;") {
                                         if completeString == "" {
-                                            completeString = completeString + "Earphone Jack is damaged or not-working"
+                                            completeString = completeString + "Earphone Jack is damaged or not-working".localized(lang: langCode)
                                         }else {
                                             completeString = completeString + "\nEarphone Jack is damaged or not-working"
                                             self.increaseHeight += 1
@@ -1782,7 +1803,7 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                                     
                                     if finalSummaryText.contains("Fingerprint Sensor Not-working;") {
                                         if completeString == "" {
-                                            completeString = completeString + "Fingerprint Sensor Not-working"
+                                            completeString = completeString + "Fingerprint Sensor Not-working".localized(lang: langCode)
                                         }else {
                                             completeString = completeString + "\nFingerprint Sensor Not-working"
                                             self.increaseHeight += 1
@@ -1859,13 +1880,13 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                             //self.imgNoteWarning.isHidden = true
                         }
                         else{
-                            let priceF = "Place order @ " + CustomUserDefault.getCurrency() + price.formattedWithSeparator
+                            let priceF = "Place order @ ".localized(lang: langCode) + CustomUserDefault.getCurrency() + price.formattedWithSeparator
                             self.btnPlaceOrder.setTitle(priceF, for: .normal)
                         }
                         
                         self.lblPrice.text = CustomUserDefault.getCurrency() + priceSkipQuote
                         //self.lblPriceScroolUp.text = CustomUserDefault.getCurrency() + priceSkipQuote
-                        let myString = "Note:- your Quote is lower than " + CustomUserDefault.getCurrency() + priceSkipQuote + " because certain tests were failed or skipped"
+                        let myString = "Note:- your Quote is lower than ".localized(lang: langCode) + CustomUserDefault.getCurrency() + priceSkipQuote + " because certain tests were failed or skipped".localized(lang: langCode)
                         //  let attrString = NSAttributedString(string: myString)
                         let attribute = NSMutableAttributedString.init(string: myString)
                         let strCount = CustomUserDefault.getCurrency() + priceSkipQuote
@@ -1896,13 +1917,13 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                 }
                 else{
                     // failed
-                    Alert.showAlert(strMessage: "oops,No data found", Onview: self)
+                    Alert.showAlert(strMessage: "oops,No data found".localized(lang: langCode) as NSString, Onview: self)
                 }
                 
             }
             else{
                 debugPrint(error as Any)
-                Alert.showAlert(strMessage: "Seems connection loss from server", Onview: self)
+                Alert.showAlert(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
             }
             
         })
@@ -2194,7 +2215,7 @@ extension UIPanGestureRecognizer {
     //MARK:- tableview Delegates methods
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Product Details"
+        return "Product Details".localized(lang: langCode)
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -2212,8 +2233,8 @@ extension UIPanGestureRecognizer {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cellTestResult = tableView.dequeueReusableCell(withIdentifier: "ProductSummaryTblViewCell", for: indexPath) as! ProductSummaryTblViewCell
-        cellTestResult.lblQuateName.text = arrKey[indexPath.row]
-        cellTestResult.lblQuateValue.text = arrValue[indexPath.row]
+        cellTestResult.lblQuateName.text = arrKey[indexPath.row].localized(lang: langCode)
+        cellTestResult.lblQuateValue.text = arrValue[indexPath.row].localized(lang: langCode)
         
         return cellTestResult
         

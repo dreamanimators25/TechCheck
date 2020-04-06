@@ -12,8 +12,19 @@ import SwiftyJSON
 class PickUpQuestionVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UIScrollViewDelegate {
     
     @IBOutlet weak var tblViewPickUpQuestion: UITableView!
+    @IBOutlet weak var btnSubmit: UIButton!
+    
     var arrQuestionForPickUp = [PickUpQuestionModel]()
     var resultJSON = JSON()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.changeLanguageOfUI()
+    }
+    
+    func changeLanguageOfUI() {
+        
+        self.btnSubmit.setTitle("SUBMIT".localized(lang: langCode), for: UIControlState.normal)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -108,7 +119,7 @@ class PickUpQuestionVC: UIViewController,UITableViewDelegate,UITableViewDataSour
     {
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.isNavigationBarHidden = false
-        self.title = "InstaCash"
+        self.title = "InstaCash".localized(lang: langCode)
         let btnBack = UIButton(frame: CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: 25, height: 25)))
         let widthConstraint = btnBack.widthAnchor.constraint(equalToConstant: 25)
         let heightConstraint = btnBack.heightAnchor.constraint(equalToConstant: 25)
@@ -202,7 +213,8 @@ class PickUpQuestionVC: UIViewController,UITableViewDelegate,UITableViewDataSour
             cell.imgValues.sd_setImage(with: imgURL)
         }
         
-        cell.lblValues.text  = arrQuestionForPickUp[collectionView.tag].arrQuestionTypes[indexPath.row].strQuestionValue
+        cell.lblValues.text  = arrQuestionForPickUp[collectionView.tag].arrQuestionTypes[indexPath.row].strQuestionValue.localized(lang: langCode)
+        
         if arrQuestionForPickUp[collectionView.tag].arrQuestionTypes[indexPath.row].isSelected == true{
             cell.viewMain.backgroundColor = navColor
             cell.lblValues.textColor = UIColor.white
@@ -217,7 +229,6 @@ class PickUpQuestionVC: UIViewController,UITableViewDelegate,UITableViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.size.width/2 - 5, height:120)
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -311,7 +322,7 @@ class PickUpQuestionVC: UIViewController,UITableViewDelegate,UITableViewDataSour
             self.present(vc, animated: true, completion: nil)
         }
         else{
-            Alert.showAlert(strMessage: "Select All values", Onview: self)
+            Alert.showAlert(strMessage: "Select All values".localized(lang: langCode) as NSString, Onview: self)
         }
         
     }

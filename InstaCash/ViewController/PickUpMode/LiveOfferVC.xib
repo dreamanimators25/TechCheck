@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,7 +20,11 @@
                 <outlet property="btnCancelWidthConstraint" destination="2yi-Y3-iux" id="az2-CO-8hw"/>
                 <outlet property="btnRefresh" destination="yF8-bU-GP7" id="dBK-Xh-g4r"/>
                 <outlet property="lblCurrentOfferPrice" destination="UTd-Cn-BVM" id="Omg-MQ-nsR"/>
+                <outlet property="lblCurrentOffered" destination="c3K-Ql-RAN" id="h1w-jS-96f"/>
+                <outlet property="lblLiveOffer" destination="Ila-Ai-ZvF" id="9Zb-on-RuV"/>
                 <outlet property="lblLiveOfferPrice" destination="PaB-Ca-gd5" id="60I-0Q-Hrr"/>
+                <outlet property="lblLiveOffered" destination="8zJ-6j-4xo" id="kfY-0E-iwM"/>
+                <outlet property="lblOldOffered" destination="CTh-wa-vZe" id="eua-VE-HcN"/>
                 <outlet property="lblOldOfferedPrice" destination="9sg-Lk-7uN" id="qm1-qE-Kxb"/>
                 <outlet property="refreshDataActivity" destination="0XI-rK-HMl" id="quV-uR-oYM"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -171,6 +175,6 @@
         </view>
     </objects>
     <resources>
-        <image name="appLogo" width="43" height="43"/>
+        <image name="appLogo" width="65.25" height="65.25"/>
     </resources>
 </document>

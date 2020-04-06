@@ -19,8 +19,6 @@ class PaymentsModeVC: UIViewController {
     @IBOutlet weak var lblWalletPrice: UILabel!
     @IBOutlet weak var lblPaytmWalletPrice: UILabel!
     @IBOutlet weak var lblPaytmWalletCharges: UILabel!
-    @IBOutlet weak var lblBankMode1: UILabel!
-    @IBOutlet weak var lblBankMode2: UILabel!
     
     @IBOutlet weak var bankImage: UIImageView!
     @IBOutlet weak var neftImage: UIImageView!
@@ -66,6 +64,31 @@ class PaymentsModeVC: UIViewController {
     
     @IBOutlet weak var BottomView: UIView!
     @IBOutlet weak var lblSelectedPaymentMode: UILabel!
+    
+    
+    // Localized
+    @IBOutlet weak var lblTitlePaymentMode: UILabel!
+    @IBOutlet weak var lblHeadSelectedPaymentMode: UILabel!
+    @IBOutlet weak var lblChooseOnePayment: UILabel!
+    @IBOutlet weak var lblPayableAmount: UILabel!
+    @IBOutlet weak var lblBank: UILabel!
+    @IBOutlet weak var lblBankMode1: UILabel!
+    @IBOutlet weak var lblPayable1: UILabel!
+    @IBOutlet weak var lblBankMode2: UILabel!
+    @IBOutlet weak var lblPayable2: UILabel!
+    @IBOutlet weak var lblWallet: UILabel!
+    @IBOutlet weak var lblPaytm: UILabel!
+    @IBOutlet weak var lblPaytmWallet: UILabel!
+    @IBOutlet weak var lblOther: UILabel!
+    @IBOutlet weak var lblCendolVoucher: UILabel!
+    @IBOutlet weak var lblPayable3: UILabel!
+    @IBOutlet weak var lblMaxis: UILabel!
+    @IBOutlet weak var lblPayable4: UILabel!
+    @IBOutlet weak var lblSamsung: UILabel!
+    @IBOutlet weak var lblPayable5: UILabel!
+    @IBOutlet weak var lblSelPayMode: UILabel!
+    @IBOutlet weak var btnNext: UIButton!
+    
     
     //var btnSelect = false
     //var selectedPayment = 0
@@ -180,11 +203,44 @@ class PaymentsModeVC: UIViewController {
         }
         
     }
+
+    func changeLanguageOfUI() {
+      
+        self.lblTitlePaymentMode.text = "Payment Mode".localized(lang: langCode)
+        self.lblHeadSelectedPaymentMode.text = "Select Payment Mode".localized(lang: langCode)
+        self.lblChooseOnePayment.text = "Choose one payment option".localized(lang: langCode)
+        self.lblPayableAmount.text = "Payable amount".localized(lang: langCode)
+        
+        self.lblBank.text = "Bank".localized(lang: langCode)
+        self.lblBankMode1.text = "NEFT".localized(lang: langCode)
+        self.lblPayable1.text = "Payable".localized(lang: langCode)
+        self.lblBankMode2.text = "IMPS".localized(lang: langCode)
+        
+        self.lblPayable2.text = "Payable".localized(lang: langCode)
+        self.lblWallet.text = "Wallet".localized(lang: langCode)
+        self.lblPaytm.text = "Paytm".localized(lang: langCode)
+        self.lblPaytmWallet.text = "PAYTM WALLET".localized(lang: langCode)
+        
+        self.lblOther.text = "Other".localized(lang: langCode)
+        self.lblCendolVoucher.text = "Cendol Voucher".localized(lang: langCode)
+        self.lblPayable3.text = "Payable".localized(lang: langCode)
+        self.lblMaxis.text = "Maxis".localized(lang: langCode)
+        
+        self.lblPayable4.text = "Payable".localized(lang: langCode)
+        self.lblSamsung.text = "Samsung".localized(lang: langCode)
+        self.lblPayable5.text = "Payable".localized(lang: langCode)
+        self.lblSelPayMode.text = "Selected Payment Mode".localized(lang: langCode)
+        
+        self.btnNext.setTitle("NEXT".localized(lang: langCode), for: UIControlState.normal)
+        
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         self.setBorder(width: 1.0, color: UIColor.gray)
+        
+        self.changeLanguageOfUI()
     }
     
     // MARK:- navigation bar setup.

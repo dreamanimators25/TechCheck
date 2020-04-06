@@ -17,6 +17,12 @@ class DeviceChargerVC: UIViewController {
     @IBOutlet weak var viewGuide: UIView!
     @IBOutlet weak var chargerInfoImage: UIImageView!
     
+    @IBOutlet weak var lblCheckCharger: UILabel!
+    @IBOutlet weak var lblPressStart: UILabel!
+    @IBOutlet weak var btnSkip: UIButton!
+    @IBOutlet weak var btnStart: UIButton!
+    
+    
     var resultJSON = JSON()
     var imagePicker: UIImagePickerController!
     var isComingFromTestResult = false
@@ -37,6 +43,20 @@ class DeviceChargerVC: UIViewController {
         
     }
     
+    func changeLanguageOfUI() {
+        
+        self.lblCheckCharger.text = "Checking charger".localized(lang: langCode)
+        self.lblPressStart.text = "Press “Start’ and follow instructions.".localized(lang: langCode)
+        
+        self.btnSkip.setTitle("Skip".localized(lang: langCode), for: UIControlState.normal)
+        self.btnStart.setTitle("Start".localized(lang: langCode), for: UIControlState.normal)
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.changeLanguageOfUI()
+    }
+    
     @IBAction func onClickStart(_ sender: Any) {
         self.viewGuide.isHidden = true
     }
@@ -53,15 +73,15 @@ class DeviceChargerVC: UIViewController {
 
     @IBAction func btnSkipPressed(_ sender: UIButton) {
         // Prepare the popup assets
-        let title = "Device Charger Diagnosis"
-        let message = "If you skip this test there would be a substantial decline in the price offered. Do you still want to skip?"
+        let title = "Device Charger Diagnosis".localized(lang: langCode)
+        let message = "If you skip this test there would be a substantial decline in the price offered. Do you still want to skip?".localized(lang: langCode)
         
         
         // Create the dialog
         let popup = PopupDialog(title: title, message: message,buttonAlignment: .horizontal, transitionStyle: .bounceDown, tapGestureDismissal: false, panGestureDismissal :false)
         
         // Create buttons
-        let buttonOne = CancelButton(title: "Yes") {
+        let buttonOne = CancelButton(title: "Yes".localized(lang: langCode)) {
             DispatchQueue.main.async() {
                 UserDefaults.standard.set(false, forKey: "charger")
                 userDefaults.setValue(true, forKey: "charger_complete")
@@ -91,7 +111,7 @@ class DeviceChargerVC: UIViewController {
             }
         }
         
-        let buttonTwo = DefaultButton(title: "No") {
+        let buttonTwo = DefaultButton(title: "No".localized(lang: langCode)) {
             //Do Nothing
             popup.dismiss(animated: true, completion: nil)
         }

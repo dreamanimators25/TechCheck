@@ -16,6 +16,12 @@ import CoreBluetooth
 
 class BlueToothTestingVC: UIViewController,CBCentralManagerDelegate {
     
+    @IBOutlet weak var internalImageView: UIImageView!
+    
+    @IBOutlet weak var lblPlease: UILabel!
+    @IBOutlet weak var btnBegin: UIButton!
+    
+    
     var location = CLLocation()
     var wifiSSID = String()
     var mcc = String()
@@ -26,8 +32,6 @@ class BlueToothTestingVC: UIViewController,CBCentralManagerDelegate {
     var blueToothManager:CBCentralManager!
     var wifiManager:CBPeripheralManager!
     var iscomingFromHome = false
-
-    @IBOutlet weak var internalImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +48,17 @@ class BlueToothTestingVC: UIViewController,CBCentralManagerDelegate {
         userDefaults.setValue(false, forKey: "GPS")
         userDefaults.setValue(false, forKey: "Battery")
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.changeLanguageOfUI()
+    }
+    
+    func changeLanguageOfUI() {
+        
+        self.lblPlease.text = "Please make sure Bluetooth, GPS and Wifi are enabled on your device and press begin to start the tests.".localized(lang: langCode)
+        
+        self.btnBegin.setTitle("Begin Tests".localized(lang: langCode), for: UIControlState.normal)
     }
     
     //MARK:- bluetooth delegates methods
@@ -72,7 +87,7 @@ class BlueToothTestingVC: UIViewController,CBCentralManagerDelegate {
 
     @IBAction func btnBeginTestPressed(_ sender: UIButton) {
         userDefaults.setValue(true, forKey: "bluetooth_complete")
-        SwiftSpinner.show(progress: 0.2, title: "Checking Network...")
+        SwiftSpinner.show(progress: 0.2, title: "Checking Network...".localized(lang: langCode))
         SwiftSpinner.setTitleFont(UIFont(name: "Futura", size: 22.0))
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) { // change 2 to desired number of seconds
             self.resultJSON["GSM"].int = 0
@@ -129,11 +144,11 @@ class BlueToothTestingVC: UIViewController,CBCentralManagerDelegate {
 //                userDefaults.setValue(true, forKey: "GSM")
 //            }
             
-            SwiftSpinner.show(progress: 0.2, title: "Checking Bluetooth...")
+            SwiftSpinner.show(progress: 0.2, title: "Checking Bluetooth...".localized(lang: langCode))
             UserDefaults.standard.set(self.connection, forKey: "connection")
             SwiftSpinner.setTitleFont(UIFont(name: "Futura", size: 22.0))
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                SwiftSpinner.show(progress: 0.35, title: "Checking GPS...")
+                SwiftSpinner.show(progress: 0.35, title: "Checking GPS...".localized(lang: langCode))
                 SwiftSpinner.setTitleFont(UIFont(name: "Futura", size: 22.0))
                 let locationManager = INTULocationManager.sharedInstance()
                 locationManager.requestLocation(withDesiredAccuracy: .city,
@@ -161,7 +176,7 @@ class BlueToothTestingVC: UIViewController,CBCentralManagerDelegate {
                                                     }
                 }
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.3) {
-                    SwiftSpinner.show(progress: 0.85, title: "Checking WiFi...")
+                    SwiftSpinner.show(progress: 0.85, title: "Checking WiFi...".localized(lang: langCode))
                     SwiftSpinner.setTitleFont(UIFont(name: "Futura", size: 22.0))
                     if Luminous.System.Network.isConnectedViaWiFi{
                         self.wifiSSID = Luminous.System.Network.SSID
@@ -176,7 +191,7 @@ class BlueToothTestingVC: UIViewController,CBCentralManagerDelegate {
 
                     }
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                        SwiftSpinner.show("Tests Complete!", animated: false)
+                        SwiftSpinner.show("Tests Complete!".localized(lang: langCode), animated: false)
                         UserDefaults.standard.set(self.connection, forKey: "connection")
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                             //SwiftSpinner.show("Finalising Tests...")

@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PromocodePopUpVC" customModule="InstaCash" customModuleProvider="target">
             <connections>
+                <outlet property="btnDetailTerms" destination="i2I-Zk-A4q" id="EDN-oy-7ft"/>
                 <outlet property="lbl2" destination="lUZ-Fw-s6U" id="8Jw-eY-287"/>
                 <outlet property="lbl3" destination="APL-Hy-0Di" id="g0E-pQ-fi6"/>
                 <outlet property="lbl4" destination="KEd-jO-VhB" id="WB3-4w-2H2"/>
                 <outlet property="lbl5" destination="TKh-3W-qyk" id="sfg-fo-84i"/>
+                <outlet property="lblCoupon" destination="gCc-Py-C0k" id="R31-so-BR6"/>
+                <outlet property="lblOK" destination="0zU-1S-KNc" id="wcF-7d-DWm"/>
                 <outlet property="lblTermsCondition" destination="GRl-H1-R29" id="JuH-gA-xbj"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="pa0-eB-6DR"/>
             </connections>

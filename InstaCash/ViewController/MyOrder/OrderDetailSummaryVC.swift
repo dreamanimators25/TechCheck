@@ -13,9 +13,22 @@ class OrderDetailSummaryVC: UIViewController,UITableViewDataSource,UITableViewDe
     @IBOutlet weak var summaryTableView: UITableView!
     @IBOutlet weak var ViewHeight: NSLayoutConstraint!
     
+    @IBOutlet weak var lblOrderSummary: UILabel!
+    
+    
     var summaryString = ""
     var arrKey = [String]()
     var arrValue = [String]()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.changeLanguageOfUI()
+    }
+    
+    func changeLanguageOfUI() {
+        
+        self.lblOrderSummary?.text = "Order Summary".localized(lang: langCode)
+        
+    }
     
     
     override func viewDidLoad() {
@@ -38,12 +51,12 @@ class OrderDetailSummaryVC: UIViewController,UITableViewDataSource,UITableViewDe
                         var completeString = ""
                         
                         if summaryStr.contains("Earphone;") {
-                            completeString = "Earphone"
+                            completeString = "Earphone".localized(lang: langCode)
                         }
                         
                         if summaryStr.contains("Box;") {
                             if completeString == "" {
-                                completeString = completeString + "Box"
+                                completeString = completeString + "Box".localized(lang: langCode)
                             }else {
                                 completeString = completeString + "\nBox"
                             }
@@ -52,7 +65,7 @@ class OrderDetailSummaryVC: UIViewController,UITableViewDataSource,UITableViewDe
                         if summaryStr.contains("Original Charger;") {
                             
                             if completeString == "" {
-                                completeString = completeString + "Original Charger"
+                                completeString = completeString + "Original Charger".localized(lang: langCode)
                             }else {
                                 completeString = completeString + "\nOriginal Charger"
                             }
@@ -95,8 +108,8 @@ class OrderDetailSummaryVC: UIViewController,UITableViewDataSource,UITableViewDe
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cellTestResult = tableView.dequeueReusableCell(withIdentifier: "ProductSummaryTblViewCell", for: indexPath) as! ProductSummaryTblViewCell
-        cellTestResult.lblQuateName.text = arrKey[indexPath.row]
-        cellTestResult.lblQuateValue.text = arrValue[indexPath.row]
+        cellTestResult.lblQuateName.text = arrKey[indexPath.row].localized(lang: langCode)
+        cellTestResult.lblQuateValue.text = arrValue[indexPath.row].localized(lang: langCode)
         
         return cellTestResult
         

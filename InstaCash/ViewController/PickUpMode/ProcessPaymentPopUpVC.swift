@@ -14,15 +14,35 @@ class ProcessPaymentPopUpVC: UIViewController {
     @IBOutlet weak var lblAmount: UILabel!
     
     @IBOutlet weak var viewMiddle: UIView!
-    @IBOutlet weak var btnRefreshStatus: UIButton!
     @IBOutlet weak var lblTransactionId: UILabel!
     let reachability: Reachability? = Reachability()
-
+    
+    
     @IBOutlet weak var lblStatus: UILabel!
+    @IBOutlet weak var lblTrnId: UILabel!
+    @IBOutlet weak var lblTrnAmount: UILabel!
+    @IBOutlet weak var btnCompleteOrder: UIButton!
+    @IBOutlet weak var btnRefreshStatus: UIButton!
+   
     var getVerificationCode = ""
     var strGetTransactionId = ""
     var strGetPaymentStatus = ""
     var strGetPaymentAmount = ""
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.changeLanguageOfUI()
+    }
+    
+    func changeLanguageOfUI() {
+        
+        self.lblStatus.text = "Payment processed!".localized(lang: langCode)
+        self.lblTrnId.text = "Transaction id".localized(lang: langCode)
+        self.lblTrnAmount.text = "Transaction amount".localized(lang: langCode)
+        
+        self.btnCompleteOrder.setTitle("Complete Order".localized(lang: langCode), for: UIControlState.normal)
+        self.btnRefreshStatus.setTitle("Refresh Status".localized(lang: langCode), for: UIControlState.normal)
+        
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,9 +102,9 @@ class ProcessPaymentPopUpVC: UIViewController {
                        // self.lblStatus.text = responseObject?["paymentStatus"] as! String
                     }
                     else{
-                        let alertController = UIAlertController(title: "InstaCash", message:(responseObject?["msg"] as! String), preferredStyle: .alert)
+                        let alertController = UIAlertController(title: "InstaCash".localized(lang: langCode), message:(responseObject?["msg"] as! String), preferredStyle: .alert)
                         
-                        let sendButton = UIAlertAction(title: "Ok", style: .default, handler: { (action) -> Void in
+                        let sendButton = UIAlertAction(title: "Ok".localized(lang: langCode), style: .default, handler: { (action) -> Void in
                             
                         })
                         alertController.addAction(sendButton)
@@ -94,9 +114,9 @@ class ProcessPaymentPopUpVC: UIViewController {
                 }
                 else
                 {
-                    let alertController = UIAlertController(title: "InstaCash", message:"Seems connection loss from server", preferredStyle: .alert)
+                    let alertController = UIAlertController(title: "InstaCash".localized(lang: langCode), message:"Seems connection loss from server".localized(lang: langCode), preferredStyle: .alert)
                     
-                    let sendButton = UIAlertAction(title: "Ok", style: .default, handler: { (action) -> Void in
+                    let sendButton = UIAlertAction(title: "Ok".localized(lang: langCode), style: .default, handler: { (action) -> Void in
                         
                     })
                     alertController.addAction(sendButton)
@@ -108,9 +128,9 @@ class ProcessPaymentPopUpVC: UIViewController {
         }
         else
         {
-            let alertController = UIAlertController(title: "InstaCash", message:"No connection found", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "InstaCash".localized(lang: langCode), message:"No connection found".localized(lang: langCode), preferredStyle: .alert)
             
-            let sendButton = UIAlertAction(title: "Ok", style: .default, handler: { (action) -> Void in
+            let sendButton = UIAlertAction(title: "Ok".localized(lang: langCode), style: .default, handler: { (action) -> Void in
                 
             })
             alertController.addAction(sendButton)

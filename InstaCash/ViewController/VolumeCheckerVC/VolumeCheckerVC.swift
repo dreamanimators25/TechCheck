@@ -12,20 +12,41 @@ import PopupDialog
 import SwiftyJSON
 
 class VolumeCheckerVC: UIViewController {
-    
-    @IBOutlet weak var lblPrice: UILabel!
-    
-    var resultJSON = JSON()
 
     @IBOutlet weak var volumeDownImg: UIImageView!
     @IBOutlet weak var volumeUpImg: UIImageView!
+    @IBOutlet weak var lblPrice: UILabel!
     
+    @IBOutlet weak var lblCheckingHardware: UILabel!
+    @IBOutlet weak var lblFollowInstruction: UILabel!
+    @IBOutlet weak var lblPressVolumeUp: UILabel!
+    @IBOutlet weak var lblPressVolumeDown: UILabel!
+    @IBOutlet weak var btnSkip: UIButton!
+    
+    
+    var resultJSON = JSON()
     var volDown = false
     var volUp = false
     var isComingFromTestResult = false
     var isComingFromProductquote = false
 
     private var volumeButtonHandler: JPSVolumeButtonHandler?
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.changeLanguageOfUI()
+    }
+    
+    func changeLanguageOfUI() {
+      
+        self.lblCheckingHardware.text = "Checking hardware buttons".localized(lang: langCode)
+        self.lblFollowInstruction.text = "Follow the instructions below to complete check.".localized(lang: langCode)
+        self.lblPressVolumeUp.text = "Press volume up button".localized(lang: langCode)
+        self.lblPressVolumeDown.text = "Press volume down button".localized(lang: langCode)
+        
+        self.btnSkip.setTitle("SKIP".localized(lang: langCode), for: UIControlState.normal)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -149,13 +170,13 @@ class VolumeCheckerVC: UIViewController {
     @IBAction func btnSkipPressed(_ sender: UIButton) {
         
         // Prepare the popup assets
-        let title = "Hardware Button Diagnosis"
-        let message = "If you skip this test there would be a substantial decline in the price offered. Do you still want to skip?"
+        let title = "Hardware Button Diagnosis".localized(lang: langCode)
+        let message = "If you skip this test there would be a substantial decline in the price offered. Do you still want to skip?".localized(lang: langCode)
         // Create the dialog
         let popup = PopupDialog(title: title, message: message,buttonAlignment: .horizontal, transitionStyle: .bounceDown, tapGestureDismissal: false, panGestureDismissal :false)
         
         // Create buttons
-        let buttonOne = CancelButton(title: "Yes") {
+        let buttonOne = CancelButton(title: "Yes".localized(lang: langCode)) {
             self.tearDown()
             UserDefaults.standard.set(false, forKey: "volume")
             userDefaults.setValue(true, forKey: "volumebutton_complete")
@@ -192,7 +213,7 @@ class VolumeCheckerVC: UIViewController {
             userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
         }
         
-        let buttonTwo = DefaultButton(title: "No") {
+        let buttonTwo = DefaultButton(title: "No".localized(lang: langCode)) {
             //Do Nothing
             popup.dismiss(animated: true, completion: nil)
         }

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,7 +20,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DeviceChargerVC" customModule="InstaCash" customModuleProvider="target">
             <connections>
+                <outlet property="btnSkip" destination="lpb-Bh-nco" id="w60-z1-zSl"/>
+                <outlet property="btnStart" destination="Xa6-Ha-7AA" id="Ms5-UP-1Sn"/>
                 <outlet property="chargerInfoImage" destination="iHa-Kb-cUG" id="Xga-ZJ-KVO"/>
+                <outlet property="lblCheckCharger" destination="WIq-IH-1c6" id="2Q0-So-2Xe"/>
+                <outlet property="lblPressStart" destination="iVj-Cj-Nzu" id="hrZ-sy-Fbj"/>
                 <outlet property="view" destination="5p4-CX-0PW" id="z0m-YW-nkQ"/>
                 <outlet property="viewGuide" destination="hhn-Wr-ZEX" id="Ov9-04-ci0"/>
             </connections>

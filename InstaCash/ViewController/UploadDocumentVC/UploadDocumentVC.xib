@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,9 +20,18 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UploadDocumentVC" customModule="InstaCash" customModuleProvider="target">
             <connections>
+                <outlet property="btnProceed" destination="x59-En-NAp" id="2oC-lk-F1K"/>
+                <outlet property="btnSkip" destination="sff-ce-ZC7" id="rih-NU-Dec"/>
                 <outlet property="imgViewPhoneBack" destination="gLM-Dj-P6Q" id="zgK-ve-OIw"/>
                 <outlet property="imgViewPhoneBill" destination="arX-NO-3rn" id="Orx-uk-ded"/>
                 <outlet property="imgViewPhoneFront" destination="6qb-W5-kAG" id="vVt-1Z-pZ3"/>
+                <outlet property="lblBillImage" destination="g5N-5v-yCj" id="UcC-rl-Oud"/>
+                <outlet property="lblPhoneBackImage" destination="nqh-ct-p6i" id="Y2E-C6-EhY"/>
+                <outlet property="lblPhoneBillImage" destination="dhQ-gy-xSA" id="Ca8-8x-jlj"/>
+                <outlet property="lblPhoneFrontImage" destination="hMH-wX-uTo" id="DB1-vX-v0s"/>
+                <outlet property="lblPhoneImage" destination="t8t-cv-HED" id="QJy-nR-mpZ"/>
+                <outlet property="lblUploadImage" destination="Qq4-Ou-qNj" id="RWO-cx-78w"/>
+                <outlet property="lblUploadImages" destination="VYk-fW-f6R" id="8mb-OJ-mU0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -53,7 +62,7 @@
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upload Images" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VYk-fW-f6R">
-                            <rect key="frame" x="102.5" y="12" width="115.5" height="20"/>
+                            <rect key="frame" x="103" y="12" width="114" height="20"/>
                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                             <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -324,6 +333,6 @@
     </objects>
     <resources>
         <image name="backBlack" width="16" height="16"/>
-        <image name="document" width="51.5" height="51.5"/>
+        <image name="document" width="9.3400506973266602" height="9.3400506973266602"/>
     </resources>
 </document>

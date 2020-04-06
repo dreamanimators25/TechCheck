@@ -11,9 +11,24 @@ import UIKit
 class MyHistoryListVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
     @IBOutlet weak var historyListTableView: UITableView!
+    @IBOutlet weak var lblMyHistory: UILabel!
     
     let reachability: Reachability? = Reachability()
     var arrHistoryList = [HistoryModel]()
+    
+    func changeLanguageOfUI() {
+        
+        self.lblMyHistory.text = "My History".localized(lang: langCode)
+        
+        //self.searchBarProduct.placeholder = "Search for your Device...".localized(lang: langCode)
+        //self.btnSeeOrderStatus.setTitle("SEE ORDER STATUS".localized(lang: langCode), for: UIControlState.normal)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.changeLanguageOfUI()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,12 +46,12 @@ class MyHistoryListVC: UIViewController,UITableViewDataSource,UITableViewDelegat
                     self.historyListTableView.reloadData()
                 }
                 else{
-                    Alert.showAlert(strMessage:"No Data Found!" , Onview: self)
+                    Alert.showAlert(strMessage:"No Data Found!".localized(lang: langCode) as NSString , Onview: self)
                 }
             }
         }
         else{
-            Alert.showAlert(strMessage: "No Connection found", Onview: self)
+            Alert.showAlert(strMessage: "No Connection found".localized(lang: langCode) as NSString, Onview: self)
         }
         
     }

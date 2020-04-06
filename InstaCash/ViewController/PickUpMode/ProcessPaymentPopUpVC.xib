@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,10 +20,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProcessPaymentPopUpVC" customModule="InstaCash" customModuleProvider="target">
             <connections>
+                <outlet property="btnCompleteOrder" destination="egM-Zm-kV3" id="YUZ-Gl-UvM"/>
                 <outlet property="btnRefreshStatus" destination="RJd-vq-h62" id="Fye-G2-CFA"/>
                 <outlet property="lblAmount" destination="Smv-u3-Jp9" id="8jW-rz-815"/>
                 <outlet property="lblStatus" destination="ter-hP-QFF" id="H3A-1n-iAB"/>
                 <outlet property="lblTransactionId" destination="5qD-uA-NmR" id="fXu-v6-7M8"/>
+                <outlet property="lblTrnAmount" destination="RKp-R7-A0F" id="V82-gW-o3E"/>
+                <outlet property="lblTrnId" destination="8sP-HG-rZJ" id="VnE-KC-Qeo"/>
                 <outlet property="view" destination="9ad-aO-7ge" id="pr3-0A-8YY"/>
                 <outlet property="viewMiddle" destination="t5x-Us-j0P" id="1QB-EQ-CBq"/>
             </connections>
@@ -162,7 +165,7 @@
                         </view>
                     </subviews>
                 </stackView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j2s-CY-OJB" customClass="shadowCornerButton" customModule="Instacash" customModuleProvider="target">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j2s-CY-OJB" customClass="shadowCornerButton" customModule="InstaCash" customModuleProvider="target">
                     <rect key="frame" x="48" y="290.5" width="224" height="44"/>
                     <color key="backgroundColor" red="0.094117647060000004" green="0.60784313729999995" blue="0.17254901959999999" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="18"/>
@@ -192,7 +195,7 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t5x-Us-j0P" customClass="cornerView" customModule="Instacash" customModuleProvider="target">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t5x-Us-j0P" customClass="cornerView" customModule="InstaCash" customModuleProvider="target">
                             <rect key="frame" x="32" y="152.5" width="256" height="263"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bigRight" translatesAutoresizingMaskIntoConstraints="NO" id="gyH-cG-yvf">
@@ -241,7 +244,7 @@
                                         </stackView>
                                     </subviews>
                                 </stackView>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="egM-Zm-kV3" customClass="shadowCornerButton" customModule="Instacash" customModuleProvider="target">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="egM-Zm-kV3" customClass="shadowCornerButton" customModule="InstaCash" customModuleProvider="target">
                                     <rect key="frame" x="30" y="161" width="196" height="40"/>
                                     <color key="backgroundColor" red="0.094117647060000004" green="0.60784313729999995" blue="0.17254901959999999" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="18"/>
@@ -328,7 +331,7 @@
         </view>
     </objects>
     <resources>
-        <image name="back" width="32" height="32"/>
+        <image name="back" width="51.200000762939453" height="51.200000762939453"/>
         <image name="bigRight" width="16" height="16"/>
     </resources>
 </document>

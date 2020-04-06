@@ -10,11 +10,16 @@ import UIKit
 
 class SGFastPayVC: UIViewController {
     
+    @IBOutlet weak var ddView: UIView!
+    
+    @IBOutlet weak var lblFastpay: UILabel!
+    @IBOutlet weak var lblTransferDetail: UILabel!
+    @IBOutlet weak var lblPleaseEnter: UILabel!
     @IBOutlet weak var txtFAccountHolderName: UITextField!
     @IBOutlet weak var txtFAccountNumber: UITextField!
     @IBOutlet weak var txtFSwiftBic: UITextField!
-    
-    @IBOutlet weak var ddView: UIView!
+    @IBOutlet weak var btnSkip: UIButton!
+    @IBOutlet weak var btnProceed: UIButton!
     
     let reachability: Reachability? = Reachability()
     var quatationId = String()
@@ -32,6 +37,27 @@ class SGFastPayVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.getPaymentDetailsFromServer()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.changeLanguageOfUI()
+    }
+    
+    func changeLanguageOfUI() {
+        
+        self.lblFastpay.text = "FASTPAY".localized(lang: langCode)
+        self.lblTransferDetail.text = "Transfer Details".localized(lang: langCode)
+        self.lblPleaseEnter.text = "Please Enter the details".localized(lang: langCode)
+        
+        self.txtFAccountHolderName.placeholder = "Account Holders Name".localized(lang: langCode)
+        self.txtFAccountNumber.placeholder = "Account Number".localized(lang: langCode)
+        self.txtFSwiftBic.placeholder = "SwiftBic".localized(lang: langCode)
+        
+        self.btnSkip.setTitle("SKIP".localized(lang: langCode), for: UIControlState.normal)
+        self.btnProceed.setTitle("PROCEED".localized(lang: langCode), for: UIControlState.normal)
+        
     }
 
     //MARK:- button action methods
@@ -57,17 +83,17 @@ class SGFastPayVC: UIViewController {
     {
         if txtFAccountHolderName.text!.isEmpty
         {
-            Alert.showAlert(strMessage: "Please enter account holder's name" as NSString, Onview: self)
+            Alert.showAlert(strMessage: "Please enter account holder's name".localized(lang: langCode) as NSString, Onview: self)
             return false
         }
         else if txtFAccountNumber.text!.isEmpty
         {
-            Alert.showAlert(strMessage: "Please enter account number", Onview: self)
+            Alert.showAlert(strMessage: "Please enter account number".localized(lang: langCode) as NSString, Onview: self)
             return false
         }
         else if txtFSwiftBic.text!.isEmpty
         {
-            Alert.showAlert(strMessage: "Please enter SwiftBic ID", Onview: self)
+            Alert.showAlert(strMessage: "Please enter SwiftBic ID".localized(lang: langCode) as NSString, Onview: self)
             return false
         }
         
@@ -120,12 +146,12 @@ class SGFastPayVC: UIViewController {
                 }
                 else{
                     debugPrint(error as Any)
-                    Alert.showAlert(strMessage: "Seems connection loss from server", Onview: self)
+                    Alert.showAlert(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
                 }
             })
             
         }else{
-            Alert.showAlert(strMessage: "No Connection Found", Onview: self)
+            Alert.showAlert(strMessage: "No Connection Found".localized(lang: langCode) as NSString, Onview: self)
         }
         
     }
@@ -190,12 +216,12 @@ class SGFastPayVC: UIViewController {
                 }
                 else{
                     debugPrint(error as Any)
-                    Alert.showAlert(strMessage: "Seems connection loss from server", Onview: self)
+                    Alert.showAlert(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
                 }
             })
             
         }else{
-            Alert.showAlert(strMessage: "No Connection Found", Onview: self)
+            Alert.showAlert(strMessage: "No Connection Found".localized(lang: langCode) as NSString, Onview: self)
         }
         
     }

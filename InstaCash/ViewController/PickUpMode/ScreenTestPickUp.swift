@@ -39,8 +39,14 @@ class LevelViewPickUp : UIView {
 
 class ScreenTestPickUp: UIViewController {
 
-    @IBOutlet weak var btnStartScreenTest: UIButton!
     @IBOutlet weak var screenTestViewPickup: UIImageView!
+    
+    @IBOutlet weak var lblCheckScreen: UILabel!
+    @IBOutlet weak var lblPressStart: UILabel!
+    @IBOutlet weak var btnGuideMe: UIButton!
+    @IBOutlet weak var btnRetry: UIButton!
+    @IBOutlet weak var btnStartScreenTest: UIButton!
+    
     
     var obstacleViews : [UIView] = []
     var flags: [Bool] = []
@@ -49,6 +55,20 @@ class ScreenTestPickUp: UIViewController {
     var startTest = false
     var resultJSON = JSON()
     var audioPlayer: AVAudioPlayer?
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.changeLanguageOfUI()
+    }
+    
+    func changeLanguageOfUI() {
+       
+        self.lblCheckScreen.text = "Checking screen calibration".localized(lang: langCode)
+        self.lblPressStart.text = "Press “Start’ and follow the path".localized(lang: langCode)
+        
+        self.btnGuideMe.setTitle("Guide me".localized(lang: langCode), for: UIControlState.normal)
+        self.btnStartScreenTest.setTitle("Start".localized(lang: langCode), for: UIControlState.normal)
+        self.btnRetry.setTitle("Retry".localized(lang: langCode), for: UIControlState.normal)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -104,7 +124,7 @@ class ScreenTestPickUp: UIViewController {
     // MARK:- navigation bar setup.
     func setNavigationBar() -> Void
     {
-        self.title = "InstaCash"
+        self.title = "InstaCash".localized(lang: langCode)
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.isNavigationBarHidden = false
         let btnBack = UIButton(frame: CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: 25, height: 25)))
@@ -229,13 +249,13 @@ class ScreenTestPickUp: UIViewController {
             //self.present(vc, animated: true, completion: nil)
         }else{
             
-            let title = "Screen Diagnosis Test Failed!"
-            let message = "Do you want to retry the test?"
+            let title = "Screen Diagnosis Test Failed!".localized(lang: langCode)
+            let message = "Do you want to retry the test?".localized(lang: langCode)
             // Create the dialog
             let popup = PopupDialog(title: title, message: message,buttonAlignment: .horizontal, transitionStyle: .bounceDown, tapGestureDismissal: false, panGestureDismissal :false)
             
             // Create buttons
-            let buttonOne = DefaultButton(title: "Yes") {
+            let buttonOne = DefaultButton(title: "Yes".localized(lang: langCode)) {
                 popup.dismiss(animated: true, completion: nil)
                 DispatchQueue.main.async {
                     for v in self.obstacleViews{
@@ -251,7 +271,7 @@ class ScreenTestPickUp: UIViewController {
                 }
             }
             
-            let buttonTwo = CancelButton(title: "No") {
+            let buttonTwo = CancelButton(title: "No".localized(lang: langCode)) {
                 //Do Nothing
                 UserDefaults.standard.set(false, forKey: "screen")
                 

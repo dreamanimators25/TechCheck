@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -31,6 +31,7 @@
                 <outlet property="btnImps" destination="H5T-vY-wep" id="ZI0-Py-gyK"/>
                 <outlet property="btnMaxis" destination="UHf-4l-daH" id="2gd-Yl-mTW"/>
                 <outlet property="btnNeft" destination="cE8-zO-78H" id="LSt-Vu-5ac"/>
+                <outlet property="btnNext" destination="CFa-oA-qWO" id="2kb-tO-LQ5"/>
                 <outlet property="btnOther" destination="iWc-s5-H55" id="M26-RC-qK7"/>
                 <outlet property="btnPaytm" destination="A1q-P7-W7v" id="cI5-do-FFp"/>
                 <outlet property="btnSamsung" destination="8WL-7C-JFv" id="8YR-oT-ERL"/>
@@ -39,24 +40,42 @@
                 <outlet property="cendolView" destination="Bma-41-dxK" id="1jp-xV-ZKX"/>
                 <outlet property="impsImage" destination="RSx-Zc-TNF" id="C3C-B3-qPd"/>
                 <outlet property="impsView" destination="Ku3-xj-Mq2" id="2fO-N5-j9r"/>
+                <outlet property="lblBank" destination="YwM-M9-MJK" id="QWG-uU-aHt"/>
                 <outlet property="lblBankMode1" destination="pUc-oK-Qek" id="SLj-S8-ysl"/>
                 <outlet property="lblBankMode2" destination="sl0-pP-YUl" id="66O-fT-Fxg"/>
                 <outlet property="lblBankTotalAmount" destination="5hn-r4-nvf" id="wBo-Ho-uLB"/>
                 <outlet property="lblCENDOLcharges" destination="W0u-wY-5Yj" id="I6b-IO-aEq"/>
                 <outlet property="lblCENDOLtotalPrice" destination="CIO-y7-k2o" id="M8W-jE-xXC"/>
+                <outlet property="lblCendolVoucher" destination="VQ6-3l-Hsd" id="qDP-Gl-eaI"/>
+                <outlet property="lblChooseOnePayment" destination="jwr-ci-vBA" id="2Dx-mM-Evy"/>
+                <outlet property="lblHeadSelectedPaymentMode" destination="Vtt-6p-egy" id="q9k-1S-BYS"/>
                 <outlet property="lblIMPSTotalPrice" destination="LCg-R0-2OL" id="hDS-K4-IBe"/>
                 <outlet property="lblIMPScharges" destination="OwA-Fe-E6a" id="zwG-sj-YU9"/>
                 <outlet property="lblMAXIScharges" destination="vFW-fz-fCM" id="GiC-36-6wT"/>
                 <outlet property="lblMAXIStotalPrice" destination="JXB-9L-bZh" id="uvt-hH-AUE"/>
+                <outlet property="lblMaxis" destination="zTL-bb-Nyy" id="2oU-cl-qXg"/>
                 <outlet property="lblNEFTcharges" destination="wQT-nh-OwW" id="fBO-bF-oAu"/>
                 <outlet property="lblNEFTtotalPrice" destination="Uox-R6-qTF" id="4xi-Jn-waV"/>
                 <outlet property="lblOTHERtotalPrice" destination="IuQ-JM-33o" id="D46-ur-C06"/>
+                <outlet property="lblOther" destination="jW7-TC-Iau" id="J87-9G-dPd"/>
+                <outlet property="lblPayable1" destination="D4E-kF-VAF" id="QMf-ro-rzK"/>
+                <outlet property="lblPayable2" destination="YsB-hM-ZtH" id="zbX-pg-EVa"/>
+                <outlet property="lblPayable3" destination="yNQ-Ef-5S7" id="deX-W0-SMl"/>
+                <outlet property="lblPayable4" destination="l9E-er-WDW" id="WST-iW-p5n"/>
+                <outlet property="lblPayable5" destination="bJb-rq-X5v" id="FQ7-z9-uX3"/>
+                <outlet property="lblPayableAmount" destination="xgK-U2-KRB" id="rIA-ez-5Uk"/>
+                <outlet property="lblPaytm" destination="H8Y-AT-HzP" id="bLR-gy-F1V"/>
+                <outlet property="lblPaytmWallet" destination="tlG-hV-bmV" id="MUk-1j-Fvo"/>
                 <outlet property="lblPaytmWalletCharges" destination="GXg-fM-e4a" id="Fig-mV-w3t"/>
                 <outlet property="lblPaytmWalletPrice" destination="DOX-43-QXk" id="H72-8F-ceg"/>
                 <outlet property="lblSAMSUNGcharges" destination="Bub-4A-Yyy" id="5wY-pf-Xoj"/>
                 <outlet property="lblSAMSUNGtotalPrice" destination="uyC-MH-xak" id="fJ4-sj-MxP"/>
-                <outlet property="lblSelectedPaymentMode" destination="hLc-NW-mG3" id="Kup-ya-FZZ"/>
+                <outlet property="lblSamsung" destination="OCJ-Hq-fe2" id="1Ts-Nh-e1A"/>
+                <outlet property="lblSelPayMode" destination="jnj-lZ-bS1" id="psb-F9-YTe"/>
+                <outlet property="lblSelectedPaymentMode" destination="hLc-NW-mG3" id="PWD-td-RCZ"/>
+                <outlet property="lblTitlePaymentMode" destination="H34-hu-te6" id="O9r-OO-UtJ"/>
                 <outlet property="lblTotalPrice" destination="vtx-1M-5FH" id="RYi-hk-0ld"/>
+                <outlet property="lblWallet" destination="EBz-Pb-YJG" id="W59-dv-ZnT"/>
                 <outlet property="lblWalletPrice" destination="0bc-ak-6Pw" id="bFh-9V-Bzw"/>
                 <outlet property="maxisImage" destination="FyW-99-rXQ" id="xA3-Ez-dbD"/>
                 <outlet property="maxisView" destination="aaC-ba-UVd" id="bFc-Bt-XuY"/>

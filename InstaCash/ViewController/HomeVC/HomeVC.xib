@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -35,6 +35,7 @@
                 <outlet property="btnDiagnostic" destination="YS8-K8-2nd" id="rIh-p1-6w8"/>
                 <outlet property="btnDiagnosticwidthConstraints" destination="hmj-TT-U3f" id="8Aj-ON-pY9"/>
                 <outlet property="btnFloating" destination="ZTC-nN-z1c" id="VvX-hG-Lg1"/>
+                <outlet property="btnGetQuoteDevice" destination="L7I-fy-XO6" id="et0-Fi-CkT"/>
                 <outlet property="btnMoreBrands" destination="v0v-Zj-42P" id="2V9-kf-Pkm"/>
                 <outlet property="btnStartFromBegning" destination="ki2-XC-N0D" id="BW2-iO-E81"/>
                 <outlet property="collectionViewOrders" destination="Y31-kN-yfB" id="NTq-B2-Ae7"/>
@@ -54,6 +55,7 @@
                 <outlet property="imgLogo" destination="7e0-N9-oRI" id="GU9-eY-Y7P"/>
                 <outlet property="imgPhone" destination="Cd7-0y-Orb" id="S0o-ek-h1Y"/>
                 <outlet property="imgWhiteArrow" destination="9VX-oN-ep4" id="ygD-4b-58v"/>
+                <outlet property="lblAccurate" destination="s5S-eD-izw" id="pMg-r9-gge"/>
                 <outlet property="lblBrand1" destination="ui6-Ts-6uN" id="rrG-bz-JeU"/>
                 <outlet property="lblBrand2" destination="K9r-mb-ySS" id="ejq-IA-53P"/>
                 <outlet property="lblBrand3" destination="b4y-LA-pPZ" id="Blb-Ac-JLK"/>
@@ -65,10 +67,19 @@
                 <outlet property="lblBrand9" destination="7o2-EI-mvK" id="Rrt-tT-g19"/>
                 <outlet property="lblConfirmOrderPrice" destination="vSf-cJ-TE4" id="axe-t2-p9V"/>
                 <outlet property="lblConfirmOrderProductName" destination="dXQ-HA-jz4" id="qkw-s8-VMf"/>
+                <outlet property="lblDeviceByBrand" destination="GeM-v6-Zhk" id="edd-z1-F1o"/>
+                <outlet property="lblFindOut" destination="1Kw-qU-Yda" id="POK-iV-q9d"/>
+                <outlet property="lblGetAQuote" destination="f6w-7Y-EJa" id="rlm-dO-VqZ"/>
+                <outlet property="lblGetAnotherDevice" destination="Bt6-Qr-eSW" id="PUt-EQ-w3l"/>
                 <outlet property="lblMessage" destination="eLE-cq-UmK" id="mXk-tR-m4J"/>
+                <outlet property="lblNoBargaining" destination="Vv7-TS-r2F" id="hie-Uq-Z7Y"/>
+                <outlet property="lblOfferPromotions" destination="79o-xB-fWV" id="FR2-Qq-V2L"/>
                 <outlet property="lblPhoneName" destination="u6d-0p-Nyt" id="Ap4-lN-GYF"/>
                 <outlet property="lblPrice" destination="4qC-KW-GA7" id="chP-au-QV0"/>
                 <outlet property="lblPriceDropMessage" destination="1Nl-bn-gHe" id="rBF-Te-Xe5"/>
+                <outlet property="lblSell" destination="rL2-u6-UzG" id="Gpn-IQ-ZKV"/>
+                <outlet property="lblTakeMinute" destination="j1f-z5-fi9" id="ezz-J8-4V9"/>
+                <outlet property="lblThisDevice" destination="0VT-dc-f6x" id="gM6-qi-6WF"/>
                 <outlet property="lblTitleOrders" destination="Hfo-o5-N39" id="VNc-iy-fdn"/>
                 <outlet property="lblTitleUpto" destination="d8n-pV-M6G" id="4AG-Iu-6yt"/>
                 <outlet property="promotionAndOfferView" destination="nJz-fk-Xna" id="QOL-sE-1wQ"/>
@@ -109,7 +120,7 @@
                     <rect key="frame" x="0.0" y="20" width="320" height="504"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="POe-Ev-5qD">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="582.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="667"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hY3-t4-JuG">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="55"/>
@@ -128,25 +139,25 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fc8-k8-EkY" customClass="cornerView" customModule="InstaCash" customModuleProvider="target">
-                                    <rect key="frame" x="20" y="75" width="280" height="367.5"/>
+                                    <rect key="frame" x="20" y="75" width="280" height="452"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="phone" translatesAutoresizingMaskIntoConstraints="NO" id="Cd7-0y-Orb">
-                                            <rect key="frame" x="76" y="5" width="128" height="128"/>
+                                            <rect key="frame" x="38" y="5" width="204" height="204"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Google Pixel 2XL (64GB)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u6d-0p-Nyt">
-                                            <rect key="frame" x="46" y="138" width="188.5" height="20"/>
+                                            <rect key="frame" x="46" y="214" width="188.5" height="20"/>
                                             <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find out how much cash you’ll get by selling this device." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Kw-qU-Yda">
-                                            <rect key="frame" x="20" y="163" width="240" height="28.5"/>
+                                            <rect key="frame" x="20" y="239" width="240" height="28.5"/>
                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                             <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L7I-fy-XO6" customClass="shadowCornerButton" customModule="InstaCash" customModuleProvider="target">
-                                            <rect key="frame" x="20" y="201.5" width="240" height="36.5"/>
+                                            <rect key="frame" x="20" y="277.5" width="240" height="45"/>
                                             <color key="backgroundColor" red="0.094117647060000004" green="0.60784313729999995" blue="0.17254901959999999" alpha="1" colorSpace="calibratedRGB"/>
                                             <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="18"/>
                                             <state key="normal" title="Get quote for this device">
@@ -162,16 +173,16 @@
                                             </connections>
                                         </button>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="b3b-mH-Rs4">
-                                            <rect key="frame" x="10" y="248" width="338" height="109.5"/>
+                                            <rect key="frame" x="10" y="332.5" width="338" height="109.5"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eGA-To-xxT">
                                                     <rect key="frame" x="0.0" y="0.0" width="338" height="27.5"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="251" image="check" translatesAutoresizingMaskIntoConstraints="NO" id="fJQ-N0-ZXv">
-                                                            <rect key="frame" x="0.0" y="9.5" width="11.5" height="8.5"/>
+                                                            <rect key="frame" x="0.0" y="9.5" width="11" height="8"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No bargaining. No headaches!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vv7-TS-r2F">
-                                                            <rect key="frame" x="21.5" y="6" width="306.5" height="15.5"/>
+                                                            <rect key="frame" x="21" y="6" width="307" height="15.5"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
                                                             <color key="textColor" red="0.63137254899999995" green="0.63137254899999995" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -190,10 +201,10 @@
                                                     <rect key="frame" x="0.0" y="27.5" width="338" height="27.5"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="251" image="check" translatesAutoresizingMaskIntoConstraints="NO" id="VMO-oy-Ggt">
-                                                            <rect key="frame" x="0.0" y="9.5" width="11.5" height="8.5"/>
+                                                            <rect key="frame" x="0.0" y="9.5" width="11" height="8"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Takes 5 mins. Save time." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j1f-z5-fi9">
-                                                            <rect key="frame" x="21.5" y="6" width="306.5" height="15.5"/>
+                                                            <rect key="frame" x="21" y="6" width="307" height="15.5"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
                                                             <color key="textColor" red="0.63137254899999995" green="0.63137254899999995" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -209,13 +220,13 @@
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zcM-QV-AMI">
-                                                    <rect key="frame" x="0.0" y="55" width="338" height="27.5"/>
+                                                    <rect key="frame" x="0.0" y="55" width="338" height="27"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="251" image="check" translatesAutoresizingMaskIntoConstraints="NO" id="pkj-gQ-PwQ">
-                                                            <rect key="frame" x="0.0" y="9.5" width="11.5" height="8.5"/>
+                                                            <rect key="frame" x="0.0" y="9.5" width="11" height="8"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get a quote from anywhere. Convenient and casual." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f6w-7Y-EJa">
-                                                            <rect key="frame" x="21.5" y="6" width="306.5" height="15.5"/>
+                                                            <rect key="frame" x="21" y="6" width="307" height="15.5"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
                                                             <color key="textColor" red="0.63137254899999995" green="0.63137254899999995" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -231,13 +242,13 @@
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XaH-o8-nPd">
-                                                    <rect key="frame" x="0.0" y="82.5" width="338" height="27"/>
+                                                    <rect key="frame" x="0.0" y="82" width="338" height="27.5"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="251" image="check" translatesAutoresizingMaskIntoConstraints="NO" id="Gwz-Bu-QRD">
-                                                            <rect key="frame" x="0.0" y="9" width="11.5" height="8.5"/>
+                                                            <rect key="frame" x="0.0" y="10" width="11" height="8"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Accurate and market-leading prices. Scam-free." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s5S-eD-izw">
-                                                            <rect key="frame" x="21.5" y="5.5" width="306.5" height="15.5"/>
+                                                            <rect key="frame" x="21" y="6" width="307" height="15.5"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
                                                             <color key="textColor" red="0.63137254899999995" green="0.63137254899999995" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -280,7 +291,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="qqB-m8-qzv">
-                                    <rect key="frame" x="20" y="462.5" width="280" height="110"/>
+                                    <rect key="frame" x="20" y="547" width="280" height="110"/>
                                     <subviews>
                                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jaz-QL-evK" customClass="cornerView" customModule="InstaCash" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="280" height="50"/>
@@ -371,7 +382,7 @@
                                     </subviews>
                                 </stackView>
                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Cz-2d-K1I">
-                                    <rect key="frame" x="0.0" y="582.5" width="320" height="0.0"/>
+                                    <rect key="frame" x="0.0" y="667" width="320" height="0.0"/>
                                     <subviews>
                                         <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="42mins ago: Henry Boy sold his S8 near Petaling Jaya." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uQC-WE-coB">
                                             <rect key="frame" x="10" y="-7.5" width="300" height="15.5"/>
@@ -1087,7 +1098,7 @@
                                     </constraints>
                                 </view>
                                 <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vyO-IQ-s33">
-                                    <rect key="frame" x="0.0" y="55" width="320" height="527.5"/>
+                                    <rect key="frame" x="0.0" y="55" width="320" height="612"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.25" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                             </subviews>
@@ -1261,13 +1272,13 @@
         <image name="arrow" width="16.5" height="13"/>
         <image name="check" width="11.5" height="8.5"/>
         <image name="customerSupport" width="46" height="46"/>
-        <image name="dignostic" width="12" height="12"/>
-        <image name="iPhonePlaceHolder" width="227.5" height="300"/>
+        <image name="dignostic" width="19.200000762939453" height="19.200000762939453"/>
+        <image name="iPhonePlaceHolder" width="455" height="600"/>
         <image name="noti" width="21.5" height="22.5"/>
         <image name="order" width="18" height="21.5"/>
-        <image name="phone" width="128" height="128"/>
-        <image name="phonePlaceHolder" width="32" height="32"/>
-        <image name="splashIcon" width="128" height="128"/>
-        <image name="whiteArrow" width="32" height="32"/>
+        <image name="phone" width="204.80000305175781" height="204.80000305175781"/>
+        <image name="phonePlaceHolder" width="51.200000762939453" height="51.200000762939453"/>
+        <image name="splashIcon" width="192" height="192"/>
+        <image name="whiteArrow" width="51.200000762939453" height="51.200000762939453"/>
     </resources>
 </document>

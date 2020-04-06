@@ -10,11 +10,18 @@ import UIKit
 
 class MYSamsungVC: UIViewController {
     
+    @IBOutlet weak var scrlView: UIScrollView!
+    @IBOutlet weak var ddView: UIView!
+    
+    @IBOutlet weak var lblSamsung: UILabel!
+    @IBOutlet weak var lblTransferDetail: UILabel!
+    @IBOutlet weak var lblPleaseEnter: UILabel!
     @IBOutlet weak var txtFBankHolderName: UITextField!
     @IBOutlet weak var txtFBankAccountNumber: UITextField!
     @IBOutlet weak var txtFOrderID: UITextField!
-    @IBOutlet weak var scrlView: UIScrollView!
-    @IBOutlet weak var ddView: UIView!
+    @IBOutlet weak var btnSkip: UIButton!
+    @IBOutlet weak var btnProceed: UIButton!
+    
     
     let reachability: Reachability? = Reachability()
     var quatationId = String()
@@ -37,6 +44,8 @@ class MYSamsungVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.changeLanguageOfUI()
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             
             self.drop = UIDropDown.init(frame: CGRect(x: 15, y: 0, width: self.scrlView.frame.size.width - 30, height: 30))
@@ -46,7 +55,7 @@ class MYSamsungVC: UIViewController {
             self.drop.options = self.arrDrop
             self.drop.animationType = .Bouncing
             self.drop.textAlignment = .left
-            self.drop.placeholder = "Select Bank Name"
+            self.drop.placeholder = "Select Bank Name".localized(lang: langCode)
             
             self.drop.didSelect { (option, index) in
                 self.drop.placeholder = option
@@ -56,6 +65,21 @@ class MYSamsungVC: UIViewController {
             
             self.scrlView.addSubview(self.drop)
         }
+    }
+    
+    func changeLanguageOfUI() {
+        
+        self.lblSamsung.text = "SAMSUNG".localized(lang: langCode)
+        self.lblTransferDetail.text = "Transfer Details".localized(lang: langCode)
+        self.lblPleaseEnter.text = "Please Enter the details".localized(lang: langCode)
+        
+        self.txtFBankHolderName.placeholder = "Account Holders Name".localized(lang: langCode)
+        self.txtFBankAccountNumber.placeholder = "Account Number".localized(lang: langCode)
+        self.txtFOrderID.placeholder = "Samsung OrderID".localized(lang: langCode)
+        
+        self.btnSkip.setTitle("SKIP".localized(lang: langCode), for: UIControlState.normal)
+        self.btnProceed.setTitle("PROCEED".localized(lang: langCode), for: UIControlState.normal)
+        
     }
     
     //MARK:- button action methods
@@ -81,22 +105,22 @@ class MYSamsungVC: UIViewController {
     {
         if txtFBankHolderName.text!.isEmpty
         {
-            Alert.showAlert(strMessage: "Please enter account holder's name" as NSString, Onview: self)
+            Alert.showAlert(strMessage: "Please enter account holder's name".localized(lang: langCode) as NSString, Onview: self)
             return false
         }
         else if txtFBankAccountNumber.text!.isEmpty
         {
-            Alert.showAlert(strMessage: "Please enter account number", Onview: self)
+            Alert.showAlert(strMessage: "Please enter account number".localized(lang: langCode) as NSString, Onview: self)
             return false
         }
         else if self.strSelectedBankName == ""
         {
-            Alert.showAlert(strMessage: "Please select your bank" as NSString, Onview: self)
+            Alert.showAlert(strMessage: "Please select your bank".localized(lang: langCode) as NSString, Onview: self)
             return false
         }
         else if txtFOrderID.text!.isEmpty
         {
-            Alert.showAlert(strMessage: "Please enter samsung order ID", Onview: self)
+            Alert.showAlert(strMessage: "Please enter samsung order ID".localized(lang: langCode) as NSString, Onview: self)
             return false
         }
         
@@ -156,12 +180,12 @@ class MYSamsungVC: UIViewController {
                 }
                 else{
                     debugPrint(error as Any)
-                    Alert.showAlert(strMessage: "Seems connection loss from server", Onview: self)
+                    Alert.showAlert(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
                 }
             })
             
         }else{
-            Alert.showAlert(strMessage: "No Connection Found", Onview: self)
+            Alert.showAlert(strMessage: "No Connection Found".localized(lang: langCode) as NSString, Onview: self)
         }
         
     }
@@ -227,12 +251,12 @@ class MYSamsungVC: UIViewController {
                 }
                 else{
                     debugPrint(error as Any)
-                    Alert.showAlert(strMessage: "Seems connection loss from server", Onview: self)
+                    Alert.showAlert(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
                 }
             })
             
         }else{
-            Alert.showAlert(strMessage: "No Connection Found", Onview: self)
+            Alert.showAlert(strMessage: "No Connection Found".localized(lang: langCode) as NSString, Onview: self)
         }
         
     }

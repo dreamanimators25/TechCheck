@@ -25,15 +25,14 @@ class TermsConditionVC: UIViewController,UIWebViewDelegate {
         }
         else
         {
-            Alert.showAlert(strMessage: "No internet conection", Onview: self)
+            Alert.showAlert(strMessage: "No internet conection".localized(lang: langCode) as NSString, Onview: self)
         }
         
     }
     
     // MARK:- navigation bar setup.
-    func setNavigationBar() -> Void
-    {
-        self.title = "Terms & Conditions"
+    func setNavigationBar() -> Void {
+        self.title = "Terms & Conditions".localized(lang: langCode)
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.isNavigationBarHidden = false
         self.navigationController?.navigationBar.barTintColor = navColor
@@ -50,20 +49,17 @@ class TermsConditionVC: UIViewController,UIWebViewDelegate {
     
     //MARK:- button action methods
     @objc func btnSideMenuPressed() -> Void {
-        
         self.menuContainerViewController.toggleLeftSideMenuCompletion({() -> Void in
         })
     }
     
     //MARK:- webview delegates methods
     
-    func webViewDidStartLoad(_ webView: UIWebView)
-    {
+    func webViewDidStartLoad(_ webView: UIWebView) {
         
     }
     
-    func webViewDidFinishLoad(_ webView: UIWebView)
-    {
+    func webViewDidFinishLoad(_ webView: UIWebView) {
         Alert.HideProgressHud(Onview: self.view)
     }
     
@@ -75,10 +71,8 @@ class TermsConditionVC: UIViewController,UIWebViewDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
     // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.

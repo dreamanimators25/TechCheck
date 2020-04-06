@@ -80,6 +80,7 @@ class LoginVC: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate,TCTrueSDKD
         else{
             btnTrueCaller.isHidden = true
         }
+        
         btnGPlus.layer.cornerRadius = CGFloat(btnCornerRadius)
         btnGPlus.clipsToBounds = true
         btnFb.layer.cornerRadius = CGFloat(btnCornerRadius)
@@ -96,6 +97,7 @@ class LoginVC: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate,TCTrueSDKD
         vc.isOnleMobileNumber = true
         self.navigationController?.present(vc, animated: true, completion: nil)
     }
+    
     @IBAction func btnTrueCallerPressed(_ sender: UIButton) {
         if userDefaults.value(forKey: "isTrueCallerSupported") as! Bool == false{
         }
@@ -151,6 +153,7 @@ class LoginVC: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate,TCTrueSDKD
                         else{
                             strFinalUserName = ""
                         }
+                        
                         CustomUserDefault.removeUserName()
                         CustomUserDefault.setUserName(data: strFinalUserName)
                         
@@ -172,23 +175,27 @@ class LoginVC: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate,TCTrueSDKD
                         else{
                             imageUrl = ""
                         }
+                        
                         CustomUserDefault.removeUserProfile()
                         CustomUserDefault.setUserProfileImage(data: imageUrl)
                         self.fireWebServiceForFbLogin(userName:strFinalUserName, socialId: fbId, email: email, strProfile: imageUrl,strFbOrGp:"facebook")
                     }
                     else{
-                        Alert.showAlert(strMessage: "No connection found", Onview: self)
+                        Alert.showAlert(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
                     }
                 }
             })
         }
     }
+    
     //MARK:Google SignIn Delegate
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,
               withError error: Error!) {
+        
         if let error = error {
+            print(error.localizedDescription)
         } else {
-            if self.reachability?.connection.description != "No Connection"{
+            if self.reachability?.connection.description != "No Connection" {
                 var strFinalUserName  = ""
                 var gPlusId = ""
                 var email = ""
@@ -215,7 +222,8 @@ class LoginVC: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate,TCTrueSDKD
                 else{
                     email = ""
                 }
-                if user.profile.hasImage{
+                
+                if user.profile.hasImage {
                     if let url = user.profile.imageURL(withDimension:100)  {
                         do {
                             let contents = try String(contentsOf: url)
@@ -235,7 +243,7 @@ class LoginVC: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate,TCTrueSDKD
                 self.fireWebServiceForFbLogin(userName:strFinalUserName, socialId: gPlusId, email: email, strProfile: imageUrl,strFbOrGp: "gplus")
             }
             else{
-                Alert.showAlert(strMessage: "No connection found", Onview: self)
+                Alert.showAlert(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
                 
             }
             // Perform any operations on signed in user here.
@@ -394,7 +402,7 @@ class LoginVC: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate,TCTrueSDKD
         }
         else
         {
-            Alert.showAlert(strMessage: "No connection found", Onview: self)
+            Alert.showAlert(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
         }
         
     }
@@ -460,7 +468,7 @@ class LoginVC: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate,TCTrueSDKD
         }
         else
         {
-            Alert.showAlert(strMessage: "No connection found", Onview: self)
+            Alert.showAlert(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
             
         }
         
@@ -470,7 +478,7 @@ class LoginVC: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate,TCTrueSDKD
     open func didFailToReceiveTrueProfileWithError(_ error: TCError) {
         //setEmptyUserData()
         if  error.getCode().rawValue == 4{
-            Alert.showAlert(strMessage: "Please login in truecaller app ", Onview: self)
+            Alert.showAlert(strMessage: "Please login in truecaller app ".localized(lang: langCode) as NSString, Onview: self)
             
         }
     }
@@ -548,4 +556,5 @@ class LoginVC: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate,TCTrueSDKD
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
 }

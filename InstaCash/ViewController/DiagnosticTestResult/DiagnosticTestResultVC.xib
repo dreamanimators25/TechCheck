@@ -29,6 +29,8 @@
                 <outlet property="lblPhone" destination="LS0-kJ-F2k" id="ogk-oZ-K1n"/>
                 <outlet property="lblPrice" destination="LNE-6u-UNr" id="gek-z3-RWg"/>
                 <outlet property="lblTests" destination="s9h-m1-Vxv" id="Cjd-fz-Y4Q"/>
+                <outlet property="lblYourDevice" destination="e0D-dM-6Fx" id="7cq-JK-yq7"/>
+                <outlet property="lblYourQuotation" destination="nxd-TQ-HeN" id="Mx5-Be-aCe"/>
                 <outlet property="tblViewTest" destination="Apk-BM-2wG" id="Fb7-K2-5w8"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

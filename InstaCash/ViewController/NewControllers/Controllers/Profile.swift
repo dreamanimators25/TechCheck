@@ -287,7 +287,7 @@ class Profile: UIViewController, UITextFieldDelegate {
         CustomUserDefault.removePinCode() //s.
         
         //4/4/2020
-        userDefaults.removeObject(forKey: "langCode")
+        //userDefaults.removeObject(forKey: "langCode")
         
         //Sameer - 28/3/20
         userDefaults.removeObject(forKey: "promoterID")

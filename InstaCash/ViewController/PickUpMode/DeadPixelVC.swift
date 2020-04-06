@@ -18,10 +18,12 @@ import AVFoundation
 class DeadPixelVC: UIViewController {
     
     @IBOutlet weak var lblPrice: UILabel!
-    @IBOutlet weak var titleInfoLbl: UILabel!
-    @IBOutlet weak var deadPixelInfoLbl: UILabel!
     @IBOutlet weak var deadPixelInfoImage: UIImageView!
     @IBOutlet weak var deadPixelGifImage: UIImageView!
+    
+    @IBOutlet weak var titleInfoLbl: UILabel!
+    @IBOutlet weak var deadPixelInfoLbl: UILabel!
+    @IBOutlet weak var btnGuideMe: UIButton!
     @IBOutlet weak var startTestBtn: UIButton!
     
     var resultJSON = JSON()
@@ -39,6 +41,19 @@ class DeadPixelVC: UIViewController {
         self.deadPixelGifImage.loadGif(name: "dead_pixel")
         //lblPrice.text = CustomUserDefault.getCurrency()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.changeLanguageOfUI()
+    }
+    
+    func changeLanguageOfUI() {
+        
+        self.titleInfoLbl.text = "Checking screen for white or black dot".localized(lang: langCode)
+        self.deadPixelInfoLbl.text = "We will show you white screen with maximum brightness for 8-10 seconds. Please tell us if you see a black dot.".localized(lang: langCode)
+        
+        self.btnGuideMe.setTitle("Guide me".localized(lang: langCode), for: UIControlState.normal)
+        self.startTestBtn.setTitle("Start".localized(lang: langCode), for: UIControlState.normal)
     }
     
     @objc func setRandomBackgroundColor() {
@@ -61,14 +76,14 @@ class DeadPixelVC: UIViewController {
             
             
             // Prepare the popup assets
-            let title = "Dead Pixel Test"
-            let message = "Did you see any black or white spots on the screen?"
+            let title = "Dead Pixel Test".localized(lang: langCode)
+            let message = "Did you see any black or white spots on the screen?".localized(lang: langCode)
             
             // Create the dialog
             let popup = PopupDialog(title: title, message: message,buttonAlignment: .horizontal, transitionStyle: .bounceDown, tapGestureDismissal: false, panGestureDismissal :false)
             
             // Create buttons
-            let buttonOne = CancelButton(title: "Yes") {
+            let buttonOne = CancelButton(title: "Yes".localized(lang: langCode)) {
                 self.resultJSON["Dead Pixels"].int = 0
                 UserDefaults.standard.set(false, forKey: "deadPixel")
                 //let vc = FirstDiagnosisQuestionVC()
@@ -81,7 +96,7 @@ class DeadPixelVC: UIViewController {
                 
             }
             
-            let buttonTwo = DefaultButton(title: "No") {
+            let buttonTwo = DefaultButton(title: "No".localized(lang: langCode)) {
                 self.resultJSON["Dead Pixels"].int = 1
                 UserDefaults.standard.set(true, forKey: "deadPixel")
                 //let vc = FirstDiagnosisQuestionVC()
@@ -94,7 +109,7 @@ class DeadPixelVC: UIViewController {
                 
             }
             
-            let buttonThree = DefaultButton(title: "Retry") {
+            let buttonThree = DefaultButton(title: "Retry".localized(lang: langCode)) {
                 self.startDeadPixelTestPressed(sender: nil)
             }
             

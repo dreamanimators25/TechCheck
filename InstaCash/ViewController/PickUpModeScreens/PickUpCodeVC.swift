@@ -17,17 +17,24 @@ class PickUpCodeVC: UIViewController {
     @IBOutlet weak var txtFPickUpCode: OTPTextField!
     
     var isComeFromVC : String?
-    
     let reachability: Reachability? = Reachability()
+    
+    func changeLanguageOfUI() {
+        
+        self.codeTitle_lbl.text = isComeFromVC?.localized(lang: langCode)
+        
+        self.cancelBtn.setTitle("CANCEL".localized(lang: langCode), for: UIControlState.normal)
+        self.submitBtn.setTitle("SUBMIT".localized(lang: langCode), for: UIControlState.normal)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if let strVC = isComeFromVC {
             if strVC == "pickupmode" {
-                codeTitle_lbl.text = "Pickup Code"
+                codeTitle_lbl.text = "Pickup Code".localized(lang: langCode)
             }else if strVC == "diagnosemode" {
-                codeTitle_lbl.text = "Diagnose Code"
+                codeTitle_lbl.text = "Diagnose Code".localized(lang: langCode)
             }
         }
                 
@@ -35,6 +42,8 @@ class PickUpCodeVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        self.changeLanguageOfUI()
         
         DispatchQueue.main.async {
             self.cancelBtn.titleLabel?.textColor = #colorLiteral(red: 0.1581287384, green: 0.6885935664, blue: 0.237049073, alpha: 1)
@@ -84,7 +93,7 @@ class PickUpCodeVC: UIViewController {
         }
         
         if (txtFPickUpCode.text?.count ?? 0) < 8 {
-            Alert.showAlert(strMessage: "Please Enter 8 digit Code", Onview: self)
+            Alert.showAlert(strMessage: "Please Enter 8 digit Code".localized(lang: langCode) as NSString, Onview: self)
         }else {
             
             if let strVC = isComeFromVC {
@@ -184,7 +193,7 @@ class PickUpCodeVC: UIViewController {
                                     
                                 //}
                             }else {
-                                Alert.showAlertWithTitle(strTitle: "InstaCash", strMessage: "Device doesn't Match! Please change your device, through which you place the order.", Onview: self)
+                                Alert.showAlertWithTitle(strTitle: "InstaCash".localized(lang: langCode) as NSString, strMessage: "Device doesn't Match! Please change your device, through which you place the order.".localized(lang: langCode) as NSString, Onview: self)
                             }
                         }else {
                             //run flow of PickUp Mode
@@ -217,15 +226,15 @@ class PickUpCodeVC: UIViewController {
                                   
                                 //}
                             }else {
-                                Alert.showAlertWithTitle(strTitle: "InstaCash", strMessage: "Device doesn't Match! Please change your device, through which you place the order.", Onview: self)
+                                Alert.showAlertWithTitle(strTitle: "InstaCash".localized(lang: langCode) as NSString, strMessage: "Device doesn't Match! Please change your device, through which you place the order.".localized(lang: langCode) as NSString, Onview: self)
                             }
                         }
                     }else {
                         
                         if withProcessCode == "diagnosemode" {
-                            Alert.showAlert(strMessage:"Invalid Diagnose Code" , Onview: self)
+                            Alert.showAlert(strMessage:"Invalid Diagnose Code".localized(lang: langCode) as NSString , Onview: self)
                         }else {
-                            Alert.showAlert(strMessage:"Invalid Pickup Code" , Onview: self)
+                            Alert.showAlert(strMessage:"Invalid Pickup Code".localized(lang: langCode) as NSString , Onview: self)
                         }
                         
                         //Alert.showAlert(strMessage:responseObject?["msg"] as! NSString , Onview: self)
@@ -238,7 +247,7 @@ class PickUpCodeVC: UIViewController {
             })
         }
         else {
-            Alert.showAlert(strMessage: "No connection found", Onview: self)
+            Alert.showAlert(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
         }
     }
     

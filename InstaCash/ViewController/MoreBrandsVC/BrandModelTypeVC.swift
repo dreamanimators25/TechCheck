@@ -13,25 +13,24 @@ import Firebase
 class BrandModelTypeVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate,UIScrollViewDelegate,UITextFieldDelegate {
 
     @IBOutlet weak var searchActivityIndicator: UIActivityIndicatorView!
-    @IBOutlet weak var searchBarBrand: UISearchBar!
-    @IBOutlet weak var lblSelectModel: UILabel!
     //@IBOutlet weak var tblViewSelectBrand: UITableView! //s.
     @IBOutlet weak var collectionViewSelectModel: UICollectionView! //s.
     @IBOutlet weak var collectionViewModel: UICollectionView!
+    
+    @IBOutlet weak var lblSellAnotherDevice: UILabel!
+    @IBOutlet weak var searchBarBrand: UISearchBar!
+    @IBOutlet weak var lblSelectBrand: UILabel!
+    @IBOutlet weak var lblSelectModel: UILabel!
+    
     var strGetBrandId = ""
     var arrBrand = [HomeModel]()
     var arrBrandTemp = [HomeModel]()
-
     var arrBrandModelType = [BrandTypeModel]()
-    
     var arrBrandSearch = [String]()
     var arrBrandModelTypeSearch = [NSDictionary]()
-    
     var isComingMore = false
     var isSearch = false
-    
     var listView = true
-
     var selectedIndex = -1
     var selectedIndexTemp = -1
 
@@ -61,11 +60,21 @@ class BrandModelTypeVC: UIViewController,UICollectionViewDelegate,UICollectionVi
             lblSelectModel.isHidden = true
         }
 
-        // Do any additional setup after loading the view.
+    }
+    
+    func changeLanguageOfUI() {
+        
+        self.lblSellAnotherDevice.text = "Sell Another Device".localized(lang: langCode)
+        self.lblSelectBrand.text = "Select Brand".localized(lang: langCode)
+        self.lblSelectModel.text = "Select Model".localized(lang: langCode)
+        self.searchBarBrand.placeholder = "Search Here...".localized(lang: langCode)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.isSearch = false
+        
+        self.changeLanguageOfUI()
     }
     
     @IBAction func btnBackPressed(_ sender: UIButton) {
@@ -100,7 +109,7 @@ class BrandModelTypeVC: UIViewController,UICollectionViewDelegate,UICollectionVi
             }
         }
         else{
-            Alert.showAlert(strMessage: "No Connection Found", Onview: self)
+            Alert.showAlert(strMessage: "No Connection Found".localized(lang: langCode) as NSString, Onview: self)
             
         }
     }
@@ -134,6 +143,7 @@ class BrandModelTypeVC: UIViewController,UICollectionViewDelegate,UICollectionVi
             cellCity.lblBrandName.text = arrBrand[indexPath.row].strBrandName
             let imgURL = URL(string:arrBrand[indexPath.row].strBrandLogo!)
             cellCity.imgMobile.sd_setImage(with: imgURL)
+            
             if selectedIndex == indexPath.row{
                 cellCity.backgroundColor = navColor
                 cellCity.lblBrandName.textColor = UIColor.white
@@ -392,6 +402,7 @@ class BrandModelTypeVC: UIViewController,UICollectionViewDelegate,UICollectionVi
             
         }
     }
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if (searchBar.text?.count)! > 2{
             searchBar.resignFirstResponder()
@@ -402,6 +413,7 @@ class BrandModelTypeVC: UIViewController,UICollectionViewDelegate,UICollectionVi
         }
         
     }
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText == "" {
             isSearch = false
@@ -427,6 +439,7 @@ class BrandModelTypeVC: UIViewController,UICollectionViewDelegate,UICollectionVi
         let web = WebServies()
         web.postRequest(urlString: strURL, paramDict: (parameters as! Dictionary<String, AnyObject>), completionHandler: completionHandler)
     }
+    
     func fireWebServiceForSearchMobileModel()
     {
         if reachability?.connection.description != "No Connection"{
@@ -466,12 +479,14 @@ class BrandModelTypeVC: UIViewController,UICollectionViewDelegate,UICollectionVi
                                         }
                                     }
                                 }
+                                
                                 if self.arrBrandModelTypeSearch.count > 0{
                                     AppEventsLogger.log(self.searchBarBrand.text!)
 
                                     //self.tblViewSelectBrand.reloadData() //s.
                                     self.collectionViewSelectModel.reloadData() //s.
                                 }
+                                
                                 if self.arrBrandSearch.count > 0{
                                     let unique = Array(Set(self.arrBrandSearch))
                                     var count = -1
@@ -501,7 +516,7 @@ class BrandModelTypeVC: UIViewController,UICollectionViewDelegate,UICollectionVi
                 }
                 else
                 {
-                    Alert.showAlert(strMessage: "Seems Connection Found", Onview: self)
+                    Alert.showAlert(strMessage: "Seems Connection Found".localized(lang: langCode) as NSString, Onview: self)
 
                 }
             })
@@ -509,7 +524,7 @@ class BrandModelTypeVC: UIViewController,UICollectionViewDelegate,UICollectionVi
         }
         else
         {
-            Alert.showAlert(strMessage: "No Connection Found", Onview: self)
+            Alert.showAlert(strMessage: "No Connection Found".localized(lang: langCode) as NSString, Onview: self)
         }
         
     }

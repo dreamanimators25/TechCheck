@@ -20,10 +20,8 @@ class SellerDetailsVC: UIViewController,UITextFieldDelegate {
     var quatationId1 = String() //s.
     var totalNumberCount = 0
     
-    @IBOutlet weak var txtName: UITextField!
-    @IBOutlet weak var txtEmail: UITextField!
+    
     @IBOutlet weak var txtCountryCode: UITextField!
-    @IBOutlet weak var txtMobile: UITextField!
     
     @IBOutlet weak var lblDeviceName: UILabel!
     @IBOutlet weak var lblDevicePrice: UILabel!
@@ -33,6 +31,12 @@ class SellerDetailsVC: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var txtViewEmail: UIView!
     @IBOutlet weak var txtViewMobile: UIView!
     
+    @IBOutlet weak var lblUserDetail: UILabel!
+    @IBOutlet weak var lblYourDetail: UILabel!
+    @IBOutlet weak var txtName: UITextField!
+    @IBOutlet weak var txtEmail: UITextField!
+    @IBOutlet weak var txtMobile: UITextField!
+    @IBOutlet weak var btnNext: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,7 +61,7 @@ class SellerDetailsVC: UIViewController,UITextFieldDelegate {
         self.lblDeviceName.text = self.strProductName1
         //self.lblDevicePrice.text = "\(self.getFinalPrice1)"
         
-        self.lblDevicePrice.text = "Device quoted is: " + CustomUserDefault.getCurrency() + getFinalPrice1.formattedWithSeparator //s.
+        self.lblDevicePrice.text = "Device quoted is: ".localized(lang: langCode) + CustomUserDefault.getCurrency() + getFinalPrice1.formattedWithSeparator //s.
         
         let borderWidth = CGFloat(0.5)
         let borderColor = UIColor.darkGray.cgColor
@@ -89,6 +93,18 @@ class SellerDetailsVC: UIViewController,UITextFieldDelegate {
         if let number = CustomUserDefault.getPhoneNumber() {
             self.txtMobile.text = number
         }
+        
+        self.changeLanguageOfUI()
+    }
+    
+    func changeLanguageOfUI() {
+       
+        self.lblUserDetail.text = "User Detail".localized(lang: langCode)
+        self.lblYourDetail.text = "Your details".localized(lang: langCode)
+        self.txtName.placeholder = "Enter Name".localized(lang: langCode)
+        self.txtEmail.placeholder = "Enter Email Id".localized(lang: langCode)
+        self.txtMobile.placeholder = "Enter Mobile Number".localized(lang: langCode)
+        self.btnNext.setTitle("NEXT".localized(lang: langCode), for: UIControlState.normal)
         
     }
 
@@ -125,25 +141,25 @@ class SellerDetailsVC: UIViewController,UITextFieldDelegate {
     {
         if txtName.text!.isEmpty
         {
-            Alert.showAlert(strMessage: "Please enter name" as NSString, Onview: self)
+            Alert.showAlert(strMessage: "Please enter name".localized(lang: langCode) as NSString, Onview: self)
             return false
         }
         else if txtEmail.text!.isEmpty
         {
-            Alert.showAlert(strMessage: "Please enter E-mail address" as NSString, Onview: self)
+            Alert.showAlert(strMessage: "Please enter E-mail address".localized(lang: langCode) as NSString, Onview: self)
             return false
         }
         else if(!Alert.isValidEmail(testStr: txtEmail.text!))
         {
-            Alert.showAlert(strMessage: "Please Enter Correct Email Address" as NSString, Onview: self)
+            Alert.showAlert(strMessage: "Please Enter Correct Email Address".localized(lang: langCode) as NSString, Onview: self)
             return false
         }
         else if txtMobile.text!.isEmpty
         {
-            Alert.showAlert(strMessage: "Please enter mobile number", Onview: self)
+            Alert.showAlert(strMessage: "Please enter mobile number".localized(lang: langCode) as NSString, Onview: self)
             return false
         }else if txtMobile.text?.count ?? 0 < totalNumberCount {
-            Alert.showAlert(strMessage: "Please enter Valid mobile number", Onview: self)
+            Alert.showAlert(strMessage: "Please enter Valid mobile number".localized(lang: langCode) as NSString, Onview: self)
             return false
         }
         

@@ -37,6 +37,19 @@ class MobileNumberVC: UIViewController,UITextFieldDelegate {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.changeLanguageOfUI()
+    }
+    
+    func changeLanguageOfUI() {
+        
+        self.btnSend.setTitle("Confirm verification code".localized(lang: langCode), for: UIControlState.normal)
+        self.btnResend.setTitle("Resend verification code".localized(lang: langCode), for: UIControlState.normal)
+        
+    }
+    
     //MARK:- uitextfield delegate methpds
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -87,7 +100,7 @@ class MobileNumberVC: UIViewController,UITextFieldDelegate {
         
         if(txt1.text?.count ?? 0 <= 0 || txt2.text?.count ?? 0 <= 0 || txt3.text?.count ?? 0 <= 0 || txt4.text?.count ?? 0 <= 0)
         {
-            Toast(text:"Please enter OTP with 4 digits").show()
+            Toast(text:"Please enter OTP with 4 digits".localized(lang: langCode)).show()
         }
         else
         {
@@ -103,14 +116,11 @@ class MobileNumberVC: UIViewController,UITextFieldDelegate {
     }
     
     @IBAction func btnCancelPressed(_ sender: UIButton) {
-        
         self.view.endEditing(true)
-        
         self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func btnResendPresed(_ sender: UIButton) {
-        
         fireWebServiceForFbLogin(isResend: true)
     }
     
@@ -226,7 +236,7 @@ class MobileNumberVC: UIViewController,UITextFieldDelegate {
         }
         else
         {
-            Alert.showAlert(strMessage: "No connection found", Onview: self)
+            Alert.showAlert(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
         }
     }
     
@@ -291,7 +301,7 @@ class MobileNumberVC: UIViewController,UITextFieldDelegate {
         }
         else
         {
-            Alert.showAlert(strMessage: "No connection found", Onview: self)
+            Alert.showAlert(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
         }
     }
     
@@ -428,7 +438,7 @@ class MobileNumberVC: UIViewController,UITextFieldDelegate {
         }
         else
         {
-            Alert.showAlert(strMessage: "No connection found", Onview: self)
+            Alert.showAlert(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
         }
         
     }

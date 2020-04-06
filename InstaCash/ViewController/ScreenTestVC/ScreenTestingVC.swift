@@ -38,9 +38,16 @@ class LevelView : UIView {
 class ScreenTestingVC: UIViewController,RecorderDelegate {
     
     @IBOutlet weak var viewGuide: UIView!
-
     @IBOutlet weak var screenImageView: UIImageView!
     //@IBOutlet weak var startScreenBtn: UIButton!
+    
+    @IBOutlet weak var lblCheckingScreenCalibration: UILabel!
+    @IBOutlet weak var lblPressStart: UILabel!
+    @IBOutlet weak var btnGuideMe: UIButton!
+    @IBOutlet weak var btnStart1: UIButton!
+    @IBOutlet weak var btnRetry: UIButton!
+    @IBOutlet weak var btnStart2: UIButton!
+    
     
     var obstacleViews : [UIView] = []
     var flags: [Bool] = []
@@ -84,6 +91,23 @@ class ScreenTestingVC: UIViewController,RecorderDelegate {
             } catch {
             }
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.changeLanguageOfUI()
+    }
+    
+    func changeLanguageOfUI() {
+        
+        self.lblCheckingScreenCalibration.text = "Checking screen calibration".localized(lang: langCode)
+        self.lblPressStart.text = "Press “Start’ and follow the path".localized(lang: langCode)
+        
+        self.btnGuideMe.setTitle("Guide me".localized(lang: langCode), for: UIControlState.normal)
+        self.btnStart1.setTitle("Start".localized(lang: langCode), for: UIControlState.normal)
+        self.btnRetry.setTitle("Retry".localized(lang: langCode), for: UIControlState.normal)
+        self.btnStart2.setTitle("Start".localized(lang: langCode), for: UIControlState.normal)
     }
     
     override func viewDidLoad() {
@@ -194,7 +218,7 @@ class ScreenTestingVC: UIViewController,RecorderDelegate {
     // MARK:- navigation bar setup.
     func setNavigationBar() -> Void
     {
-        self.title = "InstaCash"
+        self.title = "InstaCash".localized(lang: langCode)
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.isNavigationBarHidden = false
         let btnBack = UIButton(frame: CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: 25, height: 25)))
@@ -360,13 +384,13 @@ class ScreenTestingVC: UIViewController,RecorderDelegate {
             //self.present(vc, animated: true, completion: nil)
         }else{
             
-            let title = "Screen Diagnosis Test Failed!"
-            let message = "Do you want to retry the test?"
+            let title = "Screen Diagnosis Test Failed!".localized(lang: langCode)
+            let message = "Do you want to retry the test?".localized(lang: langCode)
             // Create the dialog
             let popup = PopupDialog(title: title, message: message,buttonAlignment: .horizontal, transitionStyle: .bounceDown, tapGestureDismissal: false, panGestureDismissal :false)
             
             // Create buttons
-            let buttonOne = DefaultButton(title: "Yes") {
+            let buttonOne = DefaultButton(title: "Yes".localized(lang: langCode)) {
                 popup.dismiss(animated: true, completion: nil)
                 DispatchQueue.main.async {
                     for v in self.obstacleViews{
@@ -383,7 +407,7 @@ class ScreenTestingVC: UIViewController,RecorderDelegate {
                 
             }
             
-            let buttonTwo = CancelButton(title: "No") {
+            let buttonTwo = CancelButton(title: "No".localized(lang: langCode)) {
                 //Do Nothing
                 userDefaults.setValue(true, forKey: "screen_complete")
                 UserDefaults.standard.set(false, forKey: "screen")

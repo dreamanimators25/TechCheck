@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,6 +23,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MYCendolVC" customModule="InstaCash" customModuleProvider="target">
             <connections>
+                <outlet property="btnProceed" destination="tSv-xz-hLg" id="b2d-FR-sqn"/>
+                <outlet property="btnSkip" destination="5fx-fa-ddi" id="XnW-F8-u94"/>
+                <outlet property="lblAshita" destination="A9W-jA-yet" id="NqD-re-jr1"/>
+                <outlet property="lblPleaseEnter" destination="uHa-61-xQK" id="AW4-Vz-Wq5"/>
+                <outlet property="lblTransferDetail" destination="dWH-HK-s3u" id="3to-Eq-a4m"/>
                 <outlet property="tncTextView" destination="9rZ-ve-sSn" id="3ll-F9-63J"/>
                 <outlet property="view" destination="KVN-il-w1p" id="PU2-PR-AEe"/>
             </connections>
@@ -203,16 +208,16 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bb5-hu-wUb">
-                    <rect key="frame" x="0.0" y="69" width="320" height="65"/>
+                    <rect key="frame" x="0.0" y="69" width="320" height="65.5"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transfer Details" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qP0-Up-bBJ">
-                            <rect key="frame" x="15" y="10" width="145" height="24.5"/>
+                            <rect key="frame" x="15" y="10" width="150.5" height="25"/>
                             <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="21"/>
                             <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please Enter the details" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ezB-k0-HQN">
-                            <rect key="frame" x="15" y="39.5" width="137" height="15.5"/>
+                            <rect key="frame" x="15" y="40" width="135.5" height="15.5"/>
                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
                             <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -228,7 +233,7 @@
                     </constraints>
                 </view>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UTb-8q-Pdi" customClass="TPKeyboardAvoidingScrollView">
-                    <rect key="frame" x="0.0" y="134" width="320" height="284"/>
+                    <rect key="frame" x="0.0" y="134.5" width="320" height="284"/>
                     <subviews>
                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oWD-cp-t6l">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="300"/>

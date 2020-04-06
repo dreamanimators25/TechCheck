@@ -15,15 +15,15 @@ class MisMatchVC: UIViewController {
 
     @IBOutlet weak var activityCancel: UIActivityIndicatorView!
     @IBOutlet weak var activityAgree: UIActivityIndicatorView!
-    @IBOutlet weak var btnCancel: UIButton!
-    @IBOutlet weak var btnAgree: UIButton!
     @IBOutlet weak var lblResultMisMatch: UILabel!
     @IBOutlet weak var lblPrice: UILabel!
-    @IBOutlet weak var lblConditionString: UILabel!
+    @IBOutlet weak var ResultBaseView: UIView!
     
+    @IBOutlet weak var lblConditionString: UILabel!
     @IBOutlet weak var lblOldCond: UILabel!
     @IBOutlet weak var lblNewCond: UILabel!
-    @IBOutlet weak var ResultBaseView: UIView!
+    @IBOutlet weak var btnAgree: UIButton!
+    @IBOutlet weak var btnCancel: UIButton!
     
     let reachability: Reachability? = Reachability()
     var resultJSONGet = JSON()
@@ -32,6 +32,20 @@ class MisMatchVC: UIViewController {
     var strDiagnosisId = ""
     var strConditionString = ""
     var returnDictionary : NSMutableDictionary = [:]
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.changeLanguageOfUI()
+    }
+    
+    func changeLanguageOfUI() {
+        
+        self.lblConditionString.text = "Conditional Mismatch Found!".localized(lang: langCode)
+        self.lblOldCond.text = "Old Condition".localized(lang: langCode)
+        self.lblNewCond.text = "New Condition".localized(lang: langCode)
+        
+        self.btnAgree.setTitle("Swipe Here To Agree With Price".localized(lang: langCode), for: UIControlState.normal)
+        self.btnCancel.setTitle("Swipe Here To Cancel This Order".localized(lang: langCode), for: UIControlState.normal)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,10 +57,10 @@ class MisMatchVC: UIViewController {
             
         if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
             
-            btnCancel.setTitle("Swipe Here To Disagree This Order", for: .normal)
+            btnCancel.setTitle("Swipe Here To Disagree This Order".localized(lang: langCode), for: .normal)
         }
         else{
-            btnCancel.setTitle("Swipe Here To Cancel This Order", for: .normal)
+            btnCancel.setTitle("Swipe Here To Cancel This Order".localized(lang: langCode), for: .normal)
         }
         
     }
@@ -147,8 +161,8 @@ class MisMatchVC: UIViewController {
                             self.btnAgree.isHidden = true
                             self.btnCancel.isHidden = true
                             
-                            let alertController = UIAlertController(title: "InstaCash", message: "Daignosis successfully completed!", preferredStyle: .alert)
-                            let sendButton = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+                            let alertController = UIAlertController(title: "InstaCash".localized(lang: langCode), message: "Daignosis successfully completed!".localized(lang: langCode), preferredStyle: .alert)
+                            let sendButton = UIAlertAction(title: "OK".localized(lang: langCode), style: .default, handler: { (action) -> Void in
                                 obj_app.setRotControllersWithSideMenu(sendMyOrderArray: [HomeModel](), sendBrandArray: [HomeModel](), SendPupularDevoice: [HomeModel](), SendMyCurrentDevice: [HomeModel](), isComingFromWelcome: false,strAppCodeGet:"")
                             })
                             
@@ -215,9 +229,9 @@ class MisMatchVC: UIViewController {
                     self.btnAgree.isHidden = true
                     self.btnCancel.isHidden = true
                     
-                    let alertController = UIAlertController(title: "InstaCash", message:"Seems connection loss from server", preferredStyle: .alert)
+                    let alertController = UIAlertController(title: "InstaCash".localized(lang: langCode), message:"Seems connection loss from server".localized(lang: langCode), preferredStyle: .alert)
                     
-                    let sendButton = UIAlertAction(title: "Ok", style: .default, handler: { (action) -> Void in
+                    let sendButton = UIAlertAction(title: "Ok".localized(lang: langCode), style: .default, handler: { (action) -> Void in
                         
                     })
                     
@@ -230,9 +244,9 @@ class MisMatchVC: UIViewController {
         }
         else
         {
-            let alertController = UIAlertController(title: "InstaCash", message:"No connection found", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "InstaCash".localized(lang: langCode), message:"No connection found".localized(lang: langCode), preferredStyle: .alert)
             
-            let sendButton = UIAlertAction(title: "Ok", style: .default, handler: { (action) -> Void in
+            let sendButton = UIAlertAction(title: "Ok".localized(lang: langCode), style: .default, handler: { (action) -> Void in
             
             })
             alertController.addAction(sendButton)
@@ -429,7 +443,7 @@ class MisMatchVC: UIViewController {
                                 //let strAmountfinal = String(format: "%d", amount)
                                 print(amount)
                                 
-                                self.lblPrice.text = "New Price:- " + CustomUserDefault.getCurrency() + amount
+                                self.lblPrice.text = "New Price:- ".localized(lang: langCode) + CustomUserDefault.getCurrency() + amount
                                 let resultData = responseObject?["newConditionString"] as! String
                                 let data = Data(resultData.utf8)
                                 if let attributedString = try? NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil) {
@@ -450,7 +464,7 @@ class MisMatchVC: UIViewController {
 
                                 let amount = responseObject?["newAmount"] as! Int64
                                 let strAmountfinal = String(format: "%d", amount)
-                                self.lblPrice.text = "New Price:- " + CustomUserDefault.getCurrency() + strAmountfinal
+                                self.lblPrice.text = "New Price:- ".localized(lang: langCode) + CustomUserDefault.getCurrency() + strAmountfinal
                                 let resultData = responseObject?["compareData"] as! String
                                 let data = Data(resultData.utf8)
                                 if let attributedString = try? NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil) {
@@ -474,9 +488,9 @@ class MisMatchVC: UIViewController {
                 }
                 else
                 {
-                    let alertController = UIAlertController(title: "InstaCash", message:"Seems connection loss from server", preferredStyle: .alert)
+                    let alertController = UIAlertController(title: "InstaCash".localized(lang: langCode), message:"Seems connection loss from server".localized(lang: langCode), preferredStyle: .alert)
                     
-                    let sendButton = UIAlertAction(title: "Ok", style: .default, handler: { (action) -> Void in
+                    let sendButton = UIAlertAction(title: "Ok".localized(lang: langCode), style: .default, handler: { (action) -> Void in
                         print("OK")
                     })
                     alertController.addAction(sendButton)
@@ -486,9 +500,9 @@ class MisMatchVC: UIViewController {
         }
         else
         {
-            let alertController = UIAlertController(title: "InstaCash", message:"No connection found", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "InstaCash".localized(lang: langCode), message:"No connection found".localized(lang: langCode), preferredStyle: .alert)
             
-            let sendButton = UIAlertAction(title: "Ok", style: .default, handler: { (action) -> Void in
+            let sendButton = UIAlertAction(title: "Ok".localized(lang: langCode), style: .default, handler: { (action) -> Void in
                 print("OK")
             })
             alertController.addAction(sendButton)
@@ -650,8 +664,8 @@ class MisMatchVC: UIViewController {
                         }
                         else {
                             //userDefaults.removeObject(forKey: "ChangeModeOrderId")
-                            let alertController = UIAlertController(title: "InstaCash", message:mesasge, preferredStyle: .alert)
-                            let sendButton = UIAlertAction(title: "Ok", style: .default, handler: { (action) -> Void in
+                            let alertController = UIAlertController(title: "InstaCash".localized(lang: langCode), message:mesasge.localized(lang: langCode), preferredStyle: .alert)
+                            let sendButton = UIAlertAction(title: "Ok".localized(lang: langCode), style: .default, handler: { (action) -> Void in
                                 
                             if userDefaults.value(forKey: "ChangeModeComingFromDiadnosis") as? String == "Pickup" {
                                     
@@ -692,7 +706,7 @@ class MisMatchVC: UIViewController {
                 {
                     self.setButtonFrame(isforCancelDone: isforCancel)
 
-                    Alert.showAlert(strMessage: "Seems connection loss from server", Onview: self)
+                    Alert.showAlert(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
                     
                 }
             })
@@ -702,7 +716,7 @@ class MisMatchVC: UIViewController {
         {
             self.setButtonFrame(isforCancelDone: isforCancel)
 
-            Alert.showAlert(strMessage: "No connection found", Onview: self)
+            Alert.showAlert(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
         }
         
     }
@@ -718,7 +732,7 @@ class MisMatchVC: UIViewController {
             self.btnCancel.frame.origin.x = self.view.frame.size.width/2 - 130
             self.btnCancel.layer.cornerRadius = 0
             self.btnCancel.clipsToBounds = true
-            self.btnCancel.setTitle("Swipe Here To Cancel This Order", for: .normal)
+            self.btnCancel.setTitle("Swipe Here To Cancel This Order".localized(lang: langCode), for: .normal)
         }
         else {
             self.btnAgree.frame.size.width = 260
@@ -726,7 +740,7 @@ class MisMatchVC: UIViewController {
             self.btnAgree.frame.origin.x = self.view.frame.size.width/2 - 130
             self.btnAgree.layer.cornerRadius = 0
             self.btnAgree.clipsToBounds = true
-            self.btnAgree.setTitle("Swipe Here To Agree With Price", for: .normal)
+            self.btnAgree.setTitle("Swipe Here To Agree With Price".localized(lang: langCode), for: .normal)
             
             }
         }

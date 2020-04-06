@@ -10,12 +10,20 @@ import UIKit
 
 class MYMaxisVC: UIViewController {
     
+    @IBOutlet weak var scrlView: UIScrollView!
+    @IBOutlet weak var ddView: UIView!
+    
+    
+    @IBOutlet weak var lblMaxis: UILabel!
+    @IBOutlet weak var lblTransferDetail: UILabel!
+    @IBOutlet weak var lblPleaseEnter: UILabel!
     @IBOutlet weak var txtFBankHolderName: UITextField!
     @IBOutlet weak var txtFBankAccountNumber: UITextField!
     @IBOutlet weak var txtFPromoterID: UITextField!
     @IBOutlet weak var txtFReferrelID: UITextField!
-    @IBOutlet weak var scrlView: UIScrollView!
-    @IBOutlet weak var ddView: UIView!
+    @IBOutlet weak var btnSkip: UIButton!
+    @IBOutlet weak var btnProceed: UIButton!
+    
     
     let reachability: Reachability? = Reachability()
     var quatationId = String()
@@ -35,8 +43,26 @@ class MYMaxisVC: UIViewController {
         self.getPaymentDetailsFromServer()
     }
     
+    func changeLanguageOfUI() {
+        
+        self.lblMaxis.text = "ASHITA".localized(lang: langCode)
+        self.lblTransferDetail.text = "Transfer Details".localized(lang: langCode)
+        self.lblPleaseEnter.text = "Please Enter the details".localized(lang: langCode)
+        
+        self.txtFBankHolderName.placeholder = "Bank Holders Name".localized(lang: langCode)
+        self.txtFBankAccountNumber.placeholder = "Bank Account Number".localized(lang: langCode)
+        self.txtFPromoterID.placeholder = "Promoter ID".localized(lang: langCode)
+        self.txtFReferrelID.placeholder = "Referral ID".localized(lang: langCode)
+        
+        self.btnSkip.setTitle("SKIP".localized(lang: langCode), for: UIControlState.normal)
+        self.btnProceed.setTitle("PROCEED".localized(lang: langCode), for: UIControlState.normal)
+        
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        self.changeLanguageOfUI()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             
@@ -47,7 +73,7 @@ class MYMaxisVC: UIViewController {
             self.drop.options = self.arrDrop
             self.drop.animationType = .Bouncing
             self.drop.textAlignment = .left
-            self.drop.placeholder = "Select Bank Name"
+            self.drop.placeholder = "Select Bank Name".localized(lang: langCode)
             
             self.drop.didSelect { (option, index) in
                 self.drop.placeholder = option
@@ -79,26 +105,26 @@ class MYMaxisVC: UIViewController {
     {
         if txtFBankHolderName.text!.isEmpty
         {
-            Alert.showAlert(strMessage: "Please enter account holder's name" as NSString, Onview: self)
+            Alert.showAlert(strMessage: "Please enter account holder's name".localized(lang: langCode) as NSString, Onview: self)
             return false
         }
         else if txtFBankAccountNumber.text!.isEmpty
         {
-            Alert.showAlert(strMessage: "Please enter account number", Onview: self)
+            Alert.showAlert(strMessage: "Please enter account number".localized(lang: langCode) as NSString, Onview: self)
             return false
         }
         else if self.strSelectedBankName == ""
         {
-            Alert.showAlert(strMessage: "Please select your bank" as NSString, Onview: self)
+            Alert.showAlert(strMessage: "Please select your bank".localized(lang: langCode) as NSString, Onview: self)
             return false
         }else if txtFPromoterID.text!.isEmpty
         {
-            Alert.showAlert(strMessage: "Please enter promoter ID" as NSString, Onview: self)
+            Alert.showAlert(strMessage: "Please enter promoter ID".localized(lang: langCode) as NSString, Onview: self)
             return false
         }
         else if txtFReferrelID.text!.isEmpty
         {
-            Alert.showAlert(strMessage: "Please enter referrel ID", Onview: self)
+            Alert.showAlert(strMessage: "Please enter referrel ID".localized(lang: langCode) as NSString, Onview: self)
             return false
         }
         
@@ -158,12 +184,12 @@ class MYMaxisVC: UIViewController {
                 }
                 else{
                     debugPrint(error as Any)
-                    Alert.showAlert(strMessage: "Seems connection loss from server", Onview: self)
+                    Alert.showAlert(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
                 }
             })
             
         }else{
-            Alert.showAlert(strMessage: "No Connection Found", Onview: self)
+            Alert.showAlert(strMessage: "No Connection Found".localized(lang: langCode) as NSString, Onview: self)
         }
         
     }
@@ -230,12 +256,12 @@ class MYMaxisVC: UIViewController {
                 }
                 else{
                     debugPrint(error as Any)
-                    Alert.showAlert(strMessage: "Seems connection loss from server", Onview: self)
+                    Alert.showAlert(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
                 }
             })
             
         }else{
-            Alert.showAlert(strMessage: "No Connection Found", Onview: self)
+            Alert.showAlert(strMessage: "No Connection Found".localized(lang: langCode) as NSString, Onview: self)
         }
         
     }

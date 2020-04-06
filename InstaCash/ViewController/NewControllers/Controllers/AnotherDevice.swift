@@ -16,14 +16,27 @@ class AnotherDevice: UIViewController, UICollectionViewDelegate, UICollectionVie
     @IBOutlet weak var collectionViewDevice: UICollectionView!
     @IBOutlet weak var collectionViewCompany: UICollectionView!
     
+    @IBOutlet weak var lblSearchAnother: UILabel!
+    @IBOutlet weak var lblSearchByManufacture: UILabel!
+    @IBOutlet weak var lblPopularDevice: UILabel!
+    
     var arrBrandDeviceGetData = [HomeModel]()
     var arrMyOderGetData = [HomeModel]()
     var arrMyCurrentDeviceSend = [HomeModel]()
     var arrPopularDeviceGetData = [HomeModel]()
     var arrBrandModelType = [HomeModel]()
     var strAppModeCode = ""
-    
     let reachability: Reachability? = Reachability()
+    
+    
+    func changeLanguageOfUI() {
+        
+        self.lblSearchAnother.text = "Sell Another Device".localized(lang: langCode)
+        self.lblSearchByManufacture.text = "Search by manufacturer".localized(lang: langCode)
+        self.lblPopularDevice.text = "Popular devices".localized(lang: langCode)
+        
+        //self.btnGuideMe.setTitle("Guide me".localized(lang: langCode), for: UIControlState.normal)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +51,7 @@ class AnotherDevice: UIViewController, UICollectionViewDelegate, UICollectionVie
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.changeLanguageOfUI()
         
         userDefaults.removeObject(forKey: "ChangeModeComingFromDiadnosis")
         userDefaults.setValue("", forKey: "ChangeModeComingFromDiadnosis")
@@ -176,7 +190,7 @@ class AnotherDevice: UIViewController, UICollectionViewDelegate, UICollectionVie
                     self.navigationController?.pushViewController(vc, animated: true)
                 }
                 else {
-                    Alert.showAlert(strMessage: "Device is not map,Please try later", Onview: self)
+                    Alert.showAlert(strMessage: "Device is not map,Please try later".localized(lang: langCode) as NSString, Onview: self)
                     
                 }
                 //                    }else{
@@ -237,6 +251,7 @@ class AnotherDevice: UIViewController, UICollectionViewDelegate, UICollectionVie
                     "event_action":"Diagnosis From Question Button Click Action",
                     "event_label":"Diagnosis From Question Button Test"
                     ])
+                
                 let strAmount  = String(format: "%d", arrPopularDeviceGetData[indexPath.row].maximumTotal!)
                 Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
                     AnalyticsParameterItemID: arrPopularDeviceGetData[indexPath.row].strPopularId!,
@@ -250,6 +265,7 @@ class AnotherDevice: UIViewController, UICollectionViewDelegate, UICollectionVie
                 //                            AnalyticsParameterItemName: "diagnosfromquestion_tapped",
                 //                            AnalyticsParameterContentType: "cont"
                 //                            ])
+                
                 userDefaults.removeObject(forKey: "otherProductDeviceID")
                 userDefaults.removeObject(forKey: "otherProductDeviceImage")
                 userDefaults.setValue(arrPopularDeviceGetData[indexPath.row].strPopularImage, forKey: "otherProductDeviceImage")

@@ -12,6 +12,9 @@ class CountrySelection: UIViewController, UICollectionViewDelegate, UICollection
     
     @IBOutlet weak var collectionForCountry: UICollectionView!
     
+    @IBOutlet weak var lblArea: UILabel!
+    @IBOutlet weak var btnNext: UIButton!
+    
     var arrCityData = [CityModel]()
     var states = [String]()
     var cities = [String]()
@@ -19,6 +22,18 @@ class CountrySelection: UIViewController, UICollectionViewDelegate, UICollection
     var isSelectedIndex = -1
     var stateSelection = 0
     var selectedState = "Delhi"
+    
+    func changeLanguageOfUI() {
+        
+        self.lblArea.text = "Areas we serve".localized(lang: langCode)
+        self.btnNext.setTitle("Next".localized(lang: langCode), for: UIControlState.normal)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.changeLanguageOfUI()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,7 +100,6 @@ class CountrySelection: UIViewController, UICollectionViewDelegate, UICollection
             }
         }
         
-        // Do any additional setup after loading the view.
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -107,7 +121,6 @@ class CountrySelection: UIViewController, UICollectionViewDelegate, UICollection
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         return CGSize(width:self.collectionForCountry.frame.width/2, height:self.collectionForCountry.frame.height/6)
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -187,13 +200,13 @@ class CountrySelection: UIViewController, UICollectionViewDelegate, UICollection
         
         if(stateSelection == 0)
         {
-            Toast(text:"Please select state").show()
+            Toast(text:"Please select state".localized(lang: langCode)).show()
         }
         else
         {
             if CustomUserDefault.getCityId().isEmpty {
                 
-                Toast(text:"Please select city").show()
+                Toast(text:"Please select city".localized(lang: langCode)).show()
                 
             }
             else

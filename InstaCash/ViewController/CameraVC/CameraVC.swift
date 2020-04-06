@@ -16,6 +16,14 @@ class CameraVC: UIViewController {
     
     @IBOutlet weak var lblPrice: UILabel!
     
+    @IBOutlet weak var lblCheckCamera: UILabel!
+    @IBOutlet weak var lblGetReady: UILabel!
+    @IBOutlet weak var lblTap: UILabel!
+    @IBOutlet weak var lblPressCapture: UILabel!
+    @IBOutlet weak var btnStartCamera: UIButton!
+    @IBOutlet weak var btnSkip: UIButton!
+
+    
     var resultJSON = JSON()
     var isComingFromTestResult = false
     var isComingFromProductquote = false
@@ -24,6 +32,7 @@ class CameraVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         if isComingFromTestResult == false && isComingFromProductquote == false{
             userDefaults.removeObject(forKey: "camera_complete")
             userDefaults.setValue(false, forKey: "camera_complete")
@@ -31,6 +40,22 @@ class CameraVC: UIViewController {
         
         lblPrice.text = CustomUserDefault.getCurrency()
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.changeLanguageOfUI()
+    }
+    
+    func changeLanguageOfUI() {
+        
+        self.lblCheckCamera.text = "Checking cameras".localized(lang: langCode)
+        self.lblGetReady.text = "Get ready to smile. We’re making sure this device is selfie-ready!".localized(lang: langCode)
+        self.lblTap.text = "1. Tap anywhere on the screen to autofocus".localized(lang: langCode)
+        self.lblPressCapture.text = "2. Press capture to take a shot!".localized(lang: langCode)
+        
+        self.btnStartCamera.setTitle("Start Camera Check".localized(lang: langCode), for: UIControlState.normal)
+        self.btnSkip.setTitle("Skip".localized(lang: langCode), for: UIControlState.normal)
+        
     }
 
     @IBAction func btnClickPicturePressed(_ sender: UIButton) {
@@ -111,14 +136,14 @@ class CameraVC: UIViewController {
     
     @IBAction func btnSkipPressed(_ sender: UIButton) {
         // Prepare the popup assets
-        let title = "Camera Diagnosis"
-        let message = "If you skip this test there would be a substantial decline in the price offered. Do you still want to skip?"
+        let title = "Camera Diagnosis".localized(lang: langCode)
+        let message = "If you skip this test there would be a substantial decline in the price offered. Do you still want to skip?".localized(lang: langCode)
         
         // Create the dialog
         let popup = PopupDialog(title: title, message: message,buttonAlignment: .horizontal, transitionStyle: .bounceDown, tapGestureDismissal: false, panGestureDismissal :false)
         
         // Create buttons
-        let buttonOne = CancelButton(title: "Yes") {
+        let buttonOne = CancelButton(title: "Yes".localized(lang: langCode)) {
             DispatchQueue.main.async() {
                 UserDefaults.standard.set(false, forKey: "camera")
                 userDefaults.setValue(true, forKey: "camera_complete")
@@ -160,7 +185,7 @@ class CameraVC: UIViewController {
             }
         }
         
-        let buttonTwo = DefaultButton(title: "No") {
+        let buttonTwo = DefaultButton(title: "No".localized(lang: langCode)) {
             //Do Nothing
             popup.dismiss(animated: true, completion: nil)
         }

@@ -18,6 +18,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OffersAndPromotionsVC" customModule="InstaCash" customModuleProvider="target">
             <connections>
                 <outlet property="homeCreditImgView" destination="fGM-dH-P4A" id="So7-MV-E2l"/>
+                <outlet property="lblOfferPromotions" destination="2bf-bs-o0x" id="myy-7z-Blk"/>
                 <outlet property="oppoImgView" destination="Waf-q2-UYP" id="9or-4G-Oz4"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

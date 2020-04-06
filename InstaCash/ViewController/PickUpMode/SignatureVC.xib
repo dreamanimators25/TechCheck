@@ -20,6 +20,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignatureVC" customModule="InstaCash" customModuleProvider="target">
             <connections>
+                <outlet property="btnClear" destination="DHL-i4-ZEH" id="Rlf-2w-MDf"/>
+                <outlet property="btnUpload" destination="wzh-Nf-rWM" id="UTu-Nv-5ey"/>
+                <outlet property="lblCustomerSignature" destination="BPd-ax-tcA" id="Sgs-gI-SRi"/>
+                <outlet property="lblPleaseAsk" destination="Stj-9g-I6q" id="c5C-y5-EvO"/>
                 <outlet property="signatureBaseView" destination="hpR-fV-sav" id="EnR-TJ-0PA"/>
                 <outlet property="signatureView" destination="j41-vE-RRe" id="OUh-Wj-X7o"/>
                 <outlet property="view" destination="E23-wx-foQ" id="UCg-x3-jX9"/>

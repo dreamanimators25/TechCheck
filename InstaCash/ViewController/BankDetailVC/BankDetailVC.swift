@@ -45,15 +45,16 @@ class BankDetailVC: UIViewController,UITextFieldDelegate {
             getUIComponentsToCreateUIDynamic()
         }
         else{
-            Alert.showAlert(strMessage: "No connection found", Onview: self)
+            Alert.showAlert(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
         }
 
     }
+
     
     // MARK:- navigation bar setup.
     func setNavigationBar() -> Void
     {
-        self.title = "Bank Detail"
+        self.title = "Bank Detail".localized(lang: langCode)
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.isNavigationBarHidden = false
         let btnBack = UIButton(frame: CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: 25, height: 25)))
@@ -87,10 +88,10 @@ class BankDetailVC: UIViewController,UITextFieldDelegate {
     @IBAction func btnSaveChngesPressed(_ sender: UIButton) {
         let allTextFiled = view.allSubViewsOf(type: UITextField.self)
         DispatchQueue.main.async {
-            let alertBox = UIAlertController(title: "Are You Sure", message:"This would overwrite the payment details.Are you sure you want to continue?", preferredStyle: UIAlertControllerStyle.alert)
+            let alertBox = UIAlertController(title: "Are You Sure".localized(lang: langCode), message:"This would overwrite the payment details.Are you sure you want to continue?".localized(lang: langCode), preferredStyle: UIAlertControllerStyle.alert)
             
-            let cancel = UIAlertAction(title:"No", style: UIAlertActionStyle.cancel, handler: nil)
-            let okAction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.destructive, handler: {
+            let cancel = UIAlertAction(title:"No".localized(lang: langCode), style: UIAlertActionStyle.cancel, handler: nil)
+            let okAction = UIAlertAction(title: "Yes".localized(lang: langCode), style: UIAlertActionStyle.destructive, handler: {
                 (alert: UIAlertAction!) -> Void in
                 if self.reachability?.connection.description != "No Connection"{
                     
@@ -105,7 +106,7 @@ class BankDetailVC: UIViewController,UITextFieldDelegate {
                         if obj < allTextFiled.count{
                             if txt.placeholder == model.strPlaceHolder{
                                 if (txt.text?.isEmpty)!{
-                                    let strMessage  = "Please Enter " + model.strKeyName
+                                    let strMessage  = "Please Enter ".localized(lang: langCode) + model.strKeyName
                                     Alert.showAlert(strMessage: strMessage as NSString, Onview: self)
                                     return
                                 }
@@ -139,7 +140,7 @@ class BankDetailVC: UIViewController,UITextFieldDelegate {
                             if obj < allTextFiled.count{
                                 if txt.placeholder == model.strPlaceHolder{
                                     if (txt.text?.isEmpty)!{
-                                        let strMessage  = "Please Enter " + model.strKeyName
+                                        let strMessage  = "Please Enter ".localized(lang: langCode) + model.strKeyName
                                         Alert.showAlert(strMessage: strMessage as NSString, Onview: self)
                                         return
                                     }
@@ -170,7 +171,7 @@ class BankDetailVC: UIViewController,UITextFieldDelegate {
                     
                 }
                 else{
-                    Alert.showAlert(strMessage: "No connection found", Onview: self)
+                    Alert.showAlert(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
                     
                 }
             })
@@ -193,10 +194,10 @@ class BankDetailVC: UIViewController,UITextFieldDelegate {
     
     @IBAction func btnCancelPressed(_ sender: UIButton) {
         DispatchQueue.main.async {
-            let alertBox = UIAlertController(title: "Are You Sure", message:"This would reject all the changes made so far. Are you sure you want to discard all the changes?", preferredStyle: UIAlertControllerStyle.alert)
+            let alertBox = UIAlertController(title: "Are You Sure".localized(lang: langCode), message:"This would reject all the changes made so far. Are you sure you want to discard all the changes?".localized(lang: langCode), preferredStyle: UIAlertControllerStyle.alert)
             
-            let cancel = UIAlertAction(title:"No", style: UIAlertActionStyle.cancel, handler: nil)
-            let okAction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.destructive, handler: {
+            let cancel = UIAlertAction(title:"No".localized(lang: langCode), style: UIAlertActionStyle.cancel, handler: nil)
+            let okAction = UIAlertAction(title: "Yes".localized(lang: langCode), style: UIAlertActionStyle.destructive, handler: {
                 (alert: UIAlertAction!) -> Void in
                 
                 if self.isComingFromOrderList{
@@ -290,7 +291,7 @@ class BankDetailVC: UIViewController,UITextFieldDelegate {
     }
     
     @objc func btnDropDownListPressed(sender:UIButton){
-        ActionSheetMultipleStringPicker.show(withTitle: "Title", rows: [arrDeafaultBankValue], initialSelection: [0, 0], doneBlock: {
+        ActionSheetMultipleStringPicker.show(withTitle: "Title".localized(lang: langCode), rows: [arrDeafaultBankValue], initialSelection: [0, 0], doneBlock: {
             picker, values, indexes in
             let numIndex = values![0]
             let finalIndex = Int((numIndex as! Int).description)
@@ -413,7 +414,7 @@ class BankDetailVC: UIViewController,UITextFieldDelegate {
                 
             }
             else{
-                Alert.showAlert(strMessage: "Seems connection loss from server", Onview: self)
+                Alert.showAlert(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
             }
             
         })

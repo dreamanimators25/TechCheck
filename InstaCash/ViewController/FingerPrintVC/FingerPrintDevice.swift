@@ -16,6 +16,13 @@ class FingerPrintDevice: UIViewController {
     @IBOutlet weak var lblPrice: UILabel!
     @IBOutlet weak var biometricImage: UIImageView!
     
+    @IBOutlet weak var lblCheckScanner: UILabel!
+    @IBOutlet weak var lblThenYou: UILabel!
+    @IBOutlet weak var lblFirst: UILabel!
+    @IBOutlet weak var btnGuideme: UIButton!
+    @IBOutlet weak var btnSkip: UIButton!
+    
+    
     //@IBOutlet weak var btnScanFingerPrint: UIButton!
     
     var resultJSON = JSON()
@@ -44,6 +51,21 @@ class FingerPrintDevice: UIViewController {
         notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
         
         lblPrice.text = CustomUserDefault.getCurrency()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.changeLanguageOfUI()
+    }
+    
+    func changeLanguageOfUI() {
+        
+        self.lblCheckScanner.text = "Checking fingerprint scanner".localized(lang: langCode)
+        self.lblThenYou.text = "Then you will place your finger on the fingerprint scanner like you normally would during unlock.".localized(lang: langCode)
+        self.lblFirst.text = "First, please enable fingerprint function.".localized(lang: langCode)
+        
+        self.btnGuideme.setTitle("Guide me".localized(lang: langCode), for: UIControlState.normal)
+        self.btnSkip.setTitle("Skip".localized(lang: langCode), for: UIControlState.normal)
         
     }
     
@@ -163,14 +185,14 @@ class FingerPrintDevice: UIViewController {
     
     @IBAction func btnSkipPressed(_ sender: UIButton) {
         // Prepare the popup assets
-        let title = "FingerPrint Scanner Diagnosis"
-        let message = "If you skip this test there would be a substantial decline in the price offered. Do you still want to skip?"
+        let title = "FingerPrint Scanner Diagnosis".localized(lang: langCode)
+        let message = "If you skip this test there would be a substantial decline in the price offered. Do you still want to skip?".localized(lang: langCode)
         
         // Create the dialog
         let popup = PopupDialog(title: title, message: message,buttonAlignment: .horizontal, transitionStyle: .bounceDown, tapGestureDismissal: false, panGestureDismissal :false)
         
         // Create buttons
-        let buttonOne = CancelButton(title: "Yes") {
+        let buttonOne = CancelButton(title: "Yes".localized(lang: langCode)) {
             UserDefaults.standard.set(false, forKey: "fingerprint")
             userDefaults.setValue(true, forKey: "fingerprint_complete")
 
@@ -203,7 +225,7 @@ class FingerPrintDevice: UIViewController {
 
         }
         
-        let buttonTwo = DefaultButton(title: "No") {
+        let buttonTwo = DefaultButton(title: "No".localized(lang: langCode)) {
             //Do Nothing
             popup.dismiss(animated: true, completion: nil)
         }
@@ -317,9 +339,9 @@ class FingerPrintDevice: UIViewController {
                 
                 //self!.btnScanFingerPrint.isHidden = false
                 
-                let alertController = UIAlertController (title: "Enable fingerprint", message: "Go to Settings -> Touch ID & Passcode", preferredStyle: .alert)
+                let alertController = UIAlertController (title: "Enable fingerprint".localized(lang: langCode), message: "Go to Settings -> Touch ID & Passcode".localized(lang: langCode), preferredStyle: .alert)
                 
-                let settingsAction = UIAlertAction(title: "Settings", style: .default) { (_) -> Void in
+                let settingsAction = UIAlertAction(title: "Settings".localized(lang: langCode), style: .default) { (_) -> Void in
                     
                     guard let settingsUrl = URL(string: "App-Prefs:root") else {
                         return
@@ -332,7 +354,7 @@ class FingerPrintDevice: UIViewController {
                     }
                 }
                 alertController.addAction(settingsAction)
-                let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+                let cancelAction = UIAlertAction(title: "Cancel".localized(lang: langCode), style: .default, handler: nil)
                 alertController.addAction(cancelAction)
                 
                 self!.present(alertController, animated: true, completion: nil)

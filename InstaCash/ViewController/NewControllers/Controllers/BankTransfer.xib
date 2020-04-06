@@ -21,6 +21,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BankTransfer" customModule="InstaCash" customModuleProvider="target">
             <connections>
                 <outlet property="bankView" destination="Tae-j2-CIo" id="D8j-oi-Mng"/>
+                <outlet property="btnProceed" destination="bfh-rA-HFc" id="CW1-6o-U2a"/>
+                <outlet property="btnSkip" destination="FTT-gg-rxH" id="zCc-iM-4ja"/>
                 <outlet property="lblDeviceName" destination="PVR-TC-c6b" id="O2U-3k-oES"/>
                 <outlet property="lblDevicePrice" destination="fGn-0S-qil" id="ISR-9o-Cey"/>
                 <outlet property="lblTitle" destination="GPG-T7-gTr" id="vzQ-KN-wQ0"/>

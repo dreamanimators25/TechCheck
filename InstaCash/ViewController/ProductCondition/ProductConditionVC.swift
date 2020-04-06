@@ -12,10 +12,27 @@ class ProductConditionVC: UIViewController {
 
     var strProductIdGet = ""
     
+    @IBOutlet weak var lblProductCondition: UILabel!
+    @IBOutlet weak var lblTellUs: UILabel!
+    @IBOutlet weak var btnLetsBegin: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-      setNavigationBar()
-        // Do any additional setup after loading the view.
+        setNavigationBar()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.changeLanguageOfUI()
+    }
+    
+    func changeLanguageOfUI() {
+        
+        self.lblProductCondition.text = "Product Condition".localized(lang: langCode)
+        self.lblTellUs.text = "Tell us More about the product.The following screens will have a few questions regarding the product's condition select appropriate answer to the questions and instantly get the best price for your product.".localized(lang: langCode)
+       
+        self.btnLetsBegin.setTitle("LET'S BEGIN".localized(lang: langCode), for: UIControlState.normal)
     }
 
     // MARK:- navigation bar setup.
@@ -23,7 +40,7 @@ class ProductConditionVC: UIViewController {
     {
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.isNavigationBarHidden = false
-        self.title = "Product Condition"
+        self.title = "Product Condition".localized(lang: langCode)
         let btnBack = UIButton(frame: CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: 25, height: 25)))
         let widthConstraint = btnBack.widthAnchor.constraint(equalToConstant: 25)
         let heightConstraint = btnBack.heightAnchor.constraint(equalToConstant: 25)

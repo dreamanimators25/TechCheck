@@ -10,13 +10,18 @@ import UIKit
 
 class CityVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UITextFieldDelegate {
     
-    @IBOutlet weak var btnCancel: UIButton!
-    @IBOutlet weak var lblValidateMssg: UILabel!
-    @IBOutlet weak var lblMessage: UILabel!
     @IBOutlet weak var viewBg: UIView!
     @IBOutlet weak var cityPicker: UIPickerView!
     @IBOutlet weak var collectionViewCity: UICollectionView!
+
+    
+    @IBOutlet weak var lblMessage: UILabel!
+    @IBOutlet weak var lblPleaseEnter: UILabel!
     @IBOutlet weak var txtPinCode: UITextField!
+    @IBOutlet weak var btnOk: UIButton!
+    @IBOutlet weak var btnCancel: UIButton!
+    @IBOutlet weak var lblValidateMssg: UILabel!
+    
     
     var arrCityData = [CityModel]()
     var states = [String]()
@@ -40,12 +45,28 @@ class CityVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UITex
     
     
     override func viewWillAppear(_ animated: Bool) {
-                // notify internet is avaible or not
-                NotificationCenter.default.addObserver(self, selector: #selector(self.reachabilityChanged(_:)), name: .reachabilityChanged, object: reachability)
-                do{
-                    try reachability?.startNotifier()
-                }catch{
-                }
+        super.viewWillAppear(animated)
+        
+        // notify internet is avaible or not
+        NotificationCenter.default.addObserver(self, selector: #selector(self.reachabilityChanged(_:)), name: .reachabilityChanged, object: reachability)
+        do{
+            try reachability?.startNotifier()
+        }catch{
+        }
+        
+        self.changeLanguageOfUI()
+    }
+    
+    func changeLanguageOfUI() {
+      
+        self.lblMessage.text = "No Cites Found".localized(lang: langCode)
+        self.lblPleaseEnter.text = "Please Enter Your Pin Code".localized(lang: langCode)
+        self.lblValidateMssg.text = "Select city *".localized(lang: langCode)
+        self.txtPinCode.placeholder = "Enter Post Code".localized(lang: langCode)
+        
+        self.btnOk.setTitle("OK".localized(lang: langCode), for: UIControlState.normal)
+        self.btnCancel.setTitle("CANCEL".localized(lang: langCode), for: UIControlState.normal)
+        
     }
 
     override func viewDidLoad() {

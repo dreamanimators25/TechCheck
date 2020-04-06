@@ -71,9 +71,14 @@ class SendAppLinkPopUp: UIViewController,UITextFieldDelegate {
         else{
             txtCountryCode.text = (userDefaults.value(forKey: "countryCode") as! String)
         }
-        // Do any additional setup after loading the view.
+        
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+    }
+    
     func showAlertMessage(strMessage:String){
         let alertController = UIAlertController(title: "InstaCash", message: strMessage, preferredStyle: .alert)
         let okButton = UIAlertAction(title: "Ok", style: .cancel, handler: { (action) -> Void in

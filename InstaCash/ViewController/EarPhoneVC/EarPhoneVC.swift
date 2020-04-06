@@ -14,6 +14,11 @@ import SwiftyJSON
 
 class EarPhoneVC: UIViewController {
     
+    @IBOutlet weak var lblCheckEarphone: UILabel!
+    @IBOutlet weak var lblPressStart: UILabel!
+    @IBOutlet weak var btnSkip: UIButton!
+
+    
     var resultJSON = JSON()
     let session = AVAudioSession.sharedInstance()
     var isComingFromTestResult = false
@@ -44,6 +49,18 @@ class EarPhoneVC: UIViewController {
             name: NSNotification.Name.AVAudioSessionRouteChange,
             object: nil)
         
+    }
+    
+    func changeLanguageOfUI() {
+        
+        self.lblCheckEarphone.text = "Checking earphone".localized(lang: langCode)
+        self.lblPressStart.text = "Press “Start’ and follow instructions.".localized(lang: langCode)
+        self.btnSkip.setTitle("Skip".localized(lang: langCode), for: UIControlState.normal)
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.changeLanguageOfUI()
     }
     
     @IBAction func onClickBack(_ sender: UIButton) {
@@ -82,14 +99,14 @@ class EarPhoneVC: UIViewController {
 
     @IBAction func btnSkipPressed(_ sender: UIButton) {
         // Prepare the popup assets
-        let title = "Earphone Jack Diagnosis"
-        let message = "If you skip this test there would be a substantial decline in the price offered. Do you still want to skip?"
+        let title = "Earphone Jack Diagnosis".localized(lang: langCode)
+        let message = "If you skip this test there would be a substantial decline in the price offered. Do you still want to skip?".localized(lang: langCode)
         
         // Create the dialog
         let popup = PopupDialog(title: title, message: message,buttonAlignment: .horizontal, transitionStyle: .bounceDown, tapGestureDismissal: false, panGestureDismissal :false)
         
         // Create buttons
-        let buttonOne = CancelButton(title: "Yes") {
+        let buttonOne = CancelButton(title: "Yes".localized(lang: langCode)) {
             UserDefaults.standard.set(false, forKey: "earphone")
             userDefaults.setValue(true, forKey: "earphone_complete")
             if self.isComingFromTestResult{
@@ -117,7 +134,7 @@ class EarPhoneVC: UIViewController {
 
         }
         
-        let buttonTwo = DefaultButton(title: "No") {
+        let buttonTwo = DefaultButton(title: "No".localized(lang: langCode)) {
             //Do Nothing
             popup.dismiss(animated: true, completion: nil)
         }

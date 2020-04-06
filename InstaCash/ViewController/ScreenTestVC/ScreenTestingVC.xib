@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,6 +20,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ScreenTestingVC" customModule="InstaCash" customModuleProvider="target">
             <connections>
+                <outlet property="btnGuideMe" destination="YEo-3I-j21" id="IGP-BT-Jl7"/>
+                <outlet property="btnRetry" destination="0uk-vV-QGy" id="6qp-RB-jrm"/>
+                <outlet property="btnStart1" destination="4oN-gl-yal" id="pRX-8n-n66"/>
+                <outlet property="btnStart2" destination="uB7-Ib-02i" id="Y8y-sf-ZGd"/>
+                <outlet property="lblCheckingScreenCalibration" destination="rYn-g5-vlb" id="HBd-aM-Z9D"/>
+                <outlet property="lblPressStart" destination="uz9-DB-iaG" id="ocZ-hQ-pjJ"/>
                 <outlet property="screenImageView" destination="ZLh-lZ-gdg" id="q7V-mG-gul"/>
                 <outlet property="view" destination="9G8-BM-tDn" id="PzC-Wv-2fW"/>
                 <outlet property="viewGuide" destination="SaO-t7-oeB" id="SKy-F6-8zm"/>

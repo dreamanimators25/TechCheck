@@ -31,8 +31,10 @@
                 <outlet property="lblDate1" destination="r11-64-1zz" id="ulu-Zt-hTg"/>
                 <outlet property="lblDate2" destination="Heq-6F-kvl" id="Nxf-sf-gRb"/>
                 <outlet property="lblDate3" destination="Uxy-F9-gXV" id="f6X-1r-Tkj"/>
+                <outlet property="lblInProgress" destination="lGh-Wq-ujL" id="mJq-jC-OKY"/>
                 <outlet property="lblName" destination="9KS-rP-ro9" id="snF-53-rco"/>
                 <outlet property="lblOrderFinalStatus" destination="n2c-sQ-15C" id="rta-IA-sda"/>
+                <outlet property="lblOrderPlaced" destination="dyF-8b-pQ7" id="8sU-kQ-Pbw"/>
                 <outlet property="lblPhoneName" destination="afs-s0-ZNw" id="xS0-Cz-hYf"/>
                 <outlet property="lblPrice" destination="uUG-sL-2TN" id="kmX-Jh-o0J"/>
                 <outlet property="orderFinalStatusView" destination="Cng-uo-Zdm" id="v9U-zz-mfL"/>

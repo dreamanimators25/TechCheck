@@ -20,6 +20,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UploadIDVC" customModule="InstaCash" customModuleProvider="target">
             <connections>
+                <outlet property="btnUploadIdImage" destination="6hK-Up-nOK" id="Vrk-7x-Lsc"/>
+                <outlet property="titleInfoLbl" destination="aoO-5U-Ear" id="fBA-Cb-ywE"/>
                 <outlet property="view" destination="8aN-30-G4M" id="kEQ-07-Tns"/>
             </connections>
         </placeholder>
@@ -130,7 +132,7 @@
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press the button below to upload image of a valid Id Proof of the customer." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aoO-5U-Ear">
-                    <rect key="frame" x="20" y="74" width="280" height="59.5"/>
+                    <rect key="frame" x="20" y="74" width="280" height="60"/>
                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>

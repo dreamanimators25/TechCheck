@@ -15,6 +15,11 @@ class PromocodePopUpVC: UIViewController {
     @IBOutlet weak var lbl3: UILabel!
     @IBOutlet weak var lbl2: UILabel!
     @IBOutlet weak var lblTermsCondition: UILabel!
+
+    @IBOutlet weak var lblCoupon: UILabel!
+    @IBOutlet weak var btnDetailTerms: UIButton!
+    @IBOutlet weak var lblOK: UILabel!
+    
     
     var strConditionURL = ""
     var arrTermsCondition  = NSArray()
@@ -41,6 +46,20 @@ class PromocodePopUpVC: UIViewController {
             }
         }
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.changeLanguageOfUI()
+    }
+    
+    func changeLanguageOfUI() {
+        
+        self.lblCoupon.text = "Coupon Terms & Conditions".localized(lang: langCode)
+        self.lblOK.text = "OK".localized(lang: langCode)
+        
+        self.btnDetailTerms.setTitle("Detailed Terms and Conditions".localized(lang: langCode), for: UIControlState.normal)
     }
 
     @IBAction func btnDetailedPressed(_ sender: UIButton) {

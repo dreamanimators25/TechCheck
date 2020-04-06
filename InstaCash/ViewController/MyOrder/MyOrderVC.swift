@@ -10,6 +10,7 @@ import UIKit
 
 class MyOrderVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UpdateOrderListDelegate {
     
+    @IBOutlet weak var lblOrders: UILabel!
     @IBOutlet weak var btnAll: UIButton!
     @IBOutlet weak var btnProgress: UIButton!
     @IBOutlet weak var btnCompleted: UIButton!
@@ -25,6 +26,19 @@ class MyOrderVC: UIViewController,UITableViewDelegate,UITableViewDataSource,Upda
     var arrOrderListCopy = [OrderListModel]() //s.
     var iscomingFromMyAccount = false
     let reachability: Reachability? = Reachability()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.changeLanguageOfUI()
+    }
+    
+    func changeLanguageOfUI() {
+        
+        self.lblOrders.text = "Orders".localized(lang: langCode)
+        
+        self.btnAll.setTitle("ALL".localized(lang: langCode), for: UIControlState.normal)
+        self.btnProgress.setTitle("IN PROGRESS".localized(lang: langCode), for: UIControlState.normal)
+        self.btnCompleted.setTitle("COMPLETED".localized(lang: langCode), for: UIControlState.normal)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,7 +72,7 @@ class MyOrderVC: UIViewController,UITableViewDelegate,UITableViewDataSource,Upda
                 }
             }
             else{
-                Alert.showAlert(strMessage: "No Connection found", Onview: self)
+                Alert.showAlert(strMessage: "No Connection found".localized(lang: langCode) as NSString, Onview: self)
             }
         }
     }
@@ -83,14 +97,14 @@ class MyOrderVC: UIViewController,UITableViewDelegate,UITableViewDataSource,Upda
             }
         }
         else{
-            Alert.showAlert(strMessage: "No Connection found", Onview: self)
+            Alert.showAlert(strMessage: "No Connection found".localized(lang: langCode) as NSString, Onview: self)
         }
     }
     
     // MARK:- navigation bar setup.
     func setNavigationBar() -> Void
     {
-        self.title = "My Order"
+        self.title = "My Order".localized(lang: langCode)
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.isNavigationBarHidden = false
         self.navigationController?.navigationBar.barTintColor = navColor
@@ -241,16 +255,16 @@ class MyOrderVC: UIViewController,UITableViewDelegate,UITableViewDataSource,Upda
         
         //let strFinalDate  = CustomUserDefault.dateToStringConvertor(strGetDate: date)
         
-        cellOrderHeader.lblDate.text = "Order date: " + newDate
+        cellOrderHeader.lblDate.text = "Order date: ".localized(lang: langCode) + newDate
         //cellOrderHeader.lblOrderID.text = modelOrder.strRefrenceNumber
         
         let amount = Int(modelOrder.strProductAmount!)
         let strAmount = amount!.formattedWithSeparator
-        cellOrderHeader.lblPrice.text = "Quoted price: " + CustomUserDefault.getCurrency() + strAmount
+        cellOrderHeader.lblPrice.text = "Quoted price: ".localized(lang: langCode) + CustomUserDefault.getCurrency() + strAmount
         
         // cellOrderHeader.lblPrice.text = CustomUserDefault.getCurrency() + modelOrder.strProductAmount!
         
-        cellOrderHeader.lblVerified.text = modelOrder.strStatus
+        cellOrderHeader.lblVerified.text = modelOrder.strStatus?.localized(lang: langCode)
         //print(modelOrder.strStatus ?? "")
         
         switch modelOrder.strStatus {
@@ -276,9 +290,9 @@ class MyOrderVC: UIViewController,UITableViewDelegate,UITableViewDataSource,Upda
         
         
         cellOrderHeader.phoneName.text = modelOrder.strProductName
-        cellOrderHeader.lblPaymentMode.text = "Payment Mode: " + (modelOrder.strPaymentName ?? "") //s.
+        cellOrderHeader.lblPaymentMode.text = "Payment Mode: ".localized(lang: langCode) + (modelOrder.strPaymentName ?? "") //s.
         //cellOrderHeader.lblOrderID.text = "Order ID: " + (modelOrder.strOrderId ?? "") //s.
-        cellOrderHeader.lblOrderID.text = "Order ID: " + (modelOrder.strRefrenceNumber ?? "") //s.
+        cellOrderHeader.lblOrderID.text = "Order ID: ".localized(lang: langCode) + (modelOrder.strRefrenceNumber ?? "") //s.
         let imgURL = URL(string:modelOrder.strProductImageURL!)
         cellOrderHeader.imgPhone.sd_setImage(with: imgURL)
         //let imgURLBank = URL(string:modelOrder.strPaymentImage!)
@@ -347,14 +361,14 @@ class MyOrderVC: UIViewController,UITableViewDelegate,UITableViewDataSource,Upda
     }
     
     @objc func btnConvertToOrderPressed(sender:UIButton) {
-        let alertController = UIAlertController(title: "Place Order!", message: "You are converting this Price Lock to a new Order.The price locked is subject to the conditions provided at the time of locking the price.In case of any mismatch in the conditions,a new price will be quoted. ", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Place Order!".localized(lang: langCode), message: "You are converting this Price Lock to a new Order.The price locked is subject to the conditions provided at the time of locking the price.In case of any mismatch in the conditions,a new price will be quoted. ".localized(lang: langCode), preferredStyle: .alert)
         
-        let sendButton = UIAlertAction(title: "PLACE ORDER", style: .default, handler: { (action) -> Void in
+        let sendButton = UIAlertAction(title: "PLACE ORDER".localized(lang: langCode), style: .default, handler: { (action) -> Void in
             let model = self.arrOrderList[sender.tag]
             self.fireWebServiceForConvertToOrder(getModel: model)
         })
         
-        let cancelButton = UIAlertAction(title: "MAYBE LATER", style: .cancel, handler: { (action) -> Void in
+        let cancelButton = UIAlertAction(title: "MAYBE LATER".localized(lang: langCode).localized(lang: langCode), style: .cancel, handler: { (action) -> Void in
         })
         
         alertController.addAction(sendButton)
@@ -396,7 +410,7 @@ class MyOrderVC: UIViewController,UITableViewDelegate,UITableViewDataSource,Upda
                     if responseObject?["status"] as! String == "Success" {
                         getModel.isActivePricelock = false
                         self.tblViewOrderLust.reloadData()
-                        Alert.showAlert(strMessage: "Place Order successfully", Onview: self)
+                        Alert.showAlert(strMessage: "Place Order successfully".localized(lang: langCode) as NSString, Onview: self)
 
                     }
                     else{
@@ -405,13 +419,13 @@ class MyOrderVC: UIViewController,UITableViewDelegate,UITableViewDataSource,Upda
                 }
                 else
                 {
-                    Alert.showAlert(strMessage: "Seemd Conection loss from server", Onview: self)
+                    Alert.showAlert(strMessage: "Seemd Conection loss from server".localized(lang: langCode) as NSString, Onview: self)
                 }
             })
             
         }
         else {
-            Alert.showAlert(strMessage: "No connection found", Onview: self)
+            Alert.showAlert(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
         }
         
     }

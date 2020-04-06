@@ -27,14 +27,17 @@ class OrderDetail: UIViewController,UIPopoverPresentationControllerDelegate {
     @IBOutlet weak var lblDate2: UILabel?
     @IBOutlet weak var lblDate3: UILabel?
     
-    @IBOutlet weak var btnDeviceInfo: UIButton?
-    @IBOutlet weak var btnCustomerSupprt: UIButton?
     @IBOutlet weak var orderFinalStatusView: UIView?
-    @IBOutlet weak var lblOrderFinalStatus: UILabel?
     @IBOutlet weak var stackViewHeight: NSLayoutConstraint?
     
-    let reachability: Reachability? = Reachability()
+    @IBOutlet weak var lblOrderPlaced: UILabel?
+    @IBOutlet weak var lblInProgress: UILabel?
+    @IBOutlet weak var lblOrderFinalStatus: UILabel?
+    @IBOutlet weak var btnDeviceInfo: UIButton?
+    @IBOutlet weak var btnCustomerSupprt: UIButton?
+
     
+    let reachability: Reachability? = Reachability()
     var orderDetail = OrderListModel.init(orderListDict: [String : Any](), strOrderIdGet: "", strRefrenceNumber: "", strOrderDate: "")
     
     override func viewDidLoad() {
@@ -45,7 +48,7 @@ class OrderDetail: UIViewController,UIPopoverPresentationControllerDelegate {
         let imgURL = URL.init(string: orderDetail.strProductImageURL ?? "")
         self.imgPhone?.sd_setImage(with: imgURL)
         self.lblPhoneName?.text = orderDetail.strProductName
-        let txt = "Quoted price: \(CustomUserDefault.getCurrency()) "
+        let txt = "Quoted price:".localized(lang: langCode) + " \(CustomUserDefault.getCurrency()) "
         let price = Int(orderDetail.strProductAmount ?? "")?.formattedWithSeparator
         self.lblPrice?.text = txt + (price ?? "")
         self.lblName?.text = orderDetail.strPaymentName
@@ -57,9 +60,9 @@ class OrderDetail: UIViewController,UIPopoverPresentationControllerDelegate {
         //Your New Date format as per requirement change it own
         let newDate = dateFormatter.string(from: date)
         
-        self.lblDate1?.text = "Pick up: " + newDate
-        self.lblDate2?.text = "Pick up schedule for " + newDate
-        self.lblDate3?.text = "Cashed out" + " \(CustomUserDefault.getCurrency()) \(Int(orderDetail.strProductAmount ?? "")?.formattedWithSeparator ?? "")" + " on " + newDate
+        self.lblDate1?.text = "Pick up: ".localized(lang: langCode) + newDate
+        self.lblDate2?.text = "Pick up schedule for ".localized(lang: langCode) + newDate
+        self.lblDate3?.text = "Cashed out".localized(lang: langCode) + " \(CustomUserDefault.getCurrency()) \(Int(orderDetail.strProductAmount ?? "")?.formattedWithSeparator ?? "")" + " on ".localized(lang: langCode) + newDate
         
         DispatchQueue.main.async {
             self.btnDeviceInfo?.layer.cornerRadius = 5.0
@@ -73,9 +76,17 @@ class OrderDetail: UIViewController,UIPopoverPresentationControllerDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        self.changeLanguageOfUI()
+    }
+    
+    func changeLanguageOfUI() {
         
+        self.lblOrderPlaced?.text = "Order placed".localized(lang: langCode)
+        self.lblInProgress?.text = "In Progress".localized(lang: langCode)
+        self.lblOrderFinalStatus?.text = "Order placed".localized(lang: langCode)
         
+        self.btnDeviceInfo?.setTitle("   Device Information   ".localized(lang: langCode), for: UIControlState.normal)
+        self.btnCustomerSupprt?.setTitle("Contact Customer Support".localized(lang: langCode), for: UIControlState.normal)
     }
     
     @IBAction func onClickBackButton(_ sender: Any) {
@@ -142,7 +153,7 @@ class OrderDetail: UIViewController,UIPopoverPresentationControllerDelegate {
                         
                         self.lblPhoneName?.text = finalItem?.value(forKey: "productName") as? String ?? ""
                         
-                        let txt = "Quoted price:" + " \(CustomUserDefault.getCurrency()) "
+                        let txt = "Quoted price:".localized(lang: langCode) + " \(CustomUserDefault.getCurrency()) "
                         
                         if let amount = Int(finalItem?.value(forKey: "amount") as? String ?? "") {
                             let price = amount.formattedWithSeparator
@@ -190,18 +201,18 @@ class OrderDetail: UIViewController,UIPopoverPresentationControllerDelegate {
                         
                     }
                     else{
-                        Alert.showAlert(strMessage: "Ooops Something went wrong.", Onview: self)
+                        Alert.showAlert(strMessage: "Ooops Something went wrong.".localized(lang: langCode) as NSString, Onview: self)
                     }
                 }
                 else
                 {
-                    Alert.showAlert(strMessage: "Seemd Conection loss from server", Onview: self)
+                    Alert.showAlert(strMessage: "Seemd Conection loss from server".localized(lang: langCode) as NSString, Onview: self)
                 }
             })
             
         }
         else {
-            Alert.showAlert(strMessage: "No connection found", Onview: self)
+            Alert.showAlert(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
         }
         
     }

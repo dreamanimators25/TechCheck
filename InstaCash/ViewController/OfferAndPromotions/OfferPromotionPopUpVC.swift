@@ -33,6 +33,24 @@ class OfferPromotionPopUpVC: UIViewController,UITextFieldDelegate {
     
     }
     
+    func changeLanguageOfUI() {
+        
+        if isComeFromVC == "oppoMode" {
+            self.promoTextField.placeholder = "IMEI of new Phone".localized(lang: langCode)
+        }else {
+            self.promoTextField.placeholder = "Agent ID".localized(lang: langCode)
+        }
+        
+        self.cancelBtn.setTitle("CANCEL".localized(lang: langCode), for: UIControlState.normal)
+        self.submitBtn.setTitle("SUBMIT".localized(lang: langCode), for: UIControlState.normal)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.changeLanguageOfUI()
+    }
+    
     //MARK: IBActions
     @IBAction func dismissBtnPressed(_ sender: UIButton) {
         self.view.endEditing(true)
@@ -68,20 +86,19 @@ class OfferPromotionPopUpVC: UIViewController,UITextFieldDelegate {
         
         if isComeFromVC == "oppoMode" {
             if (promoTextField.text?.count ?? 0) < 15 || (promoTextField.text == "") {
-                Alert.showAlert(strMessage: "Please Enter Valid IMEI", Onview: self)
+                Alert.showAlert(strMessage: "Please Enter Valid IMEI".localized(lang: langCode) as NSString, Onview: self)
             }else {
                 self.fireWebServiceForPromotionInformation()
             }
         }else {
             if (promoTextField.text == "") {
-                Alert.showAlert(strMessage: "Please Enter Valid Agent ID", Onview: self)
+                Alert.showAlert(strMessage: "Please Enter Valid Agent ID".localized(lang: langCode) as NSString, Onview: self)
             }else {
                 self.fireWebServiceForPromotionInformation()
             }
         }
         
     }
-    
 
     //MARK:- APi for offer and promotions
     func promoterInformationPost(strURL : String , parameters:NSDictionary, completionHandler: @escaping (NSDictionary?, NSError?) -> ()) {
@@ -193,7 +210,7 @@ class OfferPromotionPopUpVC: UIViewController,UITextFieldDelegate {
             })
         }
         else {
-            Alert.showAlert(strMessage: "No connection found", Onview: self)
+            Alert.showAlert(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
         }
     }
     

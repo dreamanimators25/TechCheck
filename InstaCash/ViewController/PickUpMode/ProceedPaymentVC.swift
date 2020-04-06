@@ -10,23 +10,42 @@ import UIKit
 
 class ProceedPaymentVC: UIViewController {
 
-    @IBOutlet weak var btnSwipe: UIButton!
     @IBOutlet weak var lblAmount: UILabel!
     @IBOutlet weak var lblAccountNumber: UILabel!
-    @IBOutlet weak var lblPaymentMode: UILabel!
+    
     let reachability: Reachability? = Reachability()
+    
+    
+    @IBOutlet weak var lblPaymentMode: UILabel!
+    @IBOutlet weak var btnSwipe: UIButton!
+    @IBOutlet weak var lblAccountNum: UILabel!
+    @IBOutlet weak var lblAccountAmount: UILabel!
+    
 
     var getAmount = ""
     var getAccountNumber = ""
     var getAcountMode = ""
 
+    override func viewWillAppear(_ animated: Bool) {
+        self.changeLanguageOfUI()
+    }
+    
+    func changeLanguageOfUI() {
+     
+        self.lblPaymentMode.text = "Payment Mode: Bank".localized(lang: langCode)
+        
+        self.btnSwipe.setTitle("Swipe here to process payment".localized(lang: langCode), for: UIControlState.normal)
+        
+        self.lblAccountNum.text = "Account Number :".localized(lang: langCode)
+        self.lblAccountAmount.text = "Amount :".localized(lang: langCode)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //setNavigationBar() //s.
         
-        self.lblPaymentMode.text = "Payment Mode: " + getAcountMode
+        self.lblPaymentMode.text = "Payment Mode: ".localized(lang: langCode) + getAcountMode.localized(lang: langCode)
         //self.lblAccountNumber.text = "Account Number: " + getAccountNumber
         //self.lblAmount.text = "Payment Amount: " + getAmount
         
@@ -59,20 +78,20 @@ class ProceedPaymentVC: UIViewController {
     
     @IBAction func btnSwipePressed(_ sender: UIButton) {
         
-        let alertController = UIAlertController(title: "Verification Code", message: "This mode can only be run if an order has been placed for this device.If you don't have a code yet please call our customer care tp get a new code.", preferredStyle: UIAlertControllerStyle.alert)
+        let alertController = UIAlertController(title: "Verification Code".localized(lang: langCode), message: "This mode can only be run if an order has been placed for this device.If you don't have a code yet please call our customer care tp get a new code.".localized(lang: langCode), preferredStyle: UIAlertControllerStyle.alert)
         
         alertController.addTextField { (textField : UITextField!) -> Void in
-            textField.placeholder = "Enter Verification Code"
+            textField.placeholder = "Enter Verification Code".localized(lang: langCode)
         }
         
-        let saveAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { alert -> Void in
+        let saveAction = UIAlertAction(title: "OK".localized(lang: langCode), style: UIAlertActionStyle.default, handler: { alert -> Void in
             let firstTextField = alertController.textFields![0] as UITextField
             if !(firstTextField.text?.isEmpty)!{
                 self.fireWebServiceForVerificationCode(strGetCode: firstTextField.text!)
             }
         })
         
-        let cancelAction = UIAlertAction(title: "CANCEL", style: UIAlertActionStyle.default, handler: {
+        let cancelAction = UIAlertAction(title: "CANCEL".localized(lang: langCode), style: UIAlertActionStyle.default, handler: {
             (action : UIAlertAction!) -> Void in
         })
         
@@ -128,9 +147,9 @@ class ProceedPaymentVC: UIViewController {
                     }
                     else{
                         let strMessage = responseObject?["msg"] as! String
-                        let alertController = UIAlertController(title: "InstaCash", message:strMessage, preferredStyle: .alert)
+                        let alertController = UIAlertController(title: "InstaCash".localized(lang: langCode), message:strMessage, preferredStyle: .alert)
                         
-                        let sendButton = UIAlertAction(title: "Ok", style: .default, handler: { (action) -> Void in
+                        let sendButton = UIAlertAction(title: "Ok".localized(lang: langCode), style: .default, handler: { (action) -> Void in
                             
                         })
                         alertController.addAction(sendButton)
@@ -140,9 +159,9 @@ class ProceedPaymentVC: UIViewController {
                 }
                 else
                 {
-                    let alertController = UIAlertController(title: "InstaCash", message:"Seems connection loss from server", preferredStyle: .alert)
+                    let alertController = UIAlertController(title: "InstaCash".localized(lang: langCode), message:"Seems connection loss from server".localized(lang: langCode), preferredStyle: .alert)
                     
-                    let sendButton = UIAlertAction(title: "Ok", style: .default, handler: { (action) -> Void in
+                    let sendButton = UIAlertAction(title: "Ok".localized(lang: langCode), style: .default, handler: { (action) -> Void in
                         
                     })
                     alertController.addAction(sendButton)
@@ -154,9 +173,9 @@ class ProceedPaymentVC: UIViewController {
         }
         else
         {
-            let alertController = UIAlertController(title: "InstaCash", message:"No connection found", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "InstaCash".localized(lang: langCode), message:"No connection found".localized(lang: langCode), preferredStyle: .alert)
             
-            let sendButton = UIAlertAction(title: "Ok", style: .default, handler: { (action) -> Void in
+            let sendButton = UIAlertAction(title: "Ok".localized(lang: langCode), style: .default, handler: { (action) -> Void in
                 
             })
             alertController.addAction(sendButton)

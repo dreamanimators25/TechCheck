@@ -23,6 +23,13 @@ class DiagnosticTestResultVC: UIViewController,UITableViewDelegate,UITableViewDa
     @IBOutlet weak var lblPrice: UILabel!
     @IBOutlet weak var lblPhone: UILabel!
     @IBOutlet weak var tblViewTest: UITableView!
+    @IBOutlet weak var heightOftbl: NSLayoutConstraint!
+    @IBOutlet weak var btnPlaceOrder: shadowCornerButton!
+    
+    
+    @IBOutlet weak var lblYourDevice: UILabel!
+    @IBOutlet weak var lblYourQuotation: UILabel!
+
     
     var arrFailedAndSkipedTest = [ModelCompleteDiagnosticFlow]()
     var arrFunctionalTest = [ModelCompleteDiagnosticFlow]()
@@ -31,15 +38,11 @@ class DiagnosticTestResultVC: UIViewController,UITableViewDelegate,UITableViewDa
     var resultJSON = JSON()
     let reachability: Reachability? = Reachability()
     
-    @IBOutlet weak var heightOftbl: NSLayoutConstraint!
-    
-    @IBOutlet weak var btnPlaceOrder: shadowCornerButton!
-    
     override func viewDidLoad() {
     
         //self.btnPlaceOrder.setTitle("Place order at \(CustomUserDefault.getCurrency())\(350) instead", for:.normal)
         
-        self.btnPlaceOrder.setTitle("Place order", for:.normal)
+        self.btnPlaceOrder.setTitle("Place order".localized(lang: langCode), for:.normal)
         
         super.viewDidLoad()
         userDefaults.removeObject(forKey: "Diagnosis_DataSave")
@@ -47,6 +50,16 @@ class DiagnosticTestResultVC: UIViewController,UITableViewDelegate,UITableViewDa
         self.didPullToRefresh()
         lblPhone.text = UIDevice.current.modelName
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.changeLanguageOfUI()
+    }
+    
+    func changeLanguageOfUI() {
+        
+        self.lblYourDevice.text = "Your device could be worth".localized(lang: langCode)
+        self.lblYourQuotation.text = "Note: Your quotation is lower because of the following issues. Click retry for a better quotation.".localized(lang: langCode)
     }
     
     func didPullToRefresh(){
@@ -97,7 +110,7 @@ class DiagnosticTestResultVC: UIViewController,UITableViewDelegate,UITableViewDa
                     
                     
                     //self.btnPlaceOrder.setTitle("Place order at \(CustomUserDefault.getCurrency())\(strAmount) instead", for:.normal)
-                    self.btnPlaceOrder.setTitle("I'm done", for:.normal)
+                    self.btnPlaceOrder.setTitle("I'm done".localized(lang: langCode), for:.normal)
                     //self.btnPlaceOrder.setTitle("Place order at \(priceString ?? "") instead", for: .normal) //s.
                 }
             }
@@ -341,16 +354,16 @@ class DiagnosticTestResultVC: UIViewController,UITableViewDelegate,UITableViewDa
         
         
         if arrFailedAndSkipedTest.count > 0 {
-            section = ["Failed and Skipped Tests", "Functional Checks"]
+            section = ["Failed and Skipped Tests".localized(lang: langCode), "Functional Checks".localized(lang: langCode)]
         }
         else{
-            section = ["Functional Checks"]
+            section = ["Functional Checks".localized(lang: langCode)]
         }
         
         if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
-            self.lblTests.text = "Your device passed" + " \(arrFunctionalTest.count)" + "/15 tests!"
+            self.lblTests.text = "Your device passed".localized(lang: langCode) + " \(arrFunctionalTest.count)" + "/15 tests!".localized(lang: langCode)
         }else {
-            self.lblTests.text = "Your device passed" + " \(arrFunctionalTest.count)" + "/13 tests!"
+            self.lblTests.text = "Your device passed".localized(lang: langCode) + " \(arrFunctionalTest.count)" + "/13 tests!".localized(lang: langCode)
         }
         
         
@@ -391,7 +404,7 @@ class DiagnosticTestResultVC: UIViewController,UITableViewDelegate,UITableViewDa
         if indexPath.section == 0{
             let cellfailed = tableView.dequeueReusableCell(withIdentifier: "testResultCell", for: indexPath) as! TestResultCell
             cellfailed.imgReTry.image = UIImage(named: "unverified")
-            cellfailed.lblName.text = arrFailedAndSkipedTest[indexPath.row].strTestType
+            cellfailed.lblName.text = arrFailedAndSkipedTest[indexPath.row].strTestType.localized(lang: langCode)
             cellfailed.imgReTry.isHidden = true
             cellfailed.lblReTry.isHidden = false
 
@@ -400,7 +413,7 @@ class DiagnosticTestResultVC: UIViewController,UITableViewDelegate,UITableViewDa
         else{
             let cellFunction = tableView.dequeueReusableCell(withIdentifier: "testResultCell", for: indexPath) as! TestResultCell
             cellFunction.imgReTry.image = UIImage(named: "rightGreen")
-            cellFunction.lblName.text = arrFunctionalTest[indexPath.row].strTestType
+            cellFunction.lblName.text = arrFunctionalTest[indexPath.row].strTestType.localized(lang: langCode)
             cellFunction.imgReTry.isHidden = false
             cellFunction.lblReTry.isHidden = true
 
@@ -410,7 +423,7 @@ class DiagnosticTestResultVC: UIViewController,UITableViewDelegate,UITableViewDa
           else{
             let cellFunction = tableView.dequeueReusableCell(withIdentifier: "testResultCell", for: indexPath) as! TestResultCell
             cellFunction.imgLogo.image = UIImage(named: "rightGreen")
-            cellFunction.lblName.text = arrFunctionalTest[indexPath.row].strTestType
+            cellFunction.lblName.text = arrFunctionalTest[indexPath.row].strTestType.localized(lang: langCode)
             //cellFunction.imgReTry.isHidden = true
             //cellFunction.lblReTry.isHidden = true
 
@@ -484,21 +497,21 @@ class DiagnosticTestResultVC: UIViewController,UITableViewDelegate,UITableViewDa
     
     @IBAction func btnBackPressed(_ sender: UIButton) {
         // Prepare the popup assets
-        let title = "Quit Diagnosis"
-        let message = "Are you sure you want to quit?"
+        let title = "Quit Diagnosis".localized(lang: langCode)
+        let message = "Are you sure you want to quit?".localized(lang: langCode)
         
         
         // Create the dialog
         let popup = PopupDialog(title: title, message: message,buttonAlignment: .horizontal, transitionStyle: .bounceDown, tapGestureDismissal: false, panGestureDismissal :false)
         
         // Create buttons
-        let buttonOne = CancelButton(title: "Yes") {
+        let buttonOne = CancelButton(title: "Yes".localized(lang: langCode)) {
             DispatchQueue.main.async() {
                 obj_app.setRotControllersWithSideMenu(sendMyOrderArray: [HomeModel](), sendBrandArray: [HomeModel](), SendPupularDevoice: [HomeModel](), SendMyCurrentDevice: [HomeModel](), isComingFromWelcome: false,strAppCodeGet:"")
             }
         }
         
-        let buttonTwo = DefaultButton(title: "No") {
+        let buttonTwo = DefaultButton(title: "No".localized(lang: langCode)) {
             //Do Nothing
             popup.dismiss(animated: true, completion: nil)
         }

@@ -16,7 +16,6 @@ class Speaker: UIViewController {
         super.viewDidLoad()
         
         lblPrice.text = CustomUserDefault.getCurrency()
-
     }
     
     @IBAction func onClickGuideMe(sender: AnyObject) {

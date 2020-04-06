@@ -11,6 +11,7 @@ import UIKit
 class NotificationNew: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     @IBOutlet weak var tblViewNotifcation: UITableView!
+    @IBOutlet weak var lblNotification: UILabel!
     
     var arrNotification = [NSDictionary]()
 
@@ -19,6 +20,19 @@ class NotificationNew: UIViewController,UITableViewDelegate,UITableViewDataSourc
         
         tblViewNotifcation.register(UINib(nibName: "NotificationCell", bundle: nil), forCellReuseIdentifier: "notification")
         
+    }
+    
+    func changeLanguageOfUI() {
+        
+        self.lblNotification.text = "Notifications".localized(lang: langCode)
+        
+        //self.btnProceed.setTitle("PROCEED".localized(lang: langCode), for: UIControlState.normal)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.changeLanguageOfUI()
     }
     
     //MARK:- Tableview delegate/Source methods

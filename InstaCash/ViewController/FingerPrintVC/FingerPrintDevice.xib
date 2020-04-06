@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -24,7 +24,12 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FingerPrintDevice" customModule="InstaCash" customModuleProvider="target">
             <connections>
                 <outlet property="biometricImage" destination="2WJ-gN-VFB" id="PhJ-BW-0Jq"/>
+                <outlet property="btnGuideme" destination="zzd-MP-kf2" id="khK-L9-aP5"/>
+                <outlet property="btnSkip" destination="Mwt-JO-8Ue" id="jF3-dN-QuJ"/>
+                <outlet property="lblCheckScanner" destination="oWw-F6-Pzx" id="EU8-lD-PIc"/>
+                <outlet property="lblFirst" destination="isJ-mA-PhD" id="2Im-Mz-8js"/>
                 <outlet property="lblPrice" destination="IVZ-8e-yOz" id="xXD-HA-eHZ"/>
+                <outlet property="lblThenYou" destination="F9N-wY-cun" id="aZg-eA-R5P"/>
                 <outlet property="view" destination="kFP-9k-RjS" id="Cnl-XM-TKA"/>
             </connections>
         </placeholder>

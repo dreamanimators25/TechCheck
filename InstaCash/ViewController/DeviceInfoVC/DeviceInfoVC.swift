@@ -15,6 +15,13 @@ class DeviceInfoVC: UIViewController {
     @IBOutlet weak var lblPhoneName: UILabel!
     @IBOutlet weak var imgPhone: UIImageView!
     
+    @IBOutlet weak var lblMarketPrice: UILabel!
+    @IBOutlet weak var lblInstacashPrice: UILabel!
+    @IBOutlet weak var lblTheInsta: UILabel!
+    @IBOutlet weak var lblGettingAn: UILabel!
+    @IBOutlet weak var btnGetQuote: UIButton!
+    
+    
     var arrMyCurrentDeviceGetInfo = [HomeModel]()
 
     override func viewDidLoad() {
@@ -24,6 +31,22 @@ class DeviceInfoVC: UIViewController {
         
         //lblPrice.text = CustomUserDefault.getCurrency()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.changeLanguageOfUI()
+    }
+    
+    func changeLanguageOfUI() {
+        
+        self.lblMarketPrice.text = "Market Price".localized(lang: langCode)
+        self.lblInstacashPrice.text = "InstaCash Price".localized(lang: langCode)
+        self.lblTheInsta.text = "The price stated above depends on the condition of the device. A final price offer will be quoted after you run the device diagnosis.".localized(lang: langCode)
+        self.lblGettingAn.text = "Getting an exact quote takes 5 mins. Ready to roll? Just grab your earphone and data cable for respective diagnosis.".localized(lang: langCode)
+        
+        self.btnGetQuote.setTitle("Get exact quote".localized(lang: langCode), for: UIControlState.normal)
     }
     
     // MARK:- navigation bar setup.

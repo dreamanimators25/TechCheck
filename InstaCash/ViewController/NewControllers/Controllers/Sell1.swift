@@ -15,6 +15,13 @@ class Sell1: UIViewController {
     @IBOutlet weak var lblPhonePrice: UILabel!
     @IBOutlet weak var viewBG: UIView!
     
+    @IBOutlet weak var lblQuote: UILabel!
+    @IBOutlet weak var lblGetUpto: UILabel!
+    @IBOutlet weak var lblThePrice: UILabel!
+    @IBOutlet weak var lblGetting: UILabel!
+    @IBOutlet weak var btnGetQuote: UIButton!
+    
+    
     let reachability: Reachability? = Reachability()
     var strDevie = String()
     var imgView = UIImageView()
@@ -28,6 +35,26 @@ class Sell1: UIViewController {
         
         self.lblPhoneName.text = strDevie
         self.imgPhone.image = imgView.image
+    }
+    
+    func changeLanguageOfUI() {
+        
+        self.lblQuote.text = "Quote".localized(lang: langCode)
+        self.lblGetUpto.text = "Get Upto".localized(lang: langCode)
+        self.lblThePrice.text = "The price stated above depends on the condition of the device. A final price offer will be quoted after you run the device diagnosis.".localized(lang: langCode)
+        self.lblGetting.text = "Getting an exact quote takes 5 mins. Ready to roll?".localized(lang: langCode)
+        
+        self.btnGetQuote.setTitle("GET EXACT QUOTE".localized(lang: langCode), for: UIControlState.normal)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.changeLanguageOfUI()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+            UIView.addShadowOn4side(baseView: self.viewBG)
+        }
         
     }
     
@@ -61,15 +88,6 @@ class Sell1: UIViewController {
                 }
             }
         }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
-            UIView.addShadowOn4side(baseView: self.viewBG)
-        }
-       
     }
     
     //MARK: IBActions

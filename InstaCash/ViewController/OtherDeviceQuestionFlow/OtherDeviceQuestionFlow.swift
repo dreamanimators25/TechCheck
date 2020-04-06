@@ -16,7 +16,6 @@ class OtherDeviceQuestionFlow: UIViewController,UITableViewDelegate,UITableViewD
     @IBOutlet weak var tblViewOtherDeviceQuestions: UITableView!
     
     let reachability: Reachability? = Reachability()
-    
     var arrQuestionForOtherDevices = [PickUpQuestionModel]()
     var resultJSON = JSON()
     var strNavTitle = ""
@@ -24,6 +23,15 @@ class OtherDeviceQuestionFlow: UIViewController,UITableViewDelegate,UITableViewD
     var selectedId = String() //s.
     var selectedName = String() //s.
     var selectedImageUrl = String() //s.
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.changeLanguageOfUI()
+    }
+    
+    func changeLanguageOfUI() {
+        
+        self.btnSubmit.setTitle("Get Quote".localized(lang: langCode), for: UIControlState.normal)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -165,7 +173,7 @@ class OtherDeviceQuestionFlow: UIViewController,UITableViewDelegate,UITableViewD
             cell.imgValues.sd_setImage(with: imgURL)
         }
         
-        cell.lblValues.text  = arrQuestionForOtherDevices[collectionView.tag].arrQuestionTypes[indexPath.row].strQuestionValue
+        cell.lblValues.text  = arrQuestionForOtherDevices[collectionView.tag].arrQuestionTypes[indexPath.row].strQuestionValue.localized(lang: langCode)
         
         if arrQuestionForOtherDevices[collectionView.tag].arrQuestionTypes[indexPath.row].isSelected == true{
             cell.viewMain.backgroundColor = navColor
@@ -311,8 +319,7 @@ class OtherDeviceQuestionFlow: UIViewController,UITableViewDelegate,UITableViewD
 
         }
         else{
-            Alert.showAlert(strMessage: "Select All values", Onview: self)
-            
+            Alert.showAlert(strMessage: "Select All values".localized(lang: langCode) as NSString, Onview: self)
         }
         
     }
@@ -392,7 +399,7 @@ class OtherDeviceQuestionFlow: UIViewController,UITableViewDelegate,UITableViewD
                         if self.arrQuestionForOtherDevices.count > 0 {
                             self.btnSubmit.isHidden = false
                             for i in 0..<self.arrQuestionForOtherDevices.count{
-                                if self.arrQuestionForOtherDevices[i].strViewType == "checkbox"{
+                                if self.arrQuestionForOtherDevices[i].strViewType == "checkbox" {
                                     let modelQuestionAddValueFromOurSide = PickUpQuestionTypesModel()
                                     if self.arrQuestionForOtherDevices[i].arrQuestionTypes.count == 1{
                                         //add not aplicable
@@ -438,7 +445,7 @@ class OtherDeviceQuestionFlow: UIViewController,UITableViewDelegate,UITableViewD
             })
         }
         else{
-            Alert.showAlert(strMessage: "No connection found", Onview: self)
+            Alert.showAlert(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
         }
         
     }

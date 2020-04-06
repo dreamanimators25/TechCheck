@@ -21,6 +21,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProceedPaymentVC" customModule="InstaCash" customModuleProvider="target">
             <connections>
                 <outlet property="btnSwipe" destination="rwm-Pl-xcA" id="oSP-Vl-LR2"/>
+                <outlet property="lblAccountAmount" destination="ExG-Gf-jxu" id="UzD-a0-xVY"/>
+                <outlet property="lblAccountNum" destination="ZAQ-9U-PgP" id="OPj-J5-KqQ"/>
                 <outlet property="lblAccountNumber" destination="tDW-P7-SCa" id="0bc-uw-yPO"/>
                 <outlet property="lblAmount" destination="UiO-gp-gJA" id="Tz6-Ud-lbg"/>
                 <outlet property="lblPaymentMode" destination="PTJ-8p-V97" id="3px-YD-Rn9"/>

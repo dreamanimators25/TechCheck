@@ -198,15 +198,15 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
     
     func setCountryValue(str:String)
     {
-        if(str == "India".localized(lang: langCode))
+        if(str == "India")
         {
             self.onClickSelectCountry(btnIndia)
         }
-        else if(str == "Malaysia".localized(lang: langCode))
+        else if(str == "Malaysia")
         {
             self.onClickSelectCountry(btnMalaysia)
         }
-        else if(str == "Singapore".localized(lang: langCode))
+        else if(str == "Singapore")
         {
             self.onClickSelectCountry(btnSingapore)
         }
@@ -406,7 +406,7 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
                 self.fireWebServiceForFbLogin(userName:strFinalUserName, socialId: gPlusId, email: email, strProfile: imageUrl,strFbOrGp: "gplus")
             }
             else {
-                Alert.showAlert(strMessage: "No connection found", Onview: self)
+                Alert.showAlert(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
             }
             
             // Perform any operations on signed in user here.
@@ -627,7 +627,7 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
         }
         else
         {
-            Alert.showAlert(strMessage: "No connection found", Onview: self)
+            Alert.showAlert(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
         }
     }
     
@@ -653,7 +653,7 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
         self.txtPhoneNumer.resignFirstResponder()
         if (txtPhoneNumer.text?.isEmpty)!{
             
-            Alert.showAlert(strMessage: "Please enter mobile number", Onview: self)
+            Alert.showAlert(strMessage: "Please enter mobile number".localized(lang: langCode) as NSString, Onview: self)
             
         }
         /*else if(!validatePhoneNo(value: txtPhoneNumer.text!)){
@@ -663,7 +663,7 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
         }*/
         else if(!txtPhoneNumer.text!.isValidContact){
             
-            Alert.showAlert(strMessage: "Please enter valid mobile number", Onview: self)
+            Alert.showAlert(strMessage: "Please enter valid mobile number".localized(lang: langCode) as NSString, Onview: self)
             
         }
         else
@@ -685,6 +685,7 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
             else{
                 strGCMToken = ""
             }
+            
             Alert.ShowProgressHud(Onview: self.view)
             let strBaseURL = userDefaults.value(forKey: "baseURL") as! String
             var strUrl = ""
@@ -759,7 +760,7 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
         else
         {
             lblMessage.isHidden = false
-            lblMessage.text = "No connection found"
+            lblMessage.text = "No connection found".localized(lang: langCode)
         }
         
     }
@@ -856,7 +857,7 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
         else
         {
             lblMessage.isHidden = false
-            lblMessage.text = "No connection found"
+            lblMessage.text = "No connection found".localized(lang: langCode)
         }
         
     }

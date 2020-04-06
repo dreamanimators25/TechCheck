@@ -10,6 +10,11 @@ import UIKit
 import SwiftyJSON
 
 class QuriesVC: UIViewController {
+    
+    @IBOutlet weak var lblAlmostDone: UILabel!
+    @IBOutlet weak var lblPleaseTellUs: UILabel!
+    @IBOutlet weak var btnContinue: UIButton!
+    
     var resultJSON = JSON()
 
     override func viewDidLoad() {
@@ -18,10 +23,22 @@ class QuriesVC: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.changeLanguageOfUI()
+    }
+    
+    func changeLanguageOfUI() {
+        
+        self.lblAlmostDone.text = "Almost Done!!".localized(lang: langCode)
+        self.lblPleaseTellUs.text = "Please tell us about a few physical details of your phone.".localized(lang: langCode)
+        
+        self.btnContinue.setTitle("CONTINUE".localized(lang: langCode), for: UIControlState.normal)
+    }
+    
     // MARK:- navigation bar setup.
     func setNavigationBar() -> Void
     {
-        self.title = "Physical condition related quries"
+        self.title = "Physical condition related quries".localized(lang: langCode)
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.isNavigationBarHidden = false
         let btnBack = UIButton(frame: CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: 25, height: 25)))

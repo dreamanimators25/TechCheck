@@ -11,26 +11,26 @@ import UIKit
 class BankTransfer: UIViewController,UITextFieldDelegate {
     
     @IBOutlet weak var lblTitle: UILabel!
-    @IBOutlet weak var lblDeviceName: UILabel!
-    @IBOutlet weak var lblDevicePrice: UILabel!
-    
     @IBOutlet weak var bankView: UIView!
     @IBOutlet weak var pytmView: UIView!
-    
     @IBOutlet weak var pytmImageView: UIImageView!
-    @IBOutlet weak var txtMobileNumber: UITextField!
     
+    
+    @IBOutlet weak var lblDeviceName: UILabel!
+    @IBOutlet weak var lblDevicePrice: UILabel!
     @IBOutlet weak var txtAccountHolderName: UITextField!
     @IBOutlet weak var txtBankName: UITextField!
     @IBOutlet weak var txtAccountNumber: UITextField!
     @IBOutlet weak var txtConfirmAccountNumber: UITextField!
     @IBOutlet weak var txtIfsc: UITextField!
     @IBOutlet weak var txtBranch: UITextField!
+    @IBOutlet weak var txtMobileNumber: UITextField!
+    @IBOutlet weak var btnSkip: UIButton!
+    @IBOutlet weak var btnProceed: UIButton!
+    
     
     var totalNumberCount = 0
- 
     var strPaymentProcessMode = "1"
-    
     var getFinalPrice4 = 0
     var pickUpChargeGet4 = 0
     var finalPriceSet4 = 0
@@ -43,6 +43,29 @@ class BankTransfer: UIViewController,UITextFieldDelegate {
     var selectePaymentType4 = String()
     var donation = String()
     var bankDetails = [String:Any]()
+    
+    func changeLanguageOfUI() {
+      
+        self.lblDeviceName.text = "Transfer Details".localized(lang: langCode)
+        self.lblDevicePrice.text = "Please Enter the details".localized(lang: langCode)
+        
+        self.txtAccountHolderName.placeholder = "Account Holder Name".localized(lang: langCode)
+        self.txtBankName.placeholder = "Bank Name".localized(lang: langCode)
+        self.txtAccountNumber.placeholder = "Account Number".localized(lang: langCode)
+        self.txtConfirmAccountNumber.placeholder = "Confirm Account Number".localized(lang: langCode)
+        self.txtIfsc.placeholder = "IFSC".localized(lang: langCode)
+        self.txtBranch.placeholder = "Bank Branch".localized(lang: langCode)
+        self.txtMobileNumber.placeholder = "Mobile Number".localized(lang: langCode)
+        
+        self.btnSkip.setTitle("SKIP".localized(lang: langCode), for: UIControlState.normal)
+        self.btnProceed.setTitle("PROCEED".localized(lang: langCode), for: UIControlState.normal)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.changeLanguageOfUI()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,17 +82,17 @@ class BankTransfer: UIViewController,UITextFieldDelegate {
         txtMobileNumber.delegate = self
         
         if selectePaymentType4 == "NEFT" {
-            self.lblTitle.text = "NEFT"
+            self.lblTitle.text = "NEFT".localized(lang: langCode)
             self.bankView.isHidden = false
             self.pytmView.isHidden = true
             
         }else if selectePaymentType4 == "IMPS" {
-            self.lblTitle.text = "IMPS"
+            self.lblTitle.text = "IMPS".localized(lang: langCode)
             self.bankView.isHidden = false
             self.pytmView.isHidden = true
             
         }else if selectePaymentType4 == "PYTM" {
-            self.lblTitle.text = "PAYTM"
+            self.lblTitle.text = "PAYTM".localized(lang: langCode)
             self.pytmView.isHidden = false
             self.bankView.isHidden = true
             
@@ -81,18 +104,13 @@ class BankTransfer: UIViewController,UITextFieldDelegate {
             //self.pytmImageView.sd_setImage(with: imgURL)
             
         }else if selectePaymentType4 == "DONATION" {
-            self.lblTitle.text = "DONATION"
+            self.lblTitle.text = "DONATION".localized(lang: langCode)
             
             self.pytmView.isHidden = true
             self.bankView.isHidden = true
         }
         
         self.getPaymentStructureFromServer()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
     }
     
     @IBAction func onClickBack(_ sender: Any) {
@@ -118,9 +136,9 @@ class BankTransfer: UIViewController,UITextFieldDelegate {
         }else if selectePaymentType4 == "PYTM" {
             
             if txtMobileNumber.text!.isEmpty {
-                Alert.showAlert(strMessage: "Please enter mobile number" as NSString, Onview: self)
+                Alert.showAlert(strMessage: "Please enter mobile number".localized(lang: langCode) as NSString, Onview: self)
             }else if txtMobileNumber.text?.count ?? 0 < totalNumberCount {
-                Alert.showAlert(strMessage: "Please enter Valid mobile number", Onview: self)
+                Alert.showAlert(strMessage: "Please enter Valid mobile number".localized(lang: langCode) as NSString, Onview: self)
             }else{
                 self.setPaymentDetailsFromServer()
             }
@@ -156,36 +174,36 @@ class BankTransfer: UIViewController,UITextFieldDelegate {
     {
         if txtAccountHolderName.text!.isEmpty
         {
-            Alert.showAlert(strMessage: "Please enter account holder's name" as NSString, Onview: self)
+            Alert.showAlert(strMessage: "Please enter account holder's name".localized(lang: langCode) as NSString, Onview: self)
             return false
         }
         else if txtBankName.text!.isEmpty
         {
-            Alert.showAlert(strMessage: "Please enter your bank name" as NSString, Onview: self)
+            Alert.showAlert(strMessage: "Please enter your bank name".localized(lang: langCode) as NSString, Onview: self)
             return false
         }
         else if txtAccountNumber.text!.isEmpty
         {
-            Alert.showAlert(strMessage: "Please enter account number", Onview: self)
+            Alert.showAlert(strMessage: "Please enter account number".localized(lang: langCode) as NSString, Onview: self)
             return false
         }
         else if txtConfirmAccountNumber.text!.isEmpty
         {
-            Alert.showAlert(strMessage: "Please enter confirm account number", Onview: self)
+            Alert.showAlert(strMessage: "Please enter confirm account number".localized(lang: langCode) as NSString, Onview: self)
             return false
         }
         else if txtAccountNumber.text != txtConfirmAccountNumber.text
         {
-            Alert.showAlert(strMessage: "Account Number doesn't match!", Onview: self)
+            Alert.showAlert(strMessage: "Account Number doesn't match!".localized(lang: langCode) as NSString, Onview: self)
             return false
         }
         else if txtIfsc.text!.isEmpty
         {
-            Alert.showAlert(strMessage: "Please enter IFSC Code", Onview: self)
+            Alert.showAlert(strMessage: "Please enter IFSC Code".localized(lang: langCode) as NSString, Onview: self)
             return false
         }
         else if txtBranch.text!.isEmpty {
-            Alert.showAlert(strMessage: "Please enter bank branch", Onview: self)
+            Alert.showAlert(strMessage: "Please enter bank branch".localized(lang: langCode) as NSString, Onview: self)
             return false
         }
         
@@ -255,12 +273,12 @@ class BankTransfer: UIViewController,UITextFieldDelegate {
                 }
                 else{
                     debugPrint(error as Any)
-                    Alert.showAlert(strMessage: "Seems connection loss from server", Onview: self)
+                    Alert.showAlert(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
                 }
             })
             
         }else{
-            Alert.showAlert(strMessage: "No Connection Found", Onview: self)
+            Alert.showAlert(strMessage: "No Connection Found".localized(lang: langCode) as NSString, Onview: self)
         }
         
     }
@@ -295,12 +313,12 @@ class BankTransfer: UIViewController,UITextFieldDelegate {
                 }
                 else{
                     debugPrint(error as Any)
-                    Alert.showAlert(strMessage: "Seems connection loss from server", Onview: self)
+                    Alert.showAlert(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
                 }
             })
             
         }else{
-            Alert.showAlert(strMessage: "No Connection Found", Onview: self)
+            Alert.showAlert(strMessage: "No Connection Found".localized(lang: langCode) as NSString, Onview: self)
         }
         
     }
@@ -393,12 +411,12 @@ class BankTransfer: UIViewController,UITextFieldDelegate {
                 }
                 else{
                     debugPrint(error as Any)
-                    Alert.showAlert(strMessage: "Seems connection loss from server", Onview: self)
+                    Alert.showAlert(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
                 }
             })
             
         }else{
-            Alert.showAlert(strMessage: "No Connection Found", Onview: self)
+            Alert.showAlert(strMessage: "No Connection Found".localized(lang: langCode) as NSString, Onview: self)
         }
         
     }
@@ -610,12 +628,12 @@ class BankTransfer: UIViewController,UITextFieldDelegate {
                 }
                 else{
                     debugPrint(error as Any)
-                    Alert.showAlert(strMessage: "Seems connection loss from server", Onview: self)
+                    Alert.showAlert(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
                 }
             })
             
         }else{
-            Alert.showAlert(strMessage: "No Connection Found", Onview: self)
+            Alert.showAlert(strMessage: "No Connection Found".localized(lang: langCode) as NSString, Onview: self)
         }
         
     }
@@ -625,7 +643,7 @@ class BankTransfer: UIViewController,UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField == txtIfsc {
             if (txtIfsc.text?.isEmpty)! {
-                Alert.showAlert(strMessage: "Enter valid IFSC Code", Onview: self)
+                Alert.showAlert(strMessage: "Enter valid IFSC Code".localized(lang: langCode) as NSString, Onview: self)
             }
             else {
                 //self.lblPincodeMatchMessage.isHidden = true

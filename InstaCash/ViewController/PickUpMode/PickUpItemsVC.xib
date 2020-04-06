@@ -26,6 +26,9 @@
                 <outlet property="btnOriginalCharger" destination="coO-Wc-kk8" id="zPw-1Z-aHX"/>
                 <outlet property="btnValidBill" destination="Our-g6-bbB" id="C5G-NP-FAe"/>
                 <outlet property="itemHeightConstraint" destination="73j-Tk-668" id="OUb-MJ-4l9"/>
+                <outlet property="lblClickItems" destination="zyN-z8-oXc" id="X0W-KS-nhj"/>
+                <outlet property="lblPleaseClick" destination="SVd-Xk-SwO" id="g6D-ch-DdU"/>
+                <outlet property="lblPleaseMake" destination="GjY-S5-4bT" id="wZm-kL-cqr"/>
                 <outlet property="view" destination="Us9-eU-wvE" id="s33-aR-42Z"/>
                 <outlet property="viewBox" destination="dL0-zg-Da8" id="QfZ-JN-P6B"/>
                 <outlet property="viewDevice" destination="Ql8-lh-SSe" id="zKn-oV-xhs"/>

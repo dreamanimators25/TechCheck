@@ -20,7 +20,7 @@
 "India" = "भारत";
 "Malaysia" = "मलेशिया";
 "Singapore" = "सिंगापुर";
-"Login with Google" = "Google के साथ लॉगिन करें";
+"Login with Google" = "गूगल के साथ लॉगिन करें";
 "Login" = "लॉग इन करें";
 "or login with mobile" = "या मोबाइल से लॉगिन करें";
 "Enter Number" = "नंबर डालें";
@@ -702,7 +702,7 @@
 
 // 89. Profile
 "Account" = "लेखा";
-"Save" = "बचाना";
+"Save" = "सुरक्षित करें";
 "Logout" = "लॉग आउट";
 "Name" = "नाम";
 "Email address" = "ईमेल पता";

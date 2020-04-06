@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,7 +23,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SensorReadVC" customModule="InstaCash" customModuleProvider="target">
             <connections>
+                <outlet property="btnGuideMe" destination="sh4-OI-BVl" id="2F8-lG-t9s"/>
+                <outlet property="btnStart" destination="YtB-Mt-OWY" id="M7c-Fg-fKO"/>
+                <outlet property="lblCheckingProximity" destination="t70-pN-396" id="1XE-yK-sgD"/>
+                <outlet property="lblNotWorking" destination="IUQ-kM-MFp" id="Vjg-Q0-mg0"/>
                 <outlet property="lblPrice" destination="V0P-Ke-HjE" id="zE6-l5-hk0"/>
+                <outlet property="lblWaveHand" destination="lRo-X4-mOz" id="i7f-gx-d14"/>
                 <outlet property="proximityImageView" destination="SWy-Qu-O1A" id="j73-8f-bMZ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="viewGuide" destination="YsH-Ec-Qk8" id="IaO-MP-VL4"/>

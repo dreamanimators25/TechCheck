@@ -20,7 +20,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ScreenTestPickUp" customModule="InstaCash" customModuleProvider="target">
             <connections>
+                <outlet property="btnGuideMe" destination="jqs-EA-CbS" id="4YD-9M-gng"/>
+                <outlet property="btnRetry" destination="f0A-r4-C8J" id="fp9-y7-NTK"/>
                 <outlet property="btnStartScreenTest" destination="Rej-mg-Tca" id="ePF-fF-bYW"/>
+                <outlet property="lblCheckScreen" destination="y0z-8i-011" id="IXc-Xe-Jb4"/>
+                <outlet property="lblPressStart" destination="Cyt-Sh-7hQ" id="b8W-pd-HDH"/>
                 <outlet property="screenTestViewPickup" destination="mxP-6r-KF0" id="oaC-Si-ac1"/>
                 <outlet property="view" destination="sK6-c3-xP3" id="V8j-ZV-ruD"/>
             </connections>

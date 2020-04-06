@@ -11,22 +11,23 @@ import UIKit
 class PickUpItemsVC: UIViewController,UITextFieldDelegate {
     
     @IBOutlet weak var viewDevice: UIView!
-    @IBOutlet weak var btnDevice: UIButton!
-    
     @IBOutlet weak var viewValidBill: UIView!
-    @IBOutlet weak var btnValidBill: UIButton!
-    
     @IBOutlet weak var viewBox: UIView!
-    @IBOutlet weak var btnBox: UIButton!
-    
     @IBOutlet weak var viewEarPhones: UIView!
-    @IBOutlet weak var btnEarPhones: UIButton!
-    
     @IBOutlet weak var viewOriginalCharger: UIView!
-    @IBOutlet weak var btnOriginalCharger: UIButton!
     
     @IBOutlet weak var itemHeightConstraint: NSLayoutConstraint! //s.
     @IBOutlet weak var viewTop: UIView!
+    
+    
+    @IBOutlet weak var lblClickItems: UILabel!
+    @IBOutlet weak var btnDevice: UIButton!
+    @IBOutlet weak var btnValidBill: UIButton!
+    @IBOutlet weak var btnBox: UIButton!
+    @IBOutlet weak var btnEarPhones: UIButton!
+    @IBOutlet weak var btnOriginalCharger: UIButton!
+    @IBOutlet weak var lblPleaseMake: UILabel!
+    @IBOutlet weak var lblPleaseClick: UILabel!
     @IBOutlet weak var viewTopLbl: UILabel!
     
     
@@ -50,6 +51,25 @@ class PickUpItemsVC: UIViewController,UITextFieldDelegate {
     var isBoxSelected = true
     var isEarphoneSelected = true
     var isChargerSelected = true
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.changeLanguageOfUI()
+    }
+    
+    func changeLanguageOfUI() {
+       
+        self.lblClickItems.text = "Click the Items Picked Up".localized(lang: langCode)
+        
+        self.btnDevice.setTitle("   Device".localized(lang: langCode), for: UIControlState.normal)
+        self.btnValidBill.setTitle("   Valid Bill".localized(lang: langCode), for: UIControlState.normal)
+        self.btnBox.setTitle("   Box".localized(lang: langCode), for: UIControlState.normal)
+        self.btnEarPhones.setTitle("   Earphone".localized(lang: langCode), for: UIControlState.normal)
+        self.btnOriginalCharger.setTitle("   Original Charger".localized(lang: langCode), for: UIControlState.normal)
+        
+        self.lblPleaseMake.text = "Please make sure to package all the items listed below carefully and properly before dispatching it to the return center.".localized(lang: langCode)
+        self.lblPleaseClick.text = "Please click YES in the box below to accept that this device is not stolen and that the details of the device provided by you are correct to the best of your knowledge and that you’ve read our terms and conditions and fully agree with them".localized(lang: langCode)
+        self.viewTopLbl.text = "YES".localized(lang: langCode)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -437,9 +457,9 @@ class PickUpItemsVC: UIViewController,UITextFieldDelegate {
                     
                     if responseObject?["status"] as! String == "Success"{
                         
-                        let alertController = UIAlertController(title: "Order Complete!", message:"Pickup is complete now.Continue to Process the payment", preferredStyle: .alert)
+                        let alertController = UIAlertController(title: "Order Complete!".localized(lang: langCode), message:"Pickup is complete now.Continue to Process the payment".localized(lang: langCode), preferredStyle: .alert)
                         
-                        let sendButton = UIAlertAction(title: "Pocess Payment", style: .default, handler: { (action) -> Void in
+                        let sendButton = UIAlertAction(title: "Pocess Payment".localized(lang: langCode), style: .default, handler: { (action) -> Void in
                             
                             let vc = ProceedPaymentVC()
                             vc.getAmount = self.strGetPaymentAmount
@@ -463,9 +483,9 @@ class PickUpItemsVC: UIViewController,UITextFieldDelegate {
                 }
                 else
                 {
-                    let alertController = UIAlertController(title: "InstaCash", message:"Seems connection loss from server", preferredStyle: .alert)
+                    let alertController = UIAlertController(title: "InstaCash".localized(lang: langCode), message:"Seems connection loss from server".localized(lang: langCode), preferredStyle: .alert)
                     
-                    let sendButton = UIAlertAction(title: "Ok", style: .default, handler: { (action) -> Void in
+                    let sendButton = UIAlertAction(title: "Ok".localized(lang: langCode), style: .default, handler: { (action) -> Void in
                         
                     })
                     alertController.addAction(sendButton)
@@ -477,9 +497,9 @@ class PickUpItemsVC: UIViewController,UITextFieldDelegate {
         }
         else
         {
-            let alertController = UIAlertController(title: "InstaCash", message:"No connection found", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "InstaCash".localized(lang: langCode), message:"No connection found".localized(lang: langCode), preferredStyle: .alert)
             
-            let sendButton = UIAlertAction(title: "Ok", style: .default, handler: { (action) -> Void in
+            let sendButton = UIAlertAction(title: "Ok".localized(lang: langCode), style: .default, handler: { (action) -> Void in
                 
             })
             alertController.addAction(sendButton)

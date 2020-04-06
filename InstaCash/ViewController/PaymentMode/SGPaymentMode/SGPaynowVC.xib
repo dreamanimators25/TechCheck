@@ -20,6 +20,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SGPaynowVC" customModule="InstaCash" customModuleProvider="target">
             <connections>
+                <outlet property="btnProceed" destination="Ohq-j0-BmY" id="miO-vF-n5x"/>
+                <outlet property="btnSkip" destination="asr-uP-CNN" id="Esg-ld-VDh"/>
+                <outlet property="lblPaynow" destination="Nlm-Yq-wXB" id="wdp-LP-SJM"/>
+                <outlet property="lblPleaseEnter" destination="HAW-Fj-MnK" id="iAW-ZX-XHj"/>
+                <outlet property="lblTransferDetail" destination="oDy-vr-JXc" id="wyd-Ta-ocO"/>
                 <outlet property="txtFAccountHolderName" destination="VL8-fE-WbZ" id="0wJ-bq-ady"/>
                 <outlet property="txtFMobileNumber" destination="elz-m7-PHN" id="x6L-wI-BPF"/>
                 <outlet property="view" destination="NfK-Qu-2jL" id="Mx3-i1-GTq"/>

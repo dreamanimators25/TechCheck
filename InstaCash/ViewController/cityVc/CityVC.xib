@@ -13,8 +13,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CityVC" customModule="InstaCash" customModuleProvider="target">
             <connections>
                 <outlet property="btnCancel" destination="utx-eJ-tiM" id="JY9-RW-XKv"/>
+                <outlet property="btnOk" destination="Lsm-WC-TzD" id="7cM-Ja-aig"/>
                 <outlet property="cityPicker" destination="dSw-Bi-9NK" id="stq-F6-SrT"/>
                 <outlet property="lblMessage" destination="FSg-xD-KeF" id="Adw-sS-OsW"/>
+                <outlet property="lblPleaseEnter" destination="A3I-ov-Zqu" id="7Lg-zw-qms"/>
                 <outlet property="lblValidateMssg" destination="las-2c-b8R" id="e3G-wv-Mbj"/>
                 <outlet property="txtPinCode" destination="zxL-UC-33I" id="995-ai-ttc"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -100,7 +102,7 @@
                             <rect key="frame" x="12" y="102.5" width="250" height="295.5"/>
                             <subviews>
                                 <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dSw-Bi-9NK">
-                                    <rect key="frame" x="0.0" y="0.0" width="250" height="296"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="250" height="295.5"/>
                                 </pickerView>
                             </subviews>
                         </stackView>

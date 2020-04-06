@@ -12,8 +12,20 @@ class HistoryVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     @IBOutlet weak var lblMessage: UILabel!
     @IBOutlet weak var tblViewHistory: UITableView!
+
     let reachability: Reachability? = Reachability()
     var arrHistoryList = [HistoryModel]()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.changeLanguageOfUI()
+    }
+    
+    func changeLanguageOfUI() {
+        
+        self.lblMessage.text = "No History Found".localized(lang: langCode)
+        
+        //self.btnAll.setTitle("ALL".localized(lang: langCode), for: UIControlState.normal)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +50,7 @@ class HistoryVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
             }
         }
         else{
-            Alert.showAlert(strMessage: "No Connection found", Onview: self)
+            Alert.showAlert(strMessage: "No Connection found".localized(lang: langCode) as NSString, Onview: self)
         }
         
     }
@@ -46,7 +58,7 @@ class HistoryVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     // MARK:- navigation bar setup.
     func setNavigationBar() -> Void
     {
-        self.title = "History"
+        self.title = "History".localized(lang: langCode)
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.isNavigationBarHidden = false
         self.navigationController?.navigationBar.barTintColor = navColor

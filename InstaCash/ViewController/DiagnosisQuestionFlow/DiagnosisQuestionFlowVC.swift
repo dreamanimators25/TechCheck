@@ -20,6 +20,15 @@ class DiagnosisQuestionFlowVC: UIViewController,UITableViewDelegate,UITableViewD
     var selectedId = String() //s.
     var selectedName = String() //s.
     var selectedImageUrl = String() //s.
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.changeLanguageOfUI()
+    }
+    
+    func changeLanguageOfUI() {
+        
+        self.btnSubmit.setTitle("SUBMIT".localized(lang: langCode), for: UIControlState.normal)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +51,7 @@ class DiagnosisQuestionFlowVC: UIViewController,UITableViewDelegate,UITableViewD
     {
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.isNavigationBarHidden = false
-        self.title = "Physical condition related quries"
+        self.title = "Physical condition related quries".localized(lang: langCode)
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white] //s.
         let btnBack = UIButton(frame: CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: 25, height: 25)))
         let widthConstraint = btnBack.widthAnchor.constraint(equalToConstant: 25)
@@ -179,7 +188,7 @@ class DiagnosisQuestionFlowVC: UIViewController,UITableViewDelegate,UITableViewD
         })
     }
     else{
-            Alert.showAlert(strMessage: "No connection found", Onview: self)
+            Alert.showAlert(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
     }
         
     }
@@ -272,6 +281,7 @@ class DiagnosisQuestionFlowVC: UIViewController,UITableViewDelegate,UITableViewD
         cell.layer.borderWidth = 0.5 //s.
         cell.layer.borderColor = UIColor.gray.cgColor //s.
         cell.clipsToBounds = true
+        
         if arrQuestionForQuestion[collectionView.tag].arrQuestionTypes[indexPath.row].strQuestionValueImage.isEmpty{
             cell.imgValues.image = UIImage(named: "phonePlaceHolder")
         }
@@ -279,11 +289,12 @@ class DiagnosisQuestionFlowVC: UIViewController,UITableViewDelegate,UITableViewD
             let imgURL = URL(string:arrQuestionForQuestion[collectionView.tag].arrQuestionTypes[indexPath.row].strQuestionValueImage)
             cell.imgValues.sd_setImage(with: imgURL)
         }
-        cell.lblValues.text  = arrQuestionForQuestion[collectionView.tag].arrQuestionTypes[indexPath.row].strQuestionValue
+        
+        cell.lblValues.text  = arrQuestionForQuestion[collectionView.tag].arrQuestionTypes[indexPath.row].strQuestionValue.localized(lang: langCode)
+        
         if arrQuestionForQuestion[collectionView.tag].arrQuestionTypes[indexPath.row].isSelected == true{
             cell.viewMain.backgroundColor = navColor
             cell.lblValues.textColor = UIColor.white
-            
             cell.circleImageView.isHidden = true //s.
         }
         else{
@@ -292,6 +303,7 @@ class DiagnosisQuestionFlowVC: UIViewController,UITableViewDelegate,UITableViewD
             cell.lblValues.textColor = UIColor.black
             cell.circleImageView.isHidden = false //s.
         }
+        
         return cell
     }
     
@@ -453,7 +465,7 @@ class DiagnosisQuestionFlowVC: UIViewController,UITableViewDelegate,UITableViewD
             self.navigationController?.pushViewController(vc, animated: true)
         }
         else {
-            Alert.showAlert(strMessage: "Select All values", Onview: self)
+            Alert.showAlert(strMessage: "Select All values".localized(lang: langCode) as NSString, Onview: self)
         }
     }
 }

@@ -10,10 +10,15 @@ import UIKit
 
 class SGPaynowVC: UIViewController {
     
+    @IBOutlet weak var ddView: UIView!
+    
+    @IBOutlet weak var lblPaynow: UILabel!
+    @IBOutlet weak var lblTransferDetail: UILabel!
+    @IBOutlet weak var lblPleaseEnter: UILabel!
     @IBOutlet weak var txtFAccountHolderName: UITextField!
     @IBOutlet weak var txtFMobileNumber: UITextField!
-    
-    @IBOutlet weak var ddView: UIView!
+    @IBOutlet weak var btnSkip: UIButton!
+    @IBOutlet weak var btnProceed: UIButton!
     
     let reachability: Reachability? = Reachability()
     var quatationId = String()
@@ -31,6 +36,26 @@ class SGPaynowVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.getPaymentDetailsFromServer()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.changeLanguageOfUI()
+    }
+    
+    func changeLanguageOfUI() {
+        
+        self.lblPaynow.text = "PAYNOW".localized(lang: langCode)
+        self.lblTransferDetail.text = "Transfer Details".localized(lang: langCode)
+        self.lblPleaseEnter.text = "Please Enter the details".localized(lang: langCode)
+        
+        self.txtFAccountHolderName.placeholder = "Account Holders Name".localized(lang: langCode)
+        self.txtFMobileNumber.placeholder = "Mobile Number".localized(lang: langCode)
+        
+        self.btnSkip.setTitle("SKIP".localized(lang: langCode), for: UIControlState.normal)
+        self.btnProceed.setTitle("PROCEED".localized(lang: langCode), for: UIControlState.normal)
+        
     }
 
     //MARK:- button action methods
@@ -56,12 +81,12 @@ class SGPaynowVC: UIViewController {
     {
         if txtFAccountHolderName.text!.isEmpty
         {
-            Alert.showAlert(strMessage: "Please enter account holder's name" as NSString, Onview: self)
+            Alert.showAlert(strMessage: "Please enter account holder's name".localized(lang: langCode) as NSString, Onview: self)
             return false
         }
         else if txtFMobileNumber.text!.isEmpty
         {
-            Alert.showAlert(strMessage: "Please enter mobile number", Onview: self)
+            Alert.showAlert(strMessage: "Please enter mobile number".localized(lang: langCode) as NSString, Onview: self)
             return false
         }
        
@@ -114,12 +139,12 @@ class SGPaynowVC: UIViewController {
                 }
                 else{
                     debugPrint(error as Any)
-                    Alert.showAlert(strMessage: "Seems connection loss from server", Onview: self)
+                    Alert.showAlert(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
                 }
             })
             
         }else{
-            Alert.showAlert(strMessage: "No Connection Found", Onview: self)
+            Alert.showAlert(strMessage: "No Connection Found".localized(lang: langCode) as NSString, Onview: self)
         }
         
     }
@@ -183,12 +208,12 @@ class SGPaynowVC: UIViewController {
                 }
                 else{
                     debugPrint(error as Any)
-                    Alert.showAlert(strMessage: "Seems connection loss from server", Onview: self)
+                    Alert.showAlert(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
                 }
             })
             
         }else{
-            Alert.showAlert(strMessage: "No Connection Found", Onview: self)
+            Alert.showAlert(strMessage: "No Connection Found".localized(lang: langCode) as NSString, Onview: self)
         }
         
     }

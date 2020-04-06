@@ -16,13 +16,17 @@ class PlaceOrderVC: UIViewController,UITextFieldDelegate,CLLocationManagerDelega
     var strPaymentProcessMode = "1"
     var strGetAppCodes = ""
 
-    @IBOutlet weak var btnPaymentMode: UIButton!
     
+    @IBOutlet weak var lblLocation: UILabel!
+    @IBOutlet weak var lblPickUpDetail: UILabel!
+    @IBOutlet weak var lblWeCome: UILabel!
+    @IBOutlet weak var btnGetMyLocation: UIButton!
+    @IBOutlet weak var txtAddressLin1: UITextField!
+    @IBOutlet weak var txtAddressLine2: UITextField!
     @IBOutlet weak var txtCity: UITextField!
     @IBOutlet weak var txtPincode: UITextField!
+    @IBOutlet weak var btnPaymentMode: UIButton!
     
-    @IBOutlet weak var txtAddressLine2: UITextField!
-    @IBOutlet weak var txtAddressLin1: UITextField!
     
     //@IBOutlet weak var txtMobileNumber: UITextField! //s.
     //@IBOutlet weak var txtEmail: UITextField! //s.
@@ -95,15 +99,29 @@ class PlaceOrderVC: UIViewController,UITextFieldDelegate,CLLocationManagerDelega
         
         txtPincode.delegate = self
         
+        self.changeLanguageOfUI()
     }
 
+    func changeLanguageOfUI() {
+     
+        self.lblLocation.text = "Location".localized(lang: langCode)
+        self.lblPickUpDetail.text = "Pick up details".localized(lang: langCode)
+        self.lblWeCome.text = "We come to you and pick up your device. We also pay you on the spot.".localized(lang: langCode)
+        self.btnGetMyLocation.setTitle("Get my location".localized(lang: langCode), for: UIControlState.normal)
+        self.txtAddressLin1.placeholder = "Address Line 1".localized(lang: langCode)
+        self.txtAddressLine2.placeholder = "Address Line 2".localized(lang: langCode)
+        self.txtCity.placeholder = "City".localized(lang: langCode)
+        self.txtPincode.placeholder = "Pincode".localized(lang: langCode)
+        self.btnPaymentMode.setTitle("Next".localized(lang: langCode), for: UIControlState.normal)
+        
+    }
     
     // MARK:- navigation bar setup.
     func setNavigationBar() -> Void
     {
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.isNavigationBarHidden = false
-        self.title = "Place Order"
+        self.title = "Place Order".localized(lang: langCode)
         let btnBack = UIButton(frame: CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: 25, height: 25)))
         let widthConstraint = btnBack.widthAnchor.constraint(equalToConstant: 25)
         let heightConstraint = btnBack.heightAnchor.constraint(equalToConstant: 25)
@@ -186,17 +204,17 @@ class PlaceOrderVC: UIViewController,UITextFieldDelegate,CLLocationManagerDelega
     {
         if txtAddressLin1.text!.isEmpty
         {
-            Alert.showAlert(strMessage: "Please enter address line 1", Onview: self)
+            Alert.showAlert(strMessage: "Please enter address line 1".localized(lang: langCode) as NSString, Onview: self)
             return false
         }
         else if txtPincode.text!.isEmpty
         {
-            Alert.showAlert(strMessage: "Please enter pincode", Onview: self)
+            Alert.showAlert(strMessage: "Please enter pincode".localized(lang: langCode) as NSString, Onview: self)
             return false
         }
         else if isMatchPincode == false {
-            Alert.showAlert(strMessage: "Pincode not match with your city.", Onview: self)
-            self.strMessage = "Pincode not match with your city."
+            Alert.showAlert(strMessage: "Pincode not match with your city.".localized(lang: langCode) as NSString, Onview: self)
+            self.strMessage = "Pincode not match with your city.".localized(lang: langCode)
             return false
         }
         
@@ -233,7 +251,7 @@ class PlaceOrderVC: UIViewController,UITextFieldDelegate,CLLocationManagerDelega
                     }
                     else{
                         
-                        self.strMessage = "Pincode not match with your city."
+                        self.strMessage = "Pincode not match with your city.".localized(lang: langCode)
                         self.isMatchPincode = false
                         
                         Alert.showAlert(strMessage: self.strMessage as NSString, Onview: self)
@@ -248,7 +266,7 @@ class PlaceOrderVC: UIViewController,UITextFieldDelegate,CLLocationManagerDelega
                 
             }
             else{
-                Alert.showAlert(strMessage: "Seems connection loss from server", Onview: self)
+                Alert.showAlert(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
             }
             
         })
@@ -259,7 +277,7 @@ class PlaceOrderVC: UIViewController,UITextFieldDelegate,CLLocationManagerDelega
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField == txtPincode {
             if (txtPincode.text?.isEmpty)!{
-                Alert.showAlert(strMessage: "Enter valid Code", Onview: self)
+                Alert.showAlert(strMessage: "Enter valid Code".localized(lang: langCode) as NSString, Onview: self)
             }
             else{
                 //self.lblPincodeMatchMessage.isHidden = true
@@ -540,13 +558,13 @@ class PlaceOrderVC: UIViewController,UITextFieldDelegate,CLLocationManagerDelega
                 
             }
             else{
-                Alert.showAlert(strMessage: "Seems connection loss from server", Onview: self)
+                Alert.showAlert(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
             }
             
         })
         }
         else{
-            Alert.showAlert(strMessage: "No Connection Found", Onview: self)
+            Alert.showAlert(strMessage: "No Connection Found".localized(lang: langCode) as NSString, Onview: self)
         }
         
     }
@@ -690,14 +708,14 @@ class PlaceOrderVC: UIViewController,UITextFieldDelegate,CLLocationManagerDelega
                 }
             }
             else{
-                Alert.showAlert(strMessage: "Seems connection loss from server", Onview: self)
+                Alert.showAlert(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
                 
             }
             
         })
         }
         else{
-            Alert.showAlert(strMessage: "No Connection Found", Onview: self)
+            Alert.showAlert(strMessage: "No Connection Found".localized(lang: langCode) as NSString, Onview: self)
 
         }
         

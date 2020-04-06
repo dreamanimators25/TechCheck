@@ -13,8 +13,27 @@ class SignatureVC: UIViewController,YPSignatureDelegate {
     @IBOutlet weak var signatureView: YPDrawSignatureView!
     @IBOutlet weak var signatureBaseView: UIView!
     
+    @IBOutlet weak var lblCustomerSignature: UILabel!
+    @IBOutlet weak var lblPleaseAsk: UILabel!
+    @IBOutlet weak var btnClear: UIButton!
+    @IBOutlet weak var btnUpload: UIButton!
+    
     let reachability: Reachability? = Reachability()
     var strGetUploadBill = ""
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.changeLanguageOfUI()
+    }
+    
+    func changeLanguageOfUI() {
+        
+        self.lblCustomerSignature.text = "Customer Signature".localized(lang: langCode)
+        self.lblPleaseAsk.text = "Please ask the customer to sign on the screen and press save".localized(lang: langCode)
+        
+        self.btnClear.setTitle("Clear".localized(lang: langCode), for: UIControlState.normal)
+        self.btnUpload.setTitle("Upload".localized(lang: langCode), for: UIControlState.normal)
+    }
+
     
     override func viewDidLoad() {
         
@@ -32,7 +51,7 @@ class SignatureVC: UIViewController,YPSignatureDelegate {
     // MARK:- navigation bar setup.
     func setNavigationBar() -> Void
     {
-        self.title = "Signature"
+        self.title = "Signature".localized(lang: langCode)
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.isNavigationBarHidden = false
         self.navigationController?.navigationBar.barTintColor = navColor
@@ -73,7 +92,7 @@ class SignatureVC: UIViewController,YPSignatureDelegate {
             // Since the Signature is now saved to the Photo Roll, the View can be cleared anyway.
         }
         else{
-            Alert.showAlert(strMessage: "Signature on white screen then click on save.", Onview: self)
+            Alert.showAlert(strMessage: "Signature on white screen then click on save.".localized(lang: langCode) as NSString, Onview: self)
         }
     }
     
@@ -123,9 +142,9 @@ class SignatureVC: UIViewController,YPSignatureDelegate {
                     
                     if responseObject?["status"] as! String == "Success"{
                         
-                        let alertController = UIAlertController(title: "Order Complete!", message:"Pickup is complete now.Continue to Process the payment", preferredStyle: .alert)
+                        let alertController = UIAlertController(title: "Order Complete!".localized(lang: langCode), message:"Pickup is complete now.Continue to Process the payment".localized(lang: langCode), preferredStyle: .alert)
                         
-                        let sendButton = UIAlertAction(title: "Pocess Payment", style: .default, handler: { (action) -> Void in
+                        let sendButton = UIAlertAction(title: "Pocess Payment".localized(lang: langCode), style: .default, handler: { (action) -> Void in
                             
                             let vc = ProceedPaymentVC()
                             vc.getAmount = getAmount
@@ -146,9 +165,9 @@ class SignatureVC: UIViewController,YPSignatureDelegate {
                 }
                 else
                 {
-                    let alertController = UIAlertController(title: "InstaCash", message:"Seems connection loss from server", preferredStyle: .alert)
+                    let alertController = UIAlertController(title: "InstaCash".localized(lang: langCode), message:"Seems connection loss from server".localized(lang: langCode), preferredStyle: .alert)
                     
-                    let sendButton = UIAlertAction(title: "Ok", style: .default, handler: { (action) -> Void in
+                    let sendButton = UIAlertAction(title: "Ok".localized(lang: langCode), style: .default, handler: { (action) -> Void in
                         
                     })
                     alertController.addAction(sendButton)
@@ -160,9 +179,9 @@ class SignatureVC: UIViewController,YPSignatureDelegate {
         }
         else
         {
-            let alertController = UIAlertController(title: "InstaCash", message:"No connection found", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "InstaCash".localized(lang: langCode), message:"No connection found".localized(lang: langCode), preferredStyle: .alert)
             
-            let sendButton = UIAlertAction(title: "Ok", style: .default, handler: { (action) -> Void in
+            let sendButton = UIAlertAction(title: "Ok".localized(lang: langCode), style: .default, handler: { (action) -> Void in
                 
             })
             alertController.addAction(sendButton)
@@ -235,9 +254,9 @@ class SignatureVC: UIViewController,YPSignatureDelegate {
                 }
                 else
                 {
-                    let alertController = UIAlertController(title: "InstaCash", message:"Seems connection loss from server", preferredStyle: .alert)
+                    let alertController = UIAlertController(title: "InstaCash".localized(lang: langCode), message:"Seems connection loss from server".localized(lang: langCode), preferredStyle: .alert)
                     
-                    let sendButton = UIAlertAction(title: "Ok", style: .default, handler: { (action) -> Void in
+                    let sendButton = UIAlertAction(title: "Ok".localized(lang: langCode), style: .default, handler: { (action) -> Void in
                         
                     })
                     alertController.addAction(sendButton)
@@ -249,9 +268,9 @@ class SignatureVC: UIViewController,YPSignatureDelegate {
         }
         else
         {
-            let alertController = UIAlertController(title: "InstaCash", message:"No connection found", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "InstaCash".localized(lang: langCode), message:"No connection found".localized(lang: langCode), preferredStyle: .alert)
             
-            let sendButton = UIAlertAction(title: "Ok", style: .default, handler: { (action) -> Void in
+            let sendButton = UIAlertAction(title: "Ok".localized(lang: langCode), style: .default, handler: { (action) -> Void in
                 
             })
             alertController.addAction(sendButton)

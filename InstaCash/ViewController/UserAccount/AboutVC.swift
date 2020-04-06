@@ -19,6 +19,8 @@ var faqTitleHTML : String?
 
 class AboutVC: UIViewController,CAPSPageMenuDelegate {
     
+    @IBOutlet weak var lblInstacash: UILabel!
+    
     let reachability: Reachability? = Reachability()
     var pageMenu : CAPSPageMenu?
 
@@ -27,6 +29,20 @@ class AboutVC: UIViewController,CAPSPageMenuDelegate {
         self.fireWebServiceForAboutPageDetail()
         self.setUpPageMenu()
     }
+    
+    func changeLanguageOfUI() {
+        
+        self.lblInstacash.text = "InstaCash".localized(lang: langCode)
+        
+        //self.searchBarProduct.placeholder = "Search for your Device...".localized(lang: langCode)
+        //self.btnSeeOrderStatus.setTitle("SEE ORDER STATUS".localized(lang: langCode), for: UIControlState.normal)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.changeLanguageOfUI()
+    }
 
     func setUpPageMenu() {
         //////..........CSPAGEMENU........../////
@@ -34,19 +50,19 @@ class AboutVC: UIViewController,CAPSPageMenuDelegate {
         
         //let controller1 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UpcomingMeetingVC") as! UpcomingMeetingVC
         let controller1 = AboutPageVC()
-        controller1.title = "ABOUT"
+        controller1.title = "ABOUT".localized(lang: langCode)
         controllerArray.append(controller1)
         
         let controller2 = TnCPageVC()
-        controller2.title = "TERMS & CONDITIONS"
+        controller2.title = "TERMS & CONDITIONS".localized(lang: langCode)
         controllerArray.append(controller2)
         
         let controller3 = HowItWorkPageVC()
-        controller3.title = "HOW IT WORK"
+        controller3.title = "HOW IT WORK".localized(lang: langCode)
         controllerArray.append(controller3)
         
         let controller4 = FaqPageVC()
-        controller4.title = "FAQ"
+        controller4.title = "FAQ".localized(lang: langCode)
         controllerArray.append(controller4)
         
         // Customize menu (Optional)
@@ -155,13 +171,13 @@ class AboutVC: UIViewController,CAPSPageMenuDelegate {
                 }
                 else
                 {
-                    Alert.showAlert(strMessage: "Seemd Conection loss from server", Onview: self)
+                    Alert.showAlert(strMessage: "Seemd Conection loss from server".localized(lang: langCode) as NSString, Onview: self)
                 }
             })
             
         }
         else {
-            Alert.showAlert(strMessage: "No connection found", Onview: self)
+            Alert.showAlert(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
         }
         
     }

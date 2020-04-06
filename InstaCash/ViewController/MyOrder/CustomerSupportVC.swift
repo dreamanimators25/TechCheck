@@ -13,6 +13,13 @@ class CustomerSupportVC: UIViewController,MFMailComposeViewControllerDelegate {
     
     @IBOutlet weak var faqTextView: UITextView!
     
+    @IBOutlet weak var lblCustomerSupport: UILabel!
+    @IBOutlet weak var lblFAQs: UILabel!
+    @IBOutlet weak var btnEmail: UIButton!
+    @IBOutlet weak var btnCall: UIButton!
+    @IBOutlet weak var btnChat: UIButton!
+    
+    
     var emailAddress = String()
     var phoneNumber = String()
     
@@ -24,8 +31,17 @@ class CustomerSupportVC: UIViewController,MFMailComposeViewControllerDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        self.changeLanguageOfUI()
+    }
+    
+    func changeLanguageOfUI() {
         
+        self.lblCustomerSupport?.text = "Customer Support".localized(lang: langCode)
+        self.lblFAQs?.text = "FAQs".localized(lang: langCode)
+        
+        self.btnEmail?.setTitle("Email".localized(lang: langCode), for: UIControlState.normal)
+        self.btnCall?.setTitle("Call".localized(lang: langCode), for: UIControlState.normal)
+        self.btnChat?.setTitle("Chat".localized(lang: langCode), for: UIControlState.normal)
     }
     
     //MARK: IBActions
@@ -47,7 +63,7 @@ class CustomerSupportVC: UIViewController,MFMailComposeViewControllerDelegate {
         }*/
         
         if !MFMailComposeViewController.canSendMail() {
-            Alert.showAlert(strMessage: "Oops! Mail Service not available.", Onview: self)
+            Alert.showAlert(strMessage: "Oops! Mail Service not available.".localized(lang: langCode) as NSString, Onview: self)
         }
         else{
             
@@ -56,8 +72,8 @@ class CustomerSupportVC: UIViewController,MFMailComposeViewControllerDelegate {
             
             // Configure the fields of the interface.
             composeVC.setToRecipients([emailAddress])
-            composeVC.setSubject("Message Subject")
-            composeVC.setMessageBody("Message content.", isHTML: false)
+            composeVC.setSubject("Message Subject".localized(lang: langCode))
+            composeVC.setMessageBody("Message content.".localized(lang: langCode), isHTML: false)
             
             // Present the view controller modally.
             self.present(composeVC, animated: true, completion: nil)
@@ -82,7 +98,7 @@ class CustomerSupportVC: UIViewController,MFMailComposeViewControllerDelegate {
             }
         }
         else {
-            Alert.showAlert(strMessage: "Your device doesn't support this feature.", Onview: self)
+            Alert.showAlert(strMessage: "Your device doesn't support this feature.".localized(lang: langCode) as NSString, Onview: self)
         }
 
     }
@@ -149,13 +165,13 @@ class CustomerSupportVC: UIViewController,MFMailComposeViewControllerDelegate {
                 }
                 else
                 {
-                    Alert.showAlert(strMessage: "Seemd Conection loss from server", Onview: self)
+                    Alert.showAlert(strMessage: "Seemd Conection loss from server".localized(lang: langCode) as NSString, Onview: self)
                 }
             })
             
         }
         else {
-            Alert.showAlert(strMessage: "No connection found", Onview: self)
+            Alert.showAlert(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
         }
         
     }

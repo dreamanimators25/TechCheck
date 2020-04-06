@@ -62,7 +62,6 @@ class UserAccountVC: UIViewController {
             self.userImgView?.sd_setImage(with: imgUrl, placeholderImage: UIImage(named: "userPlaceHolder"))
         }
         
-        
         //To set shadow on multiple views
         DispatchQueue.main.async {
             UIView.addShadowOn4side(baseView: self.historyView)
@@ -80,19 +79,20 @@ class UserAccountVC: UIViewController {
             self.changeLanguageOfUI()
         }
         
+        self.changeLanguageOfUI()
     }
     
     //MARK: Custom Methods
     func changeLanguageOfUI() {
                 
-        self.accountLbl.text = self.accountLbl.text?.localized(lang: langCode)
-        self.historyLbl.text = self.historyLbl.text?.localized(lang: langCode)
-        self.aboutLbl.text = self.aboutLbl.text?.localized(lang: langCode)
-        self.shareLbl.text = self.shareLbl.text?.localized(lang: langCode)
-        self.languageLbl.text = self.languageLbl.text?.localized(lang: langCode)
-        self.diagnoseModeLbl.text = self.diagnoseModeLbl.text?.localized(lang: langCode)
-        self.pickupModeLbl.text = self.pickupModeLbl.text?.localized(lang: langCode)
-        self.logoutLbl.text = self.logoutLbl.text?.localized(lang: langCode)
+        self.accountLbl.text = "Account".localized(lang: langCode)
+        self.historyLbl.text = "HISTORY".localized(lang: langCode)
+        self.aboutLbl.text = "ABOUT".localized(lang: langCode)
+        self.shareLbl.text = "SHARE".localized(lang: langCode)
+        self.languageLbl.text = "LANGUAGE".localized(lang: langCode)
+        self.diagnoseModeLbl.text = "DIAGNOSE MODE".localized(lang: langCode)
+        self.pickupModeLbl.text = "PICKUP MODE".localized(lang: langCode)
+        self.logoutLbl.text = "LOGOUT".localized(lang: langCode)
     }
     
     //MARK: IBActions
@@ -126,7 +126,7 @@ class UserAccountVC: UIViewController {
             self.present(activityVC, animated: true, completion: nil)
         }else  {
             // show alert for not available
-            self.showaAlert(message: "Service not available!")
+            self.showaAlert(message: "Service not available!".localized(lang: langCode))
         }
     }
     
@@ -198,14 +198,14 @@ class UserAccountVC: UIViewController {
     
     @IBAction func btnLogoutPressed(_ sender: UIButton) {
         
-        let alertController = UIAlertController(title: "LOG-OUT", message: "Are you sure you want to log-out?", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "LOG-OUT".localized(lang: langCode), message: "Are you sure you want to log-out?".localized(lang: langCode), preferredStyle: .alert)
         
-        let sendButton = UIAlertAction(title: "YES", style: .default, handler: { (action) -> Void in
+        let sendButton = UIAlertAction(title: "YES".localized(lang: langCode), style: .default, handler: { (action) -> Void in
             self.removeCache()
             obj_app.setRootViewController()
         })
         
-        let cancelButton = UIAlertAction(title: "NO", style: .cancel, handler: { (action) -> Void in
+        let cancelButton = UIAlertAction(title: "NO".localized(lang: langCode), style: .cancel, handler: { (action) -> Void in
         })
         
         alertController.addAction(sendButton)
@@ -251,7 +251,7 @@ class UserAccountVC: UIViewController {
         CustomUserDefault.removePinCode() //s.
         
         //4/4/2020
-        userDefaults.removeObject(forKey: "langCode")
+        //userDefaults.removeObject(forKey: "langCode")
         
         //Sameer - 28/3/20
         userDefaults.removeObject(forKey: "promoterID")
@@ -330,7 +330,6 @@ class UserAccountVC: UIViewController {
     }
 
     // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.

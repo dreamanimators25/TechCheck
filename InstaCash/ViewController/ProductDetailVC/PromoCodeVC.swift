@@ -15,25 +15,39 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
     @IBOutlet weak var viewPromo: UIView!
     @IBOutlet weak var viewBG: UIView!
     @IBOutlet weak var promoCodeView: UIView!
-    @IBOutlet weak var btnPromoCode: UIButton!
 
     //@IBOutlet weak var btnNext: UIButton!
-    @IBOutlet weak var btnApply: UIButton!
-    @IBOutlet weak var btnRemove: UIButton!
+    
     @IBOutlet weak var txtPromocode: UITextField!
     @IBOutlet weak var lblFinalPrice: UILabel!
     @IBOutlet weak var lblPromoOfferPrice: UILabel!
     @IBOutlet weak var lblLogisticCharges: UILabel!
     @IBOutlet weak var lblDeviceWorth: UILabel!
     @IBOutlet weak var btnCheckBox: UIButton!
-    @IBOutlet weak var txtAmount: UITextField!
-    @IBOutlet weak var lblDonateDest: UILabel!
     @IBOutlet weak var txtAmountHeight: NSLayoutConstraint!
     @IBOutlet weak var NssImageViewHeight: NSLayoutConstraint!
     
     @IBOutlet weak var stkView1: UIView!
     @IBOutlet weak var stkView2: UIView!
     @IBOutlet weak var stkViewHeightConstraint: NSLayoutConstraint!
+    
+    
+    @IBOutlet weak var lblTitleSummary: UILabel!
+    @IBOutlet weak var lblSummary: UILabel!
+    @IBOutlet weak var lblSubTotal: UILabel!
+    @IBOutlet weak var lblPickUpCharge: UILabel!
+    @IBOutlet weak var lblPromoOffer: UILabel!
+    @IBOutlet weak var lblTotal: UILabel!
+    @IBOutlet weak var btnPromoCode: UIButton!
+    @IBOutlet weak var lblDonateDest: UILabel!
+    @IBOutlet weak var btnChangeAmount: UIButton!
+    @IBOutlet weak var txtAmount: UITextField!
+    @IBOutlet weak var btnNext: UIButton!
+    @IBOutlet weak var lblPleaseEnter: UILabel!
+    @IBOutlet weak var btnRemove: UIButton!
+    @IBOutlet weak var btnApply: UIButton!
+    
+    
     
     var getFinalPrice = 0
     var pickUpChargeGet = 0
@@ -49,6 +63,7 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
     @IBOutlet weak var activityIndicatorePromoCode: UIActivityIndicatorView!
     
     func reSetDiagnosHomeUIProcessForMaintainCache(){
+        
         userDefaults.removeObject(forKey: "screen_complete")
         userDefaults.removeObject(forKey: "rotation_complete")
         userDefaults.removeObject(forKey: "proximity_complete")
@@ -63,6 +78,7 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
         userDefaults.setValue(true, forKey: "earphone_complete")
         userDefaults.setValue(true, forKey: "charger_complete")
         userDefaults.setValue(true, forKey: "camera_complete")
+        
         if UIDevice.current.modelName == "iPhone X" || UIDevice.current.modelName == "iPhone XS" || UIDevice.current.modelName == "iPhone XS Max" || UIDevice.current.modelName == "iPhone 5c" || UIDevice.current.modelName == "iPhone 5" || UIDevice.current.modelName == "iPhone XR"{
             userDefaults.removeObject(forKey: "fingerprint_complete")
             userDefaults.setValue(true, forKey: "fingerprint_complete")
@@ -111,7 +127,7 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
         DispatchQueue.main.async {
             if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
                 
-                self.lblDonateDest.text = "I want to donate ₹" + " \(self.Donation) " + "to Narayan Seva Sansthan."
+                self.lblDonateDest.text = "I want to donate ₹".localized(lang: langCode) + " \(self.Donation) " + "to Narayan Seva Sansthan.".localized(lang: langCode)
                 self.NssImageViewHeight.constant = 80.0
                 self.stkView1.isHidden = false
                 //self.stkView2.isHidden = true
@@ -123,7 +139,7 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
                 self.donateAmount = 100
                 self.Donation = 100
                 
-                self.lblDonateDest.text = "I want to donate" + " \(CustomUserDefault.getCurrency()) \(self.Donation)" + "to World Wide Fund for Nature."
+                self.lblDonateDest.text = "I want to donate".localized(lang: langCode) + " \(CustomUserDefault.getCurrency()) \(self.Donation)" + "to World Wide Fund for Nature.".localized(lang: langCode)
                 self.NssImageViewHeight.constant = 0.0
                 self.stkView1.isHidden = false
                 //self.stkView2.isHidden = true
@@ -161,6 +177,26 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
             self.applyPromoCode()
         }
         
+        self.changeLanguageOfUI()
+        
+    }
+    
+    func changeLanguageOfUI() {
+   
+        self.lblTitleSummary.text = "Summary".localized(lang: langCode)
+        self.lblSummary.text = "Summary".localized(lang: langCode)
+        self.lblSubTotal.text = "Subtotal Amount".localized(lang: langCode)
+        self.lblPickUpCharge.text = "Pickup Charge".localized(lang: langCode)
+        self.lblPromoOffer.text = "Promo offer".localized(lang: langCode)
+        self.lblTotal.text = "Total".localized(lang: langCode)
+        self.btnPromoCode.setTitle("Have a promo code? Click here.".localized(lang: langCode), for: UIControlState.normal)
+        self.lblDonateDest.text = "I want to donate ₹ 30 to Narayan Sewa Sansthan.".localized(lang: langCode)
+        self.btnChangeAmount.setTitle("Change Amount".localized(lang: langCode), for: UIControlState.normal)
+        self.txtAmount.placeholder = "Enter Amount".localized(lang: langCode)
+        self.btnNext.setTitle("NEXT".localized(lang: langCode), for: UIControlState.normal)
+        self.lblPleaseEnter.text = "Please enter promo code".localized(lang: langCode)
+        self.btnRemove.setTitle("CANCEL".localized(lang: langCode), for: UIControlState.normal)
+        self.btnApply.setTitle("APPLY".localized(lang: langCode), for: UIControlState.normal)
     }
     
     // MARK:- navigation bar setup.
@@ -168,7 +204,7 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
     {
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.isNavigationBarHidden = false
-        self.title = "InstaCash"
+        self.title = "InstaCash".localized(lang: langCode)
         let btnBack = UIButton(frame: CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: 25, height: 25)))
         let widthConstraint = btnBack.widthAnchor.constraint(equalToConstant: 25)
         let heightConstraint = btnBack.heightAnchor.constraint(equalToConstant: 25)
@@ -190,11 +226,11 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
                 
                 if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
                     
-                    lblDonateDest.text =  "I want to donate ₹" + " \(self.Donation) " + "to Narayan Seva Sansthan."
+                    lblDonateDest.text =  "I want to donate ₹".localized(lang: langCode) + " \(self.Donation) " + "to Narayan Seva Sansthan.".localized(lang: langCode)
                     
                 }else {
 
-                    lblDonateDest.text = "I want to donate" + " \(CustomUserDefault.getCurrency()) \(self.Donation)" + "to World Wide Fund for Nature."
+                    lblDonateDest.text = "I want to donate".localized(lang: langCode) + " \(CustomUserDefault.getCurrency()) \(self.Donation)" + "to World Wide Fund for Nature.".localized(lang: langCode)
                 }
                 
                 donateAmount = Donation
@@ -203,7 +239,7 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
                 //lblDonateDest.text = "I want to donate ₹ \(txtAmount.text ?? "0") to Narayan Sewa Sansthan."
                 
                 if Int(txtAmount.text!) ?? 0 > finalPriceSet {
-                    Alert.showAlert(strMessage: "Please Enter Valid Amount", Onview: self)
+                    Alert.showAlert(strMessage: "Please Enter Valid Amount".localized(lang: langCode) as NSString, Onview: self)
                     return
                 }else {
                     donateAmount = Int(txtAmount.text!) ?? 0
@@ -212,11 +248,11 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
                 
                 if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
                     
-                    lblDonateDest.text = "I want to donate ₹" + " \(txtAmount.text ?? "0") " + "to Narayan Seva Sansthan."
+                    lblDonateDest.text = "I want to donate ₹".localized(lang: langCode) + " \(txtAmount.text ?? "0") " + "to Narayan Seva Sansthan.".localized(lang: langCode)
                     //lblDonateDest.text = "I want to donate ₹ \(txtAmount.text ?? "0") to Narayan Seva Sansthan."
                     
                 }else {
-                    lblDonateDest.text = "I want to donate" + " \(CustomUserDefault.getCurrency()) \(txtAmount.text ?? "0")" + "to World Wide Fund for Nature."
+                    lblDonateDest.text = "I want to donate".localized(lang: langCode) + " \(CustomUserDefault.getCurrency()) \(txtAmount.text ?? "0")" + "to World Wide Fund for Nature.".localized(lang: langCode)
                     //lblDonateDest.text = "I want to donate \(CustomUserDefault.getCurrency()) \(txtAmount.text ?? "0") to World Wide Fund for Nature."
                 }
                 
@@ -469,10 +505,10 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
                 
             }
             else{
-                Alert.showAlert(strMessage: "No connection found", Onview: self)
+                Alert.showAlert(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
             }
         }else {
-            Alert.showAlert(strMessage: "Please Enter valid coupon code", Onview: self) //s.
+            Alert.showAlert(strMessage: "Please Enter valid coupon code".localized(lang: langCode) as NSString, Onview: self) //s.
         }
     }
     
@@ -551,7 +587,7 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
                     //self.txtPromocode.isHidden = true //s.
                     //self.btnApply.isHidden = true //s.
                     
-                    let myString = "Promo Code: " +  self.txtPromocode.text!
+                    let myString = "Promo Code: ".localized(lang: langCode) +  self.txtPromocode.text!
                     //  let attrString = NSAttributedString(string: myString)
                     let attribute = NSMutableAttributedString.init(string: myString)
                     let strCount = self.txtPromocode.text!.count
@@ -587,11 +623,11 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
                     //self.txtPromocode.textColor = UIColor.red
                     
                     // failed
-                    Alert.showAlert(strMessage: "Invalid coupon code", Onview: self)
+                    Alert.showAlert(strMessage: "Invalid coupon code".localized(lang: langCode) as NSString, Onview: self)
                 }
             }
             else{
-                Alert.showAlert(strMessage: "Seems connection loss from server", Onview: self)
+                Alert.showAlert(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
             }
             
         })

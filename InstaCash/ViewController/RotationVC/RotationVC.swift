@@ -17,7 +17,14 @@ class RotationVC: UIViewController {
     @IBOutlet weak var AutoRotationImage: UIImageView!
     @IBOutlet weak var AutoRotationImageView: UIImageView!
     //@IBOutlet weak var AutoRotationText: UITextView!
+    
+    
+    @IBOutlet weak var lblCheckingDevice: UILabel!
+    @IBOutlet weak var lblPleaseEnsure: UILabel!
+    @IBOutlet weak var btnGuideMe: UIButton!
     @IBOutlet weak var beginBtn: UIButton!
+    @IBOutlet weak var StartBtn: UIButton!
+    
     
     var isComingFromTestResult = false
     var isComingFromProductquote = false
@@ -42,17 +49,29 @@ class RotationVC: UIViewController {
         
         lblPrice.text = CustomUserDefault.getCurrency()
         
-        // Do any additional setup after loading the view.
     }
+    
+    func changeLanguageOfUI() {
+  
+        self.lblCheckingDevice.text = "Checking device rotation".localized(lang: langCode)
+        self.lblPleaseEnsure.text = "Please ensure device rotation option is enabled. Press “Start’ and rotate your device as seen below.".localized(lang: langCode)
+        
+        self.btnGuideMe.setTitle("Guide me".localized(lang: langCode), for: UIControlState.normal)
+        self.beginBtn.setTitle("Start".localized(lang: langCode), for: UIControlState.normal)
+        self.StartBtn.setTitle("Start".localized(lang: langCode), for: UIControlState.normal)
+    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         AppOrientationUtility.lockOrientation(.portrait)
+        
+        self.changeLanguageOfUI()
     }
 
     // MARK:- navigation bar setup.
     func setNavigationBar() -> Void
     {
-        self.title = "InstaCash"
+        self.title = "InstaCash".localized(lang: langCode)
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.isNavigationBarHidden = false
         let btnBack = UIButton(frame: CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: 25, height: 25)))
@@ -87,14 +106,14 @@ class RotationVC: UIViewController {
     @IBAction func beginBtnClicked(_ sender: UIButton) {
         if hasStarted {
             // Prepare the popup assets
-            let title = "Auto Rotation Diagnosis"
-            let message = "If you skip this test there would be a substantial decline in the price offered. Do you still want to skip?"
+            let title = "Auto Rotation Diagnosis".localized(lang: langCode)
+            let message = "If you skip this test there would be a substantial decline in the price offered. Do you still want to skip?".localized(lang: langCode)
             
             // Create the dialog
             let popup = PopupDialog(title: title, message: message,buttonAlignment: .horizontal, transitionStyle: .bounceDown, tapGestureDismissal: false, panGestureDismissal :false)
             
             // Create buttons
-            let buttonOne = CancelButton(title: "Yes") {
+            let buttonOne = CancelButton(title: "Yes".localized(lang: langCode)) {
             userDefaults.setValue(true, forKey: "rotation_complete")
                 UserDefaults.standard.set(false, forKey: "rotation")
 
@@ -134,11 +153,10 @@ class RotationVC: UIViewController {
 
             }
             
-            let buttonTwo = DefaultButton(title: "No") {
+            let buttonTwo = DefaultButton(title: "No".localized(lang: langCode)) {
                 //Do Nothing
                 popup.dismiss(animated: true, completion: nil)
             }
-            
             
             
             // Add buttons to dialog
@@ -170,7 +188,6 @@ class RotationVC: UIViewController {
             db.titleFont      = UIFont(name: "HelveticaNeue-Medium", size: 16)!
             
             
-            
             // Customize cancel button appearance
             let cb = CancelButton.appearance()
             cb.titleFont      = UIFont(name: "HelveticaNeue-Medium", size: 16)!
@@ -184,7 +201,7 @@ class RotationVC: UIViewController {
             AppOrientationUtility.lockOrientation(.all)
 
             //AutoRotationText.text = "Please Tilt your Phone to Landscape mode."
-            beginBtn.setTitle("Skip",for: .normal)
+            beginBtn.setTitle("Skip".localized(lang: langCode),for: .normal)
             AutoRotationImage.isHidden = true
             //AutoRotationImageView.isHidden = false
             //AutoRotationImageView.image = UIImage(named: "landscape_image")!
@@ -200,7 +217,7 @@ class RotationVC: UIViewController {
             
         }
         
-        if hasStarted == true{
+        if hasStarted == true {
         if(UIDeviceOrientationIsPortrait(UIDevice.current.orientation))
         {
             hasStarted = false

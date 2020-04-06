@@ -23,6 +23,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DeadPixelVC" customModule="InstaCash" customModuleProvider="target">
             <connections>
+                <outlet property="btnGuideMe" destination="gvG-yL-XSg" id="fzL-m6-n3c"/>
                 <outlet property="deadPixelGifImage" destination="Eae-ab-Cjc" id="Kbp-h3-GOY"/>
                 <outlet property="deadPixelInfoImage" destination="nzM-j7-cwm" id="FK2-S3-nI8"/>
                 <outlet property="deadPixelInfoLbl" destination="mwQ-EX-GQz" id="2aJ-lV-KUA"/>

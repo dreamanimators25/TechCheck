@@ -15,6 +15,13 @@ class SensorReadVC: UIViewController {
     //@IBOutlet weak var proximityText: UILabel!
     @IBOutlet weak var proximityImageView: UIImageView!
     
+    @IBOutlet weak var lblCheckingProximity: UILabel!
+    @IBOutlet weak var lblWaveHand: UILabel!
+    @IBOutlet weak var btnGuideMe: UIButton!
+    @IBOutlet weak var lblNotWorking: UILabel!
+    @IBOutlet weak var btnStart: UIButton!
+    
+    
     var resultJSON = JSON()
     var isComingFromTestResult = false
     var isComingFromProductquote = false
@@ -38,8 +45,20 @@ class SensorReadVC: UIViewController {
         
     }
     
+    func changeLanguageOfUI() {
+        
+        self.lblCheckingProximity.text = "Checking proximity sensors".localized(lang: langCode)
+        self.lblWaveHand.text = "Wave your hand on the device’s screen.".localized(lang: langCode)
+        
+        self.btnGuideMe.setTitle("Guide me".localized(lang: langCode), for: UIControlState.normal)
+        self.lblNotWorking.text = "It’s not working.".localized(lang: langCode)
+        self.btnStart.setTitle("Start".localized(lang: langCode), for: UIControlState.normal)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         AppOrientationUtility.lockOrientation(.portrait)
+        
+        self.changeLanguageOfUI()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -79,7 +98,6 @@ class SensorReadVC: UIViewController {
             
         }
         userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
-        
         
         //            let secondViewController:CameraViewController = CameraViewController()
         
