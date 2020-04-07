@@ -510,6 +510,27 @@
 "Original Charger" = "Original Charger";
 "Order Summary" = "Order Summary";
 
+"Does your device switch On?" = "Does your device switch On?";
+"Display and Touch Screen" = "Display and Touch Screen";
+"Select the available original accessories" = "Select the available original accessories";
+"Select the functional issues of your device" = "Select the functional issues of your device";
+"OEM / Brand warranty available?" = "OEM / Brand warranty available?";
+"Device Body (Back Panel / Cover)" = "Device Body (Back Panel / Cover)";
+"Hardware Buttons or Keys" = "Hardware Buttons or Keys";
+"Silver Frame / Bezel (Around Screen)" = "Silver Frame / Bezel (Around Screen)";
+"Main Camera (Camera Glass)" = "Main Camera (Camera Glass)";
+"Flawless" = "Flawless";
+"Okay" = "Okay";
+"True" = "True";
+"3 to 10 months" = "3 to 10 months";
+"More than 10 Months" = "More than 10 Months";
+"2 -3 Minor Scratches" = "2 -3 Minor Scratches";
+"Broken Dead Pixel Liquid Mark or Does not work properly" = "Broken Dead Pixel Liquid Mark or Does not work properly";
+"Scratched" = "Scratched";
+"Discolored" = "Discolored";
+"Shaded/White Dots" = "Shaded/White Dots";
+"Device has undergone repairs" = "Device has undergone repairs";
+
 // 53. HistoryVC
 "No History Found" = "No History Found";
 
@@ -629,8 +650,22 @@
 // 72. OtherDeviceQuestionFlow
 "Get Quote" = "Get Quote";
 
+
 // 73. DiagnosisQuestionFlowVC
-"" = "";
+"Power/Home Button Faulty; Hard or Not Working" = "Power/Home Button Faulty; Hard or Not Working";
+"Speakers not working; faulty Or cracked sound" = "Speakers not working; faulty Or cracked sound";
+"Select if applicable" = "Select if applicable";
+"0 to 3 months" = "0 to 3 months";
+"Not available" = "Not available";
+"Cracked" = "Cracked";
+"Broken" = "Broken";
+"Loose" = "Loose";
+"Missing" = "Missing";
+"Dented" = "Dented";
+"Blur" = "Blur";
+"None Of These" = "None Of These";
+"Not Applicable" = "Not Applicable";
+"Charging Defect; unable to charge the phone" = "Charging Defect; unable to charge the phone";
 
 // 74. PramotterVC
 // Not used in project //
@@ -672,6 +707,7 @@
 
 // 83. Sell1
 "Quote" = "Quote";
+"Get Upto" = "Get Upto";
 "Getting an exact quote takes 5 mins. Ready to roll?" = "Getting an exact quote takes 5 mins. Ready to roll?";
 "GET EXACT QUOTE" = "GET EXACT QUOTE";
 

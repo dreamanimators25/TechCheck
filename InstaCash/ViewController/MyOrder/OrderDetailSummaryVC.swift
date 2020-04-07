@@ -25,17 +25,13 @@ class OrderDetailSummaryVC: UIViewController,UITableViewDataSource,UITableViewDe
     }
     
     func changeLanguageOfUI() {
-        
         self.lblOrderSummary?.text = "Order Summary".localized(lang: langCode)
-        
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         summaryTableView.register(UINib(nibName: "ProductSummaryTblViewCell", bundle: nil), forCellReuseIdentifier: "ProductSummaryTblViewCell")
-        
         
         let arrSummaryString : [String?] = summaryStr.components(separatedBy: ";")
         
@@ -58,7 +54,7 @@ class OrderDetailSummaryVC: UIViewController,UITableViewDataSource,UITableViewDe
                             if completeString == "" {
                                 completeString = completeString + "Box".localized(lang: langCode)
                             }else {
-                                completeString = completeString + "\nBox"
+                                completeString = completeString + "\n" + "Box".localized(lang: langCode)
                             }
                         }
                         
@@ -67,7 +63,7 @@ class OrderDetailSummaryVC: UIViewController,UITableViewDataSource,UITableViewDe
                             if completeString == "" {
                                 completeString = completeString + "Original Charger".localized(lang: langCode)
                             }else {
-                                completeString = completeString + "\nOriginal Charger"
+                                completeString = completeString + "\n" + "Original Charger".localized(lang: langCode)
                             }
                             
                         }

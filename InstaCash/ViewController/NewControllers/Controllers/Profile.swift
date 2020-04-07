@@ -272,6 +272,33 @@ class Profile: UIViewController, UITextFieldDelegate {
         return true
     }
     
+    func setLanguageCode() {
+        //to get language code of device ......
+        lang_code = Locale.preferredLanguages[0]
+        
+        //To convert full name of language from language code
+        let locale = NSLocale.current
+        translation = locale.localizedString(forLanguageCode: lang_code as String)!
+        
+        if translation == "English" {
+            languageCode = "en"
+            userDefaults.saveLanguageCode(langCode: languageCode)
+            langCode = languageCode
+        }else if translation == "हिन्दी" {
+            languageCode = "hi"
+            userDefaults.saveLanguageCode(langCode: languageCode)
+            langCode = languageCode
+        }else if translation == "中文" {
+            languageCode = "zh-Hans"
+            userDefaults.saveLanguageCode(langCode: languageCode)
+            langCode = languageCode
+        }else {
+            languageCode = "en"
+            userDefaults.saveLanguageCode(langCode: languageCode)
+            langCode = languageCode
+        }
+    }
+    
     func removeCache(){
         CustomUserDefault.removeUserId()
         CustomUserDefault.removeCurrency()
@@ -287,7 +314,8 @@ class Profile: UIViewController, UITextFieldDelegate {
         CustomUserDefault.removePinCode() //s.
         
         //4/4/2020
-        //userDefaults.removeObject(forKey: "langCode")
+        userDefaults.removeObject(forKey: "langCode")
+        self.setLanguageCode()
         
         //Sameer - 28/3/20
         userDefaults.removeObject(forKey: "promoterID")

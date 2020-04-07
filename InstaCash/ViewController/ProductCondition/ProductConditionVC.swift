@@ -30,7 +30,7 @@ class ProductConditionVC: UIViewController {
     func changeLanguageOfUI() {
         
         self.lblProductCondition.text = "Product Condition".localized(lang: langCode)
-        self.lblTellUs.text = "Tell us More about the product.The following screens will have a few questions regarding the product's condition select appropriate answer to the questions and instantly get the best price for your product.".localized(lang: langCode)
+        self.lblTellUs.text = "Tell us More about the product.The following screens will have a few questions regarding the product's condition select appropriate answer to the questions and instantly get the best price for your product. ".localized(lang: langCode)
        
         self.btnLetsBegin.setTitle("LET'S BEGIN".localized(lang: langCode), for: UIControlState.normal)
     }

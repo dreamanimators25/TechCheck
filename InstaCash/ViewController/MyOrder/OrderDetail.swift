@@ -186,7 +186,7 @@ class OrderDetail: UIViewController,UIPopoverPresentationControllerDelegate {
                         if orderCurrentStatus == "Completed" || orderCurrentStatus == "Rejected" || orderCurrentStatus == "Pacman cancelled" || orderCurrentStatus == "Pending Payment" {
                             self.orderFinalStatusView?.isHidden = false
                             self.stackViewHeight?.constant = 210
-                            self.lblOrderFinalStatus?.text = orderCurrentStatus
+                            self.lblOrderFinalStatus?.text = orderCurrentStatus.localized(lang: langCode)
                             self.img2?.image = #imageLiteral(resourceName: "smallRight")
                         }else {
                             let rotation: CABasicAnimation = CABasicAnimation(keyPath: "transform.rotation.z")

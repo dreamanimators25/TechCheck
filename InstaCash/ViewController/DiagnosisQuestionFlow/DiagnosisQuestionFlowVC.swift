@@ -94,7 +94,10 @@ class DiagnosisQuestionFlowVC: UIViewController,UITableViewDelegate,UITableViewD
         print(parametersHome)
             
         self.questionFlowApiPost(strURL: strUrl, parameters: parametersHome as NSDictionary, completionHandler: {responseObject , error in
+            
             Alert.HideProgressHud(Onview: self.view)
+            print(responseObject ?? [:])
+            
             if error == nil {
                 if responseObject?["status"] as! String == "Success"{
                     var count = -1
@@ -208,7 +211,7 @@ class DiagnosisQuestionFlowVC: UIViewController,UITableViewDelegate,UITableViewD
         cell.collectionViewQuestionValues.dataSource = self
         cell.collectionViewQuestionValues.tag = indexPath.row
         cell.collectionViewQuestionValues.reloadData()
-        cell.lblQuestion.text = arrQuestionForQuestion[indexPath.row].strQuestionName
+        cell.lblQuestion.text = arrQuestionForQuestion[indexPath.row].strQuestionName.localized(lang: langCode)
         return cell
     }
     

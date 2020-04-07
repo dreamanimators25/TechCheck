@@ -283,11 +283,18 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
         //  let attrString = NSAttributedString(string: myString)
         let attribute = NSMutableAttributedString.init(string: myString)
         let strCount = CustomUserDefault.getCurrency() + strPrice!
-        let myRange = NSRange(location: 22, length: (strCount.count))
+        
+        var myRange = NSRange()
+        if langCode == "en" {
+            myRange = NSRange(location: 22, length: (strCount.count))
+        }else {
+            myRange = NSRange(location: 9, length: (strCount.count))
+        }
+        
+        //let myRange = NSRange(location: 22, length: (strCount.count))
         attribute.addAttribute(NSAttributedStringKey.foregroundColor, value: navColor , range: myRange)
         self.lblConfirmOrderPrice.attributedText = attribute
     }
-
     
     //MARK:- view life cycle
     override func viewDidLoad() {
@@ -2038,7 +2045,15 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                             //  let attrString = NSAttributedString(string: myString)
                             let attribute = NSMutableAttributedString.init(string: myString)
                             let strCount = CustomUserDefault.getCurrency() + strPriceNew
-                            let myRange = NSRange(location: 22, length: (strCount.count))
+                            
+                            var myRange = NSRange()
+                            if langCode == "en" {
+                                myRange = NSRange(location: 22, length: (strCount.count))
+                            }else {
+                                myRange = NSRange(location: 9, length: (strCount.count))
+                            }
+                            
+                            //let myRange = NSRange(location: 22, length: (strCount.count))
                             attribute.addAttribute(NSAttributedStringKey.foregroundColor, value: navColor , range: myRange)
                             self.lblConfirmOrderPrice.attributedText = attribute
                         }

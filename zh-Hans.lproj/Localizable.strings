@@ -509,6 +509,27 @@
 "Original Charger" = "原装充电器";
 "Order Summary" = "订单摘要";
 
+"Does your device switch On?" = "您的设备是否打开？";
+"Display and Touch Screen" = "显示和触摸屏";
+"Select the available original accessories" = "选择可用的原始附件";
+"Select the functional issues of your device" = "选择设备的功能问题";
+"OEM / Brand warranty available?" = " OEM /品牌保修可用吗？";
+"Device Body (Back Panel / Cover)" = "设备主体（后面板/盖）";
+"Hardware Buttons or Keys" = "硬件按钮或键";
+"Silver Frame / Bezel (Around Screen)" = "银框/边框（圆形屏幕）";
+"Main Camera (Camera Glass)" = "主相机（相机玻璃）";
+"Flawless" = "完美无瑕";
+"Okay" = "好的";
+"True" = "真正";
+"3 to 10 months" = "3至10个月";
+"More than 10 Months" = "超过10个月";
+"2 -3 Minor Scratches" = "2 -3小划痕";
+"Broken Dead Pixel Liquid Mark or Does not work properly" = "坏点像素液体标记破裂或无法正常工作";
+"Scratched" = "划伤";
+"Discolored" = "变色的";
+"Shaded/White Dots" = "阴影/白色圆点";
+"Device has undergone repairs" = "设备已维修";
+
 // 53. HistoryVC
 "No History Found" = "未找到历史记录";
 
@@ -629,7 +650,20 @@
 "Get Quote" = "获得报价";
 
 // 73. DiagnosisQuestionFlowVC
-"" = "";
+"Power/Home Button Faulty; Hard or Not Working" = "电源/主页按钮有故障；很难或不工作";
+"Speakers not working; faulty Or cracked sound" = "扬声器不工作；声音有故障或破裂";
+"Select if applicable" = "选择（如果适用）";
+"0 to 3 months" = "0到3个月";
+"Not available" = "无法使用";
+"Cracked" = "“无法使用”";
+"Broken" = "破碎";
+"Loose" = "疏松";
+"Missing" = "失踪";
+"Dented" = "凹";
+"Blur" = "模糊";
+"None Of These" = "都不是";
+"Not Applicable" = "不适用";
+"Charging Defect; unable to charge the phone" = "充电缺陷；无法为手机充电";
 
 // 74. PramotterVC
 // Not used in project //
@@ -670,6 +704,7 @@
 "Awesome! One last thing…" = "太棒了！最后一件事……";
 
 // 83. Sell1
+"Get Upto" = "起床";
 "Quote" = "引用";
 "Getting an exact quote takes 5 mins. Ready to roll?" = "获得准确的报价需要5分钟。准备开始吗？";
 "GET EXACT QUOTE" = "获取精确报价";

@@ -509,6 +509,27 @@
 "Original Charger" = "मूल चार्जर";
 "Order Summary" = "आदेश सारांश";
 
+"Does your device switch On?" = "क्या आपका डिवाइस चालू है?";
+"Display and Touch Screen" = "प्रदर्शन और टच स्क्रीन";
+"Select the available original accessories" = "उपलब्ध मूल सामान का चयन करें";
+"Select the functional issues of your device" = "अपने डिवाइस के कार्यात्मक मुद्दों का चयन करें";
+"OEM / Brand warranty available?" = "मार्जिनल इक्विपमेंट मेनूफेक्चरर / ब्रांड वारंटी उपलब्ध है?";
+"Device Body (Back Panel / Cover)" = "डिवाइस बॉडी (बैक पैनल / कवर)";
+"Hardware Buttons or Keys" = "हार्डवेयर बटन या कुंजी";
+"Silver Frame / Bezel (Around Screen)" = "सिल्वर फ्रेम / बेज़ेल (स्क्रीन के आसपास)";
+"Main Camera (Camera Glass)" = "मुख्य कैमरा (कैमरा ग्लास)";
+"Flawless" = "दोषरहित";
+"Okay" = "ठीक है";
+"True" = "सच";
+"3 to 10 months" = "3 से 10 महीने";
+"More than 10 Months" = "10 से अधिक महीने";
+"2 -3 Minor Scratches" = "2 -3 मामूली खरोंच";
+"Broken Dead Pixel Liquid Mark or Does not work properly" = "टूटी हुई मृत पिक्सेल तरल मार्क या ठीक से काम नहीं करता है";
+"Scratched" = "खरोंच";
+"Discolored" = "फीका पड़ा हुआ";
+"Shaded/White Dots" = "छायांकित / सफेद डॉट्स";
+"Device has undergone repairs" = "डिवाइस की मरम्मत हुई है";
+
 // 53. HistoryVC
 "No History Found" = "कोई इतिहास नहीं मिला";
 
@@ -629,7 +650,20 @@
 "Get Quote" = "प्रतिक्रिया प्राप्त करें";
 
 // 73. DiagnosisQuestionFlowVC
-"" = "";
+"Power/Home Button Faulty; Hard or Not Working" = "पावर / होम बटन दोषपूर्ण; हार्ड या नॉट वर्किंग";
+"Speakers not working; faulty Or cracked sound" = "स्पीकर काम नहीं कर रहे हैं, दोषपूर्ण या फटा ध्वनि";
+"Select if applicable" = "लागू होने पर चयन करें";
+"0 to 3 months" = "3 से 3 महीने";
+"Not available" = "उपलब्ध नहीं है";
+"Cracked" = "फटा";
+"Broken" = "टूटा हुआ";
+"Loose" = "ढीला";
+"Missing" = "लापता";
+"Dented" = "कमजोर";
+"Blur" = "धुंधलापन";
+"None Of These" = "इनमें से कोई नहीं";
+"Not Applicable" = "लागू नहीं";
+"Charging Defect; unable to charge the phone" = "चार्जिंग दोष, फोन चार्ज करने में असमर्थ";
 
 // 74. PramotterVC
 // Not used in project //
@@ -670,6 +704,7 @@
 "Awesome! One last thing…" = "बहुत बढ़िया! एक आखिरी बात ...";
 
 // 83. Sell1
+"Get Upto" = "तक मिलता है";
 "Quote" = "उद्धरण";
 "Getting an exact quote takes 5 mins. Ready to roll?" = "एक सटीक उद्धरण प्राप्त करने में 5 मिनट लगते हैं। रोल करने के लिए तैयार हैं?";
 "GET EXACT QUOTE" = "सटीक उद्धरण प्राप्त करें";

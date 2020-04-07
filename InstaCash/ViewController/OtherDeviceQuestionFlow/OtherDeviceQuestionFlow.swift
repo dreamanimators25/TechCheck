@@ -89,7 +89,7 @@ class OtherDeviceQuestionFlow: UIViewController,UITableViewDelegate,UITableViewD
         cell.collectionViewQuestionValues.dataSource = self
         cell.collectionViewQuestionValues.tag = indexPath.row
         cell.collectionViewQuestionValues.reloadData()
-        cell.lblQuestion.text = arrQuestionForOtherDevices[indexPath.row].strQuestionName
+        cell.lblQuestion.text = arrQuestionForOtherDevices[indexPath.row].strQuestionName.localized(lang: langCode)
         return cell
     }
     
@@ -165,6 +165,7 @@ class OtherDeviceQuestionFlow: UIViewController,UITableViewDelegate,UITableViewD
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "pickUpQuestionCollectionViewCell", for: indexPath as IndexPath) as! PickUpQuestionCollectionViewCell
         cell.layer.cornerRadius = 5.0
         cell.clipsToBounds = true
+        
         if arrQuestionForOtherDevices[collectionView.tag].arrQuestionTypes[indexPath.row].strQuestionValueImage.isEmpty{
             cell.imgValues.image = UIImage(named: "phonePlaceHolder")
         }

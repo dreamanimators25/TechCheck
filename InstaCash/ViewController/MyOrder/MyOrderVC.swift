@@ -290,7 +290,7 @@ class MyOrderVC: UIViewController,UITableViewDelegate,UITableViewDataSource,Upda
         
         
         cellOrderHeader.phoneName.text = modelOrder.strProductName
-        cellOrderHeader.lblPaymentMode.text = "Payment Mode: ".localized(lang: langCode) + (modelOrder.strPaymentName ?? "") //s.
+        cellOrderHeader.lblPaymentMode.text = "Payment Mode: ".localized(lang: langCode) + (modelOrder.strPaymentName?.localized(lang: langCode) ?? "") //s.
         //cellOrderHeader.lblOrderID.text = "Order ID: " + (modelOrder.strOrderId ?? "") //s.
         cellOrderHeader.lblOrderID.text = "Order ID: ".localized(lang: langCode) + (modelOrder.strRefrenceNumber ?? "") //s.
         let imgURL = URL(string:modelOrder.strProductImageURL!)

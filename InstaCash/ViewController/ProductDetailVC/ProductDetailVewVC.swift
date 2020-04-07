@@ -1623,7 +1623,7 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                                         if completeString == "" {
                                             completeString = completeString + "Box".localized(lang: langCode)
                                         }else {
-                                            completeString = completeString + "\nBox"
+                                            completeString = completeString + "\n" + "Box".localized(lang: langCode)
                                         }
                                     }
                                     
@@ -1631,7 +1631,7 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                                         if completeString == "" {
                                             completeString = completeString + "Original Charger".localized(lang: langCode)
                                         }else {
-                                            completeString = completeString + "\nOriginal Charger"
+                                            completeString = completeString + "\n" + "Original Charger".localized(lang: langCode)
                                         }
                                     }
                                     
@@ -1652,7 +1652,7 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                                         if completeString == "" {
                                             completeString = completeString + "Liquid Damage".localized(lang: langCode)
                                         }else {
-                                            completeString = completeString + "\nLiquid Damage"
+                                            completeString = completeString + "\n" + "Liquid Damage".localized(lang: langCode)
                                         }
                                     }
                                     
@@ -1660,7 +1660,7 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                                         if completeString == "" {
                                             completeString = completeString + "Ghost Touch".localized(lang: langCode)
                                         }else {
-                                            completeString = completeString + "\nGhost Touch"
+                                            completeString = completeString + "\n" + "Ghost Touch".localized(lang: langCode)
                                         }
                                     }
                                     
@@ -1668,7 +1668,7 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                                         if completeString == "" {
                                             completeString = completeString + "Sim Card Tray Broken".localized(lang: langCode)
                                         }else {
-                                            completeString = completeString + "\nSim Card Tray Broken"
+                                            completeString = completeString + "\n" + "Sim Card Tray Broken".localized(lang: langCode)
                                         }
                                     }
                                     
@@ -1676,7 +1676,7 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                                         if completeString == "" {
                                             completeString = completeString + "Home and Power Button".localized(lang: langCode)
                                         }else {
-                                            completeString = completeString + "\nHome and Power Button"
+                                            completeString = completeString + "\n" + "Home and Power Button".localized(lang: langCode)
                                         }
                                     }
                                     
@@ -1697,7 +1697,7 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                                         if completeString == "" {
                                             completeString = completeString + "Volume Button not working".localized(lang: langCode)
                                         }else {
-                                            completeString = completeString + "\nVolume Button not working"
+                                            completeString = completeString + "\n" + "Volume Button not working".localized(lang: langCode)
                                             
                                         }
                                     }
@@ -1706,7 +1706,7 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                                         if completeString == "" {
                                             completeString = completeString + "Power/Home Button Faulty".localized(lang: langCode)
                                         }else {
-                                            completeString = completeString + "\nPower/Home Button Faulty"
+                                            completeString = completeString + "\n" + "Power/Home Button Faulty".localized(lang: langCode)
                                             
                                         }
                                     }
@@ -1715,7 +1715,7 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                                         if completeString == "" {
                                             completeString = completeString + "Hard or Not Working".localized(lang: langCode)
                                         }else {
-                                            completeString = completeString + "\nHard or Not Working"
+                                            completeString = completeString + "\n" + "Hard or Not Working".localized(lang: langCode)
                                             
                                         }
                                     }
@@ -1724,7 +1724,7 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                                         if completeString == "" {
                                             completeString = completeString + "Wifi Or Bluetooth Or GPS Not Working".localized(lang: langCode)
                                         }else {
-                                            completeString = completeString + "\nWifi Or Bluetooth Or GPS Not Working"
+                                            completeString = completeString + "\n" + "Wifi Or Bluetooth Or GPS Not Working".localized(lang: langCode)
                                             
                                         }
                                     }
@@ -1733,7 +1733,7 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                                         if completeString == "" {
                                             completeString = completeString + "Charging Defect".localized(lang: langCode)
                                         }else {
-                                            completeString = completeString + "\nCharging Defect"
+                                            completeString = completeString + "\n" + "Charging Defect".localized(lang: langCode)
                                             
                                         }
                                     }
@@ -1742,7 +1742,7 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                                         if completeString == "" {
                                             completeString = completeString + "unable to charge the phone".localized(lang: langCode)
                                         }else {
-                                            completeString = completeString + "\nunable to charge the phone"
+                                            completeString = completeString + "\n" + "unable to charge the phone".localized(lang: langCode)
                                             self.increaseHeight += 1
                                         }
                                     }
@@ -1751,7 +1751,7 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                                         if completeString == "" {
                                             completeString = completeString + "Battery Faulty or Very Low Battery Back up".localized(lang: langCode)
                                         }else {
-                                            completeString = completeString + "\nBattery Faulty or Very Low Battery Back up"
+                                            completeString = completeString + "\n" + "Battery Faulty or Very Low Battery Back up".localized(lang: langCode)
                                             
                                         }
                                     }
@@ -1760,7 +1760,7 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                                         if completeString == "" {
                                             completeString = completeString + "Speakers not working".localized(lang: langCode)
                                         }else {
-                                            completeString = completeString + "\nSpeakers not working"
+                                            completeString = completeString + "\n" + "Speakers not working".localized(lang: langCode)
                                             self.increaseHeight += 1
                                         }
                                     }
@@ -1769,7 +1769,7 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                                         if completeString == "" {
                                             completeString = completeString + "faulty Or cracked sound".localized(lang: langCode)
                                         }else {
-                                            completeString = completeString + "\nfaulty Or cracked sound"
+                                            completeString = completeString + "\n" + "faulty Or cracked sound".localized(lang: langCode)
                                             self.increaseHeight += 1
                                         }
                                     }
@@ -1778,7 +1778,7 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                                         if completeString == "" {
                                             completeString = completeString + "Microphone Not Working".localized(lang: langCode)
                                         }else {
-                                            completeString = completeString + "\nMicrophone Not Working"
+                                            completeString = completeString + "\n" + "Microphone Not Working".localized(lang: langCode)
                                             self.increaseHeight += 1
                                         }
                                     }
@@ -1787,7 +1787,7 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                                         if completeString == "" {
                                             completeString = completeString + "GSM (Call Function) is not-working normally".localized(lang: langCode)
                                         }else {
-                                            completeString = completeString + "\nGSM (Call Function) is not-working normally"
+                                            completeString = completeString + "\n" + "GSM (Call Function) is not-working normally".localized(lang: langCode)
                                             self.increaseHeight += 1
                                         }
                                     }
@@ -1796,7 +1796,7 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                                         if completeString == "" {
                                             completeString = completeString + "Earphone Jack is damaged or not-working".localized(lang: langCode)
                                         }else {
-                                            completeString = completeString + "\nEarphone Jack is damaged or not-working"
+                                            completeString = completeString + "\n" + "Earphone Jack is damaged or not-working".localized(lang: langCode)
                                             self.increaseHeight += 1
                                         }
                                     }
@@ -1805,7 +1805,7 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                                         if completeString == "" {
                                             completeString = completeString + "Fingerprint Sensor Not-working".localized(lang: langCode)
                                         }else {
-                                            completeString = completeString + "\nFingerprint Sensor Not-working"
+                                            completeString = completeString + "\n" + "Fingerprint Sensor Not-working".localized(lang: langCode)
                                             self.increaseHeight += 1
                                         }
                                     }
