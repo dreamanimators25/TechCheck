@@ -632,6 +632,8 @@ class UploadDocumentVC: UIViewController,UIImagePickerControllerDelegate,UINavig
             }
             
             print(strUrl)
+            print(parametersHome)
+            
             self.orderCreateApiPost(strURL: strUrl, parameters: parametersHome as NSDictionary, completionHandler: {responseObject , error in
                 
                 Alert.HideProgressHud(Onview: self.view)

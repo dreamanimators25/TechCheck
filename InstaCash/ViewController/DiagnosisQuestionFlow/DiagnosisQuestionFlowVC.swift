@@ -298,13 +298,17 @@ class DiagnosisQuestionFlowVC: UIViewController,UITableViewDelegate,UITableViewD
         if arrQuestionForQuestion[collectionView.tag].arrQuestionTypes[indexPath.row].isSelected == true{
             cell.viewMain.backgroundColor = navColor
             cell.lblValues.textColor = UIColor.white
-            cell.circleImageView.isHidden = true //s.
+            //cell.circleImageView.isHidden = true //s.
+            
+            cell.circleImageView.image = #imageLiteral(resourceName: "Selected")
         }
         else{
             //cell.viewMain.backgroundColor = UIColor.init(red: 218.0/255.0, green: 215.0/255.0, blue: 215.0/255.0, alpha: 1.0) //s.
             cell.viewMain.backgroundColor = UIColor.white //s.
             cell.lblValues.textColor = UIColor.black
-            cell.circleImageView.isHidden = false //s.
+            //cell.circleImageView.isHidden = false //s.
+            
+            cell.circleImageView.image = #imageLiteral(resourceName: "circle")
         }
         
         return cell

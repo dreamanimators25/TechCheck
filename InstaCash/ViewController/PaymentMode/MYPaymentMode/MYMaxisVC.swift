@@ -45,7 +45,7 @@ class MYMaxisVC: UIViewController {
     
     func changeLanguageOfUI() {
         
-        self.lblMaxis.text = "ASHITA".localized(lang: langCode)
+        self.lblMaxis.text = "MAXIS".localized(lang: langCode)
         self.lblTransferDetail.text = "Transfer Details".localized(lang: langCode)
         self.lblPleaseEnter.text = "Please Enter the details".localized(lang: langCode)
         
@@ -92,7 +92,10 @@ class MYMaxisVC: UIViewController {
     }
    
     @IBAction func btnSkipTapped(_ sender: UIButton) {
-        
+        let vc = OrderFinalVC()
+        vc.orderID = placedOrderId
+        vc.finalPrice = self.finalPriced
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func btnProceedTapped(_ sender: UIButton) {

@@ -21,7 +21,13 @@ class PickUpCodeVC: UIViewController {
     
     func changeLanguageOfUI() {
         
-        self.codeTitle_lbl.text = isComeFromVC?.localized(lang: langCode)
+        if isComeFromVC == "pickupmode" {
+            codeTitle_lbl.text = "Pickup Code".localized(lang: langCode)
+        }else {
+            codeTitle_lbl.text = "Diagnose Code".localized(lang: langCode)
+        }
+        
+        //self.codeTitle_lbl.text = isComeFromVC?.localized(lang: langCode)
         
         self.cancelBtn.setTitle("CANCEL".localized(lang: langCode), for: UIControlState.normal)
         self.submitBtn.setTitle("SUBMIT".localized(lang: langCode), for: UIControlState.normal)

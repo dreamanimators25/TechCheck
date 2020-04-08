@@ -285,6 +285,7 @@
 "Bank Holders Name" = "Bank Holders Name";
 "Bank Account Number" = "Bank Account Number";
 "SKIP" = "SKIP";
+"Skip" = "Skip";
 "PROCEED" = "PROCEED";
 
 // 20. MYCendolVC
@@ -365,6 +366,7 @@
 "Guide me" = "Guide me";
 "Start" = "Start";
 "Retry" = "Retry";
+"ReTry" = "ReTry";
 
 // 36. RotationVC
 "Auto Rotation Diagnosis" = "Auto Rotation Diagnosis";
@@ -407,6 +409,7 @@
 "Checking Network..." = "Checking Network...";
 "Checking GPS..." = "Checking GPS...";
 "Checking WiFi..." = "Checking WiFi...";
+"Checking Bluetooth..." = "Checking Bluetooth...";
 "Tests Complete!" = "Tests Complete!";
 "Please make sure Bluetooth, GPS and Wifi are enabled on your device and press begin to start the tests." = "Please make sure Bluetooth, GPS and Wifi are enabled on your device and press begin to start the tests.";
 "Begin Tests" = "Begin Tests";
@@ -650,6 +653,25 @@
 // 72. OtherDeviceQuestionFlow
 "Get Quote" = "Get Quote";
 
+"LCD / Screen Glass" = "LCD / Screen Glass";
+"Heavily Scratched" = "Heavily Scratched";
+"Not working (Loose LCD)" = "Not working (Loose LCD)";
+"Front Or Back Camera" = "Front Or Back Camera";
+"Defective" = "Defective";
+"Functional" = "Functional";
+"Volume Button" = "Volume Button";
+"Wifi Or Bluetooth Or GPS" = "Wifi Or Bluetooth Or GPS";
+"Device Battery (Faulty or Very Low Battery Back up)" = "Device Battery (Faulty or Very Low Battery Back up)";
+"Speakers (not working or faulty or cracked sound)" = "Speakers (not working or faulty or cracked sound)";
+"Microphone" = "Microphone";
+"Call Function (GSM)" = "Call Function (GSM)";
+"Fingerprint Sensor" = "Fingerprint Sensor";
+"Vibrator" = "Vibrator";
+"Auto Rotation" = "Auto Rotation";
+"Torch" = "Torch";
+"Device Body (Side & Back Cover)" = "Device Body (Side & Back Cover)";
+"Minor Scratches" = "Minor Scratches";
+"Heavy Scrarches" = "Heavy Scrarches";
 
 // 73. DiagnosisQuestionFlowVC
 "Power/Home Button Faulty; Hard or Not Working" = "Power/Home Button Faulty; Hard or Not Working";
@@ -797,6 +819,8 @@
 "No Data Found!" = "No Data Found!";
 
 // 100. PickUpCodeVC
+"Pickup Code" = "Pickup Code";
+"Diagnose Code" = "Diagnose Code";
 "Please Enter 8 digit Code" = "Please Enter 8 digit Code";
 "Device doesn't Match! Please change your device, through which you place the order." = "Device doesn't Match! Please change your device, through which you place the order.";
 "Invalid Diagnose Code" = "Invalid Diagnose Code";

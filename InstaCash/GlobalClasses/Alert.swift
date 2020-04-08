@@ -23,18 +23,18 @@ class Alert: NSObject {
             
             DispatchQueue.main.async {
                 
-                let alertController = UIAlertController(title: "InstaCash" as String, message: strMessage as String, preferredStyle: UIAlertControllerStyle.alert)
+                let alertController = UIAlertController(title: "InstaCash".localized(lang: langCode) as String, message: strMessage as String, preferredStyle: UIAlertControllerStyle.alert)
                 
-                alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default,handler: nil))
+                alertController.addAction(UIAlertAction(title: "OK".localized(lang: langCode), style: UIAlertActionStyle.default,handler: nil))
                 
                 Onview.present(alertController, animated: true, completion: nil)
             }
         }else {
             DispatchQueue.main.async {
                 
-                let alertController = UIAlertController(title: "InstaCash" as String, message: strMessage as String, preferredStyle: UIAlertControllerStyle.alert)
+                let alertController = UIAlertController(title: "InstaCash".localized(lang: langCode) as String, message: strMessage as String, preferredStyle: UIAlertControllerStyle.alert)
                 
-                alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default,handler: nil))
+                alertController.addAction(UIAlertAction(title: "OK".localized(lang: langCode), style: UIAlertActionStyle.default,handler: nil))
                 
                 Onview.present(alertController, animated: true, completion: nil)
             }
@@ -49,7 +49,7 @@ class Alert: NSObject {
             
             let alertController = UIAlertController(title: strTitle as String, message: strMessage as String, preferredStyle: UIAlertControllerStyle.alert)
             
-            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default,handler: nil))
+            alertController.addAction(UIAlertAction(title: "OK".localized(lang: langCode), style: UIAlertActionStyle.default,handler: nil))
             
             Onview.present(alertController, animated: true, completion: nil)
         }
@@ -155,7 +155,7 @@ extension UIViewController {
     
     func showaAlert(message: String, title: String = "") {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let OKAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        let OKAction = UIAlertAction(title: "OK".localized(lang: langCode), style: .default, handler: nil)
         alertController.addAction(OKAction)
         self.present(alertController, animated: true, completion: nil)
         

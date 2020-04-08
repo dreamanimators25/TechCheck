@@ -45,7 +45,7 @@
 
 // 4. LoginVC
 "Please login in truecaller app " = "请登录真实呼叫者应用";
-"InstaCash" = "InstaCash";
+"InstaCash" = "现金";
 "Continue with Facebook" = "继续使用脸书";
 "Continue with Truecaller" = "继续真实呼叫者";
 "Continue with Mobile Number" = "继续使用手机号码";
@@ -284,6 +284,7 @@
 "Bank Holders Name" = "银行持有人姓名";
 "Bank Account Number" = "银行帐号";
 "SKIP" = "跳跃";
+"Skip" = "跳跃";
 "PROCEED" = "继续";
 
 // 20. MYCendolVC
@@ -343,7 +344,7 @@
 
 // 33. DeviceInfoVC
 "Market Price" = "市场价";
-"InstaCash Price" = "InstaCash 价钱";
+"InstaCash Price" = "现金 价钱";
 "The price stated above depends on the condition of the device. A final price offer will be quoted after you run the device diagnosis." = "上述价格取决于设备的状况。运行设备诊断后，将报价最终报价。";
 "Getting an exact quote takes 5 mins. Ready to roll? Just grab your earphone and data cable for respective diagnosis." = "获得准确的报价需要5分钟。准备好了吗？只需抓住耳机和数据线进行相应的诊断即可。";
 "Get exact quote" = "获取确切报价";
@@ -364,6 +365,7 @@
 "Guide me" = "引导我";
 "Start" = "开始";
 "Retry" = "重试";
+"ReTry" = "重试";
 
 // 36. RotationVC
 "Auto Rotation Diagnosis" = "自动旋转诊断";
@@ -406,6 +408,7 @@
 "Checking Network..." = "正在检查网络...";
 "Checking GPS..." = "检查 全球定位系统...";
 "Checking WiFi..." = "检查 无线上网...";
+"Checking Bluetooth..." = "正在检查蓝牙...";
 "Tests Complete!" = "测试完成！";
 "Please make sure Bluetooth, GPS and Wifi are enabled on your device and press begin to start the tests." = "请确保您的设备上启用了蓝牙，全球定位系统和无线上网，然后按开始开始测试。";
 "Begin Tests" = "开始测试";
@@ -649,6 +652,26 @@
 // 72. OtherDeviceQuestionFlow
 "Get Quote" = "获得报价";
 
+"LCD / Screen Glass" = " 液晶屏 /屏幕玻璃";
+"Heavily Scratched" = "严重划伤";
+"Not working (Loose LCD)" = "无法正常工作（液晶屏 松动）";
+"Front Or Back Camera" = "前置或后置摄像头";
+"Defective" = "有缺陷的";
+"Functional" = "功能性";
+"Volume Button" = "音量键";
+"Wifi Or Bluetooth Or GPS" = "无线上网 或蓝牙或 全球定位系统";
+"Device Battery (Faulty or Very Low Battery Back up)" = "设备电池（备用电池有故障或电量很低）";
+"Speakers (not working or faulty or cracked sound)" = "扬声器（没有工作或声音有故障或破裂）";
+"Microphone" = "麦克风";
+"Call Function (GSM)" = "通话功能（GSM）";
+"Fingerprint Sensor" = "指纹感应器";
+"Vibrator" = "震动器";
+"Auto Rotation" = "自动旋转";
+"Torch" = "火炬";
+"Device Body (Side & Back Cover)" = "设备主体（侧面和后盖）";
+"Minor Scratches" = "轻微划痕";
+"Heavy Scrarches" = "沉重的擦伤";
+
 // 73. DiagnosisQuestionFlowVC
 "Power/Home Button Faulty; Hard or Not Working" = "电源/主页按钮有故障；很难或不工作";
 "Speakers not working; faulty Or cracked sound" = "扬声器不工作；声音有故障或破裂";
@@ -795,6 +818,8 @@
 "No Data Found!" = "没有找到数据！";
 
 // 100. PickUpCodeVC
+"Pickup Code" = "代号";
+"Diagnose Code" = "诊断代码";
 "Please Enter 8 digit Code" = "请输入8位代码";
 "Device doesn't Match! Please change your device, through which you place the order." = "设备不匹配！请更改设备，以便通过它下订单。";
 "Invalid Diagnose Code" = "无效的诊断代码";

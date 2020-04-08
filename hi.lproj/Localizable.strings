@@ -45,7 +45,7 @@
 
 // 4. LoginVC
 "Please login in truecaller app " = "कृपया truecaller ऐप में लॉगिन करें";
-"InstaCash" = "InstaCash";
+"InstaCash" = "इंस्टाकैश";
 "Continue with Facebook" = "फेसबुक के साथ जारी रखें";
 "Continue with Truecaller" = "जारी रखें Truecaller के साथ";
 "Continue with Mobile Number" = "मोबाइल नंबर जारी रखें";
@@ -284,6 +284,7 @@
 "Bank Holders Name" = "बैंक धारकों का नाम";
 "Bank Account Number" = "बैंक खाता संख्या";
 "SKIP" = "छोड़ें";
+"Skip" = "छोड़ें";
 "PROCEED" = "आगे बढ़ें";
 
 // 20. MYCendolVC
@@ -343,7 +344,7 @@
 
 // 33. DeviceInfoVC
 "Market Price" = "बाजार मूल्य";
-"InstaCash Price" = "InstaCash मूल्य";
+"InstaCash Price" = "इंस्टाकैश मूल्य";
 "The price stated above depends on the condition of the device. A final price offer will be quoted after you run the device diagnosis." = "ऊपर उल्लिखित मूल्य डिवाइस की स्थिति पर निर्भर करता है। डिवाइस निदान चलाने के बाद एक अंतिम मूल्य प्रस्ताव उद्धृत किया जाएगा।";
 "Getting an exact quote takes 5 mins. Ready to roll? Just grab your earphone and data cable for respective diagnosis." = "एक सटीक उद्धरण प्राप्त करने में 5 मिनट लगते हैं। रोल करने के लिए तैयार? बस संबंधित निदान के लिए अपने ईरफ़ोन और डेटा केबल को पकड़ो।";
 "Get exact quote" = "सटीक उद्धरण प्राप्त करें";
@@ -364,6 +365,7 @@
 "Guide me" = "मेरा मार्गदर्शन करो";
 "Start" = "शुरू";
 "Retry" = "पुन: प्रयास करें";
+"ReTry" = "पुन: प्रयास करें";
 
 // 36. RotationVC
 "Auto Rotation Diagnosis" = "ऑटो रोटेशन निदान";
@@ -406,6 +408,7 @@
 "Checking Network..." = "नेटवर्क जाँच रहा है ...";
 "Checking GPS..." = "जीपीएस की जाँच ...";
 "Checking WiFi..." = "वाईफाई की जाँच कर रहा है ...";
+"Checking Bluetooth..." = "ब्लूटूथ की जाँच कर रहा है ...";
 "Tests Complete!" = "टेस्ट पूरा!";
 "Please make sure Bluetooth, GPS and Wifi are enabled on your device and press begin to start the tests." = "कृपया सुनिश्चित करें कि आपके डिवाइस पर ब्लूटूथ, जीपीएस और वाईफाई सक्षम हैं और परीक्षण शुरू करने के लिए प्रेस करें।";
 "Begin Tests" = "टेस्ट शुरू करें";
@@ -649,6 +652,26 @@
 // 72. OtherDeviceQuestionFlow
 "Get Quote" = "प्रतिक्रिया प्राप्त करें";
 
+"LCD / Screen Glass" = "एलसीडी / स्क्रीन ग्लास";
+"Heavily Scratched" = "भारी खरोंच";
+"Not working (Loose LCD)" = "काम नहीं कर रहा (ढीला एलसीडी)";
+"Front Or Back Camera" = "फ्रंट या बैक कैमरा";
+"Defective" = "दोषपूर्ण";
+"Functional" = "कार्यात्मक";
+"Volume Button" = "वॉल्यूम बटन";
+"Wifi Or Bluetooth Or GPS" = "वाईफ़ाई या ब्लूटूथ या जीपीएस";
+"Device Battery (Faulty or Very Low Battery Back up)" = "डिवाइस बैटरी (दोषपूर्ण या बहुत कम बैटरी बैक अप)";
+"Speakers (not working or faulty or cracked sound)" = "वक्ताओं (काम या दोषपूर्ण या फटा ध्वनि नहीं)";
+"Microphone" = "माइक्रोफ़ोन";
+"Call Function (GSM)" = "कॉल फ़ंक्शन (जीएसएम)";
+"Fingerprint Sensor" = "फिंगरप्रिंट सेंसर";
+"Vibrator" = "विब्राटर";
+"Auto Rotation" = "ऑटो रोटेशन";
+"Torch" = "मशाल";
+"Device Body (Side & Back Cover)" = "डिवाइस बॉडी (साइड एंड बैक कवर)";
+"Minor Scratches" = "हल्की खरोचें";
+"Heavy Scrarches" = "हैवी स्क्रैच";
+
 // 73. DiagnosisQuestionFlowVC
 "Power/Home Button Faulty; Hard or Not Working" = "पावर / होम बटन दोषपूर्ण; हार्ड या नॉट वर्किंग";
 "Speakers not working; faulty Or cracked sound" = "स्पीकर काम नहीं कर रहे हैं, दोषपूर्ण या फटा ध्वनि";
@@ -795,6 +818,8 @@
 "No Data Found!" = "कोई डेटा नहीं मिला!";
 
 // 100. PickUpCodeVC
+"Pickup Code" = "पिकअप कोड";
+"Diagnose Code" = "डायग्नोस कोड";
 "Please Enter 8 digit Code" = "कृपया 8 अंक कोड दर्ज करें";
 "Device doesn't Match! Please change your device, through which you place the order." = "डिवाइस मेल नहीं खाता! कृपया अपना डिवाइस बदलें, जिसके माध्यम से आप ऑर्डर देते हैं।";
 "Invalid Diagnose Code" = "अमान्य निदान कोड";

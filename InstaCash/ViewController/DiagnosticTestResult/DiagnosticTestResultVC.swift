@@ -407,6 +407,7 @@ class DiagnosticTestResultVC: UIViewController,UITableViewDelegate,UITableViewDa
             cellfailed.lblName.text = arrFailedAndSkipedTest[indexPath.row].strTestType.localized(lang: langCode)
             cellfailed.imgReTry.isHidden = true
             cellfailed.lblReTry.isHidden = false
+            cellfailed.lblReTry.text = "ReTry".localized(lang: langCode)
 
             return cellfailed
         }

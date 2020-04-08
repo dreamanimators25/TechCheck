@@ -1874,7 +1874,7 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
 
                         let priceSkipQuote = priceSkip.formattedWithSeparator
                         if strPriceQuote == (responseObject?["msg"] as! String){
-                            let priceF = "Place order"
+                            let priceF = "Place order".localized(lang: langCode)
                             self.btnPlaceOrder.setTitle(priceF, for: .normal)
                             //self.lblPlaceOrderNote.isHidden = true
                             //self.imgNoteWarning.isHidden = true
@@ -1890,7 +1890,17 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                         //  let attrString = NSAttributedString(string: myString)
                         let attribute = NSMutableAttributedString.init(string: myString)
                         let strCount = CustomUserDefault.getCurrency() + priceSkipQuote
-                        let myRange = NSRange(location: 32, length: (strCount.count))
+                        
+                        var myRange = NSRange()
+                        if langCode == "en" {
+                            myRange = NSRange(location: 32, length: (strCount.count))
+                        }else if langCode == "hi" {
+                            myRange = NSRange(location: 21, length: (strCount.count))
+                        }else {
+                            myRange = NSRange(location: 10, length: (strCount.count))
+                        }
+                        
+                        //let myRange = NSRange(location: 32, length: (strCount.count))
                         attribute.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.orange , range: myRange)
                         //self.lblPlaceOrderNote.attributedText = attribute
                         

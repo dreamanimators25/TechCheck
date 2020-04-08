@@ -166,7 +166,7 @@ class OtherDeviceQuestionFlow: UIViewController,UITableViewDelegate,UITableViewD
         cell.layer.cornerRadius = 5.0
         cell.clipsToBounds = true
         
-        if arrQuestionForOtherDevices[collectionView.tag].arrQuestionTypes[indexPath.row].strQuestionValueImage.isEmpty{
+        if arrQuestionForOtherDevices[collectionView.tag].arrQuestionTypes[indexPath.row].strQuestionValueImage.isEmpty {
             cell.imgValues.image = UIImage(named: "phonePlaceHolder")
         }
         else{
@@ -179,11 +179,15 @@ class OtherDeviceQuestionFlow: UIViewController,UITableViewDelegate,UITableViewD
         if arrQuestionForOtherDevices[collectionView.tag].arrQuestionTypes[indexPath.row].isSelected == true{
             cell.viewMain.backgroundColor = navColor
             cell.lblValues.textColor = UIColor.white
+            
+            cell.circleImageView.image = #imageLiteral(resourceName: "Selected")
         }
         else{
             cell.viewMain.backgroundColor = UIColor.init(red: 218.0/255.0, green: 215.0/255.0, blue: 215.0/255.0, alpha: 1.0)
             cell.lblValues.textColor = UIColor.black
             
+            
+            cell.circleImageView.image = #imageLiteral(resourceName: "circle")
         }
         
         return cell
