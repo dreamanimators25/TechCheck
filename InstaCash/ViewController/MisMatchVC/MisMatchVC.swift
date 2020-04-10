@@ -128,7 +128,8 @@ class MisMatchVC: UIViewController {
             
             let jsonStringforMetaDetails1 = NSString(data: jsonData1, encoding: String.Encoding.utf8.rawValue)! as String
             let strFinalCodeValues = strDiagnosisFailed.replacingOccurrences(of: ",,", with: ",")
-            let converComaToSemocolum = strFinalCodeValues.replacingOccurrences(of: ",", with: ";")
+            //let converComaToSemocolum = strFinalCodeValues.replacingOccurrences(of: ",", with: ";")
+            let converComaToSemocolum = "STON01;" + strFinalCodeValues.replacingOccurrences(of: ",", with: ";")
             
             parameters  = [
                 "userName" : apiAuthenticateUserName,
@@ -188,7 +189,7 @@ class MisMatchVC: UIViewController {
                             self.strConditionString = responseObject?["newConditionString"] as! String
                             let amount = responseObject?["newAmount"] as! Int64
                             let strAmountfinal = String(format: "%d", amount)
-                            self.lblPrice.text = "New Price:- " + CustomUserDefault.getCurrency() + strAmountfinal
+                            self.lblPrice.text = "New Price:- ".localized(lang: langCode) + CustomUserDefault.getCurrency() + strAmountfinal
                             let resultData = responseObject?["compareData"] as! String
                             let data = Data(resultData.utf8)
                             

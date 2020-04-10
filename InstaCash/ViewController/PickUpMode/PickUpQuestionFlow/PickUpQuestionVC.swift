@@ -149,7 +149,7 @@ class PickUpQuestionVC: UIViewController,UITableViewDelegate,UITableViewDataSour
         cell.collectionViewQuestionValues.dataSource = self
         cell.collectionViewQuestionValues.tag = indexPath.row
         cell.collectionViewQuestionValues.reloadData()
-        cell.lblQuestion.text = arrQuestionForPickUp[indexPath.row].strQuestionName
+        cell.lblQuestion.text = arrQuestionForPickUp[indexPath.row].strQuestionName.localized(lang: langCode)
         return cell
     }
     

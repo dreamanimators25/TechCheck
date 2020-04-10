@@ -215,6 +215,7 @@
 "NEXT" = "NEXT";
 "Please enter promo code" = "Please enter promo code";
 "APPLY" = "APPLY";
+"You can donate upto 98% of total Amount." = "You can donate upto 98% of total Amount.";
 
 // 15. SellerDetailsVC
 "Device quoted is: " = "Device quoted is: ";
@@ -256,6 +257,7 @@
 "NEFT" = "NEFT";
 "IMPS" = "IMPS";
 "BANK" = "BANK";
+"Bank" = "Bank";
 "FASTPAY" = "FASTPAY";
 "Fastpay" = "Fastpay";
 "PAYNOW" = "PAYNOW";
@@ -340,6 +342,8 @@
 "This would overwrite the payment details.Are you sure you want to continue?" = "This would overwrite the payment details.Are you sure you want to continue?";
 "No" = "No";
 "Yes" = "Yes";
+"YES" = "YES";
+"NO" = "NO";
 "Please Enter " = "Please Enter ";
 "This would reject all the changes made so far. Are you sure you want to discard all the changes?" = "This would reject all the changes made so far. Are you sure you want to discard all the changes?";
 
@@ -776,6 +780,7 @@
 "Notifications" = "Notifications";
 
 // 91. OrderFinalVC
+"Now isn't that easy? :)" = "Now isn't that easy? :)";
 "Get ready to be " = "Get ready to be ";
 " richer!" = " richer!";
 "Your order has been placed successfully. Your Order ID is " = "Your order has been placed successfully. Your Order ID is ";

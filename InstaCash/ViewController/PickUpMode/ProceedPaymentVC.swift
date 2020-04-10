@@ -32,7 +32,7 @@ class ProceedPaymentVC: UIViewController {
     
     func changeLanguageOfUI() {
      
-        self.lblPaymentMode.text = "Payment Mode: Bank".localized(lang: langCode)
+        //self.lblPaymentMode.text = "Payment Mode: Bank".localized(lang: langCode)
         
         self.btnSwipe.setTitle("Swipe here to process payment".localized(lang: langCode), for: UIControlState.normal)
         

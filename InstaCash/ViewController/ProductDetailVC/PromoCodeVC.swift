@@ -190,7 +190,15 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
         self.lblPromoOffer.text = "Promo offer".localized(lang: langCode)
         self.lblTotal.text = "Total".localized(lang: langCode)
         self.btnPromoCode.setTitle("Have a promo code? Click here.".localized(lang: langCode), for: UIControlState.normal)
-        self.lblDonateDest.text = "I want to donate ₹ 30 to Narayan Sewa Sansthan.".localized(lang: langCode)
+        
+        //self.lblDonateDest.text = "I want to donate ₹ 30 to Narayan Sewa Sansthan.".localized(lang: langCode)
+        if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+            lblDonateDest.text =  "I want to donate ₹".localized(lang: langCode) + " \(self.donateAmount) " + "to Narayan Seva Sansthan.".localized(lang: langCode)
+        }else {
+            lblDonateDest.text = "I want to donate".localized(lang: langCode) + " \(CustomUserDefault.getCurrency()) \(self.donateAmount)" + "to World Wide Fund for Nature.".localized(lang: langCode)
+        }
+        
+        
         self.btnChangeAmount.setTitle("Change Amount".localized(lang: langCode), for: UIControlState.normal)
         self.txtAmount.placeholder = "Enter Amount".localized(lang: langCode)
         self.btnNext.setTitle("NEXT".localized(lang: langCode), for: UIControlState.normal)
@@ -241,6 +249,9 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
                 if Int(txtAmount.text!) ?? 0 > finalPriceSet {
                     Alert.showAlert(strMessage: "Please Enter Valid Amount".localized(lang: langCode) as NSString, Onview: self)
                     return
+                }else if Int(txtAmount.text!) ?? 0 > self.finalPriceSet - ((finalPriceSet * 2)/100) {
+                    Alert.showAlert(strMessage: "You can donate upto 98% of total Amount.".localized(lang: langCode) as NSString, Onview: self)
+                    return
                 }else {
                     donateAmount = Int(txtAmount.text!) ?? 0
                 }
@@ -255,7 +266,6 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
                     lblDonateDest.text = "I want to donate".localized(lang: langCode) + " \(CustomUserDefault.getCurrency()) \(txtAmount.text ?? "0")" + "to World Wide Fund for Nature.".localized(lang: langCode)
                     //lblDonateDest.text = "I want to donate \(CustomUserDefault.getCurrency()) \(txtAmount.text ?? "0") to World Wide Fund for Nature."
                 }
-                
                 
                 //donateAmount = Int(txtAmount.text!) ?? 0
             }
@@ -587,12 +597,14 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
                     //self.txtPromocode.isHidden = true //s.
                     //self.btnApply.isHidden = true //s.
                     
+                    /* 10/4/20 self commented
                     let myString = "Promo Code: ".localized(lang: langCode) +  self.txtPromocode.text!
                     //  let attrString = NSAttributedString(string: myString)
                     let attribute = NSMutableAttributedString.init(string: myString)
                     let strCount = self.txtPromocode.text!.count
                     let myRange = NSRange(location: 12, length: (strCount))
                     attribute.addAttribute(NSAttributedStringKey.foregroundColor, value:navColor , range: myRange)
+                    */
 
                     self.btnRemove.isHidden = false
                     let couponPrice  = (responseObject?.value(forKeyPath: "msg.amount") as? Int)!
@@ -602,7 +614,6 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
                     self.finalPriceSet = self.finalPriceSet + couponPrice
                     self.lblFinalPrice.text = CustomUserDefault.getCurrency() + finalPrice.formattedWithSeparator//"\(finalPrice)"
                     print(self.finalPriceSet) //s.
-                    
                     
                     //Sameer - 28/3/20
                     if userDefaults.value(forKey: "promotionCouponCode") != nil {
