@@ -65,13 +65,13 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
     @IBOutlet weak var imgWhiteArrow: UIImageView!
     @IBOutlet weak var viewTopConstraintTop: NSLayoutConstraint!
     @IBOutlet weak var collectionViewOrders: UICollectionView!
+    @IBOutlet weak var collectionViewOrderDetails: UICollectionView!
     @IBOutlet weak var topViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var lblPrice: UILabel!
     @IBOutlet weak var lblPhoneName: UILabel!
     @IBOutlet weak var imgPhone: UIImageView!
     @IBOutlet weak var lblDevice: UILabel!
     @IBOutlet weak var viewTop: UIView!
-    
     
     // Localized
     @IBOutlet weak var lblSell: UILabel!
@@ -90,8 +90,14 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
     @IBOutlet weak var btnStartFromBegning: UIButton!
     @IBOutlet weak var lblDeviceByBrand: UILabel!
     @IBOutlet weak var lblMessage: UILabel!
-    
-    
+    @IBOutlet weak var scrlViewHome: UIScrollView!
+    @IBOutlet weak var promotionAndOfferView: UIView!
+    @IBOutlet weak var floatTableView: UITableView!
+    @IBOutlet weak var floatTableViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var btnFloating: UIButton!
+    @IBOutlet weak var FloatBGView: UIView!
+    @IBOutlet weak var orderDetailHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var orderDetailTopConstraint: NSLayoutConstraint!
     
     var arrPopularDeviceGetData = [HomeModel]()
     var arrBrandDeviceGetData = [HomeModel]()
@@ -100,20 +106,13 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
     var arrShowMyOrders = NSMutableArray()
     var priceConfirmOrderFinal = 0
     var isConfrimOrderApiSucess = false
-
+    var arrOrderList = [OrderListModel]()
+    
     var isComingFromWelcomeScreen = false
     let reachability: Reachability? = Reachability()
     var countMyOrder = 0
     var strAppModeCode = ""
     var refreshControl: UIRefreshControl!
-    
-    @IBOutlet weak var scrlViewHome: UIScrollView!
-    @IBOutlet weak var promotionAndOfferView: UIView!
-    @IBOutlet weak var floatTableView: UITableView!
-    
-    @IBOutlet weak var floatTableViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var btnFloating: UIButton!
-    @IBOutlet weak var FloatBGView: UIView!
     var touchGest = UITapGestureRecognizer()
     
     var floatingItemsArrayIN:[String] = ["  Call  ","  Mail  ","  Zopim Chat  "]
@@ -209,6 +208,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                                     self.countMyOrder = self.countMyOrder + 1
                                 }
                                 self.arrShowMyOrders.insert(itemDict, at: self.countMyOrder)
+
                             }
                         }
                     }
@@ -240,7 +240,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                     }, completion: nil)
                 }
                 else{
-                
+                    
                 }
                 
                 if arrPopularDeviceGetData.count > 0{
@@ -300,6 +300,9 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.orderDetailHeightConstraint.constant = 0
+        self.orderDetailTopConstraint.constant = 0
+        
         floatTableView.register(UINib(nibName: "FloatingItemCell", bundle: nil), forCellReuseIdentifier: "FloatingItemCell")
         
         
@@ -329,113 +332,113 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
         self.lblMessage.isHidden = true
         self.imgLogo.isHidden = true
         
-        if isComingFromWelcomeScreen{
+        if isComingFromWelcomeScreen {
             self.btnDiagnosisUISet()
-        if arrMyOderGetData.count == 0{
-//            topViewHeightConstraint.constant = 230
-//            lblTitleOrders.isHidden = true
-//            mainViewHeightConstraint.constant = 700
-            if userDefaults.value(forKey: "isShowUIOnHomeForOrder") == nil{
-                self.viewConfirmOrder.isHidden = true
-                self.topViewHeightConstraint.constant = 230
-                self.lblTitleOrders.isHidden = true
-                //self.mainViewHeightConstraint.constant = 700
-                self.viewOrderHeightConstraint.constant = 0
-            }
-            else{
-                if userDefaults.value(forKey: "isShowUIOnHomeForOrder") as! Bool == false{
+            if arrMyOderGetData.count == 0{
+                //            topViewHeightConstraint.constant = 230
+                //            lblTitleOrders.isHidden = true
+                //            mainViewHeightConstraint.constant = 700
+                if userDefaults.value(forKey: "isShowUIOnHomeForOrder") == nil{
                     self.viewConfirmOrder.isHidden = true
                     self.topViewHeightConstraint.constant = 230
                     self.lblTitleOrders.isHidden = true
                     //self.mainViewHeightConstraint.constant = 700
                     self.viewOrderHeightConstraint.constant = 0
-                    
                 }
                 else{
-                    let strPrice = userDefaults.value(forKey: "Product_UpToOffer") as! String
-                    let price = Int(strPrice)
-                    self.priceConfirmOrderFinal = price!
-                    self.fireWebServiceGettingConfrimPrice(isPressedConfirmButton: false)
-                    self.viewConfirmOrder.isHidden = true
-                    self.confirmOrderPrice()
-                    self.lblConfirmOrderPrice.text = ""
-                    self.viewOrderHeightConstraint.constant = 200
-                    self.topViewHeightConstraint.constant = 230
-                    self.lblTitleOrders.isHidden = true
-                    //self.mainViewHeightConstraint.constant = 900
-                }
-            }
-            
-        }
-        else{
-            self.arrShowMyOrders.removeAllObjects()
-            for index in 0..<arrMyOderGetData.count{
-                let model = arrMyOderGetData[index]
-                let arrItem = model.arrMyOrderItemList
-                for obj in 0..<arrItem.count{
-                    let itemDict = arrItem[obj] as! NSDictionary
-                    if (itemDict.value(forKey: "status") as! String).contains("Verified")  || (itemDict.value(forKey: "status") as! String).contains("Unverified") || (itemDict.value(forKey: "status") as! String).contains("out for pickup"){
-                        if self.arrShowMyOrders.count == 0{
-                            self.countMyOrder = 0
-                        }
-                        else{
-                            self.countMyOrder = self.countMyOrder + 1
-                        }
-                        self.arrShowMyOrders.insert(itemDict, at: self.countMyOrder)
+                    if userDefaults.value(forKey: "isShowUIOnHomeForOrder") as! Bool == false{
+                        self.viewConfirmOrder.isHidden = true
+                        self.topViewHeightConstraint.constant = 230
+                        self.lblTitleOrders.isHidden = true
+                        //self.mainViewHeightConstraint.constant = 700
+                        self.viewOrderHeightConstraint.constant = 0
+                        
                     }
-                    
+                    else{
+                        let strPrice = userDefaults.value(forKey: "Product_UpToOffer") as! String
+                        let price = Int(strPrice)
+                        self.priceConfirmOrderFinal = price!
+                        self.fireWebServiceGettingConfrimPrice(isPressedConfirmButton: false)
+                        self.viewConfirmOrder.isHidden = true
+                        self.confirmOrderPrice()
+                        self.lblConfirmOrderPrice.text = ""
+                        self.viewOrderHeightConstraint.constant = 200
+                        self.topViewHeightConstraint.constant = 230
+                        self.lblTitleOrders.isHidden = true
+                        //self.mainViewHeightConstraint.constant = 900
+                    }
                 }
-            }//arrShowMyOrders
-            
-            if self.arrShowMyOrders.count > 0{
-                self.collectionViewOrders.reloadData()
-            }
-            else{
                 
             }
-//            topViewHeightConstraint.constant = 380
-//            lblTitleOrders.isHidden = false
-//            mainViewHeightConstraint.constant = 1100
-            if userDefaults.value(forKey: "isShowUIOnHomeForOrder") == nil{
-                self.viewConfirmOrder.isHidden = true
-                self.topViewHeightConstraint.constant = 380
-                self.lblTitleOrders.isHidden = true
-                //self.mainViewHeightConstraint.constant = 1100
-                self.viewOrderHeightConstraint.constant = 0
-            }
             else{
-                if userDefaults.value(forKey: "isShowUIOnHomeForOrder") as! Bool == false{
+                self.arrShowMyOrders.removeAllObjects()
+                for index in 0..<arrMyOderGetData.count{
+                    let model = arrMyOderGetData[index]
+                    let arrItem = model.arrMyOrderItemList
+                    for obj in 0..<arrItem.count{
+                        let itemDict = arrItem[obj] as! NSDictionary
+                        if (itemDict.value(forKey: "status") as! String).contains("Verified")  || (itemDict.value(forKey: "status") as! String).contains("Unverified") || (itemDict.value(forKey: "status") as! String).contains("out for pickup"){
+                            if self.arrShowMyOrders.count == 0{
+                                self.countMyOrder = 0
+                            }
+                            else{
+                                self.countMyOrder = self.countMyOrder + 1
+                            }
+                            self.arrShowMyOrders.insert(itemDict, at: self.countMyOrder)
+                            
+                        }
+                        
+                    }
+                }
+                //arrShowMyOrders
+                if self.arrShowMyOrders.count > 0{
+                    self.collectionViewOrders.reloadData()
+                }
+                else{
+                    
+                }
+                //            topViewHeightConstraint.constant = 380
+                //            lblTitleOrders.isHidden = false
+                //            mainViewHeightConstraint.constant = 1100
+                if userDefaults.value(forKey: "isShowUIOnHomeForOrder") == nil{
                     self.viewConfirmOrder.isHidden = true
                     self.topViewHeightConstraint.constant = 380
                     self.lblTitleOrders.isHidden = true
                     //self.mainViewHeightConstraint.constant = 1100
                     self.viewOrderHeightConstraint.constant = 0
-                    
                 }
                 else{
-                    let strPrice = userDefaults.value(forKey: "Product_UpToOffer") as! String
-                    let price = Int(strPrice)
-                    self.priceConfirmOrderFinal = price!
-                    self.fireWebServiceGettingConfrimPrice(isPressedConfirmButton: false)
-                    self.viewConfirmOrder.isHidden = true
-                    self.confirmOrderPrice()
-                    self.topViewHeightConstraint.constant = 380
-                    self.lblTitleOrders.isHidden = false
-                    self.viewOrderHeightConstraint.constant = 200
-                    //self.mainViewHeightConstraint.constant = 1300
+                    if userDefaults.value(forKey: "isShowUIOnHomeForOrder") as! Bool == false{
+                        self.viewConfirmOrder.isHidden = true
+                        self.topViewHeightConstraint.constant = 380
+                        self.lblTitleOrders.isHidden = true
+                        //self.mainViewHeightConstraint.constant = 1100
+                        self.viewOrderHeightConstraint.constant = 0
+                        
+                    }
+                    else{
+                        let strPrice = userDefaults.value(forKey: "Product_UpToOffer") as! String
+                        let price = Int(strPrice)
+                        self.priceConfirmOrderFinal = price!
+                        self.fireWebServiceGettingConfrimPrice(isPressedConfirmButton: false)
+                        self.viewConfirmOrder.isHidden = true
+                        self.confirmOrderPrice()
+                        self.topViewHeightConstraint.constant = 380
+                        self.lblTitleOrders.isHidden = false
+                        self.viewOrderHeightConstraint.constant = 200
+                        //self.mainViewHeightConstraint.constant = 1300
+                    }
+                    
                 }
                 
             }
-
-        }
             
             //Manage diagnosis button UI
-            
             
             if arrMyCurrentDeviceSend.count > 0{
                 userDefaults.removeObject(forKey: "DeviceNameForPromoters")
                 userDefaults.removeObject(forKey: "ImageNameForPromoters")
-
+                
                 userDefaults.set(arrMyCurrentDeviceSend[0].strCurrentDeviceName, forKey: "DeviceNameForPromoters")
                 userDefaults.set(arrMyCurrentDeviceSend[0].strCurrentDeviceImage, forKey: "ImageNameForPromoters")
                 self.lblPhoneName.text = arrMyCurrentDeviceSend[0].strCurrentDeviceName
@@ -443,7 +446,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                 let imgURL = URL(string:arrMyCurrentDeviceSend[0].strCurrentDeviceImage!)
                 self.imgPhone.sd_setImage(with: imgURL)
                 self.imgConfirmOrder.sd_setImage(with: imgURL)
-
+                
                 let strAmount  = String(format: "%d", arrMyCurrentDeviceSend[0].currentDeviceMaximumTotal!)
                 self.lblPrice.text = CustomUserDefault.getCurrency() + strAmount
             }
@@ -459,6 +462,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
             }
             else{
             }
+            
             if arrPopularDeviceGetData.count > 0{
                 UIView.animate(withDuration: 2.0, delay: 2.0, options: .curveEaseInOut, animations: {
                     self.viewBottom.isHidden = true
@@ -467,7 +471,9 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                 
             }
             else{
+                
             }
+            
             DispatchQueue.main.async {
                 if self.isDiagnosisModeCheck == "No" || self.isDiagnosisModeCheck == "Yes" {
                     let vc = ChangeModePopUpVC()
@@ -482,7 +488,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
         }
         else{
             //get home data
-            if reachability?.connection.description != "No Connection"{
+            if reachability?.connection.description != "No Connection" {
                 Alert.ShowProgressHud(Onview: self.view)
                 HomeModel.fetchHomeData(isInterNet:true,isappModeCode:"",getController: self) { (arrBrandDeviceGetData,arrPopularDeviceGetData,arrMyOderGetData,arrMyCurrentDeviceSend,strAppModeCode) in
                     
@@ -497,16 +503,11 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                     self.imgLogo.isHidden = true
                     // manage Diagnosis Button UI
                     self.btnDiagnosisUISet()
-
+                    
                     if arrMyCurrentDeviceSend.count > 0 {
                         
                         self.lblPhoneName.text = arrMyCurrentDeviceSend[0].strCurrentDeviceName
                         self.lblConfirmOrderProductName.text = arrMyCurrentDeviceSend[0].strCurrentDeviceName
-                        
-                        
-                        
-                        
-                        print(arrMyCurrentDeviceSend[0].strCurrentDeviceId ?? "5")
                         
                         
                         userDefaults.removeObject(forKey: "DeviceNameForPromoters")
@@ -517,10 +518,10 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                         let imgURL = URL(string:arrMyCurrentDeviceSend[0].strCurrentDeviceImage!)
                         self.imgPhone.sd_setImage(with: imgURL)
                         self.imgConfirmOrder.sd_setImage(with: imgURL)
-
-                         let strAmount = arrMyCurrentDeviceSend[0].currentDeviceMaximumTotal!.formattedWithSeparator
-                       // let strAmount  = String(format: "%d", arrMyCurrentDeviceSend[0].currentDeviceMaximumTotal!)
-                      
+                        
+                        let strAmount = arrMyCurrentDeviceSend[0].currentDeviceMaximumTotal!.formattedWithSeparator
+                        // let strAmount  = String(format: "%d", arrMyCurrentDeviceSend[0].currentDeviceMaximumTotal!)
+                        
                         self.lblPrice.text = CustomUserDefault.getCurrency()  + strAmount
                     }
                     
@@ -539,7 +540,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                                 self.lblTitleOrders.isHidden = true
                                 //self.mainViewHeightConstraint.constant = 700
                                 self.viewOrderHeightConstraint.constant = 0
-
+                                
                             }
                             else{
                                 let strPrice = userDefaults.value(forKey: "Product_UpToOffer") as! String
@@ -573,16 +574,17 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                                         self.countMyOrder = self.countMyOrder + 1
                                     }
                                     self.arrShowMyOrders.insert(itemDict, at: self.countMyOrder)
+                                    
                                 }
                                 
                             }
                         }//arrShowMyOrders
-
-                        if self.arrShowMyOrders.count > 0{
-//                            self.topViewHeightConstraint.constant = 380
-//                            self.lblTitleOrders.isHidden = false
-//                            //self.mainViewHeightConstraint.constant = 850
-                       
+                        
+                        if self.arrShowMyOrders.count > 0 {
+                            //                            self.topViewHeightConstraint.constant = 380
+                            //                            self.lblTitleOrders.isHidden = false
+                            //                            //self.mainViewHeightConstraint.constant = 850
+                            
                             if userDefaults.value(forKey: "isShowUIOnHomeForOrder") == nil{
                                 self.viewConfirmOrder.isHidden = true
                                 self.topViewHeightConstraint.constant = 380
@@ -615,6 +617,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                             }
                             
                             self.collectionViewOrders.reloadData()
+                            
                         }
                         else{
                             
@@ -648,46 +651,74 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                                 }
                                 
                             }
-
+                            
                         }
                         
                         //self.setViewDynamicaly()
-
+                        
                     }
+                    
                     if arrBrandDeviceGetData.count > 0{
                         
                         for obj in 0..<arrBrandDeviceGetData.count{
-                                self.setBrandData(index: obj)
+                            self.setBrandData(index: obj)
                         }
-
+                        
                         UIView.animate(withDuration: 2.0, delay: 2.0, options: .curveEaseInOut, animations: {
                             self.viewMiddle.isHidden = true
                         }, completion: nil)
                     }
                     else{
+                        
                     }
+                    
                     if arrPopularDeviceGetData.count > 0{
                         UIView.animate(withDuration: 2.0, delay: 2.0, options: .curveEaseInOut, animations: {
                             self.viewBottom.isHidden = true
                             self.collectionViewPopular.reloadData()
                         }, completion: nil)
-                
+                        
                     }
                     else{
+                        
                     }
-//                    DispatchQueue.main.async {
-//                        if self.isDiagnosisModeCheck == "No" || self.isDiagnosisModeCheck == "Yes" {
-//                            let vc = ChangeModePopUpVC()
-//                            vc.strProcessForDiagnosis = self.isDiagnosisModeCheck
-//                            vc.delegate = self
-//                            vc.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-//                            self.navigationController?.present(vc, animated: true, completion: nil)
-//                        }
-//                        else{
-//
-//                        }
-//                    }
-
+                    //                    DispatchQueue.main.async {
+                    //                        if self.isDiagnosisModeCheck == "No" || self.isDiagnosisModeCheck == "Yes" {
+                    //                            let vc = ChangeModePopUpVC()
+                    //                            vc.strProcessForDiagnosis = self.isDiagnosisModeCheck
+                    //                            vc.delegate = self
+                    //                            vc.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+                    //                            self.navigationController?.present(vc, animated: true, completion: nil)
+                    //                        }
+                    //                        else{
+                    //
+                    //                        }
+                    //                    }
+                    
+                    // Sameer 13/4/20
+                    if self.reachability?.connection.description != "No Connection" {
+                        OrderListModel.fetchOrderListFromServer(isInterNet:true,getController: self) { (arrOrderList) in
+                            
+                            if arrOrderList.count > 0 {
+                                self.arrOrderList = arrOrderList
+                                
+                                DispatchQueue.main.async {
+                                    self.orderDetailHeightConstraint.constant = 160
+                                    self.orderDetailTopConstraint.constant = 20
+                                    self.collectionViewOrderDetails.reloadData()
+                                }
+                                
+                            }
+                            else{
+                                self.orderDetailHeightConstraint.constant = 0
+                                self.orderDetailTopConstraint.constant = 0
+                            }
+                        }
+                    }
+                    else{
+                        Alert.showAlert(strMessage: "No Connection found".localized(lang: langCode) as NSString, Onview: self)
+                    }
+                    
                 }
             }
             else{
@@ -695,8 +726,10 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                 imgLogo.isHidden = false
             }
         }
- 
+        
         //setNavigationBar()
+        collectionViewOrderDetails.register(UINib(nibName: "MyOrdersCell", bundle: nil), forCellWithReuseIdentifier: "MyOrdersCell")
+        
         collectionViewOrders.register(UINib(nibName: "YoursOrderCell", bundle: nil), forCellWithReuseIdentifier: "yoursOrderCell")
         collectionViewPopular.register(UINib(nibName: "TrandingDeviceCell", bundle: nil), forCellWithReuseIdentifier: "trandingDeviceCell")
         
@@ -730,28 +763,28 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
         //setViewDynamicaly()
     }
     
-//    open func takeScreenshot(_ shouldSave: Bool = true) -> UIImage? {
-//        var screenshotImage :UIImage?
-//        let layer = UIApplication.shared.keyWindow!.layer
-//        let scale = UIScreen.main.scale
-//        UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, scale);
-//        guard let context = UIGraphicsGetCurrentContext() else {return nil}
-//        layer.render(in:context)
-//        screenshotImage = UIGraphicsGetImageFromCurrentImageContext()
-//        UIGraphicsEndImageContext()
-//        if let image = screenshotImage, shouldSave {
-//            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
-//        }
-//        return screenshotImage
-//    }
+    //    open func takeScreenshot(_ shouldSave: Bool = true) -> UIImage? {
+    //        var screenshotImage :UIImage?
+    //        let layer = UIApplication.shared.keyWindow!.layer
+    //        let scale = UIScreen.main.scale
+    //        UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, scale);
+    //        guard let context = UIGraphicsGetCurrentContext() else {return nil}
+    //        layer.render(in:context)
+    //        screenshotImage = UIGraphicsGetImageFromCurrentImageContext()
+    //        UIGraphicsEndImageContext()
+    //        if let image = screenshotImage, shouldSave {
+    //            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+    //        }
+    //        return screenshotImage
+    //    }
     
     func btnDiagnosisUISet(){
         
         //s.
         //if (userDefaults.value(forKey: "countryName") as! String).contains("India"){
-    
+        
         //if (userDefaults.value(forKey: "countryName") as? String)?.contains("India") != nil {
-            
+        
         if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
             
             if userDefaults.value(forKey: "screen_complete") == nil || self.strAppModeCode == "1" || self.strAppModeCode == "2" {
@@ -907,12 +940,12 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
         
         
         AppOrientationUtility.lockOrientation(.portrait)
-
+        
         if CustomUserDefault.getCityId().isEmpty
         {
             /*let vc  = CityVC()
-            vc.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-            self.navigationController?.present(vc, animated: true, completion: nil)*/
+             vc.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+             self.navigationController?.present(vc, animated: true, completion: nil)*/
             
             let vc  = CountrySelection()
             vc.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
@@ -923,7 +956,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
         if isComingFromWelcomeScreen{
             //setViewDynamicaly()
         }
-    
+        
         
     }
     
@@ -942,12 +975,12 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
             viewBrand7.isHidden = true
             viewBrand8.isHidden = true
             viewBrand9.isHidden = true
-
+            
         }
         else if index == 1{
-      //      let imgURL = URL(string:arrBrandDeviceGetData[index].strBrandLogo!)
-//            imgBrand2.sd_setImage(with: imgURL)
-//            lblBrand2.text = arrBrandDeviceGetData[index].strBrandName
+            //      let imgURL = URL(string:arrBrandDeviceGetData[index].strBrandLogo!)
+            //            imgBrand2.sd_setImage(with: imgURL)
+            //            lblBrand2.text = arrBrandDeviceGetData[index].strBrandName
             viewBrand1.isHidden = true
             viewBrand2.isHidden = true
             viewBrand3.isHidden = true
@@ -958,115 +991,115 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
             viewBrand8.isHidden = true
             viewBrand9.isHidden = true
         }
-//        else if index == 2{
-//            let imgURL = URL(string:arrBrandDeviceGetData[index].strBrandLogo!)
-//            imgBrand3.sd_setImage(with: imgURL)
-//            lblBrand3.text = arrBrandDeviceGetData[index].strBrandName
-//            viewBrand1.isHidden = false
-//            viewBrand2.isHidden = false
-//            viewBrand3.isHidden = false
-//            viewBrand4.isHidden = true
-//            viewBrand5.isHidden = true
-//            viewBrand6.isHidden = true
-//            viewBrand7.isHidden = true
-//            viewBrand8.isHidden = true
-//            viewBrand9.isHidden = true
-//        }
-//        else if index == 3{
-//            let imgURL = URL(string:arrBrandDeviceGetData[index].strBrandLogo!)
-//            imgBrand4.sd_setImage(with: imgURL)
-//            lblBrand4.text = arrBrandDeviceGetData[index].strBrandName
-//            viewBrand1.isHidden = false
-//            viewBrand2.isHidden = false
-//            viewBrand3.isHidden = false
-//            viewBrand4.isHidden = false
-//            viewBrand5.isHidden = true
-//            viewBrand6.isHidden = true
-//            viewBrand7.isHidden = true
-//            viewBrand8.isHidden = true
-//            viewBrand9.isHidden = true
-//        }
-//        else if index == 4{
-//            let imgURL = URL(string:arrBrandDeviceGetData[index].strBrandLogo!)
-//            imgBrand5.sd_setImage(with: imgURL)
-//            lblBrand5.text = arrBrandDeviceGetData[index].strBrandName
-//            viewBrand1.isHidden = false
-//            viewBrand2.isHidden = false
-//            viewBrand3.isHidden = false
-//            viewBrand4.isHidden = false
-//            viewBrand5.isHidden = false
-//            viewBrand6.isHidden = true
-//            viewBrand7.isHidden = true
-//            viewBrand8.isHidden = true
-//            viewBrand9.isHidden = true
-//        }
-//        else if index == 5{
-//            let imgURL = URL(string:arrBrandDeviceGetData[index].strBrandLogo!)
-//            imgBrand6.sd_setImage(with: imgURL)
-//            lblBrand6.text = arrBrandDeviceGetData[index].strBrandName
-//            viewBrand1.isHidden = false
-//            viewBrand2.isHidden = false
-//            viewBrand3.isHidden = false
-//            viewBrand4.isHidden = false
-//            viewBrand5.isHidden = false
-//            viewBrand6.isHidden = false
-//            viewBrand7.isHidden = true
-//            viewBrand8.isHidden = true
-//            viewBrand9.isHidden = true
-//        }
-//        else if index == 6{
-//            let imgURL = URL(string:arrBrandDeviceGetData[index].strBrandLogo!)
-//            imgBrand7.sd_setImage(with: imgURL)
-//            lblBrand7.text = arrBrandDeviceGetData[index].strBrandName
-//            viewBrand1.isHidden = false
-//            viewBrand2.isHidden = false
-//            viewBrand3.isHidden = false
-//            viewBrand4.isHidden = false
-//            viewBrand5.isHidden = false
-//            viewBrand6.isHidden = false
-//            viewBrand7.isHidden = false
-//            viewBrand8.isHidden = true
-//            viewBrand9.isHidden = true
-//        }
-//        else if index == 7{
-//            let imgURL = URL(string:arrBrandDeviceGetData[index].strBrandLogo!)
-//            imgBrand8.sd_setImage(with: imgURL)
-//            lblBrand8.text = arrBrandDeviceGetData[index].strBrandName
-//            viewBrand1.isHidden = false
-//            viewBrand2.isHidden = false
-//            viewBrand3.isHidden = false
-//            viewBrand4.isHidden = false
-//            viewBrand5.isHidden = false
-//            viewBrand6.isHidden = false
-//            viewBrand7.isHidden = false
-//            viewBrand8.isHidden = false
-//            viewBrand9.isHidden = true
-//        }
-//        else if index == 8{
-//            let imgURL = URL(string:arrBrandDeviceGetData[index].strBrandLogo!)
-//            imgBrand9.sd_setImage(with: imgURL)
-//            lblBrand9.text = arrBrandDeviceGetData[index].strBrandName
-//            viewBrand1.isHidden = false
-//            viewBrand2.isHidden = false
-//            viewBrand3.isHidden = false
-//            viewBrand4.isHidden = false
-//            viewBrand5.isHidden = false
-//            viewBrand6.isHidden = false
-//            viewBrand7.isHidden = false
-//            viewBrand8.isHidden = false
-//            viewBrand9.isHidden = false
-//        }
-       // if arrBrandDeviceGetData.count <= 3{
-            viewMiddleHeightConstraint.constant = 150
-//            mainViewHeightConstraint.constant = 850
-       // }
-//        else if arrBrandDeviceGetData.count > 3 && arrBrandDeviceGetData.count <= 6{
-//            viewMiddleHeightConstraint.constant = 300
-//        mainViewHeightConstraint.constant = 850
-//        }
-//        else {
-//            viewMiddleHeightConstraint.constant = 420
-//        }
+        //        else if index == 2{
+        //            let imgURL = URL(string:arrBrandDeviceGetData[index].strBrandLogo!)
+        //            imgBrand3.sd_setImage(with: imgURL)
+        //            lblBrand3.text = arrBrandDeviceGetData[index].strBrandName
+        //            viewBrand1.isHidden = false
+        //            viewBrand2.isHidden = false
+        //            viewBrand3.isHidden = false
+        //            viewBrand4.isHidden = true
+        //            viewBrand5.isHidden = true
+        //            viewBrand6.isHidden = true
+        //            viewBrand7.isHidden = true
+        //            viewBrand8.isHidden = true
+        //            viewBrand9.isHidden = true
+        //        }
+        //        else if index == 3{
+        //            let imgURL = URL(string:arrBrandDeviceGetData[index].strBrandLogo!)
+        //            imgBrand4.sd_setImage(with: imgURL)
+        //            lblBrand4.text = arrBrandDeviceGetData[index].strBrandName
+        //            viewBrand1.isHidden = false
+        //            viewBrand2.isHidden = false
+        //            viewBrand3.isHidden = false
+        //            viewBrand4.isHidden = false
+        //            viewBrand5.isHidden = true
+        //            viewBrand6.isHidden = true
+        //            viewBrand7.isHidden = true
+        //            viewBrand8.isHidden = true
+        //            viewBrand9.isHidden = true
+        //        }
+        //        else if index == 4{
+        //            let imgURL = URL(string:arrBrandDeviceGetData[index].strBrandLogo!)
+        //            imgBrand5.sd_setImage(with: imgURL)
+        //            lblBrand5.text = arrBrandDeviceGetData[index].strBrandName
+        //            viewBrand1.isHidden = false
+        //            viewBrand2.isHidden = false
+        //            viewBrand3.isHidden = false
+        //            viewBrand4.isHidden = false
+        //            viewBrand5.isHidden = false
+        //            viewBrand6.isHidden = true
+        //            viewBrand7.isHidden = true
+        //            viewBrand8.isHidden = true
+        //            viewBrand9.isHidden = true
+        //        }
+        //        else if index == 5{
+        //            let imgURL = URL(string:arrBrandDeviceGetData[index].strBrandLogo!)
+        //            imgBrand6.sd_setImage(with: imgURL)
+        //            lblBrand6.text = arrBrandDeviceGetData[index].strBrandName
+        //            viewBrand1.isHidden = false
+        //            viewBrand2.isHidden = false
+        //            viewBrand3.isHidden = false
+        //            viewBrand4.isHidden = false
+        //            viewBrand5.isHidden = false
+        //            viewBrand6.isHidden = false
+        //            viewBrand7.isHidden = true
+        //            viewBrand8.isHidden = true
+        //            viewBrand9.isHidden = true
+        //        }
+        //        else if index == 6{
+        //            let imgURL = URL(string:arrBrandDeviceGetData[index].strBrandLogo!)
+        //            imgBrand7.sd_setImage(with: imgURL)
+        //            lblBrand7.text = arrBrandDeviceGetData[index].strBrandName
+        //            viewBrand1.isHidden = false
+        //            viewBrand2.isHidden = false
+        //            viewBrand3.isHidden = false
+        //            viewBrand4.isHidden = false
+        //            viewBrand5.isHidden = false
+        //            viewBrand6.isHidden = false
+        //            viewBrand7.isHidden = false
+        //            viewBrand8.isHidden = true
+        //            viewBrand9.isHidden = true
+        //        }
+        //        else if index == 7{
+        //            let imgURL = URL(string:arrBrandDeviceGetData[index].strBrandLogo!)
+        //            imgBrand8.sd_setImage(with: imgURL)
+        //            lblBrand8.text = arrBrandDeviceGetData[index].strBrandName
+        //            viewBrand1.isHidden = false
+        //            viewBrand2.isHidden = false
+        //            viewBrand3.isHidden = false
+        //            viewBrand4.isHidden = false
+        //            viewBrand5.isHidden = false
+        //            viewBrand6.isHidden = false
+        //            viewBrand7.isHidden = false
+        //            viewBrand8.isHidden = false
+        //            viewBrand9.isHidden = true
+        //        }
+        //        else if index == 8{
+        //            let imgURL = URL(string:arrBrandDeviceGetData[index].strBrandLogo!)
+        //            imgBrand9.sd_setImage(with: imgURL)
+        //            lblBrand9.text = arrBrandDeviceGetData[index].strBrandName
+        //            viewBrand1.isHidden = false
+        //            viewBrand2.isHidden = false
+        //            viewBrand3.isHidden = false
+        //            viewBrand4.isHidden = false
+        //            viewBrand5.isHidden = false
+        //            viewBrand6.isHidden = false
+        //            viewBrand7.isHidden = false
+        //            viewBrand8.isHidden = false
+        //            viewBrand9.isHidden = false
+        //        }
+        // if arrBrandDeviceGetData.count <= 3{
+        viewMiddleHeightConstraint.constant = 150
+        //            mainViewHeightConstraint.constant = 850
+        // }
+        //        else if arrBrandDeviceGetData.count > 3 && arrBrandDeviceGetData.count <= 6{
+        //            viewMiddleHeightConstraint.constant = 300
+        //        mainViewHeightConstraint.constant = 850
+        //        }
+        //        else {
+        //            viewMiddleHeightConstraint.constant = 420
+        //        }
         
     }
     
@@ -1093,7 +1126,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
         heightConstraint1.isActive = true
         widthConstraint1.isActive = true
         btnCity.setImage(UIImage(named: "location"), for: .normal)
-         btnCity.addTarget(self, action: #selector(HomeVC.btnCityPressed), for: .touchUpInside)
+        btnCity.addTarget(self, action: #selector(HomeVC.btnCityPressed), for: .touchUpInside)
         //BtnSearch
         let btnSearch = UIButton(frame: CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: 25, height: 25)))
         let widthConstraint2 = btnSearch.widthAnchor.constraint(equalToConstant: 25)
@@ -1101,7 +1134,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
         heightConstraint2.isActive = true
         widthConstraint2.isActive = true
         btnSearch.setImage(UIImage(named: "search"), for: .normal)
-
+        
         btnSearch.addTarget(self, action: #selector(HomeVC.btnSearchPressed), for: .touchUpInside)
         // space
         let btnSpace = UIButton(frame: CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: 5, height: 5)))
@@ -1113,7 +1146,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
         let rightBarButtonSearch = UIBarButtonItem(customView: btnSearch)
         let rightBarButtonCity = UIBarButtonItem(customView: btnCity)
         navigationItem.rightBarButtonItems = [rightBarButtonCity,rightBarButtonSpace,rightBarButtonSearch]//rightBarButtonCity
-
+        
         
     }
     //MARK:- set view dynamically
@@ -1130,8 +1163,8 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
             self.applyCurvedPath(givenView: self.viewTop, curvedPercent: 0.2)
             let gradientLayer:CAGradientLayer = CAGradientLayer()
             gradientLayer.frame.size = self.viewTop.frame.size
-//            gradientLayer.colors =
-//                [UIColor.white.cgColor,UIColor.red.withAlphaComponent(1).cgColor]
+            //            gradientLayer.colors =
+            //                [UIColor.white.cgColor,UIColor.red.withAlphaComponent(1).cgColor]
             gradientLayer.colors =
                 [UIColor.init(red: 114.0/255.0, green: 217.0/255.0, blue: 139.0/255.0, alpha: 1).cgColor,UIColor.init(red: 114.0/255.0, green: 217.0/255.0, blue: 207.0/255.0, alpha: 1).cgColor]
             gradientLayer.startPoint = CGPoint(x: 0.0, y: 1.0)
@@ -1146,9 +1179,9 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
             self.viewTop.bringSubview(toFront: self.btnStartFromBegning)
             self.viewTop.bringSubview(toFront: self.lblTitleOrders)
             self.viewTop.bringSubview(toFront: self.collectionViewOrders)
-             self.viewTop.bringSubview(toFront: self.imgWhiteArrow)
-
-             //change constraint's property
+            self.viewTop.bringSubview(toFront: self.imgWhiteArrow)
+            
+            //change constraint's property
             UIView.animate(withDuration: 15.0, delay: 20.0, options: .curveEaseInOut, animations: {
                 self.viewTop.isHidden = true
                 self.viewTopConstraintTop.constant = 0
@@ -1163,18 +1196,18 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                 }
                 else if self.isDiagnosisModeCheck == "No"{
                     strDiagnosisSend = "No"
-
+                    
                 }
                 else{
                     strDiagnosisSend = "Yes"
-
+                    
                 }
                 let vc = ChangeModePopUpVC()
                 vc.strProcessForDiagnosis = strDiagnosisSend
                 vc.delegate = self
                 vc.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
                 self.navigationController?.present(vc, animated: true, completion: nil)
-              
+                
             }
             else if self.strAppModeCode == "2"{
                 
@@ -1183,7 +1216,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                 }
                 else if self.isDiagnosisModeCheck == "No"{
                     strDiagnosisSend = "No"
-
+                    
                 }
                 else{
                     strDiagnosisSend = "No"
@@ -1216,9 +1249,9 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                     
                 }
             }
-          
+            
         }
-     
+        
     }
     
     //MARK:- cureview method
@@ -1234,7 +1267,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
         return arrowPath
         
     }
-   
+    
     func applyCurvedPath(givenView: UIView,curvedPercent:CGFloat) {
         guard curvedPercent <= 1 && curvedPercent >= 0 else{
             return
@@ -1246,7 +1279,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
         shapeLayer.masksToBounds = true
         givenView.layer.mask = shapeLayer
     }
-   
+    
     //MARK:- button action methods
     
     @IBAction func onClickCustomSupport(_ sender: UIButton) {
@@ -1312,12 +1345,12 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
     }
     
     @IBAction func btnConfirmOrderPressed(_ sender: UIButton) {
-            if isConfrimOrderApiSucess{
-              setDataForConfirmOrder()
-            }
-            else{
-                self.fireWebServiceGettingConfrimPrice(isPressedConfirmButton: true)
-            }
+        if isConfrimOrderApiSucess{
+            setDataForConfirmOrder()
+        }
+        else{
+            self.fireWebServiceGettingConfrimPrice(isPressedConfirmButton: true)
+        }
     }
     
     func setDataForConfirmOrder(){
@@ -1330,31 +1363,31 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                     for index in
                         0..<arrGetQuestionAnserArrayForConfirmOrder.count {
                             
-                        let model = PickUpQuestionModel()
-                        let dict = arrGetQuestionAnserArrayForConfirmOrder[index] as! NSMutableDictionary
-                        
-                        model.strQuestionName = dict.value(forKey: "questionName") as! String
-                        model.strViewType = dict.value(forKey: "appViewType") as! String
-                        model.strAnswerName = dict.value(forKey: "answerName") as! String
-                        model.strAppViewType = dict.value(forKey: "viewType") as! String
-                        
-                        let arrQuestionObj = dict.value(forKey: "arrayQuestion") as! NSMutableArray
-                        
-                        for obj in 0..<arrQuestionObj.count {
+                            let model = PickUpQuestionModel()
+                            let dict = arrGetQuestionAnserArrayForConfirmOrder[index] as! NSMutableDictionary
                             
-                            let moodelQuestionObj = PickUpQuestionTypesModel()
-                            let dictQuestionObj = arrQuestionObj[obj] as! NSMutableDictionary
-                            moodelQuestionObj.strQuestionValue = dictQuestionObj.value(forKey: "questionValue") as! String
-                            moodelQuestionObj.strQuestionValueImage = dictQuestionObj.value(forKey: "questionValueImage") as! String
-                            moodelQuestionObj.strQuestionValueAppCodde = dictQuestionObj.value(forKey: "questionValueAppCode") as! String
-                            moodelQuestionObj.isSelected = dictQuestionObj.value(forKey: "isSelected") as! Bool
-                            model.arrQuestionTypes.insert(moodelQuestionObj, at: obj)
-                        }
-                        arrQuestionAndAnswerShowSend.insert(model, at: index)
+                            model.strQuestionName = dict.value(forKey: "questionName") as! String
+                            model.strViewType = dict.value(forKey: "appViewType") as! String
+                            model.strAnswerName = dict.value(forKey: "answerName") as! String
+                            model.strAppViewType = dict.value(forKey: "viewType") as! String
+                            
+                            let arrQuestionObj = dict.value(forKey: "arrayQuestion") as! NSMutableArray
+                            
+                            for obj in 0..<arrQuestionObj.count {
+                                
+                                let moodelQuestionObj = PickUpQuestionTypesModel()
+                                let dictQuestionObj = arrQuestionObj[obj] as! NSMutableDictionary
+                                moodelQuestionObj.strQuestionValue = dictQuestionObj.value(forKey: "questionValue") as! String
+                                moodelQuestionObj.strQuestionValueImage = dictQuestionObj.value(forKey: "questionValueImage") as! String
+                                moodelQuestionObj.strQuestionValueAppCodde = dictQuestionObj.value(forKey: "questionValueAppCode") as! String
+                                moodelQuestionObj.isSelected = dictQuestionObj.value(forKey: "isSelected") as! Bool
+                                model.arrQuestionTypes.insert(moodelQuestionObj, at: obj)
+                            }
+                            arrQuestionAndAnswerShowSend.insert(model, at: index)
                     }
                     
                     userDefaults.removeObject(forKey: "productName")
-                userDefaults.set(arrMyCurrentDeviceSend[0].strCurrentDeviceName, forKey: "productName")
+                    userDefaults.set(arrMyCurrentDeviceSend[0].strCurrentDeviceName, forKey: "productName")
                     userDefaults.removeObject(forKey: "otherProductDeviceImage")
                     userDefaults.setValue(arrMyCurrentDeviceSend[0].strCurrentDeviceImage, forKey: "otherProductDeviceImage")
                     
@@ -1383,8 +1416,8 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
     
     @objc func btnSideMenuPressed() -> Void {
         
-//        let vc = ProductDetailVewVC()
-//        self.navigationController?.pushViewController(vc, animated: true)
+        //        let vc = ProductDetailVewVC()
+        //        self.navigationController?.pushViewController(vc, animated: true)
         self.menuContainerViewController.toggleLeftSideMenuCompletion({() -> Void in
         })
     }
@@ -1424,7 +1457,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
             if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
                 currency = "INR"
             }
-            //else if (userDefaults.value(forKey: "countryName") as? String)?.contains("Malaysia") != nil {
+                //else if (userDefaults.value(forKey: "countryName") as? String)?.contains("Malaysia") != nil {
             else if CustomUserDefault.getCurrency() == "MY" {
                 
                 currency = "MYR"
@@ -1447,29 +1480,29 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
             
             userDefaults.removeObject(forKey: "ChangeModeComingFromDiadnosis")
             userDefaults.setValue("", forKey: "ChangeModeComingFromDiadnosis")
-           // let imei = UserDefaults.standard.string(forKey: "imei_number")
-//            if (imei?.count == 15){
-//                if arrMyCurrentDeviceSend.count > 0{
-//                    let vc  = DeviceInfoVC()
-//                    vc.arrMyCurrentDeviceGetInfo = arrMyCurrentDeviceSend
-//                    self.navigationController?.pushViewController(vc, animated: true)
-//                }
-//                else{
-//                    Alert.showAlert(strMessage: "Device is not map,Please try later", Onview: self)
-//                }
-//            }else{
-                if arrMyCurrentDeviceSend.count > 0{
-//                    let vc = IMEIVC()
-//                    vc.arrMyCurrentDeviceGet = arrMyCurrentDeviceSend
-//                    self.navigationController?.pushViewController(vc, animated: true)
-                    let vc  = DeviceInfoVC()
-                    vc.arrMyCurrentDeviceGetInfo = arrMyCurrentDeviceSend
-                    self.navigationController?.pushViewController(vc, animated: true)
-                }
-                else{
-                    Alert.showAlert(strMessage: "Device is not map,Please try later".localized(lang: langCode) as NSString, Onview: self)
-                }
-          //  }
+            // let imei = UserDefaults.standard.string(forKey: "imei_number")
+            //            if (imei?.count == 15){
+            //                if arrMyCurrentDeviceSend.count > 0{
+            //                    let vc  = DeviceInfoVC()
+            //                    vc.arrMyCurrentDeviceGetInfo = arrMyCurrentDeviceSend
+            //                    self.navigationController?.pushViewController(vc, animated: true)
+            //                }
+            //                else{
+            //                    Alert.showAlert(strMessage: "Device is not map,Please try later", Onview: self)
+            //                }
+            //            }else{
+            if arrMyCurrentDeviceSend.count > 0{
+                //                    let vc = IMEIVC()
+                //                    vc.arrMyCurrentDeviceGet = arrMyCurrentDeviceSend
+                //                    self.navigationController?.pushViewController(vc, animated: true)
+                let vc  = DeviceInfoVC()
+                vc.arrMyCurrentDeviceGetInfo = arrMyCurrentDeviceSend
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            else{
+                Alert.showAlert(strMessage: "Device is not map,Please try later".localized(lang: langCode) as NSString, Onview: self)
+            }
+            //  }
         }
         else{
             Alert.showAlert(strMessage: "Device is not map,Please try later".localized(lang: langCode) as NSString, Onview: self)
@@ -1478,7 +1511,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
     
     func sendToControllerToCompletediagnosisProcess(){
         //if (userDefaults.value(forKey: "countryName") as? String)?.contains("India") != nil {
-            
+        
         if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
             
             if userDefaults.value(forKey: "screen_complete") == nil || self.strAppModeCode == "1" || self.strAppModeCode == "2" {
@@ -1496,41 +1529,41 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                     let vc = RotationVC()
                     vc.resultJSON = sendJson
                     self.present(vc, animated: true, completion:nil)
-                  
+                    
                 }
                 else if userDefaults.value(forKey: "proximity_complete") as! Bool == false{
-                   let vc = SensorReadVC()
+                    let vc = SensorReadVC()
                     vc.resultJSON = sendJson
                     self.present(vc, animated: true, completion:nil)
-
+                    
                 }
                 else if userDefaults.value(forKey: "volumebutton_complete") as! Bool == false{
-                   let vc = VolumeCheckerVC()
+                    let vc = VolumeCheckerVC()
                     vc.resultJSON = sendJson
                     self.present(vc, animated: true, completion:nil)
                 }
                 else if userDefaults.value(forKey: "earphone_complete") as! Bool == false{
-                   let vc = EarPhoneVC()
+                    let vc = EarPhoneVC()
                     vc.resultJSON = sendJson
                     self.present(vc, animated: true, completion:nil)
                 }
                 else if userDefaults.value(forKey: "charger_complete") as! Bool == false{
-                  let  vc = DeviceChargerVC()
+                    let  vc = DeviceChargerVC()
                     vc.resultJSON = sendJson
                     self.present(vc, animated: true, completion:nil)
                 }
                 else if userDefaults.value(forKey: "camera_complete") as! Bool == false{
-                  let  vc = CameraVC()
+                    let  vc = CameraVC()
                     vc.resultJSON = sendJson
                     self.present(vc, animated: true, completion:nil)
                 }
                 else if userDefaults.value(forKey: "fingerprint_complete") as! Bool == false{
-                  let  vc = FingerPrintDevice()
+                    let  vc = FingerPrintDevice()
                     vc.resultJSON = sendJson
                     self.present(vc, animated: true, completion:nil)
                 }
                 else if userDefaults.value(forKey: "bluetooth_complete") as! Bool == false{
-                   let vc = BlueToothTestingVC()
+                    let vc = BlueToothTestingVC()
                     vc.resultJSON = sendJson
                     vc.iscomingFromHome = true
                     self.present(vc, animated: true, completion:nil)
@@ -1542,7 +1575,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
         else{
             if userDefaults.value(forKey: "screen_complete") == nil || self.strAppModeCode == "1" || self.strAppModeCode == "2" {
                 pushToControllerToProceedDiagnosos()
-
+                
             }
             else{
                 var sendJson = JSON()
@@ -1565,13 +1598,13 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                 else if userDefaults.value(forKey: "volumebutton_complete") as! Bool == false{
                     let vc = VolumeCheckerVC()
                     vc.resultJSON = sendJson
-
+                    
                     self.present(vc, animated: true, completion:nil)
                 }
                 else if userDefaults.value(forKey: "camera_complete") as! Bool == false{
                     let vc = CameraVC()
                     vc.resultJSON = sendJson
-
+                    
                     self.present(vc, animated: true, completion:nil)
                 }
                 else if userDefaults.value(forKey: "fingerprint_complete") as! Bool == false{
@@ -1587,14 +1620,14 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                 }else{
                     pushToControllerToProceedDiagnosos()
                 }
-
+                
             }
         }
     }
     
     
     func moveToBrandTypeController(withId:Int){
-       // if arrMyCurrentDeviceSend.count > 0{
+        // if arrMyCurrentDeviceSend.count > 0{
         let strModelIdSend = arrBrandDeviceGetData[withId].strBrandId
         let vc = BrandModelTypeVC()
         vc.strGetBrandId = strModelIdSend!
@@ -1602,11 +1635,11 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
         vc.selectedIndex = withId
         vc.isComingMore = false
         self.navigationController?.pushViewController(vc, animated: true)
-//        }
-//        else{
-//            Alert.showAlert(strMessage: "Device is not map,Please try later", Onview: self)
-//
-//        }
+        //        }
+        //        else{
+        //            Alert.showAlert(strMessage: "Device is not map,Please try later", Onview: self)
+        //
+        //        }
     }
     
     @IBAction func btnDeviceBrand1Pressed(_ sender: UIButton) {
@@ -1661,10 +1694,12 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == collectionViewPopular{
             return arrPopularDeviceGetData.count
-            
         }
         else{
-            return arrShowMyOrders.count
+            //return arrShowMyOrders.count
+            
+            // Sameer 13/4/20
+            return arrOrderList.count
         }
     }
     
@@ -1681,109 +1716,158 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
             return cellPopular
         }
         else{
-            let cellOrders = collectionView.dequeueReusableCell(withReuseIdentifier: "yoursOrderCell", for: indexPath) as! YoursOrderCell
-            let dict = arrShowMyOrders[indexPath.row] as! NSDictionary
-            cellOrders.lblOrderDate.text = arrMyOderGetData[indexPath.row].strMyOrderDate
-            cellOrders.lblOrderName.text = dict.value(forKey: "productName") as? String
-            let imgURL = URL(string:(dict.value(forKey: "productImage") as? String)!)!
-            cellOrders.imgOrder.sd_setImage(with: imgURL)
+            /*
+             let cellOrders = collectionView.dequeueReusableCell(withReuseIdentifier: "yoursOrderCell", for: indexPath) as! YoursOrderCell
+             let dict = arrShowMyOrders[indexPath.row] as! NSDictionary
+             cellOrders.lblOrderDate.text = arrMyOderGetData[indexPath.row].strMyOrderDate
+             cellOrders.lblOrderName.text = dict.value(forKey: "productName") as? String
+             let imgURL = URL(string:(dict.value(forKey: "productImage") as? String)!)!
+             cellOrders.imgOrder.sd_setImage(with: imgURL)
+             return cellOrders
+             */
+            
+            let cellOrders = collectionViewOrderDetails.dequeueReusableCell(withReuseIdentifier: "MyOrdersCell", for: indexPath) as! MyOrdersCell
+            let dict = arrOrderList[indexPath.row]
+            print(dict.strStatus ?? [:])
+            cellOrders.lblOrderName.text = dict.strProductName
+            cellOrders.lblOrderId.text = dict.strRefrenceNumber
+            
+            switch dict.strStatus {
+            case "Unverified":
+                cellOrders.imgPlaced.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                cellOrders.imgVerify.backgroundColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
+                cellOrders.imgOutFor.backgroundColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
+                cellOrders.imgPacman.backgroundColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
+                cellOrders.imgPacman.image = #imageLiteral(resourceName: "packman waiting")
+                
+                cellOrders.lblVerifyLeft.backgroundColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
+                cellOrders.lblVerifyRight.backgroundColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
+                cellOrders.lblOutForLeft.backgroundColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
+                cellOrders.lblOutForRight.backgroundColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
+                cellOrders.lblPacmanLeft.backgroundColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
+            case "Verified":
+                cellOrders.imgPlaced.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                cellOrders.imgVerify.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                cellOrders.imgOutFor.backgroundColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
+                cellOrders.imgPacman.backgroundColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
+                cellOrders.imgPacman.image = #imageLiteral(resourceName: "packman waiting")
+                
+                cellOrders.lblVerifyLeft.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                cellOrders.lblVerifyRight.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                cellOrders.lblOutForLeft.backgroundColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
+                cellOrders.lblOutForRight.backgroundColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
+                cellOrders.lblPacmanLeft.backgroundColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
+            case "Out for pickup":
+                cellOrders.imgPlaced.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                cellOrders.imgVerify.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                cellOrders.imgOutFor.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                cellOrders.imgPacman.backgroundColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
+                cellOrders.imgPacman.image = #imageLiteral(resourceName: "packman waiting")
+                
+                cellOrders.lblVerifyLeft.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                cellOrders.lblVerifyRight.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                cellOrders.lblOutForLeft.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                cellOrders.lblOutForRight.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                cellOrders.lblPacmanLeft.backgroundColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
+            case "Pacman cancelled":
+                cellOrders.imgPlaced.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                cellOrders.imgVerify.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                cellOrders.imgOutFor.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                cellOrders.imgPacman.backgroundColor = #colorLiteral(red: 0.8156862745, green: 0, blue: 0.06666666667, alpha: 1)
+                cellOrders.imgPacman.image = #imageLiteral(resourceName: "pacman cancel")
+                cellOrders.lblPacman.text = "Pacman cancelled".localized(lang: langCode)
+                
+                cellOrders.lblVerifyLeft.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                cellOrders.lblVerifyRight.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                cellOrders.lblOutForLeft.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                cellOrders.lblOutForRight.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                cellOrders.lblPacmanLeft.backgroundColor = #colorLiteral(red: 0.8156862745, green: 0, blue: 0.06666666667, alpha: 1)
+            case "Pending Payment":
+                cellOrders.imgPlaced.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                cellOrders.imgVerify.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                cellOrders.imgOutFor.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                cellOrders.imgPacman.backgroundColor = #colorLiteral(red: 0.8156862745, green: 0, blue: 0.06666666667, alpha: 1)
+                cellOrders.imgPacman.image = #imageLiteral(resourceName: "pacman cancel")
+                cellOrders.lblPacman.text = "Pending Payment".localized(lang: langCode)
+                
+                cellOrders.lblVerifyLeft.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                cellOrders.lblVerifyRight.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                cellOrders.lblOutForLeft.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                cellOrders.lblOutForRight.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                cellOrders.lblPacmanLeft.backgroundColor = #colorLiteral(red: 0.8156862745, green: 0, blue: 0.06666666667, alpha: 1)
+            case "Complete":
+                cellOrders.imgPlaced.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                cellOrders.imgVerify.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                cellOrders.imgOutFor.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                cellOrders.imgPacman.backgroundColor = #colorLiteral(red: 0.8156862745, green: 0, blue: 0.06666666667, alpha: 1)
+                cellOrders.imgPacman.image = #imageLiteral(resourceName: "pacman cancel")
+                cellOrders.lblPacman.text = "Complete".localized(lang: langCode)
+                
+                cellOrders.lblVerifyLeft.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                cellOrders.lblVerifyRight.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                cellOrders.lblOutForLeft.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                cellOrders.lblOutForRight.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                cellOrders.lblPacmanLeft.backgroundColor = #colorLiteral(red: 0.8156862745, green: 0, blue: 0.06666666667, alpha: 1)
+            case "Rejected":
+                cellOrders.imgPlaced.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                cellOrders.imgVerify.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                cellOrders.imgOutFor.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                cellOrders.imgPacman.backgroundColor = #colorLiteral(red: 0.8156862745, green: 0, blue: 0.06666666667, alpha: 1)
+                cellOrders.imgPacman.image = #imageLiteral(resourceName: "pacman cancel")
+                cellOrders.lblPacman.text = "Rejected".localized(lang: langCode)
+                
+                cellOrders.lblVerifyLeft.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                cellOrders.lblVerifyRight.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                cellOrders.lblOutForLeft.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                cellOrders.lblOutForRight.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                cellOrders.lblPacmanLeft.backgroundColor = #colorLiteral(red: 0.8156862745, green: 0, blue: 0.06666666667, alpha: 1)
+            case "User cancelled":
+                cellOrders.imgPlaced.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                cellOrders.imgVerify.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                cellOrders.imgOutFor.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                cellOrders.imgPacman.backgroundColor = #colorLiteral(red: 0.8156862745, green: 0, blue: 0.06666666667, alpha: 1)
+                cellOrders.imgPacman.image = #imageLiteral(resourceName: "pacman cancel")
+                cellOrders.lblPacman.text = "User cancelled".localized(lang: langCode)
+                
+                cellOrders.lblVerifyLeft.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                cellOrders.lblVerifyRight.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                cellOrders.lblOutForLeft.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                cellOrders.lblOutForRight.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                cellOrders.lblPacmanLeft.backgroundColor = #colorLiteral(red: 0.8156862745, green: 0, blue: 0.06666666667, alpha: 1)
+            default:
+                print("Nothing to do")
+            }
+            
             return cellOrders
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if collectionView == collectionViewPopular{
+        if collectionView == collectionViewPopular {
             return CGSize(width: collectionViewPopular.frame.width/3, height:200)
         }
         else{
-            return CGSize(width: collectionViewOrders.frame.width, height:collectionViewOrders.frame.height)
+            //return CGSize(width: collectionViewOrders.frame.width, height:collectionViewOrders.frame.height)
+            
+            //Sameer 12/4/20
+            return CGSize(width: collectionViewOrderDetails.frame.width, height:collectionViewOrderDetails.frame.height)
+            
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-          if collectionView == collectionViewPopular{
+        if collectionView == collectionViewPopular {
             if  CustomUserDefault.getProductId() == arrPopularDeviceGetData[indexPath.row].strPopularId{
-               // let imei = UserDefaults.standard.string(forKey: "imei_number")
-            //    if (imei?.count == 15){
-                    Analytics.logEvent("diagnosis_tapped", parameters: [
-                        "event_category":"Diagnosis Button Click",
-                        "event_action":"Diagnosis Button Click Action",
-                        "event_label":"Diagnosis Button Test"
-                        ])
-                    
-                    // facebook analysis event
-                    
-                    var currency = ""
-                    //if (userDefaults.value(forKey: "countryName") as? String)?.contains("India") != nil {
+                // let imei = UserDefaults.standard.string(forKey: "imei_number")
+                //    if (imei?.count == 15){
+                Analytics.logEvent("diagnosis_tapped", parameters: [
+                    "event_category":"Diagnosis Button Click",
+                    "event_action":"Diagnosis Button Click Action",
+                    "event_label":"Diagnosis Button Test"
+                    ])
                 
-                    if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
-                        
-                        currency = "INR"
-                    }
-                    //else if (userDefaults.value(forKey: "countryName") as? String)?.contains("Malaysia") != nil {
-                    else if CustomUserDefault.getCurrency() == "MY" {
-                        currency = "MYR"
-                    }
-                    else{
-                        currency = "SGD"
-                    }
-                    AppEventsLogger.log(
-                        .addedToCart(
-                            contentType: arrMyCurrentDeviceSend[0].strCurrentDeviceName,
-                            contentId: CustomUserDefault.getProductId(),
-                            currency: currency))
-                    
-                    let strMaxAmount  = String(format: "%d", arrMyCurrentDeviceSend[0].currentDeviceMaximumTotal!)
-                    
-                    Analytics.logEvent(AnalyticsEventViewItem, parameters: [
-                        AnalyticsParameterItemID: CustomUserDefault.getProductId(),
-                        AnalyticsParameterItemName: arrMyCurrentDeviceSend[0].strCurrentDeviceName!,
-                        AnalyticsParameterPrice:CustomUserDefault.getCurrency() + strMaxAmount
-                        ])
-                    
-                    userDefaults.removeObject(forKey: "ChangeModeComingFromDiadnosis")
-                    userDefaults.setValue("", forKey: "ChangeModeComingFromDiadnosis")
-                   // let imei = UserDefaults.standard.string(forKey: "imei_number")
-              //      if (imei?.count == 15){
-                        if arrMyCurrentDeviceSend.count > 0{
-                            let vc  = DeviceInfoVC()
-                            vc.arrMyCurrentDeviceGetInfo = arrMyCurrentDeviceSend
-                            self.navigationController?.pushViewController(vc, animated: true)
-                        }
-                        else{
-                            Alert.showAlert(strMessage: "Device is not map,Please try later".localized(lang: langCode) as NSString, Onview: self)
-                            
-                        }
-//                    }else{
-//                        if arrMyCurrentDeviceSend.count > 0{
-////                            let vc = IMEIVC()
-////                            vc.arrMyCurrentDeviceGet = arrMyCurrentDeviceSend
-////                            self.navigationController?.pushViewController(vc, animated: true)
-//                            let vc  = DeviceInfoVC()
-//                            vc.arrMyCurrentDeviceGetInfo = arrMyCurrentDeviceSend
-//                            self.navigationController?.pushViewController(vc, animated: true)
-//                        }
-//                        else{
-//                            Alert.showAlert(strMessage: "Device is not map,Please try later", Onview: self)
-//
-//                        }
-//                    }
-//                }else{
-//                    let vc  = DeviceInfoVC()
-//                    vc.arrMyCurrentDeviceGetInfo = arrMyCurrentDeviceSend
-//                    self.navigationController?.pushViewController(vc, animated: true)
-//                   // if arrMyCurrentDeviceSend.count > 0{
-////                    let vc = IMEIVC()
-////                    self.navigationController?.pushViewController(vc, animated: true)
-////                    }
-////                    else{
-////                        Alert.showAlert(strMessage: "Device is not map,Please try later", Onview: self)
-////                    }
-//                }
-            }
-            else{
                 // facebook analysis event
-
+                
                 var currency = ""
                 //if (userDefaults.value(forKey: "countryName") as? String)?.contains("India") != nil {
                 
@@ -1791,7 +1875,78 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                     
                     currency = "INR"
                 }
-                //else if (userDefaults.value(forKey: "countryName") as? String)?.contains("Malaysia") != nil {
+                    //else if (userDefaults.value(forKey: "countryName") as? String)?.contains("Malaysia") != nil {
+                else if CustomUserDefault.getCurrency() == "MY" {
+                    currency = "MYR"
+                }
+                else{
+                    currency = "SGD"
+                }
+                AppEventsLogger.log(
+                    .addedToCart(
+                        contentType: arrMyCurrentDeviceSend[0].strCurrentDeviceName,
+                        contentId: CustomUserDefault.getProductId(),
+                        currency: currency))
+                
+                let strMaxAmount  = String(format: "%d", arrMyCurrentDeviceSend[0].currentDeviceMaximumTotal!)
+                
+                Analytics.logEvent(AnalyticsEventViewItem, parameters: [
+                    AnalyticsParameterItemID: CustomUserDefault.getProductId(),
+                    AnalyticsParameterItemName: arrMyCurrentDeviceSend[0].strCurrentDeviceName!,
+                    AnalyticsParameterPrice:CustomUserDefault.getCurrency() + strMaxAmount
+                    ])
+                
+                userDefaults.removeObject(forKey: "ChangeModeComingFromDiadnosis")
+                userDefaults.setValue("", forKey: "ChangeModeComingFromDiadnosis")
+                // let imei = UserDefaults.standard.string(forKey: "imei_number")
+                //      if (imei?.count == 15){
+                if arrMyCurrentDeviceSend.count > 0{
+                    let vc  = DeviceInfoVC()
+                    vc.arrMyCurrentDeviceGetInfo = arrMyCurrentDeviceSend
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+                else{
+                    Alert.showAlert(strMessage: "Device is not map,Please try later".localized(lang: langCode) as NSString, Onview: self)
+                    
+                }
+                //                    }else{
+                //                        if arrMyCurrentDeviceSend.count > 0{
+                ////                            let vc = IMEIVC()
+                ////                            vc.arrMyCurrentDeviceGet = arrMyCurrentDeviceSend
+                ////                            self.navigationController?.pushViewController(vc, animated: true)
+                //                            let vc  = DeviceInfoVC()
+                //                            vc.arrMyCurrentDeviceGetInfo = arrMyCurrentDeviceSend
+                //                            self.navigationController?.pushViewController(vc, animated: true)
+                //                        }
+                //                        else{
+                //                            Alert.showAlert(strMessage: "Device is not map,Please try later", Onview: self)
+                //
+                //                        }
+                //                    }
+                //                }else{
+                //                    let vc  = DeviceInfoVC()
+                //                    vc.arrMyCurrentDeviceGetInfo = arrMyCurrentDeviceSend
+                //                    self.navigationController?.pushViewController(vc, animated: true)
+                //                   // if arrMyCurrentDeviceSend.count > 0{
+                ////                    let vc = IMEIVC()
+                ////                    self.navigationController?.pushViewController(vc, animated: true)
+                ////                    }
+                ////                    else{
+                ////                        Alert.showAlert(strMessage: "Device is not map,Please try later", Onview: self)
+                ////                    }
+                //                }
+            }
+            else{
+                // facebook analysis event
+                
+                var currency = ""
+                //if (userDefaults.value(forKey: "countryName") as? String)?.contains("India") != nil {
+                
+                if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+                    
+                    currency = "INR"
+                }
+                    //else if (userDefaults.value(forKey: "countryName") as? String)?.contains("Malaysia") != nil {
                 else if CustomUserDefault.getCurrency() == "MY" {
                     currency = "MYR"
                 }
@@ -1817,29 +1972,32 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                     ])
                 
                 
-//                        Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
-//                            AnalyticsParameterItemID: "diagnosfromquestion_tapped-\("diagnosfromquestion_tapped")",
-//                            AnalyticsParameterItemName: "diagnosfromquestion_tapped",
-//                            AnalyticsParameterContentType: "cont"
-//                            ])
+                //                        Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
+                //                            AnalyticsParameterItemID: "diagnosfromquestion_tapped-\("diagnosfromquestion_tapped")",
+                //                            AnalyticsParameterItemName: "diagnosfromquestion_tapped",
+                //                            AnalyticsParameterContentType: "cont"
+                //                            ])
                 userDefaults.removeObject(forKey: "otherProductDeviceID")
                 userDefaults.removeObject(forKey: "otherProductDeviceImage")
                 userDefaults.setValue(arrPopularDeviceGetData[indexPath.row].strPopularImage, forKey: "otherProductDeviceImage")
                 userDefaults.setValue(arrPopularDeviceGetData[indexPath.row].strPopularId!, forKey: "otherProductDeviceID")
-               // if arrMyCurrentDeviceSend.count > 0{
-                    let vc = ProductConditionVC()
-                    vc.strProductIdGet = arrPopularDeviceGetData[indexPath.row].strPopularId!
-                    self.navigationController?.pushViewController(vc, animated: true)
-//                }
-//                else{
-//                    Alert.showAlert(strMessage: "Device is not map,Please try later", Onview: self)
-//
-//                }
-               
+                // if arrMyCurrentDeviceSend.count > 0{
+                let vc = ProductConditionVC()
+                vc.strProductIdGet = arrPopularDeviceGetData[indexPath.row].strPopularId!
+                self.navigationController?.pushViewController(vc, animated: true)
+                //                }
+                //                else{
+                //                    Alert.showAlert(strMessage: "Device is not map,Please try later", Onview: self)
+                //
+                //                }
+                
             }
         }
-          else{
-            
+        else{
+            let vc = OrderDetail()
+            let model = arrOrderList[indexPath.row]
+            vc.orderDetail = model
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
     
@@ -1869,7 +2027,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                 strUudid = uuID
             }
             
-           // let imEINumber = userDefaults.value(forKey: "imei_number") as! String
+            // let imEINumber = userDefaults.value(forKey: "imei_number") as! String
             Alert.ShowProgressHud(Onview: self.view)
             let strBaseURL = userDefaults.value(forKey: "baseURL") as! String
             var strUrl = ""
@@ -1904,10 +2062,10 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                         else{
                             userDefaults.removeObject(forKey: "ChangeModeComingFromDiadnosis")
                             //userDefaults.removeObject(forKey: "pickUpAppCodes")
-
+                            
                             userDefaults.set("Pickup", forKey: "ChangeModeComingFromDiadnosis")
-                           // userDefaults.set(responseObject?["selectedStr"] as! String, forKey: "pickUpAppCodes")
-
+                            // userDefaults.set(responseObject?["selectedStr"] as! String, forKey: "pickUpAppCodes")
+                            
                             //Set array for questions
                             
                             var arrPickUpQuestion = NSArray()
@@ -1917,11 +2075,11 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                             userDefaults.set(myData, forKey: "PickUpQuestions")
                             
                             DispatchQueue.main.async {
-                               // let vc = PickUpQuestionVC()
+                                // let vc = PickUpQuestionVC()
                                 let vc = ScreenTestPickUp()
                                 self.navigationController?.present(vc, animated: true, completion: nil)
                             }
-
+                            
                         }
                     }
                     else{
@@ -1953,30 +2111,30 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
             let strBaseURL = userDefaults.value(forKey: "baseURL") as! String
             let strUrl = strBaseURL + "productQuote"
             let returnMetaDetails : NSMutableDictionary = [:]
-                let strSourceOfQuote = "diagnosis"
-                userDefaults.set(true, forKey: "OrderPlaceFordiagnosis")
+            let strSourceOfQuote = "diagnosis"
+            userDefaults.set(true, forKey: "OrderPlaceFordiagnosis")
             var returnDictionary : NSMutableDictionary = [:]
             returnDictionary = userDefaults.value(forKey: "resturn_dictonoryFor_confirm_Order") as! NSMutableDictionary
-                let IMEINumer = KeychainWrapper.standard.string(forKey: "UUIDValue")!
-                let productId = CustomUserDefault.getProductId()
-                let deviceName  = UIDevice.current.modelName  as String
-                let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
-                let strRam = ProcessInfo.processInfo.physicalMemory
-                let bundleID = Bundle.main.bundleIdentifier!
-                let buildNumber: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as! String
-                let strValues = userDefaults.value(forKey: "Final_AppCodes_Diagnosis") as! String
-                let strRom = UIDevice.current.totalDiskSpace()
-                let SystemSharedServices = SystemServices.shared()
-                let BatteryLevel = String(format: "%.1f %@", SystemSharedServices.batteryLevel,"%")
-                returnMetaDetails.setValue(bundleID, forKey: "Apppackagename")
-                returnMetaDetails.setValue(buildNumber, forKey: "BuildRelease")
-                returnMetaDetails.setValue("\(version ?? "")", forKey: "versionname")
-                returnMetaDetails.setValue(deviceName, forKey: "Devicemodel")
-                returnMetaDetails.setValue(strRom, forKey: "DeviceStorag")
-                returnMetaDetails.setValue(strRam, forKey: "DeviceRAM")
-                returnMetaDetails.setValue(BatteryLevel, forKey: "BattaryLevel")
-                returnMetaDetails.setValue(SystemSharedServices.fullyCharged, forKey: "BattaryFullyCharged")
-                returnMetaDetails.setValue(KeychainWrapper.standard.string(forKey: "UUIDValue")!, forKey: "UUDIDValue")
+            let IMEINumer = KeychainWrapper.standard.string(forKey: "UUIDValue")!
+            let productId = CustomUserDefault.getProductId()
+            let deviceName  = UIDevice.current.modelName  as String
+            let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+            let strRam = ProcessInfo.processInfo.physicalMemory
+            let bundleID = Bundle.main.bundleIdentifier!
+            let buildNumber: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as! String
+            let strValues = userDefaults.value(forKey: "Final_AppCodes_Diagnosis") as! String
+            let strRom = UIDevice.current.totalDiskSpace()
+            let SystemSharedServices = SystemServices.shared()
+            let BatteryLevel = String(format: "%.1f %@", SystemSharedServices.batteryLevel,"%")
+            returnMetaDetails.setValue(bundleID, forKey: "Apppackagename")
+            returnMetaDetails.setValue(buildNumber, forKey: "BuildRelease")
+            returnMetaDetails.setValue("\(version ?? "")", forKey: "versionname")
+            returnMetaDetails.setValue(deviceName, forKey: "Devicemodel")
+            returnMetaDetails.setValue(strRom, forKey: "DeviceStorag")
+            returnMetaDetails.setValue(strRam, forKey: "DeviceRAM")
+            returnMetaDetails.setValue(BatteryLevel, forKey: "BattaryLevel")
+            returnMetaDetails.setValue(SystemSharedServices.fullyCharged, forKey: "BattaryFullyCharged")
+            returnMetaDetails.setValue(KeychainWrapper.standard.string(forKey: "UUIDValue")!, forKey: "UUDIDValue")
             if SystemSharedServices.jailbroken == 4783242{
                 returnMetaDetails.setValue("No", forKey: "JailBroken")
             }
@@ -2034,13 +2192,13 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                         if  strPriceNew == strPriceOld {
                             self.lblPriceDropMessage.isHidden = true
                         }
-                            else{
+                        else{
                             let price  = Int(strPriceNew)
                             strPriceNew = (price?.formattedWithSeparator)!
                             self.priceConfirmOrderFinal = price!
                             //self.lblPriceDropMessage.isHidden = false
                             self.lblPriceDropMessage.isHidden = true
-
+                            
                             let myString = "Hurry!! Your Offer Of ".localized(lang: langCode) + CustomUserDefault.getCurrency() + strPriceNew + " May Drop In Few Days".localized(lang: langCode)
                             //  let attrString = NSAttributedString(string: myString)
                             let attribute = NSMutableAttributedString.init(string: myString)
@@ -2067,7 +2225,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                     self.isConfrimOrderApiSucess = false
                 }
             })
-
+            
         }
         else
         {
@@ -2080,7 +2238,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
 }
 
 extension CAGradientLayer {
@@ -2156,7 +2314,7 @@ extension HomeVC {
             floatingItemCell.itemDescriptionLbl.text = floatingItemsArrayMY[indexPath.row].localized(lang: langCode)
             
         }
-
+        
         return floatingItemCell
     }
     

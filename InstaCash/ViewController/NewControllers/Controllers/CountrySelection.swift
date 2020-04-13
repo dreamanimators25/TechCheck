@@ -45,7 +45,7 @@ class CountrySelection: UIViewController, UICollectionViewDelegate, UICollection
                 if arrCityData.count > 0{
                     self.arrCityData = arrCityData
                     
-                    if !CustomUserDefault.getCityId().isEmpty{
+                    if !CustomUserDefault.getCityId().isEmpty {
                         for index in 0..<arrCityData.count{
                             let state = arrCityData[index].strStateName as! String
                             

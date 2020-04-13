@@ -640,7 +640,7 @@
 "Transaction ID:" = "Transaction ID:";
 "How was your experience with us?" = "How was your experience with us?";
 "Done" = "Done";
-"Please take your SIM card out of the phone if it is present in this device " = "Please take your SIM card out of the phone if it is present in this device ";
+"Please take your SIM card out of the phone if it is present in this device" = "Please take your SIM card out of the phone if it is present in this device";
 "If you’d like to get your phone erased in front of you, please ask our executive to do a factory reset." = "If you’d like to get your phone erased in front of you, please ask our executive to do a factory reset.";
 
 // 70. LiveOfferVC
@@ -821,6 +821,7 @@
 
 // 99. MyHistoryListVC
 "My History" = "My History";
+"See Detail" = "See Detail";
 "No Data Found!" = "No Data Found!";
 
 // 100. PickUpCodeVC
@@ -842,3 +843,10 @@
 "Agent ID" = "Agent ID";
 "Please Enter Valid IMEI" = "Please Enter Valid IMEI";
 "Please Enter Valid Agent ID" = "Please Enter Valid Agent ID";
+
+// 104. My orderDetails Cell
+"Order Details" = "Order Details";
+"Placed" = "Placed";
+"Verify" = "Verify";
+"Out For Pickup" = "Out For Pickup";
+"Pacman Cancelled" = "Pacman Cancelled";

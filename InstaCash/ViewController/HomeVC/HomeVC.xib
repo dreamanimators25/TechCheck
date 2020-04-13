@@ -38,6 +38,7 @@
                 <outlet property="btnGetQuoteDevice" destination="L7I-fy-XO6" id="et0-Fi-CkT"/>
                 <outlet property="btnMoreBrands" destination="v0v-Zj-42P" id="2V9-kf-Pkm"/>
                 <outlet property="btnStartFromBegning" destination="ki2-XC-N0D" id="BW2-iO-E81"/>
+                <outlet property="collectionViewOrderDetails" destination="9TI-X3-YZy" id="z9J-Jh-5d1"/>
                 <outlet property="collectionViewOrders" destination="Y31-kN-yfB" id="NTq-B2-Ae7"/>
                 <outlet property="collectionViewPopular" destination="Fkh-IO-LEE" id="tgN-6U-XHn"/>
                 <outlet property="floatTableView" destination="AsV-nW-6Sg" id="CZ3-Bj-PdK"/>
@@ -82,6 +83,8 @@
                 <outlet property="lblThisDevice" destination="0VT-dc-f6x" id="gM6-qi-6WF"/>
                 <outlet property="lblTitleOrders" destination="Hfo-o5-N39" id="VNc-iy-fdn"/>
                 <outlet property="lblTitleUpto" destination="d8n-pV-M6G" id="4AG-Iu-6yt"/>
+                <outlet property="orderDetailHeightConstraint" destination="gfh-9H-pAj" id="9Og-77-cvf"/>
+                <outlet property="orderDetailTopConstraint" destination="cUU-Vm-ltB" id="gOb-4B-YtI"/>
                 <outlet property="promotionAndOfferView" destination="nJz-fk-Xna" id="QOL-sE-1wQ"/>
                 <outlet property="scrlViewHome" destination="laM-RW-rhw" id="AgK-sl-d1F"/>
                 <outlet property="topViewHeightConstraint" destination="Kdv-XZ-ml4" id="xLA-4u-868"/>
@@ -120,7 +123,7 @@
                     <rect key="frame" x="0.0" y="20" width="320" height="504"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="POe-Ev-5qD">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="667"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="847"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hY3-t4-JuG">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="55"/>
@@ -290,8 +293,40 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </view>
+                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H9E-md-nbq" customClass="cornerView" customModule="InstaCash" customModuleProvider="target">
+                                    <rect key="frame" x="20" y="547" width="280" height="160"/>
+                                    <subviews>
+                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="9TI-X3-YZy">
+                                            <rect key="frame" x="0.0" y="0.0" width="280" height="160"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="6JZ-za-BjX">
+                                                <size key="itemSize" width="50" height="50"/>
+                                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            </collectionViewFlowLayout>
+                                            <connections>
+                                                <outlet property="dataSource" destination="-1" id="SLF-Qa-OGD"/>
+                                                <outlet property="delegate" destination="-1" id="xfh-3g-S0K"/>
+                                            </connections>
+                                        </collectionView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="9TI-X3-YZy" firstAttribute="leading" secondItem="H9E-md-nbq" secondAttribute="leading" id="0k2-dq-1is"/>
+                                        <constraint firstAttribute="bottom" secondItem="9TI-X3-YZy" secondAttribute="bottom" id="415-Rp-kM1"/>
+                                        <constraint firstItem="9TI-X3-YZy" firstAttribute="top" secondItem="H9E-md-nbq" secondAttribute="top" id="8oK-ut-GHB"/>
+                                        <constraint firstAttribute="trailing" secondItem="9TI-X3-YZy" secondAttribute="trailing" id="gIG-0O-EOV"/>
+                                        <constraint firstAttribute="height" constant="160" id="gfh-9H-pAj"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="qqB-m8-qzv">
-                                    <rect key="frame" x="20" y="547" width="280" height="110"/>
+                                    <rect key="frame" x="20" y="727" width="280" height="110"/>
                                     <subviews>
                                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jaz-QL-evK" customClass="cornerView" customModule="InstaCash" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="280" height="50"/>
@@ -382,7 +417,7 @@
                                     </subviews>
                                 </stackView>
                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Cz-2d-K1I">
-                                    <rect key="frame" x="0.0" y="667" width="320" height="0.0"/>
+                                    <rect key="frame" x="0.0" y="847" width="320" height="0.0"/>
                                     <subviews>
                                         <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="42mins ago: Henry Boy sold his S8 near Petaling Jaya." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uQC-WE-coB">
                                             <rect key="frame" x="10" y="-7.5" width="300" height="15.5"/>
@@ -1098,7 +1133,7 @@
                                     </constraints>
                                 </view>
                                 <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vyO-IQ-s33">
-                                    <rect key="frame" x="0.0" y="55" width="320" height="612"/>
+                                    <rect key="frame" x="0.0" y="55" width="320" height="792"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.25" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                             </subviews>
@@ -1106,12 +1141,14 @@
                             <constraints>
                                 <constraint firstItem="Fc8-k8-EkY" firstAttribute="top" secondItem="hY3-t4-JuG" secondAttribute="bottom" constant="20" id="1zT-XS-vOO"/>
                                 <constraint firstItem="0cb-XG-ao9" firstAttribute="top" secondItem="Nbh-Bf-hu8" secondAttribute="bottom" id="315-rn-dmY"/>
+                                <constraint firstAttribute="trailing" secondItem="H9E-md-nbq" secondAttribute="trailing" constant="20" id="5k1-rc-JV7"/>
                                 <constraint firstAttribute="trailing" secondItem="vyO-IQ-s33" secondAttribute="trailing" id="9w8-fH-qFj"/>
                                 <constraint firstItem="hY3-t4-JuG" firstAttribute="top" secondItem="POe-Ev-5qD" secondAttribute="top" id="Asf-zC-TU6"/>
                                 <constraint firstAttribute="trailing" secondItem="Nbh-Bf-hu8" secondAttribute="trailing" id="GSK-cB-qcD"/>
                                 <constraint firstItem="vyO-IQ-s33" firstAttribute="leading" secondItem="POe-Ev-5qD" secondAttribute="leading" id="GkT-Gl-XeW"/>
                                 <constraint firstItem="Nbh-Bf-hu8" firstAttribute="leading" secondItem="POe-Ev-5qD" secondAttribute="leading" id="GwX-4D-w90"/>
                                 <constraint firstItem="7rw-fC-wFP" firstAttribute="top" secondItem="VPC-kW-S7O" secondAttribute="bottom" constant="15" id="HJh-7T-ivd"/>
+                                <constraint firstItem="H9E-md-nbq" firstAttribute="leading" secondItem="POe-Ev-5qD" secondAttribute="leading" constant="20" id="IMV-uj-24H"/>
                                 <constraint firstAttribute="trailing" secondItem="VPC-kW-S7O" secondAttribute="trailing" constant="15" id="Ihj-uI-F3T"/>
                                 <constraint firstItem="7Cz-2d-K1I" firstAttribute="top" secondItem="qqB-m8-qzv" secondAttribute="bottom" constant="10" id="Lqs-GJ-q2S"/>
                                 <constraint firstItem="hY3-t4-JuG" firstAttribute="leading" secondItem="POe-Ev-5qD" secondAttribute="leading" id="OX8-b2-Vvt"/>
@@ -1121,16 +1158,17 @@
                                 <constraint firstAttribute="trailing" secondItem="0cb-XG-ao9" secondAttribute="trailing" constant="15" id="Xip-1Z-vlM"/>
                                 <constraint firstItem="vyO-IQ-s33" firstAttribute="top" secondItem="hY3-t4-JuG" secondAttribute="bottom" id="Yfc-tP-PNb"/>
                                 <constraint firstItem="Fc8-k8-EkY" firstAttribute="leading" secondItem="POe-Ev-5qD" secondAttribute="leading" constant="20" id="aw1-Y6-dOv"/>
+                                <constraint firstItem="H9E-md-nbq" firstAttribute="top" secondItem="Fc8-k8-EkY" secondAttribute="bottom" constant="20" id="cUU-Vm-ltB"/>
                                 <constraint firstItem="qqB-m8-qzv" firstAttribute="leading" secondItem="POe-Ev-5qD" secondAttribute="leading" constant="20" id="eVB-pj-HDn"/>
                                 <constraint firstAttribute="trailing" secondItem="qqB-m8-qzv" secondAttribute="trailing" constant="20" id="gOb-d3-PCV"/>
                                 <constraint firstItem="7Cz-2d-K1I" firstAttribute="leading" secondItem="POe-Ev-5qD" secondAttribute="leading" id="gRj-WX-5j2"/>
                                 <constraint firstAttribute="bottom" secondItem="7Cz-2d-K1I" secondAttribute="bottom" id="hWu-Um-Vme"/>
+                                <constraint firstItem="qqB-m8-qzv" firstAttribute="top" secondItem="H9E-md-nbq" secondAttribute="bottom" constant="20" id="hlk-XX-JkU"/>
                                 <constraint firstItem="7rw-fC-wFP" firstAttribute="trailing" secondItem="VPC-kW-S7O" secondAttribute="trailing" id="iSf-M9-5MN"/>
                                 <constraint firstItem="VPC-kW-S7O" firstAttribute="leading" secondItem="POe-Ev-5qD" secondAttribute="leading" constant="15" id="l9d-R4-roY"/>
                                 <constraint firstItem="7rw-fC-wFP" firstAttribute="leading" secondItem="VPC-kW-S7O" secondAttribute="leading" id="mBa-kd-fez"/>
                                 <constraint firstItem="0cb-XG-ao9" firstAttribute="leading" secondItem="POe-Ev-5qD" secondAttribute="leading" constant="15" id="rP3-54-hxX"/>
                                 <constraint firstItem="7Cz-2d-K1I" firstAttribute="top" secondItem="vyO-IQ-s33" secondAttribute="bottom" id="rRa-7Z-5Id"/>
-                                <constraint firstItem="qqB-m8-qzv" firstAttribute="top" secondItem="Fc8-k8-EkY" secondAttribute="bottom" constant="20" id="x04-lK-JlH"/>
                                 <constraint firstItem="Nbh-Bf-hu8" firstAttribute="top" secondItem="POe-Ev-5qD" secondAttribute="top" id="yfT-54-QiN"/>
                                 <constraint firstItem="VPC-kW-S7O" firstAttribute="top" secondItem="0cb-XG-ao9" secondAttribute="bottom" constant="15" id="zOt-jZ-chw"/>
                             </constraints>

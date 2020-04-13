@@ -20,8 +20,8 @@ class MyOrderVC: UIViewController,UITableViewDelegate,UITableViewDataSource,Upda
     @IBOutlet weak var lbl3: UILabel!
     
     //@IBOutlet weak var lblMessages: UILabel!
-    
     @IBOutlet weak var tblViewOrderLust: UITableView!
+
     var arrOrderList = [OrderListModel]()
     var arrOrderListCopy = [OrderListModel]() //s.
     var iscomingFromMyAccount = false
@@ -274,7 +274,7 @@ class MyOrderVC: UIViewController,UITableViewDelegate,UITableViewDataSource,Upda
             cellOrderHeader.lblVerified.backgroundColor = #colorLiteral(red: 0.1176470588, green: 0.5333333333, blue: 0.8980392157, alpha: 1)
         case "Out for pickup":
             cellOrderHeader.lblVerified.backgroundColor = #colorLiteral(red: 0.1568627451, green: 0.6901960784, blue: 0.2392156863, alpha: 1)
-        case "pending Payment":
+        case "Pending Payment":
             cellOrderHeader.lblVerified.backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
         case "Complete":
             cellOrderHeader.lblVerified.backgroundColor = #colorLiteral(red: 0.1058823529, green: 0.368627451, blue: 0.1254901961, alpha: 1)

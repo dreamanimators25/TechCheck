@@ -175,7 +175,7 @@ class OrderDetail: UIViewController,UIPopoverPresentationControllerDelegate {
                         case "Complete":
                         case "Rejected":
                         case "Pacman cancelled":
-                        case "pending Payment":
+                        case "Pending Payment":
                          
                         case "Unverified":
                         case "Verified":

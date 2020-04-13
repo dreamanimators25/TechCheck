@@ -128,8 +128,8 @@ class MisMatchVC: UIViewController {
             
             let jsonStringforMetaDetails1 = NSString(data: jsonData1, encoding: String.Encoding.utf8.rawValue)! as String
             let strFinalCodeValues = strDiagnosisFailed.replacingOccurrences(of: ",,", with: ",")
-            //let converComaToSemocolum = strFinalCodeValues.replacingOccurrences(of: ",", with: ";")
-            let converComaToSemocolum = "STON01;" + strFinalCodeValues.replacingOccurrences(of: ",", with: ";")
+            let converComaToSemocolum = strFinalCodeValues.replacingOccurrences(of: ",", with: ";")
+            //let converComaToSemocolum = "STON01;" + strFinalCodeValues.replacingOccurrences(of: ",", with: ";")
             
             parameters  = [
                 "userName" : apiAuthenticateUserName,

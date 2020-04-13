@@ -132,12 +132,12 @@ class PaymentsModeVC: UIViewController {
             self.btnWallet.isSelected = false
             self.btnPaytm.isSelected = false
             
-            self.lblSelectedPaymentMode.text = "NEFT"
+            self.lblSelectedPaymentMode.text = "NEFT".localized(lang: langCode)
             selectePaymentType = "NEFT"
             
             self.paytmWalletView.isHidden = true
-            self.lblBankMode1.text = "NEFT"
-            self.lblBankMode2.text = "IMPS"
+            self.lblBankMode1.text = "NEFT".localized(lang: langCode)
+            self.lblBankMode2.text = "IMPS".localized(lang: langCode)
             
             self.otherView.isHidden = true
             self.cendolView.isHidden = true
@@ -157,11 +157,11 @@ class PaymentsModeVC: UIViewController {
             self.btnMaxis.isSelected = false
             self.btnSamsung.isSelected = false
             
-            self.lblSelectedPaymentMode.text = "BANK"
+            self.lblSelectedPaymentMode.text = "BANK".localized(lang: langCode)
             selectePaymentType = "Bank"
             
-            self.lblBankMode1.text = "BANK"
-            self.lblBankMode2.text = "BANK"
+            self.lblBankMode1.text = "BANK".localized(lang: langCode)
+            self.lblBankMode2.text = "BANK".localized(lang: langCode)
             
             self.impsView.isHidden = true
             
@@ -183,14 +183,14 @@ class PaymentsModeVC: UIViewController {
             self.btnNeft.isSelected = false
             self.btnImps.isSelected = false
             
-            self.lblSelectedPaymentMode.text = "FASTPAY"
+            self.lblSelectedPaymentMode.text = "FASTPAY".localized(lang: langCode)
             selectePaymentType = "Fastpay"
             
             self.walletView.isHidden = true
             self.paytmWalletView.isHidden = true
             
-            self.lblBankMode1.text = "BANK"
-            self.lblBankMode2.text = "BANK"
+            self.lblBankMode1.text = "BANK".localized(lang: langCode)
+            self.lblBankMode2.text = "BANK".localized(lang: langCode)
             
             self.otherView.isHidden = true
             self.cendolView.isHidden = true
@@ -248,7 +248,7 @@ class PaymentsModeVC: UIViewController {
     {
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.isNavigationBarHidden = false
-        self.title = "Payment Mode"
+        self.title = "Payment Mode".localized(lang: langCode)
         let btnBack = UIButton(frame: CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: 25, height: 25)))
         let widthConstraint = btnBack.widthAnchor.constraint(equalToConstant: 25)
         let heightConstraint = btnBack.heightAnchor.constraint(equalToConstant: 25)
@@ -361,7 +361,7 @@ class PaymentsModeVC: UIViewController {
                                     
                                     self.lblBankTotalAmount.text = CustomUserDefault.getCurrency() + String(bankCharge.formattedWithSeparator)
                                     
-                                    self.lblNEFTcharges.text = "Gateway charges" + "-" + CustomUserDefault.getCurrency() + String(gateWayCharge)
+                                    self.lblNEFTcharges.text = "Gateway charges".localized(lang: langCode) + "-" + CustomUserDefault.getCurrency() + String(gateWayCharge)
                                     
                                     self.lblNEFTtotalPrice.text = CustomUserDefault.getCurrency() + String(bankCharge.formattedWithSeparator)
                                     
@@ -372,7 +372,7 @@ class PaymentsModeVC: UIViewController {
                                     
                                     let gateWayCharge = item.value(forKey: "gatewayCharge") as? Int ?? 0
                                     
-                                    self.lblIMPScharges.text = "Gateway charges" + "-" + CustomUserDefault.getCurrency() + String(gateWayCharge)
+                                    self.lblIMPScharges.text = "Gateway charges".localized(lang: langCode) + "-" + CustomUserDefault.getCurrency() + String(gateWayCharge)
                                     
                                     let bankCharge = self.getFinalPrice3 + gateWayCharge
                                     self.imps = bankCharge
@@ -390,7 +390,7 @@ class PaymentsModeVC: UIViewController {
                                     let bankCharge = self.getFinalPrice3 + gateWayCharge
                                     self.wallet = bankCharge
                                     
-                                    self.lblPaytmWalletCharges.text = "Gateway charges" + "-" + CustomUserDefault.getCurrency() + String(gateWayCharge)
+                                    self.lblPaytmWalletCharges.text = "Gateway charges".localized(lang: langCode) + "-" + CustomUserDefault.getCurrency() + String(gateWayCharge)
                                     
                                     self.lblWalletPrice.text = CustomUserDefault.getCurrency() + String(bankCharge.formattedWithSeparator)
                                     self.lblPaytmWalletPrice.text = CustomUserDefault.getCurrency() + String(bankCharge.formattedWithSeparator)
@@ -415,7 +415,7 @@ class PaymentsModeVC: UIViewController {
                                     self.lblBankTotalAmount.text = CustomUserDefault.getCurrency() + String(bankCharge.formattedWithSeparator)
                                     self.lblOTHERtotalPrice.text = CustomUserDefault.getCurrency() + String(bankCharge.formattedWithSeparator)
                                     
-                                    self.lblNEFTcharges.text = "Gateway charges" + "-" + CustomUserDefault.getCurrency() + String(gateWayCharge)
+                                    self.lblNEFTcharges.text = "Gateway charges".localized(lang: langCode) + "-" + CustomUserDefault.getCurrency() + String(gateWayCharge)
                                     
                                     self.lblNEFTtotalPrice.text = CustomUserDefault.getCurrency() + String(bankCharge.formattedWithSeparator)
                                     
@@ -426,7 +426,7 @@ class PaymentsModeVC: UIViewController {
                                     
                                     let gateWayCharge = item.value(forKey: "gatewayCharge") as? Int ?? 0
                                     
-                                    self.lblCENDOLcharges.text = "Gateway charges" + "-" + CustomUserDefault.getCurrency() + String(gateWayCharge)
+                                    self.lblCENDOLcharges.text = "Gateway charges".localized(lang: langCode) + "-" + CustomUserDefault.getCurrency() + String(gateWayCharge)
                                     
                                     let bankCharge = self.getFinalPrice3 + gateWayCharge
                                     self.cendol = bankCharge
@@ -441,7 +441,7 @@ class PaymentsModeVC: UIViewController {
                                     
                                     let gateWayCharge = item.value(forKey: "gatewayCharge") as? Int ?? 0
                                     
-                                    self.lblMAXIScharges.text = "Gateway charges" + "-" + CustomUserDefault.getCurrency() + String(gateWayCharge)
+                                    self.lblMAXIScharges.text = "Gateway charges".localized(lang: langCode) + "-" + CustomUserDefault.getCurrency() + String(gateWayCharge)
                                     
                                     let bankCharge = self.getFinalPrice3 + gateWayCharge
                                     self.maxis = bankCharge
@@ -456,7 +456,7 @@ class PaymentsModeVC: UIViewController {
                                     
                                     let gateWayCharge = item.value(forKey: "gatewayCharge") as? Int ?? 0
                                     
-                                    self.lblSAMSUNGcharges.text = "Gateway charges" + "-" + CustomUserDefault.getCurrency() + String(gateWayCharge)
+                                    self.lblSAMSUNGcharges.text = "Gateway charges".localized(lang: langCode) + "-" + CustomUserDefault.getCurrency() + String(gateWayCharge)
                                     
                                     let bankCharge = self.getFinalPrice3 + gateWayCharge
                                     self.samsung = bankCharge
@@ -484,7 +484,7 @@ class PaymentsModeVC: UIViewController {
                                     
                                     self.lblBankTotalAmount.text = CustomUserDefault.getCurrency() + String(bankCharge.formattedWithSeparator)
                                     
-                                    self.lblNEFTcharges.text = "Gateway charges" + "-" + CustomUserDefault.getCurrency() + String(gateWayCharge)
+                                    self.lblNEFTcharges.text = "Gateway charges".localized(lang: langCode) + "-" + CustomUserDefault.getCurrency() + String(gateWayCharge)
                                     
                                     self.lblNEFTtotalPrice.text = CustomUserDefault.getCurrency() + String(bankCharge.formattedWithSeparator)
                                     
@@ -495,7 +495,7 @@ class PaymentsModeVC: UIViewController {
                                     
                                     let gateWayCharge = item.value(forKey: "gatewayCharge") as? Int ?? 0
                                     
-                                    self.lblIMPScharges.text = "Gateway charges" + "-" + CustomUserDefault.getCurrency() + String(gateWayCharge)
+                                    self.lblIMPScharges.text = "Gateway charges".localized(lang: langCode) + "-" + CustomUserDefault.getCurrency() + String(gateWayCharge)
                                     
                                     let bankCharge = self.getFinalPrice3 + gateWayCharge
                                     self.paynow = bankCharge
@@ -516,12 +516,12 @@ class PaymentsModeVC: UIViewController {
                     }
                 }
                 else{
-                    Alert.showAlert(strMessage: "Seems connection loss from server", Onview: self)
+                    Alert.showAlert(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
                 }
             })
         }
         else{
-            Alert.showAlert(strMessage: "No Connection Found", Onview: self)
+            Alert.showAlert(strMessage: "No Connection Found".localized(lang: langCode) as NSString, Onview: self)
         }
     }
     
@@ -628,7 +628,7 @@ class PaymentsModeVC: UIViewController {
                 self.btnWallet.isSelected = false
                 self.btnPaytm.isSelected = false
                 
-                self.lblSelectedPaymentMode.text = "NEFT"
+                self.lblSelectedPaymentMode.text = "NEFT".localized(lang: langCode)
                 
                 selectePaymentType = "NEFT"
                 finalPriceSet3 = neft
@@ -646,7 +646,7 @@ class PaymentsModeVC: UIViewController {
                 self.btnMaxis.isSelected = false
                 self.btnSamsung.isSelected = false
                 
-                self.lblSelectedPaymentMode.text = "BANK"
+                self.lblSelectedPaymentMode.text = "BANK".localized(lang: langCode)
                 
                 selectePaymentType = "Bank"
                 finalPriceSet3 = bank
@@ -662,7 +662,7 @@ class PaymentsModeVC: UIViewController {
                 self.btnNeft.isSelected = true
                 self.btnImps.isSelected = false
                 
-                self.lblSelectedPaymentMode.text = "FASTPAY"
+                self.lblSelectedPaymentMode.text = "FASTPAY".localized(lang: langCode)
                 
                 selectePaymentType = "Fastpay"
                 finalPriceSet3 = fastPay
@@ -703,7 +703,7 @@ class PaymentsModeVC: UIViewController {
                 self.smallNEFTImage.isHidden = true
                 self.smallIMPSImage.isHidden = false
                 
-                self.lblSelectedPaymentMode.text = "IMPS"
+                self.lblSelectedPaymentMode.text = "IMPS".localized(lang: langCode)
                 
                 selectePaymentType = "IMPS"
                 finalPriceSet3 = imps
@@ -724,7 +724,7 @@ class PaymentsModeVC: UIViewController {
                 self.btnNeft.isSelected = false
                 self.btnImps.isSelected = true
                 
-                self.lblSelectedPaymentMode.text = "PAYNOW"
+                self.lblSelectedPaymentMode.text = "PAYNOW".localized(lang: langCode)
                 
                 selectePaymentType = "Paynow"
                 finalPriceSet3 = paynow
@@ -794,7 +794,7 @@ class PaymentsModeVC: UIViewController {
                 self.btnWallet.isSelected = false
                 self.btnPaytm.isSelected = true
                 
-                self.lblSelectedPaymentMode.text = "PAYTM"
+                self.lblSelectedPaymentMode.text = "PAYTM".localized(lang: langCode)
                 
                 DispatchQueue.main.async {
                     UIView.animate(withDuration: 0.4, animations: {
@@ -866,7 +866,7 @@ class PaymentsModeVC: UIViewController {
             self.btnMaxis.isSelected = false
             self.btnSamsung.isSelected = false
             
-            self.lblSelectedPaymentMode.text = "CENDOL VOUCHER"
+            self.lblSelectedPaymentMode.text = "CENDOL VOUCHER".localized(lang: langCode)
             
             DispatchQueue.main.async {
                 UIView.animate(withDuration: 0.4, animations: {
@@ -904,7 +904,7 @@ class PaymentsModeVC: UIViewController {
             self.btnMaxis.isSelected = true
             self.btnSamsung.isSelected = false
             
-            self.lblSelectedPaymentMode.text = "MAXIS"
+            self.lblSelectedPaymentMode.text = "MAXIS".localized(lang: langCode)
             
             DispatchQueue.main.async {
                 UIView.animate(withDuration: 0.4, animations: {
@@ -942,7 +942,7 @@ class PaymentsModeVC: UIViewController {
             self.btnMaxis.isSelected = false
             self.btnSamsung.isSelected = true
             
-            self.lblSelectedPaymentMode.text = "SAMSUNG"
+            self.lblSelectedPaymentMode.text = "SAMSUNG".localized(lang: langCode)
             
             DispatchQueue.main.async {
                 UIView.animate(withDuration: 0.4, animations: {
@@ -1318,12 +1318,12 @@ class PaymentsModeVC: UIViewController {
                 }
                 else{
                     debugPrint(error as Any)
-                    Alert.showAlert(strMessage: "Seems connection loss from server", Onview: self)
+                    Alert.showAlert(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
                 }
             })
             
         }else{
-            Alert.showAlert(strMessage: "No Connection Found", Onview: self)
+            Alert.showAlert(strMessage: "No Connection Found".localized(lang: langCode) as NSString, Onview: self)
         }
         
     }

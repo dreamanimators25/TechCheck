@@ -88,8 +88,8 @@ class MyHistoryListVC: UIViewController,UITableViewDataSource,UITableViewDelegat
             }
             
             historyListCell.lblPhoneName.text = modelOrder.strOrderName
-            
             historyListCell.lblDate.text = modelOrder.orderDate
+            historyListCell.lblSeeDetail.text = "See Detail".localized(lang: langCode)
             
             let amount = Int(modelOrder.strOrderAmount!)
             let strAmount = amount!.formattedWithSeparator

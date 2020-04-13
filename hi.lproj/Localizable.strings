@@ -254,7 +254,7 @@
 
 // 18. PaymentsModeVC
 "NEFT" = "एनईएफटी";
-"IMPS" = "IMPS";
+"IMPS" = "आईएमपीएस";
 "BANK" = "बैंक";
 "Bank" = "बैंक";
 "FASTPAY" = "तेजी से भुगतान";
@@ -639,7 +639,7 @@
 "Transaction ID:" = "लेनदेन आईडी:";
 "How was your experience with us?" = "आपका अनुभव हमारे साथ कैसा रहा?";
 "Done" = "किया हुआ";
-"Please take your SIM card out of the phone if it is present in this device " = "इस उपकरण में मौजूद होने पर कृपया अपना सिम कार्ड फ़ोन से निकाल लें";
+"Please take your SIM card out of the phone if it is present in this device" = "इस उपकरण में मौजूद होने पर कृपया अपना सिम कार्ड फ़ोन से निकाल लें";
 "If you’d like to get your phone erased in front of you, please ask our executive to do a factory reset." = "यदि आप अपने फ़ोन को अपने सामने मिटाना चाहते हैं, तो कृपया हमारे कार्यकारी से फ़ैक्टरी रीसेट करने के लिए कहें।";
 
 // 70. LiveOfferVC
@@ -820,6 +820,7 @@
 
 // 99. MyHistoryListVC
 "My History" = "मेरा इतिहास";
+"See Detail" = "विस्तार से देखें";
 "No Data Found!" = "कोई डेटा नहीं मिला!";
 
 // 100. PickUpCodeVC
@@ -841,3 +842,10 @@
 "Agent ID" = "एजेंट आईडी";
 "Please Enter Valid IMEI" = "कृपया मान्य IMEI दर्ज करें";
 "Please Enter Valid Agent ID" = "कृपया मान्य एजेंट आईडी दर्ज करें";
+
+// 104. My orderDetails Cell
+"Order Details" = "ऑर्डर का विवरण";
+"Placed" = "स्थापित";
+"Verify" = "सत्यापित";
+"Out For Pickup" = "पिकअप के लिए बाहर";
+"Pacman Cancelled" = "पैडमैन रद्द";
