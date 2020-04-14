@@ -51,6 +51,10 @@ class VolumeCheckerVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Sameer 14/4/2020
+        userDefaults.removeObject(forKey: "volumebutton_complete")
+        userDefaults.setValue(false, forKey: "volumebutton_complete")
+        
         if isComingFromTestResult == false && isComingFromProductquote == false{
             userDefaults.removeObject(forKey: "volumebutton_complete")
             userDefaults.setValue(false, forKey: "volumebutton_complete")
@@ -101,6 +105,10 @@ class VolumeCheckerVC: UIViewController {
                     }
                     userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
                     
+                    //Sameer 14/4/2020
+                    userDefaults.removeObject(forKey: "earphone_complete")
+                    userDefaults.setValue(false, forKey: "earphone_complete")
+                    
                 }
                 self.action()
         }, downBlock: {
@@ -147,6 +155,10 @@ class VolumeCheckerVC: UIViewController {
                     
                 }
                 userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
+                
+                //Sameer 14/4/2020
+                userDefaults.removeObject(forKey: "earphone_complete")
+                userDefaults.setValue(false, forKey: "earphone_complete")
                 
             }
             self.action()
@@ -211,6 +223,10 @@ class VolumeCheckerVC: UIViewController {
 
             }
             userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
+            
+            //Sameer 14/4/2020
+            userDefaults.removeObject(forKey: "earphone_complete")
+            userDefaults.setValue(false, forKey: "earphone_complete")
         }
         
         let buttonTwo = DefaultButton(title: "No".localized(lang: langCode)) {

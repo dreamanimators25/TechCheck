@@ -26,6 +26,11 @@ class EarPhoneVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Sameer 14/4/2020
+        userDefaults.removeObject(forKey: "earphone_complete")
+        userDefaults.setValue(false, forKey: "earphone_complete")
+        
         if isComingFromTestResult == false && isComingFromProductquote == false{
             userDefaults.removeObject(forKey: "earphone_complete")
             userDefaults.setValue(false, forKey: "earphone_complete")
@@ -95,6 +100,10 @@ class EarPhoneVC: UIViewController {
         }
         userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
         
+        //Sameer 14/4/2020
+        userDefaults.removeObject(forKey: "charger_complete")
+        userDefaults.setValue(false, forKey: "charger_complete")
+        
     }
 
     @IBAction func btnSkipPressed(_ sender: UIButton) {
@@ -131,6 +140,10 @@ class EarPhoneVC: UIViewController {
 
             }
             userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
+            
+            //Sameer 14/4/2020
+            userDefaults.removeObject(forKey: "charger_complete")
+            userDefaults.setValue(false, forKey: "charger_complete")
 
         }
         
@@ -207,6 +220,10 @@ class EarPhoneVC: UIViewController {
 
             }
             userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
+            
+            //Sameer 14/4/2020
+            userDefaults.removeObject(forKey: "charger_complete")
+            userDefaults.setValue(false, forKey: "charger_complete")
 
             break
         case AVAudioSessionRouteChangeReason.oldDeviceUnavailable.rawValue:
@@ -239,7 +256,10 @@ class EarPhoneVC: UIViewController {
             }
             userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
 
-          
+            //Sameer 14/4/2020
+            userDefaults.removeObject(forKey: "charger_complete")
+            userDefaults.setValue(false, forKey: "charger_complete")
+            
             break
         default:
             break

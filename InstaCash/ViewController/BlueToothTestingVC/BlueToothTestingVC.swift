@@ -35,6 +35,11 @@ class BlueToothTestingVC: UIViewController,CBCentralManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Sameer 14/4/2020
+        userDefaults.removeObject(forKey: "bluetooth_complete")
+        userDefaults.setValue(false, forKey: "bluetooth_complete")
+        
         if iscomingFromHome == true {
             userDefaults.removeObject(forKey: "bluetooth_complete")
             userDefaults.setValue(false, forKey: "bluetooth_complete")
@@ -86,7 +91,8 @@ class BlueToothTestingVC: UIViewController,CBCentralManagerDelegate {
     }
 
     @IBAction func btnBeginTestPressed(_ sender: UIButton) {
-        userDefaults.setValue(true, forKey: "bluetooth_complete")
+        //userDefaults.setValue(true, forKey: "bluetooth_complete") // sameer 14/4/2020
+        
         SwiftSpinner.show(progress: 0.2, title: "Checking Network...".localized(lang: langCode))
         SwiftSpinner.setTitleFont(UIFont(name: "Futura", size: 22.0))
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) { // change 2 to desired number of seconds
@@ -190,6 +196,10 @@ class BlueToothTestingVC: UIViewController,CBCentralManagerDelegate {
                         userDefaults.setValue(false, forKey: "WIFITest")
 
                     }
+                    
+                    // sameer 14/4/2020
+                    userDefaults.setValue(true, forKey: "bluetooth_complete")
+                    
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                         SwiftSpinner.show("Tests Complete!".localized(lang: langCode), animated: false)
                         UserDefaults.standard.set(self.connection, forKey: "connection")

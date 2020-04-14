@@ -28,10 +28,16 @@ class SensorReadVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Sameer 14/4/2020
+        userDefaults.removeObject(forKey: "proximity_complete")
+        userDefaults.setValue(false, forKey: "proximity_complete")
+        
         if isComingFromTestResult == false && isComingFromProductquote == false{
             userDefaults.removeObject(forKey: "proximity_complete")
             userDefaults.setValue(false, forKey: "proximity_complete")
         }
+        
         //proximityText.isHidden = false
         proximityImageView.loadGif(name: "proximity")
         let device = UIDevice.current
@@ -99,6 +105,10 @@ class SensorReadVC: UIViewController {
         }
         userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
         
+        //Sameer 14/4/2020
+        userDefaults.removeObject(forKey: "volumebutton_complete")
+        userDefaults.setValue(false, forKey: "volumebutton_complete")
+        
         //            let secondViewController:CameraViewController = CameraViewController()
         
         //            self.present(secondViewController, animated: true, completion: nil)
@@ -140,6 +150,10 @@ class SensorReadVC: UIViewController {
 
             }
             userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
+     
+     //Sameer 14/4/2020
+     userDefaults.removeObject(forKey: "volumebutton_complete")
+     userDefaults.setValue(false, forKey: "volumebutton_complete")
 
         }
         
@@ -218,6 +232,10 @@ class SensorReadVC: UIViewController {
 
             }
             userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
+            
+            //Sameer 14/4/2020
+            userDefaults.removeObject(forKey: "volumebutton_complete")
+            userDefaults.setValue(false, forKey: "volumebutton_complete")
 
             
             //            let secondViewController:CameraViewController = CameraViewController()

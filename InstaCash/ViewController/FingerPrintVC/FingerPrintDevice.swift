@@ -33,6 +33,11 @@ class FingerPrintDevice: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Sameer 14/4/2020
+        userDefaults.removeObject(forKey: "fingerprint_complete")
+        userDefaults.setValue(false, forKey: "fingerprint_complete")
+        
         if isComingFromTestResult == false && isComingFromProductquote == false{
             userDefaults.removeObject(forKey: "fingerprint_complete")
             userDefaults.setValue(false, forKey: "fingerprint_complete")
@@ -111,6 +116,10 @@ class FingerPrintDevice: UIViewController {
             }
             
             userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
+            
+            //Sameer 14/4/2020
+            userDefaults.removeObject(forKey: "bluetooth_complete")
+            userDefaults.setValue(false, forKey: "bluetooth_complete")
 
             // authentication successful
             
@@ -222,6 +231,10 @@ class FingerPrintDevice: UIViewController {
 
             }
             userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
+            
+            //Sameer 14/4/2020
+            userDefaults.removeObject(forKey: "bluetooth_complete")
+            userDefaults.setValue(false, forKey: "bluetooth_complete")
 
         }
         
@@ -310,6 +323,10 @@ class FingerPrintDevice: UIViewController {
 
             }
             userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
+            
+            //Sameer 14/4/2020
+            userDefaults.removeObject(forKey: "bluetooth_complete")
+            userDefaults.setValue(false, forKey: "bluetooth_complete")
 
             // authentication successful
             

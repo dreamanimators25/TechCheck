@@ -35,6 +35,10 @@ class RotationVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Sameer 14/4/2020
+        userDefaults.removeObject(forKey: "rotation_complete")
+        userDefaults.setValue(false, forKey: "rotation_complete")
+        
         if isComingFromTestResult == false && isComingFromProductquote == false{
             if userDefaults.value(forKey: "screen_complete") == nil {
                 userDefaults.removeObject(forKey: "rotation_complete")
@@ -150,6 +154,10 @@ class RotationVC: UIViewController {
 
                 }
                 userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
+                
+                //Sameer 14/4/2020
+                userDefaults.removeObject(forKey: "proximity_complete")
+                userDefaults.setValue(false, forKey: "proximity_complete")
 
             }
             
@@ -260,6 +268,10 @@ class RotationVC: UIViewController {
 
             }
             userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
+            
+            //Sameer 14/4/2020
+            userDefaults.removeObject(forKey: "proximity_complete")
+            userDefaults.setValue(false, forKey: "proximity_complete")
            
         }
         }

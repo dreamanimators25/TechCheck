@@ -73,6 +73,11 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
     @IBOutlet weak var lblDevice: UILabel!
     @IBOutlet weak var viewTop: UIView!
     
+    @IBOutlet weak var startBtnViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var btnStartDiagnoseHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var btnStartDiagnose: UIButton!
+    
+    
     // Localized
     @IBOutlet weak var lblSell: UILabel!
     @IBOutlet weak var lblFindOut: UILabel!
@@ -300,6 +305,27 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        ////////////////////////////////////////////////////////////////////
+        
+        if userDefaults.value(forKey: "Diagnosis_DataSave") == nil {
+            self.btnGetQuoteDevice.setTitle("Get quote for this device".localized(lang: langCode), for: UIControlState.normal)
+            
+            DispatchQueue.main.async {
+                self.btnStartDiagnoseHeightConstraint.constant = 0
+            }
+        }
+        else{
+            self.btnGetQuoteDevice.setTitle("RESUME TEST".localized(lang: langCode), for: UIControlState.normal)
+
+            DispatchQueue.main.async {
+                self.btnStartDiagnoseHeightConstraint.constant = 50
+                self.startBtnViewHeightConstraint.constant = 0
+            }
+            
+        }
+        
+        ////////////////////////////////////////////////////////////////////
+        
         self.orderDetailHeightConstraint.constant = 0
         self.orderDetailTopConstraint.constant = 0
         
@@ -501,8 +527,10 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                     self.arrMyCurrentDeviceSend = arrMyCurrentDeviceSend
                     self.lblMessage.isHidden = true
                     self.imgLogo.isHidden = true
+                    
+                    // Sameer 14/4/2020
                     // manage Diagnosis Button UI
-                    self.btnDiagnosisUISet()
+                    //self.btnDiagnosisUISet()
                     
                     if arrMyCurrentDeviceSend.count > 0 {
                         
@@ -763,6 +791,107 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
         //setViewDynamicaly()
     }
     
+    @IBAction func btnStartFromBeginningClicked(_ sender: UIButton) {
+        let vc = Sell1()
+        vc.strDevie = self.lblPhoneName.text!
+        vc.imgView = self.imgPhone
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func sendToLastVCToCompletediagnosisProcess() {
+        var sendJson = JSON()
+        
+        if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+            if userDefaults.value(forKey: "Diagnosis_DataSave") == nil {
+                
+            }else {
+                sendJson =  JSON.init(parseJSON:userDefaults.value(forKey: "Diagnosis_DataSave") as! String)
+            }
+            
+            if userDefaults.value(forKey: "rotation_complete") as! Bool == false{
+                let vc = RotationVC()
+                vc.resultJSON = sendJson
+                self.present(vc, animated: true, completion:nil)
+                
+            }else if userDefaults.value(forKey: "proximity_complete") as! Bool == false{
+                let vc = SensorReadVC()
+                vc.resultJSON = sendJson
+                self.present(vc, animated: true, completion:nil)
+                
+            }else if userDefaults.value(forKey: "volumebutton_complete") as! Bool == false{
+                let vc = VolumeCheckerVC()
+                vc.resultJSON = sendJson
+                self.present(vc, animated: true, completion:nil)
+            }
+            else if userDefaults.value(forKey: "earphone_complete") as! Bool == false{
+                let vc = EarPhoneVC()
+                vc.resultJSON = sendJson
+                self.present(vc, animated: true, completion:nil)
+            
+            }else if userDefaults.value(forKey: "charger_complete") as! Bool == false{
+                let  vc = DeviceChargerVC()
+                vc.resultJSON = sendJson
+                self.present(vc, animated: true, completion:nil)
+            
+            }else if userDefaults.value(forKey: "camera_complete") as! Bool == false{
+                let  vc = CameraVC()
+                vc.resultJSON = sendJson
+                self.present(vc, animated: true, completion:nil)
+                
+            }else if userDefaults.value(forKey: "fingerprint_complete") as! Bool == false{
+                let  vc = FingerPrintDevice()
+                vc.resultJSON = sendJson
+                self.present(vc, animated: true, completion:nil)
+            
+            }else if userDefaults.value(forKey: "bluetooth_complete") as! Bool == false{
+                let vc = BlueToothTestingVC()
+                vc.resultJSON = sendJson
+                vc.iscomingFromHome = true
+                self.present(vc, animated: true, completion:nil)
+            }
+            
+        }else{
+            if userDefaults.value(forKey: "Diagnosis_DataSave") == nil {
+                
+            }else {
+                sendJson =  JSON.init(parseJSON:userDefaults.value(forKey: "Diagnosis_DataSave") as! String)
+            }
+            
+            if userDefaults.value(forKey: "rotation_complete") as! Bool == false{
+                let vc = RotationVC()
+                vc.resultJSON = sendJson
+                self.present(vc, animated: true, completion:nil)
+                
+            }else if userDefaults.value(forKey: "proximity_complete") as! Bool == false{
+                let vc = SensorReadVC()
+                vc.resultJSON = sendJson
+                self.present(vc, animated: true, completion:nil)
+                
+            }else if userDefaults.value(forKey: "volumebutton_complete") as! Bool == false{
+                let vc = VolumeCheckerVC()
+                vc.resultJSON = sendJson
+                self.present(vc, animated: true, completion:nil)
+                
+            }else if userDefaults.value(forKey: "camera_complete") as! Bool == false{
+                let vc = CameraVC()
+                vc.resultJSON = sendJson
+                self.present(vc, animated: true, completion:nil)
+                
+            }else if userDefaults.value(forKey: "fingerprint_complete") as! Bool == false{
+                let vc = FingerPrintDevice()
+                vc.resultJSON = sendJson
+                self.present(vc, animated: true, completion:nil)
+                
+            }else if userDefaults.value(forKey: "bluetooth_complete") as! Bool == false{
+                let vc = BlueToothTestingVC()
+                vc.resultJSON = sendJson
+                vc.iscomingFromHome = true
+                self.present(vc, animated: true, completion:nil)
+            }
+            
+        }
+    }
+    
     //    open func takeScreenshot(_ shouldSave: Bool = true) -> UIImage? {
     //        var screenshotImage :UIImage?
     //        let layer = UIApplication.shared.keyWindow!.layer
@@ -908,6 +1037,14 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
     
     func changeLanguageOfUI() {
         
+        if userDefaults.value(forKey: "Diagnosis_DataSave") == nil {
+            self.btnGetQuoteDevice.setTitle("Get quote for this device".localized(lang: langCode), for: UIControlState.normal)
+        }
+        else{
+            self.btnGetQuoteDevice.setTitle("RESUME TEST".localized(lang: langCode), for: UIControlState.normal)
+        }
+        
+        self.btnStartDiagnose.setTitle("Start from the beginning".localized(lang: langCode), for: UIControlState.normal)
         self.lblSell.text = "Sell".localized(lang: langCode)
         self.lblFindOut.text = "Find out how much cash you’ll get by selling this device.".localized(lang: langCode)
         self.lblNoBargaining.text = "No bargaining. No headaches!".localized(lang: langCode)
@@ -923,7 +1060,6 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
         self.lblMessage.text = "No Connection found".localized(lang: langCode)
         
         self.btnDiagnostic.setTitle("Run Diagnostics".localized(lang: langCode), for: UIControlState.normal)
-        self.btnGetQuoteDevice.setTitle("Get quote for this device".localized(lang: langCode), for: UIControlState.normal)
         self.btnStartFromBegning.setTitle("Start from the beginning".localized(lang: langCode), for: UIControlState.normal)
         
     }
@@ -956,7 +1092,6 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
         if isComingFromWelcomeScreen{
             //setViewDynamicaly()
         }
-        
         
     }
     
@@ -1678,16 +1813,23 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
         //moveToBrandTypeController(withId: sender.tag)
     }
     
-    @IBAction func onClickGetQuote(_ sender: Any) {
+    @IBAction func onClickGetQuote(_ sender: UIButton) {
         
         userDefaults.removeObject(forKey: "ChangeModeComingFromDiadnosis")
         userDefaults.setValue("", forKey: "ChangeModeComingFromDiadnosis")
         
-        let vc = Sell1()
-        vc.strDevie = self.lblPhoneName.text!
-        vc.imgView = self.imgPhone
-        self.navigationController?.pushViewController(vc, animated: true)
-        //self.navigationController?.present(vc, animated: true, completion: nil)
+        if sender.titleLabel?.text == "RESUME TEST".localized(lang: langCode) {
+            
+            self.sendToLastVCToCompletediagnosisProcess()
+            
+        }else {
+            let vc = Sell1()
+            vc.strDevie = self.lblPhoneName.text!
+            vc.imgView = self.imgPhone
+            self.navigationController?.pushViewController(vc, animated: true)
+            //self.navigationController?.present(vc, animated: true, completion: nil)
+        }
+        
     }
     
     //MARK:- collection view delegate / data source methods

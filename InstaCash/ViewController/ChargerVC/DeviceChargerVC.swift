@@ -31,6 +31,10 @@ class DeviceChargerVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Sameer 14/4/2020
+        userDefaults.removeObject(forKey: "charger_complete")
+        userDefaults.setValue(false, forKey: "charger_complete")
+        
         if isComingFromTestResult == false && isComingFromProductquote == false{
             userDefaults.removeObject(forKey: "charger_complete")
             userDefaults.setValue(false, forKey: "charger_complete")
@@ -107,6 +111,10 @@ class DeviceChargerVC: UIViewController {
 
                 }
                 userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
+                
+                //Sameer 14/4/2020
+                userDefaults.removeObject(forKey: "camera_complete")
+                userDefaults.setValue(false, forKey: "camera_complete")
 
             }
         }
@@ -187,6 +195,10 @@ class DeviceChargerVC: UIViewController {
             }
             userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
 
+            //Sameer 14/4/2020
+            userDefaults.removeObject(forKey: "camera_complete")
+            userDefaults.setValue(false, forKey: "camera_complete")
+            
         }
         
     }

@@ -33,6 +33,10 @@ class CameraVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Sameer 14/4/2020
+        userDefaults.removeObject(forKey: "camera_complete")
+        userDefaults.setValue(false, forKey: "camera_complete")
+        
         if isComingFromTestResult == false && isComingFromProductquote == false{
             userDefaults.removeObject(forKey: "camera_complete")
             userDefaults.setValue(false, forKey: "camera_complete")
@@ -124,6 +128,10 @@ class CameraVC: UIViewController {
 
                 }
                 userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
+                
+                //Sameer 14/4/2020
+                userDefaults.removeObject(forKey: "fingerprint_complete")
+                userDefaults.setValue(false, forKey: "fingerprint_complete")
             }
         }
         
@@ -181,6 +189,10 @@ class CameraVC: UIViewController {
                     
                 }
                 userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
+                
+                //Sameer 14/4/2020
+                userDefaults.removeObject(forKey: "fingerprint_complete")
+                userDefaults.setValue(false, forKey: "fingerprint_complete")
                 
             }
         }

@@ -113,6 +113,9 @@ class ScreenTestingVC: UIViewController,RecorderDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
        // createRecorder()
+        
+        // Sameer on 14/4/2020
+        /*
         userDefaults.setValue(true, forKey: "screen_complete")
         userDefaults.setValue(true, forKey: "rotation_complete")
         userDefaults.setValue(true, forKey: "proximity_complete")
@@ -128,6 +131,7 @@ class ScreenTestingVC: UIViewController,RecorderDelegate {
             userDefaults.setValue(true, forKey: "earphone_complete")
             userDefaults.setValue(true, forKey: "charger_complete")
         }
+        
         userDefaults.setValue(true, forKey: "camera_complete")
          if UIDevice.current.modelName == "iPhone X" || UIDevice.current.modelName == "iPhone XS" || UIDevice.current.modelName == "iPhone XS Max" || UIDevice.current.modelName == "iPhone 5c" || UIDevice.current.modelName == "iPhone 5" || UIDevice.current.modelName == "iPhone XR"{
             userDefaults.setValue(true, forKey: "fingerprint_complete")
@@ -137,6 +141,8 @@ class ScreenTestingVC: UIViewController,RecorderDelegate {
         }
         
         userDefaults.setValue(true, forKey: "bluetooth_complete")
+        */
+        
         //AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
         Analytics.logEvent("start_diagnosis_test", parameters: [
             "event_category":"start diagnosis",
@@ -380,6 +386,10 @@ class ScreenTestingVC: UIViewController,RecorderDelegate {
             }
             userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
             
+            //Sameer 14/4/2020
+            userDefaults.removeObject(forKey: "rotation_complete")
+            userDefaults.setValue(false, forKey: "rotation_complete")
+            
             //self.navigationController?.pushViewController(vc, animated: true)
             //self.present(vc, animated: true, completion: nil)
         }else{
@@ -426,6 +436,7 @@ class ScreenTestingVC: UIViewController,RecorderDelegate {
                     vc.resultJSON = self.resultJSON
                     self.present(vc, animated: true, completion: nil)
                 }
+                
                 if (userDefaults.value(forKey: "Diagnosis_DataSave") != nil){
                     let sendJson =  JSON.init(parseJSON:userDefaults.value(forKey: "Diagnosis_DataSave") as! String)
                     self.resultJSON = sendJson
@@ -433,6 +444,10 @@ class ScreenTestingVC: UIViewController,RecorderDelegate {
                     
                 }
                 userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
+                
+                //Sameer 14/4/2020
+                userDefaults.removeObject(forKey: "rotation_complete")
+                userDefaults.setValue(false, forKey: "rotation_complete")
                 
                 
                 //                let vc = RotationVC()

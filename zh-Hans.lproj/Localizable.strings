@@ -74,6 +74,7 @@
 "No Result Found" = "未找到结果";
 
 // 7. HomeVC
+"RESUME TEST" = "恢复 测试";
 "  Call  " = "  呼叫  ";
 "  Mail  " = "  邮件  ";
 "  Zopim Chat  " = "  佐皮聊天  ";
