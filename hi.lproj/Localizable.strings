@@ -565,6 +565,7 @@
 "Upload Images" = "तश्वीरें अपलोड करो";
 "Upload Image" = "तस्वीर डालिये";
 "Phone Image" = "फोन छवि";
+"Bill Image" = "बिल छवि";
 "Upload Your phone front  Image" = "अपना फ़ोन फ्रंट इमेज अपलोड करें";
 "Upload Your phone back  Image" = "अपना फ़ोन वापस छवि अपलोड करें";
 "Upload Your phone bill  Image" = "अपना फ़ोन बिल चित्र अपलोड करें";
@@ -781,7 +782,7 @@
 
 // 91. OrderFinalVC
 "Now isn't that easy? :)" = "क्या अब इतना आसान नहीं है? :)";
-"Get ready to be " = "तैयार हो जाओ";
+"Get ready to be " = "तैयार हो जाओ ";
 " richer!" = " अमीर!";
 "Your order has been placed successfully. Your Order ID is " = "आपका ऑर्डर सफलतापूर्वक रखा गया है। आपका ऑर्डर आईडी है";
 " Our team will get in touch with you shortly to verity the order and schedule the pickup. For any queries please call 0141-4232323 (10:00am - 07:00pm.)" = " हमारी टीम आदेश की सत्यता के लिए शीघ्र ही आपसे संपर्क करेगी और पिक शेड्यूल करेगी। किसी भी प्रश्न के लिए कृपया 0141-4232323 (सुबह 10:00 - शाम 07:00 बजे) पर कॉल करें।";

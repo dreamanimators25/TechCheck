@@ -565,6 +565,7 @@
 "Upload Images" = "上传图片";
 "Upload Image" = "上传图片";
 "Phone Image" = "电话图片";
+"Bill Image" = "“帐单图片”";
 "Upload Your phone front  Image" = "上传手机正面图像";
 "Upload Your phone back  Image" = "将手机上传回图片";
 "Upload Your phone bill  Image" = "上传电话账单图像";
@@ -781,7 +782,7 @@
 
 // 91. OrderFinalVC
 "Now isn't that easy? :)" = "现在不那么容易吗？:)";
-"Get ready to be " = "准备成为";
+"Get ready to be " = "准备成为 ";
 " richer!" = " 更富有!";
 "Your order has been placed successfully. Your Order ID is " = "您的订单已成功下达。您的订单开斋节为";
 " Our team will get in touch with you shortly to verity the order and schedule the pickup. For any queries please call 0141-4232323 (10:00am - 07:00pm.)" = " 我们的团队将尽快与您联系，以确认订单并安排取件。如有任何疑问，请致电0141-4232323（10:00 am-07:00 pm。）";
