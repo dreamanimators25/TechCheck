@@ -127,11 +127,16 @@ class CameraVC: UIViewController {
                     self.resultJSON["Camera"].int = 1
 
                 }
-                userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
                 
-                //Sameer 14/4/2020
-                userDefaults.removeObject(forKey: "fingerprint_complete")
-                userDefaults.setValue(false, forKey: "fingerprint_complete")
+                if userDefaults.value(forKey: "ChangeModeComingFromDiadnosis") as! String == "Diagnosis" || userDefaults.value(forKey: "ChangeModeComingFromDiadnosis") as! String == "Pickup" {
+                    
+                }else {
+                    userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
+                    
+                    //Sameer 14/4/2020
+                    userDefaults.removeObject(forKey: "fingerprint_complete")
+                    userDefaults.setValue(false, forKey: "fingerprint_complete")
+                }
             }
         }
         
@@ -188,12 +193,16 @@ class CameraVC: UIViewController {
                     self.resultJSON["Camera"].int = -1
                     
                 }
-                userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
                 
-                //Sameer 14/4/2020
-                userDefaults.removeObject(forKey: "fingerprint_complete")
-                userDefaults.setValue(false, forKey: "fingerprint_complete")
-                
+                if userDefaults.value(forKey: "ChangeModeComingFromDiadnosis") as! String == "Diagnosis" || userDefaults.value(forKey: "ChangeModeComingFromDiadnosis") as! String == "Pickup" {
+                    
+                }else {
+                    userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
+                    
+                    //Sameer 14/4/2020
+                    userDefaults.removeObject(forKey: "fingerprint_complete")
+                    userDefaults.setValue(false, forKey: "fingerprint_complete")
+                }
             }
         }
         

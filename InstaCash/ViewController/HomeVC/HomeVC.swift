@@ -305,6 +305,8 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //userDefaults.removeObject(forKey: "Diagnosis_DataSave")
+        
         ////////////////////////////////////////////////////////////////////
         
         if userDefaults.value(forKey: "Diagnosis_DataSave") == nil {
@@ -792,6 +794,9 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
     }
     
     @IBAction func btnStartFromBeginningClicked(_ sender: UIButton) {
+        userDefaults.removeObject(forKey: "ChangeModeComingFromDiadnosis")
+        userDefaults.setValue("", forKey: "ChangeModeComingFromDiadnosis")
+        
         let vc = Sell1()
         vc.strDevie = self.lblPhoneName.text!
         vc.imgView = self.imgPhone

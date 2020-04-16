@@ -103,11 +103,16 @@ class SensorReadVC: UIViewController {
             self.resultJSON["Proximity"].int = 1
             
         }
-        userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
         
-        //Sameer 14/4/2020
-        userDefaults.removeObject(forKey: "volumebutton_complete")
-        userDefaults.setValue(false, forKey: "volumebutton_complete")
+        if userDefaults.value(forKey: "ChangeModeComingFromDiadnosis") as! String == "Diagnosis" || userDefaults.value(forKey: "ChangeModeComingFromDiadnosis") as! String == "Pickup" {
+            
+        }else {
+            userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
+            
+            //Sameer 14/4/2020
+            userDefaults.removeObject(forKey: "volumebutton_complete")
+            userDefaults.setValue(false, forKey: "volumebutton_complete")
+        }
         
         //            let secondViewController:CameraViewController = CameraViewController()
         
@@ -231,11 +236,16 @@ class SensorReadVC: UIViewController {
                 self.resultJSON["Proximity"].int = 1
 
             }
-            userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
             
-            //Sameer 14/4/2020
-            userDefaults.removeObject(forKey: "volumebutton_complete")
-            userDefaults.setValue(false, forKey: "volumebutton_complete")
+            if userDefaults.value(forKey: "ChangeModeComingFromDiadnosis") as! String == "Diagnosis" || userDefaults.value(forKey: "ChangeModeComingFromDiadnosis") as! String == "Pickup" {
+                
+            }else {
+                userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
+                
+                //Sameer 14/4/2020
+                userDefaults.removeObject(forKey: "volumebutton_complete")
+                userDefaults.setValue(false, forKey: "volumebutton_complete")
+            }
 
             
             //            let secondViewController:CameraViewController = CameraViewController()

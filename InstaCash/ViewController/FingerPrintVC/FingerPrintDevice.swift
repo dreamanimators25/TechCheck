@@ -115,11 +115,16 @@ class FingerPrintDevice: UIViewController {
 
             }
             
-            userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
-            
-            //Sameer 14/4/2020
-            userDefaults.removeObject(forKey: "bluetooth_complete")
-            userDefaults.setValue(false, forKey: "bluetooth_complete")
+            if userDefaults.value(forKey: "ChangeModeComingFromDiadnosis") as! String == "Diagnosis" || userDefaults.value(forKey: "ChangeModeComingFromDiadnosis") as! String == "Pickup" {
+                
+            }else {
+                
+                userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
+                
+                //Sameer 14/4/2020
+                userDefaults.removeObject(forKey: "bluetooth_complete")
+                userDefaults.setValue(false, forKey: "bluetooth_complete")
+            }
 
             // authentication successful
             
@@ -230,11 +235,16 @@ class FingerPrintDevice: UIViewController {
                 self.resultJSON["Fingerprint Scanner"].int = -1
 
             }
-            userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
             
-            //Sameer 14/4/2020
-            userDefaults.removeObject(forKey: "bluetooth_complete")
-            userDefaults.setValue(false, forKey: "bluetooth_complete")
+            if userDefaults.value(forKey: "ChangeModeComingFromDiadnosis") as! String == "Diagnosis" || userDefaults.value(forKey: "ChangeModeComingFromDiadnosis") as! String == "Pickup" {
+                
+            }else {
+                userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
+                
+                //Sameer 14/4/2020
+                userDefaults.removeObject(forKey: "bluetooth_complete")
+                userDefaults.setValue(false, forKey: "bluetooth_complete")
+            }
 
         }
         
@@ -322,11 +332,16 @@ class FingerPrintDevice: UIViewController {
                 self.resultJSON["Fingerprint Scanner"].int = 1
 
             }
-            userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
             
-            //Sameer 14/4/2020
-            userDefaults.removeObject(forKey: "bluetooth_complete")
-            userDefaults.setValue(false, forKey: "bluetooth_complete")
+            if userDefaults.value(forKey: "ChangeModeComingFromDiadnosis") as! String == "Diagnosis" || userDefaults.value(forKey: "ChangeModeComingFromDiadnosis") as! String == "Pickup" {
+                
+            }else {
+                userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
+            
+                //Sameer 14/4/2020
+                userDefaults.removeObject(forKey: "bluetooth_complete")
+                userDefaults.setValue(false, forKey: "bluetooth_complete")
+            }
 
             // authentication successful
             

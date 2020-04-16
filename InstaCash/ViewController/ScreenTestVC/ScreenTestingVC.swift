@@ -384,11 +384,16 @@ class ScreenTestingVC: UIViewController,RecorderDelegate {
                 resultJSON["Screen"].int = 1
                 
             }
-            userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
             
-            //Sameer 14/4/2020
-            userDefaults.removeObject(forKey: "rotation_complete")
-            userDefaults.setValue(false, forKey: "rotation_complete")
+            if userDefaults.value(forKey: "ChangeModeComingFromDiadnosis") as! String == "Diagnosis" || userDefaults.value(forKey: "ChangeModeComingFromDiadnosis") as! String == "Pickup" {
+                
+            }else {
+                userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
+                
+                //Sameer 14/4/2020
+                userDefaults.removeObject(forKey: "rotation_complete")
+                userDefaults.setValue(false, forKey: "rotation_complete")
+            }
             
             //self.navigationController?.pushViewController(vc, animated: true)
             //self.present(vc, animated: true, completion: nil)
@@ -443,11 +448,16 @@ class ScreenTestingVC: UIViewController,RecorderDelegate {
                     self.resultJSON["Screen"].int = 0
                     
                 }
-                userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
                 
-                //Sameer 14/4/2020
-                userDefaults.removeObject(forKey: "rotation_complete")
-                userDefaults.setValue(false, forKey: "rotation_complete")
+                if userDefaults.value(forKey: "ChangeModeComingFromDiadnosis") as! String == "Diagnosis" || userDefaults.value(forKey: "ChangeModeComingFromDiadnosis") as! String == "Pickup" {
+                    
+                }else {
+                    userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
+                    
+                    //Sameer 14/4/2020
+                    userDefaults.removeObject(forKey: "rotation_complete")
+                    userDefaults.setValue(false, forKey: "rotation_complete")
+                }
                 
                 
                 //                let vc = RotationVC()

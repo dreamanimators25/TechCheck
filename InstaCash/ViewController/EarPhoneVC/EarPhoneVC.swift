@@ -98,11 +98,16 @@ class EarPhoneVC: UIViewController {
             self.resultJSON["Earphone"].int = -1
             
         }
-        userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
         
-        //Sameer 14/4/2020
-        userDefaults.removeObject(forKey: "charger_complete")
-        userDefaults.setValue(false, forKey: "charger_complete")
+        if userDefaults.value(forKey: "ChangeModeComingFromDiadnosis") as! String == "Diagnosis" || userDefaults.value(forKey: "ChangeModeComingFromDiadnosis") as! String == "Pickup" {
+            
+        }else {
+            userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
+            
+            //Sameer 14/4/2020
+            userDefaults.removeObject(forKey: "charger_complete")
+            userDefaults.setValue(false, forKey: "charger_complete")
+        }
         
     }
 
@@ -139,11 +144,16 @@ class EarPhoneVC: UIViewController {
                 self.resultJSON["Earphone"].int = -1
 
             }
-            userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
             
-            //Sameer 14/4/2020
-            userDefaults.removeObject(forKey: "charger_complete")
-            userDefaults.setValue(false, forKey: "charger_complete")
+            if userDefaults.value(forKey: "ChangeModeComingFromDiadnosis") as! String == "Diagnosis" || userDefaults.value(forKey: "ChangeModeComingFromDiadnosis") as! String == "Pickup" {
+                
+            }else {
+                userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
+                
+                //Sameer 14/4/2020
+                userDefaults.removeObject(forKey: "charger_complete")
+                userDefaults.setValue(false, forKey: "charger_complete")
+            }
 
         }
         
@@ -219,11 +229,16 @@ class EarPhoneVC: UIViewController {
                 self.resultJSON["Earphone"].int = 1
 
             }
-            userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
             
-            //Sameer 14/4/2020
-            userDefaults.removeObject(forKey: "charger_complete")
-            userDefaults.setValue(false, forKey: "charger_complete")
+            if userDefaults.value(forKey: "ChangeModeComingFromDiadnosis") as! String == "Diagnosis" || userDefaults.value(forKey: "ChangeModeComingFromDiadnosis") as! String == "Pickup" {
+                
+            }else {
+                userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
+                
+                //Sameer 14/4/2020
+                userDefaults.removeObject(forKey: "charger_complete")
+                userDefaults.setValue(false, forKey: "charger_complete")
+            }
 
             break
         case AVAudioSessionRouteChangeReason.oldDeviceUnavailable.rawValue:
@@ -254,11 +269,16 @@ class EarPhoneVC: UIViewController {
                 self.resultJSON["Earphone"].int = 1
 
             }
-            userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
-
-            //Sameer 14/4/2020
-            userDefaults.removeObject(forKey: "charger_complete")
-            userDefaults.setValue(false, forKey: "charger_complete")
+            
+            if userDefaults.value(forKey: "ChangeModeComingFromDiadnosis") as! String == "Diagnosis" || userDefaults.value(forKey: "ChangeModeComingFromDiadnosis") as! String == "Pickup" {
+                
+            }else {
+                userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
+                
+                //Sameer 14/4/2020
+                userDefaults.removeObject(forKey: "charger_complete")
+                userDefaults.setValue(false, forKey: "charger_complete")
+            }
             
             break
         default:

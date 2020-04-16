@@ -103,11 +103,16 @@ class VolumeCheckerVC: UIViewController {
                         self.resultJSON["Hardware Buttons"].int = 1
                         
                     }
-                    userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
                     
-                    //Sameer 14/4/2020
-                    userDefaults.removeObject(forKey: "earphone_complete")
-                    userDefaults.setValue(false, forKey: "earphone_complete")
+                    if userDefaults.value(forKey: "ChangeModeComingFromDiadnosis") as! String == "Diagnosis" || userDefaults.value(forKey: "ChangeModeComingFromDiadnosis") as! String == "Pickup" {
+                        
+                    }else {
+                        userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
+                        
+                        //Sameer 14/4/2020
+                        userDefaults.removeObject(forKey: "earphone_complete")
+                        userDefaults.setValue(false, forKey: "earphone_complete")
+                    }
                     
                 }
                 self.action()
@@ -154,11 +159,16 @@ class VolumeCheckerVC: UIViewController {
                     self.resultJSON["Hardware Buttons"].int = 1
                     
                 }
-                userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
                 
-                //Sameer 14/4/2020
-                userDefaults.removeObject(forKey: "earphone_complete")
-                userDefaults.setValue(false, forKey: "earphone_complete")
+                if userDefaults.value(forKey: "ChangeModeComingFromDiadnosis") as! String == "Diagnosis" || userDefaults.value(forKey: "ChangeModeComingFromDiadnosis") as! String == "Pickup" {
+                    
+                }else {
+                    userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
+                    
+                    //Sameer 14/4/2020
+                    userDefaults.removeObject(forKey: "earphone_complete")
+                    userDefaults.setValue(false, forKey: "earphone_complete")
+                }
                 
             }
             self.action()
@@ -222,11 +232,16 @@ class VolumeCheckerVC: UIViewController {
                 self.resultJSON["Hardware Buttons"].int = -1
 
             }
-            userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
             
-            //Sameer 14/4/2020
-            userDefaults.removeObject(forKey: "earphone_complete")
-            userDefaults.setValue(false, forKey: "earphone_complete")
+            if userDefaults.value(forKey: "ChangeModeComingFromDiadnosis") as! String == "Diagnosis" || userDefaults.value(forKey: "ChangeModeComingFromDiadnosis") as! String == "Pickup" {
+                
+            }else {
+                userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
+                
+                //Sameer 14/4/2020
+                userDefaults.removeObject(forKey: "earphone_complete")
+                userDefaults.setValue(false, forKey: "earphone_complete")
+            }
         }
         
         let buttonTwo = DefaultButton(title: "No".localized(lang: langCode)) {

@@ -153,11 +153,17 @@ class RotationVC: UIViewController {
                     self.resultJSON["Rotation"].int = -1
 
                 }
-                userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
                 
-                //Sameer 14/4/2020
-                userDefaults.removeObject(forKey: "proximity_complete")
-                userDefaults.setValue(false, forKey: "proximity_complete")
+                if userDefaults.value(forKey: "ChangeModeComingFromDiadnosis") as! String == "Diagnosis" || userDefaults.value(forKey: "ChangeModeComingFromDiadnosis") as! String == "Pickup" {
+                    
+                }else {
+                    
+                    userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
+                    
+                    //Sameer 14/4/2020
+                    userDefaults.removeObject(forKey: "proximity_complete")
+                    userDefaults.setValue(false, forKey: "proximity_complete")
+                }
 
             }
             
@@ -267,11 +273,18 @@ class RotationVC: UIViewController {
                 resultJSON["Rotation"].int = 1
 
             }
-            userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
             
-            //Sameer 14/4/2020
-            userDefaults.removeObject(forKey: "proximity_complete")
-            userDefaults.setValue(false, forKey: "proximity_complete")
+            if userDefaults.value(forKey: "ChangeModeComingFromDiadnosis") as! String == "Diagnosis" || userDefaults.value(forKey: "ChangeModeComingFromDiadnosis") as! String == "Pickup" {
+                
+                
+            }else {
+                
+                userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
+                
+                //Sameer 14/4/2020
+                userDefaults.removeObject(forKey: "proximity_complete")
+                userDefaults.setValue(false, forKey: "proximity_complete")
+            }
            
         }
         }
