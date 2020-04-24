@@ -15,7 +15,6 @@ class PlaceOrderVC: UIViewController,UITextFieldDelegate,CLLocationManagerDelega
 
     var strPaymentProcessMode = "1"
     var strGetAppCodes = ""
-
     
     @IBOutlet weak var lblLocation: UILabel!
     @IBOutlet weak var lblPickUpDetail: UILabel!
@@ -50,9 +49,20 @@ class PlaceOrderVC: UIViewController,UITextFieldDelegate,CLLocationManagerDelega
     var userPersonalDetails = [String:Any]()
     //S.
     
+    var totalNumberCount = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationBar()
+        
+        if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+            totalNumberCount = 6
+        }else if CustomUserDefault.getCurrency() == "TWD" {
+            totalNumberCount = 3
+        }else {
+            totalNumberCount = 5
+        }
+        
 //        if userDefaults.value(forKeyPath: "OrderPlaceFordiagnosis") as! Bool  == true {
 //            txtIMEI.text = userDefaults.value(forKey: "imei_number") as? String
 //        }
@@ -66,10 +76,8 @@ class PlaceOrderVC: UIViewController,UITextFieldDelegate,CLLocationManagerDelega
             
             //btnPaymentMode.setTitle("PICK PAYMENT MODE", for: .normal) //s.
         }
-        else{
-            
+        else {
             //btnPaymentMode.setTitle("PLACE ORDER", for: .normal) //s.
-
         }
 
         //txtName.text = CustomUserDefault.getUserName() //s.
@@ -155,7 +163,7 @@ class PlaceOrderVC: UIViewController,UITextFieldDelegate,CLLocationManagerDelega
     }
     
     @objc func btnBackPressed() -> Void {
-         if isComingFromLogin {
+        if isComingFromLogin {
             self.menuContainerViewController.toggleLeftSideMenuCompletion({() -> Void in
             })
         }
@@ -284,6 +292,27 @@ class PlaceOrderVC: UIViewController,UITextFieldDelegate,CLLocationManagerDelega
                 matchCityByAPI()
             }
         }
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        if textField == txtPincode {
+            // YOU SHOULD FIRST CHECK FOR THE BACKSPACE. IF BACKSPACE IS PRESSED ALLOW IT
+            
+            if string == "" {
+                return true
+            }
+            
+            if let characterCount = textField.text?.count {
+                // CHECK FOR CHARACTER COUNT IN TEXT FIELD
+                if characterCount == totalNumberCount {
+                    // RESIGN FIRST RERSPONDER TO HIDE KEYBOARD
+                    return textField.resignFirstResponder()
+                }
+            }
+        }
+            return true
+            
     }
     
     /*

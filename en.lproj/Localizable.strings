@@ -20,6 +20,7 @@
 "India" = "India";
 "Malaysia" = "Malaysia";
 "Singapore" = "Singapore";
+"Taiwan" = "Taiwan";
 "Login with Google" = "Login with Google";
 "Login" = "Login";
 "or login with mobile" = "or login with mobile";
@@ -79,6 +80,7 @@
 "  Mail  " = "  Mail  ";
 "  Zopim Chat  " = "  Zopim Chat  ";
 "  WhatsApp  " = "  WhatsApp  ";
+"  Line  " = "  Line  ";
 "Diagnosis Code" = "Diagnosis Code";
 "Pickup Code" = "Pickup Code";
 "This mode can only be run if an order has been placed for this device.If you don't have a code yet please call our customer care to get a new code." = "This mode can only be run if an order has been placed for this device.If you don't have a code yet please call our customer care to get a new code.";

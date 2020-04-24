@@ -60,7 +60,13 @@ class RotationVC: UIViewController {
         self.lblCheckingDevice.text = "Checking device rotation".localized(lang: langCode)
         self.lblPleaseEnsure.text = "Please ensure device rotation option is enabled. Press “Start’ and rotate your device as seen below.".localized(lang: langCode)
         
-        self.btnGuideMe.setTitle("Guide me".localized(lang: langCode), for: UIControlState.normal)
+        //self.btnGuideMe.setTitle("Guide me".localized(lang: langCode), for: UIControlState.normal)
+        //NSAttributedString.Key.underlineStyle : NSUnderlineStyle.styleSingle.rawValue
+        
+        let myAttribute = [NSAttributedString.Key.foregroundColor: navColor, NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 17.0)] as [NSAttributedStringKey : Any]
+        let str = NSAttributedString.init(string: "Guide me".localized(lang: langCode), attributes: myAttribute)
+        self.btnGuideMe.setAttributedTitle(str, for: .normal)
+        
         self.beginBtn.setTitle("Start".localized(lang: langCode), for: UIControlState.normal)
         self.StartBtn.setTitle("Start".localized(lang: langCode), for: UIControlState.normal)
     }

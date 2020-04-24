@@ -20,6 +20,7 @@
 "India" = "印度";
 "Malaysia" = "马来西亚";
 "Singapore" = "新加坡";
+"Taiwan" = "台湾";
 "Login with Google" = "使用谷歌登录";
 "Login" = "登录";
 "or login with mobile" = "或使用手机登录";
@@ -56,7 +57,7 @@
 "Home" = "家";
 "MyAccount" = "我的帐户";
 "MyOrders" = "我的订单";
-"History" = "历史";
+"History" = "歷史紀錄";
 "Promoters" = "发起人";
 "How It Works" = "怎么运行的";
 "About Us" = "关于我们";
@@ -79,6 +80,7 @@
 "  Mail  " = "  邮件  ";
 "  Zopim Chat  " = "  佐皮聊天  ";
 "  WhatsApp  " = "  什么是应用程式的  ";
+"  Line  " = "  线  ";
 "Diagnosis Code" = "诊断码";
 "Pickup Code" = "代号";
 "This mode can only be run if an order has been placed for this device.If you don't have a code yet please call our customer care to get a new code." = "只有在为此设备下订单后才能运行此模式。如果您还没有代码，请致电我们的客户服务中心以获取新代码。";
@@ -105,14 +107,14 @@
 "Sell" = "卖";
 "Find out how much cash you’ll get by selling this device." = "找出售出此设备将获得多少现金。";
 "Get quote for this device" = "获取此设备的报价";
-"No bargaining. No headaches!" = "没有议价。没有头痛！";
-"Takes 5 mins. Save time." = "花5分钟。节省时间。";
+"No bargaining. No headaches!" = "不二價。沒煩惱。"; //"没有议价。没有头痛！";
+"Takes 5 mins. Save time." = "只需五分鐘。節省時間。"; //"花5分钟。节省时间。";
 "Get a quote from anywhere. Convenient and casual." = "从任何地方获取报价。方便又随意。";
 "Accurate and market-leading prices. Scam-free." = "准确和市场领先的价格。无欺诈。";
 "Got another device to sell? See how much its worth." = "还有另一种设备可以出售？看看它的价值是多少。";
 "See Promotions and Offers" = "查看促销和优惠";
 "THIS DEVICE" = "这个设备";
-"get upto" = "起来吧";
+"get upto" = "獲得高達";
 "Run Diagnostics" = "运行诊断";
 "YOUR ORDERS" = "你的命令";
 "Start from the beginning" = "从头开始";
@@ -266,7 +268,7 @@
 "CENDOL VOUCHER" = "岑多 凭证";
 "MAXIS" = "马克西斯";
 "SAMSUNG" = "三星";
-"Gateway charges" = "网关费用";
+"Gateway charges" = "平台費用"; //"网关费用";
 "Payment Mode" = "付款方式";
 "Select Payment Mode" = "选择付款方式";
 "Choose one payment option" = "选择一种付款方式";
@@ -286,8 +288,8 @@
 "Please Enter the details" = "请输入详细信息";
 "Bank Holders Name" = "银行持有人姓名";
 "Bank Account Number" = "银行帐号";
-"SKIP" = "跳跃";
-"Skip" = "跳跃";
+"SKIP" = "跳過"; //"跳跃";
+"Skip" = "跳過"; //"跳跃";
 "PROCEED" = "继续";
 
 // 20. MYCendolVC
@@ -340,10 +342,10 @@
 // Not used in project //
 "Are You Sure" = "你确定吗";
 "This would overwrite the payment details.Are you sure you want to continue?" = "这将覆盖付款细节。确定要继续吗？";
-"No" = "没有";
+"No" = "否"; //"没有";
 "Yes" = "是";
 "YES" = "是";
-"NO" = "没有";
+"NO" = "否"; //"没有";
 "Please Enter " = "请输入 ";
 "This would reject all the changes made so far. Are you sure you want to discard all the changes?" = "这将拒绝到目前为止所做的所有更改。确定要放弃所有更改吗？";
 
@@ -367,7 +369,7 @@
 "Do you want to retry the test?" = "您想重试测试吗？";
 "Checking screen calibration" = "检查屏幕校准";
 "Press “Start’ and follow the path" = "按“开始”并遵循路径";
-"Guide me" = "引导我";
+"Guide me" = "引導我";  //"引导我";
 "Start" = "开始";
 "Retry" = "重试";
 "ReTry" = "重试";
@@ -419,22 +421,22 @@
 "Begin Tests" = "开始测试";
 
 // 43. DiagnosticTestResultVC
-"I'm done" = "我受够了";
-"Screen" = "屏幕";
-"Rotation" = "回转";
-"Proximity" = "接近";
+"I'm done" = "已完成"; //"我受够了";
+"Screen" = "螢幕"; //"屏幕";
+"Rotation" = "旋轉功能"; //"回转";
+"Proximity" = "螢幕感應"; //"接近";
 "Volume" = "体积";
-"Earphone" = "耳机";
+"Earphone" = "耳機"; //"耳机";
 "Charger" = "充电器";
-"Camera" = "相机";
+"Camera" = "相機"; //"相机";
 "FingerPrint" = "指纹";
-"NFC" = "核因子";
+"NFC" = "NFC"; //"核因子";
 "GSM" = "GSM";
 "Bluetooth" = "蓝牙";
-"Storage" = "存储";
-"GPS" = "全球定位系统";
-"Battery" = "电池";
-"WIFI" = "无线上网";
+"Storage" = "記憶體"; //"存储";
+"GPS" = "GPS"; //"全球定位系统";
+"Battery" = "電池"; //"电池";
+"WIFI" = "無線上網"; //"无线上网";
 "Failed and Skipped Tests" = "失败和跳过的测试";
 "Functional Checks" = "功能检查";
 "Your device passed" = "您的设备通过了";
@@ -671,12 +673,12 @@
 "Microphone" = "麦克风";
 "Call Function (GSM)" = "通话功能（GSM）";
 "Fingerprint Sensor" = "指纹感应器";
-"Vibrator" = "震动器";
+"Vibrator" = "震動功能"; //"震动器";
 "Auto Rotation" = "自动旋转";
-"Torch" = "火炬";
+"Torch" = "閃光燈"; //"火炬";
 "Device Body (Side & Back Cover)" = "设备主体（侧面和后盖）";
 "Minor Scratches" = "轻微划痕";
-"Heavy Scrarches" = "沉重的擦伤";
+"Heavy Scrarches" = "嚴重刮痕"; //"沉重的擦伤";
 
 // 73. DiagnosisQuestionFlowVC
 "Power/Home Button Faulty; Hard or Not Working" = "电源/主页按钮有故障；很难或不工作";
@@ -684,7 +686,7 @@
 "Select if applicable" = "选择（如果适用）";
 "0 to 3 months" = "0到3个月";
 "Not available" = "无法使用";
-"Cracked" = "“无法使用”";
+"Cracked" = "无法使用";
 "Broken" = "破碎";
 "Loose" = "疏松";
 "Missing" = "失踪";
@@ -733,7 +735,7 @@
 "Awesome! One last thing…" = "太棒了！最后一件事……";
 
 // 83. Sell1
-"Get Upto" = "起床";
+"Get Upto" = "獲得高達";
 "Quote" = "引用";
 "Getting an exact quote takes 5 mins. Ready to roll?" = "获得准确的报价需要5分钟。准备开始吗？";
 "GET EXACT QUOTE" = "获取精确报价";
@@ -794,7 +796,7 @@
 
 // 93. UserAccountVC
 "Service not available!" = "服务不可用！";
-"HISTORY" = "历史";
+"HISTORY" = "歷史紀錄";
 "ABOUT" = "关于";
 "SHARE" = "分享";
 "LANGUAGE" = "语言";

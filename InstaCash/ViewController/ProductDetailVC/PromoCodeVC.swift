@@ -31,7 +31,6 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
     @IBOutlet weak var stkView2: UIView!
     @IBOutlet weak var stkViewHeightConstraint: NSLayoutConstraint!
     
-    
     @IBOutlet weak var lblTitleSummary: UILabel!
     @IBOutlet weak var lblSummary: UILabel!
     @IBOutlet weak var lblSubTotal: UILabel!
@@ -46,7 +45,6 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
     @IBOutlet weak var lblPleaseEnter: UILabel!
     @IBOutlet weak var btnRemove: UIButton!
     @IBOutlet weak var btnApply: UIButton!
-    
     
     
     var getFinalPrice = 0
@@ -79,7 +77,7 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
         userDefaults.setValue(true, forKey: "charger_complete")
         userDefaults.setValue(true, forKey: "camera_complete")
         
-        if UIDevice.current.modelName == "iPhone X" || UIDevice.current.modelName == "iPhone XS" || UIDevice.current.modelName == "iPhone XS Max" || UIDevice.current.modelName == "iPhone 5c" || UIDevice.current.modelName == "iPhone 5" || UIDevice.current.modelName == "iPhone XR"{
+        if UIDevice.current.modelName == "iPhone X" || UIDevice.current.modelName == "iPhone XS" || UIDevice.current.modelName == "iPhone XS Max" || UIDevice.current.modelName == "iPhone 5c" || UIDevice.current.modelName == "iPhone 5" || UIDevice.current.modelName == "iPhone XR" {
             userDefaults.removeObject(forKey: "fingerprint_complete")
             userDefaults.setValue(true, forKey: "fingerprint_complete")
         }
@@ -139,7 +137,7 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
                 self.donateAmount = 100
                 self.Donation = 100
                 
-                self.lblDonateDest.text = "I want to donate".localized(lang: langCode) + " \(CustomUserDefault.getCurrency()) \(self.Donation)" + "to World Wide Fund for Nature.".localized(lang: langCode)
+                self.lblDonateDest.text = "I want to donate".localized(lang: langCode) + " \(CustomUserDefault.getCurrency()) \(self.Donation) " + "to World Wide Fund for Nature.".localized(lang: langCode)
                 self.NssImageViewHeight.constant = 0.0
                 self.stkView1.isHidden = false
                 //self.stkView2.isHidden = true
@@ -195,7 +193,7 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
         if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
             lblDonateDest.text =  "I want to donate ₹".localized(lang: langCode) + " \(self.donateAmount) " + "to Narayan Seva Sansthan.".localized(lang: langCode)
         }else {
-            lblDonateDest.text = "I want to donate".localized(lang: langCode) + " \(CustomUserDefault.getCurrency()) \(self.donateAmount)" + "to World Wide Fund for Nature.".localized(lang: langCode)
+            lblDonateDest.text = "I want to donate".localized(lang: langCode) + " \(CustomUserDefault.getCurrency()) \(self.donateAmount) " + "to World Wide Fund for Nature.".localized(lang: langCode)
         }
         
         
@@ -238,7 +236,7 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
                     
                 }else {
 
-                    lblDonateDest.text = "I want to donate".localized(lang: langCode) + " \(CustomUserDefault.getCurrency()) \(self.Donation)" + "to World Wide Fund for Nature.".localized(lang: langCode)
+                    lblDonateDest.text = "I want to donate".localized(lang: langCode) + " \(CustomUserDefault.getCurrency()) \(self.Donation) " + "to World Wide Fund for Nature.".localized(lang: langCode)
                 }
                 
                 donateAmount = Donation
@@ -263,7 +261,7 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
                     //lblDonateDest.text = "I want to donate ₹ \(txtAmount.text ?? "0") to Narayan Seva Sansthan."
                     
                 }else {
-                    lblDonateDest.text = "I want to donate".localized(lang: langCode) + " \(CustomUserDefault.getCurrency()) \(txtAmount.text ?? "0")" + "to World Wide Fund for Nature.".localized(lang: langCode)
+                    lblDonateDest.text = "I want to donate".localized(lang: langCode) + " \(CustomUserDefault.getCurrency()) \(txtAmount.text ?? "0") " + "to World Wide Fund for Nature.".localized(lang: langCode)
                     //lblDonateDest.text = "I want to donate \(CustomUserDefault.getCurrency()) \(txtAmount.text ?? "0") to World Wide Fund for Nature."
                 }
                 

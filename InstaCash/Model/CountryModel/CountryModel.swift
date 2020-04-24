@@ -45,7 +45,8 @@ class CountryModel{
     static func fetchCountryFromFireBase(isInterNet:Bool,getController:UIViewController,completion: @escaping ([CountryModel]) -> Void ) {
         
         Alert.ShowProgressHud(Onview: getController.view)
-        let ref = Database.database().reference(withPath: "countries")
+        //let ref = Database.database().reference(withPath: "countries") //Sameer 23/4/2020 Live
+        let ref = Database.database().reference(withPath: "countries_sandbox") //Sameer 23/4/2020 Testing
         ref.observeSingleEvent(of: .value, with: { snapshot in
             if !snapshot.exists() { return }
             let tempArr = snapshot.value as! NSArray

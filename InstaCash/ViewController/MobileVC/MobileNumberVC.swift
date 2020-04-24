@@ -131,13 +131,12 @@ class MobileNumberVC: UIViewController,UITextFieldDelegate {
         web.postRequest(urlString: strURL, paramDict: (parameters as! Dictionary<String, AnyObject>), completionHandler: completionHandler)
     }
     
-    
     func fireWebServiceForFbLogin(isResend:Bool)
     {
-        if reachability?.connection.description != "No Connection"{
+        if reachability?.connection.description != "No Connection" {
+
             var strGCMToken = ""
             var internalOTP = ""
-            
             
             if (userDefaults.value(forKey: "FCMToken") != nil){
                 strGCMToken = userDefaults.value(forKey: "FCMToken") as! String
@@ -151,7 +150,7 @@ class MobileNumberVC: UIViewController,UITextFieldDelegate {
             var strUrl = ""
             var parameters = [String: Any]()
             
-            if isResend{
+            if isResend {
                 strUrl = strBaseURL + "resendOTP"
                 parameters  = [
                     "userName" : apiAuthenticateUserName,
@@ -170,6 +169,7 @@ class MobileNumberVC: UIViewController,UITextFieldDelegate {
                 else{
                     internalOTP = "0"
                 }
+                
                 parameters  = [
                     "userName" : apiAuthenticateUserName,
                     "apiKey" : key,
@@ -182,14 +182,16 @@ class MobileNumberVC: UIViewController,UITextFieldDelegate {
                 ]
             }
             
+            print(parameters)
+            
             self.otpApiPost(strURL: strUrl, parameters: parameters as NSDictionary, completionHandler: {responseObject , error in
                 Alert.HideProgressHud(Onview: self.view)
                 if error == nil {
                     
                     if responseObject?["status"] as! String == "Success" {
                         
-                        if isResend == false{
-                            if internalOTP == "0"{
+                        if isResend == false {
+                            if internalOTP == "0" {
                                 //txtPhoneNumer.text =
                                 let dictUser = responseObject?["msg"] as! NSDictionary
                                 CustomUserDefault.setPhoneNumber(data: self.strMobileNumberStore)
@@ -266,9 +268,12 @@ class MobileNumberVC: UIViewController,UITextFieldDelegate {
                 "GCMId":strGCMToken,
             ]
             
+            print(parameters)
+            
             self.otpApiPost(strURL: strUrl, parameters: parameters as NSDictionary, completionHandler: {responseObject , error in
                 
                 Alert.HideProgressHud(Onview: self.view)
+                print(responseObject ?? [:])
                 
                 if error == nil {
                     
@@ -367,10 +372,12 @@ class MobileNumberVC: UIViewController,UITextFieldDelegate {
                                 CustomUserDefault.setUserId(data: dictUser.value(forKey: "userId") as! String)
                                 
                             }
+                            
                             if dictUser.value(forKey: "customerId") != nil {
                                 CustomUserDefault.setUserId(data: dictUser.value(forKey: "customerId") as! String)
                                 
                             }
+                            
                             if self.isComingToCheckForPlaceOrder{
                                 obj_app.setRootWithMrnuForPlaceOreder(isComingFrom:true)
                             }

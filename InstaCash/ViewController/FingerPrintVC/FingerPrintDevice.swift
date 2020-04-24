@@ -69,7 +69,12 @@ class FingerPrintDevice: UIViewController {
         self.lblThenYou.text = "Then you will place your finger on the fingerprint scanner like you normally would during unlock.".localized(lang: langCode)
         self.lblFirst.text = "First, please enable fingerprint function.".localized(lang: langCode)
         
-        self.btnGuideme.setTitle("Guide me".localized(lang: langCode), for: UIControlState.normal)
+        //self.btnGuideme.setTitle("Guide me".localized(lang: langCode), for: UIControlState.normal)
+        
+        let myAttribute = [NSAttributedString.Key.foregroundColor: navColor, NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 17.0)] as [NSAttributedStringKey : Any]
+        let str = NSAttributedString.init(string: "Guide me".localized(lang: langCode), attributes: myAttribute)
+        self.btnGuideme.setAttributedTitle(str, for: .normal)
+        
         self.btnSkip.setTitle("Skip".localized(lang: langCode), for: UIControlState.normal)
         
     }

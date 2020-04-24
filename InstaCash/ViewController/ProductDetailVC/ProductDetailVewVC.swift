@@ -66,7 +66,6 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
     @IBOutlet weak var collectionViewFailedTest: UICollectionView!
     @IBOutlet weak var lblLine1: UILabel!
     @IBOutlet weak var lblCollectionviewTitle: UILabel!
-    
     @IBOutlet weak var lblPriceworthtitle: UILabel!
     */
     

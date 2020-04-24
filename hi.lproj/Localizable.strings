@@ -20,6 +20,7 @@
 "India" = "भारत";
 "Malaysia" = "मलेशिया";
 "Singapore" = "सिंगापुर";
+"Taiwan" = "ताइवान";
 "Login with Google" = "गूगल के साथ लॉगिन करें";
 "Login" = "लॉग इन करें";
 "or login with mobile" = "या मोबाइल से लॉगिन करें";
@@ -79,6 +80,7 @@
 "  Mail  " = "  मेल  ";
 "  Zopim Chat  " = "  ज़ोपिम चैट  ";
 "  WhatsApp  " = "  WhatsApp  ";
+"  Line  " = "  लाइन  ";
 "Diagnosis Code" = "निदान कोड";
 "Pickup Code" = "पिकअप कोड";
 "This mode can only be run if an order has been placed for this device.If you don't have a code yet please call our customer care to get a new code." = "यह मोड केवल तभी चलाया जा सकता है जब इस उपकरण के लिए ऑर्डर दिया गया हो। यदि आपके पास कोई कोड नहीं है तो कृपया एक नया कोड प्राप्त करने के लिए हमारे ग्राहक सेवा को कॉल करें।";

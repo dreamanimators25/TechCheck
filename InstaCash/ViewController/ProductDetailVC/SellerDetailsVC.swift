@@ -46,10 +46,13 @@ class SellerDetailsVC: UIViewController,UITextFieldDelegate {
             totalNumberCount = 10
         }else if CustomUserDefault.getCurrency() == "RM" {
             txtCountryCode.text = "+60"
-            totalNumberCount = 8
-        }else {
+            totalNumberCount = 10
+        }else if CustomUserDefault.getCurrency() == "SG$" {
             txtCountryCode.text = "+65"
-            totalNumberCount = 8
+            totalNumberCount = 10
+        }else {
+            txtCountryCode.text = "+886"
+            totalNumberCount = 10
         }
         
         //txtCountryCode.delegate = self

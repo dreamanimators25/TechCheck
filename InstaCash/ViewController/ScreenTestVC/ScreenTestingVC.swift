@@ -104,7 +104,12 @@ class ScreenTestingVC: UIViewController,RecorderDelegate {
         self.lblCheckingScreenCalibration.text = "Checking screen calibration".localized(lang: langCode)
         self.lblPressStart.text = "Press “Start’ and follow the path".localized(lang: langCode)
         
-        self.btnGuideMe.setTitle("Guide me".localized(lang: langCode), for: UIControlState.normal)
+        //self.btnGuideMe.setTitle("Guide me".localized(lang: langCode), for: UIControlState.normal)
+        
+        let myAttribute = [NSAttributedString.Key.foregroundColor: navColor, NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 17.0)] as [NSAttributedStringKey : Any]
+        let str = NSAttributedString.init(string: "Guide me".localized(lang: langCode), attributes: myAttribute)
+        self.btnGuideMe.setAttributedTitle(str, for: .normal)
+        
         self.btnStart1.setTitle("Start".localized(lang: langCode), for: UIControlState.normal)
         self.btnRetry.setTitle("Retry".localized(lang: langCode), for: UIControlState.normal)
         self.btnStart2.setTitle("Start".localized(lang: langCode), for: UIControlState.normal)

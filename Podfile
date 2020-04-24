@@ -28,6 +28,8 @@ pod 'INTULocationManager'
 pod 'SwiftSpinner'
 pod 'Fabric'
 pod 'Crashlytics'
+#pod 'Fabric’, '~> 1.10.2’
+#pod 'Crashlytics’, '~> 3.14’
 pod 'Firebase/Messaging'
 pod 'GoogleTagManager'
 pod 'McPicker', '~> 2.0.0'

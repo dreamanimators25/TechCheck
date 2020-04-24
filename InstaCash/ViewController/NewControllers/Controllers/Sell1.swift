@@ -97,7 +97,8 @@ class Sell1: UIViewController {
     }
     
     @IBAction func onClickGetExactQuote(_ sender: Any) {
-        let vc = StartDevice()
+        //let vc = StartDevice()
+        let vc = StartDevice1()
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

@@ -56,7 +56,12 @@ class SensorReadVC: UIViewController {
         self.lblCheckingProximity.text = "Checking proximity sensors".localized(lang: langCode)
         self.lblWaveHand.text = "Wave your hand on the device’s screen.".localized(lang: langCode)
         
-        self.btnGuideMe.setTitle("Guide me".localized(lang: langCode), for: UIControlState.normal)
+        //self.btnGuideMe.setTitle("Guide me".localized(lang: langCode), for: UIControlState.normal)
+        
+        let myAttribute = [NSAttributedString.Key.foregroundColor: navColor, NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 17.0)] as [NSAttributedStringKey : Any]
+        let str = NSAttributedString.init(string: "Guide me".localized(lang: langCode), attributes: myAttribute)
+        self.btnGuideMe.setAttributedTitle(str, for: .normal)
+        
         self.lblNotWorking.text = "It’s not working.".localized(lang: langCode)
         self.btnStart.setTitle("Start".localized(lang: langCode), for: UIControlState.normal)
     }

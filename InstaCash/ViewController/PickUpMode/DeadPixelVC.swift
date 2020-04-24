@@ -52,7 +52,12 @@ class DeadPixelVC: UIViewController {
         self.titleInfoLbl.text = "Checking screen for white or black dot".localized(lang: langCode)
         self.deadPixelInfoLbl.text = "We will show you white screen with maximum brightness for 8-10 seconds. Please tell us if you see a black dot.".localized(lang: langCode)
         
-        self.btnGuideMe.setTitle("Guide me".localized(lang: langCode), for: UIControlState.normal)
+        //self.btnGuideMe.setTitle("Guide me".localized(lang: langCode), for: UIControlState.normal)
+        
+        let myAttribute = [NSAttributedString.Key.foregroundColor: navColor, NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 17.0)] as [NSAttributedStringKey : Any]
+        let str = NSAttributedString.init(string: "Guide me".localized(lang: langCode), attributes: myAttribute)
+        self.btnGuideMe.setAttributedTitle(str, for: .normal)
+        
         self.startTestBtn.setTitle("Start".localized(lang: langCode), for: UIControlState.normal)
     }
     

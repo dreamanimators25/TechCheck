@@ -123,7 +123,8 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
     var floatingItemsArrayIN:[String] = ["  Call  ","  Mail  ","  Zopim Chat  "]
     var floatingImageArrayIN:[UIImage] = [#imageLiteral(resourceName: "callSupport"),#imageLiteral(resourceName: "mailSupport"),#imageLiteral(resourceName: "chatSupport")]
     
-    var floatingItemsArrayMY:[String] = ["  WhatsApp  ","  Call  ","  Mail  "]
+    //var floatingItemsArrayMY:[String] = ["  WhatsApp  ","  Call  ","  Mail  "]
+    var floatingItemsArrayMY:[String] = ["  Line  ","  Call  ","  Mail  "]
     var floatingImageArrayMY:[UIImage] = [#imageLiteral(resourceName: "chatSupport"),#imageLiteral(resourceName: "callSupport"),#imageLiteral(resourceName: "mailSupport")]
     
     //MARK:- show custom delegate methods
@@ -2195,7 +2196,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
             self.diagnosisPost(strURL: strUrl, parameters: parameters as NSDictionary, completionHandler: {responseObject , error in
                 Alert.HideProgressHud(Onview: self.view)
                 if error == nil {
-                    if responseObject?["status"] as! String == "Success"{
+                    if responseObject?["status"] as! String == "Success" {
                         userDefaults.removeObject(forKey: "ChangeModeComingFromDiadnosis")
                         userDefaults.removeObject(forKey: "ChangeModeOrderId")
                         userDefaults.set(responseObject?["orderItemId"] as! String, forKey: "ChangeModeOrderId")
@@ -2486,7 +2487,8 @@ extension HomeVC {
             switch indexPath.row {
             case 0:
                 
-                guard let url = URL(string: "https://wa.me/601165273417") else {
+                //guard let url = URL(string: "https://wa.me/601165273417") else {
+                guard let url = URL(string: "https://lin.ee/cagGzzn") else {
                     return //be safe
                 }
                 
@@ -2507,7 +2509,8 @@ extension HomeVC {
             switch indexPath.row {
             case 0:
                 
-                guard let url = URL(string: "https://wa.me/601165273417") else {
+                //guard let url = URL(string: "https://wa.me/601165273417") else {
+                guard let url = URL(string: "https://lin.ee/cagGzzn") else {
                     return //be safe
                 }
                 
@@ -2551,6 +2554,8 @@ extension HomeVC {
                 emailAddress = "support@getinstacash.com.my"
             }
             
+            emailAddress = "service@compasia.com"
+            
             
             let composeVC = MFMailComposeViewController()
             composeVC.mailComposeDelegate = self
@@ -2578,6 +2583,8 @@ extension HomeVC {
         var phoneNumber = String()
         if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
             phoneNumber = "0141-4232323"
+        }else if CustomUserDefault.getCurrency() == "TWD" {
+            phoneNumber = "+886277300795"
         }else {
             phoneNumber = "+60365273417"
         }        
