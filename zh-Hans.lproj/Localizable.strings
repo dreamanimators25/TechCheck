@@ -383,6 +383,7 @@
 "Please ensure device rotation option is enabled. Press “Start’ and rotate your device as seen below." = "请确保启用了设备旋转选项。按“开始”，然后如下所示旋转设备。";
 
 // 37. SensorReadVC
+"Proximity Sensor Diagnosis" = "接近传感器诊断";
 "Checking proximity sensors" = "检查接近传感器";
 "Wave your hand on the device’s screen." = "将您的手放在设备的屏幕上。";
 "It’s not working." = "这不起作用。";

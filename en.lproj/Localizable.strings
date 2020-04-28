@@ -385,6 +385,7 @@
 "Please ensure device rotation option is enabled. Press “Start’ and rotate your device as seen below." = "Please ensure device rotation option is enabled. Press “Start’ and rotate your device as seen below.";
 
 // 37. SensorReadVC
+"Proximity Sensor Diagnosis" = "Proximity Sensor Diagnosis";
 "Checking proximity sensors" = "Checking proximity sensors";
 "Wave your hand on the device’s screen." = "Wave your hand on the device’s screen.";
 "It’s not working." = "It’s not working.";

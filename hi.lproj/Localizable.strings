@@ -383,6 +383,7 @@
 "Please ensure device rotation option is enabled. Press “Start’ and rotate your device as seen below." = "कृपया सुनिश्चित करें कि डिवाइस रोटेशन विकल्प सक्षम है। 'शुरू दबाएँ' दबाएं और नीचे दिए गए अनुसार अपने डिवाइस को घुमाएं।";
 
 // 37. SensorReadVC
+"Proximity Sensor Diagnosis" = "निकटता संवेदक निदान";
 "Checking proximity sensors" = "निकटता सेंसर की जाँच";
 "Wave your hand on the device’s screen." = "डिवाइस की स्क्रीन पर अपना हाथ लहरें।";
 "It’s not working." = "यह काम नहीं कर रहा है।";
