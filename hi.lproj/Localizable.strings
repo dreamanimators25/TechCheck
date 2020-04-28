@@ -135,7 +135,7 @@
 "Resend verification code" = "सत्यापन कोड पुनः भेजें";
 
 // 9. CityVC
-"No Cites Found" = "कोई इलाज नहीं मिला";
+"No Cities Found" = "कोई शहर नहीं मिला";
 "Please Enter Your Pin Code" = "कृपया अपना पिन कोड दर्ज करें";
 "Enter Post Code" = "पोस्ट कोड दर्ज करें";
 "OK" = "ठीक";
@@ -184,6 +184,9 @@
 "Earphone Jack is damaged or not-working" = "ईरफ़ोन जैक क्षतिग्रस्त है या काम नहीं कर रहा है";
 "Fingerprint Sensor Not-working" = "फ़िंगरप्रिंट सेंसर काम नहीं कर रहा है";
 
+"Change City" = "सिटी बदलें";
+"Changing City" = "बदलते शहर";
+"Changing city could affect the price quote.Do you want to change city?" = "बदलते शहर की कीमत को प्रभावित कर सकता है। क्या आप शहर बदलना चाहते हैं?";
 
 // 12. SendAppLinkPopUp
 "Enter valid mobile number" = "वैध मोबाइल नंबर दर्ज करें";

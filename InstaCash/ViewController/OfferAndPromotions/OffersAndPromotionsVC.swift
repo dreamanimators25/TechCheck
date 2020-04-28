@@ -50,6 +50,12 @@ class OffersAndPromotionsVC: UIViewController {
             let nav = UINavigationController(rootViewController: vc)
             nav.navigationBar.isHidden = true
             
+            guard self.oppoPromoterId != "" else {
+                return
+            }
+            
+            userDefaults.set((self.oppoPromoterId), forKey: "promoterID")
+            
             vc.isComeFromVC = "oppoMode"
             vc.promoterId = self.oppoPromoterId
             vc.additionalInfo = self.oppoAddInfo
@@ -66,6 +72,12 @@ class OffersAndPromotionsVC: UIViewController {
             let vc = OfferPromotionPopUpVC()
             let nav = UINavigationController(rootViewController: vc)
             nav.navigationBar.isHidden = true
+
+            guard self.homeCreditPromoterId != "" else {
+                return
+            }
+            
+            userDefaults.set((self.homeCreditPromoterId), forKey: "promoterID")
             
             vc.isComeFromVC = "homeCreditMode"
             vc.promoterId = self.homeCreditPromoterId
@@ -114,7 +126,7 @@ class OffersAndPromotionsVC: UIViewController {
                         
                         let imgArray = responseObject?["msg"] as! [[String:Any]]
                         
-                        userDefaults.set((imgArray[0]["promoterId"] as? String ?? ""), forKey: "promoterID")
+                        //userDefaults.set((imgArray[0]["promoterId"] as? String ?? ""), forKey: "promoterID") // Sameer 27/4/2020
                         
                         // Oppo
                         self.oppoPromoterId = imgArray[0]["promoterId"] as? String ?? ""

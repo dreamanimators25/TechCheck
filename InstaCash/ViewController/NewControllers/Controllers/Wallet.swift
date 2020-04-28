@@ -139,7 +139,7 @@ class Wallet: UIViewController {
             "email":CustomUserDefault.getUserEmail() ?? "", //0
             //"productImage":userDefaults.value(forKey: "otherProductDeviceImage") as! String, //0
             //"GCMId":strGCMToken, //0
-            //"customerId":CustomUserDefault.getUserId(), //0
+            "customerId":CustomUserDefault.getUserId(), //0
             //"landmark":"", //0
             "pincode":userDefaults.value(forKey: "orderPinCode") as! String, //1
             "isNewAddress":"1", //0

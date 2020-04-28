@@ -128,17 +128,14 @@ class Profile: UIViewController, UITextFieldDelegate {
                     // failed
                     self.strMessage = (responseObject?["msg"] as! String)
                     Alert.showAlert(strMessage: self.strMessage as NSString, Onview: self)
-                    
                 }
                 
             }
             else{
                 Alert.showAlert(strMessage: "Seems connection loss from server", Onview: self)
-                
             }
             
         })
-        
         
     }
     

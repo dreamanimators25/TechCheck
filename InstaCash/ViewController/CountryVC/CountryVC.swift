@@ -583,7 +583,7 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
                             userDefaults.set("Taiwan", forKey: "countryName")
                             userDefaults.set("+886", forKey: "countryCode")
                             CustomUserDefault.removeCurrency()
-                            CustomUserDefault.setCurrency(data: "TWD")
+                            CustomUserDefault.setCurrency(data: "NT$")
                         }else {
                             
                             if self.arrCountry[self.idBaseUrl].strCurrencySymbole == "₹" {
@@ -635,7 +635,7 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
                             //Sameer 23/4/2020
                             //obj_app.setRotControllersWithSideMenu(sendMyOrderArray: [HomeModel](), sendBrandArray: [HomeModel](), SendPupularDevoice: [HomeModel](), SendMyCurrentDevice: [HomeModel](), isComingFromWelcome: false,strAppCodeGet:"")
                             
-                            
+                            //*
                             DispatchQueue.main.async {
                                 let vc = SocialMobileRegisterVC()
                                 let nav = UINavigationController(rootViewController: vc)
@@ -647,7 +647,7 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
                                 nav.modalPresentationStyle = .overCurrentContext
                                 nav.modalTransitionStyle = .crossDissolve
                                 self.present(nav, animated: true, completion: nil)
-                            }
+                            }//*/
                             
                         }
                         else{
@@ -695,7 +695,7 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
             userDefaults.set("Taiwan", forKey: "countryName")
             userDefaults.set("+886", forKey: "countryCode")
             CustomUserDefault.removeCurrency()
-            CustomUserDefault.setCurrency(data: "TWD")
+            CustomUserDefault.setCurrency(data: "NT$")
         }else {
             
             if self.arrCountry[self.idBaseUrl].strCurrencySymbole == "₹" {
@@ -1022,7 +1022,7 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
             */
         }
         
-        CustomUserDefault.setUserPinCode(data: idBaseUrl)
+        //CustomUserDefault.setUserPinCode(data: idBaseUrl)
         
         /* Sameer 23/4/2020
         if self.arrCountry.count == self.idBaseUrl {
@@ -1031,7 +1031,7 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
             userDefaults.set("Taiwan", forKey: "countryName")
             userDefaults.set("+886", forKey: "countryCode")
             CustomUserDefault.removeCurrency()
-            CustomUserDefault.setCurrency(data: "TWD")
+            CustomUserDefault.setCurrency(data: "NT$")
         }else {
             
             if self.arrCountry[self.idBaseUrl].strCurrencySymbole == "₹" {
@@ -1110,7 +1110,7 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
                             userDefaults.set("Taiwan", forKey: "countryName")
                             userDefaults.set("+886", forKey: "countryCode")
                             CustomUserDefault.removeCurrency()
-                            CustomUserDefault.setCurrency(data:"TWD")
+                            CustomUserDefault.setCurrency(data:"NT$")
                         }
                         */
                 
@@ -1196,7 +1196,7 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
                                     userDefaults.set("Taiwan", forKey: "countryName")
                                     userDefaults.set("+886", forKey: "countryCode")
                                     CustomUserDefault.removeCurrency()
-                                    CustomUserDefault.setCurrency(data:"TWD")
+                                    CustomUserDefault.setCurrency(data:"NT$")
                                 }
                                 */
                                 

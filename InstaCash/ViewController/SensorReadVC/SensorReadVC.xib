@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_0" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -24,6 +22,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SensorReadVC" customModule="InstaCash" customModuleProvider="target">
             <connections>
                 <outlet property="btnGuideMe" destination="sh4-OI-BVl" id="2F8-lG-t9s"/>
+                <outlet property="btnProximityStart" destination="GTM-4k-Jy5" id="olE-Ir-cOk"/>
                 <outlet property="btnStart" destination="YtB-Mt-OWY" id="M7c-Fg-fKO"/>
                 <outlet property="lblCheckingProximity" destination="t70-pN-396" id="1XE-yK-sgD"/>
                 <outlet property="lblNotWorking" destination="IUQ-kM-MFp" id="Vjg-Q0-mg0"/>
@@ -40,7 +39,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k2i-vY-Rbl">
-                    <rect key="frame" x="10" y="25" width="40" height="40"/>
+                    <rect key="frame" x="10" y="5" width="40" height="40"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="40" id="gC4-ww-3CR"/>
                         <constraint firstAttribute="height" constant="40" id="tqU-fL-cUV"/>
@@ -51,20 +50,20 @@
                     </connections>
                 </button>
                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.40000000596046448" translatesAutoresizingMaskIntoConstraints="NO" id="PCD-ax-IwD">
-                    <rect key="frame" x="10" y="70" width="262.5" height="2"/>
+                    <rect key="frame" x="10" y="50" width="262.5" height="2"/>
                     <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="progressTintColor" red="0.094117647060000004" green="0.60784313729999995" blue="0.17254901959999999" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="trackTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </progressView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4/10" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cne-wn-heN">
-                    <rect key="frame" x="282.5" y="63.5" width="27.5" height="15.5"/>
+                    <rect key="frame" x="282.5" y="43.5" width="27.5" height="15.5"/>
                     <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="13"/>
                     <color key="textColor" red="0.15686274510000001" green="0.69019607839999997" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xin-cF-xY0">
-                    <rect key="frame" x="95.5" y="92" width="129.5" height="10"/>
+                    <rect key="frame" x="95.5" y="72" width="129.5" height="10"/>
                     <subviews>
                         <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calculated Price:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E8Q-J5-R0e">
                             <rect key="frame" x="0.0" y="0.0" width="127.5" height="20"/>
@@ -122,26 +121,48 @@
                     <rect key="frame" x="55.5" y="264.5" width="209" height="209"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c1T-oc-ONo">
-                    <rect key="frame" x="0.0" y="513" width="320" height="55"/>
+                    <rect key="frame" x="0.0" y="511" width="320" height="57"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="It’s not working." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IUQ-kM-MFp">
-                            <rect key="frame" x="107.5" y="18.5" width="105" height="18"/>
+                            <rect key="frame" x="107.5" y="19.5" width="105" height="18"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NNj-iz-8Mn">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="55"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="57"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GTM-4k-Jy5" customClass="shadowCornerButton" customModule="InstaCash" customModuleProvider="target">
+                            <rect key="frame" x="20" y="6" width="280" height="45"/>
+                            <color key="backgroundColor" red="0.094117647060000004" green="0.60784313729999995" blue="0.17254901959999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="45" id="Bfw-p4-LOt"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                            <state key="normal" title="Start">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="onClickProximityTestStart:" destination="-1" eventType="touchUpInside" id="SqH-dv-DsE"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="0.96862745100000003" green="0.98431372549999996" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="IUQ-kM-MFp" firstAttribute="centerX" secondItem="c1T-oc-ONo" secondAttribute="centerX" id="56Z-GH-Kyo"/>
                         <constraint firstAttribute="trailing" secondItem="NNj-iz-8Mn" secondAttribute="trailing" id="7t2-EF-pjd"/>
+                        <constraint firstAttribute="trailing" secondItem="GTM-4k-Jy5" secondAttribute="trailing" constant="20" id="Gpd-FC-hO6"/>
+                        <constraint firstItem="GTM-4k-Jy5" firstAttribute="centerY" secondItem="c1T-oc-ONo" secondAttribute="centerY" id="Jo7-zO-Sm8"/>
                         <constraint firstItem="IUQ-kM-MFp" firstAttribute="centerY" secondItem="c1T-oc-ONo" secondAttribute="centerY" id="Kot-SR-iWx"/>
                         <constraint firstItem="NNj-iz-8Mn" firstAttribute="top" secondItem="c1T-oc-ONo" secondAttribute="top" id="MhN-ux-Czj"/>
                         <constraint firstAttribute="bottom" secondItem="NNj-iz-8Mn" secondAttribute="bottom" id="R7Y-BV-V4e"/>
+                        <constraint firstItem="GTM-4k-Jy5" firstAttribute="leading" secondItem="c1T-oc-ONo" secondAttribute="leading" constant="20" id="RGU-5M-8W8"/>
                         <constraint firstItem="NNj-iz-8Mn" firstAttribute="leading" secondItem="c1T-oc-ONo" secondAttribute="leading" id="ZDa-ZO-e0c"/>
                     </constraints>
                 </view>
@@ -209,6 +230,7 @@
                 <constraint firstItem="cne-wn-heN" firstAttribute="centerY" secondItem="PCD-ax-IwD" secondAttribute="centerY" id="v0y-q7-afc"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="141" y="154"/>
         </view>
     </objects>
     <resources>

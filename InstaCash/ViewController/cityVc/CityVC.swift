@@ -52,6 +52,7 @@ class CityVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UITex
         do{
             try reachability?.startNotifier()
         }catch{
+            
         }
         
         self.changeLanguageOfUI()
@@ -59,7 +60,7 @@ class CityVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UITex
     
     func changeLanguageOfUI() {
       
-        self.lblMessage.text = "No Cites Found".localized(lang: langCode)
+        self.lblMessage.text = "No Cities Found".localized(lang: langCode)
         self.lblPleaseEnter.text = "Please Enter Your Pin Code".localized(lang: langCode)
         self.lblValidateMssg.text = "Select city *".localized(lang: langCode)
         self.txtPinCode.placeholder = "Enter Post Code".localized(lang: langCode)
@@ -85,7 +86,7 @@ class CityVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UITex
                     self.btnCancel.isHidden = true
                     if !CustomUserDefault.getCityId().isEmpty{
                         for index in 0..<arrCityData.count{
-                            let state = arrCityData[index].strStateName as! String
+                            let state = arrCityData[index].strStateName ?? ""
                             
                             if self.states.contains(state){
                                 //do nothing
@@ -102,8 +103,8 @@ class CityVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UITex
                             }
                         }
                     }else{
-                        for city in arrCityData{
-                            let state = city.strStateName as! String
+                        for city in arrCityData {
+                            let state = city.strStateName ?? ""
                             
                             if self.states.contains(state){
                                 //do nothing
@@ -119,7 +120,7 @@ class CityVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UITex
                         self.selectedState = self.states[0]
                     }
                     for city in arrCityData{
-                        let state = city.strStateName as! String
+                        let state = city.strStateName ?? ""
                         
                         if (self.selectedState == state){
                             self.cities.append(city.strCityName ?? "")
@@ -145,23 +146,18 @@ class CityVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UITex
         }
         else{
            self.btnCancel.isHidden = false
-            
         }
-       
     }
 
     @IBAction func btnOkPressed(_ sender: UIButton) {
         if CustomUserDefault.getCityId().isEmpty{
             lblValidateMssg.isHidden = false
-            
         }
         else{
             lblValidateMssg.isHidden = true
-
             self.dismiss(animated: true, completion: nil)
         }
     }
-    
     
     //MARK:- Uitextfield delegate methods
     
@@ -180,7 +176,7 @@ class CityVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UITex
                     self.cities.removeAll()
                     var pins = [String]()
                     for city in arrCityData{
-                        let state = city.strStateName as! String
+                        let state = city.strStateName ?? ""
                         
                         if self.selectedState == state{
                             self.cities.append(city.strCityName ?? "")
@@ -195,17 +191,13 @@ class CityVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UITex
                         }
                     }
                     
-                    
                     lblValidateMssg.isHidden = true
                     CustomUserDefault.setCityName(data: arrCityData[index].strCityName!)
                     CustomUserDefault.setCityId(data: arrCityData[index].strCityId!)
                 }
             }
-            
         }
-        
     }
-    
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 2
@@ -214,15 +206,12 @@ class CityVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UITex
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         switch component {
         case 0:
-            
             return states.count
         case 1:
-            
             print(cities.count)
             return cities.count
         default:
             return states.count
-            
         }
     }
     
@@ -233,8 +222,9 @@ class CityVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UITex
             self.stateSelection = row
             self.selectedState = states[row]
             self.cities.removeAll()
+            
             for city in arrCityData{
-                let state = city.strStateName as! String
+                let state = city.strStateName ?? ""
                 
                 if self.selectedState == state{
                     self.cities.append(city.strCityName ?? "")
@@ -255,19 +245,26 @@ class CityVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UITex
                     pins.append(city.strCityCode ?? "")
                 }
             }
+            
             var citySelected = ""
             if row < cities.count{
                 citySelected = cities[row]
                 CustomUserDefault.setCityName(data: citySelected)
             }
+            
             if cityIds.count > row{
                 let cityId = cityIds[row]
                 CustomUserDefault.setCityId(data: cityId)
+                
+                let pincode = pins[row] //Sameer 26/4/2020
+                CustomUserDefault.setUserPinCode(data: Int(pincode) ?? 0)
             }
+            
             if pins.count > row{
                 let pincode = pins[row]
                 lblValidateMssg.isHidden = true
                 txtPinCode.text = pincode
+                CustomUserDefault.setUserPinCode(data: Int(pincode) ?? 0) //Sameer 26/4/2020
             }
             
             break
@@ -283,20 +280,17 @@ class CityVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UITex
         switch component {
         case 0:
             return self.states[row]
-            
         case 1:
             isSelectedIndex = row
-           print(self.cities[row])
+            print(self.cities[row])
             return self.cities[row]
         default:
             return self.states[row]
         }
-    
     }
     
     @IBAction func btnCancelPressed(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
-
     }
     
     override func didReceiveMemoryWarning() {
@@ -304,7 +298,6 @@ class CityVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UITex
         // Dispose of any resources that can be recreated.
     }
     
-
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation

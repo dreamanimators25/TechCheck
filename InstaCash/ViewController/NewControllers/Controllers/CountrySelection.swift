@@ -47,7 +47,7 @@ class CountrySelection: UIViewController, UICollectionViewDelegate, UICollection
                     
                     if !CustomUserDefault.getCityId().isEmpty {
                         for index in 0..<arrCityData.count{
-                            let state = arrCityData[index].strStateName as! String
+                            let state = arrCityData[index].strStateName ?? ""
                             
                             if self.states.contains(state){
                                 //do nothing
@@ -63,7 +63,7 @@ class CountrySelection: UIViewController, UICollectionViewDelegate, UICollection
                         }
                     }else{
                         for city in arrCityData{
-                            let state = city.strStateName as! String
+                            let state = city.strStateName ?? ""
                             
                             if self.states.contains(state){
                                 //do nothing
@@ -79,7 +79,7 @@ class CountrySelection: UIViewController, UICollectionViewDelegate, UICollection
                         self.selectedState = self.states[0]
                     }
                     for city in arrCityData{
-                        let state = city.strStateName as! String
+                        let state = city.strStateName ?? ""
                         
                         if (self.selectedState == state){
                             self.cities.append(city.strCityName ?? "")
@@ -163,6 +163,10 @@ class CountrySelection: UIViewController, UICollectionViewDelegate, UICollection
             if cityIds.count > indexPath.row{
                 let cityId = cityIds[indexPath.row]
                 CustomUserDefault.setCityId(data: cityId)
+                
+                let pinCode = pins[indexPath.row] //Sameer 26/4/20
+                CustomUserDefault.setUserPinCode(data: Int(pinCode) ?? 0) //Sameer 26/4/20
+                
             }
             
             self.dismiss(animated: true, completion: nil)
@@ -174,6 +178,7 @@ class CountrySelection: UIViewController, UICollectionViewDelegate, UICollection
                 let model = self.arrCityData[0]
                 CustomUserDefault.setCityName(data: model.strCityName ?? "")
                 CustomUserDefault.setCityId(data: model.strCityId ?? "")
+                CustomUserDefault.setUserPinCode(data: Int(model.strCityCode ?? "") ?? 0) //Sameer 26/4/2020
                 
                 self.dismiss(animated: true, completion: nil)
                 
@@ -182,7 +187,7 @@ class CountrySelection: UIViewController, UICollectionViewDelegate, UICollection
                 self.selectedState = states[indexPath.row]
                 self.cities.removeAll()
                 for city in arrCityData{
-                    let state = city.strStateName as! String
+                    let state = city.strStateName ?? ""
                     
                     if self.selectedState == state{
                         self.cities.append(city.strCityName ?? "")
@@ -205,9 +210,7 @@ class CountrySelection: UIViewController, UICollectionViewDelegate, UICollection
         else
         {
             if CustomUserDefault.getCityId().isEmpty {
-                
                 Toast(text:"Please select city".localized(lang: langCode)).show()
-                
             }
             else
             {
@@ -218,6 +221,6 @@ class CountrySelection: UIViewController, UICollectionViewDelegate, UICollection
     
     @IBAction func btnCancelPressed(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
-        
     }
+    
 }

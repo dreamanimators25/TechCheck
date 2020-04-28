@@ -135,7 +135,7 @@
 "Resend verification code" = "重新发送验证码";
 
 // 9. CityVC
-"No Cites Found" = "没有找到引用";
+"No Cities Found" = "没有找到引用";
 "Please Enter Your Pin Code" = "请输入您的密码";
 "Enter Post Code" = "输入邮政编码";
 "OK" = "好";
@@ -184,6 +184,9 @@
 "Earphone Jack is damaged or not-working" = "耳机插孔已损坏或无法工作";
 "Fingerprint Sensor Not-working" = "指纹传感器不起作用";
 
+"Change City" = "改变城市";
+"Changing City" = "改变城市";
+"Changing city could affect the price quote.Do you want to change city?" = "更改城市可能会影响报价。您要更改城市吗？";
 
 // 12. SendAppLinkPopUp
 "Enter valid mobile number" = "请输入有效的手机号码";

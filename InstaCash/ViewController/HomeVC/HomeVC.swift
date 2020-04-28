@@ -123,8 +123,8 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
     var floatingItemsArrayIN:[String] = ["  Call  ","  Mail  ","  Zopim Chat  "]
     var floatingImageArrayIN:[UIImage] = [#imageLiteral(resourceName: "callSupport"),#imageLiteral(resourceName: "mailSupport"),#imageLiteral(resourceName: "chatSupport")]
     
-    //var floatingItemsArrayMY:[String] = ["  WhatsApp  ","  Call  ","  Mail  "]
-    var floatingItemsArrayMY:[String] = ["  Line  ","  Call  ","  Mail  "]
+    var floatingItemsArrayMY:[String] = ["  WhatsApp  ","  Call  ","  Mail  "]
+    var floatingItemsArrayTW:[String] = ["  Line  ","  Call  ","  Mail  "]
     var floatingImageArrayMY:[UIImage] = [#imageLiteral(resourceName: "chatSupport"),#imageLiteral(resourceName: "callSupport"),#imageLiteral(resourceName: "mailSupport")]
     
     //MARK:- show custom delegate methods
@@ -1071,6 +1071,12 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        //Sameer - 27/4/2020
+        userDefaults.removeObject(forKey: "promoterID")
+        userDefaults.removeObject(forKey: "promoter")
+        userDefaults.removeObject(forKey: "promotionCouponCode")
+        userDefaults.removeObject(forKey: "additionalInfo")
         
         self.changeLanguageOfUI()
         
@@ -2451,10 +2457,10 @@ extension HomeVC {
             floatingItemCell.itemImgView.image = floatingImageArrayIN[indexPath.row]
             floatingItemCell.itemDescriptionLbl.text = floatingItemsArrayIN[indexPath.row].localized(lang: langCode)
             
-        }else if CustomUserDefault.getCurrency() == "RM" {
+        }else if CustomUserDefault.getCurrency() == "NT$" {
             
             floatingItemCell.itemImgView.image = floatingImageArrayMY[indexPath.row]
-            floatingItemCell.itemDescriptionLbl.text = floatingItemsArrayMY[indexPath.row].localized(lang: langCode)
+            floatingItemCell.itemDescriptionLbl.text = floatingItemsArrayTW[indexPath.row].localized(lang: langCode)
             
         }else {
             
@@ -2482,12 +2488,11 @@ extension HomeVC {
                 print("Zopim Chat")
             }
             
-        }else if CustomUserDefault.getCurrency() == "RM" {
+        }else if CustomUserDefault.getCurrency() == "NT$" {
             
             switch indexPath.row {
             case 0:
                 
-                //guard let url = URL(string: "https://wa.me/601165273417") else {
                 guard let url = URL(string: "https://lin.ee/cagGzzn") else {
                     return //be safe
                 }
@@ -2509,8 +2514,7 @@ extension HomeVC {
             switch indexPath.row {
             case 0:
                 
-                //guard let url = URL(string: "https://wa.me/601165273417") else {
-                guard let url = URL(string: "https://lin.ee/cagGzzn") else {
+                guard let url = URL(string: "https://wa.me/601165273417") else {
                     return //be safe
                 }
                 
@@ -2583,7 +2587,7 @@ extension HomeVC {
         var phoneNumber = String()
         if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
             phoneNumber = "0141-4232323"
-        }else if CustomUserDefault.getCurrency() == "TWD" {
+        }else if CustomUserDefault.getCurrency() == "NT$" {
             phoneNumber = "+886277300795"
         }else {
             phoneNumber = "+60365273417"

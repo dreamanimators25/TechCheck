@@ -25,7 +25,7 @@ class PlaceOrderVC: UIViewController,UITextFieldDelegate,CLLocationManagerDelega
     @IBOutlet weak var txtCity: UITextField!
     @IBOutlet weak var txtPincode: UITextField!
     @IBOutlet weak var btnPaymentMode: UIButton!
-    
+    @IBOutlet weak var btnGetMyLocationHeightConstraint: NSLayoutConstraint!
     
     //@IBOutlet weak var txtMobileNumber: UITextField! //s.
     //@IBOutlet weak var txtEmail: UITextField! //s.
@@ -57,8 +57,13 @@ class PlaceOrderVC: UIViewController,UITextFieldDelegate,CLLocationManagerDelega
         
         if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
             totalNumberCount = 6
-        }else if CustomUserDefault.getCurrency() == "TWD" {
+        }else if CustomUserDefault.getCurrency() == "NT$" {
             totalNumberCount = 3
+            
+            DispatchQueue.main.async {
+                self.btnGetMyLocationHeightConstraint.constant = 0
+                self.txtPincode.text = "\(CustomUserDefault.getUserPinCode() ?? 0)"
+            }
         }else {
             totalNumberCount = 5
         }
@@ -73,7 +78,6 @@ class PlaceOrderVC: UIViewController,UITextFieldDelegate,CLLocationManagerDelega
         //if (userDefaults.value(forKey: "countryName") as? String)?.contains("India") != nil {
             
         if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
-            
             //btnPaymentMode.setTitle("PICK PAYMENT MODE", for: .normal) //s.
         }
         else {
@@ -83,21 +87,28 @@ class PlaceOrderVC: UIViewController,UITextFieldDelegate,CLLocationManagerDelega
         //txtName.text = CustomUserDefault.getUserName() //s.
         //txtEmail.text = CustomUserDefault.getUserEmail() //s.
         //txtMobileNumber.text = CustomUserDefault.getPhoneNumber() //s.
+        
         txtCity.text = CustomUserDefault.getCityName()
         // Do any additional setup after loading the view.
         
-        //Check for Location Services
-        if (CLLocationManager.locationServicesEnabled()) {
+        if CustomUserDefault.getCurrency() == "NT$" {
             
-            locationManager = CLLocationManager()
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyBest
-            locationManager.requestAlwaysAuthorization()
-            locationManager.requestWhenInUseAuthorization()
-        }
-        
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager.startUpdatingLocation()
+        }else {
+            
+            //Check for Location Services
+            if (CLLocationManager.locationServicesEnabled()) {
+                
+                locationManager = CLLocationManager()
+                locationManager.delegate = self
+                locationManager.desiredAccuracy = kCLLocationAccuracyBest
+                locationManager.requestAlwaysAuthorization()
+                locationManager.requestWhenInUseAuthorization()
+            }
+            
+            if CLLocationManager.locationServicesEnabled() {
+                locationManager.startUpdatingLocation()
+            }
+            
         }
         
     }

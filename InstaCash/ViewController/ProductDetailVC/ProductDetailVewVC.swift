@@ -69,7 +69,7 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
     @IBOutlet weak var lblPriceworthtitle: UILabel!
     */
     
-    
+    @IBOutlet weak var btnChangeCity: UIButton!
     @IBOutlet weak var btnLockPrice: UIButton!
     @IBOutlet weak var viewForBorder: UIView!
     
@@ -209,6 +209,8 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
         self.lblthePriceBased.text = "The price is based on your self-reported device condition.".localized(lang: langCode)
         self.lblHurry.text = "Hurry, prices may drop in few days...".localized(lang: langCode)
         self.btnPlaceOrder.setTitle("PLACE ORDER".localized(lang: langCode), for: UIControlState.normal)
+        self.btnChangeCity.setTitle("Change City".localized(lang: langCode), for: UIControlState.normal)
+        
     }
 
     func reSetDiagnosHomeUIProcess(){
@@ -284,7 +286,9 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
             if isComingFromOnhomeConfirmOrder == false{
                 reSetDiagnosHomeUIProcess()
             }
-            /*lblDiagnosticPending.isHidden = true
+            
+            /*
+             lblDiagnosticPending.isHidden = true
              lblCompleteDignosisTile.isHidden = true
              imgDiagnisticPending.isHidden = true
              lblOtherDEviceName.isHidden = true
@@ -378,11 +382,12 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
             //            btnLockPriceHeightConstraint.constant = 45
             //            collectionViewHeightConstraint.constant = 90
             //        }
+            
             //setNavigationBar()
             //setViewDynamically()
+            
             setFontSize()
             
-            // Do any additional setup after loading the view.
         }
     }
     
@@ -593,7 +598,6 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                         imgMainDeviceWidhConstraint.constant = UIScreen.main.bounds.size.height * 0.15
                         imgMainProductHeightConstraint.constant = UIScreen.main.bounds.size.height * 0.15
                     }
-                    
                
                 }
 
@@ -666,9 +670,6 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                 return cell
             }
         }
-        
-        
-        
       
     }
     
@@ -701,7 +702,9 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
 //    }
     
     //MARK:- gesture methods
-    /*@objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
+    
+     /*
+     @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
         if gesture.direction == .up{
             print("UP")
             isSwipeUP = true
@@ -879,9 +882,12 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
         }
         else{
         }
-    }*/
+    }
+    */
+    
     // MARK:- navigation bar setup.
-    /*func setNavigationBar() -> Void
+    /*
+    func setNavigationBar() -> Void
     {
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.isNavigationBarHidden = false
@@ -1296,6 +1302,28 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
     
     @IBAction func onClickBack(_ sender: Any) {
         _ = self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func btnChangeCityPressed(_ sender: Any) {
+        
+        DispatchQueue.main.async {
+            let alertBox = UIAlertController(title: "Changing City".localized(lang: langCode), message:"Changing city could affect the price quote.Do you want to change city?".localized(lang: langCode), preferredStyle: UIAlertControllerStyle.alert)
+            
+            let cancel = UIAlertAction(title:"No".localized(lang: langCode), style: UIAlertActionStyle.cancel, handler: nil)
+            
+            let okAction = UIAlertAction(title: "Yes".localized(lang: langCode), style: UIAlertActionStyle.destructive, handler: {
+                (alert: UIAlertAction!) -> Void in
+                let vc  = CityVC()
+                vc.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+                self.navigationController?.present(vc, animated: true, completion: nil)
+            })
+            
+            alertBox.addAction(okAction)
+            alertBox.addAction(cancel)
+            
+            self.present(alertBox, animated: true, completion: nil)
+        }
+        
     }
         
     @IBAction func btnLockPricePressed(_ sender: UIButton) {

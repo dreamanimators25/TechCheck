@@ -20,7 +20,9 @@ class SensorReadVC: UIViewController {
     @IBOutlet weak var btnGuideMe: UIButton!
     @IBOutlet weak var lblNotWorking: UILabel!
     @IBOutlet weak var btnStart: UIButton!
+    @IBOutlet weak var btnProximityStart: UIButton!
     
+    var hasStarted = false
     
     var resultJSON = JSON()
     var isComingFromTestResult = false
@@ -40,11 +42,14 @@ class SensorReadVC: UIViewController {
         
         //proximityText.isHidden = false
         proximityImageView.loadGif(name: "proximity")
+        
+        /* //Sameer 27/4/2020
         let device = UIDevice.current
         device.isProximityMonitoringEnabled = true
+        
         if device.isProximityMonitoringEnabled {
             NotificationCenter.default.addObserver(self, selector: #selector((self.proximityChanged)), name: NSNotification.Name(rawValue: "UIDeviceProximityStateDidChangeNotification"), object: device)
-        }
+        }*/
         
         lblPrice.text = CustomUserDefault.getCurrency()
         //self.set()
@@ -64,6 +69,7 @@ class SensorReadVC: UIViewController {
         
         self.lblNotWorking.text = "It’s not working.".localized(lang: langCode)
         self.btnStart.setTitle("Start".localized(lang: langCode), for: UIControlState.normal)
+        self.btnProximityStart.setTitle("Start".localized(lang: langCode), for: UIControlState.normal)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -73,7 +79,7 @@ class SensorReadVC: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        set()
+        //set() //Sameer 27/4/2020
     }
     
     func set()
@@ -120,24 +126,25 @@ class SensorReadVC: UIViewController {
         }
         
         //            let secondViewController:CameraViewController = CameraViewController()
-        
         //            self.present(secondViewController, animated: true, completion: nil)
         
     }
     
-    /*@IBAction func btnskipPressed(_ sender: UIButton) {
+    //@IBAction func btnskipPressed(_ sender: UIButton) {
+    func btnSkipPerform() {
         // Prepare the popup assets
-        let title = "Proximity Sensor Diagnosis"
-        let message = "If you skip this test there would be a substantial decline in the price offered. Do you still want to skip?"
+        let title = "Proximity Sensor Diagnosis".localized(lang: langCode)
+        let message = "If you skip this test there would be a substantial decline in the price offered. Do you still want to skip?".localized(lang: langCode)
         
         
         // Create the dialog
         let popup = PopupDialog(title: title, message: message,buttonAlignment: .horizontal, transitionStyle: .bounceDown, tapGestureDismissal: false, panGestureDismissal :false)
         
         // Create buttons
-        let buttonOne = CancelButton(title: "Yes") {
+        let buttonOne = CancelButton(title: "Yes".localized(lang: langCode)) {
             UserDefaults.standard.set(false, forKey: "proximity")
             userDefaults.setValue(true, forKey: "proximity_complete")
+            
             if self.isComingFromTestResult{
                 let vc = DiagnosticTestResultVC()
                 self.resultJSON["Proximity"].int = -1
@@ -153,21 +160,22 @@ class SensorReadVC: UIViewController {
                 vc.resultJSON = self.resultJSON
                 self.present(vc, animated: true, completion: nil)
             }
+            
             if (userDefaults.value(forKey: "Diagnosis_DataSave") != nil){
                 let sendJson =  JSON.init(parseJSON:userDefaults.value(forKey: "Diagnosis_DataSave") as! String)
                 self.resultJSON = sendJson
                 self.resultJSON["Proximity"].int = -1
-
             }
+            
             userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
      
-     //Sameer 14/4/2020
-     userDefaults.removeObject(forKey: "volumebutton_complete")
-     userDefaults.setValue(false, forKey: "volumebutton_complete")
+            //Sameer 14/4/2020
+            userDefaults.removeObject(forKey: "volumebutton_complete")
+            userDefaults.setValue(false, forKey: "volumebutton_complete")
 
         }
         
-        let buttonTwo = DefaultButton(title: "No") {
+        let buttonTwo = DefaultButton(title: "No".localized(lang: langCode)) {
             //Do Nothing
             popup.dismiss(animated: true, completion: nil)
         }
@@ -207,10 +215,11 @@ class SensorReadVC: UIViewController {
         
         // Present dialog
         self.present(popup, animated: true, completion: nil)
-    }*/
+    }
     
     @objc func proximityChanged(notification: NSNotification) {
         if (notification.object as? UIDevice) != nil {
+            
             let device = UIDevice.current
             device.isProximityMonitoringEnabled = false
             UserDefaults.standard.set(true, forKey: "proximity")
@@ -235,6 +244,7 @@ class SensorReadVC: UIViewController {
                 vc.resultJSON = self.resultJSON
                 self.present(vc, animated: true, completion: nil)
             }
+            
             if (userDefaults.value(forKey: "Diagnosis_DataSave") != nil){
                 let sendJson =  JSON.init(parseJSON:userDefaults.value(forKey: "Diagnosis_DataSave") as! String)
                 self.resultJSON = sendJson
@@ -253,13 +263,12 @@ class SensorReadVC: UIViewController {
             }
 
             
-            //            let secondViewController:CameraViewController = CameraViewController()
-            
-            //            self.present(secondViewController, animated: true, completion: nil)
+            //let secondViewController:CameraViewController = CameraViewController()
+            //self.present(secondViewController, animated: true, completion: nil)
             
         }
     }
-    
+        
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -273,19 +282,41 @@ class SensorReadVC: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    /*@IBAction func onClickSkip(_ sender: Any) {
+     /*
+     @IBAction func onClickSkip(_ sender: Any) {
         
         let vc = VolumeCheckerVC()
         self.resultJSON["Proximity"].int = 1
         vc.resultJSON = self.resultJSON
         self.present(vc, animated: true, completion: nil)
         
-    }*/
+     }*/
     
     @IBAction func onClickStart(_ sender: Any) {
         self.viewGuide.isHidden = true
     }
     
+    @IBAction func onClickProximityTestStart(_ sender: Any) { //Sameer 27/4/2020
+       
+        if hasStarted {
+            
+            hasStarted = false
+            self.btnSkipPerform()
+            
+        }else {
+            hasStarted = true
+            
+            //Sameer 27/4/2020
+            let device = UIDevice.current
+            device.isProximityMonitoringEnabled = true
+            
+            if device.isProximityMonitoringEnabled {
+                NotificationCenter.default.addObserver(self, selector: #selector((self.proximityChanged)), name: NSNotification.Name(rawValue: "UIDeviceProximityStateDidChangeNotification"), object: device)
+            }
+            
+            self.btnProximityStart.setTitle("Skip".localized(lang: langCode), for: UIControlState.normal)
+        }
+    }
     
     // MARK: - Navigation
 

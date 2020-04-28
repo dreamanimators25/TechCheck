@@ -135,7 +135,7 @@
 "Resend verification code" = "Resend verification code";
 
 // 9. CityVC
-"No Cites Found" = "No Cites Found";
+"No Cities Found" = "No Cities Found";
 "Please Enter Your Pin Code" = "Please Enter Your Pin Code";
 "Enter Post Code" = "Enter Post Code";
 "OK" = "OK";
@@ -183,6 +183,10 @@
 "GSM (Call Function) is not-working normally" = "GSM (Call Function) is not-working normally";
 "Earphone Jack is damaged or not-working" = "Earphone Jack is damaged or not-working";
 "Fingerprint Sensor Not-working" = "Fingerprint Sensor Not-working";
+
+"Change City" = "Change City";
+"Changing City" = "Changing City";
+"Changing city could affect the price quote.Do you want to change city?" = "Changing city could affect the price quote.Do you want to change city?";
 
 
 // 12. SendAppLinkPopUp
