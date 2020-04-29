@@ -78,9 +78,9 @@ class SocialMobileRegisterVC: UIViewController {
             
         }else if CustomUserDefault.getCurrency() == "SG$" {
             
-            //if self.trimmedStr.hasPrefix("0") && self.trimmedStr.length > 1 {
-                //trimmedStr = txtMobileNumber.text?.substring(fromIndex: 1) ?? ""
-            //}
+            if self.trimmedStr.hasPrefix("0") && self.trimmedStr.length > 1 {
+                trimmedStr = txtMobileNumber.text?.substring(fromIndex: 1) ?? ""
+            }
             
             if self.trimmedStr.hasPrefix("65") && self.trimmedStr.length > 1 {
                 trimmedStr = txtMobileNumber.text?.substring(fromIndex: 2) ?? ""
@@ -96,9 +96,9 @@ class SocialMobileRegisterVC: UIViewController {
             
         }else {
             //"NT$"
-            //if self.trimmedStr.hasPrefix("0") && self.trimmedStr.length > 1 {
-                //trimmedStr = txtMobileNumber.text?.substring(fromIndex: 1) ?? ""
-            //}
+            if self.trimmedStr.hasPrefix("0") && self.trimmedStr.length > 1 {
+                trimmedStr = txtMobileNumber.text?.substring(fromIndex: 1) ?? ""
+            }
             
             if self.trimmedStr.hasPrefix("886") && self.trimmedStr.length > 1 {
                 trimmedStr = txtMobileNumber.text?.substring(fromIndex: 2) ?? ""

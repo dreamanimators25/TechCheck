@@ -742,15 +742,14 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
         }
     }
     
-    func fireWebServiceForMobileNumberRegister(isResend:Bool)
+    func fireWebServiceForMobileNumberRegister(isResend : Bool)
     {
         if reachability?.connection.description != "No Connection" {
             var strGCMToken = ""
             var internalOTP = ""
             
-            if (userDefaults.value(forKey: "FCMToken") != nil){
+            if (userDefaults.value(forKey: "FCMToken") != nil) {
                 strGCMToken = userDefaults.value(forKey: "FCMToken") as! String
-                
             }
             else{
                 strGCMToken = ""
@@ -782,8 +781,13 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
                 "preVerified":"0"
             ]
             
+            print(parameters)
+            
             self.otpApiPost(strURL: strUrl, parameters: parameters as NSDictionary, completionHandler: {responseObject , error in
+                
+                print(responseObject ?? [:])
                 Alert.HideProgressHud(Onview: self.view)
+                
                 if error == nil {
                     
                     if responseObject?["status"] as! String == "Success" {
@@ -869,12 +873,13 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
             parameters  = [
                 "userName" : apiAuthenticateUserName,
                 "apiKey" : key,
-                "mobile": txtPhoneNumer.text!,
+                "mobile" : txtPhoneNumer.text!,
                 "GCMId":strGCMToken,
                 "preVerified":"0",
                 "OTPLength":"4"
             ]
             
+            print(strUrl)
             print(parameters)
             
             self.otpApiPost(strURL: strUrl, parameters: parameters as NSDictionary, completionHandler: {responseObject , error in
@@ -886,7 +891,7 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
                     
                     if responseObject?["status"] as! String == "Success" {
                         
-                        if responseObject?.value(forKeyPath: "status") as? String == "Success"{
+                        if responseObject?.value(forKeyPath: "status") as? String == "Success" {
                             
                             //let dictUser = responseObject?["msg"] as! NSDictionary
                             CustomUserDefault.setPhoneNumber(data: self.txtPhoneNumer.text!)
@@ -924,7 +929,8 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
                 }
                 else
                 {
-                    Alert.showAlert(strMessage: responseObject?["msg"] as! NSString, Onview: self)
+                    //Alert.showAlert(strMessage: responseObject?["msg"] as! NSString, Onview: self)
+                    self.fireWebServiceForMobileNumberRegister(isResend: false)
                 }
             })
             
