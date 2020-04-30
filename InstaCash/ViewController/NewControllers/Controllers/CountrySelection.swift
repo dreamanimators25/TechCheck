@@ -86,6 +86,11 @@ class CountrySelection: UIViewController, UICollectionViewDelegate, UICollection
                         }
                     }
                     
+                    DispatchQueue.main.async {
+                        self.collectionForCountry.reloadData()
+                    }
+                    
+                    /*
                     self.collectionForCountry.reloadData()
                     
                     if (self.isSelectedIndex > -1){
@@ -95,7 +100,8 @@ class CountrySelection: UIViewController, UICollectionViewDelegate, UICollection
                                 pos = ind
                             }
                         }
-                    }
+                    }*/
+                    
                 }
             }
         }

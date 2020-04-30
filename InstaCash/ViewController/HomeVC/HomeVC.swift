@@ -592,12 +592,15 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                     }
                     else{
                         self.arrShowMyOrders.removeAllObjects()
-                        for index in 0..<arrMyOderGetData.count{
+                        for index in 0..<arrMyOderGetData.count {
+                            
                             let model = arrMyOderGetData[index]
                             let arrItem = model.arrMyOrderItemList
+                            
                             for obj in 0..<arrItem.count{
                                 let itemDict = arrItem[obj] as! NSDictionary
                                 if (itemDict.value(forKey: "status") as! String).contains("Verified")  || (itemDict.value(forKey: "status") as! String).contains("Unverified") || (itemDict.value(forKey: "status") as! String).contains("Price Lock") || (itemDict.value(forKey: "status") as! String).contains("out for pickup"){
+                                    
                                     if self.arrShowMyOrders.count == 0{
                                         self.countMyOrder = 0
                                     }
@@ -633,9 +636,9 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                                     
                                 }
                                 else{
-                                    let strPrice = userDefaults.value(forKey: "Product_UpToOffer") as! String
-                                    let price = Int(strPrice)
-                                    self.priceConfirmOrderFinal = price!
+                                    let strPrice = userDefaults.value(forKey: "Product_UpToOffer") as? String
+                                    let price = Int(strPrice ?? "")
+                                    self.priceConfirmOrderFinal = price ?? 0
                                     self.fireWebServiceGettingConfrimPrice(isPressedConfirmButton: false)
                                     self.viewConfirmOrder.isHidden = true
                                     self.confirmOrderPrice()
@@ -669,9 +672,9 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                                     
                                 }
                                 else{
-                                    let strPrice = userDefaults.value(forKey: "Product_UpToOffer") as! String
-                                    let price = Int(strPrice)
-                                    self.priceConfirmOrderFinal = price!
+                                    let strPrice = userDefaults.value(forKey: "Product_UpToOffer") as? String
+                                    let price = Int(strPrice ?? "")
+                                    self.priceConfirmOrderFinal = price ?? 0
                                     self.fireWebServiceGettingConfrimPrice(isPressedConfirmButton: false)
                                     self.viewConfirmOrder.isHidden = false
                                     self.confirmOrderPrice()
@@ -1298,7 +1301,9 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
     }
     //MARK:- set view dynamically
     func setViewDynamicaly(){
+        
         DispatchQueue.main.async {
+            
             self.lblDevice.layer.cornerRadius = self.lblDevice.frame.size.height/2
             self.lblDevice.clipsToBounds = true
             self.lblTitleOrders.layer.cornerRadius = self.lblDevice.frame.size.height/2
@@ -1316,6 +1321,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                 [UIColor.init(red: 114.0/255.0, green: 217.0/255.0, blue: 139.0/255.0, alpha: 1).cgColor,UIColor.init(red: 114.0/255.0, green: 217.0/255.0, blue: 207.0/255.0, alpha: 1).cgColor]
             gradientLayer.startPoint = CGPoint(x: 0.0, y: 1.0)
             gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
+            
             self.viewTop.layer.addSublayer(gradientLayer)
             self.viewTop.bringSubview(toFront: self.lblDevice)
             self.viewTop.bringSubview(toFront: self.lblPrice)
@@ -1462,13 +1468,11 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
     }
     
     @IBAction func onClickOrders(_ sender: Any) {
-        
         let vc = MyOrderVC()
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func onClickNotification(_ sender: Any) {
-        
         let vc = NotificationNew()
         self.navigationController?.pushViewController(vc, animated: true)
     }
@@ -1502,8 +1506,11 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
     
     func setDataForConfirmOrder(){
         let sendJson =  JSON.init(parseJSON:userDefaults.value(forKey: "Diagnosis_DataSave_forConfirmOrder") as! String)
+        
         if let data = UserDefaults.standard.object(forKey: "Diagnosis_AnserAndQuestionData_forConfirmOrder") as? Data {
+            
             if let arrGetQuestionAnserArrayForConfirmOrder = (NSKeyedUnarchiver.unarchiveObject(with: data) as? NSMutableArray){
+                
                 if arrGetQuestionAnserArrayForConfirmOrder.count > 0{
                     var arrQuestionAndAnswerShowSend = [PickUpQuestionModel]()
                     

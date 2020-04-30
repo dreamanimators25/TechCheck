@@ -391,8 +391,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "867"
             endingLineNumber = "867"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "sendToLastVCToCompletediagnosisProcess()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -408,8 +408,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "893"
             endingLineNumber = "893"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "sendToLastVCToCompletediagnosisProcess()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -429,14 +429,14 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "E9C04635-8D88-4BBD-B7B7-1E7F8A4EAA6C - 11943d36a779854c"
+                  uuid = "E9C04635-8D88-4BBD-B7B7-1E7F8A4EAA6C - 4c6cbfb6a474ac74"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "InstaCash.RotationVC.beginBtnClicked(__C.UIButton) -&gt; ()"
                   moduleName = "InstaCash"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/Sam%20HD/InstaCash/April-2020/29:4:20/Insta_iOS-master/InstaCash/ViewController/RotationVC/RotationVC.swift"
+                  urlString = "file:///Volumes/Sam%20HD/InstaCash/April-2020/30:4:20/Insta_iOS-master/InstaCash/ViewController/RotationVC/RotationVC.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "126"
@@ -444,14 +444,14 @@
                   offsetFromSymbolStart = "740">
                </Location>
                <Location
-                  uuid = "E9C04635-8D88-4BBD-B7B7-1E7F8A4EAA6C - 7cde3f09975cfa50"
+                  uuid = "E9C04635-8D88-4BBD-B7B7-1E7F8A4EAA6C - 2126bd899451d368"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "closure #1 () -&gt; () in InstaCash.RotationVC.beginBtnClicked(__C.UIButton) -&gt; ()"
                   moduleName = "InstaCash"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/Sam%20HD/InstaCash/April-2020/29:4:20/Insta_iOS-master/InstaCash/ViewController/RotationVC/RotationVC.swift"
+                  urlString = "file:///Volumes/Sam%20HD/InstaCash/April-2020/30:4:20/Insta_iOS-master/InstaCash/ViewController/RotationVC/RotationVC.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "127"
@@ -474,8 +474,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "854"
             endingLineNumber = "854"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "sendToLastVCToCompletediagnosisProcess()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -491,8 +491,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "833"
             endingLineNumber = "833"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "sendToLastVCToCompletediagnosisProcess()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -508,8 +508,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "838"
             endingLineNumber = "838"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "sendToLastVCToCompletediagnosisProcess()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -525,8 +525,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "843"
             endingLineNumber = "843"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "sendToLastVCToCompletediagnosisProcess()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -542,8 +542,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "848"
             endingLineNumber = "848"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "sendToLastVCToCompletediagnosisProcess()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -559,8 +559,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "872"
             endingLineNumber = "872"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "sendToLastVCToCompletediagnosisProcess()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -576,8 +576,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "878"
             endingLineNumber = "878"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "sendToLastVCToCompletediagnosisProcess()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -593,8 +593,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "882"
             endingLineNumber = "882"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "sendToLastVCToCompletediagnosisProcess()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -610,8 +610,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "887"
             endingLineNumber = "887"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "sendToLastVCToCompletediagnosisProcess()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -627,8 +627,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "828"
             endingLineNumber = "828"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "sendToLastVCToCompletediagnosisProcess()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -644,8 +644,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "823"
             endingLineNumber = "823"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "sendToLastVCToCompletediagnosisProcess()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -661,142 +661,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "818"
             endingLineNumber = "818"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E9BC5CBD-200A-4620-9BC4-03468A521133"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "InstaCash/ViewController/HomeVC/HomeVC.swift"
-            timestampString = "608752555.168982"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2200"
-            endingLineNumber = "2200"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "A407522C-8EE6-4B93-AD5E-CC6EA210EE9E"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "InstaCash/ViewController/HomeVC/HomeVC.swift"
-            timestampString = "608752555.169048"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2201"
-            endingLineNumber = "2201"
-            landmarkName = "unknown"
-            landmarkType = "0">
-            <Locations>
-               <Location
-                  uuid = "A407522C-8EE6-4B93-AD5E-CC6EA210EE9E - 6fbeee73fe6c91a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "InstaCash.HomeVC.fireWebServiceForVerificationCode(strVerificationCode: Swift.String, withProcessCode: Swift.String) -&gt; ()"
-                  moduleName = "InstaCash"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/Sam%20HD/InstaCash/April-2020/29:4:20/Insta_iOS-master/InstaCash/ViewController/HomeVC/HomeVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "2202"
-                  endingLineNumber = "2202"
-                  offsetFromSymbolStart = "4096">
-               </Location>
-               <Location
-                  uuid = "A407522C-8EE6-4B93-AD5E-CC6EA210EE9E - 2b82e27366a6a921"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;__C.NSDictionary&gt;, Swift.Optional&lt;__C.NSError&gt;) -&gt; () in InstaCash.HomeVC.fireWebServiceForVerificationCode(strVerificationCode: Swift.String, withProcessCode: Swift.String) -&gt; ()"
-                  moduleName = "InstaCash"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/Sam%20HD/InstaCash/April-2020/29:4:20/Insta_iOS-master/InstaCash/ViewController/HomeVC/HomeVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "2203"
-                  endingLineNumber = "2203"
-                  offsetFromSymbolStart = "240">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "73442879-0025-4834-AF77-6862DDB2619B"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "InstaCash/ViewController/HomeVC/HomeVC.swift"
-            timestampString = "608752555.169114"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2047"
-            endingLineNumber = "2047"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "2D812163-F1B9-4BA1-A290-28EA0B2FF871"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "InstaCash/ViewController/HomeVC/HomeVC.swift"
-            timestampString = "608752555.169179"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2048"
-            endingLineNumber = "2048"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "27536C48-EC29-4B75-8B88-19EE724C89F1"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "InstaCash/ViewController/HomeVC/HomeVC.swift"
-            timestampString = "608752555.169245"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1622"
-            endingLineNumber = "1622"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "60145A23-4B71-4425-9ADE-A2CFAE200737"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "InstaCash/ViewController/HomeVC/HomeVC.swift"
-            timestampString = "608752555.16931"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1623"
-            endingLineNumber = "1623"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "sendToLastVCToCompletediagnosisProcess()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1457,14 +1323,14 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "4DC63F19-0540-4348-AF52-82549924F983 - 11943d36a779854c"
+                  uuid = "4DC63F19-0540-4348-AF52-82549924F983 - 4c6cbfb6a474ac74"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "InstaCash.RotationVC.beginBtnClicked(__C.UIButton) -&gt; ()"
                   moduleName = "InstaCash"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/Sam%20HD/InstaCash/April-2020/29:4:20/Insta_iOS-master/InstaCash/ViewController/RotationVC/RotationVC.swift"
+                  urlString = "file:///Volumes/Sam%20HD/InstaCash/April-2020/30:4:20/Insta_iOS-master/InstaCash/ViewController/RotationVC/RotationVC.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "176"
@@ -1472,14 +1338,14 @@
                   offsetFromSymbolStart = "1052">
                </Location>
                <Location
-                  uuid = "4DC63F19-0540-4348-AF52-82549924F983 - e299a350a2e1b753"
+                  uuid = "4DC63F19-0540-4348-AF52-82549924F983 - bf6121d0a1ec9e6b"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "closure #2 () -&gt; () in InstaCash.RotationVC.beginBtnClicked(__C.UIButton) -&gt; ()"
                   moduleName = "InstaCash"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/Sam%20HD/InstaCash/April-2020/29:4:20/Insta_iOS-master/InstaCash/ViewController/RotationVC/RotationVC.swift"
+                  urlString = "file:///Volumes/Sam%20HD/InstaCash/April-2020/30:4:20/Insta_iOS-master/InstaCash/ViewController/RotationVC/RotationVC.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "178"
@@ -1560,7 +1426,7 @@
                   symbolName = "closure #1 (Swift.Optional&lt;__C.NSDictionary&gt;, Swift.Optional&lt;__C.NSError&gt;) -&gt; () in InstaCash.SocialMobileRegisterVC.fireWebServiceForGoogleLogin() -&gt; ()"
                   moduleName = "InstaCash"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/Sam%20HD/InstaCash/April-2020/29:4:20/Insta_iOS-master/InstaCash/ViewController/MobileVC/SocialMobileRegisterVC.swift"
+                  urlString = "file:///Volumes/Sam%20HD/InstaCash/April-2020/30:4:20/Insta_iOS-master/InstaCash/ViewController/MobileVC/SocialMobileRegisterVC.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "196"
@@ -1575,7 +1441,7 @@
                   symbolName = "closure #1 () -&gt; () in closure #1 (Swift.Optional&lt;__C.NSDictionary&gt;, Swift.Optional&lt;__C.NSError&gt;) -&gt; () in InstaCash.SocialMobileRegisterVC.fireWebServiceForGoogleLogin() -&gt; ()"
                   moduleName = "InstaCash"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/Sam%20HD/InstaCash/April-2020/29:4:20/Insta_iOS-master/InstaCash/ViewController/MobileVC/SocialMobileRegisterVC.swift"
+                  urlString = "file:///Volumes/Sam%20HD/InstaCash/April-2020/30:4:20/Insta_iOS-master/InstaCash/ViewController/MobileVC/SocialMobileRegisterVC.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "197"
@@ -1729,34 +1595,34 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "984DE9B4-3D7A-4979-83C4-D98B8248C410 - 6eb313406ed62618"
+                  uuid = "984DE9B4-3D7A-4979-83C4-D98B8248C410 - a2e887e711cc4500"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "InstaCash.CountryVC.fireWebServiceForMobileNumberRegister(isResend: Swift.Bool) -&gt; ()"
                   moduleName = "InstaCash"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/Sam%20HD/InstaCash/April-2020/29:4:20/Insta_iOS-master/InstaCash/ViewController/CountryVC/CountryVC.swift"
+                  urlString = "file:///Volumes/Sam%20HD/InstaCash/April-2020/30:4:20/Insta_iOS-master/InstaCash/ViewController/CountryVC/CountryVC.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "784"
-                  endingLineNumber = "784"
-                  offsetFromSymbolStart = "4156">
+                  startingLineNumber = "786"
+                  endingLineNumber = "786"
+                  offsetFromSymbolStart = "4316">
                </Location>
                <Location
-                  uuid = "984DE9B4-3D7A-4979-83C4-D98B8248C410 - 3eccbc16f7ca2c5a"
+                  uuid = "984DE9B4-3D7A-4979-83C4-D98B8248C410 - f29728b188d04f42"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "closure #1 (Swift.Optional&lt;__C.NSDictionary&gt;, Swift.Optional&lt;__C.NSError&gt;) -&gt; () in InstaCash.CountryVC.fireWebServiceForMobileNumberRegister(isResend: Swift.Bool) -&gt; ()"
                   moduleName = "InstaCash"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/Sam%20HD/InstaCash/April-2020/29:4:20/Insta_iOS-master/InstaCash/ViewController/CountryVC/CountryVC.swift"
+                  urlString = "file:///Volumes/Sam%20HD/InstaCash/April-2020/30:4:20/Insta_iOS-master/InstaCash/ViewController/CountryVC/CountryVC.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "785"
-                  endingLineNumber = "785"
-                  offsetFromSymbolStart = "152">
+                  startingLineNumber = "788"
+                  endingLineNumber = "788"
+                  offsetFromSymbolStart = "148">
                </Location>
             </Locations>
          </BreakpointContent>
