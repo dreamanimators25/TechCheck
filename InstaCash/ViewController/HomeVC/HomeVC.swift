@@ -543,21 +543,31 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                         
                         userDefaults.removeObject(forKey: "DeviceNameForPromoters")
                         userDefaults.removeObject(forKey: "ImageNameForPromoters")
-                        userDefaults.set(arrMyCurrentDeviceSend[0].strCurrentDeviceName, forKey: "DeviceNameForPromoters")
-                        userDefaults.set(arrMyCurrentDeviceSend[0].strCurrentDeviceImage, forKey: "ImageNameForPromoters")
                         
-                        let imgURL = URL(string:arrMyCurrentDeviceSend[0].strCurrentDeviceImage!)
+                        if let name = arrMyCurrentDeviceSend[0].strCurrentDeviceName {
+                            userDefaults.set(name, forKey: "DeviceNameForPromoters")
+                        }
+                        
+                        if let image = arrMyCurrentDeviceSend[0].strCurrentDeviceName {
+                            userDefaults.set(image, forKey: "ImageNameForPromoters")
+
+                        }
+                        
+                        //userDefaults.set(arrMyCurrentDeviceSend[0].strCurrentDeviceName, forKey: "DeviceNameForPromoters")
+                        //userDefaults.set(arrMyCurrentDeviceSend[0].strCurrentDeviceImage, forKey: "ImageNameForPromoters")
+                        
+                        let imgURL = URL(string:arrMyCurrentDeviceSend[0].strCurrentDeviceImage ?? "")
                         self.imgPhone.sd_setImage(with: imgURL)
                         self.imgConfirmOrder.sd_setImage(with: imgURL)
                         
-                        let strAmount = arrMyCurrentDeviceSend[0].currentDeviceMaximumTotal!.formattedWithSeparator
-                        // let strAmount  = String(format: "%d", arrMyCurrentDeviceSend[0].currentDeviceMaximumTotal!)
+                        let strAmount = arrMyCurrentDeviceSend[0].currentDeviceMaximumTotal?.formattedWithSeparator
+                        //let strAmount  = String(format: "%d", arrMyCurrentDeviceSend[0].currentDeviceMaximumTotal!)
                         
-                        self.lblPrice.text = CustomUserDefault.getCurrency()  + strAmount
+                        self.lblPrice.text = CustomUserDefault.getCurrency()  + (strAmount ?? "")
                     }
                     
                     if arrMyOderGetData.count == 0 {
-                        if userDefaults.value(forKey: "isShowUIOnHomeForOrder") == nil{
+                        if userDefaults.value(forKey: "isShowUIOnHomeForOrder") == nil {
                             self.viewConfirmOrder.isHidden = true
                             self.topViewHeightConstraint.constant = 230
                             self.lblTitleOrders.isHidden = true
@@ -574,9 +584,9 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                                 
                             }
                             else{
-                                let strPrice = userDefaults.value(forKey: "Product_UpToOffer") as! String
-                                let price = Int(strPrice)
-                                self.priceConfirmOrderFinal = price!
+                                let strPrice = userDefaults.value(forKey: "Product_UpToOffer") as? String
+                                let price = Int(strPrice ?? "")
+                                self.priceConfirmOrderFinal = price ?? 0
                                 self.fireWebServiceGettingConfrimPrice(isPressedConfirmButton: false)
                                 self.viewConfirmOrder.isHidden = true
                                 self.confirmOrderPrice()
@@ -592,6 +602,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                     }
                     else{
                         self.arrShowMyOrders.removeAllObjects()
+                        
                         for index in 0..<arrMyOderGetData.count {
                             
                             let model = arrMyOderGetData[index]
@@ -599,7 +610,8 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                             
                             for obj in 0..<arrItem.count{
                                 let itemDict = arrItem[obj] as! NSDictionary
-                                if (itemDict.value(forKey: "status") as! String).contains("Verified")  || (itemDict.value(forKey: "status") as! String).contains("Unverified") || (itemDict.value(forKey: "status") as! String).contains("Price Lock") || (itemDict.value(forKey: "status") as! String).contains("out for pickup"){
+                                
+                                if (itemDict.value(forKey: "status") as! String).contains("Verified")  || (itemDict.value(forKey: "status") as! String).contains("Unverified") || (itemDict.value(forKey: "status") as! String).contains("Price Lock") || (itemDict.value(forKey: "status") as! String).contains("out for pickup") {
                                     
                                     if self.arrShowMyOrders.count == 0{
                                         self.countMyOrder = 0
@@ -689,10 +701,9 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                         }
                         
                         //self.setViewDynamicaly()
-                        
                     }
                     
-                    if arrBrandDeviceGetData.count > 0{
+                    if arrBrandDeviceGetData.count > 0 {
                         
                         for obj in 0..<arrBrandDeviceGetData.count{
                             self.setBrandData(index: obj)
