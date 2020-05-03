@@ -36,11 +36,11 @@ class PaymentsModeVC: UIViewController {
     @IBOutlet weak var impsView: UIView!
     @IBOutlet weak var walletView: UIView!
     @IBOutlet weak var paytmWalletView: UIView!
-    
     @IBOutlet weak var otherView: UIView!
     @IBOutlet weak var cendolView: UIView!
     @IBOutlet weak var maxisView: UIView!
     @IBOutlet weak var samsungView: UIView!
+    
     @IBOutlet weak var cendolImage: UIImageView!
     @IBOutlet weak var maxisImage: UIImageView!
     @IBOutlet weak var samsungImage: UIImageView!
@@ -62,8 +62,41 @@ class PaymentsModeVC: UIViewController {
     @IBOutlet weak var btnMaxis: UIButton!
     @IBOutlet weak var btnSamsung: UIButton!
     
+    @IBOutlet weak var btnCash: UIButton!
+    @IBOutlet weak var btnUuponCash: UIButton!
+    @IBOutlet weak var btnUuponCashPoint: UIButton!
+    
     @IBOutlet weak var BottomView: UIView!
     @IBOutlet weak var lblSelectedPaymentMode: UILabel!
+    
+    //TW
+    @IBOutlet weak var cashView: UIView!
+    @IBOutlet weak var uuponCashView: UIView!
+    @IBOutlet weak var uuponCashPointsView: UIView!
+    
+    @IBOutlet weak var smallCashImage: UIImageView!
+    @IBOutlet weak var smallUuponCashImage: UIImageView!
+    @IBOutlet weak var smallUuponCashPointImage: UIImageView!
+    
+    @IBOutlet weak var cashImage: UIImageView!
+    @IBOutlet weak var uuponCashImage: UIImageView!
+    @IBOutlet weak var uuponCashPointImage: UIImageView!
+    
+    @IBOutlet weak var lblCash: UILabel!
+    @IBOutlet weak var lblCashcharges: UILabel!
+    @IBOutlet weak var lblPayable6: UILabel!
+    @IBOutlet weak var lblCashtotalPrice: UILabel!
+    
+    @IBOutlet weak var lblUuponCash: UILabel!
+    @IBOutlet weak var lblUuponCashcharges: UILabel!
+    @IBOutlet weak var lblPayable7: UILabel!
+    @IBOutlet weak var lblUuponCashtotalPrice: UILabel!
+    
+    @IBOutlet weak var lblUuponCashPoint: UILabel!
+    @IBOutlet weak var lblUuponCashPointcharges: UILabel!
+    @IBOutlet weak var lblPayable8: UILabel!
+    @IBOutlet weak var lblUuponCashPointtotalPrice: UILabel!
+    
     
     
     // Localized
@@ -117,6 +150,10 @@ class PaymentsModeVC: UIViewController {
     var cendol = 0
     var maxis = 0
     var samsung = 0
+    
+    var cash = 0
+    var uuponCash = 0
+    var uuponCashPoint = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -177,7 +214,7 @@ class PaymentsModeVC: UIViewController {
             self.smallMAXISImage.isHidden = true
             self.smallSAMSUNGImage.isHidden = true
             
-        }else {
+        }else if CustomUserDefault.getCurrency() == "SG$" {
             
             self.btnBank.isSelected = false
             self.btnNeft.isSelected = false
@@ -199,6 +236,33 @@ class PaymentsModeVC: UIViewController {
             
             self.smallNEFTImage.isHidden = false
             self.smallIMPSImage.isHidden = true
+            
+        }else {
+            
+            self.btnCash.isSelected = false
+            self.btnUuponCash.isSelected = false
+            self.btnUuponCashPoint.isSelected = false
+            
+            self.lblSelectedPaymentMode.text = "CASH".localized(lang: langCode)
+            selectePaymentType = "Cash"
+            
+            self.bankView.isHidden = true
+            self.neftView.isHidden = true
+            self.impsView.isHidden = true
+            self.walletView.isHidden = true
+            self.paytmWalletView.isHidden = true
+            self.cendolView.isHidden = true
+            self.maxisView.isHidden = true
+            self.samsungView.isHidden = true
+            
+            self.lblCash.text = "Cash".localized(lang: langCode)
+            self.lblUuponCash.text = "UUPON (Cash Only)".localized(lang: langCode)
+            self.lblUuponCashPoint.text = "UUPON (Cash+Points)".localized(lang: langCode)
+            
+            self.smallCashImage.isHidden = false
+            self.smallUuponCashImage.isHidden = true
+            self.smallUuponCashPointImage.isHidden = true
+            
             
         }
         
@@ -232,6 +296,15 @@ class PaymentsModeVC: UIViewController {
         self.lblSelPayMode.text = "Selected Payment Mode".localized(lang: langCode)
         
         self.btnNext.setTitle("NEXT".localized(lang: langCode), for: UIControlState.normal)
+        
+        //TW
+        self.lblCash.text = "Cash".localized(lang: langCode)
+        self.lblPayable6.text = "Payable".localized(lang: langCode)
+        self.lblUuponCash.text = "UUPON (Cash Only)".localized(lang: langCode)
+        self.lblPayable7.text = "Payable".localized(lang: langCode)
+        self.lblUuponCashPoint.text = "UUPON (Cash+Points)".localized(lang: langCode)
+        self.lblPayable8.text = "Payable".localized(lang: langCode)
+        
         
     }
     
@@ -288,6 +361,15 @@ class PaymentsModeVC: UIViewController {
         
         samsungView.layer.borderWidth = width
         samsungView.layer.borderColor = color.cgColor
+        
+        cashView.layer.borderWidth = width
+        cashView.layer.borderColor = color.cgColor
+        
+        uuponCashView.layer.borderWidth = width
+        uuponCashView.layer.borderColor = color.cgColor
+        
+        uuponCashPointsView.layer.borderWidth = width
+        uuponCashPointsView.layer.borderColor = color.cgColor
     }
     
     //MARK:- web service methods
@@ -301,6 +383,7 @@ class PaymentsModeVC: UIViewController {
         if reachability?.connection.description != "No Connection" {
             
             Alert.ShowProgressHud(Onview: self.view)
+            
             let strBaseURL = userDefaults.value(forKey: "baseURL") as! String
             let strUrl = strBaseURL + "paymentMode"
             
@@ -331,6 +414,8 @@ class PaymentsModeVC: UIViewController {
             print(parametersHome)
             
             self.apiPayment(strURL: strUrl, parameters: parametersHome as NSDictionary, completionHandler: {responseObject , error in
+                
+                print(responseObject ?? [:])
                 Alert.HideProgressHud(Onview: self.view)
                 
                 if error == nil {
@@ -470,7 +555,7 @@ class PaymentsModeVC: UIViewController {
                                 }
                             }
 
-                        }else {
+                        }else if CustomUserDefault.getCurrency() == "SG$" {
 
                             for (index,item) in self.arrDictPaymentMode.enumerated() {
                                 print(index,item)
@@ -508,6 +593,59 @@ class PaymentsModeVC: UIViewController {
                                     
                                 }
                             }
+                        }else {
+                            
+                            for (index,item) in self.arrDictPaymentMode.enumerated() {
+                                print(index,item)
+                                
+                                if item["typeCode"] as? String == "CASH" {
+                                    let gateWayCharge = item.value(forKey: "gatewayCharge") as? Int ?? 0
+                                    
+                                    let cashCharge = self.getFinalPrice3 + gateWayCharge
+                                    self.cash = cashCharge
+                                    self.finalPriceSet3 = cashCharge
+                                    
+                                    self.lblOTHERtotalPrice.text = CustomUserDefault.getCurrency() + String(cashCharge.formattedWithSeparator)
+                                    
+                                    self.lblCashcharges.text = "Gateway charges".localized(lang: langCode) + "-" + CustomUserDefault.getCurrency() + String(gateWayCharge)
+                                    
+                                    self.lblCashtotalPrice.text = CustomUserDefault.getCurrency() + String(cashCharge.formattedWithSeparator)
+                                    
+                                    let imgURL = URL.init(string: item["image"] as! String)
+                                    self.cashImage.sd_setImage(with: imgURL)
+                                    
+                                }else if item["typeCode"] as? String == "UUPON (Cash Only)" {
+                                    
+                                    let gateWayCharge = item.value(forKey: "gatewayCharge") as? Int ?? 0
+                                    
+                                    self.lblUuponCashcharges.text = "Gateway charges".localized(lang: langCode) + "-" + CustomUserDefault.getCurrency() + String(gateWayCharge)
+                                    
+                                    let bankCharge = self.getFinalPrice3 + gateWayCharge
+                                    self.uuponCash = bankCharge
+                                    
+                                    self.lblUuponCashtotalPrice.text = CustomUserDefault.getCurrency() + String(bankCharge.formattedWithSeparator)
+                                    
+                                    let imgURL = URL.init(string: item["image"] as! String)
+                                    self.uuponCashImage.sd_setImage(with: imgURL)
+                                    
+                                }else if item["typeCode"] as? String == "UUPON (Cash+Points)" {
+                                    
+                                    let gateWayCharge = item.value(forKey: "gatewayCharge") as? Int ?? 0
+                                    
+                                    self.lblUuponCashPointcharges.text = "Gateway charges".localized(lang: langCode) + "-" + CustomUserDefault.getCurrency() + String(gateWayCharge)
+                                    
+                                    let bankCharge = self.getFinalPrice3 + gateWayCharge
+                                    self.uuponCashPoint = bankCharge
+                                    
+                                    self.lblUuponCashPointtotalPrice.text = CustomUserDefault.getCurrency() + String(bankCharge.formattedWithSeparator)
+                                    
+                                    let imgURL = URL.init(string: item["image"] as! String)
+                                    self.uuponCashPointImage.sd_setImage(with: imgURL)
+                                    
+                                }
+                                
+                            }
+                            
                         }
                     }
                     else{
@@ -825,33 +963,40 @@ class PaymentsModeVC: UIViewController {
         }
     }
     
+    //MARK: SG ACTIOMS
     @IBAction func btnOTHERTapped(_ sender: UIButton) {
         
-        if !sender.isSelected {
+        if CustomUserDefault.getCurrency() == "NT$" {
             
-            self.btnBank.isSelected = false
-            self.btnNeft.isSelected = false
-            self.btnImps.isSelected = false
-            self.btnOther.isSelected = true
-            self.btnCendol.isSelected = false
-            self.btnMaxis.isSelected = false
-            self.btnSamsung.isSelected = false
+        }else {
             
-            DispatchQueue.main.async {
-                UIView.animate(withDuration: 0.4, animations: {
-                    self.view.layoutIfNeeded()
-                    self.neftView.isHidden = true
-                    
-                    self.cendolView.isHidden = false
-                    self.maxisView.isHidden = false
-                    self.samsungView.isHidden = false
-                    self.view.layoutIfNeeded()
-                }) { (true) in
-                    
+            if !sender.isSelected {
+                
+                self.btnBank.isSelected = false
+                self.btnNeft.isSelected = false
+                self.btnImps.isSelected = false
+                self.btnOther.isSelected = true
+                self.btnCendol.isSelected = false
+                self.btnMaxis.isSelected = false
+                self.btnSamsung.isSelected = false
+                
+                DispatchQueue.main.async {
+                    UIView.animate(withDuration: 0.4, animations: {
+                        self.view.layoutIfNeeded()
+                        self.neftView.isHidden = true
+                        
+                        self.cendolView.isHidden = false
+                        self.maxisView.isHidden = false
+                        self.samsungView.isHidden = false
+                        self.view.layoutIfNeeded()
+                    }) { (true) in
+                        
+                    }
                 }
+                
             }
-            
         }
+        
     }
     
     @IBAction func btnCENDOLTapped(_ sender: UIButton) {
@@ -968,6 +1113,109 @@ class PaymentsModeVC: UIViewController {
         }
     }
     
+    //MARK: TW ACTIOMS
+    @IBAction func btnCashTWTapped(_ sender: UIButton) {
+        
+        if !sender.isSelected {
+            
+            self.btnCash.isSelected = true
+            self.btnUuponCash.isSelected = false
+            self.btnUuponCashPoint.isSelected = false
+            
+            self.lblSelectedPaymentMode.text = "CASH".localized(lang: langCode)
+            
+            DispatchQueue.main.async {
+                UIView.animate(withDuration: 0.4, animations: {
+                    self.view.layoutIfNeeded()
+                    self.BottomView.frame.origin.y += 45
+                    self.view.layoutIfNeeded()
+                }) { (true) in
+                    UIView.animate(withDuration: 0.3) {
+                        self.view.layoutIfNeeded()
+                        self.BottomView.frame.origin.y -= 45
+                        self.view.layoutIfNeeded()
+                    }
+                }
+            }
+            
+            selectePaymentType = "Cash"
+            finalPriceSet3 = cash
+            
+            self.smallCashImage.isHidden = false
+            self.smallUuponCashImage.isHidden = true
+            self.smallUuponCashPointImage.isHidden = true
+        }
+        
+    }
+    
+    @IBAction func btnUuponCashTWTapped(_ sender: UIButton) {
+        
+        if !sender.isSelected {
+            
+            self.btnCash.isSelected = false
+            self.btnUuponCash.isSelected = true
+            self.btnUuponCashPoint.isSelected = false
+            
+            self.lblSelectedPaymentMode.text = "UUPON (Cash Only)".localized(lang: langCode)
+            
+            DispatchQueue.main.async {
+                UIView.animate(withDuration: 0.4, animations: {
+                    self.view.layoutIfNeeded()
+                    self.BottomView.frame.origin.y += 45
+                    self.view.layoutIfNeeded()
+                }) { (true) in
+                    UIView.animate(withDuration: 0.3) {
+                        self.view.layoutIfNeeded()
+                        self.BottomView.frame.origin.y -= 45
+                        self.view.layoutIfNeeded()
+                    }
+                }
+            }
+            
+            selectePaymentType = "UUPON (Cash Only)"
+            finalPriceSet3 = uuponCash
+            
+            self.smallCashImage.isHidden = true
+            self.smallUuponCashImage.isHidden = false
+            self.smallUuponCashPointImage.isHidden = true
+        }
+        
+    }
+    
+    @IBAction func btnUuponCashPointTWTapped(_ sender: UIButton) {
+        
+        if !sender.isSelected {
+            
+            self.btnCash.isSelected = false
+            self.btnUuponCash.isSelected = false
+            self.btnUuponCashPoint.isSelected = true
+            
+            self.lblSelectedPaymentMode.text = "UUPON (Cash+Points)".localized(lang: langCode)
+            
+            DispatchQueue.main.async {
+                UIView.animate(withDuration: 0.4, animations: {
+                    self.view.layoutIfNeeded()
+                    self.BottomView.frame.origin.y += 45
+                    self.view.layoutIfNeeded()
+                }) { (true) in
+                    UIView.animate(withDuration: 0.3) {
+                        self.view.layoutIfNeeded()
+                        self.BottomView.frame.origin.y -= 45
+                        self.view.layoutIfNeeded()
+                    }
+                }
+            }
+            
+            selectePaymentType = "UUPON (Cash+Points)"
+            finalPriceSet3 = uuponCashPoint
+            
+            self.smallCashImage.isHidden = true
+            self.smallUuponCashImage.isHidden = true
+            self.smallUuponCashPointImage.isHidden = false
+        }
+        
+    }
+    
     @IBAction func btnNextTapped(_ sender: UIButton) {
         
         if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
@@ -1036,7 +1284,7 @@ class PaymentsModeVC: UIViewController {
                 
             }
             
-        }else {
+        }else if CustomUserDefault.getCurrency() == "SG$" {
             
             if selectePaymentType == "Fastpay" {
                 
@@ -1060,6 +1308,9 @@ class PaymentsModeVC: UIViewController {
                 
             }
             
+        }else {
+            
+            self.fetchOrderFromServer(orderRefType: self.selectePaymentType)
         }
 
         
@@ -1233,8 +1484,8 @@ class PaymentsModeVC: UIViewController {
                         let orderID = responseObject?["orderId"] as? String
                         let itemID = responseObject?["itemId"] as? String
                         
-                        
                         switch self.selectePaymentType {
+                            
                         case "Bank":
                             
                             let vc = MYBankDetailVC()
@@ -1296,9 +1547,21 @@ class PaymentsModeVC: UIViewController {
                             vc.placedOrderId = orderPlaceID ?? ""
                             self.navigationController?.pushViewController(vc, animated:     true)
                             
-                        default:
+                        case "Paynow":
                             
                             let vc = SGPaynowVC()
+                            vc.quatationId = self.quatationId3
+                            vc.orderID = orderID ?? ""
+                            vc.itemID = itemID ?? ""
+                            vc.selectedPaymentType = self.selectePaymentType
+                            
+                            vc.finalPriced = self.finalPriceSet3
+                            vc.placedOrderId = orderPlaceID ?? ""
+                            self.navigationController?.pushViewController(vc, animated:     true)
+                            
+                        default:
+                            
+                            let vc = TWCashVC()
                             vc.quatationId = self.quatationId3
                             vc.orderID = orderID ?? ""
                             vc.itemID = itemID ?? ""

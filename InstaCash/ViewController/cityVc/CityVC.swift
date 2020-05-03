@@ -78,28 +78,57 @@ class CityVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UITex
         self.cityPicker.dataSource = self
         cityPicker.selectRow(0, inComponent: 0, animated: false)
 
-        if reachability?.connection.description != "No Connection"{
+        if reachability?.connection.description != "No Connection" {
             CityModel.fetchCityFromServer(isInterNet:true,getController: self) { (arrCityData) in
-                if arrCityData.count > 0{
+                if arrCityData.count > 0 {
+                    
                     self.arrCityData = arrCityData
                     self.lblMessage.isHidden = true
                     self.btnCancel.isHidden = true
-                    if !CustomUserDefault.getCityId().isEmpty{
-                        for index in 0..<arrCityData.count{
-                            let state = arrCityData[index].strStateName ?? ""
+                    
+                    if !CustomUserDefault.getCityId().isEmpty {
+                        
+                        //Sameer 3/5/2020
+                        if CustomUserDefault.getCurrency() == "NT$" {
                             
-                            if self.states.contains(state){
-                                //do nothing
-                            }else{
-                                self.states.append(state)
+                            let twArr = ["Choose Country","Taiwan"]
+                            
+                            for item in twArr {
+                                self.states.append(item)
                             }
-                            let strCityId = arrCityData[index].strCityId
-                            if strCityId == CustomUserDefault.getCityId(){
-                                self.isSelectedIndex = index
-                                self.selectedState = arrCityData[index].strStateName ?? ""
-                                self.stateSelection = self.states.firstIndex(of: self.selectedState) ?? 0
-                                self.lblValidateMssg.isHidden = true
-                                self.txtPinCode.text = arrCityData[index].strCityCode
+                            
+                            for index in 0..<arrCityData.count {
+                                let strCityId = arrCityData[index].strCityId
+                                if strCityId == CustomUserDefault.getCityId(){
+                                    self.isSelectedIndex = index
+                                    self.selectedState = arrCityData[index].strStateName ?? ""
+                                    self.stateSelection = 1 //self.states.firstIndex(of: self.selectedState) ?? 0
+                                    self.lblValidateMssg.isHidden = true
+                                    self.txtPinCode.text = arrCityData[index].strCityCode
+                                }
+                            }
+                            
+                        }else {
+                            
+                            for index in 0..<arrCityData.count {
+                                
+                                let state = arrCityData[index].strStateName ?? ""
+                                if self.states.contains(state){
+                                    //do nothing
+                                }else{
+                                    self.states.append(state)
+                                }
+                                
+                                
+                                let strCityId = arrCityData[index].strCityId
+                                if strCityId == CustomUserDefault.getCityId(){
+                                    self.isSelectedIndex = index
+                                    self.selectedState = arrCityData[index].strStateName ?? ""
+                                    self.stateSelection = self.states.firstIndex(of: self.selectedState) ?? 0
+                                    self.lblValidateMssg.isHidden = true
+                                    self.txtPinCode.text = arrCityData[index].strCityCode
+                                }
+                                
                             }
                         }
                     }else{
@@ -112,22 +141,41 @@ class CityVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UITex
                                 self.states.append(state)
                             }
                         }
-                    }
-                    
-                    
-                    self.cities.removeAll()
-                    if (self.selectedState == ""){
-                        self.selectedState = self.states[0]
-                    }
-                    for city in arrCityData{
-                        let state = city.strStateName ?? ""
                         
-                        if (self.selectedState == state){
-                            self.cities.append(city.strCityName ?? "")
+                    }
+                    
+                    //Sameer 3/5/2020
+                    if CustomUserDefault.getCurrency() == "NT$" {
+                        self.cities.removeAll()
+                        if (self.selectedState == ""){
+                            self.selectedState = self.states[0]
+                        }
+                        
+                        
+                        for city in arrCityData {
+                                self.cities.append(city.strCityName ?? "")
+                        }
+                        
+                    }else {
+                        self.cities.removeAll()
+                        if (self.selectedState == ""){
+                            self.selectedState = self.states[0]
+                        }
+                        
+                        for city in arrCityData{
+                            let state = city.strStateName ?? ""
+                            
+                            if (self.selectedState == state){
+                                self.cities.append(city.strCityName ?? "")
+                            }
                         }
                     }
+                    
+                    
+                    
                     self.cityPicker.reloadAllComponents()
                     self.cityPicker.selectRow(self.stateSelection, inComponent: 0, animated: false)
+                    
                     if (self.isSelectedIndex > -1){
                         var pos = 0
                         for ind in 0..<self.cities.count{
@@ -137,6 +185,7 @@ class CityVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UITex
                         }
                         self.cityPicker.selectRow(pos, inComponent: 1, animated: false)
                     }
+                    
                 }
                 else{
                     self.lblMessage.isHidden = false
@@ -164,28 +213,29 @@ class CityVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UITex
     func textFieldDidEndEditing(_ textField: UITextField) {
         if !(textField.text?.isEmpty)!{
             
-            for index in 0..<arrCityData.count{
+            for index in 0..<arrCityData.count {
                 let strCodeget = arrCityData[index].strCityCode
-                if strCodeget == textField.text{
+                if strCodeget == textField.text {
                     selectedState = arrCityData[index].strStateName ?? "Delhi"
                     for counter in 0..<states.count{
                         if self.selectedState == states[counter]{
                             self.stateSelection = counter
                         }
                     }
+                    
                     self.cities.removeAll()
                     var pins = [String]()
                     for city in arrCityData{
                         let state = city.strStateName ?? ""
                         
-                        if self.selectedState == state{
+                        if self.selectedState == state {
                             self.cities.append(city.strCityName ?? "")
                             pins.append(city.strCityCode ?? "")
                         }
                     }
                     
                     self.cityPicker.selectRow(self.stateSelection, inComponent: 0, animated: true)
-                    for i in 0..<pins.count{
+                    for i in 0..<pins.count {
                         if strCodeget == pins[i]{
                             self.cityPicker.selectRow(i, inComponent: 1, animated: true)
                         }
@@ -219,52 +269,72 @@ class CityVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UITex
     {
         switch component {
         case 0:
+    
             self.stateSelection = row
             self.selectedState = states[row]
             self.cities.removeAll()
             
-            for city in arrCityData{
-                let state = city.strStateName ?? ""
+            //Sameer 3/5/2020
+            if CustomUserDefault.getCurrency() == "NT$" {
                 
-                if self.selectedState == state{
-                    self.cities.append(city.strCityName ?? "")
+                if self.selectedState == "Taiwan" {
+                    for city in arrCityData {
+                        if city.strCityName != "Choose State" {
+                            self.cities.append(city.strCityName ?? "")
+                        }
+                    }
+                }else {
+                    self.cities.append("Choose State")
+                }
+                
+            }else {
+                
+                for city in arrCityData{
+                    let state = city.strStateName ?? ""
+                    
+                    if self.selectedState == state {
+                        self.cities.append(city.strCityName ?? "")
+                    }
                 }
             }
-            print(selectedState)
-            self.cityPicker.reloadComponent(1)
+                
+                print(selectedState)
+                self.cityPicker.reloadComponent(1)
+            
             break
         case 1:
             isSelectedIndex = row
             
             var cityIds = [String]()
             var pins = [String]()
-            for city in arrCityData{
+            
+            for city in arrCityData {
                
-                if cities.contains(city.strCityName ?? ""){
+                if cities.contains(city.strCityName ?? "") {
                     cityIds.append(city.strCityId ?? "0")
                     pins.append(city.strCityCode ?? "")
                 }
             }
             
             var citySelected = ""
-            if row < cities.count{
+            if row < cities.count {
                 citySelected = cities[row]
                 CustomUserDefault.setCityName(data: citySelected)
             }
             
-            if cityIds.count > row{
+            if cityIds.count > row {
                 let cityId = cityIds[row]
                 CustomUserDefault.setCityId(data: cityId)
                 
                 let pincode = pins[row] //Sameer 26/4/2020
-                CustomUserDefault.setUserPinCode(data: Int(pincode) ?? 0)
+                CustomUserDefault.setUserPinCode(data: pincode)
             }
             
-            if pins.count > row{
+            if pins.count > row {
                 let pincode = pins[row]
                 lblValidateMssg.isHidden = true
                 txtPinCode.text = pincode
-                CustomUserDefault.setUserPinCode(data: Int(pincode) ?? 0) //Sameer 26/4/2020
+                CustomUserDefault.setUserPinCode(data: pincode) //Sameer 26/4/2020
             }
             
             break

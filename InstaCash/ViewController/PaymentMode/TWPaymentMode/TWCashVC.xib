@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Bold.ttf">
+            <string>Roboto-Bold</string>
+        </array>
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
+        </array>
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TWCashVC" customModule="InstaCash" customModuleProvider="target">
+            <connections>
+                <outlet property="btnProceed" destination="W81-Xp-A38" id="wA5-1L-KkM"/>
+                <outlet property="btnSkip" destination="NAq-Gx-fRZ" id="rOj-QI-JLh"/>
+                <outlet property="lblPleaseEnter" destination="cb2-q4-vTy" id="Npa-rX-Bea"/>
+                <outlet property="lblTitle" destination="m2P-TZ-Ddy" id="65w-GY-k9T"/>
+                <outlet property="lblTransferDetail" destination="ESr-fq-EQM" id="Mmp-JU-NG3"/>
+                <outlet property="tncTextView" destination="RNN-dv-f5g" id="1Mh-OY-SeN"/>
+                <outlet property="view" destination="nyM-wV-x5d" id="hX0-J8-2f8"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="nyM-wV-x5d">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2q6-aW-gmj">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nQR-F8-VhC">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CASH" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m2P-TZ-Ddy">
+                            <rect key="frame" x="137.5" y="12" width="45.5" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zB0-rw-4aB">
+                            <rect key="frame" x="10" y="2" width="40" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="40" id="F4S-27-2Ys"/>
+                                <constraint firstAttribute="height" constant="40" id="Ls0-lw-QL5"/>
+                            </constraints>
+                            <state key="normal" image="backBlack"/>
+                            <connections>
+                                <action selector="btnBackTapped:" destination="-1" eventType="touchUpInside" id="hc4-fx-ckB"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="zB0-rw-4aB" firstAttribute="leading" secondItem="nQR-F8-VhC" secondAttribute="leading" constant="10" id="7f7-ga-VV4"/>
+                        <constraint firstItem="m2P-TZ-Ddy" firstAttribute="centerX" secondItem="nQR-F8-VhC" secondAttribute="centerX" id="AOc-nw-pLx"/>
+                        <constraint firstItem="m2P-TZ-Ddy" firstAttribute="centerY" secondItem="nQR-F8-VhC" secondAttribute="centerY" id="DLw-7d-7Gf"/>
+                        <constraint firstAttribute="height" constant="44" id="J4Q-pI-Kbz"/>
+                        <constraint firstItem="zB0-rw-4aB" firstAttribute="centerY" secondItem="nQR-F8-VhC" secondAttribute="centerY" id="bN7-N2-gW8"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QeG-re-cjv">
+                    <rect key="frame" x="0.0" y="49" width="320" height="65.5"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transfer Details" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ESr-fq-EQM">
+                            <rect key="frame" x="15" y="10" width="150.5" height="25"/>
+                            <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="21"/>
+                            <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please Enter the details" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cb2-q4-vTy">
+                            <rect key="frame" x="15" y="40" width="135.5" height="15.5"/>
+                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
+                            <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="cb2-q4-vTy" firstAttribute="leading" secondItem="QeG-re-cjv" secondAttribute="leading" constant="15" id="0hL-Au-g8V"/>
+                        <constraint firstItem="cb2-q4-vTy" firstAttribute="top" secondItem="ESr-fq-EQM" secondAttribute="bottom" constant="5" id="9Vo-TD-Qfi"/>
+                        <constraint firstAttribute="bottom" secondItem="cb2-q4-vTy" secondAttribute="bottom" constant="10" id="9ks-u6-9ot"/>
+                        <constraint firstItem="ESr-fq-EQM" firstAttribute="leading" secondItem="QeG-re-cjv" secondAttribute="leading" constant="15" id="I0z-TD-3hj"/>
+                        <constraint firstItem="ESr-fq-EQM" firstAttribute="top" secondItem="QeG-re-cjv" secondAttribute="top" constant="10" id="QWc-F0-V3X"/>
+                    </constraints>
+                </view>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Dae-wA-ATz">
+                    <rect key="frame" x="0.0" y="523" width="320" height="45"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NAq-Gx-fRZ" customClass="shadowCornerButton" customModule="InstaCash" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="160" height="45"/>
+                            <color key="backgroundColor" red="0.88227540250000003" green="0.88240253930000001" blue="0.88224762680000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="18"/>
+                            <state key="normal" title="SKIP">
+                                <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="0.0"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="btnSkipTapped:" destination="-1" eventType="touchUpInside" id="ppX-L7-hcL"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W81-Xp-A38" customClass="shadowCornerButton" customModule="InstaCash" customModuleProvider="target">
+                            <rect key="frame" x="160" y="0.0" width="160" height="45"/>
+                            <color key="backgroundColor" red="0.094117647060000004" green="0.60784313729999995" blue="0.17254901959999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="18"/>
+                            <state key="normal" title="PROCEED">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="0.0"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="btnProceedTapped:" destination="-1" eventType="touchUpInside" id="tVB-dR-aDQ"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="Xw3-gz-bGz"/>
+                    </constraints>
+                </stackView>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RNN-dv-f5g">
+                    <rect key="frame" x="10" y="124.5" width="300" height="388.5"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="18"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="QeG-re-cjv" firstAttribute="leading" secondItem="Ivd-9t-eAw" secondAttribute="leading" id="0pu-Vv-N4v"/>
+                <constraint firstItem="2q6-aW-gmj" firstAttribute="trailing" secondItem="Ivd-9t-eAw" secondAttribute="trailing" id="5s5-IY-3n5"/>
+                <constraint firstItem="Dae-wA-ATz" firstAttribute="top" secondItem="RNN-dv-f5g" secondAttribute="bottom" constant="10" id="FmG-TP-xm0"/>
+                <constraint firstItem="QeG-re-cjv" firstAttribute="top" secondItem="nQR-F8-VhC" secondAttribute="bottom" constant="5" id="Kdk-Ts-Mtu"/>
+                <constraint firstItem="RNN-dv-f5g" firstAttribute="leading" secondItem="Ivd-9t-eAw" secondAttribute="leading" constant="10" id="MND-Ki-fiU"/>
+                <constraint firstItem="RNN-dv-f5g" firstAttribute="top" secondItem="QeG-re-cjv" secondAttribute="bottom" constant="10" id="QMa-mP-myN"/>
+                <constraint firstItem="Ivd-9t-eAw" firstAttribute="trailing" secondItem="RNN-dv-f5g" secondAttribute="trailing" constant="10" id="S2C-YO-2nP"/>
+                <constraint firstItem="nQR-F8-VhC" firstAttribute="top" secondItem="Ivd-9t-eAw" secondAttribute="top" id="T11-AH-XoK"/>
+                <constraint firstItem="2q6-aW-gmj" firstAttribute="top" secondItem="Ivd-9t-eAw" secondAttribute="top" id="aLl-SD-ipg"/>
+                <constraint firstItem="Dae-wA-ATz" firstAttribute="leading" secondItem="Ivd-9t-eAw" secondAttribute="leading" id="fpY-Hh-43d"/>
+                <constraint firstAttribute="trailing" secondItem="QeG-re-cjv" secondAttribute="trailing" id="hvI-8J-Etj"/>
+                <constraint firstItem="Ivd-9t-eAw" firstAttribute="bottom" secondItem="Dae-wA-ATz" secondAttribute="bottom" id="lBi-MM-T0h"/>
+                <constraint firstItem="2q6-aW-gmj" firstAttribute="bottom" secondItem="Ivd-9t-eAw" secondAttribute="bottom" id="ngB-yY-aoY"/>
+                <constraint firstItem="2q6-aW-gmj" firstAttribute="leading" secondItem="Ivd-9t-eAw" secondAttribute="leading" id="oOT-1X-FPl"/>
+                <constraint firstItem="Ivd-9t-eAw" firstAttribute="trailing" secondItem="Dae-wA-ATz" secondAttribute="trailing" id="pca-eR-yp5"/>
+                <constraint firstItem="nQR-F8-VhC" firstAttribute="trailing" secondItem="Ivd-9t-eAw" secondAttribute="trailing" id="q5q-ws-bas"/>
+                <constraint firstItem="nQR-F8-VhC" firstAttribute="leading" secondItem="Ivd-9t-eAw" secondAttribute="leading" id="uAj-Cl-GaK"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Ivd-9t-eAw"/>
+            <point key="canvasLocation" x="139" y="154"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="backBlack" width="16" height="16"/>
+    </resources>
+</document>

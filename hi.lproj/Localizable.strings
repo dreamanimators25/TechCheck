@@ -271,6 +271,9 @@
 "CENDOL VOUCHER" = "CENDOL वाउचर";
 "MAXIS" = "MAXIS";
 "SAMSUNG" = "SAMSUNG";
+"Cash" = "नकद";
+"UUPON (Cash Only)" = "यूपॉन (कैश ओनली)";
+"UUPON (Cash+Points)" = "यूपॉन (नकद + अंक)";
 "Gateway charges" = "गेटवे शुल्क";
 "Payment Mode" = "भुगतान का प्रकार";
 "Select Payment Mode" = "भुगतान मोड का चयन करें";

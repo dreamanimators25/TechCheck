@@ -18,8 +18,8 @@ class SellerDetailsVC: UIViewController,UITextFieldDelegate {
     var strProductImg1 = ""
     let reachability: Reachability? = Reachability()
     var quatationId1 = String() //s.
-    var totalNumberCount = 0
-    
+    var totalNumberCount1 = 0
+    var totalNumberCount2 = 0
     
     @IBOutlet weak var txtCountryCode: UITextField!
     
@@ -43,16 +43,20 @@ class SellerDetailsVC: UIViewController,UITextFieldDelegate {
         
         if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
             txtCountryCode.text = "+91"
-            totalNumberCount = 10
+            totalNumberCount1 = 10
+            totalNumberCount2 = 10
         }else if CustomUserDefault.getCurrency() == "RM" {
             txtCountryCode.text = "+60"
-            totalNumberCount = 10
+            totalNumberCount1 = 8
+            totalNumberCount2 = 11
         }else if CustomUserDefault.getCurrency() == "SG$" {
             txtCountryCode.text = "+65"
-            totalNumberCount = 10
+            totalNumberCount1 = 8
+            totalNumberCount2 = 11
         }else {
             txtCountryCode.text = "+886"
-            totalNumberCount = 10
+            totalNumberCount1 = 9
+            totalNumberCount2 = 9
         }
         
         //txtCountryCode.delegate = self
@@ -161,7 +165,7 @@ class SellerDetailsVC: UIViewController,UITextFieldDelegate {
         {
             Alert.showAlert(strMessage: "Please enter mobile number".localized(lang: langCode) as NSString, Onview: self)
             return false
-        }else if txtMobile.text?.count ?? 0 < totalNumberCount {
+        }else if txtMobile.text?.count ?? 0 < totalNumberCount1 || txtMobile.text?.count ?? 0 > totalNumberCount2 {
             Alert.showAlert(strMessage: "Please enter Valid mobile number".localized(lang: langCode) as NSString, Onview: self)
             return false
         }
@@ -179,7 +183,7 @@ class SellerDetailsVC: UIViewController,UITextFieldDelegate {
         
         if let characterCount = textField.text?.count {
             // CHECK FOR CHARACTER COUNT IN TEXT FIELD
-            if characterCount == totalNumberCount {
+            if characterCount == totalNumberCount2 {
                 // RESIGN FIRST RERSPONDER TO HIDE KEYBOARD
                 return textField.resignFirstResponder()
             }

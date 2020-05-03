@@ -271,6 +271,9 @@
 "CENDOL VOUCHER" = "岑多 凭证";
 "MAXIS" = "马克西斯";
 "SAMSUNG" = "三星";
+"Cash" = "现金";
+"UUPON (Cash Only)" = "UUPON（仅限现金）";
+"UUPON (Cash+Points)" = " UUPON（现金+积分）";
 "Gateway charges" = "平台費用"; //"网关费用";
 "Payment Mode" = "付款方式";
 "Select Payment Mode" = "选择付款方式";

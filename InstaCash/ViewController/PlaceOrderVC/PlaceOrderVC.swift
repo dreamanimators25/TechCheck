@@ -53,16 +53,18 @@ class PlaceOrderVC: UIViewController,UITextFieldDelegate,CLLocationManagerDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setNavigationBar()
         
         if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
             totalNumberCount = 6
         }else if CustomUserDefault.getCurrency() == "NT$" {
             totalNumberCount = 3
+            self.isMatchPincode = true
             
             DispatchQueue.main.async {
                 self.btnGetMyLocationHeightConstraint.constant = 0
-                self.txtPincode.text = "\(CustomUserDefault.getUserPinCode() ?? 0)"
+                self.txtPincode.text = CustomUserDefault.getUserPinCode()
             }
         }else {
             totalNumberCount = 5

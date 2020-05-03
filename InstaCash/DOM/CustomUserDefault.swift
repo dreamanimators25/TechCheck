@@ -38,7 +38,6 @@ extension UserDefaults {
 
 class CustomUserDefault: NSObject {
     
-    
     static  func setUserId(data : String)  {
         UserDefaults.standard.set(data, forKey: "UserId")
     }
@@ -88,19 +87,26 @@ class CustomUserDefault: NSObject {
         UserDefaults.standard.removeObject(forKey: "CityId")
     }
     
-    static func setUserPinCode(data : Int) {
+    static func setUserPinCode(data : String) {
         UserDefaults.standard.set(data, forKey: "orderPinCode")
     }
     static func removePinCode() {
         UserDefaults.standard.removeObject(forKey: "orderPinCode")
     }
-    static func getUserPinCode() -> Int? {
+    static func getUserPinCode() -> String? {
+        if (UserDefaults.standard.object(forKey: "orderPinCode") != nil) {
+            return  UserDefaults.standard.object(forKey: "orderPinCode") as? String
+        }
+        else{
+            return "0"
+        }
         
+        /*
         if let pin = UserDefaults.standard.value(forKey: "orderPinCode") as? Int {
             return pin
         }else {
             return 0
-        }
+        }*/
     }
     
     static  func setPhoneNumber(data : String)  {
@@ -113,7 +119,6 @@ class CustomUserDefault: NSObject {
         }
         else{
             return  ""
-            
         }
     }
     
@@ -135,26 +140,23 @@ class CustomUserDefault: NSObject {
         }
     }
     
-    static func removeProductId()
-    {
+    static func removeProductId(){
         UserDefaults.standard.removeObject(forKey: "ProductId")
     }
     
-    static  func setCityName(data : String)  {
-        
+    static  func setCityName(data : String) {
         UserDefaults.standard.set(data, forKey: "CityName")
     }
+    
     static  func getCityName()-> String  {
-        
         return  UserDefaults.standard.object(forKey: "CityName") as? String ?? ""
     }
-    static func removeCityName()
-    {
+    
+    static func removeCityName() {
         UserDefaults.standard.removeObject(forKey: "CityName")
     }
     
-    static func removeCurrency()
-    {
+    static func removeCurrency() {
         UserDefaults.standard.removeObject(forKey: "currency")
     }
     static  func setCurrency(data : String)  {
@@ -162,7 +164,6 @@ class CustomUserDefault: NSObject {
         UserDefaults.standard.set(data, forKey: "currency")
     }
     static  func getCurrency()-> String  {
-        
         return  UserDefaults.standard.object(forKey: "currency") as? String ?? ""
     }
     

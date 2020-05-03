@@ -273,6 +273,9 @@
 "CENDOL VOUCHER" = "CENDOL VOUCHER";
 "MAXIS" = "MAXIS";
 "SAMSUNG" = "SAMSUNG";
+"Cash" = "Cash";
+"UUPON (Cash Only)" = "UUPON (Cash Only)";
+"UUPON (Cash+Points)" = "UUPON (Cash+Points)";
 "Gateway charges" = "Gateway charges";
 "Payment Mode" = "Payment Mode";
 "Select Payment Mode" = "Select Payment Mode";

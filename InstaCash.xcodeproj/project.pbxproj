@@ -121,6 +121,8 @@
 		5943AEEA2443507400A49C3D /* MyOrdersCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5943AEE82443507400A49C3D /* MyOrdersCell.xib */; };
 		59B67ACC2438FA3E00F4B321 /* LanguagePopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B67ACA2438FA3E00F4B321 /* LanguagePopUpVC.swift */; };
 		59B67ACD2438FA3E00F4B321 /* LanguagePopUpVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59B67ACB2438FA3E00F4B321 /* LanguagePopUpVC.xib */; };
+		59B68C52245EE59900731FAD /* TWCashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B68C50245EE59900731FAD /* TWCashVC.swift */; };
+		59B68C53245EE59900731FAD /* TWCashVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59B68C51245EE59900731FAD /* TWCashVC.xib */; };
 		59E4BE862429202100F59107 /* OffersAndPromotionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E4BE842429202100F59107 /* OffersAndPromotionsVC.swift */; };
 		59E4BE872429202100F59107 /* OffersAndPromotionsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59E4BE852429202100F59107 /* OffersAndPromotionsVC.xib */; };
 		59FA616B2451C59E00D4147F /* SocialMobileRegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FA61692451C59E00D4147F /* SocialMobileRegisterVC.swift */; };
@@ -544,6 +546,8 @@
 		5943AEE82443507400A49C3D /* MyOrdersCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyOrdersCell.xib; sourceTree = "<group>"; };
 		59B67ACA2438FA3E00F4B321 /* LanguagePopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagePopUpVC.swift; sourceTree = "<group>"; };
 		59B67ACB2438FA3E00F4B321 /* LanguagePopUpVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LanguagePopUpVC.xib; sourceTree = "<group>"; };
+		59B68C50245EE59900731FAD /* TWCashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TWCashVC.swift; path = InstaCash/ViewController/PaymentMode/TWPaymentMode/TWCashVC.swift; sourceTree = SOURCE_ROOT; };
+		59B68C51245EE59900731FAD /* TWCashVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TWCashVC.xib; path = InstaCash/ViewController/PaymentMode/TWPaymentMode/TWCashVC.xib; sourceTree = SOURCE_ROOT; };
 		59E4BE842429202100F59107 /* OffersAndPromotionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffersAndPromotionsVC.swift; sourceTree = "<group>"; };
 		59E4BE852429202100F59107 /* OffersAndPromotionsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OffersAndPromotionsVC.xib; sourceTree = "<group>"; };
 		59FA61692451C59E00D4147F /* SocialMobileRegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMobileRegisterVC.swift; sourceTree = "<group>"; };
@@ -1107,6 +1111,15 @@
 				525C2B3323ABB30E006A1237 /* UIScrollView+TPKeyboardAvoidingAdditions.m */,
 			);
 			path = TPKeyboardAvoidingClasses;
+			sourceTree = "<group>";
+		};
+		59B68C4F245EE57100731FAD /* TWPaymentMode */ = {
+			isa = PBXGroup;
+			children = (
+				59B68C50245EE59900731FAD /* TWCashVC.swift */,
+				59B68C51245EE59900731FAD /* TWCashVC.xib */,
+			);
+			path = TWPaymentMode;
 			sourceTree = "<group>";
 		};
 		59E4BE8324291F9F00F59107 /* OfferAndPromotions */ = {
@@ -2134,6 +2147,7 @@
 				FBFDA7FD21537B6600667DC6 /* PaymentsModeVC.xib */,
 				52211F6123D5D53F00FE0CFD /* MYPaymentMode */,
 				52211F6023D5D50A00FE0CFD /* SGPaymentMode */,
+				59B68C4F245EE57100731FAD /* TWPaymentMode */,
 			);
 			path = PaymentMode;
 			sourceTree = "<group>";
@@ -2390,6 +2404,7 @@
 				FBA3A65721BBE35600CEE9E4 /* HeaderDetailCell.xib in Resources */,
 				FBFCA37621C22B75006A016E /* swipe-arrows.svg in Resources */,
 				FBFCA36E21C22B75006A016E /* phone-camera.svg in Resources */,
+				59B68C53245EE59900731FAD /* TWCashVC.xib in Resources */,
 				FBA1313121B15997001571B2 /* PickUpQuestionVC.xib in Resources */,
 				FB9C6FED215A197900F93B85 /* rotation.gif in Resources */,
 				59FA616C2451C59E00D4147F /* SocialMobileRegisterVC.xib in Resources */,
@@ -2773,6 +2788,7 @@
 				FBA3A65A21BBE4DE00CEE9E4 /* QuestionAndAnswerCell.swift in Sources */,
 				35F8AE19234F3EFE0004F3CF /* StartDevice.swift in Sources */,
 				951EC837213FED04006BD4B2 /* WelcomeCollectionViewCell.swift in Sources */,
+				59B68C52245EE59900731FAD /* TWCashVC.swift in Sources */,
 				35F8AE15234F3EFE0004F3CF /* Sell2.swift in Sources */,
 				FBA1313021B15997001571B2 /* PickUpQuestionVC.swift in Sources */,
 				FB9C702E215A734500F93B85 /* TestResultCell.swift in Sources */,

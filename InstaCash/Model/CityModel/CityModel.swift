@@ -57,19 +57,21 @@ class CityModel{
             "version" : "v2"
         ]
         self.cityApiPost(strURL: strUrl, parameters: parametersHome as Dictionary<String, AnyObject>, completionHandler: {responseObject , error in
+            
             DispatchQueue.main.async {
-            Alert.HideProgressHud(Onview: getController.view)
-            }            
+                Alert.HideProgressHud(Onview: getController.view)
+            }
+            
             if error == nil {
-                if responseObject?["status"] as! String == "Success"{
-
+                if responseObject?["status"] as! String == "Success" {
+                    
                     let msg = responseObject?["msg"] as! NSArray
-                        for msgCount in 0..<msg.count{
-                            let stateObj = msg[msgCount] as! Dictionary<String, AnyObject>
-                            let stateName = stateObj["name"]
-                            let cityArr = stateObj["city"] as! NSArray
-                            for obj in 0..<cityArr.count{
-                                
+                    for msgCount in 0..<msg.count {
+                        let stateObj = msg[msgCount] as! Dictionary<String, AnyObject>
+                        let stateName = stateObj["name"]
+                        let cityArr = stateObj["city"] as! NSArray
+                        
+                        for obj in 0..<cityArr.count{
                                 var dict = cityArr[obj] as! Dictionary<String, AnyObject>
                                 dict["state"] = stateName
                                 let memberItem = CityModel(cityDict: dict as [String : Any])

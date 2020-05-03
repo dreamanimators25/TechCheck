@@ -55,7 +55,7 @@ class Profile: UIViewController, UITextFieldDelegate {
         }
         
         if let pincode = CustomUserDefault.getUserPinCode() {
-            if pincode == 0 || pincode == 1 {
+            if pincode == "0" || pincode == "1" {
                 txtPostCode.text = ""
             }else {
                 txtPostCode.text = String(pincode)
@@ -418,7 +418,7 @@ class Profile: UIViewController, UITextFieldDelegate {
             
             UserDefaults.standard.set(txtAddress1.text, forKey: "placeOrderAddress")
             UserDefaults.standard.set(txtAddress2.text, forKey: "address2")
-            CustomUserDefault.setUserPinCode(data: Int(txtPostCode?.text ?? "") ?? 0)
+            CustomUserDefault.setUserPinCode(data: txtPostCode?.text ?? "")
             
             UserDefaults.standard.set(txtAccount.text, forKey: "accountNumber")
             UserDefaults.standard.set(txtNameOnCard.text, forKey: "nameOnCard")
