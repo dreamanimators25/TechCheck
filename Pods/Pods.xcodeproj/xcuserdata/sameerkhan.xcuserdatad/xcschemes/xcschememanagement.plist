@@ -4,261 +4,253 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>ActionSheetPicker-3.0.xcscheme_^#shared#^_</key>
+		<key>ActionSheetPicker-3.0.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>Alamofire.xcscheme_^#shared#^_</key>
+		<key>Alamofire.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>2</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>BiometricAuthentication.xcscheme_^#shared#^_</key>
+		<key>BiometricAuthentication.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>3</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>Bolts.xcscheme_^#shared#^_</key>
+		<key>Bolts.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>4</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>Crashlytics.xcscheme_^#shared#^_</key>
+		<key>DKCamera.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>5</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>DKCamera.xcscheme_^#shared#^_</key>
+		<key>Deviice.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>7</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>Deviice.xcscheme_^#shared#^_</key>
+		<key>DynamicBlurView.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>6</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>DynamicBlurView.xcscheme_^#shared#^_</key>
+		<key>FBSDKCoreKit.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>8</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>FBSDKCoreKit.xcscheme_^#shared#^_</key>
+		<key>FBSDKLoginKit.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>11</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>FBSDKLoginKit.xcscheme_^#shared#^_</key>
+		<key>FacebookCore.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>12</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>Fabric.xcscheme_^#shared#^_</key>
+		<key>Firebase.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>9</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>FacebookCore.xcscheme_^#shared#^_</key>
+		<key>FirebaseAnalytics.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>10</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>Firebase.xcscheme_^#shared#^_</key>
+		<key>FirebaseCore.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>13</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>FirebaseAnalytics.xcscheme_^#shared#^_</key>
+		<key>FirebaseDatabase.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>14</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>FirebaseCore.xcscheme_^#shared#^_</key>
+		<key>FirebaseInstanceID.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>15</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>FirebaseDatabase.xcscheme_^#shared#^_</key>
+		<key>FirebaseMessaging.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>16</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>FirebaseInstanceID.xcscheme_^#shared#^_</key>
+		<key>GBDeviceInfo.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>17</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>FirebaseMessaging.xcscheme_^#shared#^_</key>
+		<key>GTMOAuth2.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>18</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>GBDeviceInfo.xcscheme_^#shared#^_</key>
+		<key>GTMSessionFetcher.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>19</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>GTMOAuth2.xcscheme_^#shared#^_</key>
+		<key>GoogleAnalytics.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>29</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>GTMSessionFetcher.xcscheme_^#shared#^_</key>
+		<key>GoogleAppMeasurement.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>30</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>GoogleAnalytics.xcscheme_^#shared#^_</key>
+		<key>GoogleSignIn.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>20</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>GoogleAppMeasurement.xcscheme_^#shared#^_</key>
+		<key>GoogleSymbolUtilities.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>21</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>GoogleSignIn.xcscheme_^#shared#^_</key>
+		<key>GoogleTagManager-TagManagerResources.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>22</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>GoogleSymbolUtilities.xcscheme_^#shared#^_</key>
+		<key>GoogleTagManager.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>23</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>GoogleTagManager-TagManagerResources.xcscheme_^#shared#^_</key>
+		<key>GoogleToolboxForMac.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>25</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>GoogleTagManager.xcscheme_^#shared#^_</key>
+		<key>GoogleUtilities.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>24</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>GoogleToolboxForMac.xcscheme_^#shared#^_</key>
+		<key>GoogleUtilitiesLegacy.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>26</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>GoogleUtilities.xcscheme_^#shared#^_</key>
+		<key>INTULocationManager.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>27</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>GoogleUtilitiesLegacy.xcscheme_^#shared#^_</key>
+		<key>JPSVolumeButtonHandler.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>28</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>INTULocationManager.xcscheme_^#shared#^_</key>
+		<key>Luminous.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>31</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>JPSVolumeButtonHandler.xcscheme_^#shared#^_</key>
+		<key>MBProgressHUD.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>32</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>Luminous.xcscheme_^#shared#^_</key>
+		<key>MFSideMenu.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>34</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>MBProgressHUD.xcscheme_^#shared#^_</key>
+		<key>McPicker.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>35</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>MFSideMenu.xcscheme_^#shared#^_</key>
+		<key>OTPTextField.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>37</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>McPicker.xcscheme_^#shared#^_</key>
+		<key>Pods-InstaCash.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>36</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>OTPTextField.xcscheme_^#shared#^_</key>
+		<key>Pods-InstaCashTests.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>39</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>Pods-InstaCash.xcscheme_^#shared#^_</key>
+		<key>Pods-InstaCashUITests.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>40</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>Pods-InstaCashTests.xcscheme_^#shared#^_</key>
+		<key>PopupDialog.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>41</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>Pods-InstaCashUITests.xcscheme_^#shared#^_</key>
+		<key>Protobuf.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>42</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>PopupDialog.xcscheme_^#shared#^_</key>
+		<key>SDWebImage.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>43</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>Protobuf.xcscheme_^#shared#^_</key>
+		<key>SwiftGifOrigin.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>44</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>SDWebImage.xcscheme_^#shared#^_</key>
+		<key>SwiftSpinner.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>45</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>SwiftGifOrigin.xcscheme_^#shared#^_</key>
+		<key>SwiftyJSON.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>46</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>SwiftSpinner.xcscheme_^#shared#^_</key>
+		<key>SystemServices.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>47</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>SwiftyJSON.xcscheme_^#shared#^_</key>
+		<key>TrueSDK-TrueSDK.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>48</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>SystemServices.xcscheme_^#shared#^_</key>
+		<key>TrueSDK.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>49</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>TrueSDK-TrueSDK.xcscheme_^#shared#^_</key>
+		<key>leveldb-library.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>51</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>TrueSDK.xcscheme_^#shared#^_</key>
+		<key>nanopb.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>50</integer>
-		</dict>
-		<key>leveldb-library.xcscheme_^#shared#^_</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>33</integer>
-		</dict>
-		<key>nanopb.xcscheme_^#shared#^_</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>38</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict/>
 </dict>
 </plist>

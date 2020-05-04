@@ -92,6 +92,9 @@ class TWCashVC: UIViewController {
             let strBaseURL = userDefaults.value(forKey: "baseURL") as! String
             let strUrl = strBaseURL + "getPaymentDetails"
             
+            //"CASH"
+            //"UUPON (Cash+Points)"
+            
             let parametersHome : [String : Any] = [
                 "userName" : apiAuthenticateUserName,
                 "apiKey" : key,
@@ -111,14 +114,24 @@ class TWCashVC: UIViewController {
                 if error == nil {
                     if responseObject?["status"] as! String == "Success" {
                         
-                        if ((responseObject?.value(forKey: "paymentStructure") as? NSArray) == nil) {
+                        if ((responseObject?.value(forKey: "paymentStructure") as? NSDictionary) == nil) {
                             let vc = OrderFinalVC()
                             vc.orderID = self.placedOrderId
                             vc.finalPrice = self.finalPriced
                             self.navigationController?.pushViewController(vc, animated: true)
                         }else {
-                            let actualHTML = ((responseObject?.value(forKey: "msg") as! NSDictionary)["html"] as! NSArray)[3] as? String
-                            self.tncTextView.attributedText = actualHTML?.htmlToAttributedString
+                            //let actualHTML = ((responseObject?.value(forKey: "msg") as! NSDictionary)["html"] as! NSArray)[3] as? String
+                            //self.tncTextView.attributedText = actualHTML?.htmlToAttributedString
+                            
+                            if let actualHTMLArray = ((responseObject?.value(forKey: "msg") as! NSDictionary)["html"] as? NSArray) {
+                                self.tncTextView.attributedText =  (actualHTMLArray[3] as? String)?.htmlToAttributedString
+                            }else {
+                                let vc = OrderFinalVC()
+                                vc.orderID = self.placedOrderId
+                                vc.finalPrice = self.finalPriced
+                                self.navigationController?.pushViewController(vc, animated: true)
+                            }
+                            
                         }
                        
                     }

@@ -79,8 +79,7 @@ class MYCendolVC: UIViewController {
     
     func paymentDetailsApiPost(strURL : String , parameters:NSDictionary, completionHandler: @escaping (NSDictionary?, NSError?) -> ()) {
         let web = WebServies()
-        web.postRequest(urlString: strURL, paramDict: (parameters as! Dictionary<String, AnyObject>),
-                        completionHandler: completionHandler)
+        web.postRequest(urlString: strURL, paramDict: (parameters as! Dictionary<String, AnyObject>),completionHandler: completionHandler)
     }
     
     func getPaymentDetailsFromServer() {

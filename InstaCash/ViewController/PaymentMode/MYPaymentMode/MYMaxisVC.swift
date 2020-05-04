@@ -222,7 +222,6 @@ class MYMaxisVC: UIViewController {
             let jsonData = try! JSONSerialization.data(withJSONObject: info, options:[])
             jsonString = NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue)! as String
             
-            
             let strBaseURL = userDefaults.value(forKey: "baseURL") as! String
             let strUrl = strBaseURL + "setPaymentDetails"
             

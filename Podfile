@@ -26,15 +26,16 @@ pod 'BiometricAuthentication'
 pod 'Luminous'
 pod 'INTULocationManager'
 pod 'SwiftSpinner'
-pod 'Fabric'
-pod 'Crashlytics'
-#pod 'Fabric’, '~> 1.10.2’
-#pod 'Crashlytics’, '~> 3.14’
+#pod 'Fabric'
+#pod 'Crashlytics'
+#pod 'Fabric', '~> 1.10.2'
+#pod 'Crashlytics', '~> 3.14'
 pod 'Firebase/Messaging'
 pod 'GoogleTagManager'
 pod 'McPicker', '~> 2.0.0'
 pod 'SystemServices', '~> 2.0.1'
 pod 'OTPTextField'
+
 
 
 # Pods for InstaCash
@@ -48,5 +49,6 @@ pod 'OTPTextField'
     inherit! :search_paths
     # Pods for testing
   end
+  
 
 end

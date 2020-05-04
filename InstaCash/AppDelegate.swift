@@ -15,7 +15,7 @@ import MFSideMenu
 import UserNotifications
 import TrueSDK
 import LocalAuthentication
-import Crashlytics
+//import Crashlytics
 //import Fabric
 import FirebaseMessaging
 
@@ -438,10 +438,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         // Override point for customization after application launch.
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
+        /* Sameer 4/5/2020
         // set status bar color
         if let statusbar = UIApplication.shared.value(forKey: "statusBar") as? UIView {
             statusbar.backgroundColor = UIColor.init(red: 0.0/255.0, green: 127.0/255.0, blue: 66.0/255.0, alpha: 1.0)
-        }
+        }*/
+        
         //UIApplication.shared.statusBarStyle = .lightContent
 
         // Override point for customization after application launch.
@@ -504,3 +506,5 @@ extension URL {
         }
     }
 }
+
+

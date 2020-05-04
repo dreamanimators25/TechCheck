@@ -181,6 +181,10 @@ class PaymentsModeVC: UIViewController {
             self.maxisView.isHidden = true
             self.samsungView.isHidden = true
             
+            self.cashView.isHidden = true
+            self.uuponCashView.isHidden = true
+            self.uuponCashPointsView.isHidden = true
+            
             self.smallNEFTImage.isHidden = false
             self.smallIMPSImage.isHidden = true
             
@@ -209,6 +213,10 @@ class PaymentsModeVC: UIViewController {
             self.maxisView.isHidden = true
             self.samsungView.isHidden = true
             
+            self.cashView.isHidden = true
+            self.uuponCashView.isHidden = true
+            self.uuponCashPointsView.isHidden = true
+            
             self.smallNEFTImage.isHidden = false
             self.smallCENDOLImage.isHidden = true
             self.smallMAXISImage.isHidden = true
@@ -233,6 +241,10 @@ class PaymentsModeVC: UIViewController {
             self.cendolView.isHidden = true
             self.maxisView.isHidden = true
             self.samsungView.isHidden = true
+            
+            self.cashView.isHidden = true
+            self.uuponCashView.isHidden = true
+            self.uuponCashPointsView.isHidden = true
             
             self.smallNEFTImage.isHidden = false
             self.smallIMPSImage.isHidden = true
@@ -262,7 +274,6 @@ class PaymentsModeVC: UIViewController {
             self.smallCashImage.isHidden = false
             self.smallUuponCashImage.isHidden = true
             self.smallUuponCashPointImage.isHidden = true
-            
             
         }
         
