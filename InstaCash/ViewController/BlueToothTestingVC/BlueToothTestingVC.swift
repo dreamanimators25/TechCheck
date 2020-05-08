@@ -153,6 +153,7 @@ class BlueToothTestingVC: UIViewController,CBCentralManagerDelegate {
             SwiftSpinner.show(progress: 0.2, title: "Checking Bluetooth...".localized(lang: langCode))
             UserDefaults.standard.set(self.connection, forKey: "connection")
             SwiftSpinner.setTitleFont(UIFont(name: "Futura", size: 22.0))
+           
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                 SwiftSpinner.show(progress: 0.35, title: "Checking GPS...".localized(lang: langCode))
                 SwiftSpinner.setTitleFont(UIFont(name: "Futura", size: 22.0))
@@ -181,9 +182,11 @@ class BlueToothTestingVC: UIViewController,CBCentralManagerDelegate {
                                                         // An error occurred, more info is available by looking at the specific status returned.
                                                     }
                 }
+                
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.3) {
                     SwiftSpinner.show(progress: 0.85, title: "Checking WiFi...".localized(lang: langCode))
                     SwiftSpinner.setTitleFont(UIFont(name: "Futura", size: 22.0))
+                  
                     if Luminous.System.Network.isConnectedViaWiFi{
                         self.wifiSSID = Luminous.System.Network.SSID
                         self.connection = self.connection && true

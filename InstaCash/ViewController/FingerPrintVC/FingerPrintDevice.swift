@@ -90,7 +90,8 @@ class FingerPrintDevice: UIViewController {
         BioMetricAuthenticator.authenticateWithBioMetrics(reason: "", success: {
             UserDefaults.standard.set(true, forKey: "fingerprint")
             userDefaults.setValue(true, forKey: "fingerprint_complete")
-            if self.isComingFromTestResult{
+            
+            if self.isComingFromTestResult {
                 self.isCancel = true
                 let vc = DiagnosticTestResultVC()
                 self.resultJSON["Fingerprint Scanner"].int = 1
