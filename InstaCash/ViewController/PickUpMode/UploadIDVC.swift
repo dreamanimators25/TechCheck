@@ -26,7 +26,7 @@ class UploadIDVC: UIViewController,UIImagePickerControllerDelegate,UINavigationC
         
         self.titleInfoLbl.text = "Press the button below to upload image of a valid Id Proof of the customer.".localized(lang: langCode)
         
-        self.btnUploadIdImage.setTitle("Upload ID Image".localized(lang: langCode), for: UIControlState.normal)
+        self.btnUploadIdImage.setTitle("Upload ID proof".localized(lang: langCode), for: UIControlState.normal)
     }
 
     // MARK:- navigation bar setup.

@@ -178,12 +178,12 @@ class Wallet: UIViewController {
                 }
                 else{
                     // failed
-                    Alert.showAlert(strMessage: "oops,No data found", Onview: self)
+                    Alert.showAlertWithError(strMessage: "oops,No data found", Onview: self)
                 }
             }
             else{
                 debugPrint(error as Any)
-                Alert.showAlert(strMessage: "Seems connection loss from server", Onview: self)
+                Alert.showAlertWithError(strMessage: "Seems connection loss from server", Onview: self)
             }
         })
         

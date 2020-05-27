@@ -50,7 +50,7 @@ class HistoryVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
             }
         }
         else{
-            Alert.showAlert(strMessage: "No Connection found".localized(lang: langCode) as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "No Connection found".localized(lang: langCode) as NSString, Onview: self)
         }
         
     }

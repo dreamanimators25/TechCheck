@@ -109,7 +109,7 @@ class BrandModelTypeVC: UIViewController,UICollectionViewDelegate,UICollectionVi
             }
         }
         else{
-            Alert.showAlert(strMessage: "No Connection Found".localized(lang: langCode) as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "No Connection Found".localized(lang: langCode) as NSString, Onview: self)
             
         }
     }
@@ -510,13 +510,13 @@ class BrandModelTypeVC: UIViewController,UICollectionViewDelegate,UICollectionVi
                         
                     }
                     else{
-                        Alert.showAlert(strMessage: responseObject?["msg"] as! NSString , Onview: self)
+                        Alert.showAlertWithError(strMessage: responseObject?["msg"] as! NSString , Onview: self)
                     }
                     
                 }
                 else
                 {
-                    Alert.showAlert(strMessage: "Seems Connection Found".localized(lang: langCode) as NSString, Onview: self)
+                    Alert.showAlertWithError(strMessage: "Seems Connection Found".localized(lang: langCode) as NSString, Onview: self)
 
                 }
             })
@@ -524,7 +524,7 @@ class BrandModelTypeVC: UIViewController,UICollectionViewDelegate,UICollectionVi
         }
         else
         {
-            Alert.showAlert(strMessage: "No Connection Found".localized(lang: langCode) as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "No Connection Found".localized(lang: langCode) as NSString, Onview: self)
         }
         
     }

@@ -21,19 +21,26 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CountryVC" customModule="InstaCash" customModuleProvider="target">
             <connections>
+                <outlet property="LanguageStackView" destination="9Oz-2q-qTe" id="rTr-Y3-cjT"/>
+                <outlet property="btnChina" destination="b8e-zc-rkl" id="zRF-aR-Xor"/>
+                <outlet property="btnEnglish" destination="epZ-hG-b05" id="tpL-C8-L7O"/>
                 <outlet property="btnGPlus" destination="ViU-Yb-63O" id="pWw-U2-ACK"/>
+                <outlet property="btnHindi" destination="7QS-aN-HgL" id="PmV-5l-Ycb"/>
                 <outlet property="btnIndia" destination="Uwv-VS-VrU" id="pgR-1m-POC"/>
                 <outlet property="btnMalaysia" destination="17v-Uy-Ky5" id="J7U-6s-13X"/>
                 <outlet property="btnNext" destination="3Js-zw-AnI" id="LZ7-ny-0aL"/>
                 <outlet property="btnPhilipines" destination="G02-C2-T7x" id="eSw-LY-HAx"/>
                 <outlet property="btnSingapore" destination="gbj-Zc-qgJ" id="YsX-zJ-MvR"/>
                 <outlet property="btnTaiwan" destination="hZ7-yp-khN" id="LXf-ot-GvJ"/>
+                <outlet property="chinaBaseView" destination="sjG-69-GPS" id="bvK-xy-SYi"/>
                 <outlet property="chinaImgView" destination="669-Ia-gF4" id="WRT-tR-Cat"/>
                 <outlet property="chinaLbl" destination="aFu-4O-O9s" id="gc0-in-Iyv"/>
                 <outlet property="chinaView" destination="TI3-Rv-Z9y" id="zo8-it-fOP"/>
+                <outlet property="engBaseView" destination="O7K-4p-rC7" id="oXR-f0-t4y"/>
                 <outlet property="engImgView" destination="7At-gG-fEr" id="aZG-jc-OMC"/>
                 <outlet property="engLbl" destination="O8T-12-Y6I" id="YdR-ia-hzU"/>
                 <outlet property="engView" destination="XPf-gt-Rqo" id="H6S-OP-N9C"/>
+                <outlet property="hindiBaseView" destination="WjJ-Md-rWV" id="nVp-dW-yFg"/>
                 <outlet property="hindiImgView" destination="MdZ-tB-Thx" id="4Go-I5-AwC"/>
                 <outlet property="hindiLbl" destination="wVY-SU-pr0" id="JfT-J9-unS"/>
                 <outlet property="hindiView" destination="DJJ-mY-bE3" id="p67-WQ-sGL"/>
@@ -84,7 +91,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="70" height="85"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uwv-VS-VrU">
-                                    <rect key="frame" x="12.5" y="7" width="45" height="45"/>
+                                    <rect key="frame" x="-10" y="7" width="90" height="90"/>
                                     <state key="normal" image="india"/>
                                     <state key="selected" image="indiaSelected"/>
                                     <connections>
@@ -92,7 +99,7 @@
                                     </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="India" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9zl-qA-GzX">
-                                    <rect key="frame" x="18.5" y="62" width="33" height="18"/>
+                                    <rect key="frame" x="18.5" y="107" width="33" height="17.5"/>
                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                                     <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
@@ -110,7 +117,7 @@
                             <rect key="frame" x="70" y="0.0" width="70" height="85"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="17v-Uy-Ky5">
-                                    <rect key="frame" x="12.5" y="7" width="45" height="45"/>
+                                    <rect key="frame" x="-10" y="7" width="90" height="90"/>
                                     <state key="normal" image="malasiya"/>
                                     <state key="selected" image="malasiyaSelected"/>
                                     <connections>
@@ -118,7 +125,7 @@
                                     </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Malaysia" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6CS-MM-Dvr">
-                                    <rect key="frame" x="5" y="62" width="60" height="18"/>
+                                    <rect key="frame" x="5.5" y="107" width="59" height="17.5"/>
                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                                     <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
@@ -136,7 +143,7 @@
                             <rect key="frame" x="140" y="0.0" width="70" height="85"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gbj-Zc-qgJ">
-                                    <rect key="frame" x="12.5" y="7" width="45" height="45"/>
+                                    <rect key="frame" x="-10" y="7" width="90" height="90"/>
                                     <state key="normal" image="singapore"/>
                                     <state key="selected" image="singaporeSelected"/>
                                     <connections>
@@ -144,7 +151,7 @@
                                     </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Singapore" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="faf-00-CdO">
-                                    <rect key="frame" x="1.5" y="62" width="67.5" height="18"/>
+                                    <rect key="frame" x="1" y="107" width="68.5" height="17.5"/>
                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                                     <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
@@ -162,7 +169,7 @@
                             <rect key="frame" x="210" y="0.0" width="70" height="85"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hZ7-yp-khN" customClass="shadowCornerButton" customModule="InstaCash" customModuleProvider="target">
-                                    <rect key="frame" x="12.5" y="7" width="45" height="45"/>
+                                    <rect key="frame" x="-10" y="7" width="90" height="90"/>
                                     <state key="normal" image="taiwan_unselected"/>
                                     <state key="selected" image="taiwan_selected"/>
                                     <userDefinedRuntimeAttributes>
@@ -175,7 +182,7 @@
                                     </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Taiwan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="slc-3R-bp3">
-                                    <rect key="frame" x="11" y="62" width="48" height="18"/>
+                                    <rect key="frame" x="12" y="107" width="46.5" height="17.5"/>
                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                                     <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
@@ -193,7 +200,7 @@
                             <rect key="frame" x="280" y="0.0" width="0.0" height="85"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G02-C2-T7x">
-                                    <rect key="frame" x="-22.5" y="7" width="45" height="45"/>
+                                    <rect key="frame" x="-45" y="7" width="90" height="90"/>
                                     <state key="normal" image="philipines"/>
                                     <state key="selected" image="philipinesSelected"/>
                                     <connections>
@@ -201,7 +208,7 @@
                                     </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Philipines" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="596-Qt-uCZ">
-                                    <rect key="frame" x="-32.5" y="62" width="65" height="18"/>
+                                    <rect key="frame" x="-32" y="107" width="64.5" height="17.5"/>
                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                                     <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
@@ -302,7 +309,7 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chinese" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFu-4O-O9s">
-                                            <rect key="frame" x="30" y="12.5" width="46.5" height="15.5"/>
+                                            <rect key="frame" x="30" y="12.5" width="47.5" height="15.5"/>
                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -436,19 +443,19 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or login with mobile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ldd-fe-FgU">
-                    <rect key="frame" x="94.5" y="440" width="131" height="18"/>
+                    <rect key="frame" x="94.5" y="440" width="131.5" height="17.5"/>
                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                     <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RQe-Lv-Sjl">
-                    <rect key="frame" x="105" y="473" width="110.5" height="22"/>
+                    <rect key="frame" x="104" y="472.5" width="112.5" height="21"/>
                     <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
                     <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad"/>
                 </textField>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Npq-8Z-asL">
-                    <rect key="frame" x="105" y="500" width="110.5" height="1"/>
+                    <rect key="frame" x="104" y="498.5" width="112.5" height="1"/>
                     <color key="backgroundColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="xB7-sl-Nph"/>
@@ -484,7 +491,7 @@
                     </constraints>
                 </imageView>
                 <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Connection found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y9h-ui-97w">
-                    <rect key="frame" x="59" y="347" width="202" height="20.5"/>
+                    <rect key="frame" x="74" y="347" width="172.5" height="21"/>
                     <fontDescription key="fontDescription" name="Comfortaa-Bold" family="Comfortaa" pointSize="18"/>
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>

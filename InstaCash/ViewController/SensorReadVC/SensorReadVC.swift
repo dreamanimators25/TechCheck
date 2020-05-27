@@ -93,6 +93,7 @@ class SensorReadVC: UIViewController {
             let vc = DiagnosticTestResultVC()
             self.resultJSON["Proximity"].int = 1
             vc.resultJSON = self.resultJSON
+            vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true, completion: nil)
         }
         else if self.isComingFromProductquote == true{
@@ -106,6 +107,7 @@ class SensorReadVC: UIViewController {
             let vc = VolumeCheckerVC()
             self.resultJSON["Proximity"].int = 1
             vc.resultJSON = self.resultJSON
+            vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true, completion: nil)
         }
         if (userDefaults.value(forKey: "Diagnosis_DataSave") != nil){
@@ -133,7 +135,8 @@ class SensorReadVC: UIViewController {
     //@IBAction func btnskipPressed(_ sender: UIButton) {
     func btnSkipPerform() {
         // Prepare the popup assets
-        let title = "Proximity Sensor Diagnosis".localized(lang: langCode)
+        //let title = "Proximity Sensor Diagnosis".localized(lang: langCode) //Sameer 11/5/2020
+        let title = "Proximity Test".localized(lang: langCode)
         let message = "If you skip this test there would be a substantial decline in the price offered. Do you still want to skip?".localized(lang: langCode)
         
         
@@ -149,6 +152,7 @@ class SensorReadVC: UIViewController {
                 let vc = DiagnosticTestResultVC()
                 self.resultJSON["Proximity"].int = -1
                 vc.resultJSON = self.resultJSON
+                vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
             }
             else if self.isComingFromProductquote == true{
@@ -158,6 +162,7 @@ class SensorReadVC: UIViewController {
                 let vc = VolumeCheckerVC()
                 self.resultJSON["Proximity"].int = -1
                 vc.resultJSON = self.resultJSON
+                vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
             }
             
@@ -229,6 +234,7 @@ class SensorReadVC: UIViewController {
                 let vc = DiagnosticTestResultVC()
                 self.resultJSON["Proximity"].int = 1
                 vc.resultJSON = self.resultJSON
+                vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
             }
             else if self.isComingFromProductquote == true{
@@ -242,6 +248,7 @@ class SensorReadVC: UIViewController {
                 let vc = VolumeCheckerVC()
                 self.resultJSON["Proximity"].int = 1
                 vc.resultJSON = self.resultJSON
+                vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
             }
             
@@ -288,6 +295,7 @@ class SensorReadVC: UIViewController {
         let vc = VolumeCheckerVC()
         self.resultJSON["Proximity"].int = 1
         vc.resultJSON = self.resultJSON
+        vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
         
      }*/

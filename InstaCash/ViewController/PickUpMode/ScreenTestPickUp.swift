@@ -248,6 +248,7 @@ class ScreenTestPickUp: UIViewController {
                 let vc = DeadPixelVC()
                 resultJSON["Screen"].int = 1
                 vc.resultJSON = self.resultJSON
+                vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
             
             //self.navigationController?.pushViewController(vc, animated: true)
@@ -283,6 +284,7 @@ class ScreenTestPickUp: UIViewController {
                     let vc = DeadPixelVC()
                     self.resultJSON["Screen"].int = 0
                     vc.resultJSON = self.resultJSON
+                    vc.modalPresentationStyle = .fullScreen
                     self.present(vc, animated: true, completion: nil)
                 
             }

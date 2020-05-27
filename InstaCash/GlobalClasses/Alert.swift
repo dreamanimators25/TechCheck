@@ -41,6 +41,32 @@ class Alert: NSObject {
         }
     }
     
+    // function to set show alert With Error Title
+    // Sameer 22/5/2020
+    class func showAlertWithError( strMessage : NSString , Onview : UIViewController)
+    {
+        if Onview.navigationController != nil {
+            
+            DispatchQueue.main.async {
+                
+                let alertController = UIAlertController(title: "Error".localized(lang: langCode) as String, message: strMessage as String, preferredStyle: UIAlertControllerStyle.alert)
+                
+                alertController.addAction(UIAlertAction(title: "OK".localized(lang: langCode), style: UIAlertActionStyle.default,handler: nil))
+                
+                Onview.present(alertController, animated: true, completion: nil)
+            }
+        }else {
+            DispatchQueue.main.async {
+                
+                let alertController = UIAlertController(title: "Error".localized(lang: langCode) as String, message: strMessage as String, preferredStyle: UIAlertControllerStyle.alert)
+                
+                alertController.addAction(UIAlertAction(title: "OK".localized(lang: langCode), style: UIAlertActionStyle.default,handler: nil))
+                
+                Onview.present(alertController, animated: true, completion: nil)
+            }
+        }
+    }
+    
     // function to set show alert with title
 
     class func showAlertWithTitle(strTitle : NSString  , strMessage : NSString , Onview : UIViewController)
@@ -71,8 +97,18 @@ class Alert: NSObject {
             hud.customView?.backgroundColor = UIColor.clear
             hud.backgroundView.style = .solidColor
             //MBProgressHUD.showAdded(to: Onview, animated: true)
+            
+            
+            //Sameer 14/5/2020 due to loader not rotating
+            let animation = CABasicAnimation(keyPath: "transform.rotation")
+            animation.fromValue = 0.0
+            animation.toValue = 2.0 * Double.pi
+            animation.duration = 1
+            animation.repeatCount = HUGE
+            animation.isRemovedOnCompletion = false
+            hud.customView?.layer.add(animation, forKey: "rotationAnimation")
+            
         }
-        
     }
     
     class  func ShowProgressHudwith(Onview:UIView,message:String)
@@ -82,7 +118,6 @@ class Alert: NSObject {
             hud.label.text = message
             hud.isUserInteractionEnabled = false
         }
-        
     }
     
     // called method when hide processing symbol
@@ -90,11 +125,8 @@ class Alert: NSObject {
     class func HideProgressHud(Onview : UIView)
     {
         DispatchQueue.main.async {
-            
             MBProgressHUD.hide(for: Onview, animated: true)
-            
         }
-        
     }
     
     // check email is in correct format or not like (abcd@zyc.com)

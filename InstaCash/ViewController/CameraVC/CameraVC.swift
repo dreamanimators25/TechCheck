@@ -95,6 +95,7 @@ class CameraVC: UIViewController {
                 let vc = DiagnosticTestResultVC()
                 self.resultJSON["Camera"].int = 1
                 vc.resultJSON = self.resultJSON
+                vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
             }
             else if self.isComingFromProductquote == true{
@@ -112,12 +113,14 @@ class CameraVC: UIViewController {
                     self.resultJSON["Camera"].int = 1
                     vc.resultJSON = self.resultJSON
                     vc.iscomingFromHome = true
+                    vc.modalPresentationStyle = .fullScreen
                     self.present(vc, animated: true, completion: nil)
                 }
                 else{
                     let vc = FingerPrintDevice()
                     self.resultJSON["Camera"].int = 1
                     vc.resultJSON = self.resultJSON
+                    vc.modalPresentationStyle = .fullScreen
                     self.present(vc, animated: true, completion: nil)
                 }
                 }
@@ -149,7 +152,8 @@ class CameraVC: UIViewController {
     
     @IBAction func btnSkipPressed(_ sender: UIButton) {
         // Prepare the popup assets
-        let title = "Camera Diagnosis".localized(lang: langCode)
+        //let title = "Camera Diagnosis".localized(lang: langCode)
+        let title = "Camera Test".localized(lang: langCode)
         let message = "If you skip this test there would be a substantial decline in the price offered. Do you still want to skip?".localized(lang: langCode)
         
         // Create the dialog
@@ -165,6 +169,7 @@ class CameraVC: UIViewController {
                     let vc = DiagnosticTestResultVC()
                     self.resultJSON["Camera"].int = -1
                     vc.resultJSON = self.resultJSON
+                    vc.modalPresentationStyle = .fullScreen
                     self.present(vc, animated: true, completion: nil)
                 }
                 else if self.isComingFromProductquote == true{
@@ -178,12 +183,14 @@ class CameraVC: UIViewController {
                         self.resultJSON["Camera"].int = -1
                         vc.iscomingFromHome = true
                         vc.resultJSON = self.resultJSON
+                        vc.modalPresentationStyle = .fullScreen
                         self.present(vc, animated: true, completion: nil)
                     }
                     else{
                         let vc = FingerPrintDevice()
                         self.resultJSON["Camera"].int = -1
                         vc.resultJSON = self.resultJSON
+                        vc.modalPresentationStyle = .fullScreen
                         self.present(vc, animated: true, completion: nil)
                     }
                 }

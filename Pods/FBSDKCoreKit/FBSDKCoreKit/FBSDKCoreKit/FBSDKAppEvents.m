@@ -822,7 +822,7 @@ static NSString *g_overrideAppID = nil;
   [self fetchServerConfiguration:^{
     NSDictionary *params = [FBSDKAppEventsUtility activityParametersDictionaryForEvent:@"MOBILE_APP_INSTALL"
                                                                     implicitEventsOnly:NO
-                                                             shouldAccessAdvertisingID:self->_serverConfiguration.isAdvertisingIDEnabled];
+                                                             shouldAccessAdvertisingID:_serverConfiguration.isAdvertisingIDEnabled];
     NSString *path = [NSString stringWithFormat:@"%@/activities", appID];
     FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc] initWithGraphPath:path
                                                          parameters:params
@@ -859,16 +859,16 @@ static NSString *g_overrideAppID = nil;
 {
   if (_serverConfiguration == nil) {
     [FBSDKServerConfigurationManager loadServerConfigurationWithCompletionBlock:^(FBSDKServerConfiguration *serverConfiguration, NSError *error) {
-      self->_serverConfiguration = serverConfiguration;
+      _serverConfiguration = serverConfiguration;
 
-      if (self->_serverConfiguration.implicitPurchaseLoggingEnabled) {
+      if (_serverConfiguration.implicitPurchaseLoggingEnabled) {
         [FBSDKPaymentObserver startObservingTransactions];
       } else {
         [FBSDKPaymentObserver stopObservingTransactions];
       }
 #if !TARGET_OS_TV
       [self enableCodelessEvents];
-      [FBSDKAppEventsUninstall setUninstallTrackingEnabled:self->_serverConfiguration.uninstallTrackingEnabled];
+      [FBSDKAppEventsUninstall setUninstallTrackingEnabled:_serverConfiguration.uninstallTrackingEnabled];
 #endif
       if (callback) {
         callback();
@@ -1038,7 +1038,7 @@ static NSString *g_overrideAppID = nil;
 
   [self fetchServerConfiguration:^(void) {
     NSString *receipt_data = [appEventsState extractReceiptData];
-    NSString *encodedEvents = [appEventsState JSONStringForEvents:self->_serverConfiguration.implicitLoggingEnabled];
+    NSString *encodedEvents = [appEventsState JSONStringForEvents:_serverConfiguration.implicitLoggingEnabled];
     if (!encodedEvents) {
       [FBSDKLogger singleShotLogEntry:FBSDKLoggingBehaviorAppEvents
                              logEntry:@"FBSDKAppEvents: Flushing skipped - no events after removing implicitly logged ones.\n"];
@@ -1047,7 +1047,7 @@ static NSString *g_overrideAppID = nil;
     NSMutableDictionary *postParameters = [FBSDKAppEventsUtility
                                            activityParametersDictionaryForEvent:@"CUSTOM_APP_EVENTS"
                                            implicitEventsOnly:appEventsState.areAllEventsImplicit
-                                           shouldAccessAdvertisingID:self->_serverConfiguration.advertisingIDEnabled];
+                                           shouldAccessAdvertisingID:_serverConfiguration.advertisingIDEnabled];
     NSInteger length = [receipt_data length];
     if (length > 0) {
       postParameters[@"receipt_data"] = receipt_data;

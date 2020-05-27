@@ -14,10 +14,13 @@ import SwiftSpinner
 import SwiftyJSON
 import CoreBluetooth
 
+import Foundation
+import SystemConfiguration.CaptiveNetwork
+
+
 class BlueToothTestingVC: UIViewController,CBCentralManagerDelegate {
     
     @IBOutlet weak var internalImageView: UIImageView!
-    
     @IBOutlet weak var lblPlease: UILabel!
     @IBOutlet weak var btnBegin: UIButton!
     
@@ -197,7 +200,7 @@ class BlueToothTestingVC: UIViewController,CBCentralManagerDelegate {
                     else{
                         self.resultJSON["WIFI"].int = -1
                         userDefaults.setValue(false, forKey: "WIFITest")
-
+                        
                     }
                     
                     // sameer 14/4/2020
@@ -214,6 +217,7 @@ class BlueToothTestingVC: UIViewController,CBCentralManagerDelegate {
                               //  SwiftSpinner.hide()
                                 let vc = DiagnosticTestResultVC()
                                 vc.resultJSON = self.resultJSON
+                                vc.modalPresentationStyle = .fullScreen
                                 self.present(vc, animated: true, completion: nil)
                             }
                           
@@ -224,6 +228,113 @@ class BlueToothTestingVC: UIViewController,CBCentralManagerDelegate {
             }
         }
     }
+
+    /*
+    func getWiFiSsid() -> String? {
+        var ssid: String?
+        if let interfaces = CNCopySupportedInterfaces() as NSArray? {
+            for interface in interfaces {
+                if let interfaceInfo = CNCopyCurrentNetworkInfo(interface as! CFString) as NSDictionary? {
+                    ssid = interfaceInfo[kCNNetworkInfoKeySSID as String] as? String
+                    break
+                }
+            }
+        }
+        return ssid
+    }
+    
+    func isWifiEnabled() -> Bool {
+        var addresses = [String]()
+
+        var ifaddr : UnsafeMutablePointer<ifaddrs>?
+        guard getifaddrs(&ifaddr) == 0 else { return false }
+        guard let firstAddr = ifaddr else { return false }
+
+        for ptr in sequence(first: firstAddr, next: { $0.pointee.ifa_next }) {
+            addresses.append(String(cString: ptr.pointee.ifa_name))
+        }
+
+        freeifaddrs(ifaddr)
+        return addresses.contains("awdl0")
+    }
+    
+    func isWifiEnabled1() -> Bool {
+        var addresses = [String]()
+
+        var ifaddr : UnsafeMutablePointer<ifaddrs>?
+        guard getifaddrs(&ifaddr) == 0 else { return false }
+        guard let firstAddr = ifaddr else { return false }
+
+        for ptr in sequence(first: firstAddr, next: { $0.pointee.ifa_next }) {
+            addresses.append(String(cString: ptr.pointee.ifa_name))
+        }
+
+        var counts:[String:Int] = [:]
+
+        for item in addresses {
+            counts[item] = (counts[item] ?? 0) + 1
+        }
+
+        freeifaddrs(ifaddr)
+        guard let count = counts["awdl0"] else { return false }
+        return count > 1
+    }
+    
+    func isWIFIActive() -> Bool {
+        guard let interfaceNames = CWWiFiClient.interfaceNames() else {
+            return false
+        }
+
+        for interfaceName in interfaceNames {
+            let interface = CWWiFiClient.shared().interface(withName: interfaceName)
+
+            if interface?.ssid() != nil {
+                return true
+            }
+        }
+        return false
+    }
+    
+    func isWiFiOn() -> Bool {
+        var address : String?
+        var ifaddr : UnsafeMutablePointer<ifaddrs>? = nil
+        if getifaddrs(&ifaddr) == 0 {
+            var ptr = ifaddr
+            while ptr != nil {
+                defer { ptr = ptr?.pointee.ifa_next }
+                let interface = ptr?.pointee
+                //defer { ptr = ptr.memory.ifa_next }
+                //let interface = ptr.memory
+                //let addrFamily = interface?.ifa_addr.memory.sa_family
+                let addrFamily = interface?.ifa_addr.pointee.sa_family
+                
+                if addrFamily == UInt8(AF_INET) || addrFamily == UInt8(AF_INET6) {
+                    if let name = String.init(cString: (interface?.ifa_name)!), let name1 = "awd10" {
+                        if((Int32?(interface?.ifa_flags) && IFF_UP) == IFF_UP) {
+                            return true
+                        }else {
+                            return false
+                        }
+                    }
+                }
+                
+                /*
+                if addrFamily == UInt8(AF_INET) || addrFamily == UInt8(AF_INET6) {
+                    if let name = String.fromCString(interface.ifa_name), name == "awdl0" {
+                        if((Int32(interface.ifa_flags) & IFF_UP) == IFF_UP) {
+                            return(true)
+                        }
+                        else {
+                            return(false)
+                        }
+                    }
+                }*/
+                
+            }
+            freeifaddrs(ifaddr)
+        }
+        return (false)
+    }*/
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

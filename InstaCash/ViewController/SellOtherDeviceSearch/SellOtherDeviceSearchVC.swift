@@ -183,7 +183,7 @@ class SellOtherDeviceSearchVC: UIViewController,UITableViewDelegate,UITableViewD
                 }
                 else
                 {
-                    Alert.showAlert(strMessage: "Seems Connection Found", Onview: self)
+                    Alert.showAlertWithError(strMessage: "Seems Connection Found", Onview: self)
                     
                 }
             })
@@ -191,7 +191,7 @@ class SellOtherDeviceSearchVC: UIViewController,UITableViewDelegate,UITableViewD
         }
         else
         {
-            Alert.showAlert(strMessage: "No Connection Found", Onview: self)
+            Alert.showAlertWithError(strMessage: "No Connection Found", Onview: self)
         }
         
     }

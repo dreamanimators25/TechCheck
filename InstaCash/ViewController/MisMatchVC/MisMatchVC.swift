@@ -191,9 +191,33 @@ class MisMatchVC: UIViewController {
                             let strAmountfinal = String(format: "%d", amount)
                             self.lblPrice.text = "New Price:- ".localized(lang: langCode) + CustomUserDefault.getCurrency() + strAmountfinal
                             let resultData = responseObject?["compareData"] as! String
+
+                            /*
                             let data = Data(resultData.utf8)
                             
                             if let attributedString = try? NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil) {
+                                
+                                self.lblResultMisMatch.attributedText = attributedString
+                                
+                                self.lblOldCond.isHidden = false
+                                self.lblNewCond.isHidden = false
+                                
+                                DispatchQueue.main.async {
+                                    self.ResultBaseView.layer.borderWidth = 1.0
+                                    self.ResultBaseView.layer.borderColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)
+                                }
+                                
+                            }*/
+                            
+                            
+                            let data = Data(resultData.utf8)
+                            
+                            let options = [
+                                NSAttributedString.DocumentReadingOptionKey.documentType: NSAttributedString.DocumentType.html,
+                                NSAttributedString.DocumentReadingOptionKey.characterEncoding: NSNumber(value: String.Encoding.utf8.rawValue)
+                                ] as [NSAttributedString.DocumentReadingOptionKey : Any]
+                            
+                            if let attributedString = try? NSAttributedString(data: data, options: options, documentAttributes: nil) {
                                 self.lblResultMisMatch.attributedText = attributedString
                                 
                                 self.lblOldCond.isHidden = false
@@ -205,6 +229,7 @@ class MisMatchVC: UIViewController {
                                 }
                                 
                             }
+                            
                         }
                         
                     }
@@ -446,6 +471,8 @@ class MisMatchVC: UIViewController {
                                 
                                 self.lblPrice.text = "New Price:- ".localized(lang: langCode) + CustomUserDefault.getCurrency() + amount
                                 let resultData = responseObject?["newConditionString"] as! String
+                                
+                                /*
                                 let data = Data(resultData.utf8)
                                 if let attributedString = try? NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil) {
                                     self.lblResultMisMatch.attributedText = attributedString
@@ -458,7 +485,30 @@ class MisMatchVC: UIViewController {
                                         self.ResultBaseView.layer.borderColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)
                                     }
                                     
+                                }*/
+                                
+                                
+                                let data = Data(resultData.utf8)
+                                
+                                let options = [
+                                    NSAttributedString.DocumentReadingOptionKey.documentType: NSAttributedString.DocumentType.html,
+                                    NSAttributedString.DocumentReadingOptionKey.characterEncoding: NSNumber(value: String.Encoding.utf8.rawValue)
+                                    ] as [NSAttributedString.DocumentReadingOptionKey : Any]
+                                
+                                if let attributedString = try? NSAttributedString(data: data, options: options, documentAttributes: nil) {
+                                    self.lblResultMisMatch.attributedText = attributedString
+                                    
+                                    self.lblOldCond.isHidden = false
+                                    self.lblNewCond.isHidden = false
+                                    
+                                    DispatchQueue.main.async {
+                                        self.ResultBaseView.layer.borderWidth = 1.0
+                                        self.ResultBaseView.layer.borderColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)
+                                    }
+                                    
                                 }
+                                
+                                
                             }
                             else {
                                 self.strConditionString = responseObject?["newConditionString"] as! String
@@ -467,6 +517,8 @@ class MisMatchVC: UIViewController {
                                 let strAmountfinal = String(format: "%d", amount)
                                 self.lblPrice.text = "New Price:- ".localized(lang: langCode) + CustomUserDefault.getCurrency() + strAmountfinal
                                 let resultData = responseObject?["compareData"] as! String
+                                
+                                /*
                                 let data = Data(resultData.utf8)
                                 if let attributedString = try? NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil) {
                                     self.lblResultMisMatch.attributedText = attributedString
@@ -479,7 +531,30 @@ class MisMatchVC: UIViewController {
                                         self.ResultBaseView.layer.borderColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)
                                     }
                                     
+                                }*/
+                                
+                                
+                                let data = Data(resultData.utf8)
+                                
+                                let options = [
+                                    NSAttributedString.DocumentReadingOptionKey.documentType: NSAttributedString.DocumentType.html,
+                                    NSAttributedString.DocumentReadingOptionKey.characterEncoding: NSNumber(value: String.Encoding.utf8.rawValue)
+                                    ] as [NSAttributedString.DocumentReadingOptionKey : Any]
+                                
+                                if let attributedString = try? NSAttributedString(data: data, options: options, documentAttributes: nil) {
+                                    self.lblResultMisMatch.attributedText = attributedString
+                                    
+                                    self.lblOldCond.isHidden = false
+                                    self.lblNewCond.isHidden = false
+                                    
+                                    DispatchQueue.main.async {
+                                        self.ResultBaseView.layer.borderWidth = 1.0
+                                        self.ResultBaseView.layer.borderColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)
+                                    }
+                                    
                                 }
+                                
+                                
                             }
                         }
                     }
@@ -661,6 +736,7 @@ class MisMatchVC: UIViewController {
                             vc.strGetConditionString = self.strConditionString
                             vc.strGetDiagnosisID = self.strDiagnosisId
                             vc.strOfferID = responseObject?["manualOfferId"] as! String
+                            vc.modalPresentationStyle = .fullScreen
                             self.present(vc, animated: true, completion: nil)
                         }
                         else {
@@ -707,7 +783,7 @@ class MisMatchVC: UIViewController {
                 {
                     self.setButtonFrame(isforCancelDone: isforCancel)
 
-                    Alert.showAlert(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
+                    Alert.showAlertWithError(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
                     
                 }
             })
@@ -717,7 +793,7 @@ class MisMatchVC: UIViewController {
         {
             self.setButtonFrame(isforCancelDone: isforCancel)
 
-            Alert.showAlert(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
         }
         
     }
@@ -865,7 +941,6 @@ class MisMatchVC: UIViewController {
                     //returnDictionary = ["USB":"-1"]
                     returnDictionary.setValue("-1", forKey: "USB")
                     strDiagnosisFailed = strDiagnosisFailed + "CISS05,"
-                    
                     
                 }
             }

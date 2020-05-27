@@ -64,7 +64,7 @@ class OrderListModel {
         Alert.ShowProgressHud(Onview: getController.view)
         var orderList = [OrderListModel]()
         var customerID = ""
-        if CustomUserDefault.isUserIdExit(){
+        if CustomUserDefault.isUserIdExit() {
             customerID = CustomUserDefault.getUserId()
         }
         else {
@@ -109,17 +109,24 @@ class OrderListModel {
                         }*/
                         
                         //*
-                        let arrOrderItem = dict.value(forKeyPath: "orderItem") as! [[String:Any]]
                         
-                        if arrOrderItem.count > 1 {
-                            let dictOrderItem = arrOrderItem.last
-                            let memberItem = OrderListModel(orderListDict: dictOrderItem ?? [:], strOrderIdGet: strOrderId!, strRefrenceNumber: strRefrencenumber!, strOrderDate: strDate!)
-                            orderList.append(memberItem)
+                        if let arrOrderItem = dict.value(forKeyPath: "orderItem") as? [[String:Any]] {
+                            
+                            if arrOrderItem.count > 1 {
+                                let dictOrderItem = arrOrderItem.last
+                                let memberItem = OrderListModel(orderListDict: dictOrderItem ?? [:], strOrderIdGet: strOrderId!, strRefrenceNumber: strRefrencenumber!, strOrderDate: strDate!)
+                                orderList.append(memberItem)
+                            }else {
+                                let dictOrderItem = arrOrderItem[0]
+                                let memberItem = OrderListModel(orderListDict: dictOrderItem , strOrderIdGet: strOrderId!, strRefrenceNumber: strRefrencenumber!, strOrderDate: strDate!)
+                                orderList.append(memberItem)
+                            }
+                            
                         }else {
-                            let dictOrderItem = arrOrderItem[0]
-                            let memberItem = OrderListModel(orderListDict: dictOrderItem , strOrderIdGet: strOrderId!, strRefrenceNumber: strRefrencenumber!, strOrderDate: strDate!)
-                            orderList.append(memberItem)
+                            
                         }
+                        
+                        
                         //*/
                         
                     }

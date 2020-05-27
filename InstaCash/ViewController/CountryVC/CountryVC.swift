@@ -45,6 +45,15 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
     @IBOutlet weak var hindiLbl: UILabel!
     @IBOutlet weak var lblOrLoginWith: UILabel!
     
+    @IBOutlet weak var engBaseView: UIView!
+    @IBOutlet weak var chinaBaseView: UIView!
+    @IBOutlet weak var hindiBaseView: UIView!
+    @IBOutlet weak var btnEnglish: UIButton!
+    @IBOutlet weak var btnChina: UIButton!
+    @IBOutlet weak var btnHindi: UIButton!
+    
+    @IBOutlet weak var LanguageStackView: UIStackView!
+    
     let reachability: Reachability? = Reachability()
     var arrCountry = [CountryModel]()
     var locationManager = CLLocationManager()
@@ -140,8 +149,10 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
         self.chinaLbl.text = "Chinese".localized(lang: langCode)
         self.hindiLbl.text = "Hindi".localized(lang: langCode)
         self.btnGPlus.setTitle("Login with Google".localized(lang: langCode), for: UIControlState.normal)
-        self.txtPhoneNumer.placeholder = "Enter Number".localized(lang: langCode)
-        self.lblOrLoginWith.text = "or login with mobile".localized(lang: langCode)
+        //self.txtPhoneNumer.placeholder = "Enter Number".localized(lang: langCode)
+        self.txtPhoneNumer.placeholder = "Enter Mobile Number".localized(lang: langCode)        
+        //self.lblOrLoginWith.text = "or login with mobile".localized(lang: langCode)
+        self.lblOrLoginWith.text = "Login with mobile number".localized(lang: langCode)
         self.btnNext.setTitle("Login".localized(lang: langCode), for: UIControlState.normal)
         
     }
@@ -235,23 +246,191 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
         if(str == "India")
         {
             self.onClickSelectCountry(btnIndia)
+            
+            self.engBaseView.isHidden = false
+            self.chinaBaseView.isHidden = true
+            self.hindiBaseView.isHidden = false
+            
+            self.btnEnglish.sendActions(for: .touchUpInside)
+            
         }
         else if(str == "Malaysia")
         {
             self.onClickSelectCountry(btnMalaysia)
+            
+            self.engBaseView.isHidden = false
+            self.chinaBaseView.isHidden = true
+            self.hindiBaseView.isHidden = true
+            
+            self.btnEnglish.sendActions(for: .touchUpInside)
+            
         }
         else if(str == "Singapore")
         {
             self.onClickSelectCountry(btnSingapore)
+            
+            self.engBaseView.isHidden = false
+            self.chinaBaseView.isHidden = true
+            self.hindiBaseView.isHidden = true
+            
+            self.btnEnglish.sendActions(for: .touchUpInside)
+            
         }
         else if(str == "Taiwan")
         {
             self.onClickSelectCountry(btnTaiwan)
+            
+            self.engBaseView.isHidden = true
+            self.chinaBaseView.isHidden = false
+            self.hindiBaseView.isHidden = true
+            
+            self.btnChina.sendActions(for: .touchUpInside)
+            
         }
         else
         {
             self.onClickSelectCountry(btnPhilipines)
         }
+    }
+    
+    @IBAction func onClickSelectCountry(_ sender: Any) {
+        
+        let btn = sender as! UIButton
+        
+        if(btn == btnIndia) {
+            btnIndia.isSelected = true
+            btnMalaysia.isSelected = false
+            btnSingapore.isSelected = false
+            btnPhilipines.isSelected = false
+            btnTaiwan.isSelected = false
+            
+            lblIndia.textColor = UIColor.black
+            lblMalaysia.textColor = UIColor().HexToColor(hexString:"707070")
+            lblSingapore.textColor = UIColor().HexToColor(hexString:"707070")
+            lblPhilipines.textColor = UIColor().HexToColor(hexString:"707070")
+            lblTaiwan.textColor = UIColor().HexToColor(hexString:"707070")
+            
+            idBaseUrl = 0
+            
+            self.engBaseView.isHidden = false
+            self.chinaBaseView.isHidden = true
+            self.hindiBaseView.isHidden = false
+            self.btnEnglish.sendActions(for: .touchUpInside)
+            
+        }
+        else if(btn == btnMalaysia) {
+            btnIndia.isSelected = false
+            btnMalaysia.isSelected = true
+            btnSingapore.isSelected = false
+            btnPhilipines.isSelected = false
+            btnTaiwan.isSelected = false
+            
+            lblIndia.textColor = UIColor().HexToColor(hexString:"707070")
+            lblMalaysia.textColor = UIColor.black
+            lblSingapore.textColor = UIColor().HexToColor(hexString:"707070")
+            lblPhilipines.textColor = UIColor().HexToColor(hexString:"707070")
+            lblTaiwan.textColor = UIColor().HexToColor(hexString:"707070")
+            
+            idBaseUrl = 1
+            
+            self.engBaseView.isHidden = false
+            self.chinaBaseView.isHidden = true
+            self.hindiBaseView.isHidden = true
+            self.btnEnglish.sendActions(for: .touchUpInside)
+            
+        }
+        else if(btn == btnSingapore) {
+            btnIndia.isSelected = false
+            btnMalaysia.isSelected = false
+            btnSingapore.isSelected = true
+            btnPhilipines.isSelected = false
+            btnTaiwan.isSelected = false
+            
+            lblIndia.textColor =  UIColor().HexToColor(hexString:"707070")
+            lblMalaysia.textColor = UIColor().HexToColor(hexString:"707070")
+            lblSingapore.textColor = UIColor.black
+            lblPhilipines.textColor = UIColor().HexToColor(hexString:"707070")
+            lblTaiwan.textColor = UIColor().HexToColor(hexString:"707070")
+            
+            idBaseUrl = 2
+            
+            self.engBaseView.isHidden = false
+            self.chinaBaseView.isHidden = true
+            self.hindiBaseView.isHidden = true
+            self.btnEnglish.sendActions(for: .touchUpInside)
+            
+        }
+        else if(btn == btnTaiwan) {
+            btnIndia.isSelected = false
+            btnMalaysia.isSelected = false
+            btnSingapore.isSelected = false
+            btnPhilipines.isSelected = false
+            btnTaiwan.isSelected = true
+            
+            lblIndia.textColor =  UIColor().HexToColor(hexString:"707070")
+            lblMalaysia.textColor = UIColor().HexToColor(hexString:"707070")
+            lblSingapore.textColor = UIColor().HexToColor(hexString:"707070")
+            lblPhilipines.textColor = UIColor().HexToColor(hexString:"707070")
+            lblTaiwan.textColor = UIColor.black
+            
+            idBaseUrl = 3
+            
+            self.engBaseView.isHidden = true
+            self.chinaBaseView.isHidden = false
+            self.hindiBaseView.isHidden = true
+            self.btnChina.sendActions(for: .touchUpInside)
+            
+        }
+        else {
+            /*
+            btnIndia.isSelected = false
+            btnMalaysia.isSelected = false
+            btnSingapore.isSelected = false
+            btnPhilipines.isSelected = true
+            
+            lblIndia.textColor =  UIColor().HexToColor(hexString:"707070")
+            lblMalaysia.textColor = UIColor().HexToColor(hexString:"707070")
+            lblSingapore.textColor = UIColor().HexToColor(hexString:"707070")
+            lblPhilipines.textColor = UIColor.black
+            
+            idBaseUrl = 4
+            */
+        }
+        
+        //CustomUserDefault.setUserPinCode(data: idBaseUrl)
+        
+        /* Sameer 23/4/2020
+        if self.arrCountry.count == self.idBaseUrl {
+            userDefaults.set("https://getinstacash.com.tw/instaCash/api/v5/public/", forKey: "baseURL") //sm
+            
+            userDefaults.set("Taiwan", forKey: "countryName")
+            userDefaults.set("+886", forKey: "countryCode")
+            CustomUserDefault.removeCurrency()
+            CustomUserDefault.setCurrency(data: "NT$")
+        }else {
+            
+            if self.arrCountry[self.idBaseUrl].strCurrencySymbole == "₹" {
+                userDefaults.set("https://sbox.getinstacash.in/ic-web/instaCash/api/v5/public/", forKey: "baseURL") //sm
+            }else {
+                
+                let straseUrl = arrCountry[idBaseUrl].strEndPoint //sm
+                userDefaults.set(straseUrl, forKey: "baseURL") //sm
+            }
+            
+            userDefaults.set(self.arrCountry[self.idBaseUrl].strName, forKey: "countryName")
+            userDefaults.set(self.arrCountry[self.idBaseUrl].strCountryCode, forKey: "countryCode")
+            CustomUserDefault.removeCurrency()
+            CustomUserDefault.setCurrency(data: self.arrCountry[self.idBaseUrl].strCurrencySymbole ?? "")
+        }
+        */
+        
+        // Sameer 23/4/2020
+        userDefaults.set(self.arrCountry[self.idBaseUrl].strEndPoint, forKey: "baseURL") // 21/4/20
+        userDefaults.set(self.arrCountry[self.idBaseUrl].strName, forKey: "countryName")
+        userDefaults.set(self.arrCountry[self.idBaseUrl].strCountryCode, forKey: "countryCode")
+        CustomUserDefault.removeCurrency()
+        CustomUserDefault.setCurrency(data: self.arrCountry[self.idBaseUrl].strCurrencySymbole ?? "")
+        
     }
     
     /*
@@ -444,7 +623,7 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
                 self.fireWebServiceForFbLogin(userName:strFinalUserName, socialId: gPlusId, email: email, strProfile: imageUrl,strFbOrGp: "gplus")
             }
             else {
-                Alert.showAlert(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
+                Alert.showAlertWithError(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
             }
             
             // Perform any operations on signed in user here.
@@ -707,7 +886,7 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
         }
         else
         {
-            Alert.showAlert(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
         }
     }
     
@@ -748,7 +927,7 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
         self.txtPhoneNumer.resignFirstResponder()
         if (txtPhoneNumer.text?.isEmpty)!{
             
-            Alert.showAlert(strMessage: "Please enter mobile number".localized(lang: langCode) as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "Please enter mobile number".localized(lang: langCode) as NSString, Onview: self)
         }
             
         /*
@@ -842,6 +1021,7 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
                             vc.isOnleMobileNumber = true
                             vc.isOtpGet = true
                             vc.strMobileNumberStore = self.txtPhoneNumer.text!
+                            vc.modalPresentationStyle = .fullScreen
                             self.navigationController?.present(vc, animated: true, completion: nil)
                         }
                     }
@@ -941,6 +1121,7 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
                             vc.isOnleMobileNumber = true
                             vc.isOtpGet = true
                             vc.strMobileNumberStore = self.txtPhoneNumer.text!
+                            vc.modalPresentationStyle = .fullScreen
                             self.navigationController?.present(vc, animated: true, completion: nil)
                         }
                         else
@@ -971,122 +1152,6 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
     func otpApiPost(strURL : String , parameters:NSDictionary, completionHandler: @escaping (NSDictionary?, NSError?) -> ()) {
         let web = WebServies()
         web.postRequest(urlString: strURL, paramDict: (parameters as! Dictionary<String, AnyObject>), completionHandler: completionHandler)
-    }
-    
-    @IBAction func onClickSelectCountry(_ sender: Any) {
-        
-        let btn = sender as! UIButton
-        
-        if(btn == btnIndia) {
-            btnIndia.isSelected = true
-            btnMalaysia.isSelected = false
-            btnSingapore.isSelected = false
-            btnPhilipines.isSelected = false
-            btnTaiwan.isSelected = false
-            
-            lblIndia.textColor = UIColor.black
-            lblMalaysia.textColor = UIColor().HexToColor(hexString:"707070")
-            lblSingapore.textColor = UIColor().HexToColor(hexString:"707070")
-            lblPhilipines.textColor = UIColor().HexToColor(hexString:"707070")
-            lblTaiwan.textColor = UIColor().HexToColor(hexString:"707070")
-            
-            idBaseUrl = 0
-        }
-        else if(btn == btnMalaysia) {
-            btnIndia.isSelected = false
-            btnMalaysia.isSelected = true
-            btnSingapore.isSelected = false
-            btnPhilipines.isSelected = false
-            btnTaiwan.isSelected = false
-            
-            lblIndia.textColor = UIColor().HexToColor(hexString:"707070")
-            lblMalaysia.textColor = UIColor.black
-            lblSingapore.textColor = UIColor().HexToColor(hexString:"707070")
-            lblPhilipines.textColor = UIColor().HexToColor(hexString:"707070")
-            lblTaiwan.textColor = UIColor().HexToColor(hexString:"707070")
-            
-            idBaseUrl = 1
-        }
-        else if(btn == btnSingapore) {
-            btnIndia.isSelected = false
-            btnMalaysia.isSelected = false
-            btnSingapore.isSelected = true
-            btnPhilipines.isSelected = false
-            btnTaiwan.isSelected = false
-            
-            lblIndia.textColor =  UIColor().HexToColor(hexString:"707070")
-            lblMalaysia.textColor = UIColor().HexToColor(hexString:"707070")
-            lblSingapore.textColor = UIColor.black
-            lblPhilipines.textColor = UIColor().HexToColor(hexString:"707070")
-            lblTaiwan.textColor = UIColor().HexToColor(hexString:"707070")
-            
-            idBaseUrl = 2
-        }
-        else if(btn == btnTaiwan) {
-            btnIndia.isSelected = false
-            btnMalaysia.isSelected = false
-            btnSingapore.isSelected = false
-            btnPhilipines.isSelected = false
-            btnTaiwan.isSelected = true
-            
-            lblIndia.textColor =  UIColor().HexToColor(hexString:"707070")
-            lblMalaysia.textColor = UIColor().HexToColor(hexString:"707070")
-            lblSingapore.textColor = UIColor().HexToColor(hexString:"707070")
-            lblPhilipines.textColor = UIColor().HexToColor(hexString:"707070")
-            lblTaiwan.textColor = UIColor.black
-            
-            idBaseUrl = 3
-        }
-        else {
-            /*
-            btnIndia.isSelected = false
-            btnMalaysia.isSelected = false
-            btnSingapore.isSelected = false
-            btnPhilipines.isSelected = true
-            
-            lblIndia.textColor =  UIColor().HexToColor(hexString:"707070")
-            lblMalaysia.textColor = UIColor().HexToColor(hexString:"707070")
-            lblSingapore.textColor = UIColor().HexToColor(hexString:"707070")
-            lblPhilipines.textColor = UIColor.black
-            
-            idBaseUrl = 4
-            */
-        }
-        
-        //CustomUserDefault.setUserPinCode(data: idBaseUrl)
-        
-        /* Sameer 23/4/2020
-        if self.arrCountry.count == self.idBaseUrl {
-            userDefaults.set("https://getinstacash.com.tw/instaCash/api/v5/public/", forKey: "baseURL") //sm
-            
-            userDefaults.set("Taiwan", forKey: "countryName")
-            userDefaults.set("+886", forKey: "countryCode")
-            CustomUserDefault.removeCurrency()
-            CustomUserDefault.setCurrency(data: "NT$")
-        }else {
-            
-            if self.arrCountry[self.idBaseUrl].strCurrencySymbole == "₹" {
-                userDefaults.set("https://sbox.getinstacash.in/ic-web/instaCash/api/v5/public/", forKey: "baseURL") //sm
-            }else {
-                
-                let straseUrl = arrCountry[idBaseUrl].strEndPoint //sm
-                userDefaults.set(straseUrl, forKey: "baseURL") //sm
-            }
-            
-            userDefaults.set(self.arrCountry[self.idBaseUrl].strName, forKey: "countryName")
-            userDefaults.set(self.arrCountry[self.idBaseUrl].strCountryCode, forKey: "countryCode")
-            CustomUserDefault.removeCurrency()
-            CustomUserDefault.setCurrency(data: self.arrCountry[self.idBaseUrl].strCurrencySymbole ?? "")
-        }
-        */
-        
-        // Sameer 23/4/2020
-        userDefaults.set(self.arrCountry[self.idBaseUrl].strEndPoint, forKey: "baseURL") // 21/4/20
-        userDefaults.set(self.arrCountry[self.idBaseUrl].strName, forKey: "countryName")
-        userDefaults.set(self.arrCountry[self.idBaseUrl].strCountryCode, forKey: "countryCode")
-        CustomUserDefault.removeCurrency()
-        CustomUserDefault.setCurrency(data: self.arrCountry[self.idBaseUrl].strCurrencySymbole ?? "")
-        
     }
     
     //MARK:- Navigate to welcome screen

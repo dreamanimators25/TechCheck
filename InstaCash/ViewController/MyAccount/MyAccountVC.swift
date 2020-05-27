@@ -42,7 +42,7 @@ class MyAccountVC: UIViewController {
             }
         }
         else{
-            Alert.showAlert(strMessage: "No Connection found", Onview: self)
+            Alert.showAlertWithError(strMessage: "No Connection found", Onview: self)
         }
         
         imgUser.layer.cornerRadius = imgUser.frame.size.height/2

@@ -47,7 +47,7 @@ class TWCashVC: UIViewController {
        
         self.lblTitle.text = selectedPaymentType.localized(lang: langCode)
         self.lblTransferDetail.text = "Transfer Details".localized(lang: langCode)
-        self.lblPleaseEnter.text = "Please Enter the details".localized(lang: langCode)
+        //self.lblPleaseEnter.text = "Please Enter the details".localized(lang: langCode)
         
         self.btnSkip.setTitle("SKIP".localized(lang: langCode), for: UIControlState.normal)
         self.btnProceed.setTitle("PROCEED".localized(lang: langCode), for: UIControlState.normal)
@@ -94,6 +94,7 @@ class TWCashVC: UIViewController {
             
             //"CASH"
             //"UUPON (Cash+Points)"
+            //"UUPON (Points Only)"
             
             let parametersHome : [String : Any] = [
                 "userName" : apiAuthenticateUserName,
@@ -137,17 +138,17 @@ class TWCashVC: UIViewController {
                     }
                     else{
                         // failed
-                        Alert.showAlert(strMessage: responseObject?["msg"]  as! NSString, Onview: self)
+                        Alert.showAlertWithError(strMessage: responseObject?["msg"]  as! NSString, Onview: self)
                     }
                 }
                 else{
                     debugPrint(error as Any)
-                    Alert.showAlert(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
+                    Alert.showAlertWithError(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
                 }
             })
             
         }else{
-            Alert.showAlert(strMessage: "No Connection Found".localized(lang: langCode) as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "No Connection Found".localized(lang: langCode) as NSString, Onview: self)
         }
         
     }
@@ -206,17 +207,17 @@ class TWCashVC: UIViewController {
                     }
                     else{
                         // failed
-                        Alert.showAlert(strMessage: responseObject?["msg"]  as! NSString, Onview: self)
+                        Alert.showAlertWithError(strMessage: responseObject?["msg"]  as! NSString, Onview: self)
                     }
                 }
                 else{
                     debugPrint(error as Any)
-                    Alert.showAlert(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
+                    Alert.showAlertWithError(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
                 }
             })
             
         }else{
-            Alert.showAlert(strMessage: "No Connection Found".localized(lang: langCode) as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "No Connection Found".localized(lang: langCode) as NSString, Onview: self)
         }
         
     }

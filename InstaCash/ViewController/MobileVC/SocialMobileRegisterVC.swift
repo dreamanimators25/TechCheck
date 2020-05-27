@@ -51,9 +51,9 @@ class SocialMobileRegisterVC: UIViewController {
             }
             
             if self.trimmedStr.isEmpty {
-                Alert.showAlert(strMessage: "Please enter valid mobile number".localized(lang: langCode) as NSString, Onview: self)
+                Alert.showAlertWithError(strMessage: "Please enter valid mobile number".localized(lang: langCode) as NSString, Onview: self)
             }else if self.trimmedStr.count < 10 || self.trimmedStr.count > 10 {
-                Alert.showAlert(strMessage: "Please enter valid mobile number".localized(lang: langCode) as NSString, Onview: self)
+                Alert.showAlertWithError(strMessage: "Please enter valid mobile number".localized(lang: langCode) as NSString, Onview: self)
             }else {
                 self.fireWebServiceForGoogleLogin()
             }
@@ -69,9 +69,9 @@ class SocialMobileRegisterVC: UIViewController {
             }
             
             if self.trimmedStr.isEmpty {
-                Alert.showAlert(strMessage: "Please enter valid mobile number".localized(lang: langCode) as NSString, Onview: self)
+                Alert.showAlertWithError(strMessage: "Please enter valid mobile number".localized(lang: langCode) as NSString, Onview: self)
             }else if self.trimmedStr.count < 8 || self.trimmedStr.count > 11 {
-                Alert.showAlert(strMessage: "Please enter valid mobile number".localized(lang: langCode) as NSString, Onview: self)
+                Alert.showAlertWithError(strMessage: "Please enter valid mobile number".localized(lang: langCode) as NSString, Onview: self)
             }else {
                 self.fireWebServiceForGoogleLogin()
             }
@@ -87,9 +87,9 @@ class SocialMobileRegisterVC: UIViewController {
             }
             
             if self.trimmedStr.isEmpty {
-                Alert.showAlert(strMessage: "Please enter valid mobile number".localized(lang: langCode) as NSString, Onview: self)
+                Alert.showAlertWithError(strMessage: "Please enter valid mobile number".localized(lang: langCode) as NSString, Onview: self)
             }else if self.trimmedStr.count < 8 || self.trimmedStr.count > 11 {
-                Alert.showAlert(strMessage: "Please enter valid mobile number".localized(lang: langCode) as NSString, Onview: self)
+                Alert.showAlertWithError(strMessage: "Please enter valid mobile number".localized(lang: langCode) as NSString, Onview: self)
             }else {
                 self.fireWebServiceForGoogleLogin()
             }
@@ -105,9 +105,9 @@ class SocialMobileRegisterVC: UIViewController {
             }
             
             if self.trimmedStr.isEmpty {
-                Alert.showAlert(strMessage: "Please enter valid mobile number".localized(lang: langCode) as NSString, Onview: self)
+                Alert.showAlertWithError(strMessage: "Please enter valid mobile number".localized(lang: langCode) as NSString, Onview: self)
             }else if self.trimmedStr.count < 9 || self.trimmedStr.count > 9 {
-                Alert.showAlert(strMessage: "Please enter valid mobile number".localized(lang: langCode) as NSString, Onview: self)
+                Alert.showAlertWithError(strMessage: "Please enter valid mobile number".localized(lang: langCode) as NSString, Onview: self)
             }else {
                 self.fireWebServiceForGoogleLogin()
             }
@@ -199,6 +199,7 @@ class SocialMobileRegisterVC: UIViewController {
                                 vc.isOnleMobileNumber = true
                                 vc.isOtpGet = true
                                 vc.strMobileNumberStore = self.trimmedStr //self.txtMobileNumber.text!
+                                vc.modalPresentationStyle = .fullScreen
                                 self.navigationController?.present(vc, animated: true, completion: nil)
                             }
                             
@@ -209,19 +210,19 @@ class SocialMobileRegisterVC: UIViewController {
                                                 
                     }
                     else{
-                        Alert.showAlert(strMessage: responseObject?["msg"] as! NSString, Onview: self)
+                        Alert.showAlertWithError(strMessage: responseObject?["msg"] as! NSString, Onview: self)
                     }
                     
                 }
                 else
                 {
-                    Alert.showAlert(strMessage:responseObject?["msg"] as! NSString , Onview: self)
+                    Alert.showAlertWithError(strMessage:responseObject?["msg"] as! NSString , Onview: self)
                 }
             })
         }
         else
         {
-            Alert.showAlert(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
         }
     }
 

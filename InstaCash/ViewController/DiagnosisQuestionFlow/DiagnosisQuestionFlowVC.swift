@@ -163,7 +163,7 @@ class DiagnosisQuestionFlowVC: UIViewController,UITableViewDelegate,UITableViewD
                                 else if self.arrQuestionForQuestion[i].arrQuestionTypes.count > 1{
                                     //add none of these
                                     modelQuestionAddValueFromOurSide.strQuestionValueAppCodde = ""
-                                    modelQuestionAddValueFromOurSide.strQuestionValue = "None Of These"
+                                    modelQuestionAddValueFromOurSide.strQuestionValue = "None Of These".localized(lang: langCode)
                                     modelQuestionAddValueFromOurSide.strQuestionValueImage = ""
                                     modelQuestionAddValueFromOurSide.isSelected = false
                                     self.arrQuestionForQuestion[i].arrQuestionTypes.append(modelQuestionAddValueFromOurSide)
@@ -180,7 +180,7 @@ class DiagnosisQuestionFlowVC: UIViewController,UITableViewDelegate,UITableViewD
                 }
                 else{
                     // failed
-                    Alert.showAlert(strMessage: responseObject?["msg"] as! String as NSString, Onview: self)
+                    Alert.showAlertWithError(strMessage: responseObject?["msg"] as! String as NSString, Onview: self)
                 }
                 
             }
@@ -191,7 +191,7 @@ class DiagnosisQuestionFlowVC: UIViewController,UITableViewDelegate,UITableViewD
         })
     }
     else{
-            Alert.showAlert(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
     }
         
     }
@@ -211,7 +211,10 @@ class DiagnosisQuestionFlowVC: UIViewController,UITableViewDelegate,UITableViewD
         cell.collectionViewQuestionValues.dataSource = self
         cell.collectionViewQuestionValues.tag = indexPath.row
         cell.collectionViewQuestionValues.reloadData()
-        cell.lblQuestion.text = arrQuestionForQuestion[indexPath.row].strQuestionName.localized(lang: langCode)
+        cell.lblQuestion.text = arrQuestionForQuestion[indexPath.row].strQuestionName //.localized(lang: langCode)
+        
+        
+        
         return cell
     }
     
@@ -293,7 +296,7 @@ class DiagnosisQuestionFlowVC: UIViewController,UITableViewDelegate,UITableViewD
             cell.imgValues.sd_setImage(with: imgURL)
         }
         
-        cell.lblValues.text  = arrQuestionForQuestion[collectionView.tag].arrQuestionTypes[indexPath.row].strQuestionValue.localized(lang: langCode)
+        cell.lblValues.text  = arrQuestionForQuestion[collectionView.tag].arrQuestionTypes[indexPath.row].strQuestionValue //.localized(lang: langCode)
         
         if arrQuestionForQuestion[collectionView.tag].arrQuestionTypes[indexPath.row].isSelected == true{
             cell.viewMain.backgroundColor = navColor
@@ -310,6 +313,8 @@ class DiagnosisQuestionFlowVC: UIViewController,UITableViewDelegate,UITableViewD
             
             cell.circleImageView.image = #imageLiteral(resourceName: "circle")
         }
+        
+        
         
         return cell
     }
@@ -328,15 +333,15 @@ class DiagnosisQuestionFlowVC: UIViewController,UITableViewDelegate,UITableViewD
 
             }
             else{
-                if arrQuestionForQuestion[collectionView.tag].arrQuestionTypes[indexPath.row].strQuestionValue == "None Of These"{
+                if arrQuestionForQuestion[collectionView.tag].arrQuestionTypes[indexPath.row].strQuestionValue == "None Of These".localized(lang: langCode) {
                     for k in 0..<arrQuestionForQuestion[collectionView.tag].arrQuestionTypes.count{
                         arrQuestionForQuestion[collectionView.tag].arrQuestionTypes[k].isSelected = false
                     }
-                    arrQuestionForQuestion[collectionView.tag].strAnswerName = "None Of These"
+                    arrQuestionForQuestion[collectionView.tag].strAnswerName = "None Of These".localized(lang: langCode)
                 }
                 else{
                     for k in 0..<arrQuestionForQuestion[collectionView.tag].arrQuestionTypes.count{
-                        if arrQuestionForQuestion[collectionView.tag].arrQuestionTypes[k].strQuestionValue == "None Of These"{
+                        if arrQuestionForQuestion[collectionView.tag].arrQuestionTypes[k].strQuestionValue == "None Of These".localized(lang: langCode) {
                             if arrQuestionForQuestion[collectionView.tag].arrQuestionTypes[k].isSelected == true{
                                 arrQuestionForQuestion[collectionView.tag].strAnswerName = ""
 

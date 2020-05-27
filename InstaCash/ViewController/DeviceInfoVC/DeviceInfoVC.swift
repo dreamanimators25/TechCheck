@@ -101,6 +101,7 @@ class DeviceInfoVC: UIViewController {
   
         userDefaults.set(arrMyCurrentDeviceGetInfo[0].strCurrentDeviceName, forKey: "productName")
         let vc = ScreenTestingVC()
+        vc.modalPresentationStyle = .fullScreen
         self.navigationController?.present(vc, animated: true, completion: nil)
     }
     

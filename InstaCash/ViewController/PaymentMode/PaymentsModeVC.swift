@@ -205,7 +205,6 @@ class PaymentsModeVC: UIViewController {
             self.lblBankMode2.text = "BANK".localized(lang: langCode)
             
             self.impsView.isHidden = true
-            
             self.walletView.isHidden = true
             self.paytmWalletView.isHidden = true
             
@@ -269,7 +268,8 @@ class PaymentsModeVC: UIViewController {
             
             self.lblCash.text = "Cash".localized(lang: langCode)
             self.lblUuponCash.text = "UUPON (Cash Only)".localized(lang: langCode)
-            self.lblUuponCashPoint.text = "UUPON (Cash+Points)".localized(lang: langCode)
+            //self.lblUuponCashPoint.text = "UUPON (Cash+Points)".localized(lang: langCode)
+            self.lblUuponCashPoint.text = "UUPON (Points Only)".localized(lang: langCode)
             
             self.smallCashImage.isHidden = false
             self.smallUuponCashImage.isHidden = true
@@ -313,9 +313,9 @@ class PaymentsModeVC: UIViewController {
         self.lblPayable6.text = "Payable".localized(lang: langCode)
         self.lblUuponCash.text = "UUPON (Cash Only)".localized(lang: langCode)
         self.lblPayable7.text = "Payable".localized(lang: langCode)
-        self.lblUuponCashPoint.text = "UUPON (Cash+Points)".localized(lang: langCode)
+        //self.lblUuponCashPoint.text = "UUPON (Cash+Points)".localized(lang: langCode)
+        self.lblUuponCashPoint.text = "UUPON (Points Only)".localized(lang: langCode)
         self.lblPayable8.text = "Payable".localized(lang: langCode)
-        
         
     }
     
@@ -323,7 +323,6 @@ class PaymentsModeVC: UIViewController {
         super.viewWillAppear(animated)
         
         self.setBorder(width: 1.0, color: UIColor.gray)
-        
         self.changeLanguageOfUI()
     }
     
@@ -416,11 +415,11 @@ class PaymentsModeVC: UIViewController {
             let parametersHome : [String : Any] = [
                 "apiKey" : key,
                 "userName" : apiAuthenticateUserName,
-                "amount":strFinalAmount,
-                "couponAmount":couponAmount,
-                "categoryId":"15",
-                "paymentTag":paymentTagValue,
-                "pincode":userDefaults.value(forKey: "orderPinCode") as? String ?? "" //110011
+                "amount" : strFinalAmount,
+                "couponAmount" : couponAmount,
+                "categoryId" : "15",
+                "paymentTag" : paymentTagValue,
+                "pincode" : userDefaults.value(forKey: "orderPinCode") as? String ?? "" //110011
             ]
             print(parametersHome)
             
@@ -440,15 +439,25 @@ class PaymentsModeVC: UIViewController {
                         }
                         
                         print(self.arrDictPaymentMode)
+                        self.arrDictPaymentMode = self.arrDictPaymentMode.reversed()
+                        print(self.arrDictPaymentMode)
                         
                         //To set priceValues from api response
                         
                         if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
                             
+                            //Sameer 19/5/20
+                            self.bankView.isHidden = true
+                            self.neftView.isHidden = true
+                            self.impsView.isHidden = true
+                            self.walletView.isHidden = true
+                            self.paytmWalletView.isHidden = true
+                            
                             for (index,item) in self.arrDictPaymentMode.enumerated() {
                                 print(index,item)
                                 
                                 if item["typeCode"] as? String == "NEFT" {
+                                    
                                     let gateWayCharge = item.value(forKey: "gatewayCharge") as? Int ?? 0
                                     
                                     let bankCharge = self.getFinalPrice3 + gateWayCharge
@@ -458,26 +467,52 @@ class PaymentsModeVC: UIViewController {
                                     self.lblBankTotalAmount.text = CustomUserDefault.getCurrency() + String(bankCharge.formattedWithSeparator)
                                     
                                     self.lblNEFTcharges.text = "Gateway charges".localized(lang: langCode) + "-" + CustomUserDefault.getCurrency() + String(gateWayCharge)
-                                    
                                     self.lblNEFTtotalPrice.text = CustomUserDefault.getCurrency() + String(bankCharge.formattedWithSeparator)
                                     
                                     let imgURL = URL.init(string: item["image"] as! String)
                                     self.neftImage.sd_setImage(with: imgURL)
                                     
+                                    //Sameer 19/5/20
+                                    self.bankView.isHidden = false
+                                    self.neftView.isHidden = false
+                                    
+                                    self.paytmWalletView.isHidden = true
+                                    
+                                    //Sameer 20/5/20
+                                    self.lblSelectedPaymentMode.text = "NEFT".localized(lang: langCode)
+                                    self.selectePaymentType = "NEFT"
+                                    
+                                    self.smallNEFTImage.isHidden = false
+                                    self.smallIMPSImage.isHidden = true
+                                    
                                 }else if item["typeCode"] as? String == "IMPS" {
                                     
                                     let gateWayCharge = item.value(forKey: "gatewayCharge") as? Int ?? 0
-                                    
-                                    self.lblIMPScharges.text = "Gateway charges".localized(lang: langCode) + "-" + CustomUserDefault.getCurrency() + String(gateWayCharge)
-                                    
+                                                                        
                                     let bankCharge = self.getFinalPrice3 + gateWayCharge
                                     self.imps = bankCharge
+                                    self.finalPriceSet3 = bankCharge
                                     
+                                    self.lblBankTotalAmount.text = CustomUserDefault.getCurrency() + String(bankCharge.formattedWithSeparator)
                                     
+                                    self.lblIMPScharges.text = "Gateway charges".localized(lang: langCode) + "-" + CustomUserDefault.getCurrency() + String(gateWayCharge)
                                     self.lblIMPSTotalPrice.text = CustomUserDefault.getCurrency() + String(bankCharge.formattedWithSeparator)
                                     
                                     let imgURL = URL.init(string: item["image"] as! String)
                                     self.impsImage.sd_setImage(with: imgURL)
+                                    
+                                    //Sameer 19/5/20
+                                    self.bankView.isHidden = false
+                                    self.impsView.isHidden = false
+                                    
+                                    self.paytmWalletView.isHidden = true
+                                    
+                                    //Sameer 20/5/20
+                                    self.lblSelectedPaymentMode.text = "IMPS".localized(lang: langCode)
+                                    self.selectePaymentType = "IMPS"
+                                    
+                                    self.smallNEFTImage.isHidden = true
+                                    self.smallIMPSImage.isHidden = false
                                     
                                 }else if item["typeCode"] as? String == "PYTM" {
                                     
@@ -485,22 +520,43 @@ class PaymentsModeVC: UIViewController {
                                     
                                     let bankCharge = self.getFinalPrice3 + gateWayCharge
                                     self.wallet = bankCharge
-                                    
-                                    self.lblPaytmWalletCharges.text = "Gateway charges".localized(lang: langCode) + "-" + CustomUserDefault.getCurrency() + String(gateWayCharge)
+                                    self.finalPriceSet3 = bankCharge
                                     
                                     self.lblWalletPrice.text = CustomUserDefault.getCurrency() + String(bankCharge.formattedWithSeparator)
+                                    
+                                    self.lblPaytmWalletCharges.text = "Gateway charges".localized(lang: langCode) + "-" + CustomUserDefault.getCurrency() + String(gateWayCharge)
                                     self.lblPaytmWalletPrice.text = CustomUserDefault.getCurrency() + String(bankCharge.formattedWithSeparator)
                                     
                                     let imgURL = URL.init(string: item["image"] as! String)
                                     self.paytmWalletImage.sd_setImage(with: imgURL)
+                                    
+                                    //Sameer 19/5/20
+                                    self.walletView.isHidden = false
+                                    self.paytmWalletView.isHidden = false
+                                    
+                                    //Sameer 20/5/20
+                                    self.lblSelectedPaymentMode.text = "PAYTM".localized(lang: langCode)
+                                    self.selectePaymentType = "PYTM"
+                                    
+                                    self.smallNEFTImage.isHidden = true
+                                    self.smallIMPSImage.isHidden = true
+                                    
                                 }
                             }
                             
                         }else if CustomUserDefault.getCurrency() == "RM" {
                             
+                            //Sameer 19/5/20
+                            self.bankView.isHidden = true
+                            self.neftView.isHidden = true
+                            self.otherView.isHidden = true
+                            self.cendolView.isHidden = true
+                            self.maxisView.isHidden = true
+                            self.samsungView.isHidden = true
+                            
                             for (index,item) in self.arrDictPaymentMode.enumerated() {
                                 print(index,item)
-                                
+                                                                
                                 if item["typeCode"] as? String == "BANK" {
                                     let gateWayCharge = item.value(forKey: "gatewayCharge") as? Int ?? 0
                                     
@@ -512,66 +568,130 @@ class PaymentsModeVC: UIViewController {
                                     self.lblOTHERtotalPrice.text = CustomUserDefault.getCurrency() + String(bankCharge.formattedWithSeparator)
                                     
                                     self.lblNEFTcharges.text = "Gateway charges".localized(lang: langCode) + "-" + CustomUserDefault.getCurrency() + String(gateWayCharge)
-                                    
                                     self.lblNEFTtotalPrice.text = CustomUserDefault.getCurrency() + String(bankCharge.formattedWithSeparator)
                                     
                                     let imgURL = URL.init(string: item["image"] as! String)
                                     self.neftImage.sd_setImage(with: imgURL)
                                     
+                                    //Sameer 19/5/20
+                                    self.bankView.isHidden = false
+                                    self.neftView.isHidden = false
+                                    
+                                    self.cendolView.isHidden = true
+                                    self.maxisView.isHidden = true
+                                    self.samsungView.isHidden = true
+                                    
+                                    //Sameer 20/5/20
+                                    self.lblSelectedPaymentMode.text = "BANK".localized(lang: langCode)
+                                    self.selectePaymentType = "Bank"
+                                    
+                                    self.smallNEFTImage.isHidden = false
+                                    self.smallCENDOLImage.isHidden = true
+                                    self.smallMAXISImage.isHidden = true
+                                    self.smallSAMSUNGImage.isHidden = true
+                                    
                                 }else if item["typeCode"] as? String == "Ashita" {
                                     
                                     let gateWayCharge = item.value(forKey: "gatewayCharge") as? Int ?? 0
                                     
-                                    self.lblCENDOLcharges.text = "Gateway charges".localized(lang: langCode) + "-" + CustomUserDefault.getCurrency() + String(gateWayCharge)
-                                    
                                     let bankCharge = self.getFinalPrice3 + gateWayCharge
                                     self.cendol = bankCharge
+                                    self.finalPriceSet3 = bankCharge
                                     
+                                    self.lblOTHERtotalPrice.text = CustomUserDefault.getCurrency() + String(bankCharge.formattedWithSeparator)
                                     
+                                    self.lblCENDOLcharges.text = "Gateway charges".localized(lang: langCode) + "-" + CustomUserDefault.getCurrency() + String(gateWayCharge)
                                     self.lblCENDOLtotalPrice.text = CustomUserDefault.getCurrency() + String(bankCharge.formattedWithSeparator)
                                     
                                     let imgURL = URL.init(string: item["image"] as! String)
                                     self.cendolImage.sd_setImage(with: imgURL)
                                     
+                                    //Sameer 19/5/20
+                                    self.otherView.isHidden = false
+                                    self.cendolView.isHidden = false
+                                    
+                                    //Sameer 20/5/20
+                                    self.lblSelectedPaymentMode.text = "CENDOL VOUCHER".localized(lang: langCode)
+                                    self.selectePaymentType = "Ashita"
+                                    
+                                    self.smallNEFTImage.isHidden = true
+                                    self.smallCENDOLImage.isHidden = false
+                                    self.smallMAXISImage.isHidden = true
+                                    self.smallSAMSUNGImage.isHidden = true
+                                    
                                 }else if item["typeCode"] as? String == "Maxis" {
                                     
                                     let gateWayCharge = item.value(forKey: "gatewayCharge") as? Int ?? 0
                                     
-                                    self.lblMAXIScharges.text = "Gateway charges".localized(lang: langCode) + "-" + CustomUserDefault.getCurrency() + String(gateWayCharge)
-                                    
                                     let bankCharge = self.getFinalPrice3 + gateWayCharge
                                     self.maxis = bankCharge
+                                    self.finalPriceSet3 = bankCharge
                                     
+                                    self.lblOTHERtotalPrice.text = CustomUserDefault.getCurrency() + String(bankCharge.formattedWithSeparator)
                                     
+                                    self.lblMAXIScharges.text = "Gateway charges".localized(lang: langCode) + "-" + CustomUserDefault.getCurrency() + String(gateWayCharge)
                                     self.lblMAXIStotalPrice.text = CustomUserDefault.getCurrency() + String(bankCharge.formattedWithSeparator)
                                     
                                     let imgURL = URL.init(string: item["image"] as! String)
                                     self.maxisImage.sd_setImage(with: imgURL)
                                     
+                                    //Sameer 19/5/20
+                                    self.otherView.isHidden = false
+                                    self.maxisView.isHidden = false
+                                    
+                                    //Sameer 20/5/20
+                                    self.lblSelectedPaymentMode.text = "MAXIS".localized(lang: langCode)
+                                    self.selectePaymentType = "Maxis"
+                                    
+                                    self.smallNEFTImage.isHidden = true
+                                    self.smallCENDOLImage.isHidden = true
+                                    self.smallMAXISImage.isHidden = false
+                                    self.smallSAMSUNGImage.isHidden = true
+                                    
                                 }else if item["typeCode"] as? String == "Samsung" {
                                     
                                     let gateWayCharge = item.value(forKey: "gatewayCharge") as? Int ?? 0
                                     
-                                    self.lblSAMSUNGcharges.text = "Gateway charges".localized(lang: langCode) + "-" + CustomUserDefault.getCurrency() + String(gateWayCharge)
-                                    
                                     let bankCharge = self.getFinalPrice3 + gateWayCharge
                                     self.samsung = bankCharge
+                                    self.finalPriceSet3 = bankCharge
                                     
+                                    self.lblOTHERtotalPrice.text = CustomUserDefault.getCurrency() + String(bankCharge.formattedWithSeparator)
                                     
+                                    self.lblSAMSUNGcharges.text = "Gateway charges".localized(lang: langCode) + "-" + CustomUserDefault.getCurrency() + String(gateWayCharge)
                                     self.lblSAMSUNGtotalPrice.text = CustomUserDefault.getCurrency() + String(bankCharge.formattedWithSeparator)
                                     
                                     let imgURL = URL.init(string: item["image"] as! String)
                                     self.samsungImage.sd_setImage(with: imgURL)
                                     
+                                    //Sameer 19/5/20
+                                    self.otherView.isHidden = false
+                                    self.samsungView.isHidden = false
+                                    
+                                    //Sameer 20/5/20
+                                    self.lblSelectedPaymentMode.text = "SAMSUNG".localized(lang: langCode)
+                                    self.selectePaymentType = "Samsung"
+                                    
+                                    self.smallNEFTImage.isHidden = true
+                                    self.smallCENDOLImage.isHidden = true
+                                    self.smallMAXISImage.isHidden = true
+                                    self.smallSAMSUNGImage.isHidden = false
+                                    
                                 }
                             }
 
                         }else if CustomUserDefault.getCurrency() == "SG$" {
+                            
+                            //Sameer 19/5/20
+                            self.bankView.isHidden = true
+                            self.neftView.isHidden = true
+                            self.impsView.isHidden = true
 
                             for (index,item) in self.arrDictPaymentMode.enumerated() {
                                 print(index,item)
-                                
+                                                                
                                 if item["typeCode"] as? String == "Fastpay" {
+                                    
                                     let gateWayCharge = item.value(forKey: "gatewayCharge") as? Int ?? 0
                                     
                                     let bankCharge = self.getFinalPrice3 + gateWayCharge
@@ -581,35 +701,64 @@ class PaymentsModeVC: UIViewController {
                                     self.lblBankTotalAmount.text = CustomUserDefault.getCurrency() + String(bankCharge.formattedWithSeparator)
                                     
                                     self.lblNEFTcharges.text = "Gateway charges".localized(lang: langCode) + "-" + CustomUserDefault.getCurrency() + String(gateWayCharge)
-                                    
                                     self.lblNEFTtotalPrice.text = CustomUserDefault.getCurrency() + String(bankCharge.formattedWithSeparator)
                                     
                                     let imgURL = URL.init(string: item["image"] as! String)
                                     self.neftImage.sd_setImage(with: imgURL)
                                     
+                                    //Sameer 19/5/20
+                                    self.bankView.isHidden = false
+                                    self.neftView.isHidden = false
+                                    
+                                    //Sameer 20/5/20
+                                    self.lblSelectedPaymentMode.text = "FASTPAY".localized(lang: langCode)
+                                    self.selectePaymentType = "Fastpay"
+                                    
+                                    self.smallNEFTImage.isHidden = false
+                                    self.smallIMPSImage.isHidden = true
+                                    
                                 }else if item["typeCode"] as? String == "Paynow" {
                                     
                                     let gateWayCharge = item.value(forKey: "gatewayCharge") as? Int ?? 0
                                     
-                                    self.lblIMPScharges.text = "Gateway charges".localized(lang: langCode) + "-" + CustomUserDefault.getCurrency() + String(gateWayCharge)
-                                    
                                     let bankCharge = self.getFinalPrice3 + gateWayCharge
                                     self.paynow = bankCharge
+                                    self.finalPriceSet3 = bankCharge
                                     
+                                    self.lblBankTotalAmount.text = CustomUserDefault.getCurrency() + String(bankCharge.formattedWithSeparator)
                                     
+                                    self.lblIMPScharges.text = "Gateway charges".localized(lang: langCode) + "-" + CustomUserDefault.getCurrency() + String(gateWayCharge)
                                     self.lblIMPSTotalPrice.text = CustomUserDefault.getCurrency() + String(bankCharge.formattedWithSeparator)
                                     
                                     let imgURL = URL.init(string: item["image"] as! String)
                                     self.impsImage.sd_setImage(with: imgURL)
                                     
+                                    //Sameer 19/5/20
+                                    self.bankView.isHidden = false
+                                    self.impsView.isHidden = false
+                                    
+                                    //Sameer 20/5/20
+                                    self.lblSelectedPaymentMode.text = "PAYNOW".localized(lang: langCode)
+                                    self.selectePaymentType = "Paynow"
+                                    
+                                    self.smallNEFTImage.isHidden = true
+                                    self.smallIMPSImage.isHidden = false
+                                    
                                 }
                             }
                         }else {
+                            
+                            //Sameer 19/5/20
+                            self.otherView.isHidden = true
+                            self.cashView.isHidden = true
+                            self.uuponCashView.isHidden = true
+                            self.uuponCashPointsView.isHidden = true
                             
                             for (index,item) in self.arrDictPaymentMode.enumerated() {
                                 print(index,item)
                                 
                                 if item["typeCode"] as? String == "CASH" {
+                                    
                                     let gateWayCharge = item.value(forKey: "gatewayCharge") as? Int ?? 0
                                     
                                     let cashCharge = self.getFinalPrice3 + gateWayCharge
@@ -617,41 +766,89 @@ class PaymentsModeVC: UIViewController {
                                     self.finalPriceSet3 = cashCharge
                                     
                                     self.lblOTHERtotalPrice.text = CustomUserDefault.getCurrency() + String(cashCharge.formattedWithSeparator)
+                                    self.lblOTHERtotalPrice.isHidden = true //Sameer 27/5/20
                                     
                                     self.lblCashcharges.text = "Gateway charges".localized(lang: langCode) + "-" + CustomUserDefault.getCurrency() + String(gateWayCharge)
-                                    
                                     self.lblCashtotalPrice.text = CustomUserDefault.getCurrency() + String(cashCharge.formattedWithSeparator)
+                                    self.lblCashcharges.isHidden = true //Sameer 27/5/20
                                     
                                     let imgURL = URL.init(string: item["image"] as! String)
                                     self.cashImage.sd_setImage(with: imgURL)
+                                    
+                                    //Sameer 19/5/20
+                                    self.otherView.isHidden = false
+                                    self.cashView.isHidden = false
+                                    
+                                    //Sameer 20/5/20
+                                    self.lblSelectedPaymentMode.text = "CASH".localized(lang: langCode)
+                                    self.selectePaymentType = "Cash"
+                                    
+                                    self.smallCashImage.isHidden = false
+                                    self.smallUuponCashImage.isHidden = true
+                                    self.smallUuponCashPointImage.isHidden = true
                                     
                                 }else if item["typeCode"] as? String == "UUPON (Cash Only)" {
                                     
                                     let gateWayCharge = item.value(forKey: "gatewayCharge") as? Int ?? 0
                                     
-                                    self.lblUuponCashcharges.text = "Gateway charges".localized(lang: langCode) + "-" + CustomUserDefault.getCurrency() + String(gateWayCharge)
-                                    
                                     let bankCharge = self.getFinalPrice3 + gateWayCharge
                                     self.uuponCash = bankCharge
+                                    self.finalPriceSet3 = bankCharge
                                     
+                                    self.lblOTHERtotalPrice.text = CustomUserDefault.getCurrency() + String(bankCharge.formattedWithSeparator)
+                                    self.lblOTHERtotalPrice.isHidden = true //Sameer 27/5/20
+                                    
+                                    self.lblUuponCashcharges.text = "Gateway charges".localized(lang: langCode) + "-" + CustomUserDefault.getCurrency() + String(gateWayCharge)
                                     self.lblUuponCashtotalPrice.text = CustomUserDefault.getCurrency() + String(bankCharge.formattedWithSeparator)
+                                    self.lblUuponCashcharges.isHidden = true //Sameer 27/5/20
                                     
                                     let imgURL = URL.init(string: item["image"] as! String)
                                     self.uuponCashImage.sd_setImage(with: imgURL)
                                     
-                                }else if item["typeCode"] as? String == "UUPON (Cash+Points)" {
+                                    //Sameer 19/5/20
+                                    self.otherView.isHidden = false
+                                    self.uuponCashView.isHidden = false
+                                    
+                                    //Sameer 20/5/20
+                                    self.lblSelectedPaymentMode.text = "UUPON (Cash Only)".localized(lang: langCode)
+                                    self.selectePaymentType = "UUPON (Cash Only)"
+                                    
+                                    self.smallCashImage.isHidden = true
+                                    self.smallUuponCashImage.isHidden = false
+                                    self.smallUuponCashPointImage.isHidden = true
+                                    
+                                //}else if item["typeCode"] as? String == "UUPON (Cash+Points)" {
+                                }else if item["typeCode"] as? String == "UUPON (Points Only)" {
                                     
                                     let gateWayCharge = item.value(forKey: "gatewayCharge") as? Int ?? 0
                                     
-                                    self.lblUuponCashPointcharges.text = "Gateway charges".localized(lang: langCode) + "-" + CustomUserDefault.getCurrency() + String(gateWayCharge)
-                                    
                                     let bankCharge = self.getFinalPrice3 + gateWayCharge
                                     self.uuponCashPoint = bankCharge
+                                    self.finalPriceSet3 = bankCharge
                                     
-                                    self.lblUuponCashPointtotalPrice.text = CustomUserDefault.getCurrency() + String(bankCharge.formattedWithSeparator)
+                                    self.lblOTHERtotalPrice.text = CustomUserDefault.getCurrency() + String(bankCharge.formattedWithSeparator)
+                                    self.lblOTHERtotalPrice.isHidden = true //Sameer 27/5/20
+                                    
+                                    self.lblUuponCashPointcharges.text = "Gateway charges".localized(lang: langCode) + "-" + CustomUserDefault.getCurrency() + String(gateWayCharge)
+                                    //Sameer 25/5/2020
+                                    //self.lblUuponCashPointtotalPrice.text = CustomUserDefault.getCurrency() + String(bankCharge.formattedWithSeparator)
+                                    self.lblUuponCashPointtotalPrice.text = "點數" + String(bankCharge.formattedWithSeparator)
+                                    self.lblUuponCashPointcharges.isHidden = true //Sameer 27/5/20
                                     
                                     let imgURL = URL.init(string: item["image"] as! String)
                                     self.uuponCashPointImage.sd_setImage(with: imgURL)
+                                    
+                                    //Sameer 19/5/20
+                                    self.otherView.isHidden = false
+                                    self.uuponCashPointsView.isHidden = false
+                                    
+                                    //Sameer 20/5/20
+                                    self.lblSelectedPaymentMode.text = "UUPON (Points Only)".localized(lang: langCode)
+                                    self.selectePaymentType = "UUPON (Points Only)"
+                                    
+                                    self.smallCashImage.isHidden = false
+                                    self.smallUuponCashImage.isHidden = false
+                                    self.smallUuponCashPointImage.isHidden = true
                                     
                                 }
                                 
@@ -661,16 +858,16 @@ class PaymentsModeVC: UIViewController {
                     }
                     else{
                         // failed
-                        Alert.showAlert(strMessage: responseObject?["msg"]  as! NSString, Onview: self)
+                        Alert.showAlertWithError(strMessage: responseObject?["msg"]  as! NSString, Onview: self)
                     }
                 }
                 else{
-                    Alert.showAlert(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
+                    Alert.showAlertWithError(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
                 }
             })
         }
         else{
-            Alert.showAlert(strMessage: "No Connection Found".localized(lang: langCode) as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "No Connection Found".localized(lang: langCode) as NSString, Onview: self)
         }
     }
     
@@ -1201,7 +1398,8 @@ class PaymentsModeVC: UIViewController {
             self.btnUuponCash.isSelected = false
             self.btnUuponCashPoint.isSelected = true
             
-            self.lblSelectedPaymentMode.text = "UUPON (Cash+Points)".localized(lang: langCode)
+            //self.lblSelectedPaymentMode.text = "UUPON (Cash+Points)".localized(lang: langCode)
+            self.lblSelectedPaymentMode.text = "UUPON (Points Only)".localized(lang: langCode)
             
             DispatchQueue.main.async {
                 UIView.animate(withDuration: 0.4, animations: {
@@ -1217,7 +1415,9 @@ class PaymentsModeVC: UIViewController {
                 }
             }
             
-            selectePaymentType = "UUPON (Cash+Points)"
+            //selectePaymentType = "UUPON (Cash+Points)"
+            selectePaymentType = "UUPON (Points Only)"
+            
             finalPriceSet3 = uuponCashPoint
             
             self.smallCashImage.isHidden = true
@@ -1587,17 +1787,17 @@ class PaymentsModeVC: UIViewController {
                     }
                     else{
                         // failed
-                        Alert.showAlert(strMessage: responseObject?["msg"]  as! NSString, Onview: self)
+                        Alert.showAlertWithError(strMessage: responseObject?["msg"]  as! NSString, Onview: self)
                     }
                 }
                 else{
                     debugPrint(error as Any)
-                    Alert.showAlert(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
+                    Alert.showAlertWithError(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
                 }
             })
             
         }else{
-            Alert.showAlert(strMessage: "No Connection Found".localized(lang: langCode) as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "No Connection Found".localized(lang: langCode) as NSString, Onview: self)
         }
         
     }

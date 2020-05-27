@@ -2,7 +2,7 @@
 //  AuthenticationErrors.swift
 //  BiometricAuthentication
 //
-//  Copyright (c) 2017 Rushi Sangani
+//  Copyright (c) 2018 Rushi Sangani
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -27,7 +27,7 @@ import Foundation
 import LocalAuthentication
 
 /// Authentication Errors
-public enum AuthenticationError {
+public enum AuthenticationError: Error {
     
     case failed, canceledByUser, fallback, canceledBySystem, passcodeNotSet, biometryNotAvailable, biometryNotEnrolled, biometryLockedout, other
     

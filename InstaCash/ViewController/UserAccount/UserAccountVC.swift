@@ -93,6 +93,13 @@ class UserAccountVC: UIViewController {
         self.diagnoseModeLbl.text = "DIAGNOSE MODE".localized(lang: langCode)
         self.pickupModeLbl.text = "PICKUP MODE".localized(lang: langCode)
         self.logoutLbl.text = "LOGOUT".localized(lang: langCode)
+        
+        if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+            self.languageView.isHidden = false
+        }else {
+            self.languageView.isHidden = true
+        }
+        
     }
     
     //MARK: IBActions

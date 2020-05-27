@@ -94,7 +94,7 @@ public struct Luminous {
                         let rec = unsafeBitCast(interfaceName, to: AnyObject.self)
                         let unsafeInterfaceData = CNCopyCurrentNetworkInfo("\(rec)" as CFString)
                         if unsafeInterfaceData != nil {
-                            let interfaceData = unsafeInterfaceData! as Dictionary?
+                            let interfaceData = unsafeInterfaceData! as Dictionary!
                             for dictData in interfaceData! {
                                 if dictData.key as! String == "SSID" {
                                     currentSSID = dictData.value as! String

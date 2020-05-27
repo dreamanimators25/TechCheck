@@ -99,7 +99,7 @@ class PickUpCodeVC: UIViewController {
         }
         
         if (txtFPickUpCode.text?.count ?? 0) < 8 {
-            Alert.showAlert(strMessage: "Please Enter 8 digit Code".localized(lang: langCode) as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "Please Enter 8 digit Code".localized(lang: langCode) as NSString, Onview: self)
         }else {
             
             if let strVC = isComeFromVC {
@@ -238,9 +238,9 @@ class PickUpCodeVC: UIViewController {
                     }else {
                         
                         if withProcessCode == "diagnosemode" {
-                            Alert.showAlert(strMessage:"Invalid Diagnose Code".localized(lang: langCode) as NSString , Onview: self)
+                            Alert.showAlertWithError(strMessage:"Invalid Diagnose Code".localized(lang: langCode) as NSString , Onview: self)
                         }else {
-                            Alert.showAlert(strMessage:"Invalid Pickup Code".localized(lang: langCode) as NSString , Onview: self)
+                            Alert.showAlertWithError(strMessage:"Invalid Pickup Code".localized(lang: langCode) as NSString , Onview: self)
                         }
                         
                         //Alert.showAlert(strMessage:responseObject?["msg"] as! NSString , Onview: self)
@@ -253,7 +253,7 @@ class PickUpCodeVC: UIViewController {
             })
         }
         else {
-            Alert.showAlert(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
         }
     }
     

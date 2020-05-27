@@ -131,7 +131,7 @@ class PromoterOTPVC: UIViewController,UITextFieldDelegate {
                     if responseObject?["status"] as! String == "Success"{
                         self.txtOTP.resignFirstResponder()
                         if userDefaults.value(forKey: "DeviceNameForPromoters") == nil{
-                         Alert.showAlert(strMessage: "Device not mapped", Onview: self)
+                         Alert.showAlertWithError(strMessage: "Device not mapped", Onview: self)
                         }
                         else{
                             let deviceName = userDefaults.value(forKey: "DeviceNameForPromoters") as! String
@@ -146,6 +146,7 @@ class PromoterOTPVC: UIViewController,UITextFieldDelegate {
                             userDefaults.setValue(promoterName, forKey: "promoter_Name")
                             userDefaults.setValue(promoterId, forKey: "promoter_id")
                             let vc = ScreenTestingVC()
+                            vc.modalPresentationStyle = .fullScreen
                             self.navigationController?.present(vc, animated: true, completion: nil)
                         }
                     
@@ -165,7 +166,7 @@ class PromoterOTPVC: UIViewController,UITextFieldDelegate {
         }
         else
         {
-            Alert.showAlert(strMessage: "No connection found", Onview: self)
+            Alert.showAlertWithError(strMessage: "No connection found", Onview: self)
 
         }
         

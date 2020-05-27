@@ -95,6 +95,7 @@ class LoginVC: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate,TCTrueSDKD
         let vc = MobileNumberVC()
         vc.isComingToCheckForPlaceOrder = self.iscomingFromPlaceOrder
         vc.isOnleMobileNumber = true
+        vc.modalPresentationStyle = .fullScreen
         self.navigationController?.present(vc, animated: true, completion: nil)
     }
     
@@ -181,7 +182,7 @@ class LoginVC: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate,TCTrueSDKD
                         self.fireWebServiceForFbLogin(userName:strFinalUserName, socialId: fbId, email: email, strProfile: imageUrl,strFbOrGp:"facebook")
                     }
                     else{
-                        Alert.showAlert(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
+                        Alert.showAlertWithError(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
                     }
                 }
             })
@@ -243,7 +244,7 @@ class LoginVC: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate,TCTrueSDKD
                 self.fireWebServiceForFbLogin(userName:strFinalUserName, socialId: gPlusId, email: email, strProfile: imageUrl,strFbOrGp: "gplus")
             }
             else{
-                Alert.showAlert(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
+                Alert.showAlertWithError(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
                 
             }
             // Perform any operations on signed in user here.
@@ -370,6 +371,7 @@ class LoginVC: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate,TCTrueSDKD
                             vc.strGetSocialId = socialId
                             vc.isComingToCheckForPlaceOrder = self.iscomingFromPlaceOrder
                             vc.strSocialType = strFbOrGp
+                            vc.modalPresentationStyle = .fullScreen
                             self.navigationController?.present(vc, animated: true, completion: nil)
                         }
                         else{
@@ -402,7 +404,7 @@ class LoginVC: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate,TCTrueSDKD
         }
         else
         {
-            Alert.showAlert(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
         }
         
     }
@@ -468,7 +470,7 @@ class LoginVC: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate,TCTrueSDKD
         }
         else
         {
-            Alert.showAlert(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
             
         }
         

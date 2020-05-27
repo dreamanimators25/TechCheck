@@ -4,7 +4,7 @@
 target 'InstaCash' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
-  
+
 pod 'Alamofire'
 pod 'FBSDKLoginKit'
 pod 'FacebookCore'
@@ -22,7 +22,7 @@ pod 'SwiftGifOrigin'
 pod 'PopupDialog', '~> 0.5'
 pod 'JPSVolumeButtonHandler'
 pod 'DKCamera'
-pod 'BiometricAuthentication'
+pod 'BiometricAuthentication', '~> 2.2'
 pod 'Luminous'
 pod 'INTULocationManager'
 pod 'SwiftSpinner'
@@ -49,6 +49,6 @@ pod 'OTPTextField'
     inherit! :search_paths
     # Pods for testing
   end
-  
+
 
 end

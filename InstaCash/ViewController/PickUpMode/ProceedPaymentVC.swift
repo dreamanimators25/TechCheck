@@ -78,7 +78,7 @@ class ProceedPaymentVC: UIViewController {
     
     @IBAction func btnSwipePressed(_ sender: UIButton) {
         
-        let alertController = UIAlertController(title: "Verification Code".localized(lang: langCode), message: "This mode can only be run if an order has been placed for this device.If you don't have a code yet please call our customer care tp get a new code.".localized(lang: langCode), preferredStyle: UIAlertControllerStyle.alert)
+        let alertController = UIAlertController(title: "Verification Code".localized(lang: langCode), message: "This mode can only be run if an order has been placed for this device.If you don't have a code yet please call our customer care to get a new code.".localized(lang: langCode), preferredStyle: UIAlertControllerStyle.alert)
         
         alertController.addTextField { (textField : UITextField!) -> Void in
             textField.placeholder = "Enter Verification Code".localized(lang: langCode)
@@ -142,7 +142,7 @@ class ProceedPaymentVC: UIViewController {
                         vc.strGetPaymentAmount = self.getAmount
                         vc.strGetTransactionId = responseObject?["transactionId"] as! String
                         vc.strGetPaymentStatus = responseObject?["paymentStatus"] as! String
-
+                        vc.modalPresentationStyle = .fullScreen
                         self.present(vc, animated: true, completion: nil)
                     }
                     else{

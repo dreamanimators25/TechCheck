@@ -60,6 +60,7 @@ class ProcessPaymentPopUpVC: UIViewController {
     @IBAction func btnCompletePressed(_ sender: UIButton) {
         let vc = RatingVC()
         vc.getTrsactID = self.strGetTransactionId
+        vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
     }
     
@@ -97,6 +98,7 @@ class ProcessPaymentPopUpVC: UIViewController {
                         if responseObject?["paymentStatus"] as! String == "Payment Successful" {
                             let vc = RatingVC()
                             vc.getTrsactID = self.strGetTransactionId
+                            vc.modalPresentationStyle = .fullScreen
                             self.present(vc, animated: true, completion: nil)
                         }
                        // self.lblStatus.text = responseObject?["paymentStatus"] as! String

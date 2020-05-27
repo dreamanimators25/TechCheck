@@ -42,7 +42,7 @@ public enum DeviiceType: String {
     case iPadMini3          = "iPad Mini 3"
     case iPadMini4          = "iPad Mini 4"
     case iPadPro            = "iPad Pro"
-    case simulator          = "iPhone XR"
+    case simulator          = "Simulator"
 }
 
 // The device screen size

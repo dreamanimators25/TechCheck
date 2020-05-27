@@ -37,7 +37,7 @@ class PaymentTypeVC: UIViewController,UITableViewDelegate,UITableViewDataSource 
             getProcessPaymentMode()
         }
         else {
-            Alert.showAlert(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
         }
         
     }
@@ -211,13 +211,13 @@ class PaymentTypeVC: UIViewController,UITableViewDelegate,UITableViewDataSource 
                 }
                 else{
                     // failed
-                    Alert.showAlert(strMessage: responseObject?["msg"]  as! NSString, Onview: self)
+                    Alert.showAlertWithError(strMessage: responseObject?["msg"]  as! NSString, Onview: self)
 
                 }
                 
             }
             else{
-                Alert.showAlert(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
+                Alert.showAlertWithError(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
                 
             }
             
@@ -387,13 +387,13 @@ class PaymentTypeVC: UIViewController,UITableViewDelegate,UITableViewDataSource 
                 }
                 else{
                     // failed
-                    Alert.showAlert(strMessage: responseObject?["msg"]  as! NSString, Onview: self)
+                    Alert.showAlertWithError(strMessage: responseObject?["msg"]  as! NSString, Onview: self)
                     
                 }
                 
             }
             else{
-                Alert.showAlert(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
+                Alert.showAlertWithError(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
                 
             }
             

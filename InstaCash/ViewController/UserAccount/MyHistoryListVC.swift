@@ -46,12 +46,12 @@ class MyHistoryListVC: UIViewController,UITableViewDataSource,UITableViewDelegat
                     self.historyListTableView.reloadData()
                 }
                 else{
-                    Alert.showAlert(strMessage:"No Data Found!".localized(lang: langCode) as NSString , Onview: self)
+                    Alert.showAlertWithError(strMessage:"No Data Found!".localized(lang: langCode) as NSString , Onview: self)
                 }
             }
         }
         else{
-            Alert.showAlert(strMessage: "No Connection found".localized(lang: langCode) as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "No Connection found".localized(lang: langCode) as NSString, Onview: self)
         }
         
     }
@@ -102,9 +102,21 @@ class MyHistoryListVC: UIViewController,UITableViewDataSource,UITableViewDelegat
             let cellOrderHeader = tableView.dequeueReusableCell(withIdentifier: "historyCollabsableCell", for: indexPath) as! HistoryCollabsableCell
             
             let modelOrder = arrHistoryList[indexPath.section]
+            
+            //let data = Data(modelOrder.strSumaryHistory!.utf8)
+            
+            //if let attributedString = try? NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil) {
+                //cellOrderHeader.lblTitle.attributedText = attributedString
+            //}
+            
             let data = Data(modelOrder.strSumaryHistory!.utf8)
             
-            if let attributedString = try? NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil) {
+            let options = [
+                NSAttributedString.DocumentReadingOptionKey.documentType: NSAttributedString.DocumentType.html,
+                NSAttributedString.DocumentReadingOptionKey.characterEncoding: NSNumber(value: String.Encoding.utf8.rawValue)
+                ] as [NSAttributedString.DocumentReadingOptionKey : Any]
+            
+            if let attributedString = try? NSAttributedString(data: data, options: options, documentAttributes: nil) {
                 cellOrderHeader.lblTitle.attributedText = attributedString
             }
             

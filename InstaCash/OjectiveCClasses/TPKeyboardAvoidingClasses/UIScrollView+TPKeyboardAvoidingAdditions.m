@@ -111,7 +111,7 @@ static const int kStateKey;
         }
         
         self.scrollIndicatorInsets = self.contentInset;
-        [self layoutIfNeeded];
+        //[self layoutIfNeeded]; //Sameer 12/5/2020 crash iOS 13
         
         [UIView commitAnimations];
     });
@@ -158,7 +158,7 @@ static const int kStateKey;
     self.contentInset = state.priorInset;
     self.scrollIndicatorInsets = state.priorScrollIndicatorInsets;
     self.pagingEnabled = state.priorPagingEnabled;
-	[self layoutIfNeeded];
+	//[self layoutIfNeeded]; //Sameer 12/5/2020 crash iOS 13
     [UIView commitAnimations];
 }
 

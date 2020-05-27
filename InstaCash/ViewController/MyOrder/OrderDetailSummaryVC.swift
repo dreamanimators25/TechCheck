@@ -31,6 +31,12 @@ class OrderDetailSummaryVC: UIViewController,UITableViewDataSource,UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        if #available(iOS 13.0, *) {
+//            overrideUserInterfaceStyle = .light
+//        } else {
+//            // Fallback on earlier versions
+//        }
+        
         summaryTableView.register(UINib(nibName: "ProductSummaryTblViewCell", bundle: nil), forCellReuseIdentifier: "ProductSummaryTblViewCell")
         
         let arrSummaryString : [String?] = summaryStr.components(separatedBy: ";")
@@ -104,8 +110,8 @@ class OrderDetailSummaryVC: UIViewController,UITableViewDataSource,UITableViewDe
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cellTestResult = tableView.dequeueReusableCell(withIdentifier: "ProductSummaryTblViewCell", for: indexPath) as! ProductSummaryTblViewCell
-        cellTestResult.lblQuateName.text = arrKey[indexPath.row].localized(lang: langCode)
-        cellTestResult.lblQuateValue.text = arrValue[indexPath.row].localized(lang: langCode)
+        cellTestResult.lblQuateName.text = arrKey[indexPath.row] //.localized(lang: langCode)
+        cellTestResult.lblQuateValue.text = arrValue[indexPath.row] //.localized(lang: langCode)
         
         return cellTestResult
         

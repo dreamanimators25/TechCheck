@@ -26,7 +26,9 @@ class CountrySelection: UIViewController, UICollectionViewDelegate, UICollection
     func changeLanguageOfUI() {
         
         self.lblArea.text = "Areas we serve".localized(lang: langCode)
-        self.btnNext.setTitle("Next".localized(lang: langCode), for: UIControlState.normal)
+        //self.btnNext.setTitle("Next".localized(lang: langCode), for: UIControlState.normal)
+        self.btnNext.setTitle("Type your city".localized(lang: langCode), for: UIControlState.normal)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

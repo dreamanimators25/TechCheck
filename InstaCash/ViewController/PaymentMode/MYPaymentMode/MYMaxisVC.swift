@@ -108,26 +108,26 @@ class MYMaxisVC: UIViewController {
     {
         if txtFBankHolderName.text!.isEmpty
         {
-            Alert.showAlert(strMessage: "Please enter account holder's name".localized(lang: langCode) as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "Please enter account holder's name".localized(lang: langCode) as NSString, Onview: self)
             return false
         }
         else if txtFBankAccountNumber.text!.isEmpty
         {
-            Alert.showAlert(strMessage: "Please enter account number".localized(lang: langCode) as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "Please enter account number".localized(lang: langCode) as NSString, Onview: self)
             return false
         }
         else if self.strSelectedBankName == ""
         {
-            Alert.showAlert(strMessage: "Please select your bank".localized(lang: langCode) as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "Please select your bank".localized(lang: langCode) as NSString, Onview: self)
             return false
         }else if txtFPromoterID.text!.isEmpty
         {
-            Alert.showAlert(strMessage: "Please enter promoter ID".localized(lang: langCode) as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "Please enter promoter ID".localized(lang: langCode) as NSString, Onview: self)
             return false
         }
         else if txtFReferrelID.text!.isEmpty
         {
-            Alert.showAlert(strMessage: "Please enter referrel ID".localized(lang: langCode) as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "Please enter referrel ID".localized(lang: langCode) as NSString, Onview: self)
             return false
         }
         
@@ -182,17 +182,17 @@ class MYMaxisVC: UIViewController {
                     }
                     else{
                         // failed
-                        Alert.showAlert(strMessage: responseObject?["msg"]  as! NSString, Onview: self)
+                        Alert.showAlertWithError(strMessage: responseObject?["msg"]  as! NSString, Onview: self)
                     }
                 }
                 else{
                     debugPrint(error as Any)
-                    Alert.showAlert(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
+                    Alert.showAlertWithError(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
                 }
             })
             
         }else{
-            Alert.showAlert(strMessage: "No Connection Found".localized(lang: langCode) as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "No Connection Found".localized(lang: langCode) as NSString, Onview: self)
         }
         
     }
@@ -253,17 +253,17 @@ class MYMaxisVC: UIViewController {
                     }
                     else{
                         // failed
-                        Alert.showAlert(strMessage: responseObject?["msg"]  as! NSString, Onview: self)
+                        Alert.showAlertWithError(strMessage: responseObject?["msg"]  as! NSString, Onview: self)
                     }
                 }
                 else{
                     debugPrint(error as Any)
-                    Alert.showAlert(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
+                    Alert.showAlertWithError(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
                 }
             })
             
         }else{
-            Alert.showAlert(strMessage: "No Connection Found".localized(lang: langCode) as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "No Connection Found".localized(lang: langCode) as NSString, Onview: self)
         }
         
     }

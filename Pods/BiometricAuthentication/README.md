@@ -8,13 +8,27 @@ It's very simple and easy to use that handles Touch ID and Face ID authenticatio
 <string>This app requires Face ID permission to authenticate using Face recognition.</string>
 ```
 
+### What's new in version 2.2
+- Set **AllowableReuseDuration** (in seconds) to auto authenticate when user has just unlocked the device with biometric.
+- This is pretty useful when app comes to foreground or device is just unlocked by the user and you want to authenticate with biometrics.
+- If you don't want to reuse the recently used authentication then simply skip this step.
+```swift
+
+// set this before calling authenticateWithBioMetrics method (optional)
+BioMetricAuthenticator.shared.allowableReuseDuration = 60   //(iOS 9.0 or later)
+```
+
+### Version 2.1
+- Check if **TouchID**  or **FaceID** authentication is available for iOS device.
+
+
 ![Alt text](https://raw.githubusercontent.com/rushisangani/BiometricAuthentication/master/Images/image1.png "Authenticate")
 ![Alt text](https://raw.githubusercontent.com/rushisangani/BiometricAuthentication/master/Images/image2.png "Fallback title")
 ![Alt text](https://raw.githubusercontent.com/rushisangani/BiometricAuthentication/master/Images/image3.png "Locked out")
 
 ## Features
 
-- Works with Apple Face ID (iPhone X) and other Touch ID having devices.
+- Works with Apple Face ID (iPhone X, Xs, XR, XsMax) and other Touch ID having devices.
 - Predefined error handling when recognition fails.
 - Automatic authentication with device passcode on multiple failed attempts.
 
@@ -76,6 +90,13 @@ if BioMetricAuthenticator.canAuthenticate() {
 ```swift
 if BioMetricAuthenticator.shared.faceIDAvailable() {
     // device supports face id recognition.
+}
+```
+### Check for Touch ID
+- Check if device supports touch id authentication or not.
+```swift
+if BioMetricAuthenticator.shared.touchIDAvailable() {
+    // device supports touch id authentication
 }
 ```
 

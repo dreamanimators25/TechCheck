@@ -201,13 +201,13 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JG3-L2-asa">
-                    <rect key="frame" x="5" y="119" width="310" height="680"/>
+                    <rect key="frame" x="5" y="119" width="310" height="410"/>
                     <subviews>
                         <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="J3g-9d-Dlt">
-                            <rect key="frame" x="0.0" y="0.0" width="310" height="680"/>
+                            <rect key="frame" x="0.0" y="0.0" width="310" height="410"/>
                             <subviews>
-                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pvd-sn-iB9">
-                                    <rect key="frame" x="0.0" y="0.0" width="310" height="50"/>
+                                <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pvd-sn-iB9">
+                                    <rect key="frame" x="0.0" y="-50" width="310" height="50"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bank" translatesAutoresizingMaskIntoConstraints="NO" id="spK-xw-q4b">
                                             <rect key="frame" x="5" y="10" width="40" height="30"/>
@@ -256,8 +256,8 @@
                                         <constraint firstItem="spK-xw-q4b" firstAttribute="leading" secondItem="pvd-sn-iB9" secondAttribute="leading" constant="5" id="x8z-Vh-YY5"/>
                                     </constraints>
                                 </view>
-                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fel-U7-POc">
-                                    <rect key="frame" x="0.0" y="50" width="310" height="60"/>
+                                <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fel-U7-POc">
+                                    <rect key="frame" x="0.0" y="-60" width="310" height="60"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smallRight" translatesAutoresizingMaskIntoConstraints="NO" id="9eb-ba-iqG">
                                             <rect key="frame" x="5" y="17.5" width="25" height="25"/>
@@ -343,8 +343,8 @@
                                         <constraint firstItem="cE8-zO-78H" firstAttribute="top" secondItem="fel-U7-POc" secondAttribute="top" id="zTT-NZ-2XG"/>
                                     </constraints>
                                 </view>
-                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ku3-xj-Mq2">
-                                    <rect key="frame" x="0.0" y="110" width="310" height="60"/>
+                                <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ku3-xj-Mq2">
+                                    <rect key="frame" x="0.0" y="-60" width="310" height="60"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smallRight" translatesAutoresizingMaskIntoConstraints="NO" id="xzG-9t-pSN">
                                             <rect key="frame" x="5" y="17.5" width="25" height="25"/>
@@ -430,8 +430,8 @@
                                         <constraint firstItem="RSx-Zc-TNF" firstAttribute="leading" secondItem="xzG-9t-pSN" secondAttribute="trailing" constant="10" id="vvm-Cm-wdW"/>
                                     </constraints>
                                 </view>
-                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vfg-Uc-qgZ">
-                                    <rect key="frame" x="0.0" y="170" width="310" height="50"/>
+                                <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vfg-Uc-qgZ">
+                                    <rect key="frame" x="0.0" y="-50" width="310" height="50"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wallet" translatesAutoresizingMaskIntoConstraints="NO" id="fjt-N4-Ti9">
                                             <rect key="frame" x="5" y="10" width="40" height="30"/>
@@ -481,8 +481,8 @@
                                         <constraint firstItem="EBz-Pb-YJG" firstAttribute="centerY" secondItem="vfg-Uc-qgZ" secondAttribute="centerY" id="vTJ-Vg-LBq"/>
                                     </constraints>
                                 </view>
-                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rAR-wg-3YI">
-                                    <rect key="frame" x="0.0" y="220" width="310" height="50"/>
+                                <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rAR-wg-3YI">
+                                    <rect key="frame" x="0.0" y="-50" width="310" height="50"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="p5a-Zb-MMi">
                                             <rect key="frame" x="5" y="10" width="40" height="30"/>
@@ -556,7 +556,7 @@
                                     </constraints>
                                 </view>
                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qeE-Ln-NPW">
-                                    <rect key="frame" x="0.0" y="270" width="310" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="310" height="50"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="voucher" translatesAutoresizingMaskIntoConstraints="NO" id="di4-Rr-nIE">
                                             <rect key="frame" x="5" y="10" width="40" height="30"/>
@@ -607,7 +607,7 @@
                                     </constraints>
                                 </view>
                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bma-41-dxK">
-                                    <rect key="frame" x="0.0" y="320" width="310" height="60"/>
+                                    <rect key="frame" x="0.0" y="50" width="310" height="60"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smallRight" translatesAutoresizingMaskIntoConstraints="NO" id="MTH-YE-aqL">
                                             <rect key="frame" x="5" y="17.5" width="25" height="25"/>
@@ -694,7 +694,7 @@
                                     </constraints>
                                 </view>
                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aaC-ba-UVd">
-                                    <rect key="frame" x="0.0" y="380" width="310" height="60"/>
+                                    <rect key="frame" x="0.0" y="110" width="310" height="60"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smallRight" translatesAutoresizingMaskIntoConstraints="NO" id="2GO-X2-rkf">
                                             <rect key="frame" x="5" y="17.5" width="25" height="25"/>
@@ -781,7 +781,7 @@
                                     </constraints>
                                 </view>
                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WAp-8t-GOc">
-                                    <rect key="frame" x="0.0" y="440" width="310" height="60"/>
+                                    <rect key="frame" x="0.0" y="170" width="310" height="60"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smallRight" translatesAutoresizingMaskIntoConstraints="NO" id="cob-cM-xAc">
                                             <rect key="frame" x="5" y="17.5" width="25" height="25"/>
@@ -868,7 +868,7 @@
                                     </constraints>
                                 </view>
                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Ak-3D-9Sj">
-                                    <rect key="frame" x="0.0" y="500" width="310" height="60"/>
+                                    <rect key="frame" x="0.0" y="230" width="310" height="60"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smallRight" translatesAutoresizingMaskIntoConstraints="NO" id="JfA-Uq-Jcr">
                                             <rect key="frame" x="5" y="17.5" width="25" height="25"/>
@@ -955,7 +955,7 @@
                                     </constraints>
                                 </view>
                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zfM-ZW-xE1">
-                                    <rect key="frame" x="0.0" y="560" width="310" height="60"/>
+                                    <rect key="frame" x="0.0" y="290" width="310" height="60"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smallRight" translatesAutoresizingMaskIntoConstraints="NO" id="pk7-cO-9pf">
                                             <rect key="frame" x="5" y="17.5" width="25" height="25"/>
@@ -974,7 +974,7 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="rHX-o6-Zdm">
                                             <rect key="frame" x="110" y="10" width="122" height="40"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UUPON (Cash Only)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xjd-oD-Bgr">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UUPON (Cash Only)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xjd-oD-Bgr">
                                                     <rect key="frame" x="0.0" y="0.0" width="122" height="20"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -1042,7 +1042,7 @@
                                     </constraints>
                                 </view>
                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mmd-mW-gzd">
-                                    <rect key="frame" x="0.0" y="620" width="310" height="60"/>
+                                    <rect key="frame" x="0.0" y="350" width="310" height="60"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smallRight" translatesAutoresizingMaskIntoConstraints="NO" id="G5z-Vo-1cn">
                                             <rect key="frame" x="5" y="17.5" width="25" height="25"/>
@@ -1061,7 +1061,7 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="514-Xf-gsZ">
                                             <rect key="frame" x="110" y="10" width="127.5" height="40"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UUPON (Cash+Points)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l81-Yn-hjV">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UUPON (Cash+Points)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l81-Yn-hjV">
                                                     <rect key="frame" x="0.0" y="0.0" width="127.5" height="20"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>

@@ -367,6 +367,7 @@ class ScreenTestingVC: UIViewController,RecorderDelegate {
                 let vc = DiagnosticTestResultVC()
                 resultJSON["Screen"].int = 1
                 vc.resultJSON = self.resultJSON
+                vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
             }
             else if self.isComingFromProductquote == true {
@@ -380,6 +381,7 @@ class ScreenTestingVC: UIViewController,RecorderDelegate {
                 let vc = RotationVC()
                 resultJSON["Screen"].int = 1
                 vc.resultJSON = self.resultJSON
+                vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
             }
             
@@ -401,6 +403,7 @@ class ScreenTestingVC: UIViewController,RecorderDelegate {
             }
             
             //self.navigationController?.pushViewController(vc, animated: true)
+            //vc.modalPresentationStyle = .fullScreen
             //self.present(vc, animated: true, completion: nil)
         }else{
             
@@ -435,6 +438,7 @@ class ScreenTestingVC: UIViewController,RecorderDelegate {
                     let vc = DiagnosticTestResultVC()
                     self.resultJSON["Screen"].int = 0
                     vc.resultJSON = self.resultJSON
+                    vc.modalPresentationStyle = .fullScreen
                     self.present(vc, animated: true, completion: nil)
                 }
                 else if self.isComingFromProductquote == true{
@@ -444,6 +448,7 @@ class ScreenTestingVC: UIViewController,RecorderDelegate {
                     let vc = RotationVC()
                     self.resultJSON["Screen"].int = 0
                     vc.resultJSON = self.resultJSON
+                    vc.modalPresentationStyle = .fullScreen
                     self.present(vc, animated: true, completion: nil)
                 }
                 
@@ -468,6 +473,7 @@ class ScreenTestingVC: UIViewController,RecorderDelegate {
                 //                let vc = RotationVC()
                 //                self.resultJSON["Screen"].int = 0
                 //                vc.resultJSON = self.resultJSON
+                //                vc.modalPresentationStyle = .fullScreen
                 //                self.present(vc, animated: true, completion: nil)
                 
             }

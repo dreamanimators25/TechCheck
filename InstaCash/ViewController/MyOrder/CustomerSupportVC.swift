@@ -12,13 +12,11 @@ import MessageUI
 class CustomerSupportVC: UIViewController,MFMailComposeViewControllerDelegate {
     
     @IBOutlet weak var faqTextView: UITextView!
-    
     @IBOutlet weak var lblCustomerSupport: UILabel!
     @IBOutlet weak var lblFAQs: UILabel!
     @IBOutlet weak var btnEmail: UIButton!
     @IBOutlet weak var btnCall: UIButton!
     @IBOutlet weak var btnChat: UIButton!
-    
     
     var emailAddress = String()
     var phoneNumber = String()
@@ -36,7 +34,9 @@ class CustomerSupportVC: UIViewController,MFMailComposeViewControllerDelegate {
     
     func changeLanguageOfUI() {
         
-        self.lblCustomerSupport?.text = "Customer Support".localized(lang: langCode)
+        //self.lblCustomerSupport?.text = "Customer Support".localized(lang: langCode)
+        self.lblCustomerSupport?.text = "Contact Customer Support".localized(lang: langCode)
+        
         self.lblFAQs?.text = "FAQs".localized(lang: langCode)
         
         self.btnEmail?.setTitle("Email".localized(lang: langCode), for: UIControlState.normal)
@@ -63,7 +63,8 @@ class CustomerSupportVC: UIViewController,MFMailComposeViewControllerDelegate {
         }*/
         
         if !MFMailComposeViewController.canSendMail() {
-            Alert.showAlert(strMessage: "Oops! Mail Service not available.".localized(lang: langCode) as NSString, Onview: self)
+            //Alert.showAlert(strMessage: "Oops! Mail Service not available.".localized(lang: langCode) as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "Your device doesn't support this feature.".localized(lang: langCode) as NSString, Onview: self)
         }
         else{
             
@@ -98,7 +99,7 @@ class CustomerSupportVC: UIViewController,MFMailComposeViewControllerDelegate {
             }
         }
         else {
-            Alert.showAlert(strMessage: "Your device doesn't support this feature.".localized(lang: langCode) as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "Your device doesn't support this feature.".localized(lang: langCode) as NSString, Onview: self)
         }
 
     }
@@ -109,6 +110,18 @@ class CustomerSupportVC: UIViewController,MFMailComposeViewControllerDelegate {
             
             print("Zopim Chat")
         
+        }else if CustomUserDefault.getCurrency() == "NT$" {
+            
+            guard let url = URL(string: "https://lin.ee/cagGzzn") else {
+                return //be safe
+            }
+            
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            } else {
+                UIApplication.shared.openURL(url)
+            }
+            
         }else {
             
             guard let url = URL(string: "https://wa.me/601165273417") else {
@@ -165,13 +178,13 @@ class CustomerSupportVC: UIViewController,MFMailComposeViewControllerDelegate {
                 }
                 else
                 {
-                    Alert.showAlert(strMessage: "Seemd Conection loss from server".localized(lang: langCode) as NSString, Onview: self)
+                    Alert.showAlertWithError(strMessage: "Seemd Conection loss from server".localized(lang: langCode) as NSString, Onview: self)
                 }
             })
             
         }
         else {
-            Alert.showAlert(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
         }
         
     }

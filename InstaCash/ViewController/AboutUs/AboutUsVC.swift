@@ -245,7 +245,7 @@ class AboutUsVC: UIViewController,MFMailComposeViewControllerDelegate,PushToHome
 
         if !MFMailComposeViewController.canSendMail() {
 
-            Alert.showAlert(strMessage: "Mail services are not available", Onview: self)
+            Alert.showAlertWithError(strMessage: "Mail services are not available", Onview: self)
             return
         }
         else{

@@ -10,7 +10,7 @@
 
 //// Alert messages
 "No connection found" = "No connection found";
-
+"Error" = "Error";
 
 // 1. AppDelegate
 
@@ -24,7 +24,9 @@
 "Login with Google" = "Login with Google";
 "Login" = "Login";
 "or login with mobile" = "or login with mobile";
+"Login with mobile number" = "Login with mobile number";
 "Enter Number" = "Enter Number";
+"Enter Mobile Number" = "Enter Mobile Number";
 "No Connection found" = "No Connection found";
 "   Select Your Country" = "   Select Your Country";
 "   Select Your Language" = "   Select Your Language";
@@ -125,6 +127,7 @@
 "TRENDING DEVICES" = "TRENDING DEVICES";
 "Awesome! One last thing..." = "Awesome! One last thing...";
 "Hurry!! your offer of 10000 may drop on few days" = "Hurry!! your offer of 10000 may drop on few days";
+"Hurry, prices may drop in a few days" = "Hurry, prices may drop in a few days";
 "Confirm Order" = "Confirm Order";
 "Later" = "Later";
 "Price of this phone is drop." = "Price of this phone is drop.";
@@ -136,7 +139,7 @@
 
 // 9. CityVC
 "No Cities Found" = "No Cities Found";
-"Please Enter Your Pin Code" = "Please Enter Your Pin Code";
+"Please Enter Your Pincode" = "Please Enter Your Pincode";
 "Enter Post Code" = "Enter Post Code";
 "OK" = "OK";
 "Select city *" = "Select city *";
@@ -152,6 +155,7 @@
 "Place order @ " = "Place order @ ";
 "Note:- your Quote is lower than " = "Note:- your Quote is lower than ";
 " because certain tests were failed or skipped" = " because certain tests were failed or skipped";
+"Note:- your Quote is lower than because certain tests were failed or skipped" = "Note:- your Quote is lower than because certain tests were failed or skipped";
 "oops,No data found" = "oops,No data found";
 "Seems connection loss from server" = "Seems connection loss from server";
 "Product Details" = "Product Details";
@@ -187,12 +191,14 @@
 "Change City" = "Change City";
 "Changing City" = "Changing City";
 "Changing city could affect the price quote.Do you want to change city?" = "Changing city could affect the price quote.Do you want to change city?";
+"Changing City Would Affect The Price Quote. Do You Want to Change the City?" = "Changing City Would Affect The Price Quote. Do You Want to Change the City?";
 
 
 // 12. SendAppLinkPopUp
 "Enter valid mobile number" = "Enter valid mobile number";
 "Please enter E-mail address" = "Please enter E-mail address";
 "Please Enter Correct Email Address" = "Please Enter Correct Email Address";
+"Invalid email-id" = "Invalid email-id";
 "oops,something went wrong" = "oops,something went wrong";
 "Mobile Number" = "Mobile Number";
 "Send App Link" = "Send App Link";
@@ -276,6 +282,7 @@
 "Cash" = "Cash";
 "UUPON (Cash Only)" = "UUPON (Cash Only)";
 "UUPON (Cash+Points)" = "UUPON (Cash+Points)";
+"UUPON (Points Only)" = "UUPON (Points Only)";
 "Gateway charges" = "Gateway charges";
 "Payment Mode" = "Payment Mode";
 "Select Payment Mode" = "Select Payment Mode";
@@ -365,6 +372,7 @@
 "Get exact quote" = "Get exact quote";
 
 // 34. VolumeCheckerVC
+"Hardware Button Test" = "Hardware Button Test";
 "Hardware Button Diagnosis" = "Hardware Button Diagnosis";
 "If you skip this test there would be a substantial decline in the price offered. Do you still want to skip?" = "If you skip this test there would be a substantial decline in the price offered. Do you still want to skip?";
 "Checking hardware buttons" = "Checking hardware buttons";
@@ -388,6 +396,7 @@
 "Please ensure device rotation option is enabled. Press “Start’ and rotate your device as seen below." = "Please ensure device rotation option is enabled. Press “Start’ and rotate your device as seen below.";
 
 // 37. SensorReadVC
+"Proximity Test" = "Proximity Test";
 "Proximity Sensor Diagnosis" = "Proximity Sensor Diagnosis";
 "Checking proximity sensors" = "Checking proximity sensors";
 "Wave your hand on the device’s screen." = "Wave your hand on the device’s screen.";
@@ -403,6 +412,7 @@
 "Checking charger" = "Checking charger";
 
 // 40. CameraVC
+"Camera Test" = "Camera Test";
 "Camera Diagnosis" = "Camera Diagnosis";
 "Checking cameras" = "Checking cameras";
 "Get ready to smile. We’re making sure this device is selfie-ready!" = "Get ready to smile. We’re making sure this device is selfie-ready!";
@@ -411,6 +421,7 @@
 "Start Camera Check" = "Start Camera Check";
 
 // 41. FingerPrintDevice
+"FingerPrint Scanner Test" = "FingerPrint Scanner Test";
 "FingerPrint Scanner Diagnosis" = "FingerPrint Scanner Diagnosis";
 "Enable fingerprint" = "Enable fingerprint";
 "Go to Settings -> Touch ID & Passcode" = "Go to Settings -> Touch ID & Passcode";
@@ -435,6 +446,7 @@
 "Rotation" = "Rotation";
 "Proximity" = "Proximity";
 "Volume" = "Volume";
+"Device Button" = "Device Button";
 "Earphone" = "Earphone";
 "Charger" = "Charger";
 "Camera" = "Camera";
@@ -455,6 +467,7 @@
 "Are you sure you want to quit?" = "Are you sure you want to quit?";
 "Your device could be worth" = "Your device could be worth";
 "Note: Your quotation is lower because of the following issues. Click retry for a better quotation." = "Note: Your quotation is lower because of the following issues. Click retry for a better quotation.";
+"Note: Your quote is lower than because certain tests were failed or skipped" = "Note: Your quote is lower than because certain tests were failed or skipped";
 "Place order at RM 376 instead" = "Place order at RM 376 instead";
 "Your device passed 6/15 tests!" = "Your device passed 6/15 tests!";
 
@@ -610,9 +623,11 @@
 "UPLOAD Document" = "UPLOAD Document";
 "Press the button below to upload image of a valid Id Proof of the customer." = "Press the button below to upload image of a valid Id Proof of the customer.";
 "Upload ID Image" = "Upload ID Image";
+"Upload ID proof" = "Upload ID proof";
 
 // 65. SignatureVC
 "Signature" = "Signature";
+"Please add Signature" = "Please add Signature";
 "Signature on white screen then click on save." = "Signature on white screen then click on save.";
 "Order Complete!" = "Order Complete!";
 "Pickup is complete now.Continue to Process the payment" = "Pickup is complete now.Continue to Process the payment";
@@ -737,6 +752,7 @@
 "Please select state" = "Please select state";
 "Please select city" = "Please select city";
 "Areas we serve" = "Areas we serve";
+"Type your city" = "Type your city";
 
 // 82. StartDevice
 "Start device condition reporting" = "Start device condition reporting";
@@ -798,6 +814,7 @@
 "Your order has been placed successfully. Your Order ID is " = "Your order has been placed successfully. Your Order ID is ";
 " Our team will get in touch with you shortly to verity the order and schedule the pickup. For any queries please call 0141-4232323 (10:00am - 07:00pm.)" = " Our team will get in touch with you shortly to verity the order and schedule the pickup. For any queries please call 0141-4232323 (10:00am - 07:00pm.)";
 " Our team will get in touch with you shortly to verity the order and schedule the pickup. For any queries please call +60365273417 (08:30am - 06:00pm Mon - Fri)" = " Our team will get in touch with you shortly to verity the order and schedule the pickup. For any queries please call +60365273417 (08:30am - 06:00pm Mon - Fri)";
+" Our team will get in touch with you shortly to verity the order and schedule the pickup. For any queries please call +886-277300795 (09:00am - 06:00pm.)" = " Our team will get in touch with you shortly to verity the order and schedule the pickup. For any queries please call +886-277300795 (09:00am - 06:00pm.)";
 "SEE ORDER STATUS" = "SEE ORDER STATUS";
 
 // 92. SellOtherDeviceSearchVC

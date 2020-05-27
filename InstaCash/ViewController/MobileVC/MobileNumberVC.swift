@@ -91,7 +91,7 @@ class MobileNumberVC: UIViewController,UITextFieldDelegate {
             textField.text = string
             return false
         }
-        return true
+            return true
     }
     
     //MARK:- button methods
@@ -238,19 +238,19 @@ class MobileNumberVC: UIViewController,UITextFieldDelegate {
         }
         else
         {
-            Alert.showAlert(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
         }
     }
     
     func fireWebServiceForLoginWithOtp()
     {
-        if reachability?.connection.description != "No Connection"{
+        if reachability?.connection.description != "No Connection" {
             var strGCMToken = ""
             
             if (userDefaults.value(forKey: "FCMToken") != nil){
                 strGCMToken = userDefaults.value(forKey: "FCMToken") as! String
             }
-            else{
+            else {
                 strGCMToken = ""
             }
             
@@ -306,7 +306,7 @@ class MobileNumberVC: UIViewController,UITextFieldDelegate {
         }
         else
         {
-            Alert.showAlert(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
         }
     }
     
@@ -445,7 +445,7 @@ class MobileNumberVC: UIViewController,UITextFieldDelegate {
         }
         else
         {
-            Alert.showAlert(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
         }
         
     }

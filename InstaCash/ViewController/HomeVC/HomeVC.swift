@@ -104,6 +104,10 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
     @IBOutlet weak var orderDetailHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var orderDetailTopConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var lblAwesomeOne: UILabel!
+    @IBOutlet weak var btnConfirmLater: UIButton!
+
+    
     var arrPopularDeviceGetData = [HomeModel]()
     var arrBrandDeviceGetData = [HomeModel]()
     var arrMyOderGetData = [HomeModel]()
@@ -150,7 +154,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                     self.fireWebServiceForVerificationCode(strVerificationCode: firstTextField.text!, withProcessCode: processFor)
                 }
                 else{
-                    Alert.showAlert(strMessage: "Please Login First".localized(lang: langCode) as NSString, Onview: self)
+                    Alert.showAlertWithError(strMessage: "Please Login First".localized(lang: langCode) as NSString, Onview: self)
                 }
             }
         })
@@ -300,6 +304,8 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
         //let myRange = NSRange(location: 22, length: (strCount.count))
         attribute.addAttribute(NSAttributedStringKey.foregroundColor, value: navColor , range: myRange)
         self.lblConfirmOrderPrice.attributedText = attribute
+        
+        self.lblConfirmOrderPrice.text = "Hurry, prices may drop in a few days".localized(lang: langCode)
     }
     
     //MARK:- view life cycle
@@ -518,7 +524,9 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
         else{
             //get home data
             if reachability?.connection.description != "No Connection" {
+               
                 Alert.ShowProgressHud(Onview: self.view)
+                
                 HomeModel.fetchHomeData(isInterNet:true,isappModeCode:"",getController: self) { (arrBrandDeviceGetData,arrPopularDeviceGetData,arrMyOderGetData,arrMyCurrentDeviceSend,strAppModeCode) in
                     
                     Alert.HideProgressHud(Onview: self.view)
@@ -533,13 +541,12 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                     
                     // Sameer 14/4/2020
                     // manage Diagnosis Button UI
-                    //self.btnDiagnosisUISet()
+                    // self.btnDiagnosisUISet()
                     
                     if arrMyCurrentDeviceSend.count > 0 {
                         
                         self.lblPhoneName.text = arrMyCurrentDeviceSend[0].strCurrentDeviceName
                         self.lblConfirmOrderProductName.text = arrMyCurrentDeviceSend[0].strCurrentDeviceName
-                        
                         
                         userDefaults.removeObject(forKey: "DeviceNameForPromoters")
                         userDefaults.removeObject(forKey: "ImageNameForPromoters")
@@ -550,7 +557,6 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                         
                         if let image = arrMyCurrentDeviceSend[0].strCurrentDeviceName {
                             userDefaults.set(image, forKey: "ImageNameForPromoters")
-
                         }
                         
                         //userDefaults.set(arrMyCurrentDeviceSend[0].strCurrentDeviceName, forKey: "DeviceNameForPromoters")
@@ -563,7 +569,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                         let strAmount = arrMyCurrentDeviceSend[0].currentDeviceMaximumTotal?.formattedWithSeparator
                         //let strAmount  = String(format: "%d", arrMyCurrentDeviceSend[0].currentDeviceMaximumTotal!)
                         
-                        self.lblPrice.text = CustomUserDefault.getCurrency()  + (strAmount ?? "")
+                        self.lblPrice.text = CustomUserDefault.getCurrency() + (strAmount ?? "")
                     }
                     
                     if arrMyOderGetData.count == 0 {
@@ -581,7 +587,6 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                                 self.lblTitleOrders.isHidden = true
                                 //self.mainViewHeightConstraint.constant = 700
                                 self.viewOrderHeightConstraint.constant = 0
-                                
                             }
                             else{
                                 let strPrice = userDefaults.value(forKey: "Product_UpToOffer") as? String
@@ -608,7 +613,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                             let model = arrMyOderGetData[index]
                             let arrItem = model.arrMyOrderItemList
                             
-                            for obj in 0..<arrItem.count{
+                            for obj in 0..<arrItem.count {
                                 let itemDict = arrItem[obj] as! NSDictionary
                                 
                                 if (itemDict.value(forKey: "status") as! String).contains("Verified")  || (itemDict.value(forKey: "status") as! String).contains("Unverified") || (itemDict.value(forKey: "status") as! String).contains("Price Lock") || (itemDict.value(forKey: "status") as! String).contains("out for pickup") {
@@ -631,7 +636,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                             //                            self.lblTitleOrders.isHidden = false
                             //                            //self.mainViewHeightConstraint.constant = 850
                             
-                            if userDefaults.value(forKey: "isShowUIOnHomeForOrder") == nil{
+                            if userDefaults.value(forKey: "isShowUIOnHomeForOrder") == nil {
                                 self.viewConfirmOrder.isHidden = true
                                 self.topViewHeightConstraint.constant = 380
                                 self.lblTitleOrders.isHidden = false
@@ -645,7 +650,6 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                                     self.lblTitleOrders.isHidden = false
                                     //self.mainViewHeightConstraint.constant = 850
                                     self.viewOrderHeightConstraint.constant = 0
-                                    
                                 }
                                 else{
                                     let strPrice = userDefaults.value(forKey: "Product_UpToOffer") as? String
@@ -663,7 +667,6 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                             }
                             
                             self.collectionViewOrders.reloadData()
-                            
                         }
                         else{
                             
@@ -681,7 +684,6 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                                     self.lblTitleOrders.isHidden = true
                                     //self.mainViewHeightConstraint.constant = 700
                                     self.viewOrderHeightConstraint.constant = 0
-                                    
                                 }
                                 else{
                                     let strPrice = userDefaults.value(forKey: "Product_UpToOffer") as? String
@@ -699,7 +701,6 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                             }
                             
                         }
-                        
                         //self.setViewDynamicaly()
                     }
                     
@@ -761,7 +762,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                         }
                     }
                     else{
-                        Alert.showAlert(strMessage: "No Connection found".localized(lang: langCode) as NSString, Onview: self)
+                        Alert.showAlertWithError(strMessage: "No Connection found".localized(lang: langCode) as NSString, Onview: self)
                     }
                     
                 }
@@ -831,42 +832,50 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
             if userDefaults.value(forKey: "rotation_complete") as! Bool == false{
                 let vc = RotationVC()
                 vc.resultJSON = sendJson
+                vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion:nil)
                 
             }else if userDefaults.value(forKey: "proximity_complete") as! Bool == false{
                 let vc = SensorReadVC()
                 vc.resultJSON = sendJson
+                vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion:nil)
                 
             }else if userDefaults.value(forKey: "volumebutton_complete") as! Bool == false{
                 let vc = VolumeCheckerVC()
                 vc.resultJSON = sendJson
+                vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion:nil)
             }
             else if userDefaults.value(forKey: "earphone_complete") as! Bool == false{
                 let vc = EarPhoneVC()
                 vc.resultJSON = sendJson
+                vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion:nil)
             
             }else if userDefaults.value(forKey: "charger_complete") as! Bool == false{
                 let  vc = DeviceChargerVC()
                 vc.resultJSON = sendJson
+                vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion:nil)
             
             }else if userDefaults.value(forKey: "camera_complete") as! Bool == false{
                 let  vc = CameraVC()
                 vc.resultJSON = sendJson
+                vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion:nil)
                 
             }else if userDefaults.value(forKey: "fingerprint_complete") as! Bool == false{
                 let  vc = FingerPrintDevice()
                 vc.resultJSON = sendJson
+                vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion:nil)
             
             }else if userDefaults.value(forKey: "bluetooth_complete") as! Bool == false{
                 let vc = BlueToothTestingVC()
                 vc.resultJSON = sendJson
                 vc.iscomingFromHome = true
+                vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion:nil)
             }
             
@@ -880,32 +889,38 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
             if userDefaults.value(forKey: "rotation_complete") as! Bool == false{
                 let vc = RotationVC()
                 vc.resultJSON = sendJson
+                vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion:nil)
                 
             }else if userDefaults.value(forKey: "proximity_complete") as! Bool == false{
                 let vc = SensorReadVC()
                 vc.resultJSON = sendJson
+                vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion:nil)
                 
             }else if userDefaults.value(forKey: "volumebutton_complete") as! Bool == false{
                 let vc = VolumeCheckerVC()
                 vc.resultJSON = sendJson
+                vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion:nil)
                 
             }else if userDefaults.value(forKey: "camera_complete") as! Bool == false{
                 let vc = CameraVC()
                 vc.resultJSON = sendJson
+                vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion:nil)
                 
             }else if userDefaults.value(forKey: "fingerprint_complete") as! Bool == false{
                 let vc = FingerPrintDevice()
                 vc.resultJSON = sendJson
+                vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion:nil)
                 
             }else if userDefaults.value(forKey: "bluetooth_complete") as! Bool == false{
                 let vc = BlueToothTestingVC()
                 vc.resultJSON = sendJson
                 vc.iscomingFromHome = true
+                vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion:nil)
             }
             
@@ -1081,6 +1096,11 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
         
         self.btnDiagnostic.setTitle("Run Diagnostics".localized(lang: langCode), for: UIControlState.normal)
         self.btnStartFromBegning.setTitle("Start from the beginning".localized(lang: langCode), for: UIControlState.normal)
+        
+        ///////
+        self.lblAwesomeOne.text = "Awesome! One last thing...".localized(lang: langCode)
+        self.btnConfirmOrder.setTitle("Confirm Order".localized(lang: langCode), for: UIControlState.normal)
+        self.btnConfirmLater.setTitle("Later".localized(lang: langCode), for: UIControlState.normal)
         
     }
     
@@ -1665,12 +1685,12 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                 self.navigationController?.pushViewController(vc, animated: true)
             }
             else{
-                Alert.showAlert(strMessage: "Device is not map,Please try later".localized(lang: langCode) as NSString, Onview: self)
+                Alert.showAlertWithError(strMessage: "Device is not map,Please try later".localized(lang: langCode) as NSString, Onview: self)
             }
             //  }
         }
         else{
-            Alert.showAlert(strMessage: "Device is not map,Please try later".localized(lang: langCode) as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "Device is not map,Please try later".localized(lang: langCode) as NSString, Onview: self)
         }
     }
     
@@ -1693,44 +1713,52 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                 if userDefaults.value(forKey: "rotation_complete") as! Bool == false{
                     let vc = RotationVC()
                     vc.resultJSON = sendJson
+                    vc.modalPresentationStyle = .fullScreen
                     self.present(vc, animated: true, completion:nil)
                     
                 }
                 else if userDefaults.value(forKey: "proximity_complete") as! Bool == false{
                     let vc = SensorReadVC()
                     vc.resultJSON = sendJson
+                    vc.modalPresentationStyle = .fullScreen
                     self.present(vc, animated: true, completion:nil)
                     
                 }
                 else if userDefaults.value(forKey: "volumebutton_complete") as! Bool == false{
                     let vc = VolumeCheckerVC()
                     vc.resultJSON = sendJson
+                    vc.modalPresentationStyle = .fullScreen
                     self.present(vc, animated: true, completion:nil)
                 }
                 else if userDefaults.value(forKey: "earphone_complete") as! Bool == false{
                     let vc = EarPhoneVC()
                     vc.resultJSON = sendJson
+                    vc.modalPresentationStyle = .fullScreen
                     self.present(vc, animated: true, completion:nil)
                 }
                 else if userDefaults.value(forKey: "charger_complete") as! Bool == false{
                     let  vc = DeviceChargerVC()
                     vc.resultJSON = sendJson
+                    vc.modalPresentationStyle = .fullScreen
                     self.present(vc, animated: true, completion:nil)
                 }
                 else if userDefaults.value(forKey: "camera_complete") as! Bool == false{
                     let  vc = CameraVC()
                     vc.resultJSON = sendJson
+                    vc.modalPresentationStyle = .fullScreen
                     self.present(vc, animated: true, completion:nil)
                 }
                 else if userDefaults.value(forKey: "fingerprint_complete") as! Bool == false{
                     let  vc = FingerPrintDevice()
                     vc.resultJSON = sendJson
+                    vc.modalPresentationStyle = .fullScreen
                     self.present(vc, animated: true, completion:nil)
                 }
                 else if userDefaults.value(forKey: "bluetooth_complete") as! Bool == false{
                     let vc = BlueToothTestingVC()
                     vc.resultJSON = sendJson
                     vc.iscomingFromHome = true
+                    vc.modalPresentationStyle = .fullScreen
                     self.present(vc, animated: true, completion:nil)
                 }else{
                     pushToControllerToProceedDiagnosos()
@@ -1753,34 +1781,38 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                 if userDefaults.value(forKey: "rotation_complete") as! Bool == false{
                     let vc = RotationVC()
                     vc.resultJSON = sendJson
+                    vc.modalPresentationStyle = .fullScreen
                     self.present(vc, animated: true, completion:nil)
                 }
                 else if userDefaults.value(forKey: "proximity_complete") as! Bool == false{
                     let vc = SensorReadVC()
                     vc.resultJSON = sendJson
+                    vc.modalPresentationStyle = .fullScreen
                     self.present(vc, animated: true, completion:nil)
                 }
                 else if userDefaults.value(forKey: "volumebutton_complete") as! Bool == false{
                     let vc = VolumeCheckerVC()
                     vc.resultJSON = sendJson
-                    
+                    vc.modalPresentationStyle = .fullScreen
                     self.present(vc, animated: true, completion:nil)
                 }
                 else if userDefaults.value(forKey: "camera_complete") as! Bool == false{
                     let vc = CameraVC()
                     vc.resultJSON = sendJson
-                    
+                    vc.modalPresentationStyle = .fullScreen
                     self.present(vc, animated: true, completion:nil)
                 }
                 else if userDefaults.value(forKey: "fingerprint_complete") as! Bool == false{
                     let vc = FingerPrintDevice()
                     vc.resultJSON = sendJson
+                    vc.modalPresentationStyle = .fullScreen
                     self.present(vc, animated: true, completion:nil)
                 }
                 else if userDefaults.value(forKey: "bluetooth_complete") as! Bool == false{
                     let vc = BlueToothTestingVC()
                     vc.resultJSON = sendJson
                     vc.iscomingFromHome = true
+                    vc.modalPresentationStyle = .fullScreen
                     self.present(vc, animated: true, completion:nil)
                 }else{
                     pushToControllerToProceedDiagnosos()
@@ -2078,7 +2110,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                     self.navigationController?.pushViewController(vc, animated: true)
                 }
                 else{
-                    Alert.showAlert(strMessage: "Device is not map,Please try later".localized(lang: langCode) as NSString, Onview: self)
+                    Alert.showAlertWithError(strMessage: "Device is not map,Please try later".localized(lang: langCode) as NSString, Onview: self)
                     
                 }
                 //                    }else{
@@ -2228,6 +2260,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                             userDefaults.set("Diagnosis", forKey: "ChangeModeComingFromDiadnosis")
                             DispatchQueue.main.async {
                                 let vc = ScreenTestingVC()
+                                vc.modalPresentationStyle = .fullScreen
                                 self.navigationController?.present(vc, animated: true, completion: nil)
                             }
                         }
@@ -2249,6 +2282,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                             DispatchQueue.main.async {
                                 // let vc = PickUpQuestionVC()
                                 let vc = ScreenTestPickUp()
+                                vc.modalPresentationStyle = .fullScreen
                                 self.navigationController?.present(vc, animated: true, completion: nil)
                             }
                             
@@ -2256,7 +2290,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                     }
                     else{
                         
-                        Alert.showAlert(strMessage:responseObject?["msg"] as! NSString , Onview: self)
+                        Alert.showAlertWithError(strMessage:responseObject?["msg"] as! NSString , Onview: self)
                     }
                     
                 }
@@ -2268,7 +2302,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
         }
         else
         {
-            Alert.showAlert(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
         }
         
     }
@@ -2285,8 +2319,8 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
             let returnMetaDetails : NSMutableDictionary = [:]
             let strSourceOfQuote = "diagnosis"
             userDefaults.set(true, forKey: "OrderPlaceFordiagnosis")
-            var returnDictionary : NSMutableDictionary = [:]
-            returnDictionary = userDefaults.value(forKey: "resturn_dictonoryFor_confirm_Order") as! NSMutableDictionary
+            var returnDictionary : NSDictionary = [:]
+            returnDictionary = userDefaults.value(forKey: "resturn_dictonoryFor_confirm_Order") as! NSDictionary
             let IMEINumer = KeychainWrapper.standard.string(forKey: "UUIDValue")!
             let productId = CustomUserDefault.getProductId()
             let deviceName  = UIDevice.current.modelName  as String
@@ -2298,6 +2332,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
             let strRom = UIDevice.current.totalDiskSpace()
             let SystemSharedServices = SystemServices.shared()
             let BatteryLevel = String(format: "%.1f %@", SystemSharedServices.batteryLevel,"%")
+            
             returnMetaDetails.setValue(bundleID, forKey: "Apppackagename")
             returnMetaDetails.setValue(buildNumber, forKey: "BuildRelease")
             returnMetaDetails.setValue("\(version ?? "")", forKey: "versionname")
@@ -2307,6 +2342,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
             returnMetaDetails.setValue(BatteryLevel, forKey: "BattaryLevel")
             returnMetaDetails.setValue(SystemSharedServices.fullyCharged, forKey: "BattaryFullyCharged")
             returnMetaDetails.setValue(KeychainWrapper.standard.string(forKey: "UUIDValue")!, forKey: "UUDIDValue")
+            
             if SystemSharedServices.jailbroken == 4783242{
                 returnMetaDetails.setValue("No", forKey: "JailBroken")
             }
@@ -2386,6 +2422,8 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                             //let myRange = NSRange(location: 22, length: (strCount.count))
                             attribute.addAttribute(NSAttributedStringKey.foregroundColor, value: navColor , range: myRange)
                             self.lblConfirmOrderPrice.attributedText = attribute
+                            
+                            self.lblConfirmOrderPrice.text = "Hurry, prices may drop in a few days".localized(lang: langCode)
                         }
                     }
                     else{
@@ -2565,19 +2603,29 @@ extension HomeVC {
     func onClickEmailButton() {
         
         if !MFMailComposeViewController.canSendMail() {
-            Alert.showAlert(strMessage: "Oops! Mail Service not available.".localized(lang: langCode) as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "Oops! Mail Service not available.".localized(lang: langCode) as NSString, Onview: self)
         }
         else{
             var emailAddress = String()
             
             if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+                
                 emailAddress = "support@getinstacash.in"
-            }else {
+                
+            }else if CustomUserDefault.getCurrency() == "RM" {
+                
                 emailAddress = "support@getinstacash.com.my"
+                
+            }else if CustomUserDefault.getCurrency() == "NT$" {
+                
+                emailAddress = "support@getinstacash.com.tw"
+                
+            }else {
+                
+                emailAddress = "support@getinstacash.com.sg"
             }
-            
-            emailAddress = "service@compasia.com"
-            
+                      
+            //emailAddress = "service@compasia.com"
             
             let composeVC = MFMailComposeViewController()
             composeVC.mailComposeDelegate = self
@@ -2604,12 +2652,23 @@ extension HomeVC {
         
         var phoneNumber = String()
         if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+            
             phoneNumber = "0141-4232323"
+            
         }else if CustomUserDefault.getCurrency() == "NT$" {
+            
             phoneNumber = "+886277300795"
-        }else {
+            
+        }else if CustomUserDefault.getCurrency() == "RM" {
+            
             phoneNumber = "+60365273417"
-        }        
+            
+        }else {
+            
+            phoneNumber = "+6587760670"
+            
+        }
+        
         
         if let url = URL(string: "tel://\(phoneNumber)"), UIApplication.shared.canOpenURL(url) {
             if #available(iOS 10, *) {
@@ -2619,7 +2678,7 @@ extension HomeVC {
             }
         }
         else {
-            Alert.showAlert(strMessage: "Your device doesn't support this feature.".localized(lang: langCode) as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "Your device doesn't support this feature.".localized(lang: langCode) as NSString, Onview: self)
         }
         
     }

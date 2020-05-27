@@ -66,13 +66,15 @@ class VolumeCheckerVC: UIViewController {
                 self.volUp = true
                 if(self.volDown == true){
                     self.tearDown()
-                    UserDefaults.standard.set(true, forKey: "volume")
+                    //UserDefaults.standard.set(true, forKey: "volume")
+                    UserDefaults.standard.set(true, forKey: "Device Button")
                     userDefaults.setValue(true, forKey: "volumebutton_complete")
                     
                     if self.isComingFromTestResult{
                         let vc = DiagnosticTestResultVC()
                         self.resultJSON["Hardware Buttons"].int = 1
                         vc.resultJSON = self.resultJSON
+                        vc.modalPresentationStyle = .fullScreen
                         self.present(vc, animated: true, completion: nil)
                     }
                     else if self.isComingFromProductquote == true{
@@ -88,11 +90,13 @@ class VolumeCheckerVC: UIViewController {
                             let vc = EarPhoneVC()
                             self.resultJSON["Hardware Buttons"].int = 1
                             vc.resultJSON = self.resultJSON
+                            vc.modalPresentationStyle = .fullScreen
                             self.present(vc, animated: true, completion: nil)
                         }else {
                             let vc = CameraVC()
                             self.resultJSON["Hardware Buttons"].int = 1
                             vc.resultJSON = self.resultJSON
+                            vc.modalPresentationStyle = .fullScreen
                             self.present(vc, animated: true, completion: nil)
                         }
                         
@@ -122,7 +126,8 @@ class VolumeCheckerVC: UIViewController {
             self.volumeDownImg.image = UIImage(named: "check")
             
             if(self.volUp == true){
-                UserDefaults.standard.set(true, forKey: "volume")
+                //UserDefaults.standard.set(true, forKey: "volume")
+                UserDefaults.standard.set(true, forKey: "Device Button")
                 userDefaults.setValue(true, forKey: "volumebutton_complete")
                 
                 self.tearDown()
@@ -130,6 +135,7 @@ class VolumeCheckerVC: UIViewController {
                     let vc = DiagnosticTestResultVC()
                     self.resultJSON["Hardware Buttons"].int = 1
                     vc.resultJSON = self.resultJSON
+                    vc.modalPresentationStyle = .fullScreen
                     self.present(vc, animated: true, completion: nil)
                 }
                 else if self.isComingFromProductquote == true{
@@ -144,11 +150,13 @@ class VolumeCheckerVC: UIViewController {
                         let vc = EarPhoneVC()
                         self.resultJSON["Hardware Buttons"].int = 1
                         vc.resultJSON = self.resultJSON
+                        vc.modalPresentationStyle = .fullScreen
                         self.present(vc, animated: true, completion: nil)
                     }else {
                         let vc = CameraVC()
                         self.resultJSON["Hardware Buttons"].int = 1
                         vc.resultJSON = self.resultJSON
+                        vc.modalPresentationStyle = .fullScreen
                         self.present(vc, animated: true, completion: nil)
                     }
                     
@@ -176,6 +184,7 @@ class VolumeCheckerVC: UIViewController {
         //        let vc = CameraVC()
         //        self.resultJSON["USB"].int = 1
         //        vc.resultJSON = self.resultJSON
+        //        vc.modalPresentationStyle = .fullScreen
         //        self.present(vc, animated: true, completion: nil)
         
         let handler = volumeButtonHandler
@@ -192,7 +201,8 @@ class VolumeCheckerVC: UIViewController {
     @IBAction func btnSkipPressed(_ sender: UIButton) {
         
         // Prepare the popup assets
-        let title = "Hardware Button Diagnosis".localized(lang: langCode)
+        //let title = "Hardware Button Diagnosis".localized(lang: langCode)
+        let title = "Hardware Button Test".localized(lang: langCode)
         let message = "If you skip this test there would be a substantial decline in the price offered. Do you still want to skip?".localized(lang: langCode)
         // Create the dialog
         let popup = PopupDialog(title: title, message: message,buttonAlignment: .horizontal, transitionStyle: .bounceDown, tapGestureDismissal: false, panGestureDismissal :false)
@@ -200,13 +210,15 @@ class VolumeCheckerVC: UIViewController {
         // Create buttons
         let buttonOne = CancelButton(title: "Yes".localized(lang: langCode)) {
             self.tearDown()
-            UserDefaults.standard.set(false, forKey: "volume")
+            //UserDefaults.standard.set(false, forKey: "volume")
+            UserDefaults.standard.set(false, forKey: "Device Button")
             userDefaults.setValue(true, forKey: "volumebutton_complete")
 
             if self.isComingFromTestResult{
                 let vc = DiagnosticTestResultVC()
                 self.resultJSON["Hardware Buttons"].int = -1
                 vc.resultJSON = self.resultJSON
+                vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
             }
             else if self.isComingFromProductquote == true{
@@ -217,11 +229,13 @@ class VolumeCheckerVC: UIViewController {
                     let vc = EarPhoneVC()
                     self.resultJSON["Hardware Buttons"].int = -1
                     vc.resultJSON = self.resultJSON
+                    vc.modalPresentationStyle = .fullScreen
                     self.present(vc, animated: true, completion: nil)
                 }else {
                     let vc = CameraVC()
                     self.resultJSON["Hardware Buttons"].int = -1
                     vc.resultJSON = self.resultJSON
+                    vc.modalPresentationStyle = .fullScreen
                     self.present(vc, animated: true, completion: nil)
                 }
                 

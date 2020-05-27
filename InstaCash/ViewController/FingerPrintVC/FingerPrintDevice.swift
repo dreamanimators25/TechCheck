@@ -96,6 +96,7 @@ class FingerPrintDevice: UIViewController {
                 let vc = DiagnosticTestResultVC()
                 self.resultJSON["Fingerprint Scanner"].int = 1
                 vc.resultJSON = (self.resultJSON)
+                vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
             }
             else if self.isComingFromProductquote == true{
@@ -111,6 +112,7 @@ class FingerPrintDevice: UIViewController {
                 self.resultJSON["Fingerprint Scanner"].int = 1
                 vc.resultJSON = (self.resultJSON)
                 vc.iscomingFromHome = true
+                vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
             }
             
@@ -143,20 +145,20 @@ class FingerPrintDevice: UIViewController {
                 
                 // device does not support biometric (face id or touch id) authentication
             else if error == .biometryNotAvailable {
-                Alert.showAlert(strMessage: error.message() as NSString, Onview: self!)
+                Alert.showAlertWithError(strMessage: error.message() as NSString, Onview: self!)
             }
                 
                 // show alternatives on fallback button clicked
             else if error == .fallback {
                 
                 // here we're entering username and password
-                Alert.showAlert(strMessage: error.message() as NSString, Onview: self!)
+                Alert.showAlertWithError(strMessage: error.message() as NSString, Onview: self!)
 
             }
                 
                 // No biometry enrolled in this device, ask user to register fingerprint or face
             else if error == .biometryNotEnrolled {
-                Alert.showAlert(strMessage: error.message() as NSString, Onview: self!)
+                Alert.showAlertWithError(strMessage: error.message() as NSString, Onview: self!)
 
             }
                 
@@ -164,7 +166,7 @@ class FingerPrintDevice: UIViewController {
                 // Need to enter device passcode to unlock.
             else if error == .biometryLockedout {
                 // show passcode authentication
-                Alert.showAlert(strMessage: error.message() as NSString, Onview: self!)
+                Alert.showAlertWithError(strMessage: error.message() as NSString, Onview: self!)
             }
                 
                 // show error on authentication failed
@@ -178,6 +180,7 @@ class FingerPrintDevice: UIViewController {
                     let vc = DiagnosticTestResultVC()
                     self?.resultJSON["Fingerprint Scanner"].int = 0
                     vc.resultJSON = (self?.resultJSON)!
+                    vc.modalPresentationStyle = .fullScreen
                     self?.present(vc, animated: true, completion: nil)
                 }
                 else if self?.isComingFromProductquote == true{
@@ -190,6 +193,7 @@ class FingerPrintDevice: UIViewController {
                     self?.resultJSON["Fingerprint Scanner"].int = 0
                     vc.resultJSON = (self?.resultJSON)!
                     vc.iscomingFromHome = true
+                    vc.modalPresentationStyle = .fullScreen
                     self?.present(vc, animated: true, completion: nil)
                 }
                 userDefaults.setValue(self?.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
@@ -205,7 +209,8 @@ class FingerPrintDevice: UIViewController {
     
     @IBAction func btnSkipPressed(_ sender: UIButton) {
         // Prepare the popup assets
-        let title = "FingerPrint Scanner Diagnosis".localized(lang: langCode)
+        //let title = "FingerPrint Scanner Diagnosis".localized(lang: langCode)
+        let title = "FingerPrint Scanner Test".localized(lang: langCode)
         let message = "If you skip this test there would be a substantial decline in the price offered. Do you still want to skip?".localized(lang: langCode)
         
         // Create the dialog
@@ -221,6 +226,7 @@ class FingerPrintDevice: UIViewController {
                 let vc = DiagnosticTestResultVC()
                 self.resultJSON["Fingerprint Scanner"].int = -1
                 vc.resultJSON = self.resultJSON
+                vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
             }
             else if self.isComingFromProductquote == true{
@@ -233,6 +239,7 @@ class FingerPrintDevice: UIViewController {
                 self.resultJSON["Fingerprint Scanner"].int = -1
                 vc.resultJSON = self.resultJSON
                 vc.iscomingFromHome = true
+                vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
             }
             if (userDefaults.value(forKey: "Diagnosis_DataSave") != nil){
@@ -312,6 +319,7 @@ class FingerPrintDevice: UIViewController {
                 let vc = DiagnosticTestResultVC()
                 self.resultJSON["Fingerprint Scanner"].int = 1
                 vc.resultJSON = (self.resultJSON)
+                vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
             }
             else if self.isComingFromProductquote == true{
@@ -329,6 +337,7 @@ class FingerPrintDevice: UIViewController {
                 self.resultJSON["Fingerprint Scanner"].int = 1
                 vc.resultJSON = (self.resultJSON)
                 vc.iscomingFromHome = true
+                vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
             }
             
@@ -361,7 +370,7 @@ class FingerPrintDevice: UIViewController {
                 
                 // device does not support biometric (face id or touch id) authentication
             else if error == .biometryNotAvailable {
-                Alert.showAlert(strMessage: error.message() as NSString, Onview: self!)
+                Alert.showAlertWithError(strMessage: error.message() as NSString, Onview: self!)
 
             }
                 
@@ -369,7 +378,7 @@ class FingerPrintDevice: UIViewController {
             else if error == .fallback {
                 
                 // here we're entering username and password
-                Alert.showAlert(strMessage: error.message() as NSString, Onview: self!)
+                Alert.showAlertWithError(strMessage: error.message() as NSString, Onview: self!)
             }
                 
                 // No biometry enrolled in this device, ask user to register fingerprint or face
@@ -416,7 +425,7 @@ class FingerPrintDevice: UIViewController {
                 // Need to enter device passcode to unlock.
             else if error == .biometryLockedout {
                 // show passcode authentication
-                Alert.showAlert(strMessage: error.message() as NSString, Onview: self!)
+                Alert.showAlertWithError(strMessage: error.message() as NSString, Onview: self!)
             }
                 
                 // show error on authentication failed
@@ -432,6 +441,7 @@ class FingerPrintDevice: UIViewController {
                     let vc = DiagnosticTestResultVC()
                     self?.resultJSON["Fingerprint Scanner"].int = 0
                     vc.resultJSON = (self?.resultJSON)!
+                    vc.modalPresentationStyle = .fullScreen
                     self?.present(vc, animated: true, completion: nil)
                 }
                 else if self?.isComingFromProductquote == true{
@@ -445,6 +455,7 @@ class FingerPrintDevice: UIViewController {
                     self?.resultJSON["Fingerprint Scanner"].int = 0
                     vc.resultJSON = (self?.resultJSON)!
                     vc.iscomingFromHome = true
+                    vc.modalPresentationStyle = .fullScreen
                     self?.present(vc, animated: true, completion: nil)
                 }
                 userDefaults.setValue(self?.resultJSON.rawString(), forKey: "Diagnosis_DataSave")

@@ -10,7 +10,7 @@
 
 //// Alert messages
 "No connection found" = "कोई कनेक्शन नहीं मिला";
-
+"Error" = "त्रुटि";
 
 // 1. AppDelegate
 
@@ -24,7 +24,9 @@
 "Login with Google" = "गूगल के साथ लॉगिन करें";
 "Login" = "लॉग इन करें";
 "or login with mobile" = "या मोबाइल से लॉगिन करें";
+"Login with mobile number" = "मोबाइल नंबर के साथ लॉगिन करें";
 "Enter Number" = "नंबर डालें";
+"Enter Mobile Number" = "मोबाइल नंबर दर्ज करें";
 "No Connection found" = "कोई कनेक्शन नहीं मिला";
 "   Select Your Country" = "   अपने देश का चयन करें";
 "   Select Your Language" = "   अपनी भाषा का चयन करें";
@@ -125,6 +127,7 @@
 "TRENDING DEVICES" = "रूझान घट रहा है";
 "Awesome! One last thing..." = "बहुत बढ़िया! एक आखिरी बात ...";
 "Hurry!! your offer of 10000 may drop on few days" = "जल्दी करो !! 10000 का आपका प्रस्ताव कुछ दिनों में गिर सकता है";
+"Hurry, prices may drop in a few days" = "जल्दी करो, कुछ दिनों में कीमतें गिर सकती हैं";
 "Confirm Order" = "आदेश की पुष्टि करें";
 "Later" = "बाद में";
 "Price of this phone is drop." = "इस फोन की कीमत ड्रॉप है।";
@@ -136,7 +139,7 @@
 
 // 9. CityVC
 "No Cities Found" = "कोई शहर नहीं मिला";
-"Please Enter Your Pin Code" = "कृपया अपना पिन कोड दर्ज करें";
+"Please Enter Your Pincode" = "कृपया अपना पिनकोड दर्ज करें";
 "Enter Post Code" = "पोस्ट कोड दर्ज करें";
 "OK" = "ठीक";
 "Select city *" = "शहर चुनें *";
@@ -152,6 +155,7 @@
 "Place order @ " = "आदेश देना @ ";
 "Note:- your Quote is lower than " = "नोट: - आपका भाव इससे कम है";
 " because certain tests were failed or skipped" = " क्योंकि कुछ परीक्षण विफल या छोड़ दिए गए थे";
+"Note:- your Quote is lower than because certain tests were failed or skipped" = "नोट: - आपका भाव इससे कम है क्योंकि कुछ परीक्षण विफल या छोड़ दिए गए थे";
 "oops,No data found" = "उफ़, कोई डेटा नहीं मिला";
 "Seems connection loss from server" = "सर्वर से कनेक्शन का नुकसान होता है";
 "Product Details" = "उत्पाद विवरण";
@@ -187,11 +191,13 @@
 "Change City" = "सिटी बदलें";
 "Changing City" = "बदलते शहर";
 "Changing city could affect the price quote.Do you want to change city?" = "बदलते शहर की कीमत को प्रभावित कर सकता है। क्या आप शहर बदलना चाहते हैं?";
+"Changing City Would Affect The Price Quote. Do You Want to Change the City?" = "बदलते शहर की कीमत बोली को प्रभावित करेगी। क्या आप शहर को बदलना चाहते हैं?";
 
 // 12. SendAppLinkPopUp
 "Enter valid mobile number" = "वैध मोबाइल नंबर दर्ज करें";
 "Please enter E-mail address" = "कृपया ई-मेल पता दर्ज करें";
 "Please Enter Correct Email Address" = "कृपया सही ईमेल पता दर्ज करें";
+"Invalid email-id" = "Invalid email-id";
 "oops,something went wrong" = "ओह! कुछ गलत हो गया है";
 "Mobile Number" = "मोबाइल नंबर";
 "Send App Link" = "ऐप लिंक भेजें";
@@ -274,6 +280,7 @@
 "Cash" = "नकद";
 "UUPON (Cash Only)" = "यूपॉन (कैश ओनली)";
 "UUPON (Cash+Points)" = "यूपॉन (नकद + अंक)";
+"UUPON (Points Only)" = "यूपोन (केवल अंक)";
 "Gateway charges" = "गेटवे शुल्क";
 "Payment Mode" = "भुगतान का प्रकार";
 "Select Payment Mode" = "भुगतान मोड का चयन करें";
@@ -363,8 +370,10 @@
 "Get exact quote" = "सटीक उद्धरण प्राप्त करें";
 
 // 34. VolumeCheckerVC
+"Hardware Button Test" = "हार्डवेयर बटन टेस्ट";
 "Hardware Button Diagnosis" = "हार्डवेयर बटन निदान";
 "If you skip this test there would be a substantial decline in the price offered. Do you still want to skip?" = "यदि आप इस परीक्षण को छोड़ देते हैं तो प्रस्तावित मूल्य में पर्याप्त गिरावट होगी। क्या आप अभी भी छोड़ना चाहते हैं?";
+//"If you skip this test there would be a substantial decline in the price offered" = "यदि आप इस परीक्षण को छोड़ देते हैं तो प्रस्तावित मूल्य में पर्याप्त गिरावट होगी";
 "Checking hardware buttons" = "हार्डवेयर बटन की जाँच";
 "Follow the instructions below to complete check." = "पूरी जाँच के लिए नीचे दिए गए निर्देशों का पालन करें।";
 "Press volume up button" = "वॉल्यूम बढ़ाएं बटन";
@@ -386,6 +395,7 @@
 "Please ensure device rotation option is enabled. Press “Start’ and rotate your device as seen below." = "कृपया सुनिश्चित करें कि डिवाइस रोटेशन विकल्प सक्षम है। 'शुरू दबाएँ' दबाएं और नीचे दिए गए अनुसार अपने डिवाइस को घुमाएं।";
 
 // 37. SensorReadVC
+"Proximity Test" = "निकटता परीक्षण";
 "Proximity Sensor Diagnosis" = "निकटता संवेदक निदान";
 "Checking proximity sensors" = "निकटता सेंसर की जाँच";
 "Wave your hand on the device’s screen." = "डिवाइस की स्क्रीन पर अपना हाथ लहरें।";
@@ -401,6 +411,7 @@
 "Checking charger" = "चार्जर की जाँच";
 
 // 40. CameraVC
+"Camera Test" = "कैमरा टेस्ट";
 "Camera Diagnosis" = "कैमरा डायग्नोसिस";
 "Checking cameras" = "कैमरे की जाँच";
 "Get ready to smile. We’re making sure this device is selfie-ready!" = "मुस्कुराने के लिए तैयार हो जाइए। हम सुनिश्चित कर रहे हैं कि यह डिवाइस सेल्फी के लिए तैयार है!";
@@ -409,6 +420,7 @@
 "Start Camera Check" = "कैमरा जांच शुरू करें";
 
 // 41. FingerPrintDevice
+"FingerPrint Scanner Test" = "फ़िंगरप्रिंट स्कैनर टेस्ट";
 "FingerPrint Scanner Diagnosis" = "फ़िंगरप्रिंट स्कैनर निदान";
 "Enable fingerprint" = "फिंगरप्रिंट सक्षम करें";
 "Go to Settings -> Touch ID & Passcode" = "सेटिंग पर जाएं -> टच आईडी और पासकोड";
@@ -433,6 +445,7 @@
 "Rotation" = "रोटेशन";
 "Proximity" = "निकटता";
 "Volume" = "वॉल्यूम";
+"Device Button" = "डिवाइस बटन";
 "Earphone" = "इयरफोन";
 "Charger" = "चार्जर";
 "Camera" = "कैमरा";
@@ -453,6 +466,7 @@
 "Are you sure you want to quit?" = "क्या आप वाकई छोड़ना चाहते हैं?";
 "Your device could be worth" = "आपका उपकरण लायक हो सकता है";
 "Note: Your quotation is lower because of the following issues. Click retry for a better quotation." = "नोट: निम्न मुद्दों के कारण आपका उद्धरण कम है। बेहतर उद्धरण के लिए पुनः प्रयास करें।";
+"Note: Your quote is lower than because certain tests were failed or skipped" = "नोट: आपकी बोली से कम है क्योंकि कुछ परीक्षण विफल या छोड़ दिए गए थे";
 "Place order at RM 376 instead" = "इसके बजाय आरएम 376 पर ऑर्डर दें";
 "Your device passed 6/15 tests!" = "आपका उपकरण 6/15 परीक्षण पास कर चुका है!";
 
@@ -608,9 +622,11 @@
 "UPLOAD Document" = "अपलोड दस्तावेज़";
 "Press the button below to upload image of a valid Id Proof of the customer." = "ग्राहक के वैध आईडी प्रमाण की छवि अपलोड करने के लिए नीचे दिया गया बटन दबाएं।";
 "Upload ID Image" = "आईडी छवि अपलोड करें";
+"Upload ID proof" = "आईडी प्रमाण अपलोड करें";
 
 // 65. SignatureVC
 "Signature" = "हस्ताक्षर";
+"Please add Signature" = "कृपया हस्ताक्षर जोड़ें";
 "Signature on white screen then click on save." = "सफेद स्क्रीन पर हस्ताक्षर फिर सहेजें पर क्लिक करें।";
 "Order Complete!" = "आदेश पूरा!";
 "Pickup is complete now.Continue to Process the payment" = "पिकअप अब पूरी हो गई है। भुगतान को संसाधित करने के लिए बंद करें";
@@ -735,6 +751,7 @@
 "Please select state" = "कृपया राज्य चुनें";
 "Please select city" = "कृपया शहर चुनें";
 "Areas we serve" = "जिन क्षेत्रों में हम सेवा करते हैं";
+"Type your city" = "Type your city";
 
 // 82. StartDevice
 "Start device condition reporting" = "डिवाइस स्थिति रिपोर्टिंग प्रारंभ करें";
@@ -796,6 +813,8 @@
 "Your order has been placed successfully. Your Order ID is " = "आपका ऑर्डर सफलतापूर्वक रखा गया है। आपका ऑर्डर आईडी है";
 " Our team will get in touch with you shortly to verity the order and schedule the pickup. For any queries please call 0141-4232323 (10:00am - 07:00pm.)" = " हमारी टीम आदेश की सत्यता के लिए शीघ्र ही आपसे संपर्क करेगी और पिक शेड्यूल करेगी। किसी भी प्रश्न के लिए कृपया 0141-4232323 (सुबह 10:00 - शाम 07:00 बजे) पर कॉल करें।";
 " Our team will get in touch with you shortly to verity the order and schedule the pickup. For any queries please call +60365273417 (08:30am - 06:00pm Mon - Fri)" = " हमारी टीम आदेश की सत्यता के लिए शीघ्र ही आपसे संपर्क करेगी और पिक शेड्यूल करेगी। किसी भी प्रश्न के लिए +60365273417 (08:30 बजे - 06:00 बजे सोम - शुक्र) पर कॉल करें";
+" Our team will get in touch with you shortly to verity the order and schedule the pickup. For any queries please call +886-277300795 (09:00am - 06:00pm.)" = " हमारी टीम आदेश की सत्यता के लिए शीघ्र ही आपसे संपर्क करेगी और पिक शेड्यूल करेगी। किसी भी प्रश्न के लिए +886-277300795 (09:00 बजे - 06:00 बजे सोम - शुक्र) पर कॉल करें";
+
 "SEE ORDER STATUS" = "देखें आदेश";
 
 // 92. SellOtherDeviceSearchVC

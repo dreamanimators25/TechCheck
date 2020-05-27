@@ -65,10 +65,10 @@ class IMEIVC: UIViewController,UITextFieldDelegate {
                             self.navigationController?.pushViewController(vc, animated: true)
                         }
                     }else{
-                        Alert.showAlert(strMessage: "Invalid IMEI Number Entered.", Onview: self)
+                        Alert.showAlertWithError(strMessage: "Invalid IMEI Number Entered.", Onview: self)
                     }
                 }else{
-                    Alert.showAlert(strMessage: "Please Enter a valid 15-digit IMEI Number", Onview: self)
+                    Alert.showAlertWithError(strMessage: "Please Enter a valid 15-digit IMEI Number", Onview: self)
                     
                 }
                 
@@ -107,10 +107,10 @@ class IMEIVC: UIViewController,UITextFieldDelegate {
                 self.navigationController?.pushViewController(vc, animated: true)
                 }
             }else{
-                Alert.showAlert(strMessage: "Invalid IMEI Number Entered.", Onview: self)
+                Alert.showAlertWithError(strMessage: "Invalid IMEI Number Entered.", Onview: self)
             }
         }else{
-            Alert.showAlert(strMessage: "Please Enter a valid 15-digit IMEI Number", Onview: self)
+            Alert.showAlertWithError(strMessage: "Please Enter a valid 15-digit IMEI Number", Onview: self)
 
         }
         }

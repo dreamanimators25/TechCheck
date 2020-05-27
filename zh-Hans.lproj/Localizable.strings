@@ -10,24 +10,26 @@
 
 //// Alert messages
 "No connection found" = "未找到连接";
-
+"Error" = "提醒";
 
 // 1. AppDelegate
 
 // 2. CountryVC
 "Please enter mobile number" = "请输入手机号码";
-"Please enter valid mobile number" = "请输入有效的手机号码";
+"Please enter valid mobile number" = "請輸入正確的手機號碼"; //"请输入有效的手机号码";
 "India" = "印度";
-"Malaysia" = "马来西亚";
+"Malaysia" = "馬來西亞"; //"马来西亚";
 "Singapore" = "新加坡";
-"Taiwan" = "台湾";
-"Login with Google" = "使用谷歌登录";
-"Login" = "登录";
+"Taiwan" = "台灣"; //"台湾";
+"Login with Google" = "Google帳號登入"; //"使用谷歌登录";
+"Login" = "登入"; //"登录";
 "or login with mobile" = "或使用手机登录";
+"Login with mobile number" = "用手機號碼登入";
 "Enter Number" = "输入号码";
+"Enter Mobile Number" = "輸入手機號碼";
 "No Connection found" = "未找到连接";
-"   Select Your Country" = "   选择您的国家";
-"   Select Your Language" = "   选择你的语言";
+"   Select Your Country" = "   選擇你的國家"; //"   选择您的国家";
+"   Select Your Language" = "   選擇你的語言"; //"   选择你的语言";
 "English" = "英语";
 "Chinese" = "中文";
 "Hindi" = "印地语";
@@ -46,7 +48,7 @@
 
 // 4. LoginVC
 "Please login in truecaller app " = "请登录真实呼叫者应用";
-"InstaCash" = "现金";
+"InstaCash" = "InstaCash"; //"现金";
 "Continue with Facebook" = "继续使用脸书";
 "Continue with Truecaller" = "继续真实呼叫者";
 "Continue with Mobile Number" = "继续使用手机号码";
@@ -61,8 +63,8 @@
 "Promoters" = "发起人";
 "How It Works" = "怎么运行的";
 "About Us" = "关于我们";
-"Terms & Conditions" = "条款和条件";
-"FAQ" = "常问问题";
+"Terms & Conditions" = "條款細則"; //"条款和条件";
+"FAQ" = "常見問題"; //"常问问题";
 "Contact Us" = "联系我们";
 "Share" = "分享";
 "SEARCH" = "搜索";
@@ -75,16 +77,16 @@
 "No Result Found" = "未找到结果";
 
 // 7. HomeVC
-"RESUME TEST" = "恢复 测试";
-"  Call  " = "  呼叫  ";
-"  Mail  " = "  邮件  ";
+"RESUME TEST" = "恢復測試";
+"  Call  " = "  致電  ";
+"  Mail  " = "  電子郵件  ";
 "  Zopim Chat  " = "  佐皮聊天  ";
 "  WhatsApp  " = "  什么是应用程式的  ";
-"  Line  " = "  线  ";
-"Diagnosis Code" = "诊断码";
-"Pickup Code" = "代号";
-"This mode can only be run if an order has been placed for this device.If you don't have a code yet please call our customer care to get a new code." = "只有在为此设备下订单后才能运行此模式。如果您还没有代码，请致电我们的客户服务中心以获取新代码。";
-"Enter Verification Code" = "输入验证码";
+"  Line  " = "  Line  "; //"  线  ";
+"Diagnosis Code" = "檢測編號";
+"Pickup Code" = "取件編號";
+"This mode can only be run if an order has been placed for this device.If you don't have a code yet please call our customer care to get a new code." = "此模式只能在已為該手機下訂單的情況下運行。如果您還沒有代碼，請致電我們的客服獲取新代碼"; //"只有在为此设备下订单后才能运行此模式。如果您还没有代码，请致电我们的客户服务中心以获取新代码。";
+"Enter Verification Code" = "輸入驗證碼"; //"输入验证码";
 "Please Login First" = "请先登录";
 "CANCEL" = "取消";
 "Hurry!! Your Offer Of " = "匆忙！！您的报价 ";
@@ -103,16 +105,16 @@
 "Oops! Mail Service not available." = "糟糕！邮件服务不可用。";
 "Message Subject" = "信息主题";
 "Message content." = "邮件内容。";
-"Your device doesn't support this feature." = "您的设备不支持此功能。";
-"Sell" = "卖";
-"Find out how much cash you’ll get by selling this device." = "找出售出此设备将获得多少现金。";
-"Get quote for this device" = "获取此设备的报价";
-"No bargaining. No headaches!" = "不二價。沒煩惱。"; //"没有议价。没有头痛！";
+"Your device doesn't support this feature." = "您的手機不支持此功能"; //"您的设备不支持此功能。";
+"Sell" = "手機回收"; //"卖";
+"Find out how much cash you’ll get by selling this device." = "通過出售此手機可獲得多少現金。"; //"找出售出此设备将获得多少现金。";
+"Get quote for this device" = "取得回收價格";
+"No bargaining. No headaches!" = "不二價。沒煩惱。"; //"不二價。沒煩惱。"; //"没有议价。没有头痛！";
 "Takes 5 mins. Save time." = "只需五分鐘。節省時間。"; //"花5分钟。节省时间。";
-"Get a quote from anywhere. Convenient and casual." = "从任何地方获取报价。方便又随意。";
-"Accurate and market-leading prices. Scam-free." = "准确和市场领先的价格。无欺诈。";
-"Got another device to sell? See how much its worth." = "还有另一种设备可以出售？看看它的价值是多少。";
-"See Promotions and Offers" = "查看促销和优惠";
+"Get a quote from anywhere. Convenient and casual." = "從任何地方獲取報價。簡單方便。"; //"从任何地方获取报价。方便又随意。";
+"Accurate and market-leading prices. Scam-free." = "保證準確及領先市場的價格。"; //"准确和市场领先的价格。无欺诈。";
+"Got another device to sell? See how much its worth." = "還有其他手機可以出售？看看它的價值。"; //"还有另一种设备可以出售？看看它的价值是多少。";
+"See Promotions and Offers" = "查看促銷和優惠。"; //"查看促销和优惠";
 "THIS DEVICE" = "这个设备";
 "get upto" = "獲得高達";
 "Run Diagnostics" = "运行诊断";
@@ -123,20 +125,21 @@
 "Others" = "其他";
 "MORE BRANDS" = "更多品牌";
 "TRENDING DEVICES" = "趋势设备";
-"Awesome! One last thing..." = "太棒了！最后一件事……";
+"Awesome! One last thing..." = "太棒了，我們剩下最後一步！"; //"太棒了，我們剩下最後一步！"; //"太棒了！最后一件事……";
 "Hurry!! your offer of 10000 may drop on few days" = "快点！您的10000报价可能在几天后下降";
-"Confirm Order" = "确认订单";
-"Later" = "后来";
+"Hurry, prices may drop in a few days" = "心動不如馬上行動！可能在幾天內下降";
+"Confirm Order" = "確認手機回收"; //"确认订单";
+"Later" = "稍後再確認"; //"后来";
 "Price of this phone is drop." = "这部手机的价格正在下降。";
 
 // 8. MobileNumberVC
 "Please enter OTP with 4 digits" = "请输入4位数字的OTP";
-"Confirm verification code" = "确认验证码";
-"Resend verification code" = "重新发送验证码";
+"Confirm verification code" = "確認驗證碼"; //"确认验证码";
+"Resend verification code" = "重新發送驗證碼"; //"重新发送验证码";
 
 // 9. CityVC
 "No Cities Found" = "没有找到引用";
-"Please Enter Your Pin Code" = "请输入您的密码";
+"Please Enter Your Pincode" = "請輸入郵遞區號"; //"请输入您的密码";
 "Enter Post Code" = "输入邮政编码";
 "OK" = "好";
 "Select city *" = "选择城市*";
@@ -148,26 +151,28 @@
 "Select Model" = "选择型号";
 
 // 11. ProductDetailVewVC
-"Place order" = "下订单";
-"Place order @ " = "下订单 @ ";
+"Place order" = "下訂單"; //"下订单";
+"Place order @ " = "下訂單 @ ";
 "Note:- your Quote is lower than " = "注意：-您的报价低于";
 " because certain tests were failed or skipped" = " 因为某些测试失败或被跳过";
+"Note:- your Quote is lower than because certain tests were failed or skipped" = "注意:最後回收價格會依檢測後功能是否有問題或是跳過測項而有所差異";
 "oops,No data found" = "糟糕，找不到数据";
 "Seems connection loss from server" = "似乎服务器断开连接";
-"Product Details" = "产品详情";
-"Quotation" = "报价单";
-"Your device is worth" = "您的设备值得";
-"The price is based on your self-reported device condition." = "价格取决于您自行报告的设备状况。";
-"Hurry, prices may drop in few days..." = "快点，价格可能会在几天内下降……";
-"PLACE ORDER" = "下订单";
+"Product Details" = "產品詳情"; //"产品详情";
+//"Quotation" = "报价单";
+"Quotation" = "回收價";
+"Your device is worth" = "您的手機價值"; //"您的手機價值"; //"您的设备值得";
+"The price is based on your self-reported device condition." = "此價格取決於您自行測試及提報的手機狀況。"; //"价格取决于您自行报告的设备状况。";
+"Hurry, prices may drop in few days..." = "趕緊成單~避免日後降價"; //"快点，价格可能会在几天内下降……";
+"PLACE ORDER" = "下訂單";
 "Select the available accessories" = "选择可用的附件";
 "Select the available original accessories" = "选择可用的原始附件";
 "Device Condition" = "设备状况";
 "Bloated Battery" = "电池膨胀";
 "Liquid Damage" = "液体损害";
-"Ghost Touch" = "幽灵之触";
-"Sim Card Tray Broken" = "Sim卡纸盘坏了";
-"Home and Power Button" = "主页和电源按钮";
+"Ghost Touch" = "手機觸控失靈"; //"幽灵之触";
+"Sim Card Tray Broken" = "SIM卡槽損壞"; //"Sim卡纸盘坏了";
+"Home and Power Button" = "Home鍵和開關機鍵"; //"主页和电源按钮";
 "Select the functional issues of your device" = "选择设备的功能问题";
 "Front Or Back Camera - Not working or faulty" = "前置或后置摄像头-无法正常工作或出现故障";
 "Volume Button not working" = "音量按钮不起作用";
@@ -184,68 +189,69 @@
 "Earphone Jack is damaged or not-working" = "耳机插孔已损坏或无法工作";
 "Fingerprint Sensor Not-working" = "指纹传感器不起作用";
 
-"Change City" = "改变城市";
-"Changing City" = "改变城市";
+"Change City" = "更改縣市"; //"更改城市"; //"改变城市";
+"Changing City" = "更改縣市"; //"改变城市";
 "Changing city could affect the price quote.Do you want to change city?" = "更改城市可能会影响报价。您要更改城市吗？";
+"Changing City Would Affect The Price Quote. Do You Want to Change the City?" = "更改縣市可能會影響報價。您要更改縣市嗎?";
 
 // 12. SendAppLinkPopUp
 "Enter valid mobile number" = "请输入有效的手机号码";
-"Please enter E-mail address" = "请输入电子邮件地址";
+"Please enter E-mail address" = "請輸入電子郵件"; //"请输入电子邮件地址";
 "Please Enter Correct Email Address" = "请输入正确的电子邮件地址";
 "oops,something went wrong" = "哎呀！出事了";
 "Mobile Number" = "手机号码";
 "Send App Link" = "发送应用链接";
 "Share" = "分享";
-"E-mail" = "电子邮件";
+"E-mail" = "電子郵件";
 
 // 13. OrderPlacePopUp
 
 // 14. PromoCodeVC
-"I want to donate ₹" = "我要捐献₹";
+"I want to donate ₹" = "我想要捐贈 ₹";
 "to Narayan Seva Sansthan." = "对纳拉扬·塞瓦·桑斯坦（纳拉扬 服务专区 研究所）。";
-"I want to donate" = "我要捐赠";
+"I want to donate" = "我想要捐贈";
 "to World Wide Fund for Nature." = "向世界自然基金会捐款。";
 "Please Enter Valid Amount" = "请输入有效金额";
 "Please Enter valid coupon code" = "请输入有效的优惠券代码";
 "Invalid coupon code" = "无效的优惠券代码";
-"Summary" = "摘要";
-"Subtotal Amount" = "小计金额";
-"Pickup Charge" = "接送费用";
+"Summary" = "總結"; //"摘要";
+"Subtotal Amount" = "小計金額"; //"小计金额";
+"Pickup Charge" = "運費"; //"接送费用";
 "Promo offer" = "促销优惠";
-"Total" = "总";
-"Have a promo code? Click here." = "有促销代码吗？请单击此处。";
+"Total" = "總額"; //"总";
+"Have a promo code? Click here." = "有折扣碼嗎?請在此輸入"; //"有促销代码吗？请单击此处。";
 "I want to donate ₹ 30 to Narayan Sewa Sansthan." = "我想向纳拉扬 服务专区 研究所捐款30卢比。";
-"Change Amount" = "更改金额";
-"Enter Amount" = "输入金额";
-"NEXT" = "下一个";
-"Please enter promo code" = "请输入促销代码";
-"APPLY" = "应用";
+"Change Amount" = "更改金額"; //"更改金额";
+"Enter Amount" = "輸入金額"; "输入金额";
+"NEXT" = "下一步"; //"下一个";
+"Please enter promo code" = "請輸入折扣碼"; //"请输入促销代码";
+"APPLY" = "申請"; //"应用";
 "You can donate upto 98% of total Amount." = "您最多可以捐赠总金额的98％。";
 
 // 15. SellerDetailsVC
-"Device quoted is: " = "引用的设备是：";
-"Please enter name" = "请输入名称";
-"User Detail" = "用户详细信息";
-"Your details" = "你的资料";
-"Enter Name" = "输入名字";
-"Enter Email Id" = "输入电子邮件开斋节";
-"Enter Mobile Number" = "输入手机号码";
+"Device quoted is: " = "此手機的報價是："; //"引用的设备是：";
+"Please enter name" = "請輸入姓名"; //"请输入名称";
+"User Detail" = "用戶詳細資料"; //"用户详细信息";
+"Your details" = "你的資料"; //"你的资料";
+"Enter Name" = "請輸入姓名"; //"输入名字";
+"Enter Email Id" = "請輸入電子郵件"; //"输入电子邮件开斋节";
+"Enter Mobile Number" = "請輸入手機號碼"; //"输入手机号码";
 
 // 16. PlaceOrderVC
-"Place Order" = "下订单";
+"Place Order" = "下訂單";
 "Please enter address line 1" = "请输入地址行1";
 "Please enter pincode" = "请输入密码";
 "Pincode not match with your city." = "邮政编码与您的城市不匹配。";
 "Enter valid Code" = "输入有效代码";
 "Location" = "位置";
-"Pick up details" = "领取详细信息";
-"We come to you and pick up your device. We also pay you on the spot." = "我们来找您，拿起您的设备。我们也当场付款给您。";
-"Get my location" = "获取我的位置";
-"Address Line 1" = "地址第一行";
-"Address Line 2" = "地址行2";
-"City" = "市";
-"Pincode" = "销码";
-"Next" = "下一个";
+"Pick up details" = "取件詳情"; //"领取详细信息";
+"We come to you and pick up your device. We also pay you on the spot." = "我們會與您聯絡,並收取您的手機"; //"我们来找您，拿起您的设备。我们也当场付款给您。";
+"Get my location" = "取得目前地點"; //"获取我的位置";
+"Address Line 1" = "地址(第一行)"; //"地址第一行";
+"Address Line 2" = "地址(第二行)"; //"地址行2";
+"City" = "城市"; //"市";
+"Pincode" = "郵遞區號"; //"销码";
+"Next" = "下一步"; //"下一个";
 
 // 17. IMEIVC
 "IMEI of your device will be required to identify device at the time of order pickup, so it will be synced with our server." = "在提货时，需要您设备的IMEI来识别设备，因此它将与我们的服务器同步。";
@@ -255,7 +261,7 @@
 "Disagree" = "不同意";
 "Please Enter IMEI of your device" = "请输入设备的IMEI";
 "IMEI Number" = " IMEI号码";
-"CONTINUE" = "继续";
+"CONTINUE" = "繼續"; //"继续";
 "Dial *#06# from the device to get the IMEI number of the device." = "从设备拨打*＃06＃以获取设备的IMEI编号。";
 
 // 18. PaymentsModeVC
@@ -272,31 +278,32 @@
 "MAXIS" = "马克西斯";
 "SAMSUNG" = "三星";
 "Cash" = "现金";
-"UUPON (Cash Only)" = "UUPON（仅限现金）";
-"UUPON (Cash+Points)" = " UUPON（现金+积分）";
-"Gateway charges" = "平台費用"; //"网关费用";
-"Payment Mode" = "付款方式";
-"Select Payment Mode" = "选择付款方式";
-"Choose one payment option" = "选择一种付款方式";
-"Payable amount" = "应付金额";
-"Payable" = "应付款";
-"Wallet" = "钱包";
+"UUPON (Cash Only)" = " UUPON (現金) "; //" UUPON（仅限现金）";
+"UUPON (Cash+Points)" = " UUPON (點數) "; //" UUPON（现金+积分）";
+"UUPON (Points Only)" = " UUPON (點數) "; //" UUPON（僅積分）";
+"Gateway charges" = "平台費用"; //"平台費用"; //"网关费用";
+"Payment Mode" = "付款方式"; //"付款方式";
+"Select Payment Mode" = "選擇付款方式"; //"选择付款方式";
+"Choose one payment option" = "選擇一種付款方式"; //"选择一种付款方式";
+"Payable amount" = "應付金額"; //"应付金额";
+"Payable" = "應付款項"; //"应付款";
+"Wallet" = "錢包"; //"钱包";
 "PAYTM WALLET" = "付款方式 钱包";
 "Other" = "其他";
-"Selected Payment Mode" = "选择的付款方式";
+"Selected Payment Mode" = "選擇的付款方式"; //"选择的付款方式";
 
 // 19. MYBankDetailVC
 "Select Bank Name" = "选择银行名称";
 "Please enter account holder's name" = "请输入帐户持有人的姓名";
 "Please enter account number" = "请输入帐号";
 "Please select your bank" = "请选择您的银行";
-"Transfer Details" = "传输详细信息";
+"Transfer Details" = "付款明細"; "传输详细信息";
 "Please Enter the details" = "请输入详细信息";
 "Bank Holders Name" = "银行持有人姓名";
 "Bank Account Number" = "银行帐号";
 "SKIP" = "跳過"; //"跳跃";
 "Skip" = "跳過"; //"跳跃";
-"PROCEED" = "继续";
+"PROCEED" = "繼續"; //"继续";
 
 // 20. MYCendolVC
 "ASHITA" = "下田";
@@ -310,7 +317,7 @@
 // 22. MYSamsungVC
 "Please enter samsung order ID" = "请输入三星订单 开斋节";
 "Account Holders Name" = "账户持有人名称";
-"Account Number" = "帐号";
+"Account Number" = "銀行帳號"; //"帐号";
 "Samsung OrderID" = "三星订单编号";
 
 // 23. SGFastPayVC
@@ -341,7 +348,7 @@
 "Detailed Terms and Conditions" = "详细条款和条件";
 
 // 31. LockPricePopUp
-"Hurry, prices may drop in a few days…" = "快点，价格可能会在几天内下降……";
+"Hurry, prices may drop in a few days…" = "趕緊成單~避免日後降價"; //"快点，价格可能会在几天内下降……";
 "Lock price" = "锁价";
 
 // 32. BankDetailVC
@@ -358,108 +365,114 @@
 // 33. DeviceInfoVC
 "Market Price" = "市场价";
 "InstaCash Price" = "现金 价钱";
-"The price stated above depends on the condition of the device. A final price offer will be quoted after you run the device diagnosis." = "上述价格取决于设备的状况。运行设备诊断后，将报价最终报价。";
+"The price stated above depends on the condition of the device. A final price offer will be quoted after you run the device diagnosis." = "上述價格取決於手機的狀況。進行手機檢測後，將獲得最終報價。"; //"上述价格取决于设备的状况。运行设备诊断后，将报价最终报价。";
 "Getting an exact quote takes 5 mins. Ready to roll? Just grab your earphone and data cable for respective diagnosis." = "获得准确的报价需要5分钟。准备好了吗？只需抓住耳机和数据线进行相应的诊断即可。";
-"Get exact quote" = "获取确切报价";
+"Get exact quote" = "獲取準確的回收報價"; //"获取确切报价";
 
 // 34. VolumeCheckerVC
+"Hardware Button Test" = "硬件按鈕測試"; //"硬件按鍵測試";
 "Hardware Button Diagnosis" = "硬件按钮诊断";
-"If you skip this test there would be a substantial decline in the price offered. Do you still want to skip?" = "如果您跳过此测试，则所提供的价格将大幅下降。您是否仍想跳过？";
-"Checking hardware buttons" = "检查硬件按钮";
-"Follow the instructions below to complete check." = "按照以下说明完成检查。";
-"Press volume up button" = "增加音量";
-"Press volume down button" = "降低音量";
+"If you skip this test there would be a substantial decline in the price offered. Do you still want to skip?" = "如果您跳過此測試，所提供的價格將大幅下降。您是否仍想跳過？";
+"Checking hardware buttons" = "檢查硬件按鈕"; //"检查硬件按钮";
+"Follow the instructions below to complete check." = "跟隨以下指示完成檢查"; //"按照以下说明完成检查。";
+"Press volume up button" = "按一下「增加音量鍵」"; //"增加音量";
+"Press volume down button" = "按一下「降低音量鍵」"; //"降低音量";
 
 // 35. ScreenTestingVC
 "Screen Diagnosis Test Failed!" = "屏幕诊断测试失败！";
 "Do you want to retry the test?" = "您想重试测试吗？";
-"Checking screen calibration" = "检查屏幕校准";
-"Press “Start’ and follow the path" = "按“开始”并遵循路径";
-"Guide me" = "引導我";  //"引导我";
-"Start" = "开始";
-"Retry" = "重试";
-"ReTry" = "重试";
+"Checking screen calibration" = "檢查螢幕校準"; //"检查屏幕校准";
+"Press “Start’ and follow the path" = "點擊「開始」並跟隨指示操作"; //"按“开始”并遵循路径";
+"Guide me" = "引導我"; //"引導我";  //"引导我";
+"Start" = "開始"; //"开始";
+"Retry" = "重新嘗試"; //"重试";
+"ReTry" = "重新嘗試"; //"重试";
 
 // 36. RotationVC
-"Auto Rotation Diagnosis" = "自动旋转诊断";
-"Checking device rotation" = "检查设备旋转";
-"Please ensure device rotation option is enabled. Press “Start’ and rotate your device as seen below." = "请确保启用了设备旋转选项。按“开始”，然后如下所示旋转设备。";
+"Auto Rotation Diagnosis" = "自動旋轉功能測試"; //"自动旋转诊断";
+"Checking device rotation" = "檢查螢幕旋轉"; "检查设备旋转";
+"Please ensure device rotation option is enabled. Press “Start’ and rotate your device as seen below." = "請確認手機螢幕旋轉功能已開啟。按下「開始」並開始旋轉您的手機。"; //"请确保启用了设备旋转选项。按“开始”，然后如下所示旋转设备。";
 
 // 37. SensorReadVC
+"Proximity Test" = "螢幕感應測試"; //"鄰近測試";
 "Proximity Sensor Diagnosis" = "接近传感器诊断";
-"Checking proximity sensors" = "检查接近传感器";
-"Wave your hand on the device’s screen." = "将您的手放在设备的屏幕上。";
-"It’s not working." = "这不起作用。";
+"Checking proximity sensors" = "檢查感應器"; //"检查接近传感器";
+"Wave your hand on the device’s screen." = "請在螢幕前揮揮手"; //"将您的手放在设备的屏幕上。";
+"It’s not working." = "無法運作"; //"这不起作用。";
 
 // 38. EarPhoneVC
 "Earphone Jack Diagnosis" = "耳机插孔诊断";
-"Checking earphone" = "检查耳机";
-"Press “Start’ and follow instructions." = "按“开始”并按照说明进行操作。";
+"Checking earphone" = "檢查耳機"; //"检查耳机";
+"Press “Start’ and follow instructions." = "點擊「開始」，並跟隨指示操作"; //"按“开始”并按照说明进行操作。";
 
 // 39. DeviceChargerVC
 "Device Charger Diagnosis" = "设备充电器诊断";
 "Checking charger" = "检查充电器";
 
 // 40. CameraVC
+"Camera Test" = "相機測試";
 "Camera Diagnosis" = "相机诊断";
-"Checking cameras" = "检查相机";
-"Get ready to smile. We’re making sure this device is selfie-ready!" = "准备微笑吧。我们确保此设备可用于自拍照！";
-"1. Tap anywhere on the screen to autofocus" = "1.点击屏幕上的任意位置以自动对焦";
-"2. Press capture to take a shot!" = "2.按捕获进行拍摄！";
-"Start Camera Check" = "开始摄像头检查";
+"Checking cameras" = "檢查相機"; //"检查相机";
+"Get ready to smile. We’re making sure this device is selfie-ready!" = "笑一個:）準備檢查手機是否可以自拍！"; //"准备微笑吧。我们确保此设备可用于自拍照！";
+"1. Tap anywhere on the screen to autofocus" = "1.點擊螢幕任何一處自動對焦"; //"1.点击屏幕上的任意位置以自动对焦";
+"2. Press capture to take a shot!" = "2.按下拍攝鍵拍張照"; //"2.按捕获进行拍摄！";
+"Start Camera Check" = "攝像頭檢查開始"; //"开始摄像头检查";
 
 // 41. FingerPrintDevice
+"FingerPrint Scanner Test" = "指紋感應器測試"; //"指紋掃描儀測試";
 "FingerPrint Scanner Diagnosis" = "指纹扫描仪诊断";
 "Enable fingerprint" = "启用指纹";
 "Go to Settings -> Touch ID & Passcode" = "转到设置->触摸ID和密码";
 "Settings" = "设定值";
-"Cancel" = "取消";
-"Checking fingerprint scanner" = "检查指纹扫描仪";
-"Then you will place your finger on the fingerprint scanner like you normally would during unlock." = "然后，您将像解锁时一样将手指放在指纹扫描仪上。";
-"First, please enable fingerprint function." = "首先，请启用指纹功能。";
+"Cancel" = "取消"; //"取消";
+"Checking fingerprint scanner" = "檢查指紋感應器"; //"检查指纹扫描仪";
+"Then you will place your finger on the fingerprint scanner like you normally would during unlock." = "並將手指放置在指紋感應處／指紋解鎖處。"; //"然后，您将像解锁时一样将手指放在指纹扫描仪上。";
+"First, please enable fingerprint function." = "第一步，請開啟指紋解鎖功能。"; //"首先，请启用指纹
 
 // 42. BlueToothTestingVC
-"Checking Network..." = "正在检查网络...";
-"Checking GPS..." = "检查 全球定位系统...";
-"Checking WiFi..." = "检查 无线上网...";
-"Checking Bluetooth..." = "正在检查蓝牙...";
-"Tests Complete!" = "测试完成！";
-"Please make sure Bluetooth, GPS and Wifi are enabled on your device and press begin to start the tests." = "请确保您的设备上启用了蓝牙，全球定位系统和无线上网，然后按开始开始测试。";
-"Begin Tests" = "开始测试";
+"Checking Network..." = "檢查網絡..."; //"正在检查网络...";
+"Checking GPS..." = "檢查手機導航..."; //"检查 全球定位系统...";
+"Checking WiFi..." = "檢查無線上網..."; //"检查 无线上网...";
+"Checking Bluetooth..." = "檢查藍牙..."; //"正在检查蓝牙...";
+"Tests Complete!" = "測試完成！"; //"测试完成！";
+"Please make sure Bluetooth, GPS and Wifi are enabled on your device and press begin to start the tests." = "請確保您的手機上啟動了藍牙，GPS和無線上網，然後按開始測試。"; //"请确保您的设备上启用了蓝牙，全球定位系统和无线上网，然后按开始开始测试。";
+"Begin Tests" = "開始測試"; //"开始测试";
 
 // 43. DiagnosticTestResultVC
 "I'm done" = "已完成"; //"我受够了";
-"Screen" = "螢幕"; //"屏幕";
-"Rotation" = "旋轉功能"; //"回转";
-"Proximity" = "螢幕感應"; //"接近";
+"Screen" = "螢幕"; //"螢幕"; //"屏幕";
+"Rotation" = "自動旋轉功能"; //"旋轉功能"; //"回转";
+"Proximity" = "螢幕感應"; //"螢幕感應"; //"接近";
 "Volume" = "体积";
-"Earphone" = "耳機"; //"耳机";
+"Device Button" = "手機按鈕";
+"Earphone" = "耳機插孔"; //"耳機"; //"耳机";
 "Charger" = "充电器";
-"Camera" = "相機"; //"相机";
+"Camera" = "相機"; //"相機"; //"相机";
 "FingerPrint" = "指纹";
 "NFC" = "NFC"; //"核因子";
 "GSM" = "GSM";
-"Bluetooth" = "蓝牙";
-"Storage" = "記憶體"; //"存储";
+"Bluetooth" = "藍芽"; //"蓝牙";
+"Storage" = "記憶體"; //"記憶體"; //"存储";
 "GPS" = "GPS"; //"全球定位系统";
-"Battery" = "電池"; //"电池";
-"WIFI" = "無線上網"; //"无线上网";
-"Failed and Skipped Tests" = "失败和跳过的测试";
-"Functional Checks" = "功能检查";
-"Your device passed" = "您的设备通过了";
-"/15 tests!" = "/ 15次测试！";
-"/13 tests!" = "/ 13测试！";
-"Quit Diagnosis" = "退出诊断";
-"Are you sure you want to quit?" = "你确定你要退出吗？";
-"Your device could be worth" = "您的设备值得";
+"Battery" = "電池"; //"電池"; //"电池";
+"WIFI" = "無線上網"; //"無線上網"; //"无线上网";
+"Failed and Skipped Tests" = "失敗和跳過的測試"; //"失败和跳过的测试";
+"Functional Checks" = "功能檢查"; //"功能检查";
+"Your device passed" = "您的手機通過了"; //"您的设备通过了";
+"/15 tests!" = "/ 15 測試!";
+"/13 tests!" = "/ 13 測試!";
+"Quit Diagnosis" = "退出診斷"; //"退出诊断";
+"Are you sure you want to quit?" = "你確定要退出嗎?"; //"你确定你要退出吗？";
+"Your device could be worth" = "您的設備值得"; //"您的设备值得";
 "Note: Your quotation is lower because of the following issues. Click retry for a better quotation." = "注意：由于以下问题，您的报价较低。单击重试可获得更好的报价。";
+"Note: Your quote is lower than because certain tests were failed or skipped" = "注意:最後回收價格會依檢測後功能是否有問題或是跳過測項而有所差異";
 "Place order at RM 376 instead" = "改为以RM 376下订单";
 "Your device passed 6/15 tests!" = "您的设备通过了6/15测试！";
 
 // 44. QuriesVC
 "Physical condition related quries" = "与身体状况有关的查询";
 "Almost Done!!" = "快完成了！！";
-"Please tell us about a few physical details of your phone." = "请告诉我们您手机的一些物理细节。";
+"Please tell us about a few physical details of your phone." = "請告訴我們您手機的一些外觀細節"; //"请告诉我们您手机的一些物理细节。";
 
 // 45. MyAddresses
 // Not used in project //
@@ -469,7 +482,7 @@
 "User Profile" = "用户资料";
 "more" = "更多";
 "LOG-OUT" = "登出";
-"Are you sure you want to log-out?" = "您确定要注销吗？";
+"Are you sure you want to log-out?" = "您確定要登出嗎?"; //"您确定要注销吗？";
 
 // 46. QuriesVC
 // Not used in project //
@@ -481,50 +494,50 @@
 // Not used in project //
 
 // 49. MyOrderVC
-"My Order" = "我的订单";
+"My Order" = "我的訂單"; //"我的订单";
 "Unverified" = "未验证";
 "Verified" = "已验证";
-"Out for pickup" = "外送";
+"Out for pickup" = "外出取貨"; //"外出取貨"; //"外送";
 "Pending Payment" = "待付款";
-"Completed" = "已完成";
+"Completed" = "完成"; //"已完成";
 "Rejected" = "拒绝";
-"Pacman cancelled" = "吃豆人取消了";
+"Pacman cancelled" = "未驗證"; //"吃豆人取消了";
 "User cancelled" = "用户已取消";
-"Order date: " = "订购日期： ";
-"Quoted price: " = "报价：";
-"Payment Mode: " = "付款方式： ";
-"Order ID: " = "订单开斋节：";
-"Place Order!" = "下订单！";
+"Order date: " = "下單日期："; //"订购日期： ";
+"Quoted price: " = "回收價："; //"报价：";
+"Payment Mode: " = "付款方式："; //"付款方式： ";
+"Order ID: " = "訂單編號："; //"订单开斋节：";
+"Place Order!" = "下訂單!"; //"下訂單！";
 "You are converting this Price Lock to a new Order.The price locked is subject to the conditions provided at the time of locking the price.In case of any mismatch in the conditions,a new price will be quoted. " = "您正在将此价格锁定转换为新的订单。锁定的价格受锁定价格时提供的条件的约束。如果条件不匹配，则会报价新的价格。";
 "MAYBE LATER" = "后来";
 "Place Order successfully" = "成功下订单";
-"Orders" = "命令";
-"ALL" = "所有";
-"IN PROGRESS" = "进行中";
-"COMPLETED" = "已完成";
+"Orders" = "訂單"; //"命令";
+"ALL" = "全部"; //"所有";
+"IN PROGRESS" = "進行中"; //"进行中";
+"COMPLETED" = "完成"; //"已完成";
 
 // 50. OrderDetail
 "Pick up: " = "拾起： ";
 "Pick up schedule for " = "领取时间表 ";
 "Cashed out" = "淘汰";
 " on " = " 上 ";
-"Quoted price:" = "报价：";
-"   Device Information   " = "   设备信息   ";
-"Order placed" = "订单已下";
-"In Progress" = "进行中";
-"Contact Customer Support" = "联系客户支持";
+"Quoted price:" = "回收價：";
+"   Device Information   " = "   手機資訊   ";  //"   设备信息   ";
+"Order placed" = "已下訂單"; //"订单已下";
+"In Progress" = "進行中"; //"进行中";
+"Contact Customer Support" = "聯絡客服人員"; //"聯絡客服人員"; //"联系客户支持";
 
 // 51. CustomerSupportVC
 "Customer Support" = "客户支持";
-"Email" = "电子邮件";
-"Call" = "呼叫";
+"Email" = "電子郵件";
+"Call" = "致電";
 "Chat" = "聊天室";
-"FAQs" = "常见问题";
+"FAQs" = "常見問題"; //"常见问题";
 
 // 52. OrderDetailSummaryVC
 "Box" = "框";
 "Original Charger" = "原装充电器";
-"Order Summary" = "订单摘要";
+"Order Summary" = " 手機回收明細"; //"订单摘要";
 
 "Does your device switch On?" = "您的设备是否打开？";
 "Display and Touch Screen" = "显示和触摸屏";
@@ -568,7 +581,7 @@
 // 59. UploadDocumentVC
 "UPLOAD BILL" = "上传帐单";
 "Please add at least one image to processed." = "请添加至少一张要处理的图像。";
-"Gallery" = "画廊";
+"Gallery" = "圖庫"; //"画廊";
 "Success" = "成功";
 "Documents Upload" = "文件上传";
 "Upload Images" = "上传图片";
@@ -599,25 +612,27 @@
 "" = "";
 
 // 63. DeadPixelVC
-"Dead Pixel Test" = "像素坏点测试";
-"Did you see any black or white spots on the screen?" = "您在屏幕上看到任何黑点或白点了吗？";
-"Checking screen for white or black dot" = "检查屏幕上的白色或黑色点";
-"We will show you white screen with maximum brightness for 8-10 seconds. Please tell us if you see a black dot." = "我们将向您显示最高亮度为8-10秒的白屏。请告诉我们您是否看到黑点。";
+"Dead Pixel Test" = "螢幕顯示異常測試"; //"像素坏点测试";
+"Did you see any black or white spots on the screen?" = "您在螢幕上看到任何黑點或白點了嗎？"; //"您在屏幕上看到任何黑点或白点了吗？";
+"Checking screen for white or black dot" = "檢查螢幕是否有白點或黑點"; //"检查屏幕上的白色或黑色点";
+"We will show you white screen with maximum brightness for 8-10 seconds. Please tell us if you see a black dot." = "我們會將螢幕調整至最大亮度約8-10秒，請告訴我們是否有看見黑點"; //"我们将向您显示最高亮度为8-10秒的白屏。请告诉我们您是否看到黑点。";
 
 // 64. UploadIDVC
 "UPLOAD Document" = "上传文件";
-"Press the button below to upload image of a valid Id Proof of the customer." = "按下面的按钮上传客户的有效ID证明图像。";
+"Press the button below to upload image of a valid Id Proof of the customer." = "請按下方按鈕以上傳顧客的有效身份證圖片"; //"按下面的按钮上传客户的有效ID证明图像。";
 "Upload ID Image" = "上传开斋节图片";
+"Upload ID proof" = "上傳身分證";
 
 // 65. SignatureVC
 "Signature" = "签名";
+"Please add Signature" = "請添加簽名";
 "Signature on white screen then click on save." = "白屏签名，然后单击保存。";
-"Order Complete!" = "订单完成！";
-"Pickup is complete now.Continue to Process the payment" = "提货已完成。继续处理付款";
-"Pocess Payment" = "按需付款";
+"Order Complete!" = "已完成訂單!"; //"订单完成！";
+"Pickup is complete now.Continue to Process the payment" = "取件已完成。 繼續處理付款。"; //"提货已完成。继续处理付款";
+"Pocess Payment" = "處理付款"; //"按需付款";
 "Customer Signature" = "客户签名";
-"Please ask the customer to sign on the screen and press save" = "请让客户在屏幕上签名并按保存";
-"Clear" = "明确";
+"Please ask the customer to sign on the screen and press save" = "請顧客在螢幕上簽名並按下保存"; //"请让客户在屏幕上签名并按保存";
+"Clear" = "清除";  //"明确";
 "Upload" = "上载";
 
 // 66. PickUpItemsVC
@@ -631,27 +646,27 @@
 "Please click YES in the box below to accept that this device is not stolen and that the details of the device provided by you are correct to the best of your knowledge and that you’ve read our terms and conditions and fully agree with them" = "请在下面的框中单击是，以接受此设备未被盗，并且您所提供的设备的详细信息在您所知的范围内是正确的，并且您已经阅读了我们的条款和条件并完全同意它们";
 
 // 67. ProceedPaymentVC
-"Verification Code" = "验证码";
+"Verification Code" = "驗證碼"; //"验证码";
 "This mode can only be run if an order has been placed for this device.If you don't have a code yet please call our customer care tp get a new code." = "只有在为此设备下订单后才能运行此模式。如果您还没有代码，请致电我们的客户服务电话以获取新代码。";
-"Swipe here to process payment" = "在这里刷卡处理付款";
-"Account Number :" = "帐号 ：";
+"Swipe here to process payment" = "點擊這里處理付款"; //"在这里刷卡处理付款";
+"Account Number :" = "銀行帳號 : "; //"帐号 ：";
 "Amount :" = "金额：";
 
 // 68. ProcessPaymentPopUpVC
-"Payment processed!" = "付款已处理！";
-"Transaction id" = "交易 开斋节";
-"Transaction amount" = "交易金额";
-"Complete Order" = "完成订单";
-"Refresh Status" = "刷新状态";
+"Payment processed!" = "付款完成！"; //"付款已处理！";
+"Transaction id" = "交易編號："; //"交易 开斋节";
+"Transaction amount" = "交易金額"; //"交易金额";
+"Complete Order" = "完成訂單"; //"完成订单";
+"Refresh Status" = "更新狀態";  //"刷新状态";
 
 // 69. RatingVC
-"Transaction Id :" = "交易 开斋节 :";
-"Payment Processed" = "付款已处理";
-"Transaction ID:" = "交易 开斋节:";
-"How was your experience with us?" = "您在我们这里的经历如何？";
+"Transaction Id :" = "交易編號："; //"交易 开斋节 :";
+"Payment Processed" = "付款完成"; //"付款已处理";
+"Transaction ID:" = "交易編號："; //"交易 开斋节:";
+"How was your experience with us?" = "對於此次的使用體驗，你感覺如何？"; //"您在我们这里的经历如何？";
 "Done" = "完成";
-"Please take your SIM card out of the phone if it is present in this device" = "如果此设备中有辛卡，请将其从手机中取出";
-"If you’d like to get your phone erased in front of you, please ask our executive to do a factory reset." = "如果您想在自己面前删除手机，请要求我们的执行人员进行出厂重置。";
+"Please take your SIM card out of the phone if it is present in this device" = "如果手機中有SIM卡，請將其從手機中取出。"; //"如果此设备中有辛卡，请将其从手机中取出";
+"If you’d like to get your phone erased in front of you, please ask our executive to do a factory reset." = "如果您想在自己刪除手機資料，請要求我們的執行人員進行原廠設定。"; //"如果您想在自己面前删除手机，请要求我们的执行人员进行出厂重置。";
 
 // 70. LiveOfferVC
 "Order successfully Canceled!" = "成功取消订单！";
@@ -699,7 +714,7 @@
 "Missing" = "失踪";
 "Dented" = "凹";
 "Blur" = "模糊";
-"None Of These" = "都不是";
+"None Of These" = "以上皆非"; //"都不是";
 "Not Applicable" = "不适用";
 "Charging Defect; unable to charge the phone" = "充电缺陷；无法为手机充电";
 
@@ -714,9 +729,9 @@
 "Popular devices" = "热门设备";
 
 // 77. StartDevice1
-"I’m Ready" = "我准备好了";
-"You will need your charger and earphones." = "您将需要充电器和耳机。";
-"Hi! You’re about to diagnose your phone to help us give you an exact quote." = "嗨！您将要诊断您的手机，以帮助我们提供准确的报价。";
+"I’m Ready" = "我準備好了"; //"我准备好了";
+"You will need your charger and earphones." = "請準備充電器與耳機"; //"您将需要充电器和耳机。";
+"Hi! You’re about to diagnose your phone to help us give you an exact quote." = "嗨！準備開始檢測您的手機，幫助我們提供正確的報價給您"; //"嗨！您将要诊断您的手机，以帮助我们提供准确的报价。";
 
 // 78. ExactQuote
 // Not used in project //
@@ -734,18 +749,19 @@
 // 81. CountrySelection
 "Please select state" = "请选择状态";
 "Please select city" = "请选择城市";
-"Areas we serve" = "我们服务的领域";
+"Areas we serve" = "我們服務的區域"; //"我们服务的领域";
+"Type your city" = "請選擇縣市";
 
 // 82. StartDevice
 "Start device condition reporting" = "启动设备状况报告";
 "We’re almost there. The final thing we need from you is an honest self-report of the device condition." = "我们快到了。我们需要您提供的最后一件事是诚实地自我报告设备状况。";
-"Awesome! One last thing…" = "太棒了！最后一件事……";
+"Awesome! One last thing…" = "太棒了，我們剩下最後一步！"; //"太棒了！最后一件事……";
 
 // 83. Sell1
-"Get Upto" = "獲得高達";
-"Quote" = "引用";
-"Getting an exact quote takes 5 mins. Ready to roll?" = "获得准确的报价需要5分钟。准备开始吗？";
-"GET EXACT QUOTE" = "获取精确报价";
+"Get Upto" = "獲得高達"; //"獲得高達";
+"Quote" = "價格"; //"引用";
+"Getting an exact quote takes 5 mins. Ready to roll?" = "獲得準確的報價需要5分鐘。準備開始了嗎？"; //"获得准确的报价需要5分钟。准备开始吗？";
+"GET EXACT QUOTE" = "獲取準確的回收報價"; //"获取精确报价";
 
 // 84. TouchScreen
 // Not used in project //
@@ -774,8 +790,8 @@
 // Not used in project //
 
 // 89. Profile
-"Account" = "帐户";
-"Save" = "保存";
+"Account" = "帳戶"; //"帐户";
+"Save" = "保存"; //"保存";
 "Logout" = "登出";
 "Name" = "名称";
 "Email address" = "电子邮件地址";
@@ -787,34 +803,35 @@
 "Name on Card" = "卡片上的名字";
 
 // 90. NotificationNew
-"Notifications" = "通知事项";
+"Notifications" = "通知事項"; //"通知事项";
 
 // 91. OrderFinalVC
-"Now isn't that easy? :)" = "现在不那么容易吗？:)";
-"Get ready to be " = "准备成为 ";
-" richer!" = " 更富有!";
-"Your order has been placed successfully. Your Order ID is " = "您的订单已成功下达。您的订单开斋节为";
-" Our team will get in touch with you shortly to verity the order and schedule the pickup. For any queries please call 0141-4232323 (10:00am - 07:00pm.)" = " 我们的团队将尽快与您联系，以确认订单并安排取件。如有任何疑问，请致电0141-4232323（10:00 am-07:00 pm。）";
-" Our team will get in touch with you shortly to verity the order and schedule the pickup. For any queries please call +60365273417 (08:30am - 06:00pm Mon - Fri)" = " 我们的团队将尽快与您联系，以确认订单并安排取件。如有任何疑问，请致电+60365273417（周一至周五，上午08:30-下午06:00）。";
-"SEE ORDER STATUS" = "查看订单状态";
+"Now isn't that easy? :)" = "很簡單吧！"; //"现在不那么容易吗？:)";
+"Get ready to be " = "準備變得 "; //"准备成为 ";
+" richer!" = " 更富有！";
+"Your order has been placed successfully. Your Order ID is " = "您的訂單已成功建立。訂單號碼為"; //"您的订单已成功下达。您的订单开斋节为";
+" Our team will get in touch with you shortly to verity the order and schedule the pickup. For any queries please call 0141-4232323 (10:00am - 07:00pm.)" = " 我們會盡快聯繫您核對訂單，並安排物流收貨。若有任何問題請撥打 0141-4232323（10:00 am-07:00 pm。）";
+" Our team will get in touch with you shortly to verity the order and schedule the pickup. For any queries please call +60365273417 (08:30am - 06:00pm Mon - Fri)" = " 我們會盡快聯繫您核對訂單，並安排物流收貨。若有任何問題請撥打 +60365273417（周一至周五，上午08:30 - 下午06:00）。";
+" Our team will get in touch with you shortly to verity the order and schedule the pickup. For any queries please call +886-277300795 (09:00am - 06:00pm.)" = " 我們會盡快聯繫您核對訂單，並安排物流收貨。若有任何問題請撥打 +886-277300795（周一至周五，上午09:00 - 下午06:00）。";
+"SEE ORDER STATUS" = "查看訂單狀態"; //"查看订单状态";
 
 // 92. SellOtherDeviceSearchVC
 "Search for your Device..." = "搜索您的设备...";
 
 // 93. UserAccountVC
 "Service not available!" = "服务不可用！";
-"HISTORY" = "歷史紀錄";
-"ABOUT" = "关于";
-"SHARE" = "分享";
-"LANGUAGE" = "语言";
-"PROMOTER LOGIN" = "发起人登录";
-"PARTNER ACCESS" = "客户访问";
-"DIAGNOSE MODE" = "诊断模式";
-"PICKUP MODE" = "提货模式";
-"LOGOUT" = "登出";
+"HISTORY" = "歷史紀錄"; //"歷史紀錄";
+"ABOUT" = "關於我們"; //"关于";
+"SHARE" = "分享"; //"分享";
+"LANGUAGE" = "語言"; //"语言";
+"PROMOTER LOGIN" = "開發人員登入"; //"发起人登录";
+"PARTNER ACCESS" = "合作夥伴登入權限"; //"客户访问";
+"DIAGNOSE MODE" = "診斷模式";  //"诊断模式";
+"PICKUP MODE" = "取件模式"; //"提货模式";
+"LOGOUT" = "登出"; //"登出";
 
 // 94. AboutVC
-"TERMS & CONDITIONS" = "条款和条件";
+"TERMS & CONDITIONS" = "條款細則"; //"条款和条件";
 "HOW IT WORK" = "它是如何工作的";
 
 // 95. AboutPageVC
@@ -830,13 +847,13 @@
 "" = "";
 
 // 99. MyHistoryListVC
-"My History" = "我的历史";
-"See Detail" = "查看详细信息";
+"My History" = "我的歷史記錄"; //"我的历史";
+"See Detail" = "查看詳請"; //"查看详细信息";
 "No Data Found!" = "没有找到数据！";
 
 // 100. PickUpCodeVC
-"Pickup Code" = "代号";
-"Diagnose Code" = "诊断代码";
+"Pickup Code" = "取件編號";
+"Diagnose Code" = "檢測編號"; //"诊断代码";
 "Please Enter 8 digit Code" = "请输入8位代码";
 "Device doesn't Match! Please change your device, through which you place the order." = "设备不匹配！请更改设备，以便通过它下订单。";
 "Invalid Diagnose Code" = "无效的诊断代码";
@@ -855,8 +872,8 @@
 "Please Enter Valid Agent ID" = "请输入有效代理 开斋节";
 
 // 104. My orderDetails Cell
-"Order Details" = "订单详细信息";
-"Placed" = "已放置";
-"Verify" = "校验";
-"Out For Pickup" = "外出接送";
-"Pacman Cancelled" = "“吃豆子取消了”";
+"Order Details" = "訂單詳情"; //"订单详细信息";
+"Placed" = "已下單"; //"已放置";
+"Verify" = "確認"; //"校验";
+"Out For Pickup" = "外出取貨"; //"外出接送";
+"Pacman Cancelled" = "未驗證"; //"“吃豆子取消了”";

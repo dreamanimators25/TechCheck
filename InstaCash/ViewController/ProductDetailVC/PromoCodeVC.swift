@@ -132,6 +132,16 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
                 //self.stkViewHeightConstraint.constant = 45.0
                 self.stkViewHeightConstraint.constant = 90.0
                 
+            }else if CustomUserDefault.getCurrency() == "NT$" {
+                
+                self.stkViewHeightConstraint.constant = 0.0
+                self.NssImageViewHeight.constant = 0.0
+                
+                self.stkView1.isHidden = true
+                self.stkView2.isHidden = true
+                self.stkViewHeightConstraint.constant = 0.0
+                self.donateAmount = 0
+                
             }else {
                 
                 self.donateAmount = 100
@@ -245,7 +255,7 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
                 //lblDonateDest.text = "I want to donate ₹ \(txtAmount.text ?? "0") to Narayan Sewa Sansthan."
                 
                 if Int(txtAmount.text!) ?? 0 > finalPriceSet {
-                    Alert.showAlert(strMessage: "Please Enter Valid Amount".localized(lang: langCode) as NSString, Onview: self)
+                    Alert.showAlertWithError(strMessage: "Please Enter Valid Amount".localized(lang: langCode) as NSString, Onview: self)
                     return
                 }else if Int(txtAmount.text!) ?? 0 > self.finalPriceSet - ((finalPriceSet * 2)/100) {
                     Alert.showAlert(strMessage: "You can donate upto 98% of total Amount.".localized(lang: langCode) as NSString, Onview: self)
@@ -415,47 +425,47 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
             self.navigationController?.present(vc, animated: true, completion: nil)
         }
         else {
-         
-        var currency = ""
-        //if (userDefaults.value(forKey: "countryName") as? String)?.contains("India") != nil {
             
-        if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
-            currency = "INR"
-        }
-        //else if (userDefaults.value(forKey: "countryName") as? String)?.contains("Malaysia") != nil {
-        else if CustomUserDefault.getCurrency() == "MY" {
-            currency = "MYR"
-        }
-        else{
-            currency = "SGD"
-        }
-        var productName = ""
-        var producdID = ""
-        if userDefaults.value(forKey: "productName") != nil{
-            productName = userDefaults.value(forKey: "productName") as? String ?? ""
-        }
-        else{
-            productName = ""
-        }
-        if userDefaults.value(forKeyPath: "OrderPlaceFordiagnosis") as! Bool  == true {
-            producdID = CustomUserDefault.getProductId()
-        }
-        else{
-            producdID = userDefaults.value(forKey: "otherProductDeviceID") as! String
-        }
-        AppEventsLogger.log(
-            .addedToCart(
-                contentType: productName,
-                contentId: producdID,
-                currency: currency))
-        
-        Analytics.logEvent(AnalyticsEventAddToCart, parameters: [
-            AnalyticsParameterItemID: producdID,
-            AnalyticsParameterItemName: productName,
-            AnalyticsParameterCurrency:currency
+            var currency = ""
+            //if (userDefaults.value(forKey: "countryName") as? String)?.contains("India") != nil {
+            
+            if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+                currency = "INR"
+            }
+                //else if (userDefaults.value(forKey: "countryName") as? String)?.contains("Malaysia") != nil {
+            else if CustomUserDefault.getCurrency() == "MY" {
+                currency = "MYR"
+            }
+            else{
+                currency = "SGD"
+            }
+            var productName = ""
+            var producdID = ""
+            if userDefaults.value(forKey: "productName") != nil{
+                productName = userDefaults.value(forKey: "productName") as? String ?? ""
+            }
+            else{
+                productName = ""
+            }
+            if userDefaults.value(forKeyPath: "OrderPlaceFordiagnosis") as! Bool  == true {
+                producdID = CustomUserDefault.getProductId()
+            }
+            else{
+                producdID = userDefaults.value(forKey: "otherProductDeviceID") as! String
+            }
+            AppEventsLogger.log(
+                .addedToCart(
+                    contentType: productName,
+                    contentId: producdID,
+                    currency: currency))
+            
+            Analytics.logEvent(AnalyticsEventAddToCart, parameters: [
+                AnalyticsParameterItemID: producdID,
+                AnalyticsParameterItemName: productName,
+                AnalyticsParameterCurrency:currency
             ])
-        
-        
+            
+            
             if CustomUserDefault.isUserIdExit(){
                 let vc = PlaceOrderVC()
                 self.navigationController?.pushViewController(vc, animated: true)
@@ -513,10 +523,10 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
                 
             }
             else{
-                Alert.showAlert(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
+                Alert.showAlertWithError(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
             }
         }else {
-            Alert.showAlert(strMessage: "Please Enter valid coupon code".localized(lang: langCode) as NSString, Onview: self) //s.
+            Alert.showAlertWithError(strMessage: "Please Enter valid coupon code".localized(lang: langCode) as NSString, Onview: self) //s.
         }
     }
     
@@ -632,11 +642,11 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
                     //self.txtPromocode.textColor = UIColor.red
                     
                     // failed
-                    Alert.showAlert(strMessage: "Invalid coupon code".localized(lang: langCode) as NSString, Onview: self)
+                    Alert.showAlertWithError(strMessage: "Invalid coupon code".localized(lang: langCode) as NSString, Onview: self)
                 }
             }
             else{
-                Alert.showAlert(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
+                Alert.showAlertWithError(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
             }
             
         })

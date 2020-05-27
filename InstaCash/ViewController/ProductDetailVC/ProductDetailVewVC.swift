@@ -168,7 +168,7 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                 //self.fetchOrderFromServer(isRefreshPrice: true)
             }
             else{
-                Alert.showAlert(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
+                Alert.showAlertWithError(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
             }
             //collectionViewFailedTest.reloadData()
         }
@@ -332,7 +332,7 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                 //self.fetchOrderFromServer(isRefreshPrice: false)
             }
             else{
-                Alert.showAlert(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
+                Alert.showAlertWithError(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
             }
             //        if UIScreen.main.bounds.size.height <= 568{
             //            //iphone 4,5
@@ -938,6 +938,7 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
         vc.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
         vc.isAndroidPhone = isSend
         vc.getProductName = lblProductNameWhenScroolUp.text ?? ""
+        vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
     }
         
@@ -1238,25 +1239,28 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                 let vc  = ScreenTestingVC()
                 vc.isComingFromProductquote = true
                 vc.resultJSON = self.getReturnJson
+     vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
             }
             else if model.strName == "Rotation" {
                 let vc  = RotationVC()
                 vc.isComingFromProductquote = true
                 vc.resultJSON = self.getReturnJson
-                
+                vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
             }
             else if model.strName == "Proximity" {
                 let vc  = SensorReadVC()
                 vc.isComingFromProductquote = true
                 vc.resultJSON = self.getReturnJson
+     vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
             }
             else if model.strName == "Hardware Buttons" {
                 let vc  = VolumeCheckerVC()
                 vc.isComingFromProductquote = true
                 vc.resultJSON = self.getReturnJson
+     vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
                 
             }
@@ -1264,27 +1268,28 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                 let vc  = EarPhoneVC()
                 vc.isComingFromProductquote = true
                 vc.resultJSON = self.getReturnJson
-                
+                vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
             }
             else if model.strName == "Charger" {
                 let vc  = DeviceChargerVC()
                 vc.isComingFromProductquote = true
                 vc.resultJSON = self.getReturnJson
-                
+                vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
             }
             else if model.strName == "Camera" {
                 let vc  = CameraVC()
                 vc.isComingFromProductquote = true
                 vc.resultJSON = self.getReturnJson
-                
+                vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
             }
             else if model.strName == "Fingerprint Scanner" {
                 let vc  = FingerPrintDevice()
                 vc.isComingFromProductquote = true
                 vc.resultJSON = self.getReturnJson
+     vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
             }
             else{
@@ -1307,7 +1312,7 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
     @IBAction func btnChangeCityPressed(_ sender: Any) {
         
         DispatchQueue.main.async {
-            let alertBox = UIAlertController(title: "Changing City".localized(lang: langCode), message:"Changing city could affect the price quote.Do you want to change city?".localized(lang: langCode), preferredStyle: UIAlertControllerStyle.alert)
+            let alertBox = UIAlertController(title: "Changing City".localized(lang: langCode), message:"Changing City Would Affect The Price Quote. Do You Want to Change the City?".localized(lang: langCode), preferredStyle: UIAlertControllerStyle.alert)
             
             let cancel = UIAlertAction(title:"No".localized(lang: langCode), style: UIAlertActionStyle.cancel, handler: nil)
             
@@ -1315,6 +1320,7 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                 (alert: UIAlertAction!) -> Void in
                 let vc  = CityVC()
                 vc.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+                vc.modalPresentationStyle = .fullScreen
                 self.navigationController?.present(vc, animated: true, completion: nil)
             })
             
@@ -1374,6 +1380,7 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
 //                vc.delegate = self
 //                vc.strGetPriceUPTO = strPriceUpTo ?? ""
 //                vc.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+                //vc.modalPresentationStyle = .fullScreen
 //                self.present(vc, animated: true, completion: nil)
 //        }
         }
@@ -1913,7 +1920,12 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                         
                         self.lblPrice.text = CustomUserDefault.getCurrency() + priceSkipQuote
                         //self.lblPriceScroolUp.text = CustomUserDefault.getCurrency() + priceSkipQuote
+                        
+                        
                         let myString = "Note:- your Quote is lower than ".localized(lang: langCode) + CustomUserDefault.getCurrency() + priceSkipQuote + " because certain tests were failed or skipped".localized(lang: langCode)
+                        //let myString = "Note:- your Quote is lower than because certain tests were failed or skipped".localized(lang: langCode)
+                        
+                        
                         //  let attrString = NSAttributedString(string: myString)
                         let attribute = NSMutableAttributedString.init(string: myString)
                         let strCount = CustomUserDefault.getCurrency() + priceSkipQuote
@@ -1954,13 +1966,13 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                 }
                 else{
                     // failed
-                    Alert.showAlert(strMessage: "oops,No data found".localized(lang: langCode) as NSString, Onview: self)
+                    Alert.showAlertWithError(strMessage: "oops,No data found".localized(lang: langCode) as NSString, Onview: self)
                 }
                 
             }
             else{
                 debugPrint(error as Any)
-                Alert.showAlert(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
+                Alert.showAlertWithError(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
             }
             
         })
@@ -2270,8 +2282,10 @@ extension UIPanGestureRecognizer {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cellTestResult = tableView.dequeueReusableCell(withIdentifier: "ProductSummaryTblViewCell", for: indexPath) as! ProductSummaryTblViewCell
-        cellTestResult.lblQuateName.text = arrKey[indexPath.row].localized(lang: langCode)
-        cellTestResult.lblQuateValue.text = arrValue[indexPath.row].localized(lang: langCode)
+        cellTestResult.lblQuateName.text = arrKey[indexPath.row] //.localized(lang: langCode)
+        cellTestResult.lblQuateValue.text = arrValue[indexPath.row] //.localized(lang: langCode)
+        
+       
         
         return cellTestResult
         

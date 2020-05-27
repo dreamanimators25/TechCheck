@@ -116,17 +116,17 @@ class MYCendolVC: UIViewController {
                     }
                     else{
                         // failed
-                        Alert.showAlert(strMessage: responseObject?["msg"]  as! NSString, Onview: self)
+                        Alert.showAlertWithError(strMessage: responseObject?["msg"]  as! NSString, Onview: self)
                     }
                 }
                 else{
                     debugPrint(error as Any)
-                    Alert.showAlert(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
+                    Alert.showAlertWithError(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
                 }
             })
             
         }else{
-            Alert.showAlert(strMessage: "No Connection Found".localized(lang: langCode) as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "No Connection Found".localized(lang: langCode) as NSString, Onview: self)
         }
         
     }
@@ -185,17 +185,17 @@ class MYCendolVC: UIViewController {
                     }
                     else{
                         // failed
-                        Alert.showAlert(strMessage: responseObject?["msg"]  as! NSString, Onview: self)
+                        Alert.showAlertWithError(strMessage: responseObject?["msg"]  as! NSString, Onview: self)
                     }
                 }
                 else{
                     debugPrint(error as Any)
-                    Alert.showAlert(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
+                    Alert.showAlertWithError(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
                 }
             })
             
         }else{
-            Alert.showAlert(strMessage: "No Connection Found".localized(lang: langCode) as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "No Connection Found".localized(lang: langCode) as NSString, Onview: self)
         }
         
     }

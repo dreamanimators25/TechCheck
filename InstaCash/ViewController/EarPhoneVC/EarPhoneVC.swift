@@ -81,6 +81,7 @@ class EarPhoneVC: UIViewController {
             let vc = DiagnosticTestResultVC()
             self.resultJSON["Earphone"].int = -1
             vc.resultJSON = self.resultJSON
+            vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true, completion: nil)
         }
         else if self.isComingFromProductquote == true{
@@ -90,6 +91,7 @@ class EarPhoneVC: UIViewController {
             let vc = DeviceChargerVC()
             self.resultJSON["Earphone"].int = -1
             vc.resultJSON = self.resultJSON
+            vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true, completion: nil)
         }
         if (userDefaults.value(forKey: "Diagnosis_DataSave") != nil){
@@ -127,6 +129,7 @@ class EarPhoneVC: UIViewController {
                 let vc = DiagnosticTestResultVC()
                 self.resultJSON["Earphone"].int = -1
                 vc.resultJSON = self.resultJSON
+                vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
             }
             else if self.isComingFromProductquote == true{
@@ -136,6 +139,7 @@ class EarPhoneVC: UIViewController {
                 let vc = DeviceChargerVC()
                 self.resultJSON["Earphone"].int = -1
                 vc.resultJSON = self.resultJSON
+                vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
             }
             if (userDefaults.value(forKey: "Diagnosis_DataSave") != nil){
@@ -209,6 +213,7 @@ class EarPhoneVC: UIViewController {
                 let vc = DiagnosticTestResultVC()
                 self.resultJSON["Earphone"].int = 1
                 vc.resultJSON = self.resultJSON
+                vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
             }
             else if self.isComingFromProductquote == true{
@@ -221,6 +226,7 @@ class EarPhoneVC: UIViewController {
                 let vc = DeviceChargerVC()
                 self.resultJSON["Earphone"].int = 1
                 vc.resultJSON = self.resultJSON
+                vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
             }
             if (userDefaults.value(forKey: "Diagnosis_DataSave") != nil){
@@ -249,6 +255,7 @@ class EarPhoneVC: UIViewController {
                 let vc = DiagnosticTestResultVC()
                 self.resultJSON["Earphone"].int = 1
                 vc.resultJSON = self.resultJSON
+                vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
             }
             else if self.isComingFromProductquote == true{
@@ -261,6 +268,7 @@ class EarPhoneVC: UIViewController {
                 let vc = DeviceChargerVC()
                 self.resultJSON["Earphone"].int = 1
                 vc.resultJSON = self.resultJSON
+                vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
             }
             if (userDefaults.value(forKey: "Diagnosis_DataSave") != nil){

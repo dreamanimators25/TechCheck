@@ -27,11 +27,13 @@ class SignatureVC: UIViewController,YPSignatureDelegate {
     
     func changeLanguageOfUI() {
         
-        self.lblCustomerSignature.text = "Customer Signature".localized(lang: langCode)
+        //self.lblCustomerSignature.text = "Customer Signature".localized(lang: langCode)
+        self.lblCustomerSignature.text = "Please add Signature".localized(lang: langCode)
         self.lblPleaseAsk.text = "Please ask the customer to sign on the screen and press save".localized(lang: langCode)
         
         self.btnClear.setTitle("Clear".localized(lang: langCode), for: UIControlState.normal)
-        self.btnUpload.setTitle("Upload".localized(lang: langCode), for: UIControlState.normal)
+        //self.btnUpload.setTitle("Upload".localized(lang: langCode), for: UIControlState.normal)
+        self.btnUpload.setTitle("Save".localized(lang: langCode), for: UIControlState.normal)
     }
 
     

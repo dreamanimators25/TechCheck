@@ -61,7 +61,7 @@ class CityVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UITex
     func changeLanguageOfUI() {
       
         self.lblMessage.text = "No Cities Found".localized(lang: langCode)
-        self.lblPleaseEnter.text = "Please Enter Your Pin Code".localized(lang: langCode)
+        self.lblPleaseEnter.text = "Please Enter Your Pincode".localized(lang: langCode)
         self.lblValidateMssg.text = "Select city *".localized(lang: langCode)
         self.txtPinCode.placeholder = "Enter Post Code".localized(lang: langCode)
         

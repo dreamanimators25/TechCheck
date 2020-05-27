@@ -107,6 +107,7 @@ class Sell1: UIViewController {
         let vc  = FingerPrintDevice()
         vc.isComingFromTestResult = false
         vc.isComingFromProductquote = false
+        vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
     }
     

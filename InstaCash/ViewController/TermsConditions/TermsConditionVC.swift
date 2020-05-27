@@ -25,7 +25,7 @@ class TermsConditionVC: UIViewController,UIWebViewDelegate {
         }
         else
         {
-            Alert.showAlert(strMessage: "No internet conection".localized(lang: langCode) as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "No internet conection".localized(lang: langCode) as NSString, Onview: self)
         }
         
     }

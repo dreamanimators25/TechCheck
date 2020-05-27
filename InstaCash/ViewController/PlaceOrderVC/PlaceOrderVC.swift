@@ -225,16 +225,16 @@ class PlaceOrderVC: UIViewController,UITextFieldDelegate,CLLocationManagerDelega
     {
         if txtAddressLin1.text!.isEmpty
         {
-            Alert.showAlert(strMessage: "Please enter address line 1".localized(lang: langCode) as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "Please enter address line 1".localized(lang: langCode) as NSString, Onview: self)
             return false
         }
         else if txtPincode.text!.isEmpty
         {
-            Alert.showAlert(strMessage: "Please enter pincode".localized(lang: langCode) as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "Please enter pincode".localized(lang: langCode) as NSString, Onview: self)
             return false
         }
         else if isMatchPincode == false {
-            Alert.showAlert(strMessage: "Pincode not match with your city.".localized(lang: langCode) as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "Pincode not match with your city.".localized(lang: langCode) as NSString, Onview: self)
             self.strMessage = "Pincode not match with your city.".localized(lang: langCode)
             return false
         }
@@ -275,19 +275,19 @@ class PlaceOrderVC: UIViewController,UITextFieldDelegate,CLLocationManagerDelega
                         self.strMessage = "Pincode not match with your city.".localized(lang: langCode)
                         self.isMatchPincode = false
                         
-                        Alert.showAlert(strMessage: self.strMessage as NSString, Onview: self)
+                        Alert.showAlertWithError(strMessage: self.strMessage as NSString, Onview: self)
                     }
                   
                 }
                 else{
                     // failed
                     self.strMessage = (responseObject?["msg"] as! String)
-                    Alert.showAlert(strMessage: self.strMessage as NSString, Onview: self)
+                    Alert.showAlertWithError(strMessage: self.strMessage as NSString, Onview: self)
                 }
                 
             }
             else{
-                Alert.showAlert(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
+                Alert.showAlertWithError(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
             }
             
         })
@@ -298,7 +298,7 @@ class PlaceOrderVC: UIViewController,UITextFieldDelegate,CLLocationManagerDelega
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField == txtPincode {
             if (txtPincode.text?.isEmpty)!{
-                Alert.showAlert(strMessage: "Enter valid Code".localized(lang: langCode) as NSString, Onview: self)
+                Alert.showAlertWithError(strMessage: "Enter valid Code".localized(lang: langCode) as NSString, Onview: self)
             }
             else{
                 //self.lblPincodeMatchMessage.isHidden = true
@@ -595,18 +595,18 @@ class PlaceOrderVC: UIViewController,UITextFieldDelegate,CLLocationManagerDelega
                 }
                 else{
                     // failed
-                    Alert.showAlert(strMessage: responseObject?["msg"]  as! NSString, Onview: self)
+                    Alert.showAlertWithError(strMessage: responseObject?["msg"]  as! NSString, Onview: self)
                 }
                 
             }
             else{
-                Alert.showAlert(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
+                Alert.showAlertWithError(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
             }
             
         })
         }
         else{
-            Alert.showAlert(strMessage: "No Connection Found".localized(lang: langCode) as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "No Connection Found".localized(lang: langCode) as NSString, Onview: self)
         }
         
     }
@@ -746,18 +746,18 @@ class PlaceOrderVC: UIViewController,UITextFieldDelegate,CLLocationManagerDelega
                 }
                 else{
                     // failed
-                    Alert.showAlert(strMessage: responseObject?["msg"]  as! NSString, Onview: self)
+                    Alert.showAlertWithError(strMessage: responseObject?["msg"]  as! NSString, Onview: self)
                 }
             }
             else{
-                Alert.showAlert(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
+                Alert.showAlertWithError(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
                 
             }
             
         })
         }
         else{
-            Alert.showAlert(strMessage: "No Connection Found".localized(lang: langCode) as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "No Connection Found".localized(lang: langCode) as NSString, Onview: self)
 
         }
         

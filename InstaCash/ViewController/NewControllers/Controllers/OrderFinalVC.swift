@@ -47,8 +47,15 @@ class OrderFinalVC: UIViewController {
         let str1 = NSAttributedString.init(string: "Your order has been placed successfully. Your Order ID is ".localized(lang: langCode))
         
         if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+            
             str3 = NSAttributedString.init(string: " Our team will get in touch with you shortly to verity the order and schedule the pickup. For any queries please call 0141-4232323 (10:00am - 07:00pm.)".localized(lang: langCode))
-        }else {
+            
+        }else if CustomUserDefault.getCurrency() == "NT$" {
+            
+            str3 = NSAttributedString.init(string: " Our team will get in touch with you shortly to verity the order and schedule the pickup. For any queries please call +886-277300795 (09:00am - 06:00pm.)".localized(lang: langCode))
+            
+        } else {
+            
             str3 = NSAttributedString.init(string: " Our team will get in touch with you shortly to verity the order and schedule the pickup. For any queries please call +60365273417 (08:30am - 06:00pm Mon - Fri)".localized(lang: langCode))
         }
         

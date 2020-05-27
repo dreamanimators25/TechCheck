@@ -120,19 +120,19 @@ class Profile: UIViewController, UITextFieldDelegate {
                         self.strMessage = "Pincode not match with your city."
                         self.isMatchPincode = false
                         
-                        Alert.showAlert(strMessage: self.strMessage as NSString, Onview: self)
+                        Alert.showAlertWithError(strMessage: self.strMessage as NSString, Onview: self)
                     }
                     
                 }
                 else{
                     // failed
                     self.strMessage = (responseObject?["msg"] as! String)
-                    Alert.showAlert(strMessage: self.strMessage as NSString, Onview: self)
+                    Alert.showAlertWithError(strMessage: self.strMessage as NSString, Onview: self)
                 }
                 
             }
             else{
-                Alert.showAlert(strMessage: "Seems connection loss from server", Onview: self)
+                Alert.showAlertWithError(strMessage: "Seems connection loss from server", Onview: self)
             }
             
         })
@@ -143,7 +143,7 @@ class Profile: UIViewController, UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField == txtPostCode {
             if (txtPostCode.text?.isEmpty)!{
-                Alert.showAlert(strMessage: "Enter valid Code", Onview: self)
+                Alert.showAlertWithError(strMessage: "Enter valid Code", Onview: self)
             }
             else{
                 //self.lblPincodeMatchMessage.isHidden = true
@@ -231,37 +231,37 @@ class Profile: UIViewController, UITextFieldDelegate {
     {
         if txtName.text!.isEmpty
         {
-            Alert.showAlert(strMessage: "Please enter name" as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "Please enter name" as NSString, Onview: self)
             return false
         }
         else if txtEmailAddress.text!.isEmpty
         {
-            Alert.showAlert(strMessage: "Please enter E-mail address" as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "Please enter E-mail address" as NSString, Onview: self)
             return false
         }
         else if(!Alert.isValidEmail(testStr: txtEmailAddress.text!))
         {
-            Alert.showAlert(strMessage: "Please Enter Correct Email Address" as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "Please Enter Correct Email Address" as NSString, Onview: self)
             return false
         }
         else if txtNumber.text!.isEmpty
         {
-            Alert.showAlert(strMessage: "Please enter mobile number", Onview: self)
+            Alert.showAlertWithError(strMessage: "Please enter mobile number", Onview: self)
             return false
         }
         else if txtAddress1.text!.isEmpty
         {
-            Alert.showAlert(strMessage: "Please enter address line 1", Onview: self)
+            Alert.showAlertWithError(strMessage: "Please enter address line 1", Onview: self)
             return false
         }
         else if txtPostCode.text!.isEmpty
         {
-            Alert.showAlert(strMessage: "Please enter pincode", Onview: self)
+            Alert.showAlertWithError(strMessage: "Please enter pincode", Onview: self)
             return false
         }else if !self.isMatchPincode {
             self.strMessage = "Pincode not match with your city."
             
-            Alert.showAlert(strMessage: self.strMessage as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: self.strMessage as NSString, Onview: self)
             return false
         }
 

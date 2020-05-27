@@ -89,7 +89,10 @@ class OtherDeviceQuestionFlow: UIViewController,UITableViewDelegate,UITableViewD
         cell.collectionViewQuestionValues.dataSource = self
         cell.collectionViewQuestionValues.tag = indexPath.row
         cell.collectionViewQuestionValues.reloadData()
-        cell.lblQuestion.text = arrQuestionForOtherDevices[indexPath.row].strQuestionName.localized(lang: langCode)
+        cell.lblQuestion.text = arrQuestionForOtherDevices[indexPath.row].strQuestionName //.localized(lang: langCode)
+        
+       
+        
         return cell
     }
     
@@ -174,7 +177,7 @@ class OtherDeviceQuestionFlow: UIViewController,UITableViewDelegate,UITableViewD
             cell.imgValues.sd_setImage(with: imgURL)
         }
         
-        cell.lblValues.text  = arrQuestionForOtherDevices[collectionView.tag].arrQuestionTypes[indexPath.row].strQuestionValue.localized(lang: langCode)
+        cell.lblValues.text  = arrQuestionForOtherDevices[collectionView.tag].arrQuestionTypes[indexPath.row].strQuestionValue //.localized(lang: langCode)
         
         if arrQuestionForOtherDevices[collectionView.tag].arrQuestionTypes[indexPath.row].isSelected == true{
             cell.viewMain.backgroundColor = navColor
@@ -189,6 +192,8 @@ class OtherDeviceQuestionFlow: UIViewController,UITableViewDelegate,UITableViewD
             
             cell.circleImageView.image = #imageLiteral(resourceName: "circle")
         }
+        
+       
         
         return cell
     }
@@ -205,15 +210,15 @@ class OtherDeviceQuestionFlow: UIViewController,UITableViewDelegate,UITableViewD
                 
             }
             else{
-                if arrQuestionForOtherDevices[collectionView.tag].arrQuestionTypes[indexPath.row].strQuestionValue == "None Of These"{
+                if arrQuestionForOtherDevices[collectionView.tag].arrQuestionTypes[indexPath.row].strQuestionValue == "None Of These".localized(lang: langCode) {
                     for k in 0..<arrQuestionForOtherDevices[collectionView.tag].arrQuestionTypes.count{
                         arrQuestionForOtherDevices[collectionView.tag].arrQuestionTypes[k].isSelected = false
                     }
-                    arrQuestionForOtherDevices[collectionView.tag].strAnswerName = "None Of These"
+                    arrQuestionForOtherDevices[collectionView.tag].strAnswerName = "None Of These".localized(lang: langCode)
                 }
                 else{
                     for k in 0..<arrQuestionForOtherDevices[collectionView.tag].arrQuestionTypes.count{
-                        if arrQuestionForOtherDevices[collectionView.tag].arrQuestionTypes[k].strQuestionValue == "None Of These"{
+                        if arrQuestionForOtherDevices[collectionView.tag].arrQuestionTypes[k].strQuestionValue == "None Of These".localized(lang: langCode) {
                             if arrQuestionForOtherDevices[collectionView.tag].arrQuestionTypes[k].isSelected == true{
                                 arrQuestionForOtherDevices[collectionView.tag].strAnswerName = ""
                                 
@@ -418,7 +423,7 @@ class OtherDeviceQuestionFlow: UIViewController,UITableViewDelegate,UITableViewD
                                     else if self.arrQuestionForOtherDevices[i].arrQuestionTypes.count > 1{
                                         //add none of these
                                         modelQuestionAddValueFromOurSide.strQuestionValueAppCodde = ""
-                                        modelQuestionAddValueFromOurSide.strQuestionValue = "None Of These"
+                                        modelQuestionAddValueFromOurSide.strQuestionValue = "None Of These".localized(lang: langCode)
                                         modelQuestionAddValueFromOurSide.strQuestionValueImage = ""
                                         modelQuestionAddValueFromOurSide.isSelected = false
                                         self.arrQuestionForOtherDevices[i].arrQuestionTypes.append(modelQuestionAddValueFromOurSide)
@@ -439,7 +444,7 @@ class OtherDeviceQuestionFlow: UIViewController,UITableViewDelegate,UITableViewD
                     }
                     else{
                         // failed
-                        Alert.showAlert(strMessage: responseObject?["msg"] as! String as NSString, Onview: self)
+                        Alert.showAlertWithError(strMessage: responseObject?["msg"] as! String as NSString, Onview: self)
                     }
                     
                 }
@@ -450,7 +455,7 @@ class OtherDeviceQuestionFlow: UIViewController,UITableViewDelegate,UITableViewD
             })
         }
         else{
-            Alert.showAlert(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
         }
         
     }

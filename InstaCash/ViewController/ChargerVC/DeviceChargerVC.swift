@@ -93,6 +93,7 @@ class DeviceChargerVC: UIViewController {
                     let vc = DiagnosticTestResultVC()
                     self.resultJSON["USB"].int = -1
                     vc.resultJSON = self.resultJSON
+                    vc.modalPresentationStyle = .fullScreen
                     self.present(vc, animated: true, completion: nil)
                 }
                 else if self.isComingFromProductquote == true{
@@ -102,6 +103,7 @@ class DeviceChargerVC: UIViewController {
                     let vc = CameraVC()
                     self.resultJSON["USB"].int = -1
                     vc.resultJSON = self.resultJSON
+                    vc.modalPresentationStyle = .fullScreen
                     self.present(vc, animated: true, completion: nil)
                 }
                 if (userDefaults.value(forKey: "Diagnosis_DataSave") != nil){
@@ -178,6 +180,7 @@ class DeviceChargerVC: UIViewController {
                 let vc = DiagnosticTestResultVC()
                 self.resultJSON["USB"].int = 1
                 vc.resultJSON = self.resultJSON
+                vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
             }
             else if self.isComingFromProductquote == true{
@@ -190,6 +193,7 @@ class DeviceChargerVC: UIViewController {
                 let vc = CameraVC()
                 self.resultJSON["USB"].int = 1
                 vc.resultJSON = self.resultJSON
+                vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
             }
             if (userDefaults.value(forKey: "Diagnosis_DataSave") != nil){

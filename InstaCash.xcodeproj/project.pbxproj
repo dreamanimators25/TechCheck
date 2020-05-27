@@ -127,7 +127,9 @@
 		59E4BE872429202100F59107 /* OffersAndPromotionsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59E4BE852429202100F59107 /* OffersAndPromotionsVC.xib */; };
 		59FA616B2451C59E00D4147F /* SocialMobileRegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FA61692451C59E00D4147F /* SocialMobileRegisterVC.swift */; };
 		59FA616C2451C59E00D4147F /* SocialMobileRegisterVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59FA616A2451C59E00D4147F /* SocialMobileRegisterVC.xib */; };
-		745B1F646E31132D7C5DB2A2 /* Pods_InstaCash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9F5E785D57A5CB7DDA6DFC4 /* Pods_InstaCash.framework */; };
+		5E59BBED2466786A00D8C3CE /* Pods_InstaCash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9F5E785D57A5CB7DDA6DFC4 /* Pods_InstaCash.framework */; };
+		5E59BBEF2466787000D8C3CE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB9D19272147D45D001C89DA /* CoreLocation.framework */; };
+		5E59BBF12466787200D8C3CE /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 957D964E21415B7200DFA2B5 /* CoreTelephony.framework */; };
 		951EC7EE213FC64F006BD4B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951EC7ED213FC64F006BD4B2 /* AppDelegate.swift */; };
 		951EC7F5213FC651006BD4B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 951EC7F4213FC651006BD4B2 /* Assets.xcassets */; };
 		951EC7F8213FC651006BD4B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 951EC7F6213FC651006BD4B2 /* LaunchScreen.storyboard */; };
@@ -147,7 +149,6 @@
 		9572371C2142656E00C5EE9B /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9572371B2142656D00C5EE9B /* Reachability.swift */; };
 		957D964A2140FE3700DFA2B5 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957D96482140FE3700DFA2B5 /* LoginVC.swift */; };
 		957D964B2140FE3700DFA2B5 /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 957D96492140FE3700DFA2B5 /* LoginVC.xib */; };
-		957D964F21415B7200DFA2B5 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 957D964E21415B7200DFA2B5 /* CoreTelephony.framework */; };
 		995E3D631F01CA33245C5DFF /* Pods_InstaCashTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99EF504B06E58964319FF622 /* Pods_InstaCashTests.framework */; };
 		C3CC35C3224B4ACE00289D4E /* face-id.svg in Resources */ = {isa = PBXBuildFile; fileRef = C3CC35C2224B4ACE00289D4E /* face-id.svg */; };
 		F980539BBE93831C09A75A2A /* Pods_InstaCashUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17645B1D07485CE1714A95A2 /* Pods_InstaCashUITests.framework */; };
@@ -242,7 +243,6 @@
 		FB9D191F21478D79001C89DA /* CountryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9D191D21478D79001C89DA /* CountryCell.swift */; };
 		FB9D192021478D79001C89DA /* CountryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB9D191E21478D79001C89DA /* CountryCell.xib */; };
 		FB9D1925214797A2001C89DA /* CountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9D1924214797A2001C89DA /* CountryModel.swift */; };
-		FB9D19282147D45D001C89DA /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB9D19272147D45D001C89DA /* CoreLocation.framework */; };
 		FB9D192D2147F2FC001C89DA /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9D192C2147F2FC001C89DA /* HomeModel.swift */; };
 		FBA1313021B15997001571B2 /* PickUpQuestionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA1312E21B15997001571B2 /* PickUpQuestionVC.swift */; };
 		FBA1313121B15997001571B2 /* PickUpQuestionVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBA1312F21B15997001571B2 /* PickUpQuestionVC.xib */; };
@@ -404,19 +404,6 @@
 			remoteInfo = InstaCash;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		FBF74EBE214FCE5500DB73BE /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		17645B1D07485CE1714A95A2 /* Pods_InstaCashUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstaCashUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -840,9 +827,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB9D19282147D45D001C89DA /* CoreLocation.framework in Frameworks */,
-				957D964F21415B7200DFA2B5 /* CoreTelephony.framework in Frameworks */,
-				745B1F646E31132D7C5DB2A2 /* Pods_InstaCash.framework in Frameworks */,
+				5E59BBEF2466787000D8C3CE /* CoreLocation.framework in Frameworks */,
+				5E59BBF12466787200D8C3CE /* CoreTelephony.framework in Frameworks */,
+				5E59BBED2466786A00D8C3CE /* Pods_InstaCash.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2238,7 +2225,6 @@
 				951EC7E8213FC64F006BD4B2 /* Resources */,
 				FACBD88EA3D1CE7C1322A8E3 /* [CP] Embed Pods Frameworks */,
 				2A25F0CE478543943160C5EC /* [CP] Copy Pods Resources */,
-				FBF74EBE214FCE5500DB73BE /* Embed Frameworks */,
 				FBCC7AA82161F25D002A48A3 /* ShellScript */,
 			);
 			buildRules = (
@@ -2643,7 +2629,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -3046,7 +3032,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.newInstacash;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Volumes/Sam HD/InstaCash/March-2020/14:3:20/Insta_iOS-master/BridgeHeader.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Volumes/Sam HD/InstaCash/May-2020/26:5:20/Insta_iOS/BridgeHeader.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -3074,7 +3060,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.newInstacash;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Volumes/Sam HD/InstaCash/March-2020/14:3:20/Insta_iOS-master/BridgeHeader.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Volumes/Sam HD/InstaCash/May-2020/26:5:20/Insta_iOS/BridgeHeader.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

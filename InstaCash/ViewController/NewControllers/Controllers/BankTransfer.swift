@@ -136,9 +136,9 @@ class BankTransfer: UIViewController,UITextFieldDelegate {
         }else if selectePaymentType4 == "PYTM" {
             
             if txtMobileNumber.text!.isEmpty {
-                Alert.showAlert(strMessage: "Please enter mobile number".localized(lang: langCode) as NSString, Onview: self)
+                Alert.showAlertWithError(strMessage: "Please enter mobile number".localized(lang: langCode) as NSString, Onview: self)
             }else if txtMobileNumber.text?.count ?? 0 < totalNumberCount {
-                Alert.showAlert(strMessage: "Please enter Valid mobile number".localized(lang: langCode) as NSString, Onview: self)
+                Alert.showAlertWithError(strMessage: "Please enter Valid mobile number".localized(lang: langCode) as NSString, Onview: self)
             }else{
                 self.setPaymentDetailsFromServer()
             }
@@ -174,36 +174,36 @@ class BankTransfer: UIViewController,UITextFieldDelegate {
     {
         if txtAccountHolderName.text!.isEmpty
         {
-            Alert.showAlert(strMessage: "Please enter account holder's name".localized(lang: langCode) as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "Please enter account holder's name".localized(lang: langCode) as NSString, Onview: self)
             return false
         }
         else if txtBankName.text!.isEmpty
         {
-            Alert.showAlert(strMessage: "Please enter your bank name".localized(lang: langCode) as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "Please enter your bank name".localized(lang: langCode) as NSString, Onview: self)
             return false
         }
         else if txtAccountNumber.text!.isEmpty
         {
-            Alert.showAlert(strMessage: "Please enter account number".localized(lang: langCode) as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "Please enter account number".localized(lang: langCode) as NSString, Onview: self)
             return false
         }
         else if txtConfirmAccountNumber.text!.isEmpty
         {
-            Alert.showAlert(strMessage: "Please enter confirm account number".localized(lang: langCode) as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "Please enter confirm account number".localized(lang: langCode) as NSString, Onview: self)
             return false
         }
         else if txtAccountNumber.text != txtConfirmAccountNumber.text
         {
-            Alert.showAlert(strMessage: "Account Number doesn't match!".localized(lang: langCode) as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "Account Number doesn't match!".localized(lang: langCode) as NSString, Onview: self)
             return false
         }
         else if txtIfsc.text!.isEmpty
         {
-            Alert.showAlert(strMessage: "Please enter IFSC Code".localized(lang: langCode) as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "Please enter IFSC Code".localized(lang: langCode) as NSString, Onview: self)
             return false
         }
         else if txtBranch.text!.isEmpty {
-            Alert.showAlert(strMessage: "Please enter bank branch".localized(lang: langCode) as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "Please enter bank branch".localized(lang: langCode) as NSString, Onview: self)
             return false
         }
         
@@ -268,17 +268,17 @@ class BankTransfer: UIViewController,UITextFieldDelegate {
                     }
                     else{
                         // failed
-                        Alert.showAlert(strMessage: responseObject?["msg"]  as! NSString, Onview: self)
+                        Alert.showAlertWithError(strMessage: responseObject?["msg"]  as! NSString, Onview: self)
                     }
                 }
                 else{
                     debugPrint(error as Any)
-                    Alert.showAlert(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
+                    Alert.showAlertWithError(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
                 }
             })
             
         }else{
-            Alert.showAlert(strMessage: "No Connection Found".localized(lang: langCode) as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "No Connection Found".localized(lang: langCode) as NSString, Onview: self)
         }
         
     }
@@ -313,12 +313,12 @@ class BankTransfer: UIViewController,UITextFieldDelegate {
                 }
                 else{
                     debugPrint(error as Any)
-                    Alert.showAlert(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
+                    Alert.showAlertWithError(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
                 }
             })
             
         }else{
-            Alert.showAlert(strMessage: "No Connection Found".localized(lang: langCode) as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "No Connection Found".localized(lang: langCode) as NSString, Onview: self)
         }
         
     }
@@ -406,17 +406,17 @@ class BankTransfer: UIViewController,UITextFieldDelegate {
                     }
                     else{
                         // failed
-                        Alert.showAlert(strMessage: responseObject?["msg"]  as! NSString, Onview: self)
+                        Alert.showAlertWithError(strMessage: responseObject?["msg"]  as! NSString, Onview: self)
                     }
                 }
                 else{
                     debugPrint(error as Any)
-                    Alert.showAlert(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
+                    Alert.showAlertWithError(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
                 }
             })
             
         }else{
-            Alert.showAlert(strMessage: "No Connection Found".localized(lang: langCode) as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "No Connection Found".localized(lang: langCode) as NSString, Onview: self)
         }
         
     }
@@ -623,17 +623,17 @@ class BankTransfer: UIViewController,UITextFieldDelegate {
                     }
                     else{
                         // failed
-                        Alert.showAlert(strMessage: responseObject?["msg"]  as! NSString, Onview: self)
+                        Alert.showAlertWithError(strMessage: responseObject?["msg"]  as! NSString, Onview: self)
                     }
                 }
                 else{
                     debugPrint(error as Any)
-                    Alert.showAlert(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
+                    Alert.showAlertWithError(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
                 }
             })
             
         }else{
-            Alert.showAlert(strMessage: "No Connection Found".localized(lang: langCode) as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "No Connection Found".localized(lang: langCode) as NSString, Onview: self)
         }
         
     }
@@ -643,7 +643,7 @@ class BankTransfer: UIViewController,UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField == txtIfsc {
             if (txtIfsc.text?.isEmpty)! {
-                Alert.showAlert(strMessage: "Enter valid IFSC Code".localized(lang: langCode) as NSString, Onview: self)
+                Alert.showAlertWithError(strMessage: "Enter valid IFSC Code".localized(lang: langCode) as NSString, Onview: self)
             }
             else {
                 //self.lblPincodeMatchMessage.isHidden = true

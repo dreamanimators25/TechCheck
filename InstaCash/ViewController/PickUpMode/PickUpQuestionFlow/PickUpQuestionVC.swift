@@ -91,7 +91,7 @@ class PickUpQuestionVC: UIViewController,UITableViewDelegate,UITableViewDataSour
                             else if arrQuestionForPickUp[i].arrQuestionTypes.count > 1{
                               //add none of these
                                 modelQuestionAddValueFromOurSide.strQuestionValueAppCodde = ""
-                                modelQuestionAddValueFromOurSide.strQuestionValue = "None Of These"
+                                modelQuestionAddValueFromOurSide.strQuestionValue = "None Of These".localized(lang: langCode)
                                 modelQuestionAddValueFromOurSide.strQuestionValueImage = ""
                                 modelQuestionAddValueFromOurSide.isSelected = false
                                 arrQuestionForPickUp[i].arrQuestionTypes.append(modelQuestionAddValueFromOurSide)
@@ -149,7 +149,7 @@ class PickUpQuestionVC: UIViewController,UITableViewDelegate,UITableViewDataSour
         cell.collectionViewQuestionValues.dataSource = self
         cell.collectionViewQuestionValues.tag = indexPath.row
         cell.collectionViewQuestionValues.reloadData()
-        cell.lblQuestion.text = arrQuestionForPickUp[indexPath.row].strQuestionName.localized(lang: langCode)
+        cell.lblQuestion.text = arrQuestionForPickUp[indexPath.row].strQuestionName //.localized(lang: langCode)
         return cell
     }
     
@@ -213,7 +213,7 @@ class PickUpQuestionVC: UIViewController,UITableViewDelegate,UITableViewDataSour
             cell.imgValues.sd_setImage(with: imgURL)
         }
         
-        cell.lblValues.text  = arrQuestionForPickUp[collectionView.tag].arrQuestionTypes[indexPath.row].strQuestionValue.localized(lang: langCode)
+        cell.lblValues.text  = arrQuestionForPickUp[collectionView.tag].arrQuestionTypes[indexPath.row].strQuestionValue //.localized(lang: langCode)
         
         if arrQuestionForPickUp[collectionView.tag].arrQuestionTypes[indexPath.row].isSelected == true{
             cell.viewMain.backgroundColor = navColor
@@ -237,14 +237,14 @@ class PickUpQuestionVC: UIViewController,UITableViewDelegate,UITableViewDataSour
                 arrQuestionForPickUp[collectionView.tag].arrQuestionTypes[indexPath.row].isSelected = false
             }
             else{
-                if arrQuestionForPickUp[collectionView.tag].arrQuestionTypes[indexPath.row].strQuestionValue == "None Of These"{
+                if arrQuestionForPickUp[collectionView.tag].arrQuestionTypes[indexPath.row].strQuestionValue == "None Of These".localized(lang: langCode) {
                 for k in 0..<arrQuestionForPickUp[collectionView.tag].arrQuestionTypes.count{
                     arrQuestionForPickUp[collectionView.tag].arrQuestionTypes[k].isSelected = false
                 }
             }
                 else{
                     for k in 0..<arrQuestionForPickUp[collectionView.tag].arrQuestionTypes.count{
-                        if arrQuestionForPickUp[collectionView.tag].arrQuestionTypes[k].strQuestionValue == "None Of These"{
+                        if arrQuestionForPickUp[collectionView.tag].arrQuestionTypes[k].strQuestionValue == "None Of These".localized(lang: langCode) {
                             arrQuestionForPickUp[collectionView.tag].arrQuestionTypes[k].isSelected = false
 
                         }
@@ -319,6 +319,7 @@ class PickUpQuestionVC: UIViewController,UITableViewDelegate,UITableViewDataSour
             let vc = MisMatchVC()
             vc.resultJSONGet = self.resultJSON
             vc.strAppCodes = strFinalCodeValues
+            vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true, completion: nil)
         }
         else{

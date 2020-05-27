@@ -203,7 +203,7 @@ class LiveOfferVC: UIViewController {
                 {
                     self.setButtonFrame(isforCancelDone: isforCancel)
                     
-                    Alert.showAlert(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
+                    Alert.showAlertWithError(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
                     
                 }
             })
@@ -213,7 +213,7 @@ class LiveOfferVC: UIViewController {
         {
             self.setButtonFrame(isforCancelDone: isforCancel)
             
-            Alert.showAlert(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
         }
         
     }

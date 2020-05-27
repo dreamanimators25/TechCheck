@@ -59,7 +59,9 @@ class DiagnosticTestResultVC: UIViewController,UITableViewDelegate,UITableViewDa
     func changeLanguageOfUI() {
         
         self.lblYourDevice.text = "Your device could be worth".localized(lang: langCode)
-        self.lblYourQuotation.text = "Note: Your quotation is lower because of the following issues. Click retry for a better quotation.".localized(lang: langCode)
+        //self.lblYourQuotation.text = "Note: Your quotation is lower because of the following issues. Click retry for a better quotation.".localized(lang: langCode)
+        self.lblYourQuotation.text = "Note: Your quote is lower than because certain tests were failed or skipped".localized(lang: langCode)
+        
     }
     
     func didPullToRefresh(){
@@ -160,16 +162,19 @@ class DiagnosticTestResultVC: UIViewController,UITableViewDelegate,UITableViewDa
             arrFunctionalTest.append(model)
         }
         
-        if userDefaults.value(forKey: "volume") as! Bool == false {
+        //if userDefaults.value(forKey: "volume") as! Bool == false {
+        if userDefaults.value(forKey: "Device Button") as! Bool == false {
             let model = ModelCompleteDiagnosticFlow()
             model.priority = 4
-            model.strTestType = "Volume"
+            //model.strTestType = "Volume"
+            model.strTestType = "Device Button"
             arrFailedAndSkipedTest.append(model)
         }
         else{
             let model = ModelCompleteDiagnosticFlow()
             model.priority = 0
-            model.strTestType = "Volume"
+            //model.strTestType = "Volume"
+            model.strTestType = "Device Button"
             arrFunctionalTest.append(model)
         }
         
@@ -400,16 +405,26 @@ class DiagnosticTestResultVC: UIViewController,UITableViewDelegate,UITableViewDa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-    if arrFailedAndSkipedTest.count > 0{
-        if indexPath.section == 0{
-            let cellfailed = tableView.dequeueReusableCell(withIdentifier: "testResultCell", for: indexPath) as! TestResultCell
-            cellfailed.imgReTry.image = UIImage(named: "unverified")
-            cellfailed.lblName.text = arrFailedAndSkipedTest[indexPath.row].strTestType.localized(lang: langCode)
-            cellfailed.imgReTry.isHidden = true
-            cellfailed.lblReTry.isHidden = false
-            cellfailed.lblReTry.text = "ReTry".localized(lang: langCode)
-
-            return cellfailed
+        if arrFailedAndSkipedTest.count > 0 {
+            if indexPath.section == 0 {
+                let cellfailed = tableView.dequeueReusableCell(withIdentifier: "testResultCell", for: indexPath) as! TestResultCell
+                cellfailed.imgReTry.image = UIImage(named: "unverified")
+                cellfailed.lblName.text = arrFailedAndSkipedTest[indexPath.row].strTestType.localized(lang: langCode)
+                cellfailed.imgReTry.isHidden = true
+                cellfailed.lblReTry.isHidden = false
+                cellfailed.lblReTry.text = "ReTry".localized(lang: langCode)
+                                
+                return cellfailed
+            }
+            else{
+                let cellFunction = tableView.dequeueReusableCell(withIdentifier: "testResultCell", for: indexPath) as! TestResultCell
+                cellFunction.imgReTry.image = UIImage(named: "rightGreen")
+                cellFunction.lblName.text = arrFunctionalTest[indexPath.row].strTestType.localized(lang: langCode)
+                cellFunction.imgReTry.isHidden = false
+                cellFunction.lblReTry.isHidden = true
+                                
+                return cellFunction
+            }
         }
         else{
             let cellFunction = tableView.dequeueReusableCell(withIdentifier: "testResultCell", for: indexPath) as! TestResultCell
@@ -417,17 +432,7 @@ class DiagnosticTestResultVC: UIViewController,UITableViewDelegate,UITableViewDa
             cellFunction.lblName.text = arrFunctionalTest[indexPath.row].strTestType.localized(lang: langCode)
             cellFunction.imgReTry.isHidden = false
             cellFunction.lblReTry.isHidden = true
-
-            return cellFunction
-        }
-        }
-          else{
-            let cellFunction = tableView.dequeueReusableCell(withIdentifier: "testResultCell", for: indexPath) as! TestResultCell
-            cellFunction.imgLogo.image = UIImage(named: "rightGreen")
-            cellFunction.lblName.text = arrFunctionalTest[indexPath.row].strTestType.localized(lang: langCode)
-            //cellFunction.imgReTry.isHidden = true
-            //cellFunction.lblReTry.isHidden = true
-
+            
             return cellFunction
         }
     }
@@ -443,53 +448,64 @@ class DiagnosticTestResultVC: UIViewController,UITableViewDelegate,UITableViewDa
                 let vc  = ScreenTestingVC()
                 vc.isComingFromTestResult = true
                 vc.resultJSON = self.resultJSON
+                vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
+                
             }
             else if  arrFailedAndSkipedTest[indexPath.row].strTestType == "Rotation"{
                 let vc  = RotationVC()
                 vc.isComingFromTestResult = true
                 vc.resultJSON = self.resultJSON
+                vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
             }
             else if  arrFailedAndSkipedTest[indexPath.row].strTestType == "Proximity"{
                 let vc  = SensorReadVC()
                 vc.isComingFromTestResult = true
                 vc.resultJSON = self.resultJSON
+                vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
             }
-            else if  arrFailedAndSkipedTest[indexPath.row].strTestType == "Volume"{
+            //else if  arrFailedAndSkipedTest[indexPath.row].strTestType == "Volume"{
+            else if  arrFailedAndSkipedTest[indexPath.row].strTestType == "Device Button" {
                 let vc  = VolumeCheckerVC()
                 vc.isComingFromTestResult = true
                 vc.resultJSON = self.resultJSON
+                vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
             }
             else if  arrFailedAndSkipedTest[indexPath.row].strTestType == "Earphone"{
                 let vc  = EarPhoneVC()
                 vc.isComingFromTestResult = true
                 vc.resultJSON = self.resultJSON
+                vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
             }
             else if  arrFailedAndSkipedTest[indexPath.row].strTestType == "Charger"{
                 let vc  = DeviceChargerVC()
                 vc.isComingFromTestResult = true
                 vc.resultJSON = self.resultJSON
+                vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
             }
             else if  arrFailedAndSkipedTest[indexPath.row].strTestType == "Camera"{
                 let vc  = CameraVC()
                 vc.isComingFromTestResult = true
                 vc.resultJSON = self.resultJSON
+                vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
             }
             else if  arrFailedAndSkipedTest[indexPath.row].strTestType == "FingerPrint"{
                 let vc  = FingerPrintDevice()
                 vc.isComingFromTestResult = true
                 vc.resultJSON = self.resultJSON
+                vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
             }
             else if  arrFailedAndSkipedTest[indexPath.row].strTestType == "Bluetooth" ||  arrFailedAndSkipedTest[indexPath.row].strTestType == "WIFI" ||  arrFailedAndSkipedTest[indexPath.row].strTestType == "GPS" ||  arrFailedAndSkipedTest[indexPath.row].strTestType == "GSM"{
                 let vc  = BlueToothTestingVC()
                 vc.resultJSON = self.resultJSON
+                vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
                 }
             }
@@ -564,17 +580,20 @@ class DiagnosticTestResultVC: UIViewController,UITableViewDelegate,UITableViewDa
             let nav = UINavigationController(rootViewController: vc)
             //UINavigationBar.appearance().barTintColor = navColor
             nav.navigationBar.isHidden = true
+            nav.modalPresentationStyle = .fullScreen
             self.present(nav, animated: true, completion: nil)
         }
         else{
             if userDefaults.value(forKey: "ChangeModeComingFromDiadnosis") as! String == "Diagnosis" {
                 let vc = MisMatchVC()
                 vc.resultJSONGet = self.resultJSON
+                vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
             }
             else if userDefaults.value(forKey: "ChangeModeComingFromDiadnosis") as! String == "Pickup" {
                 let vc = MisMatchVC()
                 vc.resultJSONGet = self.resultJSON
+                vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
             }
             else {
@@ -583,6 +602,7 @@ class DiagnosticTestResultVC: UIViewController,UITableViewDelegate,UITableViewDa
                 let nav = UINavigationController(rootViewController: vc)
                 //UINavigationBar.appearance().barTintColor = navColor
                 nav.navigationBar.isHidden = true
+                nav.modalPresentationStyle = .fullScreen
                 self.present(nav, animated: true, completion: nil)
             }
         }

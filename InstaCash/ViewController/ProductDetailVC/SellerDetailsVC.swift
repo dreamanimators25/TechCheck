@@ -48,15 +48,15 @@ class SellerDetailsVC: UIViewController,UITextFieldDelegate {
         }else if CustomUserDefault.getCurrency() == "RM" {
             txtCountryCode.text = "+60"
             totalNumberCount1 = 8
-            totalNumberCount2 = 11
+            totalNumberCount2 = 12
         }else if CustomUserDefault.getCurrency() == "SG$" {
             txtCountryCode.text = "+65"
             totalNumberCount1 = 8
             totalNumberCount2 = 11
         }else {
             txtCountryCode.text = "+886"
-            totalNumberCount1 = 9
-            totalNumberCount2 = 9
+            totalNumberCount1 = 8
+            totalNumberCount2 = 12
         }
         
         //txtCountryCode.delegate = self
@@ -148,25 +148,27 @@ class SellerDetailsVC: UIViewController,UITextFieldDelegate {
     {
         if txtName.text!.isEmpty
         {
-            Alert.showAlert(strMessage: "Please enter name".localized(lang: langCode) as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "Please enter name".localized(lang: langCode) as NSString, Onview: self)
             return false
         }
         else if txtEmail.text!.isEmpty
         {
-            Alert.showAlert(strMessage: "Please enter E-mail address".localized(lang: langCode) as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "Please enter E-mail address".localized(lang: langCode) as NSString, Onview: self)
             return false
         }
         else if(!Alert.isValidEmail(testStr: txtEmail.text!))
         {
-            Alert.showAlert(strMessage: "Please Enter Correct Email Address".localized(lang: langCode) as NSString, Onview: self)
+            //Alert.showAlertWithError(strMessage: "Please Enter Correct Email Address".localized(lang: langCode) as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "Invalid email-id".localized(lang: langCode) as NSString, Onview: self)
             return false
         }
         else if txtMobile.text!.isEmpty
         {
-            Alert.showAlert(strMessage: "Please enter mobile number".localized(lang: langCode) as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "Please enter mobile number".localized(lang: langCode) as NSString, Onview: self)
             return false
         }else if txtMobile.text?.count ?? 0 < totalNumberCount1 || txtMobile.text?.count ?? 0 > totalNumberCount2 {
-            Alert.showAlert(strMessage: "Please enter Valid mobile number".localized(lang: langCode) as NSString, Onview: self)
+            Alert.showAlertWithError(strMessage: "Please enter valid mobile number".localized(lang: langCode) as NSString, Onview: self)
+            
             return false
         }
         

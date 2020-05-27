@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_0" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -31,6 +29,7 @@
             <connections>
                 <outlet property="FloatBGView" destination="vyO-IQ-s33" id="vna-UN-alw"/>
                 <outlet property="activityConfirmOrder" destination="Q4d-0H-2jW" id="OTZ-Aw-S9e"/>
+                <outlet property="btnConfirmLater" destination="MwO-7q-280" id="b9I-GB-KtD"/>
                 <outlet property="btnConfirmOrder" destination="e2B-MX-mth" id="nYF-8y-2Ji"/>
                 <outlet property="btnDiagnostic" destination="YS8-K8-2nd" id="rIh-p1-6w8"/>
                 <outlet property="btnDiagnosticwidthConstraints" destination="hmj-TT-U3f" id="8Aj-ON-pY9"/>
@@ -59,6 +58,7 @@
                 <outlet property="imgPhone" destination="Cd7-0y-Orb" id="S0o-ek-h1Y"/>
                 <outlet property="imgWhiteArrow" destination="9VX-oN-ep4" id="ygD-4b-58v"/>
                 <outlet property="lblAccurate" destination="s5S-eD-izw" id="pMg-r9-gge"/>
+                <outlet property="lblAwesomeOne" destination="vhS-QZ-cxL" id="mjO-5d-Vql"/>
                 <outlet property="lblBrand1" destination="ui6-Ts-6uN" id="rrG-bz-JeU"/>
                 <outlet property="lblBrand2" destination="K9r-mb-ySS" id="ejq-IA-53P"/>
                 <outlet property="lblBrand3" destination="b4y-LA-pPZ" id="Blb-Ac-JLK"/>
@@ -116,23 +116,23 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qeI-Sp-z8t">
-                    <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="laM-RW-rhw">
-                    <rect key="frame" x="0.0" y="20" width="320" height="504"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="522.5"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="POe-Ev-5qD">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="914"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="727"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hY3-t4-JuG">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="55"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="57"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sell" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rL2-u6-UzG">
-                                            <rect key="frame" x="20" y="8" width="53.5" height="39"/>
+                                            <rect key="frame" x="20" y="9" width="54" height="38.5"/>
                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="33"/>
                                             <color key="textColor" red="0.15686274510000001" green="0.69019607839999997" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -145,25 +145,25 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fc8-k8-EkY" customClass="cornerView" customModule="InstaCash" customModuleProvider="target">
-                                    <rect key="frame" x="20" y="75" width="280" height="519"/>
+                                    <rect key="frame" x="20" y="77" width="280" height="330"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="phone" translatesAutoresizingMaskIntoConstraints="NO" id="Cd7-0y-Orb">
-                                            <rect key="frame" x="38" y="5" width="204" height="204"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="phone" translatesAutoresizingMaskIntoConstraints="NO" id="Cd7-0y-Orb">
+                                            <rect key="frame" x="139.5" y="5" width="1" height="204"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Google Pixel 2XL (64GB)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u6d-0p-Nyt">
-                                            <rect key="frame" x="46" y="214" width="188.5" height="20"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Google Pixel 2XL (64GB)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u6d-0p-Nyt">
+                                            <rect key="frame" x="46.5" y="214" width="187.5" height="20"/>
                                             <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find out how much cash you’ll get by selling this device." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Kw-qU-Yda">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Find out how much cash you’ll get by selling this device." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Kw-qU-Yda">
                                             <rect key="frame" x="20" y="239" width="240" height="28.5"/>
                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                             <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L7I-fy-XO6" customClass="shadowCornerButton" customModule="InstaCash" customModuleProvider="target">
-                                            <rect key="frame" x="20" y="277.5" width="240" height="51.5"/>
+                                            <rect key="frame" x="20" y="103" width="240" height="33"/>
                                             <color key="backgroundColor" red="0.094117647060000004" green="0.60784313729999995" blue="0.17254901959999999" alpha="1" colorSpace="calibratedRGB"/>
                                             <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="18"/>
                                             <state key="normal" title="Get quote for this device">
@@ -179,7 +179,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wiJ-vo-EIl" customClass="shadowCornerButton" customModule="InstaCash" customModuleProvider="target">
-                                            <rect key="frame" x="20" y="339" width="240" height="50"/>
+                                            <rect key="frame" x="20" y="146" width="240" height="50"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="50" id="4gf-8e-mfn"/>
@@ -198,16 +198,16 @@
                                             </connections>
                                         </button>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="b3b-mH-Rs4">
-                                            <rect key="frame" x="10" y="399" width="338" height="110"/>
+                                            <rect key="frame" x="10" y="206" width="338" height="114"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eGA-To-xxT">
-                                                    <rect key="frame" x="0.0" y="0.0" width="338" height="27.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="338" height="28.5"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="251" image="check" translatesAutoresizingMaskIntoConstraints="NO" id="fJQ-N0-ZXv">
-                                                            <rect key="frame" x="0.0" y="10" width="11" height="8"/>
+                                                            <rect key="frame" x="0.0" y="14" width="1" height="1"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No bargaining. No headaches!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vv7-TS-r2F">
-                                                            <rect key="frame" x="21" y="6" width="307" height="15.5"/>
+                                                            <rect key="frame" x="11" y="6.5" width="317" height="15.5"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
                                                             <color key="textColor" red="0.63137254899999995" green="0.63137254899999995" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -223,13 +223,13 @@
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VlY-fK-ihO">
-                                                    <rect key="frame" x="0.0" y="27.5" width="338" height="27.5"/>
+                                                    <rect key="frame" x="0.0" y="28.5" width="338" height="28.5"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="251" image="check" translatesAutoresizingMaskIntoConstraints="NO" id="VMO-oy-Ggt">
-                                                            <rect key="frame" x="0.0" y="10" width="11" height="8"/>
+                                                            <rect key="frame" x="0.0" y="14" width="1" height="1"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Takes 5 mins. Save time." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j1f-z5-fi9">
-                                                            <rect key="frame" x="21" y="6" width="307" height="15.5"/>
+                                                            <rect key="frame" x="11" y="6.5" width="317" height="15.5"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
                                                             <color key="textColor" red="0.63137254899999995" green="0.63137254899999995" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -245,13 +245,13 @@
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zcM-QV-AMI">
-                                                    <rect key="frame" x="0.0" y="55" width="338" height="27.5"/>
+                                                    <rect key="frame" x="0.0" y="57" width="338" height="28.5"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="251" image="check" translatesAutoresizingMaskIntoConstraints="NO" id="pkj-gQ-PwQ">
-                                                            <rect key="frame" x="0.0" y="9.5" width="11" height="8"/>
+                                                            <rect key="frame" x="0.0" y="13.5" width="1" height="1"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get a quote from anywhere. Convenient and casual." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f6w-7Y-EJa">
-                                                            <rect key="frame" x="21" y="6" width="307" height="15.5"/>
+                                                            <rect key="frame" x="11" y="6.5" width="317" height="15.5"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
                                                             <color key="textColor" red="0.63137254899999995" green="0.63137254899999995" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -267,13 +267,13 @@
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XaH-o8-nPd">
-                                                    <rect key="frame" x="0.0" y="82.5" width="338" height="27.5"/>
+                                                    <rect key="frame" x="0.0" y="85.5" width="338" height="28.5"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="251" image="check" translatesAutoresizingMaskIntoConstraints="NO" id="Gwz-Bu-QRD">
-                                                            <rect key="frame" x="0.0" y="9.5" width="11" height="8"/>
+                                                            <rect key="frame" x="0.0" y="13.5" width="1" height="1"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Accurate and market-leading prices. Scam-free." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s5S-eD-izw">
-                                                            <rect key="frame" x="21" y="6" width="307" height="15.5"/>
+                                                            <rect key="frame" x="11" y="6.5" width="317" height="15.5"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
                                                             <color key="textColor" red="0.63137254899999995" green="0.63137254899999995" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -319,7 +319,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H9E-md-nbq" customClass="cornerView" customModule="InstaCash" customModuleProvider="target">
-                                    <rect key="frame" x="20" y="614" width="280" height="160"/>
+                                    <rect key="frame" x="20" y="427" width="280" height="160"/>
                                     <subviews>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="9TI-X3-YZy">
                                             <rect key="frame" x="0.0" y="0.0" width="280" height="160"/>
@@ -351,7 +351,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="qqB-m8-qzv">
-                                    <rect key="frame" x="20" y="794" width="280" height="110"/>
+                                    <rect key="frame" x="20" y="607" width="280" height="110"/>
                                     <subviews>
                                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jaz-QL-evK" customClass="cornerView" customModule="InstaCash" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="280" height="50"/>
@@ -442,7 +442,7 @@
                                     </subviews>
                                 </stackView>
                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Cz-2d-K1I">
-                                    <rect key="frame" x="0.0" y="914" width="320" height="0.0"/>
+                                    <rect key="frame" x="0.0" y="727" width="320" height="0.0"/>
                                     <subviews>
                                         <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="42mins ago: Henry Boy sold his S8 near Petaling Jaya." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uQC-WE-coB">
                                             <rect key="frame" x="10" y="-8" width="300" height="15.5"/>
@@ -482,13 +482,13 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iPhone 6s" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xty-Y5-YfY">
-                                            <rect key="frame" x="101" y="60" width="204" height="18"/>
+                                            <rect key="frame" x="101" y="59.5" width="204" height="19"/>
                                             <fontDescription key="fontDescription" name="Comfortaa-Bold" family="Comfortaa" pointSize="16"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="get upto" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d8n-pV-M6G">
-                                            <rect key="frame" x="101" y="88" width="62.5" height="16"/>
+                                            <rect key="frame" x="101" y="88.5" width="62.5" height="16.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="62.5" id="FEV-Ng-w3D"/>
                                             </constraints>
@@ -497,13 +497,13 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4qC-KW-GA7">
-                                            <rect key="frame" x="172" y="88" width="133" height="16"/>
+                                            <rect key="frame" x="172" y="88.5" width="133" height="16.5"/>
                                             <fontDescription key="fontDescription" name="Comfortaa-Bold" family="Comfortaa" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.49803921568627452" blue="0.25882352941176467" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YS8-K8-2nd">
-                                            <rect key="frame" x="78.5" y="137" width="180" height="30"/>
+                                            <rect key="frame" x="78.5" y="138" width="180" height="30"/>
                                             <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="30" id="4XF-Up-jpf"/>
@@ -520,7 +520,7 @@
                                             </connections>
                                         </button>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Y31-kN-yfB">
-                                            <rect key="frame" x="36" y="213" width="249" height="80"/>
+                                            <rect key="frame" x="36" y="214" width="249" height="80"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="80" id="RlH-Cw-ydt"/>
@@ -537,7 +537,7 @@
                                             </connections>
                                         </collectionView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOUR ORDERS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hfo-o5-N39">
-                                            <rect key="frame" x="254" y="185" width="70" height="20"/>
+                                            <rect key="frame" x="254" y="186" width="70" height="20"/>
                                             <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="20" id="Pfj-W6-8QF"/>
@@ -548,14 +548,14 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whiteArrow" translatesAutoresizingMaskIntoConstraints="NO" id="9VX-oN-ep4">
-                                            <rect key="frame" x="239.5" y="146" width="12" height="12"/>
+                                            <rect key="frame" x="239.5" y="147" width="12" height="12"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="12" id="7Yh-iv-LHC"/>
                                                 <constraint firstAttribute="height" constant="12" id="oUv-pw-T3i"/>
                                             </constraints>
                                         </imageView>
                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ki2-XC-N0D">
-                                            <rect key="frame" x="78.5" y="169" width="180" height="27"/>
+                                            <rect key="frame" x="78.5" y="170" width="180" height="27"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <state key="normal" title="Start from the beginning">
                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -625,7 +625,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apple" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ui6-Ts-6uN">
-                                                    <rect key="frame" x="4" y="51" width="83.5" height="18"/>
+                                                    <rect key="frame" x="4" y="51" width="83.5" height="19"/>
                                                     <fontDescription key="fontDescription" name="Comfortaa-Regular" family="Comfortaa" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -658,7 +658,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Others" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K9r-mb-ySS">
-                                                    <rect key="frame" x="4" y="51" width="83" height="18"/>
+                                                    <rect key="frame" x="4" y="51" width="83" height="19"/>
                                                     <fontDescription key="fontDescription" name="Comfortaa-Regular" family="Comfortaa" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -691,7 +691,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apple" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b4y-LA-pPZ">
-                                                    <rect key="frame" x="4" y="51" width="83.5" height="18"/>
+                                                    <rect key="frame" x="4" y="51" width="83.5" height="19"/>
                                                     <fontDescription key="fontDescription" name="Comfortaa-Regular" family="Comfortaa" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -717,7 +717,7 @@
                                             <rect key="frame" x="4" y="142" width="91.5" height="90"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apple" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CgK-Nb-Gap">
-                                                    <rect key="frame" x="4" y="51" width="83.5" height="18"/>
+                                                    <rect key="frame" x="4" y="51" width="83.5" height="19"/>
                                                     <fontDescription key="fontDescription" name="Comfortaa-Regular" family="Comfortaa" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -757,7 +757,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apple" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2vv-Qi-OqE">
-                                                    <rect key="frame" x="4" y="51" width="83" height="18"/>
+                                                    <rect key="frame" x="4" y="51" width="83" height="19"/>
                                                     <fontDescription key="fontDescription" name="Comfortaa-Regular" family="Comfortaa" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -790,7 +790,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apple" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kkH-hP-qRc">
-                                                    <rect key="frame" x="4" y="51" width="83.5" height="18"/>
+                                                    <rect key="frame" x="4" y="51" width="83.5" height="19"/>
                                                     <fontDescription key="fontDescription" name="Comfortaa-Regular" family="Comfortaa" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -823,7 +823,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apple" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gzF-bz-dgm">
-                                                    <rect key="frame" x="4" y="51" width="83.5" height="18"/>
+                                                    <rect key="frame" x="4" y="51" width="83.5" height="19"/>
                                                     <fontDescription key="fontDescription" name="Comfortaa-Regular" family="Comfortaa" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -856,7 +856,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apple" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tc0-AH-MSo">
-                                                    <rect key="frame" x="4" y="51" width="83" height="18"/>
+                                                    <rect key="frame" x="4" y="51" width="83" height="19"/>
                                                     <fontDescription key="fontDescription" name="Comfortaa-Regular" family="Comfortaa" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -889,7 +889,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apple" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7o2-EI-mvK">
-                                                    <rect key="frame" x="4" y="51" width="83.5" height="18"/>
+                                                    <rect key="frame" x="4" y="51" width="83.5" height="19"/>
                                                     <fontDescription key="fontDescription" name="Comfortaa-Regular" family="Comfortaa" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1083,7 +1083,7 @@
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hurry!! your offer of 10000 may drop on few days" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vSf-cJ-TE4">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hurry, prices may drop in a few days" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vSf-cJ-TE4">
                                             <rect key="frame" x="100" y="74.5" width="178" height="31.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1123,7 +1123,7 @@
                                             <color key="color" red="0.0" green="0.49803921569999998" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </activityIndicatorView>
                                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price of this phone is drop." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Nl-bn-gHe">
-                                            <rect key="frame" x="100" y="110.5" width="178" height="14.5"/>
+                                            <rect key="frame" x="100" y="111" width="178" height="14"/>
                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                             <color key="textColor" red="0.98823529409999999" green="0.1450980392" blue="0.1450980392" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -1158,7 +1158,7 @@
                                     </constraints>
                                 </view>
                                 <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vyO-IQ-s33">
-                                    <rect key="frame" x="0.0" y="55" width="320" height="859"/>
+                                    <rect key="frame" x="0.0" y="57" width="320" height="670"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.25" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                             </subviews>
@@ -1199,14 +1199,14 @@
                             </constraints>
                         </view>
                         <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splashIcon" translatesAutoresizingMaskIntoConstraints="NO" id="7e0-N9-oRI">
-                            <rect key="frame" x="120" y="212" width="80" height="80"/>
+                            <rect key="frame" x="120" y="221.5" width="80" height="80"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="80" id="8ZG-Q4-mPg"/>
                                 <constraint firstAttribute="width" constant="80" id="fsD-dQ-31e"/>
                             </constraints>
                         </imageView>
                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Connection found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eLE-cq-UmK">
-                            <rect key="frame" x="59" y="315" width="202" height="20.5"/>
+                            <rect key="frame" x="74" y="324.5" width="172.5" height="21"/>
                             <fontDescription key="fontDescription" name="Comfortaa-Bold" family="Comfortaa" pointSize="18"/>
                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
@@ -1225,7 +1225,7 @@
                     </constraints>
                 </scrollView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AsV-nW-6Sg">
-                    <rect key="frame" x="140" y="468" width="160" height="0.0"/>
+                    <rect key="frame" x="140" y="466.5" width="160" height="0.0"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" id="Guv-fN-1lt"/>
@@ -1236,7 +1236,7 @@
                     </connections>
                 </tableView>
                 <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZTC-nN-z1c" customClass="shadowCornerButton" customModule="InstaCash" customModuleProvider="target">
-                    <rect key="frame" x="254" y="473" width="46" height="46"/>
+                    <rect key="frame" x="254" y="471.5" width="46" height="46"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="46" id="7jQ-La-Ppz"/>
                         <constraint firstAttribute="width" constant="46" id="idR-ot-H22"/>
@@ -1252,18 +1252,18 @@
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yMn-NF-1Gl">
-                    <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                    <rect key="frame" x="0.0" y="522.5" width="320" height="45.5"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="diD-K3-0co">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="45.5"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ESJ-je-0xh">
-                                    <rect key="frame" x="0.0" y="0.0" width="65" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="65" height="45.5"/>
                                     <state key="normal" image="GSell"/>
                                     <state key="selected" image="GSell"/>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="20a-Sm-70f">
-                                    <rect key="frame" x="85" y="0.0" width="65" height="44"/>
+                                    <rect key="frame" x="85" y="0.0" width="65" height="45.5"/>
                                     <state key="normal" image="order"/>
                                     <state key="selected" image="GOrder"/>
                                     <connections>
@@ -1271,7 +1271,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YOJ-qK-VcF">
-                                    <rect key="frame" x="170" y="0.0" width="65" height="44"/>
+                                    <rect key="frame" x="170" y="0.0" width="65" height="45.5"/>
                                     <state key="normal" image="noti"/>
                                     <state key="selected" image="GNoti"/>
                                     <connections>
@@ -1279,7 +1279,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x4z-Y7-CBL">
-                                    <rect key="frame" x="255" y="0.0" width="65" height="44"/>
+                                    <rect key="frame" x="255" y="0.0" width="65" height="45.5"/>
                                     <state key="normal" image="account"/>
                                     <state key="selected" image="GAccount"/>
                                     <connections>
@@ -1335,13 +1335,13 @@
         <image name="arrow" width="16.5" height="13"/>
         <image name="check" width="11.5" height="8.5"/>
         <image name="customerSupport" width="46" height="46"/>
-        <image name="dignostic" width="19.200000762939453" height="19.200000762939453"/>
-        <image name="iPhonePlaceHolder" width="455" height="600"/>
+        <image name="dignostic" width="12" height="12"/>
+        <image name="iPhonePlaceHolder" width="227.5" height="300"/>
         <image name="noti" width="21.5" height="22.5"/>
         <image name="order" width="18" height="21.5"/>
-        <image name="phone" width="204.80000305175781" height="204.80000305175781"/>
-        <image name="phonePlaceHolder" width="51.200000762939453" height="51.200000762939453"/>
-        <image name="splashIcon" width="192" height="192"/>
-        <image name="whiteArrow" width="51.200000762939453" height="51.200000762939453"/>
+        <image name="phone" width="128" height="128"/>
+        <image name="phonePlaceHolder" width="32" height="32"/>
+        <image name="splashIcon" width="128" height="128"/>
+        <image name="whiteArrow" width="32" height="32"/>
     </resources>
 </document>

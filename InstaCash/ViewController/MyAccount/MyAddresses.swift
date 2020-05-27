@@ -119,7 +119,7 @@ class MyAddresses: UIViewController,UITableViewDelegate,UITableViewDataSource {
                 
             }
             else{
-                Alert.showAlert(strMessage: "Seems connection loss from server", Onview: self)
+                Alert.showAlertWithError(strMessage: "Seems connection loss from server", Onview: self)
             }
             
         })

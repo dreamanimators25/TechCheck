@@ -133,6 +133,7 @@ class RotationVC: UIViewController {
                     let vc = DiagnosticTestResultVC()
                     self.resultJSON["Rotation"].int = -1
                     vc.resultJSON = self.resultJSON
+                    vc.modalPresentationStyle = .fullScreen
                     self.present(vc, animated: true, completion: nil)
                 }
                 else if self.isComingFromProductquote == true || userDefaults.value(forKey: "isSkippedRotation") as? Bool ?? false == true{
@@ -148,6 +149,7 @@ class RotationVC: UIViewController {
                         let vc = SensorReadVC()
                         self.resultJSON["Rotation"].int = -1
                         vc.resultJSON = self.resultJSON
+                        vc.modalPresentationStyle = .fullScreen
                         self.present(vc, animated: true, completion: nil)
                     }
                     
@@ -248,6 +250,7 @@ class RotationVC: UIViewController {
                 let vc = DiagnosticTestResultVC()
                 resultJSON["Rotation"].int = 1
                 vc.resultJSON = self.resultJSON
+                vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
             }
             else if self.isComingFromProductquote == true || userDefaults.value(forKey: "isSkippedRotation") as? Bool ?? false == true{
@@ -269,6 +272,7 @@ class RotationVC: UIViewController {
                     let vc = SensorReadVC()
                     resultJSON["Rotation"].int = 1
                     vc.resultJSON = self.resultJSON
+                    vc.modalPresentationStyle = .fullScreen
                     self.present(vc, animated: true, completion: nil)
                 }
               

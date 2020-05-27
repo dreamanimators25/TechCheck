@@ -190,7 +190,7 @@ class AnotherDevice: UIViewController, UICollectionViewDelegate, UICollectionVie
                     self.navigationController?.pushViewController(vc, animated: true)
                 }
                 else {
-                    Alert.showAlert(strMessage: "Device is not map,Please try later".localized(lang: langCode) as NSString, Onview: self)
+                    Alert.showAlertWithError(strMessage: "Device is not map,Please try later".localized(lang: langCode) as NSString, Onview: self)
                     
                 }
                 //                    }else{
