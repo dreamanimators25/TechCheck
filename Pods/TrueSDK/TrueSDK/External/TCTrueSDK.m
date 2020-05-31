@@ -20,6 +20,7 @@ NSString *const kTCTruecallerAppURL = @"https://www.truecaller.com/userProfile";
 
 @property (nonatomic, strong) NSString *appKey;
 @property (nonatomic, strong) NSString *appLink;
+@property (nonatomic, strong) NSString *requestNonce;
 
 @end
 
@@ -40,6 +41,17 @@ NSString *const kTCTruecallerAppURL = @"https://www.truecaller.com/userProfile";
 {
     self.appKey = appKey;
     self.appLink = appLink;
+    self.titleType = TitleTypeDefault;
+}
+
+- (void)setupWithAppKey:(nonnull NSString *)appKey
+                appLink:(nonnull NSString *)appLink
+                requestNonce:(nonnull NSString *)requestNonce
+{
+    self.appKey = appKey;
+    self.appLink = appLink;
+    self.requestNonce = requestNonce;
+    self.titleType = TitleTypeDefault;
 }
 
 + (NSURL *)buildTruecallerMessageWithItem:(id<NSCoding>)item forKey:(NSString *)key
@@ -80,7 +92,7 @@ NSString *const kTCTruecallerAppURL = @"https://www.truecaller.com/userProfile";
         return;
     }
     
-    NSString *requestNonce = [NSUUID UUID].UUIDString;
+    NSString *requestNonce = self.requestNonce ?: [NSUUID UUID].UUIDString;
     
     if ([[TCTrueSDK sharedManager].delegate respondsToSelector:@selector(willRequestProfileWithNonce:)]) {
         [[TCTrueSDK sharedManager].delegate willRequestProfileWithNonce:requestNonce];
@@ -94,6 +106,7 @@ NSString *const kTCTruecallerAppURL = @"https://www.truecaller.com/userProfile";
     profileRequest.sdkVersion = [TCUtils getSDKVersion];
     profileRequest.appName = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"];
     profileRequest.requestNonce = requestNonce;
+    profileRequest.titleType = self.titleType;
     NSURL *url = [TCTrueSDK buildTruecallerMessageWithItem:profileRequest forKey:kTrueProfileRequestKey];
     
     [TCUtils openUrl:url completionHandler:nil];
@@ -127,13 +140,17 @@ continueUserActivity:(nonnull NSUserActivity *)userActivity
                     [self.delegate didReceiveTrueProfileResponse:response];
                 }
                 
-                NSData *decodedData = [[NSData alloc] initWithBase64EncodedString:response.payload options:0];
-                NSError *serializationError = nil;
-                NSDictionary *profileDict = [NSJSONSerialization JSONObjectWithData:decodedData options:0 error:&serializationError];
-                TCTrueProfile *profile = [[TCTrueProfile alloc] initWithDictionary:profileDict];
-                [self.delegate didReceiveTrueProfile:profile];
+                if (response != nil) {
+                    NSData *decodedData = [[NSData alloc] initWithBase64EncodedString:response.payload options:0];
+                    NSError *serializationError = nil;
+                    NSDictionary *profileDict = [NSJSONSerialization JSONObjectWithData:decodedData options:0 error:&serializationError];
+                    TCTrueProfile *profile = [[TCTrueProfile alloc] initWithDictionary:profileDict];
+                    [self.delegate didReceiveTrueProfile:profile];
+                } else {
+                    TCError *error = [TCError errorWithCode:TCTrueSDKErrorCodeUserProfileContentNotValid];
+                    [self.delegate didFailToReceiveTrueProfileWithError:error];
+                }
             }
-            
             retValue = YES;
         }
     }

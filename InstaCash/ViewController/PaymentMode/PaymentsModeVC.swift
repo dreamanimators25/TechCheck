@@ -1486,7 +1486,7 @@ class PaymentsModeVC: UIViewController {
                 default:
                     
                     self.fetchOrderFromServer(orderRefType: self.selectePaymentType)
-                
+                                
                     /*
                     let vc = MYSamsungVC()
                     vc.quatationId = self.quatationId3
@@ -1522,6 +1522,16 @@ class PaymentsModeVC: UIViewController {
         }else {
             
             self.fetchOrderFromServer(orderRefType: self.selectePaymentType)
+            
+//            let vc = TWCashVC()
+//            vc.quatationId = self.quatationId3
+//            //vc.orderID = orderID ?? ""
+//            //vc.itemID = itemID ?? ""
+//            vc.selectedPaymentType = self.selectePaymentType
+//            vc.finalPriced = self.finalPriceSet3
+//            //vc.placedOrderId = orderPlaceID ?? ""
+//            self.navigationController?.pushViewController(vc, animated:     true)
+            
         }
 
         
@@ -1780,7 +1790,7 @@ class PaymentsModeVC: UIViewController {
                             
                             vc.finalPriced = self.finalPriceSet3
                             vc.placedOrderId = orderPlaceID ?? ""
-                            self.navigationController?.pushViewController(vc, animated:     true)
+                            self.navigationController?.pushViewController(vc, animated: true)
                             
                         }
                         

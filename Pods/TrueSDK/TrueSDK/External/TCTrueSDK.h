@@ -11,6 +11,7 @@
 #import "TCTrueProfile.h"
 #import "TCError.h"
 #import "TCTrueProfileResponse.h"
+#import "TCTrueProfileRequest.h"
 
 @protocol TCTrueSDKDelegate <NSObject>
 
@@ -55,6 +56,7 @@
 @interface TCTrueSDK : NSObject
 
 @property (nonatomic, weak, nullable) id<TCTrueSDKDelegate> delegate;
+@property (nonatomic) TitleType titleType;
 
 + (nonnull TCTrueSDK *)sharedManager;
 
@@ -75,6 +77,16 @@
  */
 - (void)setupWithAppKey:(nonnull NSString *)appKey
                 appLink:(nonnull NSString *)appLink;
+
+/*!
+* @brief Setup by providing the Partner Key and the App Link. SDK needs to be set up before any request.
+* @param appKey Your App Key provided by Truecaller
+* @param appLink Your App Link url string provided by Truecaller
+* @param requestNonce Your App generated custom nonce
+*/
+- (void)setupWithAppKey:(nonnull NSString *)appKey
+                appLink:(nonnull NSString *)appLink
+           requestNonce:(nonnull NSString *)requestNonce;
 
 /*!
  * @brief Call this method to request the True Profile for a user. Make sure you set the delegate first.

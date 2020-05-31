@@ -26,6 +26,7 @@
                 <outlet property="lblPleaseEnter" destination="cb2-q4-vTy" id="Npa-rX-Bea"/>
                 <outlet property="lblTitle" destination="m2P-TZ-Ddy" id="65w-GY-k9T"/>
                 <outlet property="lblTransferDetail" destination="ESr-fq-EQM" id="Mmp-JU-NG3"/>
+                <outlet property="tableView" destination="K9B-v2-guV" id="x1Y-b9-5mG"/>
                 <outlet property="tncTextView" destination="RNN-dv-f5g" id="1Mh-OY-SeN"/>
                 <outlet property="view" destination="nyM-wV-x5d" id="hX0-J8-2f8"/>
             </connections>
@@ -144,10 +145,19 @@
                     <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="18"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="K9B-v2-guV">
+                    <rect key="frame" x="10" y="109" width="300" height="404"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="8It-yK-ujf"/>
+                        <outlet property="delegate" destination="-1" id="skQ-vZ-TCD"/>
+                    </connections>
+                </tableView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="QeG-re-cjv" firstAttribute="leading" secondItem="Ivd-9t-eAw" secondAttribute="leading" id="0pu-Vv-N4v"/>
+                <constraint firstItem="K9B-v2-guV" firstAttribute="top" secondItem="QeG-re-cjv" secondAttribute="bottom" constant="10" id="1iV-HC-lg4"/>
                 <constraint firstItem="2q6-aW-gmj" firstAttribute="trailing" secondItem="Ivd-9t-eAw" secondAttribute="trailing" id="5s5-IY-3n5"/>
                 <constraint firstItem="Dae-wA-ATz" firstAttribute="top" secondItem="RNN-dv-f5g" secondAttribute="bottom" constant="10" id="FmG-TP-xm0"/>
                 <constraint firstItem="QeG-re-cjv" firstAttribute="top" secondItem="nQR-F8-VhC" secondAttribute="bottom" constant="5" id="Kdk-Ts-Mtu"/>
@@ -155,7 +165,9 @@
                 <constraint firstItem="RNN-dv-f5g" firstAttribute="top" secondItem="QeG-re-cjv" secondAttribute="bottom" constant="10" id="QMa-mP-myN"/>
                 <constraint firstItem="Ivd-9t-eAw" firstAttribute="trailing" secondItem="RNN-dv-f5g" secondAttribute="trailing" constant="10" id="S2C-YO-2nP"/>
                 <constraint firstItem="nQR-F8-VhC" firstAttribute="top" secondItem="Ivd-9t-eAw" secondAttribute="top" id="T11-AH-XoK"/>
+                <constraint firstItem="Dae-wA-ATz" firstAttribute="top" secondItem="K9B-v2-guV" secondAttribute="bottom" constant="10" id="W4x-IZ-7VY"/>
                 <constraint firstItem="2q6-aW-gmj" firstAttribute="top" secondItem="Ivd-9t-eAw" secondAttribute="top" id="aLl-SD-ipg"/>
+                <constraint firstItem="Ivd-9t-eAw" firstAttribute="trailing" secondItem="K9B-v2-guV" secondAttribute="trailing" constant="10" id="cdO-13-1B9"/>
                 <constraint firstItem="Dae-wA-ATz" firstAttribute="leading" secondItem="Ivd-9t-eAw" secondAttribute="leading" id="fpY-Hh-43d"/>
                 <constraint firstAttribute="trailing" secondItem="QeG-re-cjv" secondAttribute="trailing" id="hvI-8J-Etj"/>
                 <constraint firstItem="Ivd-9t-eAw" firstAttribute="bottom" secondItem="Dae-wA-ATz" secondAttribute="bottom" id="lBi-MM-T0h"/>
@@ -163,6 +175,7 @@
                 <constraint firstItem="2q6-aW-gmj" firstAttribute="leading" secondItem="Ivd-9t-eAw" secondAttribute="leading" id="oOT-1X-FPl"/>
                 <constraint firstItem="Ivd-9t-eAw" firstAttribute="trailing" secondItem="Dae-wA-ATz" secondAttribute="trailing" id="pca-eR-yp5"/>
                 <constraint firstItem="nQR-F8-VhC" firstAttribute="trailing" secondItem="Ivd-9t-eAw" secondAttribute="trailing" id="q5q-ws-bas"/>
+                <constraint firstItem="K9B-v2-guV" firstAttribute="leading" secondItem="Ivd-9t-eAw" secondAttribute="leading" constant="10" id="sRk-rl-xfH"/>
                 <constraint firstItem="nQR-F8-VhC" firstAttribute="leading" secondItem="Ivd-9t-eAw" secondAttribute="leading" id="uAj-Cl-GaK"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Ivd-9t-eAw"/>

@@ -249,7 +249,7 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
             
             self.engBaseView.isHidden = false
             self.chinaBaseView.isHidden = true
-            self.hindiBaseView.isHidden = false
+            self.hindiBaseView.isHidden = true
             
             self.btnEnglish.sendActions(for: .touchUpInside)
             
@@ -314,7 +314,7 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
             
             self.engBaseView.isHidden = false
             self.chinaBaseView.isHidden = true
-            self.hindiBaseView.isHidden = false
+            self.hindiBaseView.isHidden = true
             self.btnEnglish.sendActions(for: .touchUpInside)
             
         }

@@ -1,4 +1,4 @@
-[![CI Status](http://img.shields.io/travis/Andrea Mario Lufino/Deviice.svg?style=flat)](https://travis-ci.org/Andrea Mario Lufino/Deviice)
+[![CI Status](https://img.shields.io/travis/Andrea%20Mario%20Lufino/Deviice.svg?style=flat)](https://travis-ci.org/Andrea%20Mario%20Lufino/Deviice)
 [![Version](https://img.shields.io/cocoapods/v/Deviice.svg?style=flat)](http://cocoapods.org/pods/Deviice)
 [![License](https://img.shields.io/cocoapods/l/Deviice.svg?style=flat)](http://cocoapods.org/pods/Deviice)
 [![Platform](https://img.shields.io/cocoapods/p/Deviice.svg?style=flat)](http://cocoapods.org/pods/Deviice)
@@ -36,7 +36,7 @@ pod "Deviice"
 
 ## Author
 
-Andrea Mario Lufino, andrea.lufino@me.com
+Andrea Mario Lufino, [andrealufino.me](https://andrealufino.me).
 
 ## License
 

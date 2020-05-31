@@ -2,7 +2,7 @@
 //  BioMetricAuthenticator.swift
 //  BiometricAuthentication
 //
-//  Copyright (c) 2018 Rushi Sangani
+//  Copyright (c) 2017 Rushi Sangani
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -30,31 +30,13 @@ open class BioMetricAuthenticator: NSObject {
 
     // MARK: - Singleton
     public static let shared = BioMetricAuthenticator()
-    
-    // MARK: - Private
-    private override init() {}
-    private lazy var context: LAContext? = {
-        return LAContext()
-    }()
-
-    // MARK: - Public
-    public var allowableReuseDuration: TimeInterval? = nil {
-        didSet {
-            guard let duration = allowableReuseDuration else {
-                return
-            }
-            if #available(iOS 9.0, *) {
-                self.context?.touchIDAuthenticationAllowableReuseDuration = duration
-            }
-        }
-    }
 }
 
 // MARK:- Public
 
 public extension BioMetricAuthenticator {
     
-    /// checks if biometric authentication can be performed currently on the device.
+    /// checks if TouchID or FaceID is available on the device.
     class func canAuthenticate() -> Bool {
         
         var isBiometricAuthenticationAvailable = false
@@ -68,17 +50,9 @@ public extension BioMetricAuthenticator {
     
     /// Check for biometric authentication
     class func authenticateWithBioMetrics(reason: String, fallbackTitle: String? = "", cancelTitle: String? = "", success successBlock:@escaping AuthenticationSuccess, failure failureBlock:@escaping AuthenticationFailure) {
-       
-        // reason
         let reasonString = reason.isEmpty ? BioMetricAuthenticator.shared.defaultBiometricAuthenticationReason() : reason
         
-        // context
-        var context: LAContext!
-        if BioMetricAuthenticator.shared.isReuseDurationSet() {
-            context = BioMetricAuthenticator.shared.context
-        }else {
-            context = LAContext()
-        }
+        let context = LAContext()
         context.localizedFallbackTitle = fallbackTitle
         
         // cancel button title
@@ -92,8 +66,6 @@ public extension BioMetricAuthenticator {
     
     /// Check for device passcode authentication
     class func authenticateWithPasscode(reason: String, cancelTitle: String? = "", success successBlock:@escaping AuthenticationSuccess, failure failureBlock:@escaping AuthenticationFailure) {
-        
-        // reason
         let reasonString = reason.isEmpty ? BioMetricAuthenticator.shared.defaultPasscodeAuthenticationReason() : reason
         
         let context = LAContext()
@@ -112,25 +84,13 @@ public extension BioMetricAuthenticator {
         }
     }
     
-    /// checks if device supports face id authentication
-    func faceIDAvailable() -> Bool {
+    /// checks if face id is avaiable on device
+    public func faceIDAvailable() -> Bool {
         if #available(iOS 11.0, *) {
             let context = LAContext()
-            return (context.canEvaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, error: nil) && context.biometryType == .faceID)
+            return (context.canEvaluatePolicy(LAPolicy.deviceOwnerAuthentication, error: nil) && context.biometryType == .faceID)
         }
         return false
-    }
-    
-    /// checks if device supports touch id authentication
-    func touchIDAvailable() -> Bool {
-        let context = LAContext()
-        var error: NSError?
-        
-        let canEvaluate = context.canEvaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, error: &error)
-        if #available(iOS 11.0, *) {
-            return canEvaluate && context.biometryType == .touchID
-        }
-        return canEvaluate
     }
 }
 
@@ -138,25 +98,17 @@ public extension BioMetricAuthenticator {
 extension BioMetricAuthenticator {
 
     /// get authentication reason to show while authentication
-    private func defaultBiometricAuthenticationReason() -> String {
+    func defaultBiometricAuthenticationReason() -> String {
         return faceIDAvailable() ? kFaceIdAuthenticationReason : kTouchIdAuthenticationReason
     }
     
     /// get passcode authentication reason to show while entering device passcode after multiple failed attempts.
-    private func defaultPasscodeAuthenticationReason() -> String {
+    func defaultPasscodeAuthenticationReason() -> String {
         return faceIDAvailable() ? kFaceIdPasscodeAuthenticationReason : kTouchIdPasscodeAuthenticationReason
     }
     
-    /// checks if allowableReuseDuration is set
-    private func isReuseDurationSet() -> Bool {
-        guard allowableReuseDuration != nil else {
-            return false
-        }
-        return true
-    }
-    
     /// evaluate policy
-    private func evaluate(policy: LAPolicy, with context: LAContext, reason: String, success successBlock:@escaping AuthenticationSuccess, failure failureBlock:@escaping AuthenticationFailure) {
+    func evaluate(policy: LAPolicy, with context: LAContext, reason: String, success successBlock:@escaping AuthenticationSuccess, failure failureBlock:@escaping AuthenticationFailure) {
         
         context.evaluatePolicy(policy, localizedReason: reason) { (success, err) in
             DispatchQueue.main.async {

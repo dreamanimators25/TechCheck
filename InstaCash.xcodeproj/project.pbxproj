@@ -117,8 +117,19 @@
 		59057666242E5DB900FEF541 /* OfferPromotionPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59057664242E5DB900FEF541 /* OfferPromotionPopUpVC.swift */; };
 		59057667242E5DB900FEF541 /* OfferPromotionPopUpVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59057665242E5DB900FEF541 /* OfferPromotionPopUpVC.xib */; };
 		5907E17A242CD5500038CD47 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5907E17C242CD5500038CD47 /* Localizable.strings */; };
+		591313CA2483A90F007184DC /* TextBoxCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591313C82483A90F007184DC /* TextBoxCell.swift */; };
+		591313CB2483A90F007184DC /* TextBoxCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 591313C92483A90F007184DC /* TextBoxCell.xib */; };
+		591313CE2483A932007184DC /* HtmlCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591313CC2483A932007184DC /* HtmlCell.swift */; };
+		591313CF2483A932007184DC /* HtmlCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 591313CD2483A932007184DC /* HtmlCell.xib */; };
+		591313D22483A944007184DC /* SelectTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591313D02483A944007184DC /* SelectTextCell.swift */; };
+		591313D32483A944007184DC /* SelectTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 591313D12483A944007184DC /* SelectTextCell.xib */; };
 		5943AEE92443507400A49C3D /* MyOrdersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5943AEE72443507400A49C3D /* MyOrdersCell.swift */; };
 		5943AEEA2443507400A49C3D /* MyOrdersCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5943AEE82443507400A49C3D /* MyOrdersCell.xib */; };
+		594D330A24826AB80081B7CE /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 594D330924826AB80081B7CE /* MobileCoreServices.framework */; };
+		594D330F24826D720081B7CE /* ZDCChat.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 594D330B24826D5B0081B7CE /* ZDCChat.bundle */; };
+		594D331024826D720081B7CE /* ZDCChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 594D330C24826D630081B7CE /* ZDCChat.framework */; };
+		594D331124826D720081B7CE /* ZDCChatAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 594D330D24826D6B0081B7CE /* ZDCChatAPI.framework */; };
+		594D331224826D720081B7CE /* ZDCChatStrings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 594D330E24826D710081B7CE /* ZDCChatStrings.bundle */; };
 		59B67ACC2438FA3E00F4B321 /* LanguagePopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B67ACA2438FA3E00F4B321 /* LanguagePopUpVC.swift */; };
 		59B67ACD2438FA3E00F4B321 /* LanguagePopUpVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59B67ACB2438FA3E00F4B321 /* LanguagePopUpVC.xib */; };
 		59B68C52245EE59900731FAD /* TWCashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B68C50245EE59900731FAD /* TWCashVC.swift */; };
@@ -529,8 +540,19 @@
 		5907E17E242CD58D0038CD47 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		5907E17F242CD59E0038CD47 /* hi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hi; path = hi.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		5907E180242CD59F0038CD47 /* hi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hi; path = hi.lproj/Localizable.strings; sourceTree = "<group>"; };
+		591313C82483A90F007184DC /* TextBoxCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextBoxCell.swift; sourceTree = "<group>"; };
+		591313C92483A90F007184DC /* TextBoxCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextBoxCell.xib; sourceTree = "<group>"; };
+		591313CC2483A932007184DC /* HtmlCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HtmlCell.swift; sourceTree = "<group>"; };
+		591313CD2483A932007184DC /* HtmlCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HtmlCell.xib; sourceTree = "<group>"; };
+		591313D02483A944007184DC /* SelectTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTextCell.swift; sourceTree = "<group>"; };
+		591313D12483A944007184DC /* SelectTextCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectTextCell.xib; sourceTree = "<group>"; };
 		5943AEE72443507400A49C3D /* MyOrdersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrdersCell.swift; sourceTree = "<group>"; };
 		5943AEE82443507400A49C3D /* MyOrdersCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyOrdersCell.xib; sourceTree = "<group>"; };
+		594D330924826AB80081B7CE /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		594D330B24826D5B0081B7CE /* ZDCChat.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ZDCChat.bundle; sourceTree = "<group>"; };
+		594D330C24826D630081B7CE /* ZDCChat.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZDCChat.framework; sourceTree = "<group>"; };
+		594D330D24826D6B0081B7CE /* ZDCChatAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZDCChatAPI.framework; sourceTree = "<group>"; };
+		594D330E24826D710081B7CE /* ZDCChatStrings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ZDCChatStrings.bundle; sourceTree = "<group>"; };
 		59B67ACA2438FA3E00F4B321 /* LanguagePopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagePopUpVC.swift; sourceTree = "<group>"; };
 		59B67ACB2438FA3E00F4B321 /* LanguagePopUpVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LanguagePopUpVC.xib; sourceTree = "<group>"; };
 		59B68C50245EE59900731FAD /* TWCashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TWCashVC.swift; path = InstaCash/ViewController/PaymentMode/TWPaymentMode/TWCashVC.swift; sourceTree = SOURCE_ROOT; };
@@ -828,7 +850,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E59BBEF2466787000D8C3CE /* CoreLocation.framework in Frameworks */,
+				594D331124826D720081B7CE /* ZDCChatAPI.framework in Frameworks */,
 				5E59BBF12466787200D8C3CE /* CoreTelephony.framework in Frameworks */,
+				594D330A24826AB80081B7CE /* MobileCoreServices.framework in Frameworks */,
+				594D331024826D720081B7CE /* ZDCChat.framework in Frameworks */,
 				5E59BBED2466786A00D8C3CE /* Pods_InstaCash.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -951,6 +976,7 @@
 		51259420D2CF7A40A1BA36B6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				594D330924826AB80081B7CE /* MobileCoreServices.framework */,
 				FB57274421E9CE8100CE1FC2 /* libIOAccessoryManager.tbd */,
 				FB9D19272147D45D001C89DA /* CoreLocation.framework */,
 				957D964E21415B7200DFA2B5 /* CoreTelephony.framework */,
@@ -1100,6 +1126,19 @@
 			path = TPKeyboardAvoidingClasses;
 			sourceTree = "<group>";
 		};
+		591313C32483A7EB007184DC /* TWPaymentModeCell */ = {
+			isa = PBXGroup;
+			children = (
+				591313C82483A90F007184DC /* TextBoxCell.swift */,
+				591313C92483A90F007184DC /* TextBoxCell.xib */,
+				591313CC2483A932007184DC /* HtmlCell.swift */,
+				591313CD2483A932007184DC /* HtmlCell.xib */,
+				591313D02483A944007184DC /* SelectTextCell.swift */,
+				591313D12483A944007184DC /* SelectTextCell.xib */,
+			);
+			path = TWPaymentModeCell;
+			sourceTree = "<group>";
+		};
 		59B68C4F245EE57100731FAD /* TWPaymentMode */ = {
 			isa = PBXGroup;
 			children = (
@@ -1123,6 +1162,10 @@
 		951EC7E1213FC64F006BD4B2 = {
 			isa = PBXGroup;
 			children = (
+				594D330B24826D5B0081B7CE /* ZDCChat.bundle */,
+				594D330C24826D630081B7CE /* ZDCChat.framework */,
+				594D330D24826D6B0081B7CE /* ZDCChatAPI.framework */,
+				594D330E24826D710081B7CE /* ZDCChatStrings.bundle */,
 				5907E17C242CD5500038CD47 /* Localizable.strings */,
 				FB57273C21E9BDC100CE1FC2 /* BridgeHeader.h */,
 				951EC7EC213FC64F006BD4B2 /* InstaCash */,
@@ -1264,6 +1307,7 @@
 		951EC81D213FC9F8006BD4B2 /* TabelviewCell */ = {
 			isa = PBXGroup;
 			children = (
+				591313C32483A7EB007184DC /* TWPaymentModeCell */,
 				5229ACC523FC4483002C7FB7 /* HistoryListCell */,
 				5229ACC423FC4417002C7FB7 /* FloatingItemCell */,
 				520D5C7F23A7493B00C85EB6 /* productQuateSummaryCell */,
@@ -2226,6 +2270,7 @@
 				FACBD88EA3D1CE7C1322A8E3 /* [CP] Embed Pods Frameworks */,
 				2A25F0CE478543943160C5EC /* [CP] Copy Pods Resources */,
 				FBCC7AA82161F25D002A48A3 /* ShellScript */,
+				59FE629A2481187700D26810 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -2358,6 +2403,7 @@
 				FBFB3E232151095F002924A3 /* CityVC.xib in Resources */,
 				FB9C6FF8215A1E6600F93B85 /* RotationVC.xib in Resources */,
 				FBFDA7FF21537B6600667DC6 /* PaymentsModeVC.xib in Resources */,
+				591313CB2483A90F007184DC /* TextBoxCell.xib in Resources */,
 				FBFB3E2B21511143002924A3 /* CityCell.xib in Resources */,
 				35F8AE1D234F3EFE0004F3CF /* CountrySelection.xib in Resources */,
 				59E4BE872429202100F59107 /* OffersAndPromotionsVC.xib in Resources */,
@@ -2379,6 +2425,7 @@
 				951EC827213FCB9D006BD4B2 /* Comfortaa-Regular.ttf in Resources */,
 				521A28A423C87CA9002DAC7D /* OrderDetailSummaryVC.xib in Resources */,
 				FBFB0E1E215F582500E81EF4 /* ContactUsVC.xib in Resources */,
+				594D330F24826D720081B7CE /* ZDCChat.bundle in Resources */,
 				FBFB0E1A215F512E00E81EF4 /* TermsConditionVC.xib in Resources */,
 				FB3A47E9219AC4CD003F5B89 /* TimeLineVC.xib in Resources */,
 				FB3997392170B2E2008B0AC6 /* UploadDocumentVC.xib in Resources */,
@@ -2440,6 +2487,7 @@
 				52160CC123FBD22800A09035 /* AboutPageVC.xib in Resources */,
 				52210BBF23FBA01E00C87FDB /* AboutVC.xib in Resources */,
 				59B67ACD2438FA3E00F4B321 /* LanguagePopUpVC.xib in Resources */,
+				591313CF2483A932007184DC /* HtmlCell.xib in Resources */,
 				52088965239FD407005B9E27 /* ListViewCollectionViewCell.xib in Resources */,
 				FB9C7020215A580C00F93B85 /* FingerPrintDevice.xib in Resources */,
 				FB9C7009215A4F4F00F93B85 /* EarPhoneVC.xib in Resources */,
@@ -2492,6 +2540,7 @@
 				FB324C54214D3D9A00D18398 /* MobileNumberVC.xib in Resources */,
 				C3CC35C3224B4ACE00289D4E /* face-id.svg in Resources */,
 				FBFC83782152749C00562D42 /* DeviceOldVC.xib in Resources */,
+				594D331224826D720081B7CE /* ZDCChatStrings.bundle in Resources */,
 				522BF1A923B8A2060070655D /* OrderFinalVC.xib in Resources */,
 				52BD9A5123CA0A19004CCCD6 /* CustomerSupportVC.xib in Resources */,
 				951EC7F5213FC651006BD4B2 /* Assets.xcassets in Resources */,
@@ -2500,6 +2549,7 @@
 				FB9C6FEE215A197900F93B85 /* whistle.mp3 in Resources */,
 				FBFC7D772178A367006AFF95 /* MisMatchVC.xib in Resources */,
 				FBFE678921A28B5F00B598F3 /* LiveOfferVC.xib in Resources */,
+				591313D32483A944007184DC /* SelectTextCell.xib in Resources */,
 				FBFCA37921C22B75006A016E /* right-arrow.svg in Resources */,
 				FBF35E0D215E29390052DAF7 /* MyAddresses.xib in Resources */,
 				FB32CB6C21D0F36B00464AAA /* OrderPlacePopUp.xib in Resources */,
@@ -2563,6 +2613,24 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-InstaCash/Pods-InstaCash-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		59FE629A2481187700D26810 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
 		};
 		88E3775E65A2945916CF83ED /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2639,6 +2707,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FBFA194C21771A3B00A17E68 /* ChangeAppModeVC.swift in Sources */,
+				591313CE2483A932007184DC /* HtmlCell.swift in Sources */,
 				FBFC835C2152453D00562D42 /* DisplayAndTouchScreenCell.swift in Sources */,
 				3536EDEF23427A2900C7052C /* GradientView.swift in Sources */,
 				FBFDFA1A217F020D0014A2F8 /* RatingVC.swift in Sources */,
@@ -2679,6 +2748,7 @@
 				35F8AE17234F3EFE0004F3CF /* CountrySelection.swift in Sources */,
 				59E4BE862429202100F59107 /* OffersAndPromotionsVC.swift in Sources */,
 				FBFDA7FE21537B6600667DC6 /* PaymentsModeVC.swift in Sources */,
+				591313D22483A944007184DC /* SelectTextCell.swift in Sources */,
 				52BD9A5023CA0A19004CCCD6 /* CustomerSupportVC.swift in Sources */,
 				FB9C6FF7215A1E6600F93B85 /* RotationVC.swift in Sources */,
 				FBFC836B2152640600562D42 /* FunctionalQuestionCell.swift in Sources */,
@@ -2704,6 +2774,7 @@
 				35F8AE12234F3EFE0004F3CF /* ExactQuote.swift in Sources */,
 				35B06DC2234644BE00F5503F /* ToastCenter.swift in Sources */,
 				FBD0BDF7215231B20025C196 /* QuestionCardTypeCell.swift in Sources */,
+				591313CA2483A90F007184DC /* TextBoxCell.swift in Sources */,
 				525C2B3623ABB30E006A1237 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				520D5C8223A7498000C85EB6 /* ProductSummaryTblViewCell.swift in Sources */,
 				521B2DC923EAFC6100887C03 /* UserAccountVC.swift in Sources */,
@@ -3014,6 +3085,7 @@
 			baseConfigurationReference = E5F14511AD37B8C3069DB291 /* Pods-InstaCash.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = InstaCash/InstaCash.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -3022,6 +3094,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/InstaCash/New\\ Group",
+					"$(PROJECT_DIR)/InstaCash/New\\ Group",
 				);
 				INFOPLIST_FILE = InstaCash/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -3043,6 +3117,7 @@
 			baseConfigurationReference = CAD49ED751364A1485B4324B /* Pods-InstaCash.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = InstaCash/InstaCash.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
@@ -3050,6 +3125,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/InstaCash/New\\ Group",
+					"$(PROJECT_DIR)/InstaCash/New\\ Group",
 				);
 				INFOPLIST_FILE = InstaCash/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;

@@ -19,6 +19,7 @@ import LocalAuthentication
 //import Crashlytics
 //import Fabric
 import FirebaseMessaging
+import ZDCChat
 
 var lang_code = String()
 var languageCode = String()
@@ -106,11 +107,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         application.registerForRemoteNotifications()
      
     }
+    
     @objc func tokenRefreshNotificaiton(notification: NSNotification) {
         
         InstanceID.instanceID().instanceID { (result, error) in
             if let error = error {
+                print("Error fetching remote instance ID: \(error)")
             } else if let result = result {
+                print("Remote instance ID token: \(result.token)")
                 UserDefaults.standard.set("\(result.token)", forKey: "FCMToken")
             }
         }
@@ -124,11 +128,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     }
     
     func connectToFcm() {
+        /* Sameer 28/5/2020
         Messaging.messaging().connect { (error) in
             if (error != nil) {
             } else {
             }
-        }
+        }*/
+        
+        //Sameer 29/5/2020
+        Messaging.messaging().shouldEstablishDirectChannel = true
+                
+        //Sameer 28/5/2020
+        Messaging.messaging().isAutoInitEnabled = true
     }
   
     // custom notification
@@ -161,10 +172,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     }
     
     //MARK:- firebase delegates methods
+    //Sameer 29/5/20
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
+        print("Firebase registration token: \(fcmToken)")
+        
+        let dataDict:[String: String] = ["token": fcmToken]
+        NotificationCenter.default.post(name: Notification.Name("FCMToken"), object: nil, userInfo: dataDict)
+        // TODO: If necessary send token to application server.
+        // Note: This callback is fired at each app startup and whenever a new token is generated.
     
-//    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
-//        print(fcmToken)
-//    }
+    }
     
     func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
         
@@ -185,6 +202,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     //MARK:- APNS delegate methods
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         getDeviceToken  = deviceToken
+        
+        //Sameer 29/5/20
+        Messaging.messaging().apnsToken = deviceToken
+        
 //        let deviceTokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
 //        print(deviceTokenString)
 //        UserDefaults.standard.set(deviceTokenString as String, forKey: "FCMToken")
@@ -192,6 +213,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print(error.localizedDescription)
+        print(error)
     }
     
     @available(iOS 10.0, *)
@@ -316,6 +339,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     //MARK:- App lifecycle
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
+        //Sameer 30/5/2020
+        ZDCChat.initialize(withAccountKey: "2xn7hyX7VWiVkouAyGvhXQo9DHaDqONS")
+        
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
         if let savedCode = userDefaults.getLanguageCode(key: "langCode") {
             langCode = savedCode
         }else {
@@ -428,6 +458,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         FirebaseApp.configure()
         
         //Fabric.with([Crashlytics.self])
+        
+        //Sameer 30/5/20
+        Crashlytics.crashlytics()
         
         //Regester APNS
         registerAPNS(application: application)

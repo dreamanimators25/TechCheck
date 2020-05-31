@@ -8,8 +8,9 @@
 
 import UIKit
 
-class TWCashVC: UIViewController {
+class TWCashVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate {
     
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tncTextView: UITextView!
     
     @IBOutlet weak var lblTitle: UILabel!
@@ -30,8 +31,18 @@ class TWCashVC: UIViewController {
     var placedOrderId = String()
     
     var drop = UIDropDown()
-    var arrDrop = [String]()
-
+    var responseDict = [String:Any]()
+    var arrDictKeys = [Any]()
+    var arrDictValues = [[Any]]()
+    
+    var isHtml = true
+    var textBoxStr = ""
+    var autoCompTextStr = ""
+    var textBoxBool = false
+    var autoCompTextBool = false
+    var textBoxKey = ""
+    var autoCompTextKey = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.getPaymentDetailsFromServer()
@@ -41,6 +52,10 @@ class TWCashVC: UIViewController {
         super.viewWillAppear(animated)
         
         self.changeLanguageOfUI()
+        
+        tableView.register(UINib(nibName: "TextBoxCell", bundle: nil), forCellReuseIdentifier: "TextBoxCell")
+        tableView.register(UINib(nibName: "HtmlCell", bundle: nil), forCellReuseIdentifier: "HtmlCell")
+        tableView.register(UINib(nibName: "SelectTextCell", bundle: nil), forCellReuseIdentifier: "SelectTextCell")
     }
     
     func changeLanguageOfUI() {
@@ -69,10 +84,31 @@ class TWCashVC: UIViewController {
     
     @IBAction func btnProceedTapped(_ sender: UIButton) {            //self.setPaymentDetailsFromServer()
         
-        let vc = OrderFinalVC()
-        vc.orderID = self.placedOrderId
-        vc.finalPrice = self.finalPriced
-        self.navigationController?.pushViewController(vc, animated: true)
+        if isHtml {
+            let vc = OrderFinalVC()
+            vc.orderID = self.placedOrderId
+            vc.finalPrice = self.finalPriced
+            self.navigationController?.pushViewController(vc, animated: true)
+        }else {
+            if self.textBoxBool {
+                if self.textBoxStr == "" {
+                    Alert.showAlertWithError(strMessage: "Please Enter the details".localized(lang: langCode) as NSString, Onview: self)
+                    
+                    return
+                }
+            }
+            
+            if self.autoCompTextBool {
+                if self.autoCompTextStr == "" {
+                    Alert.showAlertWithError(strMessage: "Please Enter the details".localized(lang: langCode) as NSString, Onview: self)
+                    
+                    return
+                }
+            }
+            
+            self.setPaymentDetailsFromServer()
+        }
+        
     }
     
     //MARK:- webservice Get Payment Details
@@ -94,17 +130,18 @@ class TWCashVC: UIViewController {
             
             //"CASH"
             //"UUPON (Cash+Points)"
-            //"UUPON (Points Only)"
+            //"UUPON (Points Only)"            
             
             let parametersHome : [String : Any] = [
                 "userName" : apiAuthenticateUserName,
                 "apiKey" : key,
-                "paymentCode" : selectedPaymentType,
-                "quotationId" : quatationId,
+                "paymentCode" : selectedPaymentType, //"UUPON (Points Only)",
+                "quotationId" : quatationId, //"581",
                 "customerId" : CustomUserDefault.getUserId(),
-                "orderItemId" : itemID
+                "orderItemId" : itemID, //"191",
             ]
             
+            print(strUrl)
             print(parametersHome)
             
             self.paymentDetailsApiPost(strURL: strUrl, parameters: parametersHome as NSDictionary, completionHandler: {responseObject , error in
@@ -124,6 +161,7 @@ class TWCashVC: UIViewController {
                             //let actualHTML = ((responseObject?.value(forKey: "msg") as! NSDictionary)["html"] as! NSArray)[3] as? String
                             //self.tncTextView.attributedText = actualHTML?.htmlToAttributedString
                             
+                            /*
                             if let actualHTMLArray = ((responseObject?.value(forKey: "msg") as! NSDictionary)["html"] as? NSArray) {
                                 self.tncTextView.attributedText =  (actualHTMLArray[3] as? String)?.htmlToAttributedString
                             }else {
@@ -131,6 +169,20 @@ class TWCashVC: UIViewController {
                                 vc.orderID = self.placedOrderId
                                 vc.finalPrice = self.finalPriced
                                 self.navigationController?.pushViewController(vc, animated: true)
+                            }*/
+                            
+                            self.responseDict = (responseObject?.value(forKey: "paymentStructure") as? [String:Any] ?? [:])
+                            
+                            for (key, value) in self.responseDict {
+                                //print("\(key) -> \(value)")
+                                
+                                self.arrDictKeys.append(key)
+                                self.arrDictValues.append([value])
+                            }
+                            
+                            
+                            DispatchQueue.main.async {
+                                self.tableView.reloadData()
                             }
                             
                         }
@@ -169,11 +221,19 @@ class TWCashVC: UIViewController {
             
             var jsonString = ""
             
-            let info = ["Bank Holders Name": "",
-                        "Bank Account Number": "",
-                        "Bank Name" : "",
-                        "Promoter ID" : "",
-                        "Referral ID" : ""]
+            var info = [String:Any]()
+            
+            if textBoxBool {
+                info[textBoxKey] = self.textBoxStr
+            }
+            
+            if autoCompTextBool {
+                info[autoCompTextKey] = self.autoCompTextStr
+            }
+            
+//            let info = [textBoxKey : self.textBoxStr,
+//                        autoCompTextKey : self.autoCompTextStr,
+//                       ]
             
             let jsonData = try! JSONSerialization.data(withJSONObject: info, options:[])
             jsonString = NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue)! as String
@@ -190,6 +250,8 @@ class TWCashVC: UIViewController {
                 "isOffer" : "1",
                 "paymentCode": selectedPaymentType,
             ]
+            
+            print(parametersHome)
             
             self.setPaymentDetailsApiPost(strURL: strUrl, parameters: parametersHome as NSDictionary, completionHandler: {responseObject , error in
                 
@@ -221,7 +283,86 @@ class TWCashVC: UIViewController {
         }
         
     }
-
+    
+    //MARK:- tableview Delegates methods
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.arrDictValues.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        //for item in self.responseDict {
+        //let data = item.value as! [Any]
+        
+        let data = self.arrDictValues[indexPath.row]
+        
+        let arrData = data[0] as! Array<Any>
+        print(arrData)
+        
+        if (arrData[0] as? String) == "text" {
+            isHtml = false
+            textBoxBool = true
+            
+            let cellTextBox = tableView.dequeueReusableCell(withIdentifier: "TextBoxCell", for: indexPath) as! TextBoxCell
+            
+            cellTextBox.txtField.placeholder = self.arrDictKeys[indexPath.row] as? String
+            cellTextBox.txtField.tag = 1
+            textBoxKey = self.arrDictKeys[indexPath.row] as? String ?? ""
+            cellTextBox.txtField.delegate = self
+            
+            return cellTextBox
+            
+        }else if (arrData[0] as? String) == "html" {
+            
+            let cellTextHtml = tableView.dequeueReusableCell(withIdentifier: "HtmlCell", for: indexPath) as! HtmlCell
+            
+            cellTextHtml.htmlTextView.attributedText =  (arrData[3] as? String)?.htmlToAttributedString
+            
+            return cellTextHtml
+            
+        }else if (arrData[0] as? String) == "select" {
+            isHtml = false
+            autoCompTextBool = true
+            
+            let cellTextSelect = tableView.dequeueReusableCell(withIdentifier: "SelectTextCell", for: indexPath) as! SelectTextCell
+            
+            cellTextSelect.autoCompTxtField.placeholder = self.arrDictKeys[indexPath.row] as? String
+            cellTextSelect.autoCompTxtField.tag = 2
+            autoCompTextKey = self.arrDictKeys[indexPath.row] as? String ?? ""
+            cellTextSelect.autoCompTxtField.delegate = self
+            
+            return cellTextSelect
+            
+        }
+        //}
+        
+        return UITableViewCell()
+        
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+    
+    //MARK:- textField Delegates methods
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        switch textField.tag {
+        case 1:
+            self.textBoxStr = textField.text ?? ""
+        default:
+            self.autoCompTextStr = textField.text ?? ""
+        }
+        
+        return true
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation

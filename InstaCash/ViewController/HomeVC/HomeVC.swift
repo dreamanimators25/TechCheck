@@ -14,6 +14,7 @@ import FacebookCore
 import SwiftyJSON
 import SystemServices
 import MessageUI
+import ZDCChat
 
 class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, ShowVerificationCodeDelegate, UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate {
     
@@ -2542,6 +2543,22 @@ extension HomeVC {
                 self.onClickEmailButton()
             default:
                 print("Zopim Chat")
+                
+                //ZDCChat.initialize(withAccountKey: "your_account_key")
+                
+                ZDCChat.start(in: self.navigationController, withConfig: {config in
+                    config?.preChatDataRequirements.name = .optionalEditable
+                    config?.preChatDataRequirements.email = .required
+                    config?.preChatDataRequirements.phone = .optional
+                })
+                
+                
+                ZDCChat.updateVisitor { user in
+                    user?.phone = CustomUserDefault.getPhoneNumber()
+                    user?.name = CustomUserDefault.getUserName()
+                    user?.email = CustomUserDefault.getUserEmail()
+                }
+                
             }
             
         }else if CustomUserDefault.getCurrency() == "NT$" {

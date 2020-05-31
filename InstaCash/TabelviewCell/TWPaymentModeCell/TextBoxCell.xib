@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="TextBoxCell" rowHeight="52" id="KGk-i7-Jjw" customClass="TextBoxCell" customModule="InstaCash" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="323" height="52"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="323" height="52"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gnn-AE-Wdq">
+                        <rect key="frame" x="5" y="5" width="313" height="45"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="45" id="lwT-IA-GA2"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yAi-OK-6Bm">
+                        <rect key="frame" x="5" y="50" width="313" height="1"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="vdo-Yq-egj"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Gnn-AE-Wdq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="4q8-K3-aLn"/>
+                    <constraint firstAttribute="trailing" secondItem="yAi-OK-6Bm" secondAttribute="trailing" constant="5" id="8aK-vN-e8r"/>
+                    <constraint firstItem="yAi-OK-6Bm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="Isp-fL-wJb"/>
+                    <constraint firstAttribute="trailing" secondItem="Gnn-AE-Wdq" secondAttribute="trailing" constant="5" id="WEw-vp-ajS"/>
+                    <constraint firstAttribute="bottom" secondItem="yAi-OK-6Bm" secondAttribute="bottom" id="e4u-Cp-2UG"/>
+                    <constraint firstItem="yAi-OK-6Bm" firstAttribute="top" secondItem="Gnn-AE-Wdq" secondAttribute="bottom" id="kUi-Qv-p5I"/>
+                    <constraint firstItem="Gnn-AE-Wdq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="t3t-mR-fVG"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="txtField" destination="Gnn-AE-Wdq" id="abf-LY-Nm7"/>
+            </connections>
+            <point key="canvasLocation" x="142.75362318840581" y="111.16071428571428"/>
+        </tableViewCell>
+    </objects>
+</document>

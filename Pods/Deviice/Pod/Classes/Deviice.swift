@@ -11,11 +11,16 @@ import Foundation
 
 // MARK: - Types
 
-// This enum explains itself
+/// This enumeration represents the device.
 public enum DeviiceType: String {
     case unknown            = "Unknown"
+    case iPodTouch1         = "iPod Touch 1"
+    case iPodTouch2         = "iPod Touch 2"
+    case iPodTouch3         = "iPod Touch 3"
+    case iPodTouch4         = "iPod Touch 4"
     case iPodTouch5         = "iPod Touch 5"
     case iPodTouch6         = "iPod Touch 6"
+    case iPodTouch7         = "iPod Touch 7"
     case iPhone4            = "iPhone 4"
     case iPhone4s           = "iPhone 4s"
     case iPhone5            = "iPhone 5"
@@ -31,34 +36,83 @@ public enum DeviiceType: String {
     case iPhone8            = "iPhone 8"
     case iPhone8Plus        = "iPhone 8 Plus"
     case iPhoneX            = "iPhone X"
+    case iPhoneXs           = "iPhone XS"
+    case iPhoneXsMax        = "iPhone XS Max"
+    case iPhoneXr           = "iPhone XR"
+    case iPhone11           = "iPhone 11"
+    case iPhone11Pro        = "iPhone 11 Pro"
+    case iPhone11ProMax     = "iPhone 11 Pro Max"
     case iPad2              = "iPad 2"
     case iPad3              = "iPad 3"
     case iPad4              = "iPad 4"
     case iPadAir            = "iPad Air"
     case iPadAir2           = "iPad Air 2"
-    case iPad5              = "iPad 5th generation"
-    case iPadMini           = "iPad Mini"
-    case iPadMini2          = "iPad Mini 2"
-    case iPadMini3          = "iPad Mini 3"
-    case iPadMini4          = "iPad Mini 4"
+    case iPadAir3           = "iPad Air 3"
+    case iPad5              = "iPad 5"
+    case iPad6              = "iPad 6"
+    case iPad7              = "iPad 7"
+    case iPadMini           = "iPad mini"
+    case iPadMini2          = "iPad mini 2"
+    case iPadMini3          = "iPad mini 3"
+    case iPadMini4          = "iPad mini 4"
+    case iPadMini5          = "iPad mini 5"
     case iPadPro            = "iPad Pro"
+    case iPadPro2           = "iPad Pro (2nd generation)"
+    case iPadPro3           = "iPad Pro (3rd generation)"
     case simulator          = "Simulator"
 }
 
-// The device screen size
+// The device screen size.
 public enum DeviiceSize: String {
     case screenUnknown          = "Unknown"
     case screen4Inches          = "4 inches"
     case screen4Dot7Inches      = "4,7 inches"
     case screen5Dot5Inches      = "5,5 inches"
     case screen5Dot8Inches      = "5,8 inches"
+    case screen6Dot1Inches      = "6,1 inches"
+    case screen6Dot5Inches      = "6,5 inches"
     case screen7Dot9Inches      = "7,9 inches"
     case screen9Dot7Inches      = "9,7 inches"
-    case screen12Dot9Inches     = "12,9 inches"
+    case screen10Dot2Inches     = "10,2 inches"
     case screen10Dot5Inches     = "10,5 inches"
+    case screen11Inches         = "11 inches"
+    case screen12Dot9Inches     = "12,9 inches"
+    
+    /// This is the value as `Double` of the screen size.
+    /// Could be useful to make comparison.
+    var value: Double {
+        switch self {
+        case .screenUnknown:
+            return -1
+        case .screen4Inches:
+            return 4
+        case .screen4Dot7Inches:
+            return 4.7
+        case .screen5Dot5Inches:
+            return 5.5
+        case .screen5Dot8Inches:
+            return 5.8
+        case .screen6Dot1Inches:
+            return 6.1
+        case .screen6Dot5Inches:
+            return 6.5
+        case .screen7Dot9Inches:
+            return 7.9
+        case .screen9Dot7Inches:
+            return 9.7
+        case .screen10Dot2Inches:
+            return 10.2
+        case .screen10Dot5Inches:
+            return 10.5
+        case .screen11Inches:
+            return 11
+        case .screen12Dot9Inches:
+            return 12.9
+        }
+    }
 }
 
-// The connectivity of the device
+// The connectivity of the device.
 public enum DeviiceConnectivity: String {
     case unknown        = "Unknown"
     case wiFi           = "WiFi"
@@ -69,305 +123,421 @@ public enum DeviiceConnectivity: String {
 
 // MARK: - Deviice
 
-/// A Deviice struct
+/// This structure represents a device.
 public struct Deviice {
     
     // MARK: Vars
     
-    /// The identifier of the device (for example: "iPod5,1")
-    public fileprivate (set) var identifier: String
-    /// The device type (DeviiceType enum)
-    public fileprivate (set) var type: DeviiceType
-    /// The name of the device in human language (ex.: "iPod Touch 5")
-    public fileprivate (set) var model: String
-    /// The size of the screen (DeviiceSize)
-    public fileprivate (set) var size: DeviiceSize
-    /// The connectivity of the device (DeviiceConnectivity)
-    public fileprivate (set) var connectivity: DeviiceConnectivity
-    /// The complete device name (ex.: "iPhone 6 Plus - WiFi + 4G - 5,5 inches")
-    public fileprivate (set) var completeName: String
+    /// The identifier of the device (for example: "iPod5,1").
+    public private (set) var identifier: String
+    /// The device type (`DeviiceType` enum).
+    public private (set) var type: DeviiceType
+    /// The name of the device in human language (ex.: "iPod Touch 5").
+    public private (set) var model: String
+    /// The size of the screen (`DeviiceSize`).
+    public private (set) var size: DeviiceSize
+    /// The connectivity of the device (`DeviiceConnectivity`).
+    public private (set) var connectivity: DeviiceConnectivity
+    /// The complete device name (ex.: "iPhone 6 Plus - WiFi + 4G - 5,5 inches").
+    public private (set) var completeName: String
     
     
     // MARK: Essentials
     
-    /// Private init
+    /// Private init.
     ///
-    /// - Parameter identifier: The identifier of the device
+    /// - Parameter identifier: The identifier of the device.
     // Identifiers and model information at: https://www.theiphonewiki.com/wiki/Models
-    fileprivate init(identifier: String) {
+    private init(identifier: String) {
         
         self.identifier = identifier
         
         switch identifier {
+
         
+        // MARK: iPod
+
+        case "iPod1,1":
+            self.type = .iPodTouch1
+            self.size = .screen4Inches
+            self.connectivity = .wiFi
+            
+        case "iPod2,1":
+            self.type = .iPodTouch2
+            self.size = .screen4Inches
+            self.connectivity = .wiFi
+            
+        case "iPod3,1":
+            self.type = .iPodTouch3
+            self.size = .screen4Inches
+            self.connectivity = .wiFi
+            
+        case "iPod4,1":
+            self.type = .iPodTouch4
+            self.size = .screen4Inches
+            self.connectivity = .wiFi
+            
         case "iPod5,1":
             self.type = .iPodTouch5
             self.size = .screen4Inches
             self.connectivity = .wiFi
-            break
             
         case "iPod7,1":
             self.type = .iPodTouch6
             self.size = .screen4Inches
             self.connectivity = .wiFi
-            break
             
+        case "iPod9,1":
+            self.type = .iPodTouch7
+            self.size = .screen4Inches
+            self.connectivity = .wiFi
+
+        
+        // MARK: iPhone
+
         case "iPhone3,1", "iPhone3,2", "iPhone3,3":
             self.type = .iPhone4
             self.size = .screen4Inches
             self.connectivity = .wiFi3G
-            break
             
         case "iPhone4,1":
             self.type = .iPhone4s
             self.size = .screen4Inches
             self.connectivity = .wiFi3G
-            break
             
         case "iPhone5,1", "iPhone5,2":
             self.type = .iPhone5
             self.size = .screen4Inches
             self.connectivity = .wiFi4G
-            break
             
         case "iPhone5,3", "iPhone5,4":
             self.type = .iPhone5c
             self.size = .screen4Inches
             self.connectivity = .wiFi4G
-            break
             
         case "iPhone6,1", "iPhone6,2":
             self.type = .iPhone5s
             self.size = .screen4Inches
             self.connectivity = .wiFi4G
-            break
-            
-        case "iPhone7,2":
-            self.type = .iPhone6
-            self.size = .screen4Dot7Inches
-            self.connectivity = .wiFi4G
-            break
             
         case "iPhone7,1":
             self.type = .iPhone6Plus
             self.size = .screen5Dot5Inches
             self.connectivity = .wiFi4G
-            break
+            
+        case "iPhone7,2":
+            self.type = .iPhone6
+            self.size = .screen4Dot7Inches
+            self.connectivity = .wiFi4G
             
         case "iPhone8,1":
             self.type = .iPhone6s
             self.size = .screen4Dot7Inches
             self.connectivity = .wiFi4G
-            break
             
         case "iPhone8,2":
             self.type = .iPhone6sPlus
             self.size = .screen5Dot5Inches
             self.connectivity = .wiFi4G
-            break
             
         case "iPhone8,4":
             self.type = .iPhoneSE
             self.size = .screen4Inches
             self.connectivity = .wiFi4G
-            break
             
         case "iPhone9,1", "iPhone9,3":
             self.type = .iPhone7
             self.size = .screen4Dot7Inches
             self.connectivity = .wiFi4G
-            break
             
         case "iPhone9,2", "iPhone9,4":
             self.type = .iPhone7Plus
             self.size = .screen5Dot5Inches
             self.connectivity = .wiFi4G
-            break
             
         case "iPhone10,1", "iPhone10,4":
             self.type = .iPhone8
             self.size = .screen4Dot7Inches
             self.connectivity = .wiFi4G
-            break
             
         case "iPhone10,2", "iPhone10,5":
             self.type = .iPhone8Plus
             self.size = .screen5Dot5Inches
             self.connectivity = .wiFi4G
-            break
             
         case "iPhone10,3", "iPhone10,6":
             self.type = .iPhoneX
             self.size = .screen5Dot8Inches
             self.connectivity = .wiFi4G
-            break
             
+        case "iPhone11,2":
+            self.type = .iPhoneXs
+            self.size = .screen5Dot8Inches
+            self.connectivity = .wiFi4G
+            
+        case "iPhone11,4", "iPhone11,6":
+            self.type = .iPhoneXsMax
+            self.size = .screen6Dot5Inches
+            self.connectivity = .wiFi4G
+            
+        case "iPhone11,8":
+            self.type = .iPhoneXr
+            self.size = .screen6Dot1Inches
+            self.connectivity = .wiFi4G
+
+        case "iPhone12,1":
+            self.type = .iPhone11
+            self.size = .screen6Dot1Inches
+            self.connectivity = .wiFi4G
+
+        case "iPhone12,3":
+            self.type = .iPhone11Pro
+            self.size = .screen5Dot8Inches
+            self.connectivity = .wiFi4G
+
+        case "iPhone12,5":
+            self.type = .iPhone11ProMax
+            self.size = .screen6Dot5Inches
+            self.connectivity = .wiFi4G
+
+            
+        // MARK: iPad
+
         case "iPad2,1":
             self.type = .iPad2
             self.size = .screen9Dot7Inches
             self.connectivity = .wiFi
-            break
             
         case "iPad2,2", "iPad2,3", "iPad2,4":
             self.type = .iPad2
             self.size = .screen9Dot7Inches
             self.connectivity = .wiFi3G
-            break
             
         case "iPad3,1":
             self.type = .iPad3
             self.size = .screen9Dot7Inches
             self.connectivity = .wiFi
-            break
             
         case "iPad3,2", "iPad3,3":
             self.type = .iPad3
             self.size = .screen9Dot7Inches
             self.connectivity = .wiFi4G
-            break
             
         case "iPad3,4":
             self.type = .iPad4
             self.size = .screen9Dot7Inches
             self.connectivity = .wiFi
-            break
             
         case "iPad3,5", "iPad3,6":
             self.type = .iPad4
             self.size = .screen9Dot7Inches
             self.connectivity = .wiFi4G
-            break
             
         case "iPad4,1":
             self.type = .iPadAir
             self.size = .screen9Dot7Inches
             self.connectivity = .wiFi
-            break
             
         case "iPad4,2", "iPad4,3":
             self.type = .iPadAir
             self.size = .screen9Dot7Inches
             self.connectivity = .wiFi4G
-            break
             
         case "iPad5,3":
             self.type = .iPadAir2
             self.size = .screen9Dot7Inches
             self.connectivity = .wiFi
-            break
             
         case "iPad5,4":
             self.type = .iPadAir2
             self.size = .screen9Dot7Inches
             self.connectivity = .wiFi4G
-            break
-            
+
+        case "iPad6,3":
+            self.type = .iPadPro
+            self.size = .screen9Dot7Inches
+            self.connectivity = .wiFi
+
+        case "iPad6,4":
+            self.type = .iPadPro
+            self.size = .screen9Dot7Inches
+            self.connectivity = .wiFi4G
+
+        case "iPad6,7":
+            self.type = .iPadPro
+            self.size = .screen12Dot9Inches
+            self.connectivity = .wiFi
+
+        case "iPad6,8":
+            self.type = .iPadPro
+            self.size = .screen12Dot9Inches
+            self.connectivity = .wiFi4G
+
         case "iPad6,11":
             self.type = .iPad5
             self.size = .screen9Dot7Inches
             self.connectivity = .wiFi
-            break
             
         case "iPad6,12":
             self.type = .iPad5
             self.size = .screen9Dot7Inches
             self.connectivity = .wiFi4G
-            break
+
+        case "iPad7,1":
+            self.type = .iPadPro2
+            self.size = .screen12Dot9Inches
+            self.connectivity = .wiFi
+
+        case "iPad7,2":
+            self.type = .iPadPro2
+            self.size = .screen12Dot9Inches
+            self.connectivity = .wiFi4G
+
+        case "iPad7,3":
+            self.type = .iPadPro2
+            self.size = .screen10Dot5Inches
+            self.connectivity = .wiFi
+
+        case "iPad7,4":
+            self.type = .iPadPro2
+            self.size = .screen10Dot5Inches
+            self.connectivity = .wiFi4G
+
+        case "iPad7,5":
+            self.type = .iPad6
+            self.size = .screen9Dot7Inches
+            self.connectivity = .wiFi
+            
+        case "iPad7,6":
+            self.type = .iPad6
+            self.size = .screen9Dot7Inches
+            self.connectivity = .wiFi4G
+
+        case "iPad7,11":
+            self.type = .iPad7
+            self.size = .screen10Dot2Inches
+            self.connectivity = .wiFi
+
+        case "iPad7,12":
+            self.type = .iPad7
+            self.size = .screen10Dot2Inches
+            self.connectivity = .wiFi4G
+
+        case "iPad8,1":
+            self.type = .iPadPro3
+            self.size = .screen11Inches
+            self.connectivity = .wiFi
+
+        case "iPad8,2":
+            self.type = .iPadPro3
+            self.size = .screen11Inches
+            self.connectivity = .wiFi
+
+        case "iPad8,3":
+            self.type = .iPadPro3
+            self.size = .screen11Inches
+            self.connectivity = .wiFi4G
+
+        case "iPad8,4":
+            self.type = .iPadPro3
+            self.size = .screen11Inches
+            self.connectivity = .wiFi4G
+
+        case "iPad8,5":
+            self.type = .iPadPro3
+            self.size = .screen12Dot9Inches
+            self.connectivity = .wiFi
+
+        case "iPad8,6":
+            self.type = .iPadPro3
+            self.size = .screen12Dot9Inches
+            self.connectivity = .wiFi
+
+        case "iPad8,7":
+            self.type = .iPadPro3
+            self.size = .screen12Dot9Inches
+            self.connectivity = .wiFi4G
+
+        case "iPad8,8":
+            self.type = .iPadPro3
+            self.size = .screen12Dot9Inches
+            self.connectivity = .wiFi4G
+
+        case "iPad11,3":
+            self.type = .iPadAir3
+            self.size = .screen10Dot5Inches
+            self.connectivity = .wiFi
+
+        case "iPad11,4":
+            self.type = .iPadAir3
+            self.size = .screen10Dot5Inches
+            self.connectivity = .wiFi4G
+
+            
+        // MARK: iPad mini
             
         case "iPad2,5":
             self.type = .iPadMini
             self.size = .screen7Dot9Inches
             self.connectivity = .wiFi
-            break
             
         case "iPad2,6", "iPad2,7":
             self.type = .iPadMini
             self.size = .screen7Dot9Inches
             self.connectivity = .wiFi3G
-            break
             
         case "iPad4,4":
             self.type = .iPadMini2
             self.size = .screen7Dot9Inches
             self.connectivity = .wiFi
-            break
             
         case "iPad4,5", "iPad4,6":
             self.type = .iPadMini2
             self.size = .screen7Dot9Inches
             self.connectivity = .wiFi4G
-            break
             
         case "iPad4,7":
             self.type = .iPadMini3
             self.size = .screen7Dot9Inches
             self.connectivity = .wiFi
-            break
             
         case "iPad4,8", "iPad4,9":
             self.type = .iPadMini3
             self.size = .screen7Dot9Inches
             self.connectivity = .wiFi4G
-            break
             
         case "iPad5,1":
             self.type = .iPadMini4
             self.size = .screen7Dot9Inches
             self.connectivity = .wiFi
-            break
             
         case "iPad5,2":
             self.type = .iPadMini4
             self.size = .screen7Dot9Inches
             self.connectivity = .wiFi4G
-            break
-            
-        case "iPad6,7":
-            self.type = .iPadPro
-            self.size = .screen12Dot9Inches
+
+        case "iPad11,1":
+            self.type = .iPadMini5
+            self.size = .screen7Dot9Inches
             self.connectivity = .wiFi
-            break
-            
-        case "iPad6,8":
-            self.type = .iPadPro
-            self.size = .screen12Dot9Inches
+
+        case "iPad11,2":
+            self.type = .iPadMini5
+            self.size = .screen7Dot9Inches
             self.connectivity = .wiFi4G
-            break
+
             
-        case "iPad6,3":
-            self.type = .iPadPro
-            self.size = .screen9Dot7Inches
-            self.connectivity = .wiFi
-            break
-            
-        case "iPad6,4":
-            self.type = .iPadPro
-            self.size = .screen9Dot7Inches
-            self.connectivity = .wiFi4G
-            break
-            
-        case "iPad7,3":
-            self.type = .iPadPro
-            self.size = .screen10Dot5Inches
-            self.connectivity = .wiFi
-            break
-            
-        case "iPad7,4":
-            self.type = .iPadPro
-            self.size = .screen10Dot5Inches
-            self.connectivity = .wiFi4G
-            
+        // MARK: Other
+
         case "i386", "x86_64":
             self.type = .simulator
             self.size = .screenUnknown
             self.connectivity = .wiFi
-            break
             
         default:
             self.type = .unknown
             self.size = .screenUnknown
             self.connectivity = .unknown
-            break
         }
         
         self.model = self.type.rawValue
@@ -412,8 +582,3 @@ extension Deviice: CustomStringConvertible {
         return "Deviice\nIdentifier: \(identifier)\nType: \(type)\nModel name: \(model)\nConnectivity: \(connectivity)\nScreen size: \(size)"
     }
 }
-
-
-
-
-
