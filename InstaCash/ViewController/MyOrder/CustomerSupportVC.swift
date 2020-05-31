@@ -8,6 +8,7 @@
 
 import UIKit
 import MessageUI
+import ZDCChat
 
 class CustomerSupportVC: UIViewController,MFMailComposeViewControllerDelegate {
     
@@ -109,6 +110,21 @@ class CustomerSupportVC: UIViewController,MFMailComposeViewControllerDelegate {
         if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
             
             print("Zopim Chat")
+            
+            //ZDCChat.initialize(withAccountKey: "your_account_key")
+            
+            ZDCChat.start(in: self.navigationController, withConfig: {config in
+                config?.preChatDataRequirements.name = .optionalEditable
+                config?.preChatDataRequirements.email = .required
+                config?.preChatDataRequirements.phone = .optional
+            })
+            
+            
+            ZDCChat.updateVisitor { user in
+                user?.phone = CustomUserDefault.getPhoneNumber()
+                user?.name = CustomUserDefault.getUserName()
+                user?.email = CustomUserDefault.getUserEmail()
+            }
         
         }else if CustomUserDefault.getCurrency() == "NT$" {
             
