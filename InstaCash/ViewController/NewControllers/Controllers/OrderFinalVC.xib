@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_0" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -37,7 +35,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c6d-vh-i7E">
-                    <rect key="frame" x="265" y="35" width="40" height="40"/>
+                    <rect key="frame" x="265" y="15" width="40" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="WP1-fx-r8w"/>
                         <constraint firstAttribute="width" constant="40" id="yu6-qc-aOW"/>
@@ -48,25 +46,25 @@
                     </connections>
                 </button>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="component" translatesAutoresizingMaskIntoConstraints="NO" id="5g3-tH-NoK">
-                    <rect key="frame" x="0.0" y="95" width="320" height="130"/>
+                    <rect key="frame" x="0.0" y="75" width="320" height="130"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="130" id="cTo-RO-pYB"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get ready to be 37,492 richer!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pV3-sF-hpQ">
-                    <rect key="frame" x="20" y="245" width="280" height="21.5"/>
+                    <rect key="frame" x="20" y="225" width="280" height="21"/>
                     <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="18"/>
                     <color key="textColor" red="0.15686274510000001" green="0.69019607839999997" blue="0.23921568630000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Now isn't that easy? :)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kxX-rP-ZMl">
-                    <rect key="frame" x="20" y="268.5" width="280" height="19"/>
+                    <rect key="frame" x="20" y="248" width="280" height="19"/>
                     <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
                     <color key="textColor" red="0.15686274510000001" green="0.69019607839999997" blue="0.23921568630000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T5I-a5-We1">
-                    <rect key="frame" x="15" y="307.5" width="290" height="105.5"/>
+                    <rect key="frame" x="15" y="287" width="290" height="105"/>
                     <string key="text">Your order has been placed successfully. Your Order ID is ZWJA117217 Our team will get in touch with you shortly to verity the order and schedule the pickup.For any queries please call 0141-4232323 (10:00am - 07:00 pm.)</string>
                     <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -115,7 +113,7 @@
         </view>
     </objects>
     <resources>
-        <image name="closeGray" width="48" height="48"/>
-        <image name="component" width="368" height="176"/>
+        <image name="closeGray" width="24" height="24"/>
+        <image name="component" width="184" height="88"/>
     </resources>
 </document>

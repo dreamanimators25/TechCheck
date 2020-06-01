@@ -79,6 +79,7 @@ class TWCashVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UITex
         let vc = OrderFinalVC()
         vc.orderID = placedOrderId
         vc.finalPrice = self.finalPriced
+        vc.selectPaymentType = self.selectedPaymentType
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -88,6 +89,7 @@ class TWCashVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UITex
             let vc = OrderFinalVC()
             vc.orderID = self.placedOrderId
             vc.finalPrice = self.finalPriced
+            vc.selectPaymentType = self.selectedPaymentType
             self.navigationController?.pushViewController(vc, animated: true)
         }else {
             if self.textBoxBool {
@@ -156,6 +158,7 @@ class TWCashVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UITex
                             let vc = OrderFinalVC()
                             vc.orderID = self.placedOrderId
                             vc.finalPrice = self.finalPriced
+                            vc.selectPaymentType = self.selectedPaymentType
                             self.navigationController?.pushViewController(vc, animated: true)
                         }else {
                             //let actualHTML = ((responseObject?.value(forKey: "msg") as! NSDictionary)["html"] as! NSArray)[3] as? String
@@ -264,6 +267,7 @@ class TWCashVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UITex
                         let vc = OrderFinalVC()
                         vc.orderID = self.placedOrderId
                         vc.finalPrice = self.finalPriced
+                        vc.selectPaymentType = self.selectedPaymentType
                         self.navigationController?.pushViewController(vc, animated: true)
                         
                     }

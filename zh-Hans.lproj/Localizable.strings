@@ -810,9 +810,9 @@
 "Get ready to be " = "準備變得 "; //"准备成为 ";
 " richer!" = " 更富有！";
 "Your order has been placed successfully. Your Order ID is " = "您的訂單已成功建立。訂單號碼為"; //"您的订单已成功下达。您的订单开斋节为";
-" Our team will get in touch with you shortly to verity the order and schedule the pickup. For any queries please call 0141-4232323 (10:00am - 07:00pm.)" = " 我們會盡快聯繫您核對訂單，並安排物流收貨。若有任何問題請撥打 0141-4232323（10:00 am-07:00 pm。）";
-" Our team will get in touch with you shortly to verity the order and schedule the pickup. For any queries please call +60365273417 (08:30am - 06:00pm Mon - Fri)" = " 我們會盡快聯繫您核對訂單，並安排物流收貨。若有任何問題請撥打 +60365273417（周一至周五，上午08:30 - 下午06:00）。";
-" Our team will get in touch with you shortly to verity the order and schedule the pickup. For any queries please call +886-277300795 (09:00am - 06:00pm.)" = " 我們會盡快聯繫您核對訂單，並安排物流收貨。若有任何問題請撥打 +886-277300795（周一至周五，上午09:00 - 下午06:00）。";
+" Our team will get in touch with you shortly to verify the order and schedule the pickup. For any queries please call 0141-4232323 (10:00am - 07:00pm.)" = " 我們會盡快聯繫您核對訂單，並安排物流收貨。若有任何問題請撥打 0141-4232323（10:00 am-07:00 pm。）";
+" Our team will get in touch with you shortly to verify the order and schedule the pickup. For any queries please call +60365273417 (08:30am - 06:00pm Mon - Fri)" = " 我們會盡快聯繫您核對訂單，並安排物流收貨。若有任何問題請撥打 +60365273417（周一至周五，上午08:30 - 下午06:00）。";
+" Our team will get in touch with you shortly to verify the order and schedule the pickup. For any queries please call +886-277300795 (09:00am - 06:00pm.)" = " 我們會盡快聯繫您核對訂單，並安排物流收貨。若有任何問題請撥打 +886-277300795（周一至周五，上午09:00 - 下午06:00）。";
 "SEE ORDER STATUS" = "查看訂單狀態"; //"查看订单状态";
 
 // 92. SellOtherDeviceSearchVC

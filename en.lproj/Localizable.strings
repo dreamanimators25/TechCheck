@@ -812,9 +812,9 @@
 "Get ready to be " = "Get ready to be ";
 " richer!" = " richer!";
 "Your order has been placed successfully. Your Order ID is " = "Your order has been placed successfully. Your Order ID is ";
-" Our team will get in touch with you shortly to verity the order and schedule the pickup. For any queries please call 0141-4232323 (10:00am - 07:00pm.)" = " Our team will get in touch with you shortly to verity the order and schedule the pickup. For any queries please call 0141-4232323 (10:00am - 07:00pm.)";
-" Our team will get in touch with you shortly to verity the order and schedule the pickup. For any queries please call +60365273417 (08:30am - 06:00pm Mon - Fri)" = " Our team will get in touch with you shortly to verity the order and schedule the pickup. For any queries please call +60365273417 (08:30am - 06:00pm Mon - Fri)";
-" Our team will get in touch with you shortly to verity the order and schedule the pickup. For any queries please call +886-277300795 (09:00am - 06:00pm.)" = " Our team will get in touch with you shortly to verity the order and schedule the pickup. For any queries please call +886-277300795 (09:00am - 06:00pm.)";
+" Our team will get in touch with you shortly to verify the order and schedule the pickup. For any queries please call 0141-4232323 (10:00am - 07:00pm.)" = " Our team will get in touch with you shortly to verify the order and schedule the pickup. For any queries please call 0141-4232323 (10:00am - 07:00pm.)";
+" Our team will get in touch with you shortly to verify the order and schedule the pickup. For any queries please call +60365273417 (08:30am - 06:00pm Mon - Fri)" = " Our team will get in touch with you shortly to verify the order and schedule the pickup. For any queries please call +60365273417 (08:30am - 06:00pm Mon - Fri)";
+" Our team will get in touch with you shortly to verify the order and schedule the pickup. For any queries please call +886-277300795 (09:00am - 06:00pm.)" = " Our team will get in touch with you shortly to verify the order and schedule the pickup. For any queries please call +886-277300795 (09:00am - 06:00pm.)";
 "SEE ORDER STATUS" = "SEE ORDER STATUS";
 
 // 92. SellOtherDeviceSearchVC

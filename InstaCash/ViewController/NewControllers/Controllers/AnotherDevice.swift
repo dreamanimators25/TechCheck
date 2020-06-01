@@ -183,8 +183,8 @@ class AnotherDevice: UIViewController, UICollectionViewDelegate, UICollectionVie
                 userDefaults.removeObject(forKey: "ChangeModeComingFromDiadnosis")
                 userDefaults.setValue("", forKey: "ChangeModeComingFromDiadnosis")
                 // let imei = UserDefaults.standard.string(forKey: "imei_number")
-                //      if (imei?.count == 15){
-                if arrMyCurrentDeviceSend.count > 0{
+                // if (imei?.count == 15) {
+                if arrMyCurrentDeviceSend.count > 0 {
                     let vc  = DeviceInfoVC()
                     vc.arrMyCurrentDeviceGetInfo = arrMyCurrentDeviceSend
                     self.navigationController?.pushViewController(vc, animated: true)
