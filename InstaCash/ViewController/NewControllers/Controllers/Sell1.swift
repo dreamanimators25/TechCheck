@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAnalytics
 
 class Sell1: UIViewController {
     
@@ -100,6 +101,12 @@ class Sell1: UIViewController {
         //let vc = StartDevice()
         let vc = StartDevice1()
         self.navigationController?.pushViewController(vc, animated: true)
+        
+        //Sameer 2/6/2020
+        Analytics.logEvent("diagnostic", parameters: ["currency" : CustomUserDefault.getCurrency(),
+                                                      "item_id" : CustomUserDefault.getProductId(),
+                                                      "item_name" : self.arrMyCurrentDevice[0].strCurrentDeviceName ?? ""])
+        
     }
     
     /*

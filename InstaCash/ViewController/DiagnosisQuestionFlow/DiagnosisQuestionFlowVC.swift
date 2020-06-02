@@ -468,6 +468,10 @@ class DiagnosisQuestionFlowVC: UIViewController,UITableViewDelegate,UITableViewD
             vc.getReturnJson = self.resultJSON
             vc.strGetFinalAppCodeValues = strFinalCodeValues
             vc.isComingFromOnPhoneDiagnostic = true
+            
+            //Sameer 2/6/2020
+            userDefaults.saveQuotationMode(Mode: "true")
+            
             vc.arrQuestionAndAnswerShow = arrQuestionForQuestion
             
             vc.deviceId = selectedId //s.

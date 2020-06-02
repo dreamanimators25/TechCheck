@@ -144,11 +144,13 @@ class AnotherDevice: UIViewController, UICollectionViewDelegate, UICollectionVie
             if  CustomUserDefault.getProductId() == arrPopularDeviceGetData[indexPath.row].strPopularId{
                 // let imei = UserDefaults.standard.string(forKey: "imei_number")
                 //    if (imei?.count == 15){
+                
+                /* //Sameer 2/6/2020
                 Analytics.logEvent("diagnosis_tapped", parameters: [
                     "event_category":"Diagnosis Button Click",
                     "event_action":"Diagnosis Button Click Action",
                     "event_label":"Diagnosis Button Test"
-                    ])
+                    ])*/
                 
                 // facebook analysis event
                 
@@ -174,11 +176,12 @@ class AnotherDevice: UIViewController, UICollectionViewDelegate, UICollectionVie
                 
                 let strMaxAmount  = String(format: "%d", arrMyCurrentDeviceSend[0].currentDeviceMaximumTotal ?? 0)
                 
+                /* //Sameer 2/6/2020
                 Analytics.logEvent(AnalyticsEventViewItem, parameters: [
                     AnalyticsParameterItemID: CustomUserDefault.getProductId(),
                     AnalyticsParameterItemName: arrMyCurrentDeviceSend[0].strCurrentDeviceName!,
                     AnalyticsParameterPrice:CustomUserDefault.getCurrency() + strMaxAmount
-                    ])
+                    ])*/
                 
                 userDefaults.removeObject(forKey: "ChangeModeComingFromDiadnosis")
                 userDefaults.setValue("", forKey: "ChangeModeComingFromDiadnosis")
@@ -245,19 +248,23 @@ class AnotherDevice: UIViewController, UICollectionViewDelegate, UICollectionVie
                         contentType: arrPopularDeviceGetData[indexPath.row].strPopularName!,
                         contentId: arrPopularDeviceGetData[indexPath.row].strPopularId!,
                         currency: currency))
+                
+                /* //Sameer 2/6/2020
                 // analysis event
                 Analytics.logEvent("diagnosfromquestion_tapped", parameters: [
                     "event_category":"Diagnosis From Question Button Click",
                     "event_action":"Diagnosis From Question Button Click Action",
                     "event_label":"Diagnosis From Question Button Test"
-                    ])
+                    ])*/
                 
                 let strAmount  = String(format: "%d", arrPopularDeviceGetData[indexPath.row].maximumTotal!)
+                
+                /*
                 Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
                     AnalyticsParameterItemID: arrPopularDeviceGetData[indexPath.row].strPopularId!,
                     AnalyticsParameterItemName: arrPopularDeviceGetData[indexPath.row].strPopularName!,
                     AnalyticsParameterPrice:CustomUserDefault.getCurrency()  + strAmount
-                    ])
+                    ])*/
                 
                 
                 //                        Analytics.logEvent(AnalyticsEventSelectContent, parameters: [

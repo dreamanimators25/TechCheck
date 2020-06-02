@@ -15,6 +15,7 @@ import SwiftyJSON
 import SystemServices
 import MessageUI
 import ZDCChat
+import FirebaseAnalytics
 
 class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, ShowVerificationCodeDelegate, UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate {
     
@@ -172,6 +173,9 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
         if reachability?.connection.description != "No Connection" {
             //Alert.ShowProgressHud(Onview: self.view)
             HomeModel.fetchHomeData(isInterNet:true,isappModeCode:"",getController: self) { (arrBrandDeviceGetData,arrPopularDeviceGetData,arrMyOderGetData,arrMyCurrentDeviceSend,strAppModeCode) in
+                
+                //Sameer 2/6/2020
+                Analytics.logEvent("price_estimate", parameters: [:])
                 
                 self.refreshControl.endRefreshing()
                 //Alert.HideProgressHud(Onview: self.view)
@@ -529,6 +533,9 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                 Alert.ShowProgressHud(Onview: self.view)
                 
                 HomeModel.fetchHomeData(isInterNet:true,isappModeCode:"",getController: self) { (arrBrandDeviceGetData,arrPopularDeviceGetData,arrMyOderGetData,arrMyCurrentDeviceSend,strAppModeCode) in
+                    
+                    //Sameer 2/6/2020
+                    Analytics.logEvent("price_estimate", parameters: [:])
                     
                     Alert.HideProgressHud(Onview: self.view)
                     
@@ -1581,6 +1588,10 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                     vc.getReturnJson = sendJson
                     vc.strGetFinalAppCodeValues = userDefaults.value(forKey: "Diagnosis_AppCode_forConfirmOrder") as! String
                     vc.isComingFromOnPhoneDiagnostic = true
+                    
+                    //Sameer 2/6/2020
+                    userDefaults.saveQuotationMode(Mode: "true")
+                    
                     vc.isComingFromOnhomeConfirmOrder = true
                     vc.arrQuestionAndAnswerShow = arrQuestionAndAnswerShowSend
                     self.navigationController?.pushViewController(vc, animated: true)
@@ -1631,11 +1642,13 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
     func pushToControllerToProceedDiagnosos(){
         // firebase analytics event
         if arrMyCurrentDeviceSend.count > 0 {
+            
+            /* //Sameer 2/6/2020
             Analytics.logEvent("diagnosis_tapped", parameters: [
                 "event_category":"Diagnosis Button Click",
                 "event_action":"Diagnosis Button Click Action",
                 "event_label":"Diagnosis Button Test"
-                ])
+                ])*/
             
             // facebook analysis event
             var currency = ""
@@ -1658,11 +1671,13 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                     contentId: CustomUserDefault.getProductId(),
                     currency: currency))
             let strMaxAmount  = String(format: "%d", arrMyCurrentDeviceSend[0].currentDeviceMaximumTotal!)
+            
+            /* //Sameer 2/6/2020
             Analytics.logEvent(AnalyticsEventViewItem, parameters: [
                 AnalyticsParameterItemID: CustomUserDefault.getProductId(),
                 AnalyticsParameterItemName: arrMyCurrentDeviceSend[0].strCurrentDeviceName!,
                 AnalyticsParameterPrice:CustomUserDefault.getCurrency() + strMaxAmount
-                ])
+                ])*/
             
             userDefaults.removeObject(forKey: "ChangeModeComingFromDiadnosis")
             userDefaults.setValue("", forKey: "ChangeModeComingFromDiadnosis")
@@ -2065,11 +2080,13 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
             if  CustomUserDefault.getProductId() == arrPopularDeviceGetData[indexPath.row].strPopularId{
                 // let imei = UserDefaults.standard.string(forKey: "imei_number")
                 //    if (imei?.count == 15){
+                
+                /* //Sameer 2/6/2020
                 Analytics.logEvent("diagnosis_tapped", parameters: [
                     "event_category":"Diagnosis Button Click",
                     "event_action":"Diagnosis Button Click Action",
                     "event_label":"Diagnosis Button Test"
-                    ])
+                    ])*/
                 
                 // facebook analysis event
                 
@@ -2095,11 +2112,12 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                 
                 let strMaxAmount  = String(format: "%d", arrMyCurrentDeviceSend[0].currentDeviceMaximumTotal!)
                 
+                /* //Sameer 2/6/2020
                 Analytics.logEvent(AnalyticsEventViewItem, parameters: [
                     AnalyticsParameterItemID: CustomUserDefault.getProductId(),
                     AnalyticsParameterItemName: arrMyCurrentDeviceSend[0].strCurrentDeviceName!,
                     AnalyticsParameterPrice:CustomUserDefault.getCurrency() + strMaxAmount
-                    ])
+                    ])*/
                 
                 userDefaults.removeObject(forKey: "ChangeModeComingFromDiadnosis")
                 userDefaults.setValue("", forKey: "ChangeModeComingFromDiadnosis")
@@ -2163,18 +2181,23 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                         contentType: arrPopularDeviceGetData[indexPath.row].strPopularName!,
                         contentId: arrPopularDeviceGetData[indexPath.row].strPopularId!,
                         currency: currency))
+                
+                /* //Sameer 2/6/2020
                 // analysis event
                 Analytics.logEvent("diagnosfromquestion_tapped", parameters: [
                     "event_category":"Diagnosis From Question Button Click",
                     "event_action":"Diagnosis From Question Button Click Action",
                     "event_label":"Diagnosis From Question Button Test"
-                    ])
+                    ])*/
+                
                 let strAmount  = String(format: "%d", arrPopularDeviceGetData[indexPath.row].maximumTotal!)
+                
+                /* //Sameer 2/6/2020
                 Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
                     AnalyticsParameterItemID: arrPopularDeviceGetData[indexPath.row].strPopularId!,
                     AnalyticsParameterItemName: arrPopularDeviceGetData[indexPath.row].strPopularName!,
                     AnalyticsParameterPrice:CustomUserDefault.getCurrency()  + strAmount
-                    ])
+                    ])*/
                 
                 
                 //                        Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
@@ -2425,6 +2448,14 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                             self.lblConfirmOrderPrice.attributedText = attribute
                             
                             self.lblConfirmOrderPrice.text = "Hurry, prices may drop in a few days".localized(lang: langCode)
+                            
+                            
+                            //Sameer 2/6/2020
+                            Analytics.logEvent("view_item", parameters: ["currency" : CustomUserDefault.getCurrency(),
+                                                                          "item_id" : CustomUserDefault.getProductId(),
+                                                                          "item_name" : deviceName,
+                                                                          "price" : strPriceNew])
+                            
                         }
                     }
                     else{

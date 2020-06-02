@@ -236,18 +236,23 @@ class BrandModelTypeVC: UIViewController,UICollectionViewDelegate,UICollectionVi
                         contentType: self.arrBrandModelType[indexPath.row].strBrandModeName,
                         contentId: idPoduct,
                         currency: currency))
+                
+                /* //Sameer 2/6/2020
                 // analysis event
                 Analytics.logEvent("diagnosfromquestion_tapped", parameters: [
                     "event_category":"Diagnosis From Question Button Click",
                     "event_action":"Diagnosis From Question Button Click Action",
                     "event_label":"Diagnosis From Question Button Test"
-                    ])
+                    ])*/
                 
+                /* //Sameer 2/6/2020
                 Analytics.logEvent(AnalyticsEventViewItem, parameters: [
                     AnalyticsParameterItemID: idPoduct!,
                     AnalyticsParameterItemName: self.arrBrandModelType[indexPath.row].strBrandModeName ?? "",
                     AnalyticsParameterCurrency:currency
-                    ])
+                    ])*/
+                
+                
                 let vc = OtherDeviceQuestionFlow()
                 vc.strGetProductID = idPoduct!
                 // vc.getProductID = strProductIdGet
@@ -339,18 +344,22 @@ class BrandModelTypeVC: UIViewController,UICollectionViewDelegate,UICollectionVi
                         contentType: arrBrandModelType[indexPath.row].strBrandModeName,
                         contentId: idPoduct,
                         currency: currency))
+                
+                /* //Sameer 2/6/2020
                 // analysis event
                 Analytics.logEvent("diagnosfromquestion_tapped", parameters: [
                     "event_category":"Diagnosis From Question Button Click",
                     "event_action":"Diagnosis From Question Button Click Action",
                     "event_label":"Diagnosis From Question Button Test"
-                    ])
+                    ])*/
                 
+                /* //Sameer 2/6/2020
                 Analytics.logEvent(AnalyticsEventViewItem, parameters: [
                     AnalyticsParameterItemID: idPoduct!,
                     AnalyticsParameterItemName: arrBrandModelType[indexPath.row].strBrandModeName ?? "",
                     AnalyticsParameterCurrency:currency
-                    ])
+                    ])*/
+                
                 let vc = OtherDeviceQuestionFlow()
                 vc.strGetProductID = idPoduct!
                 // vc.getProductID = strProductIdGet

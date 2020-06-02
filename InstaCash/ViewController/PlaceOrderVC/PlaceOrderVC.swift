@@ -724,17 +724,20 @@ class PlaceOrderVC: UIViewController,UITextFieldDelegate,CLLocationManagerDelega
 //                            contentId: producdID,
 //                            currency: currency))
                     
+                    /* //Sameer 2/6/2020
                     Analytics.logEvent("order_placed", parameters: [
                         "event_category":"order placed for malasiya",
                         "event_action":"order placed for malasiya Click Action",
                         "event_label":"order placed for malasiya Test"
-                        ])
+                        ])*/
                     
+                    /* //Sameer 2/6/2020
                     Analytics.logEvent(AnalyticsEventEcommercePurchase, parameters: [
                         AnalyticsParameterItemID: producdID,
                         AnalyticsParameterItemName: productName,
                         AnalyticsParameterCurrency:currency
-                        ])
+                        ])*/
+                    
                     if userDefaults.value(forKey: "isShowUIOnHomeForOrder") != nil{
                     userDefaults.setValue(false, forKey: "isShowUIOnHomeForOrder")
                     userDefaults.setValue(false, forKey: "isLaterForConfirmOrder")

@@ -38,12 +38,13 @@ class OtherDeviceQuestionFlow: UIViewController,UITableViewDelegate,UITableViewD
         btnSubmit.isHidden = true
         setNavigationBar()
         
+        /*
         //Register tableview cell
         Analytics.logEvent("start_diagnosis_test", parameters: [
             "event_category":"start diagnosis",
             "event_action":"start diagnosis with screen test",
             "event_label":"screen test" 
-            ])
+            ])*/
         
         userDefaults.removeObject(forKey: "otherProductDeviceID")
         userDefaults.setValue(strGetProductID, forKey: "otherProductDeviceID")
@@ -318,6 +319,10 @@ class OtherDeviceQuestionFlow: UIViewController,UITableViewDelegate,UITableViewD
             let vc = ProductDetailVewVC()
             userDefaults.set(self.title, forKey: "productName")
             vc.isComingFromOnPhoneDiagnostic = false
+            
+            //Sameer 2/6/2020
+            userDefaults.saveQuotationMode(Mode: "false")
+            
             vc.strGetFinalAppCodeValues = strFinalCodeValues
             vc.arrQuestionAndAnswerShow = arrQuestionForOtherDevices
             

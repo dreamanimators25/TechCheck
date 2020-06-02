@@ -78,11 +78,13 @@ class ScreenTestPickUp: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        /*
         Analytics.logEvent("start_diagnosis_test", parameters: [
             "event_category":"start diagnosis",
             "event_action":"start diagnosis with screen test",
             "event_label":"screen test"
-            ])
+            ])*/
+        
         setNavigationBar()
         screenTestViewPickup.loadGif(name: "final_touch")
         checkVibrator()

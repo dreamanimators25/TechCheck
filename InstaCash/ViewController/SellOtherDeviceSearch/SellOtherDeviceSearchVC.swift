@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import FirebaseAnalytics
 
 class SellOtherDeviceSearchVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate {
     
@@ -154,7 +155,7 @@ class SellOtherDeviceSearchVC: UIViewController,UITableViewDelegate,UITableViewD
                 //self.searchActivityIndicator.stopAnimating()
 
                 Alert.HideProgressHud(Onview: self.view)
-                print(responseObject ?? [:])
+                //print(responseObject ?? [:])
                 
                 if error == nil {
                     if responseObject?["status"] as! String == "Success"{
@@ -168,6 +169,11 @@ class SellOtherDeviceSearchVC: UIViewController,UITableViewDelegate,UITableViewD
                                     let dictOrderItem = arrFinalSearchList[index] as? [String : Any]
                                     let memberItem = SearchProduct(searchProductListDict: dictOrderItem!)
                                     self.arrSearchProduct.append(memberItem)
+                                    
+                                    //Sameer 2/6/2020
+                                    Analytics.logEvent("view_search_results", parameters: ["search_term" : "\((self.arrSearchProduct[0].strproductBrandName ?? "") + " + " + (self.arrSearchProduct[0].strProductName ?? ""))"
+                                    ])
+                                    
                                 }
                                 
                                 self.tableViewProduct.reloadData()

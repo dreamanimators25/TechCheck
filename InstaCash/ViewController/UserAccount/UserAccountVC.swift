@@ -288,6 +288,8 @@ class UserAccountVC: UIViewController {
         userDefaults.removeObject(forKey: "langCode")
         self.setLanguageCode()
         
+        userDefaults.removeObject(forKey: "eventSource") //Sameer 2/6/2020
+        
         //Sameer - 28/3/20
         userDefaults.removeObject(forKey: "promoterID")
         userDefaults.removeObject(forKey: "promoter")

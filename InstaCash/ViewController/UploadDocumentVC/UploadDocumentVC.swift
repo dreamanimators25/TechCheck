@@ -8,6 +8,7 @@
 
 import UIKit
 import Photos
+import FirebaseAnalytics
 
 protocol UpdateOrderListDelegate {
     func updateOrderList()
@@ -650,6 +651,11 @@ class UploadDocumentVC: UIViewController,UIImagePickerControllerDelegate,UINavig
                          //self.navigationController?.pushViewController(vc, animated: true)
                          })
                          */
+                        
+                        //Sameer 2/6/2020
+                        Analytics.logEvent("purchase", parameters: ["currency" : CustomUserDefault.getCurrency(),
+                                                                      "item_id" : CustomUserDefault.getProductId(),
+                                                                      "item_name" : self.strProductName5 ])
                         
                         
                         self.placedOrderId = responseObject?["msg"] as? String ?? ""

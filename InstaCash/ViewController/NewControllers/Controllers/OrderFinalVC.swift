@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAnalytics
 
 class OrderFinalVC: UIViewController {
     
@@ -29,6 +30,9 @@ class OrderFinalVC: UIViewController {
         userDefaults.removeObject(forKey: "promoter")
         userDefaults.removeObject(forKey: "promotionCouponCode")
         userDefaults.removeObject(forKey: "additionalInfo")
+        
+        //Sameer 2/6/2020
+        Analytics.logEvent("order_completed", parameters: [:])
         
     }
     

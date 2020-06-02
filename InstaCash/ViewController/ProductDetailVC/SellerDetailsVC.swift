@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAnalytics
 
 class SellerDetailsVC: UIViewController,UITextFieldDelegate {
     
@@ -102,6 +103,27 @@ class SellerDetailsVC: UIViewController,UITextFieldDelegate {
         }
         
         self.changeLanguageOfUI()
+        
+        //Sameer 2/6/2020
+        var sourceValue = ""
+        if let savedMode = userDefaults.getQuotationMode(key: "eventSource") {
+            if savedMode == "true" {
+                sourceValue = "diagnosis"
+            }else {
+                sourceValue = "modifiers"
+            }
+            print(savedMode,sourceValue)
+            
+        }else {
+        
+        }
+        
+        //Sameer 2/6/2020
+        Analytics.logEvent("begin_checkout", parameters: ["currency" : CustomUserDefault.getCurrency(),
+                                                          "price" : getFinalPrice1,
+                                                          "Source" : sourceValue,
+                                                          "item_id" : CustomUserDefault.getProductId()])
+        
     }
     
     func changeLanguageOfUI() {

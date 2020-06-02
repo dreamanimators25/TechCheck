@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAnalytics
 
 class PaymentsModeVC: UIViewController {
     
@@ -1700,6 +1701,12 @@ class PaymentsModeVC: UIViewController {
                 
                 if error == nil {
                     if responseObject?["status"] as! String == "Success" {
+                        
+                        //Sameer 2/6/2020
+                        Analytics.logEvent("purchase", parameters: ["currency" : CustomUserDefault.getCurrency(),
+                                                                      "item_id" : CustomUserDefault.getProductId(),
+                                                                      "item_name" : self.strProductName3 ])
+                        
                         
                         let orderPlaceID = responseObject?["msg"] as? String
                         let orderID = responseObject?["orderId"] as? String

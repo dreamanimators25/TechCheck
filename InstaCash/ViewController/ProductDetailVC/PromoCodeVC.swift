@@ -459,11 +459,12 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
                     contentId: producdID,
                     currency: currency))
             
+            /* //Sameer 2/6/2020
             Analytics.logEvent(AnalyticsEventAddToCart, parameters: [
                 AnalyticsParameterItemID: producdID,
                 AnalyticsParameterItemName: productName,
                 AnalyticsParameterCurrency:currency
-            ])
+            ])*/
             
             
             if CustomUserDefault.isUserIdExit(){

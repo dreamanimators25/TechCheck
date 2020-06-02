@@ -365,16 +365,21 @@ class PaymentTypeVC: UIViewController,UITableViewDelegate,UITableViewDataSource 
                         .purchased(
                         amount:  amount,
                             currency: currency, extraParameters: [:]))
+                    
+                    /* //Sameer 2/6/2020
                     Analytics.logEvent("order_placed", parameters: [
                         "event_category":"order placed for India",
                         "event_action":"order placed for India Click Action",
                         "event_label":"order placed for India Test"
-                        ])
+                        ])*/
+                    
+                    /* //Sameer 2/6/2020
                     Analytics.logEvent(AnalyticsEventEcommercePurchase, parameters: [
                         AnalyticsParameterItemID: producdID,
                         AnalyticsParameterItemName: self.productName,
                         AnalyticsParameterCurrency:currency
-                        ])
+                        ])*/
+                    
                     if userDefaults.value(forKey: "isShowUIOnHomeForOrder") != nil{
                         userDefaults.setValue(false, forKey: "isShowUIOnHomeForOrder")
                         userDefaults.setValue(false, forKey: "isLaterForConfirmOrder")

@@ -395,11 +395,13 @@ class BankDetailVC: UIViewController,UITextFieldDelegate {
                                     contentType: self.lblProductName.text,
                                     contentId: orderItemId,
                                     currency: "INR"))
+                            
+                            /*
                             Analytics.logEvent(AnalyticsEventEcommercePurchase, parameters: [
                                 AnalyticsParameterItemID: orderItemId,
                                 AnalyticsParameterItemName: self.lblProductName.text ?? "",
                                 AnalyticsParameterCurrency:"INR"
-                                ])
+                                ])*/
                             
                         }
                     }

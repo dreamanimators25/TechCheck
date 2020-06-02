@@ -320,11 +320,13 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
             //tableView.register(UINib(nibName: "NewProductQuoteHeaderCell", bundle: nil), forCellReuseIdentifier: "newProductQuoteHeaderCell")
             //tableView.register(UINib(nibName: "QuestionAndAnswerCell", bundle: nil), forCellReuseIdentifier: "questionAndAnswerCell")
             
+            /* //Sameer 2/6/2020
             Analytics.logEvent("finish_diagnosis_test", parameters: [
                 "event_category":"finish diagnosis",
                 "event_action":"finish diagnosis test",
                 "event_label":"finish test"
-                ])
+                ])*/
+            
             userDefaults.set(0, forKey: "couponCodePrice")
             userDefaults.set("", forKey: "orderPromoCode")
             
@@ -1601,6 +1603,9 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                     
                     //if (userDefaults.value(forKey: "countryName") as? String)?.contains("India") != nil {
                     
+                    
+                    
+                    
                     if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
                         self.btnPlaceOrder.isHidden = false
                     }
@@ -1962,6 +1967,12 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
                     }else {
                         userDefaults.setValue(responseObject?["diagnosisId"] as? Int64, forKey: "diagnosisId")
                     }*/
+                    
+                    //Sameer 2/6/2020
+                    Analytics.logEvent("view_item", parameters: ["currency" : CustomUserDefault.getCurrency(),
+                                                                  "item_id" : CustomUserDefault.getProductId(),
+                                                                  "item_name" : self.deviceName,
+                                                                  "price" : strFinalAmount])
                     
                 }
                 else{

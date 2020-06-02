@@ -10,7 +10,7 @@ import SystemConfiguration
 
 //For save and Get User Data in UserDefaults
 extension UserDefaults {
-
+    
     //Save language code
     func saveLanguageCode(langCode : String) {
         
@@ -27,6 +27,29 @@ extension UserDefaults {
         
         if langCODE != nil {
             return (langCODE as? String)!
+        }
+        
+        defaults.synchronize()
+        
+        return nil
+    }
+
+    //Save Quotation Mode
+    func saveQuotationMode(Mode : String) {
+        
+        let defaults = UserDefaults.standard
+        defaults.setValue(Mode, forKey: "eventSource")
+        defaults.synchronize()
+    }
+    
+    //Get Quotation Mode
+    func getQuotationMode(key : String) -> String? {
+        
+        let defaults = UserDefaults.standard
+        let MODE = defaults.value(forKey: key)
+        
+        if MODE != nil {
+            return (MODE as? String)!
         }
         
         defaults.synchronize()

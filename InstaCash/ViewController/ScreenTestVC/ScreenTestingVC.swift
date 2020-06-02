@@ -148,12 +148,14 @@ class ScreenTestingVC: UIViewController,RecorderDelegate {
         userDefaults.setValue(true, forKey: "bluetooth_complete")
         */
         
+        /* //Sameer 2/6/2020
         //AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
         Analytics.logEvent("start_diagnosis_test", parameters: [
             "event_category":"start diagnosis",
             "event_action":"start diagnosis with screen test",
             "event_label":"screen test"
-            ])
+            ])*/
+        
         setNavigationBar()
         screenImageView.loadGif(name: "final_touch")
         checkVibrator()

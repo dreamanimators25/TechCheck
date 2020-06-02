@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAnalytics
 
 class BankTransfer: UIViewController,UITextFieldDelegate {
     
@@ -597,6 +598,12 @@ class BankTransfer: UIViewController,UITextFieldDelegate {
                         vc.finalPrice = self.finalPriceSet4
                         self.navigationController?.pushViewController(vc, animated: true)
                         */
+                        
+                        //Sameer 2/6/2020
+                        Analytics.logEvent("purchase", parameters: ["currency" : CustomUserDefault.getCurrency(),
+                                                                      "item_id" : CustomUserDefault.getProductId(),
+                                                                      "item_name" : self.strProductName4 ])
+                        
                         
                         let orderPlaceID = responseObject?["msg"] as? String
                         

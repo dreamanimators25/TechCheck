@@ -150,9 +150,11 @@ class SearchProductVC: UIViewController,UICollectionViewDelegate,UICollectionVie
                 if arrSearchData.count > 0 {
                 AppEventsLogger.log(searchBar.text!)
                     
+                    /* //Sameer 2/6/2020
                     Analytics.logEvent(AnalyticsEventSearch, parameters: [
                         AnalyticsParameterSearchTerm: searchBar.text!
-                        ])
+                        ])*/
+                    
                 self.arrSearchData.removeAll()
                 self.arrSearchData = arrSearchData
                     self.collectionViewProduct.isHidden = false
