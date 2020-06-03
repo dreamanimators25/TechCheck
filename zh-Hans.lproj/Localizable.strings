@@ -81,6 +81,7 @@
 "  Call  " = "  致電  ";
 "  Mail  " = "  電子郵件  ";
 "  Zopim Chat  " = "  佐皮聊天  ";
+"  Chat  " = "  聊天  ";
 "  WhatsApp  " = "  什么是应用程式的  ";
 "  Line  " = "  Line  "; //"  线  ";
 "Diagnosis Code" = "檢測編號";
@@ -277,6 +278,7 @@
 "CENDOL VOUCHER" = "岑多 凭证";
 "MAXIS" = "马克西斯";
 "SAMSUNG" = "三星";
+"Switch" = "交換機";
 "Cash" = "现金";
 "UUPON (Cash Only)" = " UUPON (現金) "; //" UUPON（仅限现金）";
 "UUPON (Cash+Points)" = " UUPON (點數) "; //" UUPON（现金+积分）";
@@ -495,14 +497,14 @@
 
 // 49. MyOrderVC
 "My Order" = "我的訂單"; //"我的订单";
-"Unverified" = "未验证";
-"Verified" = "已验证";
-"Out for pickup" = "外出取貨"; //"外出取貨"; //"外送";
-"Pending Payment" = "待付款";
-"Completed" = "完成"; //"已完成";
-"Rejected" = "拒绝";
-"Pacman cancelled" = "未驗證"; //"吃豆人取消了";
-"User cancelled" = "用户已取消";
+"Unverified" = "未驗證"; ////"未验证";
+"Verified" = "已驗證"; ////"已验证";
+"Out for pickup" = "外出取貨"; ////"外出取貨"; //"外出取貨"; //"外送";
+"Pending Payment" = "待付款"; ////"待付款";
+"Completed" = "已完成"; ////"完成"; //"已完成";
+"Rejected" = "被拒絕"; ////"拒绝";
+"Pacman cancelled" = "吃豆人取消"; ////"未驗證"; //"吃豆人取消了";
+"User cancelled" = "用戶已取消"; ////"用户已取消";
 "Order date: " = "下單日期："; //"订购日期： ";
 "Quoted price: " = "回收價："; //"报价：";
 "Payment Mode: " = "付款方式："; //"付款方式： ";
@@ -514,7 +516,7 @@
 "Orders" = "訂單"; //"命令";
 "ALL" = "全部"; //"所有";
 "IN PROGRESS" = "進行中"; //"进行中";
-"COMPLETED" = "完成"; //"已完成";
+"COMPLETED" = "已完成"; //"完成"; //"已完成";
 
 // 50. OrderDetail
 "Pick up: " = "拾起： ";
@@ -875,5 +877,5 @@
 "Order Details" = "訂單詳情"; //"订单详细信息";
 "Placed" = "已下單"; //"已放置";
 "Verify" = "確認"; //"校验";
-"Out For Pickup" = "外出取貨"; //"外出接送";
-"Pacman Cancelled" = "未驗證"; //"“吃豆子取消了”";
+"Out For Pickup" = "外出取貨"; ////"外出取貨"; //"外出接送";
+"Pacman Cancelled" = "吃豆人取消"; ////"未驗證"; //"“吃豆子取消了”";

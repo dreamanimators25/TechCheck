@@ -42,7 +42,7 @@ class CountrySelection: UIViewController, UICollectionViewDelegate, UICollection
         
         collectionForCountry.register(UINib(nibName: "CountrySelectionCell", bundle: nil), forCellWithReuseIdentifier: "countryCell")
         
-        if reachability?.connection.description != "No Connection"{
+        if reachability?.connection.description != "No Connection" {
             CityModel.fetchCityFromServer(isInterNet:true,getController: self) { (arrCityData) in
                 
                 for item in arrCityData {

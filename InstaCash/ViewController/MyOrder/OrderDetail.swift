@@ -183,20 +183,40 @@ class OrderDetail: UIViewController,UIPopoverPresentationControllerDelegate {
                         case "User cancelled":
                         */
                         
-                        if orderCurrentStatus == "Completed" || orderCurrentStatus == "Rejected" || orderCurrentStatus == "Pacman cancelled" || orderCurrentStatus == "Pending Payment" {
-                            self.orderFinalStatusView?.isHidden = false
-                            self.stackViewHeight?.constant = 210
-                            self.lblOrderFinalStatus?.text = orderCurrentStatus.localized(lang: langCode)
-                            self.img2?.image = #imageLiteral(resourceName: "smallRight")
+                        if CustomUserDefault.getCurrency() == "NT$" {
+                            
+                            if orderCurrentStatus == "已完成" || orderCurrentStatus == "被拒絕" || orderCurrentStatus == "吃豆人取消" || orderCurrentStatus == "待付款" {
+                                self.orderFinalStatusView?.isHidden = false
+                                self.stackViewHeight?.constant = 210
+                                self.lblOrderFinalStatus?.text = orderCurrentStatus.localized(lang: langCode)
+                                self.img2?.image = #imageLiteral(resourceName: "smallRight")
+                            }else {
+                                let rotation: CABasicAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
+                                rotation.toValue = Double.pi * 2
+                                rotation.duration = 5.25 // or however long you want ...
+                                rotation.isCumulative = true
+                                rotation.repeatCount = Float.greatestFiniteMagnitude
+                                self.img2?.layer.add(rotation, forKey: "rotationAnimation")
+                            }
+                            
                         }else {
-                            let rotation: CABasicAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
-                            rotation.toValue = Double.pi * 2
-                            rotation.duration = 5.25 // or however long you want ...
-                            rotation.isCumulative = true
-                            rotation.repeatCount = Float.greatestFiniteMagnitude
-                            self.img2?.layer.add(rotation, forKey: "rotationAnimation")
+                            
+                            if orderCurrentStatus == "Completed" || orderCurrentStatus == "Rejected" || orderCurrentStatus == "Pacman cancelled" || orderCurrentStatus == "Pending Payment" {
+                                self.orderFinalStatusView?.isHidden = false
+                                self.stackViewHeight?.constant = 210
+                                self.lblOrderFinalStatus?.text = orderCurrentStatus.localized(lang: langCode)
+                                self.img2?.image = #imageLiteral(resourceName: "smallRight")
+                            }else {
+                                let rotation: CABasicAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
+                                rotation.toValue = Double.pi * 2
+                                rotation.duration = 5.25 // or however long you want ...
+                                rotation.isCumulative = true
+                                rotation.repeatCount = Float.greatestFiniteMagnitude
+                                self.img2?.layer.add(rotation, forKey: "rotationAnimation")
+                            }
+                            
                         }
-                        
+                                                
                         summaryStr = (finalItem?.value(forKey: "summaryText") as? String ?? "")
                         
                     }

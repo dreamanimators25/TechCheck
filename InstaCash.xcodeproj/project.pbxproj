@@ -116,6 +116,8 @@
 		52BD9A5123CA0A19004CCCD6 /* CustomerSupportVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52BD9A4F23CA0A19004CCCD6 /* CustomerSupportVC.xib */; };
 		59057666242E5DB900FEF541 /* OfferPromotionPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59057664242E5DB900FEF541 /* OfferPromotionPopUpVC.swift */; };
 		59057667242E5DB900FEF541 /* OfferPromotionPopUpVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59057665242E5DB900FEF541 /* OfferPromotionPopUpVC.xib */; };
+		5907A3BD24880EF1005C153C /* MYSwitchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5907A3BB24880EF1005C153C /* MYSwitchVC.swift */; };
+		5907A3BE24880EF1005C153C /* MYSwitchVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5907A3BC24880EF1005C153C /* MYSwitchVC.xib */; };
 		5907E17A242CD5500038CD47 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5907E17C242CD5500038CD47 /* Localizable.strings */; };
 		591313CA2483A90F007184DC /* TextBoxCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591313C82483A90F007184DC /* TextBoxCell.swift */; };
 		591313CB2483A90F007184DC /* TextBoxCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 591313C92483A90F007184DC /* TextBoxCell.xib */; };
@@ -535,6 +537,8 @@
 		52BD9A4F23CA0A19004CCCD6 /* CustomerSupportVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomerSupportVC.xib; sourceTree = "<group>"; };
 		59057664242E5DB900FEF541 /* OfferPromotionPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferPromotionPopUpVC.swift; sourceTree = "<group>"; };
 		59057665242E5DB900FEF541 /* OfferPromotionPopUpVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OfferPromotionPopUpVC.xib; sourceTree = "<group>"; };
+		5907A3BB24880EF1005C153C /* MYSwitchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYSwitchVC.swift; sourceTree = "<group>"; };
+		5907A3BC24880EF1005C153C /* MYSwitchVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MYSwitchVC.xib; sourceTree = "<group>"; };
 		5907E17B242CD5500038CD47 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5907E17D242CD58B0038CD47 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		5907E17E242CD58D0038CD47 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -1074,6 +1078,8 @@
 				52211F5123D5D49100FE0CFD /* MYMaxisVC.xib */,
 				52211F5423D5D4A300FE0CFD /* MYSamsungVC.swift */,
 				52211F5523D5D4A300FE0CFD /* MYSamsungVC.xib */,
+				5907A3BB24880EF1005C153C /* MYSwitchVC.swift */,
+				5907A3BC24880EF1005C153C /* MYSwitchVC.xib */,
 			);
 			path = MYPaymentMode;
 			sourceTree = "<group>";
@@ -2386,6 +2392,7 @@
 				FBFA84A6214A72F500179452 /* YoursOrderCell.xib in Resources */,
 				FBFFCEE121491AEA00B0CBC1 /* SideMenuHeaderCell.xib in Resources */,
 				FBFCA36D21C22B75006A016E /* cable.svg in Resources */,
+				5907A3BE24880EF1005C153C /* MYSwitchVC.xib in Resources */,
 				52211F4B23D5D41800FE0CFD /* MYBankDetailVC.xib in Resources */,
 				FBFFCEDC2149148A00B0CBC1 /* HomeVC.xib in Resources */,
 				35E284E1236FF749002F3C70 /* BankTransfer.xib in Resources */,
@@ -2792,6 +2799,7 @@
 				FBFDA8032153842800667DC6 /* PaymentTypeVC.swift in Sources */,
 				FBFB3E4721512935002924A3 /* IQTitleBarButtonItem.swift in Sources */,
 				35E284F5237161C8002F3C70 /* OrderDetail.swift in Sources */,
+				5907A3BD24880EF1005C153C /* MYSwitchVC.swift in Sources */,
 				35E284D8236FE63D002F3C70 /* OrderStatus2.swift in Sources */,
 				525C2B3523ABB30E006A1237 /* TPKeyboardAvoidingCollectionView.m in Sources */,
 				5210BD1323A615D000E980E6 /* SellOtherDeviceSearchVC.swift in Sources */,

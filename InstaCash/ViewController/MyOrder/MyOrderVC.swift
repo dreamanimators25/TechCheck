@@ -179,12 +179,24 @@ class MyOrderVC: UIViewController,UITableViewDelegate,UITableViewDataSource,Upda
                 $0.strStatus == "Unverified" || $0.strStatus == "Verified" || $0.strStatus == "Out for pickup"
             }*/
             
-            let arrProgress = self.arrOrderListCopy.filter { demo in
-                return demo.strStatus == "Unverified" || demo.strStatus == "Verified" || demo.strStatus == "Out for pickup" || demo.strStatus == "Pending Payment"
-            }
+            if CustomUserDefault.getCurrency() == "NT$" {
+                
+                let arrProgress = self.arrOrderListCopy.filter { demo in
+                    return demo.strStatus == "未驗證" || demo.strStatus == "已驗證" || demo.strStatus == "外出取貨" || demo.strStatus == "待付款"
+                }
             
-            self.arrOrderList = arrProgress
-            self.tblViewOrderLust.reloadData()
+                self.arrOrderList = arrProgress
+                self.tblViewOrderLust.reloadData()
+                
+            }else {
+                
+                let arrProgress = self.arrOrderListCopy.filter { demo in
+                    return demo.strStatus == "Unverified" || demo.strStatus == "Verified" || demo.strStatus == "Out for pickup" || demo.strStatus == "Pending Payment"
+                }
+                
+                self.arrOrderList = arrProgress
+                self.tblViewOrderLust.reloadData()
+            }
             
         }
         else
@@ -203,12 +215,27 @@ class MyOrderVC: UIViewController,UITableViewDelegate,UITableViewDataSource,Upda
                 $0.strStatus == "Rejected" || $0.strStatus == "Complete" || $0.strStatus == "pacman Cancel"
             }*/
             
-            let arrComplete = self.arrOrderListCopy.filter { demo in
-                return demo.strStatus == "Completed" || demo.strStatus == "Rejected" || demo.strStatus == "Pacman cancelled" || demo.strStatus == "User cancelled"
+            if CustomUserDefault.getCurrency() == "NT$" {
+                
+                let arrComplete = self.arrOrderListCopy.filter { demo in
+                    return demo.strStatus == "已完成" || demo.strStatus == "被拒絕" || demo.strStatus == "吃豆人取消" || demo.strStatus == "用戶已取消"
+                }
+                
+                self.arrOrderList = arrComplete
+                self.tblViewOrderLust.reloadData()
+                
+            }else {
+                
+                let arrComplete = self.arrOrderListCopy.filter { demo in
+                    return demo.strStatus == "Completed" || demo.strStatus == "Rejected" || demo.strStatus == "Pacman cancelled" || demo.strStatus == "User cancelled"
+                }
+                
+                self.arrOrderList = arrComplete
+                self.tblViewOrderLust.reloadData()
+                
             }
             
-            self.arrOrderList = arrComplete
-            self.tblViewOrderLust.reloadData()
+            
 
         }
     }
@@ -265,29 +292,58 @@ class MyOrderVC: UIViewController,UITableViewDelegate,UITableViewDataSource,Upda
         // cellOrderHeader.lblPrice.text = CustomUserDefault.getCurrency() + modelOrder.strProductAmount!
         
         cellOrderHeader.lblVerified.text = modelOrder.strStatus?.localized(lang: langCode)
-        //print(modelOrder.strStatus ?? "")
         
-        switch modelOrder.strStatus {
-        case "Unverified":
-            cellOrderHeader.lblVerified.backgroundColor = #colorLiteral(red: 1, green: 0.5960784314, blue: 0, alpha: 1)
-        case "Verified":
-            cellOrderHeader.lblVerified.backgroundColor = #colorLiteral(red: 0.1176470588, green: 0.5333333333, blue: 0.8980392157, alpha: 1)
-        case "Out for pickup":
-            cellOrderHeader.lblVerified.backgroundColor = #colorLiteral(red: 0.1568627451, green: 0.6901960784, blue: 0.2392156863, alpha: 1)
-        case "Pending Payment":
-            cellOrderHeader.lblVerified.backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
-        case "Completed":
-            cellOrderHeader.lblVerified.backgroundColor = #colorLiteral(red: 0.1058823529, green: 0.368627451, blue: 0.1254901961, alpha: 1)
-        case "Rejected":
-            cellOrderHeader.lblVerified.backgroundColor = #colorLiteral(red: 0.7176470588, green: 0.1098039216, blue: 0.1098039216, alpha: 1)
-        case "Pacman cancelled":
-            cellOrderHeader.lblVerified.backgroundColor = #colorLiteral(red: 0.937254902, green: 0.3254901961, blue: 0.3137254902, alpha: 1)
-        case "User cancelled":
-            cellOrderHeader.lblVerified.backgroundColor = #colorLiteral(red: 0.937254902, green: 0.3254901961, blue: 0.3137254902, alpha: 1)
-        default:
-            print("no color")
+        print(modelOrder.strStatus ?? "")
+        print(modelOrder.strStatus?.localized(lang: langCode) ?? "")
+        
+        if CustomUserDefault.getCurrency() == "NT$" {
+            
+            switch modelOrder.strStatus ?? "" {
+            case "未驗證":
+                cellOrderHeader.lblVerified.backgroundColor = #colorLiteral(red: 1, green: 0.5960784314, blue: 0, alpha: 1)
+            case "已驗證":
+                cellOrderHeader.lblVerified.backgroundColor = #colorLiteral(red: 0.1176470588, green: 0.5333333333, blue: 0.8980392157, alpha: 1)
+            case "外出取貨":
+                cellOrderHeader.lblVerified.backgroundColor = #colorLiteral(red: 0.1568627451, green: 0.6901960784, blue: 0.2392156863, alpha: 1)
+            case "待付款":
+                cellOrderHeader.lblVerified.backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
+            case "已完成":
+                cellOrderHeader.lblVerified.backgroundColor = #colorLiteral(red: 0.1058823529, green: 0.368627451, blue: 0.1254901961, alpha: 1)
+            case "被拒絕":
+                cellOrderHeader.lblVerified.backgroundColor = #colorLiteral(red: 0.7176470588, green: 0.1098039216, blue: 0.1098039216, alpha: 1)
+            case "吃豆人取消":
+                cellOrderHeader.lblVerified.backgroundColor = #colorLiteral(red: 0.937254902, green: 0.3254901961, blue: 0.3137254902, alpha: 1)
+            case "用戶已取消":
+                cellOrderHeader.lblVerified.backgroundColor = #colorLiteral(red: 0.937254902, green: 0.3254901961, blue: 0.3137254902, alpha: 1)
+            default:
+                print("no color")
+            }
+            
+        }else {
+            
+            switch modelOrder.strStatus ?? "" {
+            case "Unverified":
+                cellOrderHeader.lblVerified.backgroundColor = #colorLiteral(red: 1, green: 0.5960784314, blue: 0, alpha: 1)
+            case "Verified":
+                cellOrderHeader.lblVerified.backgroundColor = #colorLiteral(red: 0.1176470588, green: 0.5333333333, blue: 0.8980392157, alpha: 1)
+            case "Out for pickup":
+                cellOrderHeader.lblVerified.backgroundColor = #colorLiteral(red: 0.1568627451, green: 0.6901960784, blue: 0.2392156863, alpha: 1)
+            case "Pending Payment":
+                cellOrderHeader.lblVerified.backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
+            case "Completed":
+                cellOrderHeader.lblVerified.backgroundColor = #colorLiteral(red: 0.1058823529, green: 0.368627451, blue: 0.1254901961, alpha: 1)
+            case "Rejected":
+                cellOrderHeader.lblVerified.backgroundColor = #colorLiteral(red: 0.7176470588, green: 0.1098039216, blue: 0.1098039216, alpha: 1)
+            case "Pacman cancelled":
+                cellOrderHeader.lblVerified.backgroundColor = #colorLiteral(red: 0.937254902, green: 0.3254901961, blue: 0.3137254902, alpha: 1)
+            case "User cancelled":
+                cellOrderHeader.lblVerified.backgroundColor = #colorLiteral(red: 0.937254902, green: 0.3254901961, blue: 0.3137254902, alpha: 1)
+            default:
+                print("no color")
+            }
+            
         }
-        
+                
         
         cellOrderHeader.phoneName.text = modelOrder.strProductName
         cellOrderHeader.lblPaymentMode.text = "Payment Mode: ".localized(lang: langCode) + (modelOrder.strPaymentName?.localized(lang: langCode) ?? "") //s.

@@ -137,6 +137,7 @@ class PaymentTypeVC: UIViewController,UITableViewDelegate,UITableViewDataSource 
 //
 //        }
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row != 0 && tableDataCount != indexPath.row {
             selectedindex = indexPath.row
@@ -144,9 +145,7 @@ class PaymentTypeVC: UIViewController,UITableViewDelegate,UITableViewDataSource 
             strPaymentcode = (dict.value(forKey: "typeCode") as? String)!
             selectedBankImage = (dict.value(forKey: "image") as? String)!
             tblViewPaymentType.reloadData()
-            
         }
-        
     }
     
     @IBAction func onClickBack(_ sender: Any) {

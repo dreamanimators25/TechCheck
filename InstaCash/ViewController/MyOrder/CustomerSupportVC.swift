@@ -108,17 +108,18 @@ class CustomerSupportVC: UIViewController,MFMailComposeViewControllerDelegate {
     @IBAction func onClickChatButton(_ sender: Any) {
         
         if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
-            
-            print("Zopim Chat")
-            
+                        
             //ZDCChat.initialize(withAccountKey: "your_account_key")
             
+            /*
             ZDCChat.start(in: self.navigationController, withConfig: {config in
                 config?.preChatDataRequirements.name = .optionalEditable
                 config?.preChatDataRequirements.email = .required
                 config?.preChatDataRequirements.phone = .optional
-            })
+            })*/
             
+            
+            ZDCChat.start(nil)
             
             ZDCChat.updateVisitor { user in
                 user?.phone = CustomUserDefault.getPhoneNumber()

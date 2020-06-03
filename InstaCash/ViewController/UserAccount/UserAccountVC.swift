@@ -95,7 +95,7 @@ class UserAccountVC: UIViewController {
         self.logoutLbl.text = "LOGOUT".localized(lang: langCode)
         
         if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
-            self.languageView.isHidden = false
+            self.languageView.isHidden = true
         }else {
             self.languageView.isHidden = true
         }

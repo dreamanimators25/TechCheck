@@ -13,7 +13,6 @@ class MYMaxisVC: UIViewController {
     @IBOutlet weak var scrlView: UIScrollView!
     @IBOutlet weak var ddView: UIView!
     
-    
     @IBOutlet weak var lblMaxis: UILabel!
     @IBOutlet weak var lblTransferDetail: UILabel!
     @IBOutlet weak var lblPleaseEnter: UILabel!

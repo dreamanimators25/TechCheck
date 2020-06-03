@@ -81,6 +81,7 @@
 "  Call  " = "  कॉल करें  ";
 "  Mail  " = "  मेल  ";
 "  Zopim Chat  " = "  ज़ोपिम चैट  ";
+"  Chat  " = "  चैट  ";
 "  WhatsApp  " = "  WhatsApp  ";
 "  Line  " = "  लाइन  ";
 "Diagnosis Code" = "निदान कोड";
@@ -277,6 +278,7 @@
 "CENDOL VOUCHER" = "CENDOL वाउचर";
 "MAXIS" = "MAXIS";
 "SAMSUNG" = "SAMSUNG";
+"Switch" = "स्विच";
 "Cash" = "नकद";
 "UUPON (Cash Only)" = "यूपॉन (कैश ओनली)";
 "UUPON (Cash+Points)" = "यूपॉन (नकद + अंक)";

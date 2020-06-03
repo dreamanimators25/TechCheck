@@ -31,6 +31,7 @@ class PaymentsModeVC: UIViewController {
     @IBOutlet weak var smallCENDOLImage: UIImageView!
     @IBOutlet weak var smallMAXISImage: UIImageView!
     @IBOutlet weak var smallSAMSUNGImage: UIImageView!
+    @IBOutlet weak var smallSWITCHImage: UIImageView!
     
     @IBOutlet weak var bankView: UIView!
     @IBOutlet weak var neftView: UIView!
@@ -41,16 +42,20 @@ class PaymentsModeVC: UIViewController {
     @IBOutlet weak var cendolView: UIView!
     @IBOutlet weak var maxisView: UIView!
     @IBOutlet weak var samsungView: UIView!
+    @IBOutlet weak var switchView: UIView!
     
     @IBOutlet weak var cendolImage: UIImageView!
     @IBOutlet weak var maxisImage: UIImageView!
     @IBOutlet weak var samsungImage: UIImageView!
+    @IBOutlet weak var switchImage: UIImageView!
     @IBOutlet weak var lblCENDOLcharges: UILabel!
     @IBOutlet weak var lblCENDOLtotalPrice: UILabel!
     @IBOutlet weak var lblMAXIScharges: UILabel!
     @IBOutlet weak var lblMAXIStotalPrice: UILabel!
     @IBOutlet weak var lblSAMSUNGcharges: UILabel!
     @IBOutlet weak var lblSAMSUNGtotalPrice: UILabel!
+    @IBOutlet weak var lblSWITCHcharges: UILabel!
+    @IBOutlet weak var lblSWITCHtotalPrice: UILabel!
     @IBOutlet weak var lblOTHERtotalPrice: UILabel!
     
     @IBOutlet weak var btnBank: UIButton!
@@ -62,6 +67,7 @@ class PaymentsModeVC: UIViewController {
     @IBOutlet weak var btnCendol: UIButton!
     @IBOutlet weak var btnMaxis: UIButton!
     @IBOutlet weak var btnSamsung: UIButton!
+    @IBOutlet weak var btnSwitch: UIButton!
     
     @IBOutlet weak var btnCash: UIButton!
     @IBOutlet weak var btnUuponCash: UIButton!
@@ -99,7 +105,6 @@ class PaymentsModeVC: UIViewController {
     @IBOutlet weak var lblUuponCashPointtotalPrice: UILabel!
     
     
-    
     // Localized
     @IBOutlet weak var lblTitlePaymentMode: UILabel!
     @IBOutlet weak var lblHeadSelectedPaymentMode: UILabel!
@@ -120,6 +125,8 @@ class PaymentsModeVC: UIViewController {
     @IBOutlet weak var lblPayable4: UILabel!
     @IBOutlet weak var lblSamsung: UILabel!
     @IBOutlet weak var lblPayable5: UILabel!
+    @IBOutlet weak var lblSwitch: UILabel!
+    @IBOutlet weak var lblPayable9: UILabel!
     @IBOutlet weak var lblSelPayMode: UILabel!
     @IBOutlet weak var btnNext: UIButton!
     
@@ -151,6 +158,7 @@ class PaymentsModeVC: UIViewController {
     var cendol = 0
     var maxis = 0
     var samsung = 0
+    var swich = 0
     
     var cash = 0
     var uuponCash = 0
@@ -181,6 +189,7 @@ class PaymentsModeVC: UIViewController {
             self.cendolView.isHidden = true
             self.maxisView.isHidden = true
             self.samsungView.isHidden = true
+            self.switchView.isHidden = true
             
             self.cashView.isHidden = true
             self.uuponCashView.isHidden = true
@@ -198,6 +207,7 @@ class PaymentsModeVC: UIViewController {
             self.btnCendol.isSelected = false
             self.btnMaxis.isSelected = false
             self.btnSamsung.isSelected = false
+            self.btnSwitch.isSelected = false
             
             self.lblSelectedPaymentMode.text = "BANK".localized(lang: langCode)
             selectePaymentType = "Bank"
@@ -212,6 +222,7 @@ class PaymentsModeVC: UIViewController {
             self.cendolView.isHidden = true
             self.maxisView.isHidden = true
             self.samsungView.isHidden = true
+            self.switchView.isHidden = true
             
             self.cashView.isHidden = true
             self.uuponCashView.isHidden = true
@@ -221,6 +232,7 @@ class PaymentsModeVC: UIViewController {
             self.smallCENDOLImage.isHidden = true
             self.smallMAXISImage.isHidden = true
             self.smallSAMSUNGImage.isHidden = true
+            self.smallSWITCHImage.isHidden = true
             
         }else if CustomUserDefault.getCurrency() == "SG$" {
             
@@ -241,6 +253,7 @@ class PaymentsModeVC: UIViewController {
             self.cendolView.isHidden = true
             self.maxisView.isHidden = true
             self.samsungView.isHidden = true
+            self.switchView.isHidden = true
             
             self.cashView.isHidden = true
             self.uuponCashView.isHidden = true
@@ -266,6 +279,7 @@ class PaymentsModeVC: UIViewController {
             self.cendolView.isHidden = true
             self.maxisView.isHidden = true
             self.samsungView.isHidden = true
+            self.switchView.isHidden = true
             
             self.lblCash.text = "Cash".localized(lang: langCode)
             self.lblUuponCash.text = "UUPON (Cash Only)".localized(lang: langCode)
@@ -305,6 +319,8 @@ class PaymentsModeVC: UIViewController {
         self.lblPayable4.text = "Payable".localized(lang: langCode)
         self.lblSamsung.text = "Samsung".localized(lang: langCode)
         self.lblPayable5.text = "Payable".localized(lang: langCode)
+        self.lblSwitch.text = "Switch".localized(lang: langCode)
+        self.lblPayable9.text = "Payable".localized(lang: langCode)
         self.lblSelPayMode.text = "Selected Payment Mode".localized(lang: langCode)
         
         self.btnNext.setTitle("NEXT".localized(lang: langCode), for: UIControlState.normal)
@@ -373,6 +389,9 @@ class PaymentsModeVC: UIViewController {
         samsungView.layer.borderWidth = width
         samsungView.layer.borderColor = color.cgColor
         
+        switchView.layer.borderWidth = width
+        switchView.layer.borderColor = color.cgColor
+        
         cashView.layer.borderWidth = width
         cashView.layer.borderColor = color.cgColor
         
@@ -408,7 +427,7 @@ class PaymentsModeVC: UIViewController {
             }
             else{
                 paymentTagValue = userDefaults.value(forKey: "Utm_Term_Value") as! String
-                if paymentTagValue == "samsung"{
+                if paymentTagValue == "samsung" {
                     paymentTagValue = "smg"
                 }
             }
@@ -554,6 +573,7 @@ class PaymentsModeVC: UIViewController {
                             self.cendolView.isHidden = true
                             self.maxisView.isHidden = true
                             self.samsungView.isHidden = true
+                            self.switchView.isHidden = true
                             
                             for (index,item) in self.arrDictPaymentMode.enumerated() {
                                 print(index,item)
@@ -581,6 +601,7 @@ class PaymentsModeVC: UIViewController {
                                     self.cendolView.isHidden = true
                                     self.maxisView.isHidden = true
                                     self.samsungView.isHidden = true
+                                    self.switchView.isHidden = true
                                     
                                     //Sameer 20/5/20
                                     self.lblSelectedPaymentMode.text = "BANK".localized(lang: langCode)
@@ -590,6 +611,7 @@ class PaymentsModeVC: UIViewController {
                                     self.smallCENDOLImage.isHidden = true
                                     self.smallMAXISImage.isHidden = true
                                     self.smallSAMSUNGImage.isHidden = true
+                                    self.smallSWITCHImage.isHidden = true
                                     
                                 }else if item["typeCode"] as? String == "Ashita" {
                                     
@@ -619,6 +641,7 @@ class PaymentsModeVC: UIViewController {
                                     self.smallCENDOLImage.isHidden = false
                                     self.smallMAXISImage.isHidden = true
                                     self.smallSAMSUNGImage.isHidden = true
+                                    self.smallSWITCHImage.isHidden = true
                                     
                                 }else if item["typeCode"] as? String == "Maxis" {
                                     
@@ -648,6 +671,7 @@ class PaymentsModeVC: UIViewController {
                                     self.smallCENDOLImage.isHidden = true
                                     self.smallMAXISImage.isHidden = false
                                     self.smallSAMSUNGImage.isHidden = true
+                                    self.smallSWITCHImage.isHidden = true
                                     
                                 }else if item["typeCode"] as? String == "Samsung" {
                                     
@@ -677,6 +701,37 @@ class PaymentsModeVC: UIViewController {
                                     self.smallCENDOLImage.isHidden = true
                                     self.smallMAXISImage.isHidden = true
                                     self.smallSAMSUNGImage.isHidden = false
+                                    self.smallSWITCHImage.isHidden = true
+                                    
+                                }else if item["typeCode"] as? String == "Switch" {
+                                    
+                                    let gateWayCharge = item.value(forKey: "gatewayCharge") as? Int ?? 0
+                                    
+                                    let bankCharge = self.getFinalPrice3 + gateWayCharge
+                                    self.swich = bankCharge
+                                    self.finalPriceSet3 = bankCharge
+                                    
+                                    self.lblOTHERtotalPrice.text = CustomUserDefault.getCurrency() + String(bankCharge.formattedWithSeparator)
+                                    
+                                    self.lblSWITCHcharges.text = "Gateway charges".localized(lang: langCode) + "-" + CustomUserDefault.getCurrency() + String(gateWayCharge)
+                                    self.lblSWITCHtotalPrice.text = CustomUserDefault.getCurrency() + String(bankCharge.formattedWithSeparator)
+                                    
+                                    let imgURL = URL.init(string: item["image"] as! String)
+                                    self.switchImage.sd_setImage(with: imgURL)
+                                    
+                                    //Sameer 19/5/20
+                                    self.otherView.isHidden = false
+                                    self.switchView.isHidden = false
+                                    
+                                    //Sameer 20/5/20
+                                    self.lblSelectedPaymentMode.text = "SWITCH".localized(lang: langCode)
+                                    self.selectePaymentType = "Switch"
+                                    
+                                    self.smallNEFTImage.isHidden = true
+                                    self.smallCENDOLImage.isHidden = true
+                                    self.smallMAXISImage.isHidden = true
+                                    self.smallSAMSUNGImage.isHidden = true
+                                    self.smallSWITCHImage.isHidden = false
                                     
                                 }
                             }
@@ -923,6 +978,7 @@ class PaymentsModeVC: UIViewController {
                 self.btnCendol.isSelected = false
                 self.btnMaxis.isSelected = false
                 self.btnSamsung.isSelected = false
+                self.btnSwitch.isSelected = false
                 
                 DispatchQueue.main.async {
                     UIView.animate(withDuration: 0.4, animations: {
@@ -930,6 +986,7 @@ class PaymentsModeVC: UIViewController {
                         self.cendolView.isHidden = true
                         self.maxisView.isHidden = true
                         self.samsungView.isHidden = true
+                        self.switchView.isHidden = true
                         
                         self.neftView.isHidden = false
                         self.view.layoutIfNeeded()
@@ -992,6 +1049,7 @@ class PaymentsModeVC: UIViewController {
                 self.btnCendol.isSelected = false
                 self.btnMaxis.isSelected = false
                 self.btnSamsung.isSelected = false
+                self.btnSwitch.isSelected = false
                 
                 self.lblSelectedPaymentMode.text = "BANK".localized(lang: langCode)
                 
@@ -1002,6 +1060,7 @@ class PaymentsModeVC: UIViewController {
                 self.smallCENDOLImage.isHidden = true
                 self.smallMAXISImage.isHidden = true
                 self.smallSAMSUNGImage.isHidden = true
+                self.smallSWITCHImage.isHidden = true
                 
             }else {
                 
@@ -1064,6 +1123,7 @@ class PaymentsModeVC: UIViewController {
                 self.btnCendol.isSelected = false
                 self.btnMaxis.isSelected = false
                 self.btnSamsung.isSelected = false
+                self.btnSwitch.isSelected = false
                 
             }else {
                 
@@ -1188,6 +1248,7 @@ class PaymentsModeVC: UIViewController {
                 self.btnCendol.isSelected = false
                 self.btnMaxis.isSelected = false
                 self.btnSamsung.isSelected = false
+                self.btnSwitch.isSelected = false
                 
                 DispatchQueue.main.async {
                     UIView.animate(withDuration: 0.4, animations: {
@@ -1197,6 +1258,7 @@ class PaymentsModeVC: UIViewController {
                         self.cendolView.isHidden = false
                         self.maxisView.isHidden = false
                         self.samsungView.isHidden = false
+                        self.switchView.isHidden = false
                         self.view.layoutIfNeeded()
                     }) { (true) in
                         
@@ -1219,6 +1281,7 @@ class PaymentsModeVC: UIViewController {
             self.btnCendol.isSelected = true
             self.btnMaxis.isSelected = false
             self.btnSamsung.isSelected = false
+            self.btnSwitch.isSelected = false
             
             self.lblSelectedPaymentMode.text = "CENDOL VOUCHER".localized(lang: langCode)
             
@@ -1243,6 +1306,7 @@ class PaymentsModeVC: UIViewController {
             self.smallCENDOLImage.isHidden = false
             self.smallMAXISImage.isHidden = true
             self.smallSAMSUNGImage.isHidden = true
+            self.smallSWITCHImage.isHidden = true
         }
     }
     
@@ -1257,6 +1321,7 @@ class PaymentsModeVC: UIViewController {
             self.btnCendol.isSelected = false
             self.btnMaxis.isSelected = true
             self.btnSamsung.isSelected = false
+            self.btnSwitch.isSelected = false
             
             self.lblSelectedPaymentMode.text = "MAXIS".localized(lang: langCode)
             
@@ -1281,6 +1346,7 @@ class PaymentsModeVC: UIViewController {
             self.smallCENDOLImage.isHidden = true
             self.smallMAXISImage.isHidden = false
             self.smallSAMSUNGImage.isHidden = true
+            self.smallSWITCHImage.isHidden = true
         }
     }
     
@@ -1295,6 +1361,7 @@ class PaymentsModeVC: UIViewController {
             self.btnCendol.isSelected = false
             self.btnMaxis.isSelected = false
             self.btnSamsung.isSelected = true
+            self.btnSwitch.isSelected = false
             
             self.lblSelectedPaymentMode.text = "SAMSUNG".localized(lang: langCode)
             
@@ -1319,7 +1386,49 @@ class PaymentsModeVC: UIViewController {
             self.smallCENDOLImage.isHidden = true
             self.smallMAXISImage.isHidden = true
             self.smallSAMSUNGImage.isHidden = false
+            self.smallSWITCHImage.isHidden = true
         }
+    }
+    
+    @IBAction func btnSWITCHTapped(_ sender: UIButton) {
+        
+        if !sender.isSelected {
+            
+            self.btnBank.isSelected = false
+            self.btnNeft.isSelected = false
+            self.btnImps.isSelected = false
+            self.btnOther.isSelected = false
+            self.btnCendol.isSelected = false
+            self.btnMaxis.isSelected = false
+            self.btnSamsung.isSelected = false
+            self.btnSwitch.isSelected = true
+            
+            self.lblSelectedPaymentMode.text = "SWITCH".localized(lang: langCode)
+            
+            DispatchQueue.main.async {
+                UIView.animate(withDuration: 0.4, animations: {
+                    self.view.layoutIfNeeded()
+                    self.BottomView.frame.origin.y += 45
+                    self.view.layoutIfNeeded()
+                }) { (true) in
+                    UIView.animate(withDuration: 0.3) {
+                        self.view.layoutIfNeeded()
+                        self.BottomView.frame.origin.y -= 45
+                        self.view.layoutIfNeeded()
+                    }
+                }
+            }
+            
+            selectePaymentType = "Switch"
+            finalPriceSet3 = samsung
+            
+            self.smallNEFTImage.isHidden = true
+            self.smallCENDOLImage.isHidden = true
+            self.smallMAXISImage.isHidden = true
+            self.smallSAMSUNGImage.isHidden = true
+            self.smallSWITCHImage.isHidden = false
+        }
+    
     }
     
     //MARK: TW ACTIOMS
@@ -1483,6 +1592,10 @@ class PaymentsModeVC: UIViewController {
                     vc.quatationId = self.quatationId3
                     vc.selectedPaymentType = self.selectePaymentType
                     self.navigationController?.pushViewController(vc, animated:     true)*/
+                
+                case "Switch":
+                
+                    self.fetchOrderFromServer(orderRefType: self.selectePaymentType)
                 
                 default:
                     
@@ -1754,6 +1867,18 @@ class PaymentsModeVC: UIViewController {
                         case "Samsung":
                             
                             let vc = MYSamsungVC()
+                            vc.quatationId = self.quatationId3
+                            vc.orderID = orderID ?? ""
+                            vc.itemID = itemID ?? ""
+                            vc.selectedPaymentType = self.selectePaymentType
+                            
+                            vc.finalPriced = self.finalPriceSet3
+                            vc.placedOrderId = orderPlaceID ?? ""
+                            self.navigationController?.pushViewController(vc, animated:     true)
+                            
+                        case "Switch":
+                            
+                            let vc = MYSwitchVC()
                             vc.quatationId = self.quatationId3
                             vc.orderID = orderID ?? ""
                             vc.itemID = itemID ?? ""
