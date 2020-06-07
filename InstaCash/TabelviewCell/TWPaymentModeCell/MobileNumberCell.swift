@@ -1,16 +1,17 @@
 //
-//  SelectTextCell.swift
+//  MobileNumberCell.swift
 //  InstaCash
 //
-//  Created by sameer khan on 31/05/20.
+//  Created by sameer khan on 06/06/20.
 //  Copyright © 2020 Prakhar Gupta. All rights reserved.
 //
 
 import UIKit
 
-class SelectTextCell: UITableViewCell {
+class MobileNumberCell: UITableViewCell {
     
-    @IBOutlet weak var selectTextField: UITextField!
+    @IBOutlet weak var mobileNumberTxtField: UITextField!
+    @IBOutlet weak var paymentImgView: UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()

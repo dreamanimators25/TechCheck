@@ -298,6 +298,10 @@
 "Select Bank Name" = "बैंक का नाम चुनें";
 "Please enter account holder's name" = "कृपया खाताधारक का नाम दर्ज करें";
 "Please enter account number" = "कृपया खाता संख्या दर्ज करें";
+
+"Please enter Account Holders Name" = "कृपया खाताधारक का नाम दर्ज करें";
+"Please enter Account Number" = "कृपया खाता संख्या दर्ज करें";
+
 "Please select your bank" = "कृपया अपना बैंक चुनें";
 "Transfer Details" = "स्थानांतरण विवरण";
 "Please Enter the details" = "कृपया विवरण दर्ज करें";

@@ -8,7 +8,8 @@
 
 import Foundation
 import UIKit
-class SearchProduct{
+
+class SearchProduct {
     
     var strProductId:String?
     var strProductName:String?
@@ -23,6 +24,7 @@ class SearchProduct{
         self.strproductBrandName = searchProductListDict["brandName"] as? String
         self.strSmartPhone = searchProductListDict["categoryName"] as? String        
     }
+    
     //MARK:- web service methods
     
     static  func searchApiPost(strURL : String , parameters:NSDictionary, completionHandler: @escaping (NSDictionary?, NSError?) -> ()) {
@@ -44,9 +46,11 @@ class SearchProduct{
             "page":"",
             "limit":"-1"
         ]
+        
         self.searchApiPost(strURL: strUrl, parameters: parametersHome as NSDictionary, completionHandler: {responseObject , error in
             Alert.HideProgressHud(Onview: getController.view)
             if error == nil {
+                
                 if responseObject?["status"] as! String == "Success"{
                     let arrSearchProduct = responseObject?.value(forKeyPath: "msg")as! NSArray
                         for index in 0..<arrSearchProduct.count{

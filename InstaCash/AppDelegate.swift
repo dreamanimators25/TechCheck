@@ -339,6 +339,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     //MARK:- App lifecycle
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+                
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         
         //Sameer 30/5/2020

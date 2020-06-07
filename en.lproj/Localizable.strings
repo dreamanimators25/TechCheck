@@ -300,6 +300,10 @@
 "Select Bank Name" = "Select Bank Name";
 "Please enter account holder's name" = "Please enter account holder's name";
 "Please enter account number" = "Please enter account number";
+
+"Please enter Account Holders Name" = "Please enter Account Holders Name";
+"Please enter Account Number" = "Please enter Account Number";
+
 "Please select your bank" = "Please select your bank";
 "Transfer Details" = "Transfer Details";
 "Please Enter the details" = "Please Enter the details";

@@ -13,20 +13,20 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SelectTextCell" rowHeight="52" id="g4P-Se-NX9" customClass="SelectTextCell" customModule="InstaCash" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="323" height="52"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="g4P-Se-NX9" id="NHV-Wh-3MN">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="g4P-Se-NX9" id="NHV-Wh-3MN">
                 <rect key="frame" x="0.0" y="0.0" width="323" height="52"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DKE-i9-xBZ">
-                        <rect key="frame" x="5" y="5" width="313" height="45"/>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TJb-kc-CV8">
+                        <rect key="frame" x="5" y="5" width="313" height="46"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="45" id="I5X-iv-cR9"/>
+                            <constraint firstAttribute="height" constant="46" id="oBt-yn-lxm"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDq-L4-2LR">
-                        <rect key="frame" x="5" y="50" width="313" height="1"/>
+                        <rect key="frame" x="5" y="51" width="313" height="1"/>
                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="b4T-VR-8Co"/>
@@ -38,17 +38,17 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="NDq-L4-2LR" secondAttribute="bottom" id="0Ev-3l-Ama"/>
-                    <constraint firstItem="DKE-i9-xBZ" firstAttribute="top" secondItem="NHV-Wh-3MN" secondAttribute="top" constant="5" id="ANt-OH-WCA"/>
-                    <constraint firstAttribute="trailing" secondItem="DKE-i9-xBZ" secondAttribute="trailing" constant="5" id="EBf-nq-QLr"/>
-                    <constraint firstItem="NDq-L4-2LR" firstAttribute="top" secondItem="DKE-i9-xBZ" secondAttribute="bottom" id="jir-cn-6yB"/>
+                    <constraint firstItem="TJb-kc-CV8" firstAttribute="leading" secondItem="NHV-Wh-3MN" secondAttribute="leading" constant="5" id="2fb-bO-77O"/>
+                    <constraint firstItem="TJb-kc-CV8" firstAttribute="top" secondItem="NHV-Wh-3MN" secondAttribute="top" constant="5" id="Nx0-hl-2SH"/>
+                    <constraint firstAttribute="trailing" secondItem="TJb-kc-CV8" secondAttribute="trailing" constant="5" id="SpV-GR-wlU"/>
+                    <constraint firstItem="NDq-L4-2LR" firstAttribute="top" secondItem="TJb-kc-CV8" secondAttribute="bottom" id="cxU-0y-wcF"/>
                     <constraint firstItem="NDq-L4-2LR" firstAttribute="leading" secondItem="NHV-Wh-3MN" secondAttribute="leading" constant="5" id="rrf-rF-XOl"/>
-                    <constraint firstItem="DKE-i9-xBZ" firstAttribute="leading" secondItem="NHV-Wh-3MN" secondAttribute="leading" constant="5" id="soN-uP-AgQ"/>
                     <constraint firstAttribute="trailing" secondItem="NDq-L4-2LR" secondAttribute="trailing" constant="5" id="xXW-mx-RA3"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="D7T-e4-sHK"/>
             <connections>
-                <outlet property="autoCompTxtField" destination="DKE-i9-xBZ" id="jyq-kC-OGX"/>
+                <outlet property="selectTextField" destination="TJb-kc-CV8" id="ccC-v6-ufV"/>
             </connections>
             <point key="canvasLocation" x="127" y="6"/>
         </tableViewCell>

@@ -298,6 +298,10 @@
 "Select Bank Name" = "选择银行名称";
 "Please enter account holder's name" = "请输入帐户持有人的姓名";
 "Please enter account number" = "请输入帐号";
+
+"Please enter Account Holders Name" = "请输入帐户持有人的姓名";
+"Please enter Account Number" = "请输入帐号";
+
 "Please select your bank" = "请选择您的银行";
 "Transfer Details" = "付款明細"; "传输详细信息";
 "Please Enter the details" = "请输入详细信息";
