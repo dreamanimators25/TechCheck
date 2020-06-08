@@ -172,6 +172,10 @@ class PaymentsModeVC: UIViewController,UITableViewDataSource,UITableViewDelegate
                             self.lblSelectedPaymentMode.text = (self.arrWalletGroup[0]["typeCode"] as! String).localized(lang: langCode)
                             
                             self.selectePaymentType = self.arrWalletGroup[0]["typeCode"] as? String ?? ""
+                            
+                            let gateWayCharge = self.arrWalletGroup[0]["gatewayCharge"] as? Int ?? 0
+                            let finalCharge = self.getFinalPrice3 + gateWayCharge
+                            self.finalPriceSet3 = finalCharge
                         }
                         
                         if self.arrOtherGroup.count > 0 {
@@ -185,6 +189,10 @@ class PaymentsModeVC: UIViewController,UITableViewDataSource,UITableViewDelegate
                             self.lblSelectedPaymentMode.text = (self.arrOtherGroup[0]["typeCode"] as! String).localized(lang: langCode)
                             
                             self.selectePaymentType = self.arrOtherGroup[0]["typeCode"] as? String ?? ""
+                            
+                            let gateWayCharge = self.arrOtherGroup[0]["gatewayCharge"] as? Int ?? 0
+                            let finalCharge = self.getFinalPrice3 + gateWayCharge
+                            self.finalPriceSet3 = finalCharge
                         }
                         
                         if self.arrBankGroup.count > 0 {
@@ -198,6 +206,10 @@ class PaymentsModeVC: UIViewController,UITableViewDataSource,UITableViewDelegate
                             self.lblSelectedPaymentMode.text = (self.arrBankGroup[0]["typeCode"] as! String).localized(lang: langCode)
                             
                             self.selectePaymentType = self.arrBankGroup[0]["typeCode"] as? String ?? ""
+                            
+                            let gateWayCharge = self.arrBankGroup[0]["gatewayCharge"] as? Int ?? 0
+                            let finalCharge = self.getFinalPrice3 + gateWayCharge
+                            self.finalPriceSet3 = finalCharge
                         }
                         
                         UIView.animate(withDuration: 0.4, animations: {
@@ -331,7 +343,7 @@ class PaymentsModeVC: UIViewController,UITableViewDataSource,UITableViewDelegate
                 
                 let gateWayCharge = self.arrBankGroup[indexPath.row].value(forKey: "gatewayCharge") as? Int ?? 0
                 let bankCharge = self.getFinalPrice3 + gateWayCharge
-                self.finalPriceSet3 = bankCharge
+                //self.finalPriceSet3 = bankCharge
                 
                 if CustomUserDefault.getCurrency() == "NT$" {
                     headCell.lblTotalPayment.text = ""
@@ -356,9 +368,14 @@ class PaymentsModeVC: UIViewController,UITableViewDataSource,UITableViewDelegate
                 
                 let gateWayCharge = self.arrBankGroup[indexPath.row - 1].value(forKey: "gatewayCharge") as? Int ?? 0
                 let bankCharge = self.getFinalPrice3 + gateWayCharge
-                self.finalPriceSet3 = bankCharge
+                //self.finalPriceSet3 = bankCharge
                 
-                footCell.lblGatewayCharge.text = "Gateway charges".localized(lang: langCode) + "-" + CustomUserDefault.getCurrency() + String(gateWayCharge)
+                if CustomUserDefault.getCurrency() == "NT$" {
+                    //footCell.lblGatewayCharge.text = ""
+                    footCell.lblGatewayCharge.isHidden = true
+                }else {
+                    footCell.lblGatewayCharge.text = "Gateway charges".localized(lang: langCode) + "-" + CustomUserDefault.getCurrency() + String(gateWayCharge)
+                }
                 
                 footCell.lblPayable.text = "Payable".localized(lang: langCode)
                 
@@ -376,7 +393,7 @@ class PaymentsModeVC: UIViewController,UITableViewDataSource,UITableViewDelegate
                 
                 let gateWayCharge = self.arrOtherGroup[indexPath.row].value(forKey: "gatewayCharge") as? Int ?? 0
                 let bankCharge = self.getFinalPrice3 + gateWayCharge
-                self.finalPriceSet3 = bankCharge
+                //self.finalPriceSet3 = bankCharge
                 
                 if CustomUserDefault.getCurrency() == "NT$" {
                     headCell.lblTotalPayment.text = ""
@@ -401,10 +418,15 @@ class PaymentsModeVC: UIViewController,UITableViewDataSource,UITableViewDelegate
                 
                 let gateWayCharge = self.arrOtherGroup[indexPath.row - 1].value(forKey: "gatewayCharge") as? Int ?? 0
                 let bankCharge = self.getFinalPrice3 + gateWayCharge
-                self.finalPriceSet3 = bankCharge
+                //self.finalPriceSet3 = bankCharge
                 
-                footCell.lblGatewayCharge.text = "Gateway charges".localized(lang: langCode) + "-" + CustomUserDefault.getCurrency() + String(gateWayCharge)
-                
+                if CustomUserDefault.getCurrency() == "NT$" {
+                    //footCell.lblGatewayCharge.text = ""
+                    footCell.lblGatewayCharge.isHidden = true
+                }else {
+                    footCell.lblGatewayCharge.text = "Gateway charges".localized(lang: langCode) + "-" + CustomUserDefault.getCurrency() + String(gateWayCharge)
+                }
+                                
                 footCell.lblPayable.text = "Payable".localized(lang: langCode)
                 
                 if (self.arrOtherGroup[indexPath.row - 1]["paymentType"] as? String) == "UUPON (Points Only)" {
@@ -425,7 +447,7 @@ class PaymentsModeVC: UIViewController,UITableViewDataSource,UITableViewDelegate
                 
                 let gateWayCharge = self.arrWalletGroup[indexPath.row].value(forKey: "gatewayCharge") as? Int ?? 0
                 let bankCharge = self.getFinalPrice3 + gateWayCharge
-                self.finalPriceSet3 = bankCharge
+                //self.finalPriceSet3 = bankCharge
                 
                 if CustomUserDefault.getCurrency() == "NT$" {
                     headCell.lblTotalPayment.text = ""
@@ -450,10 +472,15 @@ class PaymentsModeVC: UIViewController,UITableViewDataSource,UITableViewDelegate
                 
                 let gateWayCharge = self.arrWalletGroup[indexPath.row - 1].value(forKey: "gatewayCharge") as? Int ?? 0
                 let bankCharge = self.getFinalPrice3 + gateWayCharge
-                self.finalPriceSet3 = bankCharge
+                //self.finalPriceSet3 = bankCharge
                 
-                footCell.lblGatewayCharge.text = "Gateway charges".localized(lang: langCode) + "-" + CustomUserDefault.getCurrency() + String(gateWayCharge)
-                
+                if CustomUserDefault.getCurrency() == "NT$" {
+                    //footCell.lblGatewayCharge.text = ""
+                    footCell.lblGatewayCharge.isHidden = true
+                }else {
+                    footCell.lblGatewayCharge.text = "Gateway charges".localized(lang: langCode) + "-" + CustomUserDefault.getCurrency() + String(gateWayCharge)
+                }
+                                
                 footCell.lblPayable.text = "Payable".localized(lang: langCode)
                 
                 footCell.lblTotalPayment.text = CustomUserDefault.getCurrency() + String(bankCharge.formattedWithSeparator)

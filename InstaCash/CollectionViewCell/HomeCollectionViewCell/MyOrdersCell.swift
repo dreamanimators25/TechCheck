@@ -44,7 +44,8 @@ class MyOrdersCell: UICollectionViewCell {
         self.lblPlaced.text = "Placed".localized(lang: langCode)
         self.lblVerify.text = "Verify".localized(lang: langCode)
         self.lblOutFor.text = "Out For Pickup".localized(lang: langCode)
-        self.lblPacman.text = "Pacman Cancelled".localized(lang: langCode)
+        //self.lblPacman.text = "Pacman Cancelled".localized(lang: langCode)
+        self.lblPacman.text = "Completed".localized(lang: langCode)
         
     }
     

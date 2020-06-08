@@ -2061,7 +2061,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                     cellOrders.imgOutFor.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
                     cellOrders.imgPacman.backgroundColor = #colorLiteral(red: 0.8156862745, green: 0, blue: 0.06666666667, alpha: 1)
                     cellOrders.imgPacman.image = #imageLiteral(resourceName: "pacman cancel")
-                    cellOrders.lblPacman.text = "Complete".localized(lang: langCode)
+                    cellOrders.lblPacman.text = "Completed".localized(lang: langCode)
                     
                     cellOrders.lblVerifyLeft.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
                     cellOrders.lblVerifyRight.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
@@ -2163,13 +2163,13 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                     cellOrders.lblOutForLeft.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
                     cellOrders.lblOutForRight.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
                     cellOrders.lblPacmanLeft.backgroundColor = #colorLiteral(red: 0.8156862745, green: 0, blue: 0.06666666667, alpha: 1)
-                case "Complete":
+                case "Completed":
                     cellOrders.imgPlaced.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
                     cellOrders.imgVerify.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
                     cellOrders.imgOutFor.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
                     cellOrders.imgPacman.backgroundColor = #colorLiteral(red: 0.8156862745, green: 0, blue: 0.06666666667, alpha: 1)
                     cellOrders.imgPacman.image = #imageLiteral(resourceName: "pacman cancel")
-                    cellOrders.lblPacman.text = "Complete".localized(lang: langCode)
+                    cellOrders.lblPacman.text = "Completed".localized(lang: langCode)
                     
                     cellOrders.lblVerifyLeft.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
                     cellOrders.lblVerifyRight.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
