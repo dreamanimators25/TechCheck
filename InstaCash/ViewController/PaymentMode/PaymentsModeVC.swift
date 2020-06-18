@@ -753,12 +753,18 @@ class PaymentsModeVC: UIViewController,UITableViewDataSource,UITableViewDelegate
             var parametersHome : [String : Any] = [
                 "userName" : apiAuthenticateUserName,
                 "apiKey" : key,
-                "mobile":CustomUserDefault.getPhoneNumber() ?? "",
                 
-                "name":CustomUserDefault.getUserName() ?? "",
+                //"name":CustomUserDefault.getUserName() ?? "",
+                //"email":CustomUserDefault.getUserEmail() ?? "",
+                //"mobile":CustomUserDefault.getPhoneNumber() ?? "",
+                
                 "address":userDefaults.value(forKey: "placeOrderAddress") as? String ?? "", 
                 
                 "city":CustomUserDefault.getCityId(),
+                
+                "name":CustomUserDefault.getEnteredUserName() ?? "",
+                "email":CustomUserDefault.getEnteredUserEmail() ?? "",
+                "mobile":CustomUserDefault.getEnteredPhoneNumber() ?? "",
                 
                 ////////////////////////////////////////////////////////////
                 "productId":producdID,
@@ -768,7 +774,7 @@ class PaymentsModeVC: UIViewController,UITableViewDataSource,UITableViewDelegate
                 ////////////////////////////////////////////////////////////
                 
                 //"remark":"",
-                "email":CustomUserDefault.getUserEmail() ?? "",
+                
                 //"productImage":userDefaults.value(forKey: "otherProductDeviceImage") as! String,
                 //"GCMId":strGCMToken,
                 "customerId":CustomUserDefault.getUserId(),

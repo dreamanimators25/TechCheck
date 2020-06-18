@@ -235,6 +235,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     //MARK:- openUrl method for social integration
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         NSLog("Welcome")
+        
+        // Sameeer 18/6/2020
+        if let scheme = url.scheme,
+            scheme.localizedCaseInsensitiveCompare("com.instaapp") == .orderedSame, let _ = url.host {
+            
+            var parameters: [String: String] = [:]
+            URLComponents(url: URL.init(string: url.absoluteString)!, resolvingAgainstBaseURL: false)?.queryItems?.forEach {
+                parameters[$0.name] = $0.value
+            }
+            
+            print(parameters)
+            
+            // Set Dictionary for InstaCashInformation
+            var urlResponse = [String: String]()
+            urlResponse = parameters
+            userDefaults.removeObject(forKey: "urlResponse")
+            let myData = NSKeyedArchiver.archivedData(withRootObject: urlResponse)
+            userDefaults.set(myData, forKey: "urlResponse")
+            
+            setRotControllersWithSideMenu(sendMyOrderArray: [HomeModel](), sendBrandArray: [HomeModel](), SendPupularDevoice: [HomeModel](), SendMyCurrentDevice: [HomeModel](), isComingFromWelcome: false, strAppCodeGet:"")
+            
+            //redirect(to: view, with: parameters)
+        }
+        return true
+        
+        
+        /* Sameeer 18/6/2020
         let isFBOpenUrl = FBSDKApplicationDelegate.sharedInstance().application(app, open: url, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String, annotation: options[UIApplicationOpenURLOptionsKey.annotation])
         let isGoogleOpenUrl = GIDSignIn.sharedInstance().handle(url, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String, annotation: options[UIApplicationOpenURLOptionsKey.annotation])
         
@@ -248,7 +275,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
 //            userDefaults.setValue(referrer, forKey: "Utm_Term_Value")
 //            return true
 //        }
-        
+                
     
 //        if let components = NSURLComponents(url: url, resolvingAgainstBaseURL: true), let path = components.path, let query = components.query {
 //            if path == "/re.php" {
@@ -267,6 +294,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         if isFBOpenUrl { return true }
         if isGoogleOpenUrl { return true }
         return false
+        */
         
     }
     
@@ -300,6 +328,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         if userActivity.activityType == NSUserActivityTypeBrowsingWeb {
             let url = userActivity.webpageURL!
             print(url.absoluteString)
+            
+            //////////////////// / Sameeer 18/6/2020
+            if let url = userActivity.webpageURL {
+                _ = url.lastPathComponent
+                var parameters: [String: String] = [:]
+                URLComponents(url: url, resolvingAgainstBaseURL: false)?.queryItems?.forEach {
+                    parameters[$0.name] = $0.value
+                }
+                
+                print(parameters)
+                
+                // Set Dictionary for InstaCashInformation
+                var urlResponse = [String: String]()
+                urlResponse = parameters
+                userDefaults.removeObject(forKey: "urlResponse")
+                let myData = NSKeyedArchiver.archivedData(withRootObject: urlResponse)
+                userDefaults.set(myData, forKey: "urlResponse")
+                
+                //redirect(to: view, with: parameters)
+            }
+            
+            return true
+            ////////////////////
+            
+            /* Sameeer 18/6/2020
             guard let referrer = url["utm_term"] else {
                 print("No utm_term parameter")
                 return TCTrueSDK.sharedManager().application(application, continue: userActivity, restorationHandler: restorationHandler)
@@ -309,6 +362,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
             print(referrer)
             //handle url and open whatever page you want to open.
             return true
+            */
 
         }
         else{
@@ -339,6 +393,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     //MARK:- App lifecycle
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+    //print(URL(string:"https://sbox.getinstacash.in/ic-web/re.php?utm_source=gPay&utm_medium=link&utm_campaign=gPayAffiliate&utm_term=GPAY250")?.params())
                 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         

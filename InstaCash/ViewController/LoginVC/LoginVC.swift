@@ -352,6 +352,7 @@ class LoginVC: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate,TCTrueSDKD
                 ]
             }
             
+            print(parameters)
             
             self.loginApiPost(strURL: strUrl, parameters: parameters as NSDictionary, completionHandler: {responseObject , error in
                 Alert.HideProgressHud(Onview: self.view)

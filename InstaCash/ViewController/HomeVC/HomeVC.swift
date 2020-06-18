@@ -133,6 +133,9 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
     var floatingItemsArrayTW:[String] = ["  Line  ","  Call  ","  Mail  "]
     var floatingImageArrayMY:[UIImage] = [#imageLiteral(resourceName: "chatSupport"),#imageLiteral(resourceName: "callSupport"),#imageLiteral(resourceName: "mailSupport")]
     
+    var emailAddress = String()
+    var phoneNumber = String()
+    
     //MARK:- show custom delegate methods
     func showVerificationCodePopUp(processFor: String) {
         var strTitle = ""
@@ -789,6 +792,9 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                     if self.reachability?.connection.description != "No Connection" {
                         OrderListModel.fetchOrderListFromServer(isInterNet:true,getController: self) { (arrOrderList) in
                             
+                            //To Call InstaCashInformation Api
+                            self.fireWebServiceForInstaCashInformation()
+                            
                             if arrOrderList.count > 0 {
                                 self.arrOrderList = arrOrderList
                                 
@@ -803,6 +809,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                                 self.orderDetailHeightConstraint.constant = 0
                                 self.orderDetailTopConstraint.constant = 0
                             }
+                            
                         }
                     }
                     else{
@@ -2627,6 +2634,63 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
         
     }
     
+    //MARK:- web service methods
+    
+    func FaqApiPost(strURL : String , parameters:NSDictionary, completionHandler: @escaping (NSDictionary?, NSError?) -> ()) {
+        let web = WebServies()
+        web.postRequest(urlString: strURL, paramDict: (parameters as! Dictionary<String, AnyObject>), completionHandler: completionHandler)
+    }
+    
+    func fireWebServiceForInstaCashInformation()
+    {
+        if reachability?.connection.description != "No Connection" {
+            Alert.ShowProgressHud(Onview: self.view)
+            
+            let strBaseURL = userDefaults.value(forKey: "baseURL") as! String
+            let strUrl =  strBaseURL + "instacashInformation"
+            var parameters = [String: Any]()
+            
+            parameters  = [
+                "userName" : apiAuthenticateUserName,
+                "apiKey" : key,
+            ]
+            
+            print(parameters)
+            
+            self.FaqApiPost(strURL: strUrl, parameters: [:], completionHandler: {responseObject , error in
+                
+                Alert.HideProgressHud(Onview: self.view)
+                
+                //print(responseObject ?? [:])
+                
+                if error == nil {
+                    
+                    // Set Dictionary for InstaCashInformation
+                    var dictResponse = NSDictionary()
+                    dictResponse = responseObject ?? [:]
+                    userDefaults.removeObject(forKey: "InstacashInformation")
+                    let myData = NSKeyedArchiver.archivedData(withRootObject: dictResponse)
+                    userDefaults.set(myData, forKey: "InstacashInformation")
+                    
+                    
+                    
+                    self.emailAddress = (responseObject?.value(forKey: "contact_detail") as? NSDictionary)?.value(forKey: "email") as? String ?? ""
+                    self.phoneNumber = (responseObject?.value(forKey: "contact_detail") as? NSDictionary)?.value(forKey: "phone") as? String ?? ""
+                    
+                }
+                else
+                {
+                    //Alert.showAlertWithError(strMessage: "Seemd Conection loss from server".localized(lang: langCode) as NSString, Onview: self)
+                }
+            })
+            
+        }
+        else {
+            Alert.showAlertWithError(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
+        }
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -2808,6 +2872,7 @@ extension HomeVC {
             Alert.showAlertWithError(strMessage: "Oops! Mail Service not available.".localized(lang: langCode) as NSString, Onview: self)
         }
         else{
+            /*
             var emailAddress = String()
             
             if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
@@ -2828,12 +2893,14 @@ extension HomeVC {
             }
                       
             //emailAddress = "service@compasia.com"
+            */
             
             let composeVC = MFMailComposeViewController()
             composeVC.mailComposeDelegate = self
             
             // Configure the fields of the interface.
-            composeVC.setToRecipients([emailAddress])
+            //composeVC.setToRecipients([emailAddress])
+            composeVC.setToRecipients([self.emailAddress])
             composeVC.setSubject("Message Subject".localized(lang: langCode))
             composeVC.setMessageBody("Message content.".localized(lang: langCode), isHTML: false)
             
@@ -2852,6 +2919,7 @@ extension HomeVC {
     
     func onClickCallButton() {
         
+        /*
         var phoneNumber = String()
         if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
             
@@ -2869,10 +2937,10 @@ extension HomeVC {
             
             phoneNumber = "+6587760670"
             
-        }
+        }*/
         
         
-        if let url = URL(string: "tel://\(phoneNumber)"), UIApplication.shared.canOpenURL(url) {
+        if let url = URL(string: "tel://\(self.phoneNumber)"), UIApplication.shared.canOpenURL(url) {
             if #available(iOS 10, *) {
                 UIApplication.shared.open(url)
             } else {

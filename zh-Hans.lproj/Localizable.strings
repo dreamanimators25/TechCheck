@@ -199,6 +199,7 @@
 "Enter valid mobile number" = "请输入有效的手机号码";
 "Please enter E-mail address" = "請輸入電子郵件"; //"请输入电子邮件地址";
 "Please Enter Correct Email Address" = "请输入正确的电子邮件地址";
+"Invalid email-id" = "请输入正确的电子邮件地址";
 "oops,something went wrong" = "哎呀！出事了";
 "Mobile Number" = "手机号码";
 "Send App Link" = "发送应用链接";

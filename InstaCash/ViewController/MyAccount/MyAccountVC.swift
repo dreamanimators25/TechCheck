@@ -162,6 +162,9 @@ class MyAccountVC: UIViewController {
         CustomUserDefault.removeUserId()
         CustomUserDefault.removeCurrency()
         CustomUserDefault.removeUserName()
+        CustomUserDefault.removeEnteredUserName()
+        CustomUserDefault.removeEnteredUserEmail()
+        CustomUserDefault.removeEnteredPhoneNumber()
         CustomUserDefault.removeProductId()
         CustomUserDefault.removeUserProfile()
         CustomUserDefault.removeUserProfileImage()
@@ -174,6 +177,7 @@ class MyAccountVC: UIViewController {
         userDefaults.removeObject(forKey: "promoterID")
         userDefaults.removeObject(forKey: "promoter")
         userDefaults.removeObject(forKey: "promotionCouponCode")
+        userDefaults.removeObject(forKey: "urlResponse")
         userDefaults.removeObject(forKey: "additionalInfo")
         //
         

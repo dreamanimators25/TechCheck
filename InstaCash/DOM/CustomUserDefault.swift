@@ -13,7 +13,6 @@ extension UserDefaults {
     
     //Save language code
     func saveLanguageCode(langCode : String) {
-        
         let defaults = UserDefaults.standard
         defaults.setValue(langCode, forKey: "langCode")
         defaults.synchronize()
@@ -21,7 +20,6 @@ extension UserDefaults {
     
     //Get language code
     func getLanguageCode(key : String) -> String? {
-        
         let defaults = UserDefaults.standard
         let langCODE = defaults.value(forKey: key)
         
@@ -30,13 +28,11 @@ extension UserDefaults {
         }
         
         defaults.synchronize()
-        
         return nil
     }
 
     //Save Quotation Mode
     func saveQuotationMode(Mode : String) {
-        
         let defaults = UserDefaults.standard
         defaults.setValue(Mode, forKey: "eventSource")
         defaults.synchronize()
@@ -44,7 +40,6 @@ extension UserDefaults {
     
     //Get Quotation Mode
     func getQuotationMode(key : String) -> String? {
-        
         let defaults = UserDefaults.standard
         let MODE = defaults.value(forKey: key)
         
@@ -53,7 +48,6 @@ extension UserDefaults {
         }
         
         defaults.synchronize()
-        
         return nil
     }
     
@@ -69,8 +63,7 @@ class CustomUserDefault: NSObject {
         return  UserDefaults.standard.object(forKey: "UserId") as? String ?? ""
     }
     
-    static func removeUserId()
-    {
+    static func removeUserId() {
         UserDefaults.standard.removeObject(forKey: "UserId")
     }
     
@@ -87,35 +80,52 @@ class CustomUserDefault: NSObject {
         }
     }
     
-    static func removeUserEmail()
-    {
+    static func removeUserEmail() {
         UserDefaults.standard.removeObject(forKey: "UserEmail")
     }
-    static  func setCityId(data : String)  {
-        
+    
+    static  func setEnteredUserEmail(data : String)  {
+        UserDefaults.standard.set(data, forKey: "UserEmailEntered")
+    }
+    
+    static  func getEnteredUserEmail() -> String? {
+        if (UserDefaults.standard.object(forKey: "UserEmailEntered") != nil){
+            return  UserDefaults.standard.object(forKey: "UserEmailEntered") as? String
+        }
+        else{
+            return ""
+        }
+    }
+    
+    static func removeEnteredUserEmail() {
+        UserDefaults.standard.removeObject(forKey: "UserEmailEntered")
+    }
+    
+    static  func setCityId(data : String) {
         UserDefaults.standard.set(data, forKey: "CityId")
     }
-    static  func getCityId()-> String  {
+    
+    static  func getCityId()-> String {
         if (UserDefaults.standard.object(forKey: "CityId") != nil){
             return  UserDefaults.standard.object(forKey: "CityId")as! String
-
         }
         else{
             return  ""
-
         }
     }
-    static func removeCityId()
-    {
+    
+    static func removeCityId() {
         UserDefaults.standard.removeObject(forKey: "CityId")
     }
     
     static func setUserPinCode(data : String) {
         UserDefaults.standard.set(data, forKey: "orderPinCode")
     }
+    
     static func removePinCode() {
         UserDefaults.standard.removeObject(forKey: "orderPinCode")
     }
+    
     static func getUserPinCode() -> String? {
         if (UserDefaults.standard.object(forKey: "orderPinCode") != nil) {
             return  UserDefaults.standard.object(forKey: "orderPinCode") as? String
@@ -132,11 +142,11 @@ class CustomUserDefault: NSObject {
         }*/
     }
     
-    static  func setPhoneNumber(data : String)  {
+    static  func setPhoneNumber(data : String) {
         UserDefaults.standard.set(data, forKey: "phoneNumber")
     }
     
-    static  func getPhoneNumber() -> String?  {
+    static  func getPhoneNumber() -> String? {
         if (UserDefaults.standard.object(forKey: "phoneNumber") != nil){
             return  UserDefaults.standard.object(forKey: "phoneNumber") as? String
         }
@@ -145,16 +155,32 @@ class CustomUserDefault: NSObject {
         }
     }
     
-    static func removePhoneNumber()
-    {
+    static func removePhoneNumber() {
         UserDefaults.standard.removeObject(forKey: "phoneNumber")
     }
     
-    static  func setProductId(data : String)  {
+    static  func setEnteredPhoneNumber(data : String) {
+        UserDefaults.standard.set(data, forKey: "phoneNumberEntered")
+    }
+    
+    static  func getEnteredPhoneNumber() -> String? {
+        if (UserDefaults.standard.object(forKey: "phoneNumberEntered") != nil){
+            return  UserDefaults.standard.object(forKey: "phoneNumberEntered") as? String
+        }
+        else{
+            return  ""
+        }
+    }
+    
+    static func removeEnteredPhoneNumber() {
+        UserDefaults.standard.removeObject(forKey: "phoneNumberEntered")
+    }
+    
+    static  func setProductId(data : String) {
         UserDefaults.standard.set(data, forKey: "ProductId")
     }
     
-    static  func getProductId()-> String  {
+    static  func getProductId()-> String {
         if (UserDefaults.standard.object(forKey: "ProductId") != nil){
             return  UserDefaults.standard.object(forKey: "ProductId")as! String
         }
@@ -163,7 +189,7 @@ class CustomUserDefault: NSObject {
         }
     }
     
-    static func removeProductId(){
+    static func removeProductId() {
         UserDefaults.standard.removeObject(forKey: "ProductId")
     }
     
@@ -171,7 +197,7 @@ class CustomUserDefault: NSObject {
         UserDefaults.standard.set(data, forKey: "CityName")
     }
     
-    static  func getCityName()-> String  {
+    static  func getCityName()-> String {
         return  UserDefaults.standard.object(forKey: "CityName") as? String ?? ""
     }
     
@@ -182,11 +208,12 @@ class CustomUserDefault: NSObject {
     static func removeCurrency() {
         UserDefaults.standard.removeObject(forKey: "currency")
     }
+    
     static  func setCurrency(data : String)  {
-        
         UserDefaults.standard.set(data, forKey: "currency")
     }
-    static  func getCurrency()-> String  {
+    
+    static  func getCurrency()-> String {
         return  UserDefaults.standard.object(forKey: "currency") as? String ?? ""
     }
     
@@ -198,7 +225,7 @@ class CustomUserDefault: NSObject {
         }
     }
     
-    static  func setUserName(data : String)  {
+    static  func setUserName(data : String) {
         UserDefaults.standard.set(data, forKey: "UserName")
     }
     
@@ -210,6 +237,18 @@ class CustomUserDefault: NSObject {
         UserDefaults.standard.removeObject(forKey: "UserName")
     }
     
+    static  func setEnteredUserName(data : String) {
+        UserDefaults.standard.set(data, forKey: "UserNameEntered")
+    }
+    
+    static  func getEnteredUserName() -> String? {
+        return  UserDefaults.standard.object(forKey: "UserNameEntered") as? String
+    }
+    
+    static func removeEnteredUserName() {
+        UserDefaults.standard.removeObject(forKey: "UserNameEntered")
+    }
+    
     static func setApiToken(data:String) {
         UserDefaults.standard.set(data, forKey: "apiToken")
     }
@@ -218,27 +257,24 @@ class CustomUserDefault: NSObject {
         if  self.isUserProfileExit() {
             return UserDefaults.standard.object(forKey: "apiToken") as! String
         }
-        else
-        {
+        else {
             return ""
         }
     }
     
-    static  func setUserProfile(data : NSDictionary)
-    {
+    static  func setUserProfile(data : NSDictionary) {
         UserDefaults.standard.set(data, forKey: "userProfile")
     }
-    static  func getUserProfile()-> NSDictionary
-    {
+    
+    static  func getUserProfile()-> NSDictionary {
         return  UserDefaults.standard.object(forKey: "userProfile")as! NSDictionary
     }
-    static func removeUserProfile()
-    {
+    
+    static func removeUserProfile() {
         UserDefaults.standard.removeObject(forKey: "userProfile")
     }
     
-    static  func setUserProfileImage(data : String)
-    {
+    static  func setUserProfileImage(data : String) {
         if (UserDefaults.standard.object(forKey: "userProfileImage") != nil){
             UserDefaults.standard.set(data, forKey: "userProfileImage")
         }
@@ -246,7 +282,8 @@ class CustomUserDefault: NSObject {
             UserDefaults.standard.set("", forKey: "userProfileImage")
         }
     }
-    static  func getUserProfileImage() -> String?  {
+    
+    static  func getUserProfileImage() -> String? {
         if (UserDefaults.standard.object(forKey: "userProfileImage") != nil){
             return  UserDefaults.standard.object(forKey: "userProfileImage") as? String
         }
@@ -254,8 +291,8 @@ class CustomUserDefault: NSObject {
             return ""
         }
     }
-    static func removeUserProfileImage()
-    {
+    
+    static func removeUserProfileImage() {
         UserDefaults.standard.removeObject(forKey: "userProfileImage")
     }
     
@@ -280,18 +317,14 @@ class CustomUserDefault: NSObject {
     
     
     
-    static func removeApiToken()
-    {
+    static func removeApiToken() {
         UserDefaults.standard.removeObject(forKey: "apiToken")
     }
     
-    static func isUserProfileExit() -> Bool
-    {
-        if (UserDefaults.standard.object(forKey: "userProfile") != nil)
-        {
+    static func isUserProfileExit() -> Bool {
+        if (UserDefaults.standard.object(forKey: "userProfile") != nil) {
             return true
-        }else
-        {
+        }else{
             return false
         }
     }

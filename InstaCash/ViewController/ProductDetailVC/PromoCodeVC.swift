@@ -58,6 +58,9 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
     var Donation = 0
     var userDetails = [String:Any]() //s.
     var isComingForPriceLock = false
+    
+    var deeplinkCoupon : String?
+    
     @IBOutlet weak var activityIndicatorePromoCode: UIActivityIndicatorView!
     
     func reSetDiagnosHomeUIProcessForMaintainCache(){
@@ -183,6 +186,21 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
         //Sameer - 28/3/20
         if userDefaults.value(forKey: "promotionCouponCode") != nil {
             self.applyPromoCode()
+        }
+        
+        if (userDefaults.value(forKeyPath: "urlResponse") != nil) {
+            
+            let recovedUserJsonData = UserDefaults.standard.object(forKey: "urlResponse")
+            let dictResponse = NSKeyedUnarchiver.unarchiveObject(with: recovedUserJsonData as! Data) as! NSDictionary
+            print(dictResponse)
+            
+            if let sourceKey = dictResponse.value(forKey: "utm_source") as? String, let coupon = dictResponse.value(forKey: "utm_term") as? String {
+                if sourceKey == "gPay" {
+                    deeplinkCoupon = coupon
+                    self.applyPromoCode()
+                }
+            }
+        
         }
         
         self.changeLanguageOfUI()
@@ -564,14 +582,26 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
              parametersHome = [
                 "apiKey" : key,
                 "userName" : apiAuthenticateUserName,
-                "productId":producdID,
-                "couponCode":couponAvailable as! String,
-                "productQuote":String(getFinalPrice),
-                "city":CustomUserDefault.getCityId(),
-                "quotationId":quatationId
+                "productId" : producdID,
+                "couponCode" : couponAvailable as! String,
+                "productQuote" : String(getFinalPrice),
+                "city" : CustomUserDefault.getCityId(),
+                "quotationId" : quatationId
             ]
             
-        }else {
+        }else if let couponAvail = deeplinkCoupon {
+            
+            parametersHome = [
+                "apiKey" : key,
+                "userName" : apiAuthenticateUserName,
+                "productId" : producdID,
+                "couponCode" : couponAvail,
+                "productQuote" : String(getFinalPrice),
+                "city" : CustomUserDefault.getCityId(),
+                "quotationId" : quatationId
+            ]
+            
+        } else {
              parametersHome = [
                 "apiKey" : key,
                 "userName" : apiAuthenticateUserName,
@@ -627,7 +657,9 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
                     //Sameer - 28/3/20
                     if userDefaults.value(forKey: "promotionCouponCode") != nil {
                     
-                    }else {
+                    }else if let coup = self.deeplinkCoupon {
+                        print(coup)
+                    } else {
                         
                         let vc  = PromocodePopUpVC()
                         vc.strConditionURL = (responseObject?.value(forKeyPath: "msg.link") as? String)!

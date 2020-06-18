@@ -25,11 +25,17 @@ class OrderFinalVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Sameer - 28/3/20
+        //Sameer - 28/3/2020
         userDefaults.removeObject(forKey: "promoterID")
         userDefaults.removeObject(forKey: "promoter")
         userDefaults.removeObject(forKey: "promotionCouponCode")
+        userDefaults.removeObject(forKey: "urlResponse")
         userDefaults.removeObject(forKey: "additionalInfo")
+        
+        //Sameer - 17/6/2020
+        CustomUserDefault.removeEnteredUserName()
+        CustomUserDefault.removeEnteredUserEmail()
+        CustomUserDefault.removeEnteredPhoneNumber()
         
         //Sameer 2/6/2020
         Analytics.logEvent("order_completed", parameters: [:])

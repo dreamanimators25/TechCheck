@@ -26,11 +26,26 @@ class CustomerSupportVC: UIViewController,MFMailComposeViewControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.fireWebServiceForFaqDetail()
+        //self.fireWebServiceForFaqDetail()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.changeLanguageOfUI()
+        
+        if (userDefaults.value(forKeyPath: "InstacashInformation") != nil) {
+            
+            let recovedUserJsonData = UserDefaults.standard.object(forKey: "InstacashInformation")
+            let dictResponse = NSKeyedUnarchiver.unarchiveObject(with: recovedUserJsonData as! Data) as! NSDictionary
+            print(dictResponse)
+            
+            let actualHTML = (dictResponse.value(forKey: "faq") as? NSDictionary)?.value(forKey: "discription") as? String
+            self.faqTextView.attributedText = actualHTML?.htmlToAttributedString
+            
+            self.emailAddress = (dictResponse.value(forKey: "contact_detail") as? NSDictionary)?.value(forKey: "email") as? String ?? ""
+            self.phoneNumber = (dictResponse.value(forKey: "contact_detail") as? NSDictionary)?.value(forKey: "phone") as? String ?? ""
+            
+        }
+        
     }
     
     func changeLanguageOfUI() {

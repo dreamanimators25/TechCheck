@@ -588,11 +588,18 @@ class UploadDocumentVC: UIViewController,UIImagePickerControllerDelegate,UINavig
             var parametersHome : [String : Any] = [
                 "userName" : apiAuthenticateUserName, //1
                 "apiKey" : key, //1
-                "mobile":CustomUserDefault.getPhoneNumber() ?? "",
-                "name":CustomUserDefault.getUserName() ?? "",
+                
+                //"name":CustomUserDefault.getUserName() ?? "",
+                //"email":CustomUserDefault.getUserEmail() ?? "", //0
+                //"mobile":CustomUserDefault.getPhoneNumber() ?? "",
+                
                 "address":userDefaults.value(forKey: "placeOrderAddress") as? String ?? "", //1
                 
                 "city":CustomUserDefault.getCityId(), //1
+                
+                "name":CustomUserDefault.getEnteredUserName() ?? "",
+                "email":CustomUserDefault.getEnteredUserEmail() ?? "",
+                "mobile":CustomUserDefault.getEnteredPhoneNumber() ?? "",
                 
                 ////////////////////////////////////////////////////////////
                 "productId":producdID, //1
@@ -602,7 +609,7 @@ class UploadDocumentVC: UIViewController,UIImagePickerControllerDelegate,UINavig
                 ////////////////////////////////////////////////////////////
                 
                 //"remark":"", //0
-                "email":CustomUserDefault.getUserEmail() ?? "", //0
+                
                 //"productImage":userDefaults.value(forKey: "otherProductDeviceImage") as! String, //0
                 //"GCMId":strGCMToken, //0
                 "customerId":CustomUserDefault.getUserId(), //0

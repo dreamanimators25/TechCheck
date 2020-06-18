@@ -355,7 +355,11 @@ class MobileNumberVC: UIViewController,UITextFieldDelegate {
                 "preVerified":"0"
             ]
             
+            print(parameters)
+            
             self.otpApiPost(strURL: strUrl, parameters: parameters as NSDictionary, completionHandler: {responseObject , error in
+                
+                print(responseObject ?? [:])
                 Alert.HideProgressHud(Onview: self.view)
                 
                 if error == nil {

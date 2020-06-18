@@ -32,6 +32,16 @@
 				<string>fb234758716862711</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>getinstacash.in</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.instaapp</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>4.0.40</string>

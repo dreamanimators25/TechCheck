@@ -121,9 +121,13 @@ class Wallet: UIViewController {
         var parametersHome : [String : Any] = [
             "userName" : apiAuthenticateUserName, //1
             "apiKey" : key, //1
-            "mobile":CustomUserDefault.getPhoneNumber() ?? "", //1
+            //"mobile":CustomUserDefault.getPhoneNumber() ?? "", //1
             
-            "name":CustomUserDefault.getUserName() ?? "", //1
+            "name":CustomUserDefault.getEnteredUserName() ?? "",
+            "email":CustomUserDefault.getEnteredUserEmail() ?? "",
+            "mobile":CustomUserDefault.getEnteredPhoneNumber() ?? "",
+            
+            //"name":CustomUserDefault.getUserName() ?? "", //1
             "address":userDefaults.value(forKey: "placeOrderAddress") as? String ?? "", //1
             
             "city":CustomUserDefault.getCityId(), //1
@@ -136,7 +140,7 @@ class Wallet: UIViewController {
             ////////////////////////////////////////////////////////////
             
             //"remark":"", //0
-            "email":CustomUserDefault.getUserEmail() ?? "", //0
+            //"email":CustomUserDefault.getUserEmail() ?? "", //0
             //"productImage":userDefaults.value(forKey: "otherProductDeviceImage") as! String, //0
             //"GCMId":strGCMToken, //0
             "customerId":CustomUserDefault.getUserId(), //0

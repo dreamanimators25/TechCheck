@@ -530,9 +530,15 @@ class BankTransfer: UIViewController,UITextFieldDelegate {
             var parametersHome : [String : Any] = [
                 "userName" : apiAuthenticateUserName, //1
                 "apiKey" : key, //1
-                "mobile":CustomUserDefault.getPhoneNumber() ?? "", //1
                 
-                "name":CustomUserDefault.getUserName() ?? "", //1
+                //"name":CustomUserDefault.getUserName() ?? "", //1
+                //"email":CustomUserDefault.getUserEmail() ?? "", //0
+                //"mobile":CustomUserDefault.getPhoneNumber() ?? "", //1
+                
+                "name":CustomUserDefault.getEnteredUserName() ?? "",
+                "email":CustomUserDefault.getEnteredUserEmail() ?? "",
+                "mobile":CustomUserDefault.getEnteredPhoneNumber() ?? "",
+                
                 "address":userDefaults.value(forKey: "placeOrderAddress") as? String ?? "", //1
                 
                 "city":CustomUserDefault.getCityId(), //1
@@ -545,7 +551,7 @@ class BankTransfer: UIViewController,UITextFieldDelegate {
                 ////////////////////////////////////////////////////////////
                 
                 //"remark":"", //0
-                "email":CustomUserDefault.getUserEmail() ?? "", //0
+                
                 //"productImage":userDefaults.value(forKey: "otherProductDeviceImage") as! String, //0
                 //"GCMId":strGCMToken, //0
                 "customerId":CustomUserDefault.getUserId(), //0

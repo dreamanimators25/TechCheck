@@ -84,11 +84,6 @@ class SellerDetailsVC: UIViewController,UITextFieldDelegate {
         
         txtViewMobile.layer.borderWidth = borderWidth
         txtViewMobile.layer.borderColor = borderColor
-
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         
         if let name = CustomUserDefault.getUserName() {
             self.txtName.text = name
@@ -101,7 +96,12 @@ class SellerDetailsVC: UIViewController,UITextFieldDelegate {
         if let number = CustomUserDefault.getPhoneNumber() {
             self.txtMobile.text = number
         }
-        
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+                
         self.changeLanguageOfUI()
         
         //Sameer 2/6/2020
@@ -150,6 +150,11 @@ class SellerDetailsVC: UIViewController,UITextFieldDelegate {
                             "countryCode" : txtCountryCode.text ?? "",
                             "mobile" : txtMobile.text ?? "",
             ] as [String : Any]
+            
+            //Sameer 17/6/2020
+            CustomUserDefault.setEnteredUserName(data: txtName.text ?? "")
+            CustomUserDefault.setEnteredUserEmail(data: txtEmail.text ?? "")
+            CustomUserDefault.setEnteredPhoneNumber(data: txtMobile.text ?? "")
             
             
             //let vc = PromoCodeVC()

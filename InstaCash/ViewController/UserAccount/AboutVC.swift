@@ -26,7 +26,7 @@ class AboutVC: UIViewController,CAPSPageMenuDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.fireWebServiceForAboutPageDetail()
+        //self.fireWebServiceForAboutPageDetail()
         self.setUpPageMenu()
     }
     
@@ -42,6 +42,31 @@ class AboutVC: UIViewController,CAPSPageMenuDelegate {
         super.viewWillDisappear(animated)
         
         self.changeLanguageOfUI()
+        
+        if (userDefaults.value(forKeyPath: "InstacashInformation") != nil) {
+            
+            let recovedUserJsonData = UserDefaults.standard.object(forKey: "InstacashInformation")
+            let dictResponse = NSKeyedUnarchiver.unarchiveObject(with: recovedUserJsonData as! Data) as! NSDictionary
+            print(dictResponse)
+            
+            aboutHTML = (dictResponse.value(forKey: "about_page") as? NSDictionary)?.value(forKey: "discription") as? String
+            aboutTitleHTML = (dictResponse.value(forKey: "about_page") as? NSDictionary)?.value(forKey: "title") as? String
+            
+            tncHTML = (dictResponse.value(forKey: "terms_conditions") as? NSDictionary)?.value(forKey: "discription") as? String
+            tncTitleHTML = (dictResponse.value(forKey: "terms_conditions") as? NSDictionary)?.value(forKey: "title") as? String
+            
+            howitWorkHTML = (dictResponse.value(forKey: "how_it_work") as? NSDictionary)?.value(forKey: "discription") as? String
+            howitWorkTitleHTML = (dictResponse.value(forKey: "how_it_work") as? NSDictionary)?.value(forKey: "title") as? String
+            
+            faqHTML = (dictResponse.value(forKey: "faq") as? NSDictionary)?.value(forKey: "discription") as? String
+            faqTitleHTML = (dictResponse.value(forKey: "faq") as? NSDictionary)?.value(forKey: "title") as? String
+            
+            if let htm = aboutText {
+                htm(aboutTitleHTML ?? "" , aboutHTML ?? "")
+            }
+            
+        }
+        
     }
 
     func setUpPageMenu() {
@@ -149,6 +174,13 @@ class AboutVC: UIViewController,CAPSPageMenuDelegate {
                 Alert.HideProgressHud(Onview: self.view)
                 
                 print(responseObject ?? [:])
+                
+                // Set Dictionary for InstaCashInformation
+                var dictResponse = NSDictionary()
+                dictResponse = responseObject ?? [:]
+                userDefaults.removeObject(forKey: "InstacashInformation")
+                let myData = NSKeyedArchiver.archivedData(withRootObject: dictResponse)
+                userDefaults.set(myData, forKey: "InstacashInformation")
                 
                 if error == nil {
                     

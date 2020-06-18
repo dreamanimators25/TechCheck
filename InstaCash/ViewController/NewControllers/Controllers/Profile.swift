@@ -300,6 +300,9 @@ class Profile: UIViewController, UITextFieldDelegate {
         CustomUserDefault.removeUserId()
         CustomUserDefault.removeCurrency()
         CustomUserDefault.removeUserName()
+        CustomUserDefault.removeEnteredUserName()
+        CustomUserDefault.removeEnteredUserEmail()
+        CustomUserDefault.removeEnteredPhoneNumber()
         CustomUserDefault.removeProductId()
         CustomUserDefault.removeUserProfile()
         CustomUserDefault.removeUserProfileImage()
@@ -318,6 +321,7 @@ class Profile: UIViewController, UITextFieldDelegate {
         userDefaults.removeObject(forKey: "promoterID")
         userDefaults.removeObject(forKey: "promoter")
         userDefaults.removeObject(forKey: "promotionCouponCode")
+        userDefaults.removeObject(forKey: "urlResponse")
         userDefaults.removeObject(forKey: "additionalInfo")
         //
         
