@@ -360,6 +360,8 @@ class MisMatchVC: UIViewController {
             strFinalCodeValues = userSelectedProductAppcodes.replacingOccurrences(of: ",,", with: ";")
              strFinalCodeValues = userSelectedProductAppcodes.replacingOccurrences(of: ",", with: ";")
             
+            //Sameer 25/6/2020
+            /*
             if strFinalCodeValues.contains("SPTS03"){
                 if strFinalCodeValues.contains("SBRK01"){
                     strFinalCodeValues = strFinalCodeValues.replacingOccurrences(of: "SPTS03", with: ";")
@@ -405,7 +407,40 @@ class MisMatchVC: UIViewController {
                         strFinalCodeValues = strFinalCodeValues.replacingOccurrences(of: ";;", with: ";")
                     }
                 }
+            }*/
+            
+            //Sameer 25/6/2020
+            if strFinalCodeValues.contains("SBRK01"){
+                if strFinalCodeValues.contains("SPTS01"){
+                    strFinalCodeValues = strFinalCodeValues.replacingOccurrences(of: "SPTS01", with: ";")
+                    strFinalCodeValues = strFinalCodeValues.replacingOccurrences(of: ";;;", with: ";")
+                    strFinalCodeValues = strFinalCodeValues.replacingOccurrences(of: ";;", with: ";")
+                }
+                else if strFinalCodeValues.contains("SPTS02"){
+                    strFinalCodeValues = strFinalCodeValues.replacingOccurrences(of: "SPTS02", with: ";")
+                    strFinalCodeValues = strFinalCodeValues.replacingOccurrences(of: ";;;", with: ";")
+                    strFinalCodeValues = strFinalCodeValues.replacingOccurrences(of: ";;", with: ";")
+                }
+                else if strFinalCodeValues.contains("SPTS03"){
+                    strFinalCodeValues = strFinalCodeValues.replacingOccurrences(of: "SPTS03", with: ";")
+                    strFinalCodeValues = strFinalCodeValues.replacingOccurrences(of: ";;;", with: ";")
+                    strFinalCodeValues = strFinalCodeValues.replacingOccurrences(of: ";;", with: ";")
+                }
             }
+            
+            if strFinalCodeValues.contains("SPTS03"){
+                if strFinalCodeValues.contains("SPTS01"){
+                    strFinalCodeValues = strFinalCodeValues.replacingOccurrences(of: "SPTS01", with: ";")
+                    strFinalCodeValues = strFinalCodeValues.replacingOccurrences(of: ";;;", with: ";")
+                    strFinalCodeValues = strFinalCodeValues.replacingOccurrences(of: ";;", with: ";")
+                }
+                else if strFinalCodeValues.contains("SPTS02"){
+                    strFinalCodeValues = strFinalCodeValues.replacingOccurrences(of: "SPTS02", with: ";")
+                    strFinalCodeValues = strFinalCodeValues.replacingOccurrences(of: ";;;", with: ";")
+                    strFinalCodeValues = strFinalCodeValues.replacingOccurrences(of: ";;", with: ";")
+                }
+            }
+            
             
             parameters  = [
                 "userName" : apiAuthenticateUserName,
