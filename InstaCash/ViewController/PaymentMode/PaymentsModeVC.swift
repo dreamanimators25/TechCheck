@@ -124,6 +124,12 @@ class PaymentsModeVC: UIViewController,UITableViewDataSource,UITableViewDelegate
                 }
             }
             
+            let host = strBaseURL.components(separatedBy: ".")
+            let path = host.last
+            let val = path?.components(separatedBy: "/")
+            let country = val?[0] ?? ""
+            print(country)
+            
             //Sameer 24/6/2020
             var parametersHome = [String : Any]()
             
@@ -133,8 +139,8 @@ class PaymentsModeVC: UIViewController,UITableViewDataSource,UITableViewDelegate
                 let dictResponse = NSKeyedUnarchiver.unarchiveObject(with: recovedUserJsonData as! Data) as! NSDictionary
                 print(dictResponse)
                 
-                if let paymentModeKey = dictResponse.value(forKey: "paymentmode") as? String, let country = dictResponse.value(forKey: "country") as? String {
-                    if country == "tw" {
+                if let paymentModeKey = dictResponse.value(forKey: "paymode") as? String, let countryKey = dictResponse.value(forKey: "country") as? String {
+                    if countryKey == country {
                         
                         parametersHome = [
                             "apiKey" : key,
@@ -146,6 +152,16 @@ class PaymentsModeVC: UIViewController,UITableViewDataSource,UITableViewDelegate
                             "pincode" : userDefaults.value(forKey: "orderPinCode") as? String ?? ""
                         ]
                         
+                    }else {
+                        parametersHome = [
+                            "apiKey" : key,
+                            "userName" : apiAuthenticateUserName,
+                            "amount" : strFinalAmount,
+                            "couponAmount" : couponAmount,
+                            "categoryId" : "15",
+                            //"paymentTag" : paymentTagValue,
+                            "pincode" : userDefaults.value(forKey: "orderPinCode") as? String ?? ""
+                        ]
                     }
                 }else {
                     parametersHome = [
