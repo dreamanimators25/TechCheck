@@ -124,15 +124,53 @@ class PaymentsModeVC: UIViewController,UITableViewDataSource,UITableViewDelegate
                 }
             }
             
-            let parametersHome : [String : Any] = [
-                "apiKey" : key,
-                "userName" : apiAuthenticateUserName,
-                "amount" : strFinalAmount,
-                "couponAmount" : couponAmount,
-                "categoryId" : "15",
-                "paymentTag" : paymentTagValue,
-                "pincode" : userDefaults.value(forKey: "orderPinCode") as? String ?? "" //110011
-            ]
+            //Sameer 24/6/2020
+            var parametersHome = [String : Any]()
+            
+            if (userDefaults.value(forKeyPath: "urlResponse") != nil) {
+                
+                let recovedUserJsonData = UserDefaults.standard.object(forKey: "urlResponse")
+                let dictResponse = NSKeyedUnarchiver.unarchiveObject(with: recovedUserJsonData as! Data) as! NSDictionary
+                print(dictResponse)
+                
+                if let paymentModeKey = dictResponse.value(forKey: "paymentmode") as? String, let country = dictResponse.value(forKey: "country") as? String {
+                    if country == "tw" {
+                        
+                        parametersHome = [
+                            "apiKey" : key,
+                            "userName" : apiAuthenticateUserName,
+                            "amount" : strFinalAmount,
+                            "couponAmount" : couponAmount,
+                            "categoryId" : "15",
+                            "paymentTag" : paymentModeKey,
+                            "pincode" : userDefaults.value(forKey: "orderPinCode") as? String ?? ""
+                        ]
+                        
+                    }
+                }else {
+                    parametersHome = [
+                        "apiKey" : key,
+                        "userName" : apiAuthenticateUserName,
+                        "amount" : strFinalAmount,
+                        "couponAmount" : couponAmount,
+                        "categoryId" : "15",
+                        //"paymentTag" : paymentTagValue,
+                        "pincode" : userDefaults.value(forKey: "orderPinCode") as? String ?? ""
+                    ]
+                }
+            
+            }else {
+                
+                parametersHome = [
+                    "apiKey" : key,
+                    "userName" : apiAuthenticateUserName,
+                    "amount" : strFinalAmount,
+                    "couponAmount" : couponAmount,
+                    "categoryId" : "15",
+                    //"paymentTag" : paymentTagValue,
+                    "pincode" : userDefaults.value(forKey: "orderPinCode") as? String ?? ""
+                ]
+            }
             
             print(strUrl)
             print(parametersHome)

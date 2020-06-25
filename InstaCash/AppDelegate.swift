@@ -325,12 +325,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     
     //MARK:- true caller active method
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Swift.Void) -> Bool {
+        
+        print("Continue User Activity called: ")
+        
         if userActivity.activityType == NSUserActivityTypeBrowsingWeb {
-            let url = userActivity.webpageURL!
-            print(url.absoluteString)
+            //let url = userActivity.webpageURL!
+            
+            var linkUrl : URL!
+            if #available(iOS 11.0, *) {
+                if CustomUserDefault.getCurrency() == "₹" {
+                    linkUrl = userActivity.referrerURL!
+                }
+                
+                if CustomUserDefault.getCurrency() == "NT$" {
+                    linkUrl = userActivity.webpageURL!
+                }
+                
+            } else {
+                // Fallback on earlier versions
+                linkUrl = userActivity.webpageURL!
+            }
+            print(linkUrl.absoluteString)
+            
+            //handle url and open whatever page you want to open.
             
             //////////////////// / Sameeer 18/6/2020
-            if let url = userActivity.webpageURL {
+            
+            if let url =  linkUrl {
                 _ = url.lastPathComponent
                 var parameters: [String: String] = [:]
                 URLComponents(url: url, resolvingAgainstBaseURL: false)?.queryItems?.forEach {
@@ -338,6 +359,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
                 }
                 
                 print(parameters)
+                
+                guard parameters.count > 0 else {
+                    return false
+                }
                 
                 // Set Dictionary for InstaCashInformation
                 var urlResponse = [String: String]()
@@ -366,7 +391,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
 
         }
         else{
-        return TCTrueSDK.sharedManager().application(application, continue: userActivity, restorationHandler: restorationHandler)
+            return TCTrueSDK.sharedManager().application(application, continue: userActivity, restorationHandler: restorationHandler)
         }
     }
     

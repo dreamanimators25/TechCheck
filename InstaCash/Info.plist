@@ -39,7 +39,7 @@
 			<string>getinstacash.in</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.instaapp</string>
+				<string>instacash</string>
 			</array>
 		</dict>
 	</array>

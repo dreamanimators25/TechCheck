@@ -299,7 +299,6 @@ class UserAccountVC: UIViewController {
         userDefaults.removeObject(forKey: "promotionCouponCode")
         userDefaults.removeObject(forKey: "urlResponse")
         userDefaults.removeObject(forKey: "additionalInfo")
-        //
         
         UserDefaults.standard.removeObject(forKey: "placeOrderAddress") //s.
         UserDefaults.standard.removeObject(forKey: "address2") //s.
