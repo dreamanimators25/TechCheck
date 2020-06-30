@@ -333,11 +333,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
             
             var linkUrl : URL!
             if #available(iOS 11.0, *) {
+                /*
                 if CustomUserDefault.getCurrency() == "₹" {
                     linkUrl = userActivity.referrerURL!
                 }
                 
                 if CustomUserDefault.getCurrency() == "NT$" {
+                    linkUrl = userActivity.webpageURL!
+                }*/
+                
+                if let lru = userActivity.referrerURL {
+                    linkUrl = lru
+                }else {
                     linkUrl = userActivity.webpageURL!
                 }
                 
@@ -365,11 +372,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
                 }
                 
                 // Set Dictionary for InstaCashInformation
-                var urlResponse = [String: String]()
-                urlResponse = parameters
-                userDefaults.removeObject(forKey: "urlResponse")
-                let myData = NSKeyedArchiver.archivedData(withRootObject: urlResponse)
-                userDefaults.set(myData, forKey: "urlResponse")
+                
+                if CustomUserDefault.getCurrency() == "NT$" {
+                    var urlResponse = [String: String]()
+                    urlResponse = parameters
+                    userDefaults.removeObject(forKey: "paymodeResponse")
+                    let myData = NSKeyedArchiver.archivedData(withRootObject: urlResponse)
+                    userDefaults.set(myData, forKey: "paymodeResponse")
+                }else {
+                    var urlResponse = [String: String]()
+                    urlResponse = parameters
+                    userDefaults.removeObject(forKey: "urlResponse")
+                    let myData = NSKeyedArchiver.archivedData(withRootObject: urlResponse)
+                    userDefaults.set(myData, forKey: "urlResponse")
+                }
+                
                 
                 //redirect(to: view, with: parameters)
             }
@@ -601,6 +618,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        userDefaults.removeObject(forKey: "paymodeResponse")
     }
 
 

@@ -284,6 +284,7 @@
 "UUPON (Cash Only)" = " UUPON (現金) "; //" UUPON（仅限现金）";
 "UUPON (Cash+Points)" = " UUPON (點數) "; //" UUPON（现金+积分）";
 "UUPON (Points Only)" = " UUPON (點數) "; //" UUPON（僅積分）";
+"Member Id" = "會員帳號";
 "Gateway charges" = "平台費用"; //"平台費用"; //"网关费用";
 "Payment Mode" = "付款方式"; //"付款方式";
 "Select Payment Mode" = "選擇付款方式"; //"选择付款方式";
@@ -520,7 +521,7 @@
 "Place Order successfully" = "成功下订单";
 "Orders" = "訂單"; //"命令";
 "ALL" = "全部"; //"所有";
-"IN PROGRESS" = "進行中"; //"进行中";
+"IN PROGRESS" = "訂單已送出，請等候客服人員與您聯繫"; //"進行中"; //"进行中";
 "COMPLETED" = "已完成"; //"完成"; //"已完成";
 
 // 50. OrderDetail
@@ -531,7 +532,7 @@
 "Quoted price:" = "回收價：";
 "   Device Information   " = "   手機資訊   ";  //"   设备信息   ";
 "Order placed" = "已下訂單"; //"订单已下";
-"In Progress" = "進行中"; //"进行中";
+"In Progress" = "訂單已送出，請等候客服人員與您聯繫"; //"進行中"; //"进行中";
 "Contact Customer Support" = "聯絡客服人員"; //"聯絡客服人員"; //"联系客户支持";
 
 // 51. CustomerSupportVC
@@ -766,7 +767,7 @@
 
 // 83. Sell1
 "Get Upto" = "獲得高達"; //"獲得高達";
-"Quote" = "價格"; //"引用";
+"Quote" = "手機型號"; //"價格"; //"引用";
 "Getting an exact quote takes 5 mins. Ready to roll?" = "獲得準確的報價需要5分鐘。準備開始了嗎？"; //"获得准确的报价需要5分钟。准备开始吗？";
 "GET EXACT QUOTE" = "獲取準確的回收報價"; //"获取精确报价";
 

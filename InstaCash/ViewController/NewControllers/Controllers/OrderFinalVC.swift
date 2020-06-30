@@ -24,7 +24,7 @@ class OrderFinalVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         //Sameer - 28/3/2020
         userDefaults.removeObject(forKey: "promoterID")
         userDefaults.removeObject(forKey: "promoter")
@@ -88,6 +88,9 @@ class OrderFinalVC: UIViewController {
             combination.append(self.str3)
             
             self.lbl2.attributedText = combination
+            
+            self.lbl1.text = ""
+            self.lblNowIsnt.text = ""
             
         }else if CustomUserDefault.getCurrency() == "SG$" {
             

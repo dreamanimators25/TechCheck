@@ -298,6 +298,7 @@ class UserAccountVC: UIViewController {
         userDefaults.removeObject(forKey: "promoter")
         userDefaults.removeObject(forKey: "promotionCouponCode")
         userDefaults.removeObject(forKey: "urlResponse")
+        userDefaults.removeObject(forKey: "paymodeResponse")
         userDefaults.removeObject(forKey: "additionalInfo")
         
         UserDefaults.standard.removeObject(forKey: "placeOrderAddress") //s.

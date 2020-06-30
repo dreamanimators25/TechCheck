@@ -133,9 +133,9 @@ class PaymentsModeVC: UIViewController,UITableViewDataSource,UITableViewDelegate
             //Sameer 24/6/2020
             var parametersHome = [String : Any]()
             
-            if (userDefaults.value(forKeyPath: "urlResponse") != nil) {
+            if (userDefaults.value(forKeyPath: "paymodeResponse") != nil) {
                 
-                let recovedUserJsonData = UserDefaults.standard.object(forKey: "urlResponse")
+                let recovedUserJsonData = UserDefaults.standard.object(forKey: "paymodeResponse")
                 let dictResponse = NSKeyedUnarchiver.unarchiveObject(with: recovedUserJsonData as! Data) as! NSDictionary
                 print(dictResponse)
                 

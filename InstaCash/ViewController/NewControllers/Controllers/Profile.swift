@@ -322,6 +322,7 @@ class Profile: UIViewController, UITextFieldDelegate {
         userDefaults.removeObject(forKey: "promoter")
         userDefaults.removeObject(forKey: "promotionCouponCode")
         userDefaults.removeObject(forKey: "urlResponse")
+        userDefaults.removeObject(forKey: "paymodeResponse")
         userDefaults.removeObject(forKey: "additionalInfo")
         //
         

@@ -1664,6 +1664,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
     
     @IBAction @objc func btnSearchPressed(_ sender:UIButton){
         let vc  = AnotherDevice()
+        //let vc = OrderFinalVC()
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

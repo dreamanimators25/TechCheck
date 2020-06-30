@@ -16,6 +16,9 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
     @IBOutlet weak var viewBG: UIView!
     @IBOutlet weak var promoCodeView: UIView!
 
+    @IBOutlet weak var lblCouponApplied: UILabel!
+    @IBOutlet weak var btnCouponRemove: UIButton!
+    @IBOutlet weak var couponAppliedView: UIView!
     //@IBOutlet weak var btnNext: UIButton!
     
     @IBOutlet weak var txtPromocode: UITextField!
@@ -60,6 +63,7 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
     var isComingForPriceLock = false
     
     var deeplinkCoupon : String?
+    var couponAmount = 0
     
     @IBOutlet weak var activityIndicatorePromoCode: UIActivityIndicatorView!
     
@@ -124,6 +128,10 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
         donateAmount = discount
         Donation = discount
         
+        //Sameer 27/6/2020
+        self.couponAppliedView.isHidden = true
+        self.lblCouponApplied.isHidden = true
+        self.btnCouponRemove.isHidden = true
         
         DispatchQueue.main.async {
             if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
@@ -170,24 +178,14 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
                 
             }
         }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         
-        DispatchQueue.main.async {
-            UIView.addShadowOn4side(baseView: self.viewBG)
-            self.promoCodeView.layer.cornerRadius = 5.0
-            self.btnPromoCode.layer.cornerRadius = 5.0
-        }
-        
-        txtAmount.delegate = self
         
         //Sameer - 28/3/20
         if userDefaults.value(forKey: "promotionCouponCode") != nil {
             self.applyPromoCode()
         }
         
+        //Sameer - 27/6/2020
         if (userDefaults.value(forKeyPath: "urlResponse") != nil) {
             
             let recovedUserJsonData = UserDefaults.standard.object(forKey: "urlResponse")
@@ -203,6 +201,21 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
         
         }
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        DispatchQueue.main.async {
+            UIView.addShadowOn4side(baseView: self.viewBG)
+            self.promoCodeView.layer.cornerRadius = 5.0
+            self.btnPromoCode.layer.cornerRadius = 5.0
+            
+            self.lblCouponApplied.layer.cornerRadius = 5.0
+        }
+        
+        txtAmount.delegate = self
+                
         self.changeLanguageOfUI()
         
     }
@@ -300,6 +313,26 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
     
     //MARK:- buttons methods
     //s.
+    @IBAction func btnCouponRemoveClicked(_ sender: UIButton) {
+        
+        DispatchQueue.main.async {
+            self.viewPromoApplied.isHidden = true
+            
+            self.finalPriceSet = self.finalPriceSet - self.couponAmount
+            self.lblFinalPrice.text = CustomUserDefault.getCurrency() + self.finalPriceSet.formattedWithSeparator
+                        
+            userDefaults.removeObject(forKey: "orderPromoCode")
+            userDefaults.set(0, forKey: "couponCodePrice")
+            
+            self.btnPromoCode.isHidden = false
+            self.promoCodeView.backgroundColor = #colorLiteral(red: 0.1581287384, green: 0.6885935664, blue: 0.237049073, alpha: 1)
+            
+            self.couponAppliedView.isHidden = true
+            self.lblCouponApplied.isHidden = true
+            self.btnCouponRemove.isHidden = true
+        }
+    }
+    
     @IBAction func onClickCheckBox(_ sender: UIButton) {
         
         if sender.isSelected {
@@ -388,7 +421,6 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
         vc.userDetails3 = self.userDetails
         
         self.navigationController?.pushViewController(vc, animated: true)
-        
     }
     
     @IBAction func onClickNEFTTransfer(_ sender: Any) {
@@ -622,7 +654,7 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
             self.activityIndicatorePromoCode.stopAnimating()
             self.btnApply.isUserInteractionEnabled = true
             
-            self.txtPromocode.text = ""
+            //self.txtPromocode.text = ""
             self.viewPromo.isHidden = true //s.
             
             if error == nil {
@@ -653,25 +685,45 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
                     self.finalPriceSet = self.finalPriceSet + couponPrice
                     self.lblFinalPrice.text = CustomUserDefault.getCurrency() + finalPrice.formattedWithSeparator//"\(finalPrice)"
                     print(self.finalPriceSet) //s.
+                    self.couponAmount = couponPrice
                     
-                    //Sameer - 28/3/20
-                    if userDefaults.value(forKey: "promotionCouponCode") != nil {
-                    
-                    }else if let coup = self.deeplinkCoupon {
-                        print(coup)
-                    } else {
+                    //Sameer 27/6/2020
+                    DispatchQueue.main.async {
+                        self.btnPromoCode.isHidden = true
+                        self.promoCodeView.backgroundColor = .clear
                         
-                        let vc  = PromocodePopUpVC()
-                        vc.strConditionURL = (responseObject?.value(forKeyPath: "msg.link") as? String)!
-                        vc.arrTermsCondition = (responseObject?.value(forKeyPath: "msg.html") as? NSArray)!
-                        vc.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-                        self.navigationController?.present(vc, animated: true, completion: nil)
+                        self.couponAppliedView.isHidden = false
+                        self.lblCouponApplied.isHidden = false
+                        self.btnCouponRemove.isHidden = false
                         
-                    }                    
+                        //Sameer - 28/3/20
+                        if let coup = userDefaults.value(forKey: "promotionCouponCode") {
+                            self.lblCouponApplied.text = "Coupon Applied \(coup)"
+                        }else if let coup = self.deeplinkCoupon {
+                            print(coup)
+                            self.lblCouponApplied.text = "Coupon Applied \(coup)"
+                        } else {
+                            
+                            self.lblCouponApplied.text = "Coupon Applied \(self.txtPromocode.text!)"
+                            
+                            /*
+                             let vc  = PromocodePopUpVC()
+                             vc.strConditionURL = (responseObject?.value(forKeyPath: "msg.link") as? String)!
+                             vc.arrTermsCondition = (responseObject?.value(forKeyPath: "msg.html") as? NSArray)!
+                             vc.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+                             self.navigationController?.present(vc, animated: true, completion: nil)
+                             */
+                            
+                        }
+                        
+                        //self.lblCouponApplied.text = "Coupon Applied \(self.txtPromocode.text!)"
+                        self.txtPromocode.text = ""
+                        
+                    }
                     
                 }
                 else{
-                    
+                    self.txtPromocode.text = ""
                     //self.txtPromocode.textColor = UIColor.red
                     
                     // failed
@@ -679,6 +731,7 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
                 }
             }
             else{
+                self.txtPromocode.text = ""
                 Alert.showAlertWithError(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
             }
             
