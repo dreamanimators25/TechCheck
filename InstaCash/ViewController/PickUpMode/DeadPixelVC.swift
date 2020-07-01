@@ -97,6 +97,7 @@ class DeadPixelVC: UIViewController {
                 vc.resultJSON = self.resultJSON
                 let nav = UINavigationController(rootViewController: vc)
                 UINavigationBar.appearance().barTintColor = navColor
+                nav.modalPresentationStyle = .fullScreen
                 self.present(nav, animated: true, completion: nil)
                 
             }
@@ -110,6 +111,7 @@ class DeadPixelVC: UIViewController {
                 vc.resultJSON = self.resultJSON
                 let nav = UINavigationController(rootViewController: vc)
                 UINavigationBar.appearance().barTintColor = navColor
+                nav.modalPresentationStyle = .fullScreen
                 self.present(nav, animated: true, completion: nil)
                 
             }

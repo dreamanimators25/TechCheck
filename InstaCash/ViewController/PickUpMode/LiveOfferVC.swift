@@ -178,6 +178,7 @@ class LiveOfferVC: UIViewController {
                                         let vc = UploadIDVC()
                                         let nav = UINavigationController(rootViewController: vc)
                                         nav.navigationBar.isHidden = true
+                                        nav.modalPresentationStyle = .fullScreen
                                         self.present(nav, animated: true, completion: nil)
                                     }
 

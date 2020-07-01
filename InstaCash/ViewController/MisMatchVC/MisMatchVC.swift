@@ -474,6 +474,7 @@ class MisMatchVC: UIViewController {
                                 let vc = UploadIDVC()
                                 let nav = UINavigationController(rootViewController: vc)
                                 nav.navigationBar.isHidden = true
+                                nav.modalPresentationStyle = .fullScreen
                                 self.present(nav, animated: true, completion: nil)
                             }
                         }
@@ -791,9 +792,11 @@ class MisMatchVC: UIViewController {
                                             let orderItemId = responseObject?["msg"] as! String
                                             //let strId = String(format: "%d", orderItemId)
                                             userDefaults.setValue(orderItemId, forKey: "ChangeModeOrderId")
+                                            
                                             let vc = UploadIDVC()
                                             let nav = UINavigationController(rootViewController: vc)
                                             nav.navigationBar.isHidden = true
+                                            nav.modalPresentationStyle = .fullScreen
                                             self.present(nav, animated: true, completion: nil)
                                         }
                                     }

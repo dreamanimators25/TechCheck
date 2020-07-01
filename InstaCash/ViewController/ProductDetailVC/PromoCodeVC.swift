@@ -661,7 +661,7 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
                 if responseObject?["status"] as! String == "Success"{
                     self.viewPromoApplied.isHidden = false
                     
-                    userDefaults.set(self.txtPromocode.text!, forKey: "orderPromoCode")
+                    //userDefaults.set(self.txtPromocode.text!, forKey: "orderPromoCode")
                     
                     self.txtPromocode.textColor = UIColor.darkGray
                     self.lblPromoOfferPrice.isHidden = false
@@ -698,12 +698,18 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
                         
                         //Sameer - 28/3/20
                         if let coup = userDefaults.value(forKey: "promotionCouponCode") {
+                            print(coup)
+                            
+                            userDefaults.set(coup, forKey: "orderPromoCode")
                             self.lblCouponApplied.text = "Coupon Applied \(coup)"
                         }else if let coup = self.deeplinkCoupon {
                             print(coup)
+                            
+                            userDefaults.set(coup, forKey: "orderPromoCode")
                             self.lblCouponApplied.text = "Coupon Applied \(coup)"
                         } else {
                             
+                            userDefaults.set(self.txtPromocode.text!, forKey: "orderPromoCode")
                             self.lblCouponApplied.text = "Coupon Applied \(self.txtPromocode.text!)"
                             
                             /*
