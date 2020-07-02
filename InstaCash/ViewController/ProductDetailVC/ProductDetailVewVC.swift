@@ -1996,7 +1996,6 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
         if getReturnJson["Screen"].int == 1{
             returnDictionary.setValue("1", forKey: "Screen")
             //returnDictionary = ["Screen":"1"]
-            
         }
         else{
             //returnDictionary = ["Screen":"-1"]

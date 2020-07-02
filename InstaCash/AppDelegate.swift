@@ -373,12 +373,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
                 
                 // Set Dictionary for InstaCashInformation
                 
-                if CustomUserDefault.getCurrency() == "NT$" {
-                    var urlResponse = [String: String]()
-                    urlResponse = parameters
-                    userDefaults.removeObject(forKey: "paymodeResponse")
-                    let myData = NSKeyedArchiver.archivedData(withRootObject: urlResponse)
-                    userDefaults.set(myData, forKey: "paymodeResponse")
+                if let keyExists = parameters["country"] {
+                    if keyExists == "tw" {
+                        var urlResponse = [String: String]()
+                        urlResponse = parameters
+                        userDefaults.removeObject(forKey: "paymodeResponse")
+                        let myData = NSKeyedArchiver.archivedData(withRootObject: urlResponse)
+                        userDefaults.set(myData, forKey: "paymodeResponse")
+                    }
                 }else {
                     var urlResponse = [String: String]()
                     urlResponse = parameters
@@ -386,7 +388,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
                     let myData = NSKeyedArchiver.archivedData(withRootObject: urlResponse)
                     userDefaults.set(myData, forKey: "urlResponse")
                 }
-                
                 
                 //redirect(to: view, with: parameters)
             }

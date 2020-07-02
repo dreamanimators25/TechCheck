@@ -882,20 +882,17 @@ class MisMatchVC: UIViewController {
                 //returnDictionary = ["Screen":"1"]
                 if resultJSONGet["Dead Pixels"].int == 0{
                     strDiagnosisFailed = "SPTS03,"
-
                 }
             }
             else{
                 //returnDictionary = ["Screen":"-1"]
                 returnDictionary.setValue("-1", forKey: "Screen")
                 strDiagnosisFailed = "SBRK01,"
-                
             }
             
             if resultJSONGet["Dead Pixels"].int == 1{
                 //returnDictionary = ["USB":"1"]
                 returnDictionary.setValue("1", forKey: "Dead Pixels")
-                
             }
             else{
                 //returnDictionary = ["USB":"-1"]
