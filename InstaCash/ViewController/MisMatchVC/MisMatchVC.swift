@@ -163,7 +163,9 @@ class MisMatchVC: UIViewController {
                             self.btnCancel.isHidden = true
                             
                             let alertController = UIAlertController(title: "InstaCash".localized(lang: langCode), message: "Daignosis successfully completed!".localized(lang: langCode), preferredStyle: .alert)
+                            
                             let sendButton = UIAlertAction(title: "OK".localized(lang: langCode), style: .default, handler: { (action) -> Void in
+                                
                                 obj_app.setRotControllersWithSideMenu(sendMyOrderArray: [HomeModel](), sendBrandArray: [HomeModel](), SendPupularDevoice: [HomeModel](), SendMyCurrentDevice: [HomeModel](), isComingFromWelcome: false,strAppCodeGet:"")
                             })
                             
@@ -185,12 +187,12 @@ class MisMatchVC: UIViewController {
                             self.lblConditionString.isHidden = false
                             self.btnAgree.isHidden = false
                             self.btnCancel.isHidden = false
-                            self.strDiagnosisId = responseObject?["msg"] as! String
-                            self.strConditionString = responseObject?["newConditionString"] as! String
-                            let amount = responseObject?["newAmount"] as! Int64
-                            let strAmountfinal = String(format: "%d", amount)
+                            self.strDiagnosisId = responseObject?["msg"] as? String ?? ""
+                            self.strConditionString = responseObject?["newConditionString"] as? String ?? ""
+                            let amount = responseObject?["newAmount"] as? Int64
+                            let strAmountfinal = String(format: "%d", amount ?? 0)
                             self.lblPrice.text = "New Price:- ".localized(lang: langCode) + CustomUserDefault.getCurrency() + strAmountfinal
-                            let resultData = responseObject?["compareData"] as! String
+                            let resultData = responseObject?["compareData"] as? String ?? ""
 
                             /*
                             let data = Data(resultData.utf8)
@@ -495,18 +497,18 @@ class MisMatchVC: UIViewController {
                             self.btnCancel.isHidden = false
  
                             
-                            self.strDiagnosisId = responseObject?["msg"] as! String
+                            self.strDiagnosisId = responseObject?["msg"] as? String ?? ""
                             
                             if userDefaults.value(forKey: "ChangeModeComingFromDiadnosis") as? String == "Pickup" {
                                 
-                                self.strConditionString = responseObject?["newString"] as! String
+                                self.strConditionString = responseObject?["newString"] as? String ?? ""
 
-                                let amount = responseObject?["msg"] as! String
+                                let amount = responseObject?["msg"] as? String ?? ""
                                 //let strAmountfinal = String(format: "%d", amount)
                                 print(amount)
                                 
                                 self.lblPrice.text = "New Price:- ".localized(lang: langCode) + CustomUserDefault.getCurrency() + amount
-                                let resultData = responseObject?["newConditionString"] as! String
+                                let resultData = responseObject?["newConditionString"] as? String ?? ""
                                 
                                 /*
                                 let data = Data(resultData.utf8)
@@ -522,7 +524,6 @@ class MisMatchVC: UIViewController {
                                     }
                                     
                                 }*/
-                                
                                 
                                 let data = Data(resultData.utf8)
                                 
@@ -543,16 +544,15 @@ class MisMatchVC: UIViewController {
                                     }
                                     
                                 }
-                                
                                 
                             }
                             else {
-                                self.strConditionString = responseObject?["newConditionString"] as! String
+                                self.strConditionString = responseObject?["newConditionString"] as? String ?? ""
 
-                                let amount = responseObject?["newAmount"] as! Int64
+                                let amount = responseObject?["newAmount"] as? Int64 ?? 0
                                 let strAmountfinal = String(format: "%d", amount)
                                 self.lblPrice.text = "New Price:- ".localized(lang: langCode) + CustomUserDefault.getCurrency() + strAmountfinal
-                                let resultData = responseObject?["compareData"] as! String
+                                let resultData = responseObject?["compareData"] as? String ?? ""
                                 
                                 /*
                                 let data = Data(resultData.utf8)
@@ -568,7 +568,6 @@ class MisMatchVC: UIViewController {
                                     }
                                     
                                 }*/
-                                
                                 
                                 let data = Data(resultData.utf8)
                                 
@@ -589,7 +588,6 @@ class MisMatchVC: UIViewController {
                                     }
                                     
                                 }
-                                
                                 
                             }
                         }

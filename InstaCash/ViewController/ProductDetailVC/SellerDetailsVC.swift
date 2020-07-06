@@ -178,8 +178,11 @@ class SellerDetailsVC: UIViewController,UITextFieldDelegate {
             Alert.showAlertWithError(strMessage: "Please enter name".localized(lang: langCode) as NSString, Onview: self)
             return false
         }
-        else if txtEmail.text!.isEmpty
-        {
+        else if txtName.text!.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+            Alert.showAlertWithError(strMessage: "Please enter name".localized(lang: langCode) as NSString, Onview: self)
+            return false
+        }
+        else if txtEmail.text!.isEmpty {
             Alert.showAlertWithError(strMessage: "Please enter E-mail address".localized(lang: langCode) as NSString, Onview: self)
             return false
         }
