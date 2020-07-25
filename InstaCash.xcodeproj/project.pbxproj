@@ -127,6 +127,7 @@
 		591313CF2483A932007184DC /* HtmlCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 591313CD2483A932007184DC /* HtmlCell.xib */; };
 		591313D22483A944007184DC /* SelectTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591313D02483A944007184DC /* SelectTextCell.swift */; };
 		591313D32483A944007184DC /* SelectTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 591313D12483A944007184DC /* SelectTextCell.xib */; };
+		5916FE1E24C5B68D00B4952E /* GoogleService-Info-sampleApp.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5916FE1D24C5B68D00B4952E /* GoogleService-Info-sampleApp.plist */; };
 		5920E5DD2489679B00456F35 /* PaymentModeHeaderTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5920E5DB2489679B00456F35 /* PaymentModeHeaderTblCell.swift */; };
 		5920E5DE2489679B00456F35 /* PaymentModeHeaderTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5920E5DC2489679B00456F35 /* PaymentModeHeaderTblCell.xib */; };
 		5920E5E12489681000456F35 /* PaymentModeFooterTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5920E5DF2489681000456F35 /* PaymentModeFooterTblCell.swift */; };
@@ -565,6 +566,7 @@
 		591313CD2483A932007184DC /* HtmlCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HtmlCell.xib; sourceTree = "<group>"; };
 		591313D02483A944007184DC /* SelectTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTextCell.swift; sourceTree = "<group>"; };
 		591313D12483A944007184DC /* SelectTextCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectTextCell.xib; sourceTree = "<group>"; };
+		5916FE1D24C5B68D00B4952E /* GoogleService-Info-sampleApp.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-sampleApp.plist"; sourceTree = "<group>"; };
 		5920E5DB2489679B00456F35 /* PaymentModeHeaderTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentModeHeaderTblCell.swift; sourceTree = "<group>"; };
 		5920E5DC2489679B00456F35 /* PaymentModeHeaderTblCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentModeHeaderTblCell.xib; sourceTree = "<group>"; };
 		5920E5DF2489681000456F35 /* PaymentModeFooterTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentModeFooterTblCell.swift; sourceTree = "<group>"; };
@@ -1288,6 +1290,7 @@
 				951EC7F6213FC651006BD4B2 /* LaunchScreen.storyboard */,
 				951EC7F9213FC651006BD4B2 /* Info.plist */,
 				FBCC7AA92162386C002A48A3 /* GoogleService-Info.plist */,
+				5916FE1D24C5B68D00B4952E /* GoogleService-Info-sampleApp.plist */,
 			);
 			path = InstaCash;
 			sourceTree = "<group>";
@@ -2463,6 +2466,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB04EFEC21D4BED200DD1D73 /* Roboto-Light.ttf in Resources */,
+				5916FE1E24C5B68D00B4952E /* GoogleService-Info-sampleApp.plist in Resources */,
 				35F8AE0A234F3EFE0004F3CF /* CountrySelectionCell.xib in Resources */,
 				35F8AE11234F3EFE0004F3CF /* AnotherDevice.xib in Resources */,
 				FB04EFED21D4BED200DD1D73 /* Roboto-Medium.ttf in Resources */,

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>582676517497-mra5f7qsa1p9la4kg0s2bpo25d194p2t.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.582676517497-mra5f7qsa1p9la4kg0s2bpo25d194p2t</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>582676517497-ul3v0afoliuliojbleilrsg7uk21vnk0.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyB3Q9NQpbakaq3ig3s1Ex2dmzBCWqlKyV0</string>
+	<key>GCM_SENDER_ID</key>
+	<string>582676517497</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.zerowaste.instacash</string>
+	<key>PROJECT_ID</key>
+	<string>sampleapp-6265e</string>
+	<key>STORAGE_BUCKET</key>
+	<string>sampleapp-6265e.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:582676517497:ios:d260668f56f587064c3aa8</string>
+	<key>DATABASE_URL</key>
+	<string>https://sampleapp-6265e.firebaseio.com</string>
+</dict>
+</plist>

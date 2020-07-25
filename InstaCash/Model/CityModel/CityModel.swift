@@ -48,7 +48,7 @@ class CityModel{
         }
         var cityList = [CityModel]()
 
-        let strBaseURL = userDefaults.value(forKey: "baseURL") as! String
+        let strBaseURL = userDefaults.value(forKey: "baseURL") as? String ?? ""
         let strUrl = strBaseURL + "getAllCity"
         
         let parametersHome : [String : Any] = [

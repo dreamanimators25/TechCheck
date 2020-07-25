@@ -21,6 +21,7 @@ import LocalAuthentication
 import FirebaseMessaging
 import ZDCChat
 
+
 var lang_code = String()
 var languageCode = String()
 var translation = String()
@@ -234,11 +235,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     
     //MARK:- openUrl method for social integration
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-        NSLog("Welcome")
         
-        // Sameeer 18/6/2020
+        //return application(app, open: url,sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,annotation: "")
+       
+        NSLog("Welcome")
+       
+        // Sameeer 25/7/2020
+        /*
         if let scheme = url.scheme,
-            scheme.localizedCaseInsensitiveCompare("com.instaapp") == .orderedSame, let _ = url.host {
+            scheme.localizedCaseInsensitiveCompare("com.zerowaste.instacash") == .orderedSame, let _ = url.host {
             
             var parameters: [String: String] = [:]
             URLComponents(url: URL.init(string: url.absoluteString)!, resolvingAgainstBaseURL: false)?.queryItems?.forEach {
@@ -248,16 +253,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
             print(parameters)
             
             // Set Dictionary for InstaCashInformation
-            var urlResponse = [String: String]()
-            urlResponse = parameters
-            userDefaults.removeObject(forKey: "urlResponse")
-            let myData = NSKeyedArchiver.archivedData(withRootObject: urlResponse)
-            userDefaults.set(myData, forKey: "urlResponse")
+            
+            
+            //var urlResponse = [String: String]()
+            //urlResponse = parameters
+            //userDefaults.removeObject(forKey: "urlResponse")
+            //let myData = NSKeyedArchiver.archivedData(withRootObject: urlResponse)
+            //userDefaults.set(myData, forKey: "urlResponse")
+            
+            
+            if let keyExists = parameters["country"] {
+                if keyExists == "tw" {
+                    var urlResponse = [String: String]()
+                    urlResponse = parameters
+                    userDefaults.removeObject(forKey: "paymodeResponse")
+                    let myData = NSKeyedArchiver.archivedData(withRootObject: urlResponse)
+                    userDefaults.set(myData, forKey: "paymodeResponse")
+                }
+            }else {
+                var urlResponse = [String: String]()
+                urlResponse = parameters
+                userDefaults.removeObject(forKey: "urlResponse")
+                let myData = NSKeyedArchiver.archivedData(withRootObject: urlResponse)
+                userDefaults.set(myData, forKey: "urlResponse")
+            }
+            
             
             setRotControllersWithSideMenu(sendMyOrderArray: [HomeModel](), sendBrandArray: [HomeModel](), SendPupularDevoice: [HomeModel](), SendMyCurrentDevice: [HomeModel](), isComingFromWelcome: false, strAppCodeGet:"")
             
+            
             //redirect(to: view, with: parameters)
-        }
+        }*/
+        
         return true
         
         
@@ -323,9 +350,138 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
 //
 //    }
     
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity,
+                     restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+        let handled = DynamicLinks.dynamicLinks().handleUniversalLink(userActivity.webpageURL!) { (dynamiclink, error) in
+            // ...
+            
+            print("Continue User Activity called: ")
+            
+            if let url =  dynamiclink?.url {
+                _ = url.lastPathComponent
+                var parameters: [String: String] = [:]
+                URLComponents(url: url, resolvingAgainstBaseURL: false)?.queryItems?.forEach {
+                    parameters[$0.name] = $0.value
+                }
+                
+                print(parameters)
+                
+                // Set Dictionary for InstaCashInformation
+                
+                if let keyExists = parameters["country"] {
+                    if keyExists == "tw" {
+                        var urlResponse = [String: String]()
+                        urlResponse = parameters
+                        userDefaults.removeObject(forKey: "paymodeResponse")
+                        let myData = NSKeyedArchiver.archivedData(withRootObject: urlResponse)
+                        userDefaults.set(myData, forKey: "paymodeResponse")
+                    }
+                }else {
+                    var urlResponse = [String: String]()
+                    urlResponse = parameters
+                    userDefaults.removeObject(forKey: "urlResponse")
+                    let myData = NSKeyedArchiver.archivedData(withRootObject: urlResponse)
+                    userDefaults.set(myData, forKey: "urlResponse")
+                }
+                
+                //redirect(to: view, with: parameters)
+            }
+            
+        }
+
+      return handled
+    }
+
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        if let dynamicLink = DynamicLinks.dynamicLinks().dynamicLink(fromCustomSchemeURL: url) {
+            // Handle the deep link. For example, show the deep-linked content or
+            // apply a promotional offer to the user's account.
+            // ...
+            
+            print("Continue User Activity called: ")
+            
+            if let url =  dynamicLink.url {
+                _ = url.lastPathComponent
+                var parameters: [String: String] = [:]
+                URLComponents(url: url, resolvingAgainstBaseURL: false)?.queryItems?.forEach {
+                    parameters[$0.name] = $0.value
+                }
+                
+                print(parameters)
+                
+                // Set Dictionary for InstaCashInformation
+                
+                if let keyExists = parameters["country"] {
+                    if keyExists == "tw" {
+                        var urlResponse = [String: String]()
+                        urlResponse = parameters
+                        userDefaults.removeObject(forKey: "paymodeResponse")
+                        let myData = NSKeyedArchiver.archivedData(withRootObject: urlResponse)
+                        userDefaults.set(myData, forKey: "paymodeResponse")
+                    }
+                }else {
+                    var urlResponse = [String: String]()
+                    urlResponse = parameters
+                    userDefaults.removeObject(forKey: "urlResponse")
+                    let myData = NSKeyedArchiver.archivedData(withRootObject: urlResponse)
+                    userDefaults.set(myData, forKey: "urlResponse")
+                }
+                
+                //redirect(to: view, with: parameters)
+            }
+            
+            return true
+        }
+        return false
+    }
+    
     //MARK:- true caller active method
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Swift.Void) -> Bool {
         
+        let handled = DynamicLinks.dynamicLinks().handleUniversalLink(userActivity.webpageURL!) { (dynamiclink, error) in
+            // ...
+            print("Continue User Activity called: ")
+            
+            if let url =  dynamiclink?.url {
+                _ = url.lastPathComponent
+                var parameters: [String: String] = [:]
+                URLComponents(url: url, resolvingAgainstBaseURL: false)?.queryItems?.forEach {
+                    parameters[$0.name] = $0.value
+                }
+                
+                print(parameters)
+                
+//                guard parameters.count > 0 else {
+//                    return false
+//                }
+                
+                // Set Dictionary for InstaCashInformation
+                
+                if let keyExists = parameters["country"] {
+                    if keyExists == "tw" {
+                        var urlResponse = [String: String]()
+                        urlResponse = parameters
+                        userDefaults.removeObject(forKey: "paymodeResponse")
+                        let myData = NSKeyedArchiver.archivedData(withRootObject: urlResponse)
+                        userDefaults.set(myData, forKey: "paymodeResponse")
+                    }
+                }else {
+                    var urlResponse = [String: String]()
+                    urlResponse = parameters
+                    userDefaults.removeObject(forKey: "urlResponse")
+                    let myData = NSKeyedArchiver.archivedData(withRootObject: urlResponse)
+                    userDefaults.set(myData, forKey: "urlResponse")
+                }
+                
+                //redirect(to: view, with: parameters)
+            }
+            
+        }
+
+        return handled
+        
+        //Sameer 25/7/2020
+        /*
         print("Continue User Activity called: ")
         
         if userActivity.activityType == NSUserActivityTypeBrowsingWeb {
@@ -410,7 +566,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         }
         else{
             return TCTrueSDK.sharedManager().application(application, continue: userActivity, restorationHandler: restorationHandler)
-        }
+        }*/
     }
     
     func daysBetweenDates(startDate: Date, endDate: Date) -> Int {

@@ -89,6 +89,7 @@ class DeviceChargerVC: UIViewController {
             DispatchQueue.main.async() {
                 UserDefaults.standard.set(false, forKey: "charger")
                 userDefaults.setValue(true, forKey: "charger_complete")
+                
                 if self.isComingFromTestResult{
                     let vc = DiagnosticTestResultVC()
                     self.resultJSON["USB"].int = -1
@@ -106,11 +107,11 @@ class DeviceChargerVC: UIViewController {
                     vc.modalPresentationStyle = .fullScreen
                     self.present(vc, animated: true, completion: nil)
                 }
+                
                 if (userDefaults.value(forKey: "Diagnosis_DataSave") != nil){
                     let sendJson =  JSON.init(parseJSON:userDefaults.value(forKey: "Diagnosis_DataSave") as! String)
                     self.resultJSON = sendJson
                     self.resultJSON["USB"].int = -1
-
                 }
                 
                 if userDefaults.value(forKey: "ChangeModeComingFromDiadnosis") as! String == "Diagnosis" || userDefaults.value(forKey: "ChangeModeComingFromDiadnosis") as! String == "Pickup" {

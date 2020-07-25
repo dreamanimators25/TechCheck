@@ -79,6 +79,8 @@ class DiagnosticTestResultVC: UIViewController,UITableViewDelegate,UITableViewDa
                     self.imgPhone.sd_setImage(with: imgURL)
                     let strAmount = String(format: "%d", arrMyCurrentDeviceSend[0].currentDeviceMaximumTotal!)
                     
+                    self.lblPhone.text = arrMyCurrentDeviceSend[0].strCurrentDeviceName ?? ""
+                    
                     /*//S.
                     /////////////////////////////////////////////////
                     //To show price in currencyFormat

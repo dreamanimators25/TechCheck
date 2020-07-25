@@ -61,7 +61,6 @@ class EarPhoneVC: UIViewController {
         self.lblCheckEarphone.text = "Checking earphone".localized(lang: langCode)
         self.lblPressStart.text = "Press “Start’ and follow instructions.".localized(lang: langCode)
         self.btnSkip.setTitle("Skip".localized(lang: langCode), for: UIControlState.normal)
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -125,6 +124,7 @@ class EarPhoneVC: UIViewController {
         let buttonOne = CancelButton(title: "Yes".localized(lang: langCode)) {
             UserDefaults.standard.set(false, forKey: "earphone")
             userDefaults.setValue(true, forKey: "earphone_complete")
+            
             if self.isComingFromTestResult{
                 let vc = DiagnosticTestResultVC()
                 self.resultJSON["Earphone"].int = -1
@@ -142,11 +142,11 @@ class EarPhoneVC: UIViewController {
                 vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
             }
+            
             if (userDefaults.value(forKey: "Diagnosis_DataSave") != nil){
                 let sendJson =  JSON.init(parseJSON:userDefaults.value(forKey: "Diagnosis_DataSave") as! String)
                 self.resultJSON = sendJson
                 self.resultJSON["Earphone"].int = -1
-
             }
             
             if userDefaults.value(forKey: "ChangeModeComingFromDiadnosis") as! String == "Diagnosis" || userDefaults.value(forKey: "ChangeModeComingFromDiadnosis") as! String == "Pickup" {
@@ -202,95 +202,97 @@ class EarPhoneVC: UIViewController {
         self.present(popup, animated: true, completion: nil)
     }
     
-    @objc dynamic private func audioRouteChangeListener(notification:NSNotification) {
-        let audioRouteChangeReason = notification.userInfo![AVAudioSessionRouteChangeReasonKey] as! UInt
-        switch audioRouteChangeReason {
-        case AVAudioSessionRouteChangeReason.newDeviceAvailable.rawValue:
-            UserDefaults.standard.set(true, forKey: "earphone")
-            userDefaults.setValue(true, forKey: "earphone_complete")
-
-            if self.isComingFromTestResult{
-                let vc = DiagnosticTestResultVC()
-                self.resultJSON["Earphone"].int = 1
-                vc.resultJSON = self.resultJSON
-                vc.modalPresentationStyle = .fullScreen
-                self.present(vc, animated: true, completion: nil)
-            }
-            else if self.isComingFromProductquote == true{
-//                NotificationCenter.default.post(name: Notification.Name("Product_quote_DataChageForSkippedTpPass"), object: "Earphone")
-                self.resultJSON["Earphone"].int = 1
-                  NotificationCenter.default.post(name: Notification.Name("Product_quote_DataChageForSkippedTpPass"), object: self.resultJSON,userInfo: ["TestPassName": "Earphone"])
-                self.dismiss(animated: true, completion: nil)
-            }
-            else{
-                let vc = DeviceChargerVC()
-                self.resultJSON["Earphone"].int = 1
-                vc.resultJSON = self.resultJSON
-                vc.modalPresentationStyle = .fullScreen
-                self.present(vc, animated: true, completion: nil)
-            }
-            if (userDefaults.value(forKey: "Diagnosis_DataSave") != nil){
-                let sendJson =  JSON.init(parseJSON:userDefaults.value(forKey: "Diagnosis_DataSave") as! String)
-                self.resultJSON = sendJson
-                self.resultJSON["Earphone"].int = 1
-
-            }
-            
-            if userDefaults.value(forKey: "ChangeModeComingFromDiadnosis") as! String == "Diagnosis" || userDefaults.value(forKey: "ChangeModeComingFromDiadnosis") as! String == "Pickup" {
+    @objc func audioRouteChangeListener(notification:NSNotification) {
+        DispatchQueue.main.async {
+            let audioRouteChangeReason = notification.userInfo![AVAudioSessionRouteChangeReasonKey] as! UInt
+            switch audioRouteChangeReason {
+            case AVAudioSessionRouteChangeReason.newDeviceAvailable.rawValue:
+                UserDefaults.standard.set(true, forKey: "earphone")
+                userDefaults.setValue(true, forKey: "earphone_complete")
                 
-            }else {
-                userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
+                if self.isComingFromTestResult {
+                    let vc = DiagnosticTestResultVC()
+                    self.resultJSON["Earphone"].int = 1
+                    vc.resultJSON = self.resultJSON
+                    vc.modalPresentationStyle = .fullScreen
+                    self.present(vc, animated: true, completion: nil)
+                }
+                else if self.isComingFromProductquote == true{
+                    //NotificationCenter.default.post(name: Notification.Name("Product_quote_DataChageForSkippedTpPass"), object: "Earphone")
+                    self.resultJSON["Earphone"].int = 1
+                    NotificationCenter.default.post(name: Notification.Name("Product_quote_DataChageForSkippedTpPass"), object: self.resultJSON,userInfo: ["TestPassName": "Earphone"])
+                    self.dismiss(animated: true, completion: nil)
+                }
+                else{
+                    let vc = DeviceChargerVC()
+                    self.resultJSON["Earphone"].int = 1
+                    vc.resultJSON = self.resultJSON
+                    vc.modalPresentationStyle = .fullScreen
+                    self.present(vc, animated: true, completion: nil)
+                }
+                if (userDefaults.value(forKey: "Diagnosis_DataSave") != nil){
+                    let sendJson =  JSON.init(parseJSON:userDefaults.value(forKey: "Diagnosis_DataSave") as! String)
+                    self.resultJSON = sendJson
+                    self.resultJSON["Earphone"].int = 1
+                    
+                }
                 
-                //Sameer 14/4/2020
-                userDefaults.removeObject(forKey: "charger_complete")
-                userDefaults.setValue(false, forKey: "charger_complete")
-            }
-
-            break
-        case AVAudioSessionRouteChangeReason.oldDeviceUnavailable.rawValue:
-            UserDefaults.standard.set(true, forKey: "earphone")
-            userDefaults.setValue(true, forKey: "earphone_complete")
-
-            if self.isComingFromTestResult{
-                let vc = DiagnosticTestResultVC()
-                self.resultJSON["Earphone"].int = 1
-                vc.resultJSON = self.resultJSON
-                vc.modalPresentationStyle = .fullScreen
-                self.present(vc, animated: true, completion: nil)
-            }
-            else if self.isComingFromProductquote == true{
-//                NotificationCenter.default.post(name: Notification.Name("Product_quote_DataChageForSkippedTpPass"), object: "Earphone")
-                self.resultJSON["Earphone"].int = 1
-                  NotificationCenter.default.post(name: Notification.Name("Product_quote_DataChageForSkippedTpPass"), object: self.resultJSON,userInfo: ["TestPassName": "Earphone"])
-                self.dismiss(animated: true, completion: nil)
-            }
-            else{
-                let vc = DeviceChargerVC()
-                self.resultJSON["Earphone"].int = 1
-                vc.resultJSON = self.resultJSON
-                vc.modalPresentationStyle = .fullScreen
-                self.present(vc, animated: true, completion: nil)
-            }
-            if (userDefaults.value(forKey: "Diagnosis_DataSave") != nil){
-                let sendJson =  JSON.init(parseJSON:userDefaults.value(forKey: "Diagnosis_DataSave") as! String)
-                self.resultJSON = sendJson
-                self.resultJSON["Earphone"].int = 1
-
-            }
-            
-            if userDefaults.value(forKey: "ChangeModeComingFromDiadnosis") as! String == "Diagnosis" || userDefaults.value(forKey: "ChangeModeComingFromDiadnosis") as! String == "Pickup" {
+                if userDefaults.value(forKey: "ChangeModeComingFromDiadnosis") as! String == "Diagnosis" || userDefaults.value(forKey: "ChangeModeComingFromDiadnosis") as! String == "Pickup" {
+                    
+                }else {
+                    userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
+                    
+                    //Sameer 14/4/2020
+                    userDefaults.removeObject(forKey: "charger_complete")
+                    userDefaults.setValue(false, forKey: "charger_complete")
+                }
                 
-            }else {
-                userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
+                break
+            case AVAudioSessionRouteChangeReason.oldDeviceUnavailable.rawValue:
+                UserDefaults.standard.set(true, forKey: "earphone")
+                userDefaults.setValue(true, forKey: "earphone_complete")
                 
-                //Sameer 14/4/2020
-                userDefaults.removeObject(forKey: "charger_complete")
-                userDefaults.setValue(false, forKey: "charger_complete")
+                if self.isComingFromTestResult {
+                    let vc = DiagnosticTestResultVC()
+                    self.resultJSON["Earphone"].int = 1
+                    vc.resultJSON = self.resultJSON
+                    vc.modalPresentationStyle = .fullScreen
+                    self.present(vc, animated: true, completion: nil)
+                }
+                else if self.isComingFromProductquote == true{
+                    //                NotificationCenter.default.post(name: Notification.Name("Product_quote_DataChageForSkippedTpPass"), object: "Earphone")
+                    self.resultJSON["Earphone"].int = 1
+                    NotificationCenter.default.post(name: Notification.Name("Product_quote_DataChageForSkippedTpPass"), object: self.resultJSON,userInfo: ["TestPassName": "Earphone"])
+                    self.dismiss(animated: true, completion: nil)
+                }
+                else{
+                    let vc = DeviceChargerVC()
+                    self.resultJSON["Earphone"].int = 1
+                    vc.resultJSON = self.resultJSON
+                    vc.modalPresentationStyle = .fullScreen
+                    self.present(vc, animated: true, completion: nil)
+                }
+                if (userDefaults.value(forKey: "Diagnosis_DataSave") != nil){
+                    let sendJson =  JSON.init(parseJSON:userDefaults.value(forKey: "Diagnosis_DataSave") as! String)
+                    self.resultJSON = sendJson
+                    self.resultJSON["Earphone"].int = 1
+                    
+                }
+                
+                if userDefaults.value(forKey: "ChangeModeComingFromDiadnosis") as! String == "Diagnosis" || userDefaults.value(forKey: "ChangeModeComingFromDiadnosis") as! String == "Pickup" {
+                    
+                }else {
+                    userDefaults.setValue(self.resultJSON.rawString(), forKey: "Diagnosis_DataSave")
+                    
+                    //Sameer 14/4/2020
+                    userDefaults.removeObject(forKey: "charger_complete")
+                    userDefaults.setValue(false, forKey: "charger_complete")
+                }
+                
+                break
+            default:
+                break
             }
-            
-            break
-        default:
-            break
         }
     }
     

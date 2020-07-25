@@ -31,6 +31,9 @@ PODS:
   - Firebase/Database (6.25.0):
     - Firebase/CoreOnly
     - FirebaseDatabase (~> 6.2.1)
+  - Firebase/DynamicLinks (6.25.0):
+    - Firebase/CoreOnly
+    - FirebaseDynamicLinks (~> 4.0.8)
   - Firebase/Messaging (6.25.0):
     - Firebase/CoreOnly
     - FirebaseMessaging (~> 4.4.1)
@@ -57,7 +60,7 @@ PODS:
     - GoogleUtilities/Logger (~> 6.5)
     - nanopb (~> 1.30905.0)
   - FirebaseCoreDiagnosticsInterop (1.2.0)
-  - FirebaseCrashlytics (4.1.0):
+  - FirebaseCrashlytics (4.1.1):
     - FirebaseAnalyticsInterop (~> 1.2)
     - FirebaseCore (~> 6.6)
     - FirebaseInstallations (~> 1.1)
@@ -69,6 +72,9 @@ PODS:
     - FirebaseAuthInterop (~> 1.0)
     - FirebaseCore (~> 6.0)
     - leveldb-library (~> 1.22)
+  - FirebaseDynamicLinks (4.0.8):
+    - FirebaseAnalyticsInterop (~> 1.3)
+    - FirebaseCore (~> 6.2)
   - FirebaseInstallations (1.2.0):
     - FirebaseCore (~> 6.6)
     - GoogleUtilities/Environment (~> 6.6)
@@ -98,7 +104,7 @@ PODS:
     - GoogleUtilities/Network (~> 6.0)
     - "GoogleUtilities/NSData+zlib (~> 6.0)"
     - nanopb (~> 1.30905.0)
-  - GoogleDataTransport (6.1.1)
+  - GoogleDataTransport (6.2.1)
   - GoogleDataTransportCCTSupport (3.1.0):
     - GoogleDataTransport (~> 6.1)
     - nanopb (~> 1.30905.0)
@@ -164,7 +170,7 @@ PODS:
   - OTPTextField (1.1.2)
   - PopupDialog (0.8.1):
     - DynamicBlurView (~> 2.0)
-  - PromisesObjC (1.2.8)
+  - PromisesObjC (1.2.9)
   - Protobuf (3.12.0)
   - SDWebImage (4.4.8):
     - SDWebImage/Core (= 4.4.8)
@@ -184,9 +190,9 @@ DEPENDENCIES:
   - FBSDKCoreKit (~> 4.36.0)
   - FBSDKLoginKit (~> 4.36.0)
   - Firebase/Analytics
-  - Firebase/Core
   - Firebase/Crashlytics
   - Firebase/Database
+  - Firebase/DynamicLinks
   - Firebase/Messaging
   - GBDeviceInfo (~> 4.4.0)
   - GoogleSignIn (~> 4.2.0)
@@ -227,6 +233,7 @@ SPEC REPOS:
     - FirebaseCoreDiagnosticsInterop
     - FirebaseCrashlytics
     - FirebaseDatabase
+    - FirebaseDynamicLinks
     - FirebaseInstallations
     - FirebaseInstanceID
     - FirebaseMessaging
@@ -280,15 +287,16 @@ SPEC CHECKSUMS:
   FirebaseCore: 6023faeada5afa95a349fccafb40900e32e9ac42
   FirebaseCoreDiagnostics: 4a773a47bd83bbd5a9b1ccf1ce7caa8b2d535e67
   FirebaseCoreDiagnosticsInterop: 296e2c5f5314500a850ad0b83e9e7c10b011a850
-  FirebaseCrashlytics: fff345f16a07f0b23cb342d8de5a42cec6de3492
+  FirebaseCrashlytics: a87cce5746d3335995bd18b1b60d073cd05a6920
   FirebaseDatabase: 4e99c0c475d1ee0aa64ae2b53c93f80b7b60d7d9
+  FirebaseDynamicLinks: 417dc6dbb6013233c77558290d73296f429656a6
   FirebaseInstallations: 2119fb3e46b0a88bfdbf12562f855ee3252462fa
   FirebaseInstanceID: cef67c4967c7cecb56ea65d8acbb4834825c587b
   FirebaseMessaging: 29543feb343b09546ab3aa04d008ee8595b43c44
   GBDeviceInfo: 2ec90c6808d063061b16773ec8e857257058dc5d
   GoogleAnalytics: f42cc53a87a51fe94334821868d9c8481ff47a7b
   GoogleAppMeasurement: 137afe68bfa406c3f4221b9395253d9e5d4654cf
-  GoogleDataTransport: ad884314b81cdb808fb1d23787b367ff8da4e28a
+  GoogleDataTransport: 9a8a16f79feffc7f42096743de2a7c4815e84020
   GoogleDataTransportCCTSupport: d70a561f7d236af529fee598835caad5e25f6d3d
   GoogleSignIn: 591e46382014e591269f862ba6e7bc0fbd793532
   GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
@@ -308,7 +316,7 @@ SPEC CHECKSUMS:
   nanopb: c43f40fadfe79e8b8db116583945847910cbabc9
   OTPTextField: 40130474e5fc0ac07782fa0bed346c9e81854e1d
   PopupDialog: 3d4e8e0795c3a614f407d730986c9b9af9781123
-  PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
+  PromisesObjC: b48e0338dbbac2207e611750777895f7a5811b75
   Protobuf: 2793fcd0622a00b546c60e7cbbcc493e043e9bb9
   SDWebImage: 783af2c3fa36291a250030c4752ee370a9a51d13
   SwiftGifOrigin: d6679d3ebe9df2e049a84bc52582635107b581f6
@@ -317,6 +325,6 @@ SPEC CHECKSUMS:
   SystemServices: 7af348493ece8951449b476c41532df72569b181
   TrueSDK: 5bcb93ec0578e43f1fd5ab0e45bdb0722cbfdb36
 
-PODFILE CHECKSUM: 6ebffc678f314033650dd71f18590ba67ab78278
+PODFILE CHECKSUM: e844dc39f216109d80e9defe8f7a2d0e1daf0a3d
 
 COCOAPODS: 1.8.4

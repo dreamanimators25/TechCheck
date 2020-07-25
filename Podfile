@@ -13,8 +13,10 @@ pod 'FBSDKCoreKit', '~> 4.36.0' # Added By -> Sameer
 #pod 'FacebookCore'
 pod 'GoogleSignIn', '~> 4.2.0'
 pod 'MBProgressHUD', '~> 1.1.0'
-pod 'Firebase/Core'
+
+#pod 'Firebase/Core' //S
 pod 'Firebase/Database' #, '~> 5.0.2'
+
 pod 'SDWebImage', '~> 4.4.2'
 pod 'MFSideMenu', '~> 0.5.5'
 pod 'GBDeviceInfo', '~> 4.4.0'
@@ -29,11 +31,15 @@ pod 'BiometricAuthentication', '~> 2.0.2'
 pod 'Luminous', '~> 1.0.2'
 pod 'INTULocationManager', '~> 4.3.0'
 pod 'SwiftSpinner', '~> 1.5.0'
+
 #pod 'Fabric'
 #pod 'Crashlytics'
 #pod 'Fabric', '~> 1.10.2'
 #pod 'Crashlytics', '~> 3.14'
-pod 'Firebase/Messaging', '~> 3.1.1'
+
+#pod 'Firebase/Messaging', '~> 3.1.1'
+pod 'Firebase/Messaging'
+
 pod 'GoogleTagManager', '~> 7.1.1'
 pod 'McPicker', '~> 2.0.0'
 pod 'SystemServices', '~> 2.0.1'
@@ -43,7 +49,8 @@ pod 'OTPTextField', '~> 1.1.2'
 pod 'Firebase/Crashlytics'
 pod 'Firebase/Analytics'
 
-pod 'ZDCChat'
+#pod 'ZDCChat'
+pod 'Firebase/DynamicLinks'
 
 # Pods for InstaCash
 

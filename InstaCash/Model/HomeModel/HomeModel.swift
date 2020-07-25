@@ -121,7 +121,7 @@ class HomeModel{
             strCustomerId = "-1"
         }
         
-        let strBaseURL = userDefaults.value(forKey: "baseURL") as! String
+        let strBaseURL = userDefaults.value(forKey: "baseURL") as? String ?? ""
         let strUrl = strBaseURL + "homeOpen"
         var strAppModeCode = ""
         //let strUrl = "https://sandbox.getinstacash.in/instaCash/api/v5/public/homeOpen"
