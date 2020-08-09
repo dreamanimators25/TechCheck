@@ -55,6 +55,9 @@ class AnotherDevice: UIViewController, UICollectionViewDelegate, UICollectionVie
         
         userDefaults.removeObject(forKey: "ChangeModeComingFromDiadnosis")
         userDefaults.setValue("", forKey: "ChangeModeComingFromDiadnosis")
+        
+        userDefaults.removeObject(forKey: "pickupDiagnose")
+        userDefaults.setValue("", forKey: "pickupDiagnose")
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {        
@@ -185,6 +188,10 @@ class AnotherDevice: UIViewController, UICollectionViewDelegate, UICollectionVie
                 
                 userDefaults.removeObject(forKey: "ChangeModeComingFromDiadnosis")
                 userDefaults.setValue("", forKey: "ChangeModeComingFromDiadnosis")
+                
+                userDefaults.removeObject(forKey: "pickupDiagnose")
+                userDefaults.setValue("", forKey: "pickupDiagnose")
+                
                 // let imei = UserDefaults.standard.string(forKey: "imei_number")
                 // if (imei?.count == 15) {
                 if arrMyCurrentDeviceSend.count > 0 {

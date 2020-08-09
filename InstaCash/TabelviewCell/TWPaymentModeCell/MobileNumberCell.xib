@@ -88,6 +88,7 @@
             <connections>
                 <outlet property="mobileNumberTxtField" destination="jsJ-zs-LY1" id="ljY-kg-aaT"/>
                 <outlet property="paymentImgView" destination="tir-Df-KTl" id="ljs-Iq-eeH"/>
+                <outlet property="seperatorLbl" destination="SxY-7E-fpx" id="lwF-8v-QvJ"/>
             </connections>
             <point key="canvasLocation" x="195.6521739130435" y="164.0625"/>
         </tableViewCell>

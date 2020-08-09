@@ -130,6 +130,7 @@ class PickUpCodeVC: UIViewController {
             else{
                 strAppCode = "2"
             }
+            
             var strUudid = ""
             
             if (KeychainWrapper.standard.string(forKey: "UUIDValue") != nil){
@@ -153,10 +154,10 @@ class PickUpCodeVC: UIViewController {
             parameters  = [
                 "userName" : apiAuthenticateUserName,
                 "apiKey" : key,
-                "appModeCode": strVerificationCode,
-                "appMode":strAppCode,
-                "customerId":CustomUserDefault.getUserId(),
-                "uniqueIdentifire":strUudid + "~" + strUudid
+                "appModeCode" : strVerificationCode, //98654095
+                "appMode" : strAppCode,
+                "customerId" : CustomUserDefault.getUserId(),
+                "uniqueIdentifire" : strUudid + "~" + strUudid
             ]
             
             print(parameters)
@@ -173,6 +174,7 @@ class PickUpCodeVC: UIViewController {
                         
                         userDefaults.removeObject(forKey: "ChangeModeComingFromDiadnosis")
                         userDefaults.removeObject(forKey: "ChangeModeOrderId")
+                        userDefaults.removeObject(forKey: "pickupDiagnose")
                         userDefaults.set(responseObject?["orderItemId"] as! String, forKey: "ChangeModeOrderId")
                         
                         if withProcessCode == "diagnosemode" {
@@ -216,21 +218,24 @@ class PickUpCodeVC: UIViewController {
                                     let myData = NSKeyedArchiver.archivedData(withRootObject: arrPickUpQuestion)
                                     userDefaults.set(myData, forKey: "PickUpQuestions")
                                 
-                                DispatchQueue.main.async {
-                                    let vc = ScreenTestPickUp()
-                                    self.navigationController?.pushViewController(vc, animated: true)
+                                if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+                                    
+                                    if let keyExists = responseObject?["diagnose"] as? Bool {
+                                        if keyExists {
+                                            userDefaults.set("pickupDiagnose", forKey: "pickupDiagnose")
+                                            
+                                            self.runTestForPickUpMode()
+                                        }else {
+                                            self.runTestForPickUpMode()
+                                        }
+                                    }else {
+                                        self.runTestForPickUpMode()
+                                    }
+                                    
+                                }else {
+                                    self.runTestForPickUpMode()
                                 }
                                 
-                                /*
-                                    DispatchQueue.main.async {
-                                        self.dismiss(animated: false, completion: {
-                                            let vc = ScreenTestPickUp()
-                                            let navController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController
-                                            navController?.pushViewController(vc, animated: true)
-                                        })
-                                    }*/
-                                  
-                                //}
                             }else {
                                 Alert.showAlertWithTitle(strTitle: "InstaCash".localized(lang: langCode) as NSString, strMessage: "Device doesn't Match! Please change your device, through which you place the order.".localized(lang: langCode) as NSString, Onview: self)
                             }
@@ -257,6 +262,12 @@ class PickUpCodeVC: UIViewController {
         }
     }
     
+    func runTestForPickUpMode() {
+        DispatchQueue.main.async {
+            let vc = ScreenTestPickUp()
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
     
     // MARK: - Navigation
     // In a storyboard-based application, you will often want to do a little preparation before navigation

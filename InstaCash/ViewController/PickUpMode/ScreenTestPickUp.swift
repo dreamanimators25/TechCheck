@@ -292,7 +292,6 @@ class ScreenTestPickUp: UIViewController {
             }
             
             
-            
             // Add buttons to dialog
             // Alternatively, you can use popup.addButton(buttonOne)
             // to add a single button
@@ -320,7 +319,6 @@ class ScreenTestPickUp: UIViewController {
             // Customize default button appearance
             let db = DefaultButton.appearance()
             db.titleFont      = UIFont(name: "HelveticaNeue-Medium", size: 16)!
-            
             
             
             // Customize cancel button appearance

@@ -189,6 +189,9 @@ class BlueToothTestingVC: UIViewController,CBCentralManagerDelegate {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.3) {
                     SwiftSpinner.show(progress: 0.85, title: "Checking WiFi...".localized(lang: langCode))
                     SwiftSpinner.setTitleFont(UIFont(name: "Futura", size: 22.0))
+                    
+//                    let arrSSIDs = self.getIFAddresses()
+//                    print(arrSSIDs)
                   
                     if Luminous.System.Network.isConnectedViaWiFi{
                         self.wifiSSID = Luminous.System.Network.SSID
@@ -200,7 +203,6 @@ class BlueToothTestingVC: UIViewController,CBCentralManagerDelegate {
                     else{
                         self.resultJSON["WIFI"].int = -1
                         userDefaults.setValue(false, forKey: "WIFITest")
-                        
                     }
                     
                     // sameer 14/4/2020
@@ -214,11 +216,24 @@ class BlueToothTestingVC: UIViewController,CBCentralManagerDelegate {
                             //self.modifiersAPI()
                             SwiftSpinner.hide()
                             DispatchQueue.main.async {
-                              //  SwiftSpinner.hide()
-                                let vc = DiagnosticTestResultVC()
-                                vc.resultJSON = self.resultJSON
-                                vc.modalPresentationStyle = .fullScreen
-                                self.present(vc, animated: true, completion: nil)
+                                
+                                if userDefaults.value(forKey: "pickupDiagnose") as! String == "pickupDiagnose" {
+                                    
+                                    let vc = PickUpQuestionVC()
+                                    vc.resultJSON = self.resultJSON
+                                    let nav = UINavigationController(rootViewController: vc)
+                                    UINavigationBar.appearance().barTintColor = navColor
+                                    nav.modalPresentationStyle = .fullScreen
+                                    self.present(nav, animated: true, completion: nil)
+                                    
+                                }else {
+                                    //SwiftSpinner.hide()
+                                    let vc = DiagnosticTestResultVC()
+                                    vc.resultJSON = self.resultJSON
+                                    vc.modalPresentationStyle = .fullScreen
+                                    self.present(vc, animated: true, completion: nil)
+                                }
+                                
                             }
                           
                             
@@ -228,113 +243,39 @@ class BlueToothTestingVC: UIViewController,CBCentralManagerDelegate {
             }
         }
     }
-
-    /*
-    func getWiFiSsid() -> String? {
-        var ssid: String?
-        if let interfaces = CNCopySupportedInterfaces() as NSArray? {
-            for interface in interfaces {
-                if let interfaceInfo = CNCopyCurrentNetworkInfo(interface as! CFString) as NSDictionary? {
-                    ssid = interfaceInfo[kCNNetworkInfoKeySSID as String] as? String
-                    break
-                }
-            }
-        }
-        return ssid
-    }
     
-    func isWifiEnabled() -> Bool {
+    // Return IP address of WiFi interface (en0) as a String, or `nil`
+    func getIFAddresses() -> [String] {
         var addresses = [String]()
 
+        // Get list of all interfaces on the local machine:
         var ifaddr : UnsafeMutablePointer<ifaddrs>?
-        guard getifaddrs(&ifaddr) == 0 else { return false }
-        guard let firstAddr = ifaddr else { return false }
+        guard getifaddrs(&ifaddr) == 0 else { return [] }
+        guard let firstAddr = ifaddr else { return [] }
 
+        // For each interface ...
         for ptr in sequence(first: firstAddr, next: { $0.pointee.ifa_next }) {
-            addresses.append(String(cString: ptr.pointee.ifa_name))
+            let flags = Int32(ptr.pointee.ifa_flags)
+            let addr = ptr.pointee.ifa_addr.pointee
+
+            // Check for running IPv4, IPv6 interfaces. Skip the loopback interface.
+            if (flags & (IFF_UP|IFF_RUNNING|IFF_LOOPBACK)) == (IFF_UP|IFF_RUNNING) {
+                if addr.sa_family == UInt8(AF_INET) || addr.sa_family == UInt8(AF_INET6) {
+
+                    // Convert interface address to a human readable string:
+                    var hostname = [CChar](repeating: 0, count: Int(NI_MAXHOST))
+                    if (getnameinfo(ptr.pointee.ifa_addr, socklen_t(addr.sa_len), &hostname, socklen_t(hostname.count),
+                                    nil, socklen_t(0), NI_NUMERICHOST) == 0) {
+                        let address = String(cString: hostname)
+                        addresses.append(address)
+                    }
+                }
+            }
         }
 
         freeifaddrs(ifaddr)
-        return addresses.contains("awdl0")
+        return addresses
     }
-    
-    func isWifiEnabled1() -> Bool {
-        var addresses = [String]()
-
-        var ifaddr : UnsafeMutablePointer<ifaddrs>?
-        guard getifaddrs(&ifaddr) == 0 else { return false }
-        guard let firstAddr = ifaddr else { return false }
-
-        for ptr in sequence(first: firstAddr, next: { $0.pointee.ifa_next }) {
-            addresses.append(String(cString: ptr.pointee.ifa_name))
-        }
-
-        var counts:[String:Int] = [:]
-
-        for item in addresses {
-            counts[item] = (counts[item] ?? 0) + 1
-        }
-
-        freeifaddrs(ifaddr)
-        guard let count = counts["awdl0"] else { return false }
-        return count > 1
-    }
-    
-    func isWIFIActive() -> Bool {
-        guard let interfaceNames = CWWiFiClient.interfaceNames() else {
-            return false
-        }
-
-        for interfaceName in interfaceNames {
-            let interface = CWWiFiClient.shared().interface(withName: interfaceName)
-
-            if interface?.ssid() != nil {
-                return true
-            }
-        }
-        return false
-    }
-    
-    func isWiFiOn() -> Bool {
-        var address : String?
-        var ifaddr : UnsafeMutablePointer<ifaddrs>? = nil
-        if getifaddrs(&ifaddr) == 0 {
-            var ptr = ifaddr
-            while ptr != nil {
-                defer { ptr = ptr?.pointee.ifa_next }
-                let interface = ptr?.pointee
-                //defer { ptr = ptr.memory.ifa_next }
-                //let interface = ptr.memory
-                //let addrFamily = interface?.ifa_addr.memory.sa_family
-                let addrFamily = interface?.ifa_addr.pointee.sa_family
-                
-                if addrFamily == UInt8(AF_INET) || addrFamily == UInt8(AF_INET6) {
-                    if let name = String.init(cString: (interface?.ifa_name)!), let name1 = "awd10" {
-                        if((Int32?(interface?.ifa_flags) && IFF_UP) == IFF_UP) {
-                            return true
-                        }else {
-                            return false
-                        }
-                    }
-                }
-                
-                /*
-                if addrFamily == UInt8(AF_INET) || addrFamily == UInt8(AF_INET6) {
-                    if let name = String.fromCString(interface.ifa_name), name == "awdl0" {
-                        if((Int32(interface.ifa_flags) & IFF_UP) == IFF_UP) {
-                            return(true)
-                        }
-                        else {
-                            return(false)
-                        }
-                    }
-                }*/
-                
-            }
-            freeifaddrs(ifaddr)
-        }
-        return (false)
-    }*/
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -352,3 +293,5 @@ class BlueToothTestingVC: UIViewController,CBCentralManagerDelegate {
  
 
 }
+
+

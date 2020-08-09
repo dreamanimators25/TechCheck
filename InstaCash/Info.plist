@@ -95,7 +95,7 @@
 	<key>NSLocationUsageDescription</key>
 	<string>This app requires access to your location for country selection and displayed to complete the GPS Test</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>This app requires access to your location for country selection and displayed to complete the GPS Test</string>
+	<string>Gather location updates to get SSID information</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Microphone permission required to check the Mic and Speaker</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>

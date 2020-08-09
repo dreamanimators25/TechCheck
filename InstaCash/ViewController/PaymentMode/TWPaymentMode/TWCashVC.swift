@@ -520,6 +520,12 @@ class TWCashVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UITex
                 if (self.arrDictKeys[indexPath.row] as? String) == "Bank Branch" {
                     cellTextBox.txtField.isUserInteractionEnabled = false
                 }
+                
+            }else {
+                cellTextBox.txtField.layer.cornerRadius = 5.0
+                cellTextBox.txtField.layer.borderWidth = 1.0
+                cellTextBox.txtField.layer.borderColor = #colorLiteral(red: 0.1581287384, green: 0.6885935664, blue: 0.237049073, alpha: 1)
+                cellTextBox.seperatorLbl.backgroundColor = .clear
             }
             
             return cellTextBox
@@ -555,6 +561,15 @@ class TWCashVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UITex
             
             if let imgURL = URL.init(string: self.responseDictIN["paymentImage"] as? String ?? "") {
                 cellMobNum.paymentImgView.sd_setImage(with: imgURL)
+            }
+            
+            if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+            
+            }else {
+                cellMobNum.mobileNumberTxtField.layer.cornerRadius = 5.0
+                cellMobNum.mobileNumberTxtField.layer.borderWidth = 1.0
+                cellMobNum.mobileNumberTxtField.layer.borderColor = #colorLiteral(red: 0.1581287384, green: 0.6885935664, blue: 0.237049073, alpha: 1)
+                cellMobNum.seperatorLbl.backgroundColor = .clear
             }
             
             cellMobNum.mobileNumberTxtField.placeholder = (self.arrDictKeys[indexPath.row] as? String)?.localized(lang: langCode)

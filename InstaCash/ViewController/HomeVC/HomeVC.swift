@@ -864,6 +864,9 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
         userDefaults.removeObject(forKey: "ChangeModeComingFromDiadnosis")
         userDefaults.setValue("", forKey: "ChangeModeComingFromDiadnosis")
         
+        userDefaults.removeObject(forKey: "pickupDiagnose")
+        userDefaults.setValue("", forKey: "pickupDiagnose")
+        
         let vc = Sell1()
         vc.strDevie = self.lblPhoneName.text!
         vc.imgView = self.imgPhone
@@ -1727,6 +1730,10 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
             
             userDefaults.removeObject(forKey: "ChangeModeComingFromDiadnosis")
             userDefaults.setValue("", forKey: "ChangeModeComingFromDiadnosis")
+            
+            userDefaults.removeObject(forKey: "pickupDiagnose")
+            userDefaults.setValue("", forKey: "pickupDiagnose")
+            
             // let imei = UserDefaults.standard.string(forKey: "imei_number")
             //            if (imei?.count == 15){
             //                if arrMyCurrentDeviceSend.count > 0{
@@ -1941,6 +1948,9 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
         
         userDefaults.removeObject(forKey: "ChangeModeComingFromDiadnosis")
         userDefaults.setValue("", forKey: "ChangeModeComingFromDiadnosis")
+        
+        userDefaults.removeObject(forKey: "pickupDiagnose")
+        userDefaults.setValue("", forKey: "pickupDiagnose")
         
         if sender.titleLabel?.text == "RESUME TEST".localized(lang: langCode) {
             
@@ -2282,6 +2292,10 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                 
                 userDefaults.removeObject(forKey: "ChangeModeComingFromDiadnosis")
                 userDefaults.setValue("", forKey: "ChangeModeComingFromDiadnosis")
+                
+                userDefaults.removeObject(forKey: "pickupDiagnose")
+                userDefaults.setValue("", forKey: "pickupDiagnose")
+                
                 // let imei = UserDefaults.standard.string(forKey: "imei_number")
                 //      if (imei?.count == 15){
                 if arrMyCurrentDeviceSend.count > 0{
@@ -2440,6 +2454,11 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                     if responseObject?["status"] as! String == "Success" {
                         userDefaults.removeObject(forKey: "ChangeModeComingFromDiadnosis")
                         userDefaults.removeObject(forKey: "ChangeModeOrderId")
+                        
+                        userDefaults.removeObject(forKey: "pickupDiagnose")
+                        userDefaults.setValue("", forKey: "pickupDiagnose")
+                        
+                        
                         userDefaults.set(responseObject?["orderItemId"] as! String, forKey: "ChangeModeOrderId")
                         if withProcessCode == "Yes"{
                             userDefaults.set("Diagnosis", forKey: "ChangeModeComingFromDiadnosis")

@@ -346,7 +346,6 @@ class ScreenTestingVC: UIViewController,RecorderDelegate {
         }
     }
     
-    
     func startTimer() {
         countdownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateTime), userInfo: nil, repeats: true)
     }
@@ -508,7 +507,6 @@ class ScreenTestingVC: UIViewController,RecorderDelegate {
             // Customize default button appearance
             let db = DefaultButton.appearance()
             db.titleFont      = UIFont(name: "HelveticaNeue-Medium", size: 16)!
-            
             
             
             // Customize cancel button appearance

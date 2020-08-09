@@ -93,12 +93,20 @@ class DeadPixelVC: UIViewController {
                 UserDefaults.standard.set(false, forKey: "deadPixel")
                 //let vc = FirstDiagnosisQuestionVC()
                 
-                let vc = PickUpQuestionVC()
-                vc.resultJSON = self.resultJSON
-                let nav = UINavigationController(rootViewController: vc)
-                UINavigationBar.appearance().barTintColor = navColor
-                nav.modalPresentationStyle = .fullScreen
-                self.present(nav, animated: true, completion: nil)
+                if userDefaults.value(forKey: "pickupDiagnose") as! String == "pickupDiagnose" {
+                    let vc = RotationVC()
+                    
+                    vc.resultJSON = self.resultJSON
+                    vc.modalPresentationStyle = .fullScreen
+                    self.present(vc, animated: true, completion: nil)
+                }else {
+                    let vc = PickUpQuestionVC()
+                    vc.resultJSON = self.resultJSON
+                    let nav = UINavigationController(rootViewController: vc)
+                    UINavigationBar.appearance().barTintColor = navColor
+                    nav.modalPresentationStyle = .fullScreen
+                    self.present(nav, animated: true, completion: nil)
+                }
                 
             }
             
@@ -107,13 +115,21 @@ class DeadPixelVC: UIViewController {
                 UserDefaults.standard.set(true, forKey: "deadPixel")
                 //let vc = FirstDiagnosisQuestionVC()
                 
-                let vc = PickUpQuestionVC()
-                vc.resultJSON = self.resultJSON
-                let nav = UINavigationController(rootViewController: vc)
-                UINavigationBar.appearance().barTintColor = navColor
-                nav.modalPresentationStyle = .fullScreen
-                self.present(nav, animated: true, completion: nil)
-                
+                if userDefaults.value(forKey: "pickupDiagnose") as! String == "pickupDiagnose" {
+                    let vc = RotationVC()
+                    
+                    vc.resultJSON = self.resultJSON
+                    vc.modalPresentationStyle = .fullScreen
+                    self.present(vc, animated: true, completion: nil)
+                }else {
+                    let vc = PickUpQuestionVC()
+                    vc.resultJSON = self.resultJSON
+                    let nav = UINavigationController(rootViewController: vc)
+                    UINavigationBar.appearance().barTintColor = navColor
+                    nav.modalPresentationStyle = .fullScreen
+                    self.present(nav, animated: true, completion: nil)
+                }
+                                
             }
             
             let buttonThree = DefaultButton(title: "Retry".localized(lang: langCode)) {
