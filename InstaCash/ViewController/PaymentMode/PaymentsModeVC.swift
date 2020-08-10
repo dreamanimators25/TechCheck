@@ -483,7 +483,7 @@ class PaymentsModeVC: UIViewController,UITableViewDataSource,UITableViewDelegate
                                 
                 footCell.lblPayable.text = "Payable".localized(lang: langCode)
                 
-                if (self.arrOtherGroup[indexPath.row - 1]["paymentType"] as? String) == "UUPON (Points Only)" {
+                if (self.arrOtherGroup[indexPath.row - 1]["paymentType"] as? String) == "UUPON (Points Only)" || (self.arrOtherGroup[indexPath.row - 1]["paymentType"] as? String) == "HamiPoints" {
                     footCell.lblTotalPayment.text = " 點數 " + String(bankCharge.formattedWithSeparator)
                 }else{
                     footCell.lblTotalPayment.text = CustomUserDefault.getCurrency() + String(bankCharge.formattedWithSeparator)

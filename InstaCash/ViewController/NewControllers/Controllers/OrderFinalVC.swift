@@ -73,7 +73,7 @@ class OrderFinalVC: UIViewController {
             
         }else if CustomUserDefault.getCurrency() == "NT$" {
                         
-            if selectPaymentType == "UUPON (Points Only)" {
+            if selectPaymentType == "UUPON (Points Only)" || selectPaymentType == "HamiPoints" {
                 lbl1.text = "Get ready to be ".localized(lang: langCode) + " 點數 " + " \(finalPrice.formattedWithSeparator)" + " richer!".localized(lang: langCode)
             }
             
