@@ -191,14 +191,14 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "3C7FEAE5-C523-40AD-97E1-A9CB019262E1 - f8c24faffa37929"
+                  uuid = "3C7FEAE5-C523-40AD-97E1-A9CB019262E1 - 94058be584f0d527"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "InstaCash.LoginVC.fireWebServiceForFbLogin(userName: Swift.String, socialId: Swift.String, email: Swift.String, strProfile: Swift.String, strFbOrGp: Swift.String) -&gt; ()"
                   moduleName = "InstaCash"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/Sam%20HD/InstaCash/August-2020/10:8:20/Insta_iOS/InstaCash/ViewController/LoginVC/LoginVC.swift"
+                  urlString = "file:///Volumes/Sam%20HD/InstaCash/August-2020/12:8:20/Insta_iOS/InstaCash/ViewController/LoginVC/LoginVC.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "357"
@@ -206,14 +206,14 @@
                   offsetFromSymbolStart = "4868">
                </Location>
                <Location
-                  uuid = "3C7FEAE5-C523-40AD-97E1-A9CB019262E1 - cf003adf384a30b"
+                  uuid = "3C7FEAE5-C523-40AD-97E1-A9CB019262E1 - 9779acb288d70f05"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "closure #1 (Swift.Optional&lt;__C.NSDictionary&gt;, Swift.Optional&lt;__C.NSError&gt;) -&gt; () in InstaCash.LoginVC.fireWebServiceForFbLogin(userName: Swift.String, socialId: Swift.String, email: Swift.String, strProfile: Swift.String, strFbOrGp: Swift.String) -&gt; ()"
                   moduleName = "InstaCash"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/Sam%20HD/InstaCash/August-2020/10:8:20/Insta_iOS/InstaCash/ViewController/LoginVC/LoginVC.swift"
+                  urlString = "file:///Volumes/Sam%20HD/InstaCash/August-2020/12:8:20/Insta_iOS/InstaCash/ViewController/LoginVC/LoginVC.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "358"
@@ -991,14 +991,14 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "CEFDCC4A-9577-4159-A1E9-1C368B0E7F69 - 1db8ac110c80908f"
+                  uuid = "CEFDCC4A-9577-4159-A1E9-1C368B0E7F69 - e898796595f914b1"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "closure #2 (BiometricAuthentication.AuthenticationError) -&gt; () in InstaCash.FingerPrintDevice.btnScanFingrtPreint(__C.UIButton) -&gt; ()"
                   moduleName = "InstaCash"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/Sam%20HD/InstaCash/August-2020/10:8:20/Insta_iOS/InstaCash/ViewController/FingerPrintVC/FingerPrintDevice.swift"
+                  urlString = "file:///Volumes/Sam%20HD/InstaCash/August-2020/12:8:20/Insta_iOS/InstaCash/ViewController/FingerPrintVC/FingerPrintDevice.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "194"
@@ -1006,14 +1006,14 @@
                   offsetFromSymbolStart = "4908">
                </Location>
                <Location
-                  uuid = "CEFDCC4A-9577-4159-A1E9-1C368B0E7F69 - 1db8ac110c80908f"
+                  uuid = "CEFDCC4A-9577-4159-A1E9-1C368B0E7F69 - e898796595f914b1"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "closure #2 (BiometricAuthentication.AuthenticationError) -&gt; () in InstaCash.FingerPrintDevice.btnScanFingrtPreint(__C.UIButton) -&gt; ()"
                   moduleName = "InstaCash"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/Sam%20HD/InstaCash/August-2020/10:8:20/Insta_iOS/InstaCash/ViewController/FingerPrintVC/FingerPrintDevice.swift"
+                  urlString = "file:///Volumes/Sam%20HD/InstaCash/August-2020/12:8:20/Insta_iOS/InstaCash/ViewController/FingerPrintVC/FingerPrintDevice.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "194"
@@ -1321,8 +1321,8 @@
             filePath = "InstaCash/ViewController/PaymentMode/PaymentsModeVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "487"
-            endingLineNumber = "487"
+            startingLineNumber = "485"
+            endingLineNumber = "485"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1337,9 +1337,25 @@
             filePath = "InstaCash/ViewController/PaymentMode/PaymentsModeVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "489"
-            endingLineNumber = "489"
+            startingLineNumber = "487"
+            endingLineNumber = "487"
             landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C1FA7E08-395E-4039-A5D4-AA05CCADD6D0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "InstaCash/ViewController/cityVc/CityVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

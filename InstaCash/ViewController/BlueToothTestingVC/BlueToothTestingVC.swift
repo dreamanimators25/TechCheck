@@ -217,7 +217,7 @@ class BlueToothTestingVC: UIViewController,CBCentralManagerDelegate {
                             SwiftSpinner.hide()
                             DispatchQueue.main.async {
                                 
-                                if userDefaults.value(forKey: "pickupDiagnose") as! String == "pickupDiagnose" {
+                                if userDefaults.value(forKey: "pickupDiagnose") as? String == "pickupDiagnose" {
                                     
                                     let vc = PickUpQuestionVC()
                                     vc.resultJSON = self.resultJSON

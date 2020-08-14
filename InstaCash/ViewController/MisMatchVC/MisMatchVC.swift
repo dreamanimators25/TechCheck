@@ -70,7 +70,7 @@ class MisMatchVC: UIViewController {
         if userDefaults.value(forKey: "ChangeModeComingFromDiadnosis") as? String == "Pickup" {
             //"pickupDiagnose"
             
-            if userDefaults.value(forKey: "pickupDiagnose") as! String == "pickupDiagnose" {
+            if userDefaults.value(forKey: "pickupDiagnose") as? String == "pickupDiagnose" {
                 self.fireWebServiceForMatchingDataForDiagnoseOnPickUp()
             }else {
                 self.fireWebServiceForMetchingDataForPickUp()
@@ -1085,7 +1085,7 @@ class MisMatchVC: UIViewController {
                 }
                 
                 
-                if userDefaults.value(forKey: "pickupDiagnose") as! String == "pickupDiagnose" {
+                if userDefaults.value(forKey: "pickupDiagnose") as? String == "pickupDiagnose" {
                     parameters["diagnosisId"] = self.strDiagnosisIdOnPickUp //1562458
                     parameters["androidId"] = strUudid
                 }else {
@@ -1262,7 +1262,7 @@ class MisMatchVC: UIViewController {
                 returnDictionary.setValue("0", forKey: "Dead Pixels")
             }
             
-            if userDefaults.value(forKey: "pickupDiagnose") as! String == "pickupDiagnose" {
+            if userDefaults.value(forKey: "pickupDiagnose") as? String == "pickupDiagnose" {
                 
                 if resultJSONGet["Rotation"].int == 1{
                         // returnDictionary = ["Rotation":"1"]

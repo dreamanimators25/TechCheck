@@ -2460,7 +2460,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                         
                         
                         userDefaults.set(responseObject?["orderItemId"] as! String, forKey: "ChangeModeOrderId")
-                        if withProcessCode == "Yes"{
+                        if withProcessCode == "Yes" {
                             userDefaults.set("Diagnosis", forKey: "ChangeModeComingFromDiadnosis")
                             DispatchQueue.main.async {
                                 let vc = ScreenTestingVC()

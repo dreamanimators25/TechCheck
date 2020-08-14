@@ -470,6 +470,15 @@ class PaymentsModeVC: UIViewController,UITableViewDataSource,UITableViewDelegate
                 
                 footCell.lblPaymentType.text = (self.arrOtherGroup[indexPath.row - 1]["paymentType"] as? String)?.localized(lang: langCode)
                 
+                /*
+                var strPayType = (self.arrOtherGroup[indexPath.row - 1]["paymentType"] as? String)?.localized(lang: langCode)
+                if strPayType?.contains("PChome") ?? false {
+                    //strPayType = strPayType?.replacingOccurrences(of: "PChome", with: "")
+                    strPayType = " 現金 "
+                }
+                footCell.lblPaymentType.text = strPayType
+                */
+                
                 let gateWayCharge = self.arrOtherGroup[indexPath.row - 1].value(forKey: "gatewayCharge") as? Int ?? 0
                 let bankCharge = self.getFinalPrice3 + gateWayCharge
                 //self.finalPriceSet3 = bankCharge

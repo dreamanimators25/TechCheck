@@ -93,7 +93,7 @@ class DeadPixelVC: UIViewController {
                 UserDefaults.standard.set(false, forKey: "deadPixel")
                 //let vc = FirstDiagnosisQuestionVC()
                 
-                if userDefaults.value(forKey: "pickupDiagnose") as! String == "pickupDiagnose" {
+                if userDefaults.value(forKey: "pickupDiagnose") as? String == "pickupDiagnose" {
                     let vc = RotationVC()
                     
                     vc.resultJSON = self.resultJSON
@@ -115,7 +115,7 @@ class DeadPixelVC: UIViewController {
                 UserDefaults.standard.set(true, forKey: "deadPixel")
                 //let vc = FirstDiagnosisQuestionVC()
                 
-                if userDefaults.value(forKey: "pickupDiagnose") as! String == "pickupDiagnose" {
+                if userDefaults.value(forKey: "pickupDiagnose") as? String == "pickupDiagnose" {
                     let vc = RotationVC()
                     
                     vc.resultJSON = self.resultJSON

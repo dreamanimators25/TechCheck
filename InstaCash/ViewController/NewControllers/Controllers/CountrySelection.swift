@@ -76,7 +76,7 @@ class CountrySelection: UIViewController, UICollectionViewDelegate, UICollection
                         
                         //Sameer 3/5/2020
                         if CustomUserDefault.getCurrency() == "NT$" {
-                            let twArr = ["Choose Country","Taiwan"]
+                            let twArr = ["Choose Country".localized(lang: langCode),"Taiwan".localized(lang: langCode)]
                             
                             for item in twArr {
                                 self.states.append(item)

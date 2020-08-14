@@ -20,7 +20,8 @@
 "India" = "印度";
 "Malaysia" = "馬來西亞"; //"马来西亚";
 "Singapore" = "新加坡";
-"Taiwan" = "台灣"; //"台湾";
+"Taiwan" = "臺灣"; //"台灣"; //"台湾";
+"Choose Country" = "選擇國家";
 "Login with Google" = "Google帳號登入"; //"使用谷歌登录";
 "Login" = "登入"; //"登录";
 "or login with mobile" = "或使用手机登录";
@@ -281,9 +282,18 @@
 "SAMSUNG" = "三星";
 "Switch" = "交換機";
 "Cash" = "现金";
+
 "UUPON (Cash Only)" = " UUPON (現金) "; //" UUPON（仅限现金）";
 "UUPON (Cash+Points)" = " UUPON (點數) "; //" UUPON（现金+积分）";
 "UUPON (Points Only)" = " UUPON (點數) "; //" UUPON（僅積分）";
+
+//"UUPON (Cash Only)" = " 現金 "; //" UUPON (現金) "; //" UUPON（仅限现金）";
+//"UUPON (Cash+Points)" = " 點數 "; //" UUPON (點數) "; //" UUPON（现金+积分）";
+//"UUPON (Points Only)" = " 點數 "; //" UUPON (點數) "; //" UUPON（僅積分）";
+//"PChome (現金)" = " 現金 ";
+//"HamiPoints" = "點數";
+//"Compasia Cash" = "現金";
+
 "Member Id" = "會員帳號";
 "Gateway charges" = "平台費用"; //"平台費用"; //"网关费用";
 "Payment Mode" = "付款方式"; //"付款方式";
