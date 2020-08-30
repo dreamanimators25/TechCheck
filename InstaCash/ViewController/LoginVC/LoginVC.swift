@@ -309,9 +309,9 @@ class LoginVC: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate,TCTrueSDKD
         web.postRequest(urlString: strURL, paramDict: (parameters as! Dictionary<String, AnyObject>), completionHandler: completionHandler)
     }
     
-    func fireWebServiceForFbLogin(userName:String,socialId:String,email:String,strProfile:String,strFbOrGp:String)
+    func fireWebServiceForFbLogin(userName:String, socialId:String, email:String, strProfile:String, strFbOrGp:String)
     {
-        if reachability?.connection.description != "No Connection"{
+        if reachability?.connection.description != "No Connection" {
             var strGCMToken = ""
             if (userDefaults.value(forKey: "FCMToken") != nil){
                 strGCMToken = userDefaults.value(forKey: "FCMToken") as! String

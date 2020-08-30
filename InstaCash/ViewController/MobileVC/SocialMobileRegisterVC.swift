@@ -154,16 +154,29 @@ class SocialMobileRegisterVC: UIViewController {
             
             strUrl = strBaseURL + "socialMobileConnect"
             
-            parameters  = [
-                "userName" : apiAuthenticateUserName,
-                "apiKey" : key,
-                "mobile" : self.trimmedStr,
-                "socialMediaType" : strSocialType,
-                "socialMediaId" : strGetSocialId,
-                "GCMId" : strGCMToken,
-                "internalOTP" : internalOTP,
-                "OTPLength" : "4"
-            ]
+            if strSocialType == "gplus" {
+                parameters  = [
+                    "userName" : apiAuthenticateUserName,
+                    "apiKey" : key,
+                    "mobile" : self.trimmedStr,
+                    "socialMediaType" : strSocialType,
+                    "socialMediaId" : strGetSocialId,
+                    "GCMId" : strGCMToken,
+                    "internalOTP" : internalOTP,
+                    "OTPLength" : "4"
+                ]
+            }else {
+                parameters  = [
+                    "userName" : apiAuthenticateUserName,
+                    "apiKey" : key,
+                    "mobile" : self.trimmedStr,
+                    "socialMediaType" : strSocialType,
+                    "socialMediaId" : strGetSocialId,
+                    "GCMId" : strGCMToken,
+                    "internalOTP" : internalOTP,
+                    "OTPLength" : "4"
+                ]
+            }            
             
             print(parameters)
             

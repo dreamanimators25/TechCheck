@@ -58,9 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         self.window?.makeKeyAndVisible()
     }
     
-    func setRotControllersWithSideMenu(sendMyOrderArray:[HomeModel],sendBrandArray:[HomeModel],SendPupularDevoice:[HomeModel],SendMyCurrentDevice:[HomeModel],isComingFromWelcome:Bool,strAppCodeGet:String)
-    {
-        
+    func setRotControllersWithSideMenu(sendMyOrderArray:[HomeModel], sendBrandArray:[HomeModel], SendPupularDevoice:[HomeModel], SendMyCurrentDevice:[HomeModel], isComingFromWelcome:Bool, strAppCodeGet:String) {
         let vc = HomeVC()
         vc.arrMyOderGetData = sendMyOrderArray
         vc.arrBrandDeviceGetData = sendBrandArray
@@ -76,7 +74,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         self.window?.makeKeyAndVisible()
     }
     
-    func setRootWithMrnuForPlaceOreder(isComingFrom:Bool){
+    func setRootWithMrnuForPlaceOreder(isComingFrom:Bool) {
         let vc = PlaceOrderVC()
         vc.isComingFromLogin = isComingFrom
         let leftVC:UIViewController = SideMenuVC()
@@ -88,7 +86,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     }
     
     //MARK:- register APNS
-    func registerAPNS(application:UIApplication){
+    func registerAPNS(application:UIApplication)    {
         if #available(iOS 10.0, *) {
             // For iOS 10 display notification (sent via APNS)
             UNUserNotificationCenter.current().delegate = self

@@ -21,7 +21,7 @@ class ModelSkippedData: NSObject {
     
 }
 
-class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate,UITableViewDataSource,UITableViewDelegate {
+class ProductDetailVewVC: UIViewController, UIViewControllerTransitioningDelegate, UITableViewDataSource, UITableViewDelegate {
     
     /*
     @IBOutlet weak var lblPromoter: UILabel!
@@ -213,7 +213,7 @@ class ProductDetailVewVC: UIViewController,UIViewControllerTransitioningDelegate
         
     }
 
-    func reSetDiagnosHomeUIProcess(){
+    func reSetDiagnosHomeUIProcess() {
         userDefaults.removeObject(forKey: "screen_complete")
         userDefaults.removeObject(forKey: "rotation_complete")
         userDefaults.removeObject(forKey: "proximity_complete")

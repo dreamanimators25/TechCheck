@@ -11,8 +11,9 @@ import SDWebImage
 import CoreLocation
 import CoreTelephony
 import GoogleSignIn
+import AuthenticationServices
 
-class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GIDSignInUIDelegate,UITextFieldDelegate {
+class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GIDSignInUIDelegate,UITextFieldDelegate, ASAuthorizationControllerDelegate {
     
     @IBOutlet weak var btnIndia: UIButton!
     @IBOutlet weak var btnMalaysia: UIButton!
@@ -28,6 +29,7 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
     
     @IBOutlet weak var txtPhoneNumer: UITextField!
     @IBOutlet weak var btnGPlus: UIButton!
+    @IBOutlet weak var btnApple: UIButton!
     @IBOutlet weak var btnNext: UIButton!
     @IBOutlet weak var lblMessage: UILabel!
     @IBOutlet weak var imgInterNetOff: UIImageView!
@@ -73,6 +75,9 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
         
         //Sameer 4/5/2020
         if #available(iOS 13.0, *) {
+            self.btnApple.isHidden = false
+            
+            
             let app = UIApplication.shared
             let statusBarHeight: CGFloat = app.statusBarFrame.size.height
             
@@ -91,6 +96,8 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
                 .constraint(equalTo: view.centerXAnchor).isActive = true
           
         } else {
+            self.btnApple.isHidden = true
+            
             let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView
             statusBar?.backgroundColor = UIColor.init(red: 0.0/255.0, green: 127.0/255.0, blue: 66.0/255.0, alpha: 1.0)
         }
@@ -132,7 +139,7 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
+        //self.setUpSignInAppleButton()
     }
     
     func changeLanguageOfUI() {
@@ -149,6 +156,7 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
         self.chinaLbl.text = "Chinese".localized(lang: langCode)
         self.hindiLbl.text = "Hindi".localized(lang: langCode)
         self.btnGPlus.setTitle("Login with Google".localized(lang: langCode), for: UIControlState.normal)
+        self.btnApple.setTitle("Login with Apple".localized(lang: langCode), for: UIControlState.normal)
         //self.txtPhoneNumer.placeholder = "Enter Number".localized(lang: langCode)
         self.txtPhoneNumer.placeholder = "Enter Mobile Number".localized(lang: langCode)        
         //self.lblOrLoginWith.text = "or login with mobile".localized(lang: langCode)
@@ -557,12 +565,74 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
         GIDSignIn.sharedInstance().signIn()
     }
     
+    @IBAction func btnApplePressed(_ sender: UIButton) {
+        if self.reachability?.connection.description != "No Connection" {
+            self.handleAppleIdRequest()
+        }
+        else {
+            Alert.showAlertWithError(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
+        }
+    }
+    
+    //MARK:Apple SignIn Delegate
+    func setUpSignInAppleButton() {
+        if #available(iOS 13.0, *) {
+            let authorizationButton = ASAuthorizationAppleIDButton()
+            authorizationButton.addTarget(self, action: #selector(handleAppleIdRequest), for: .touchUpInside)
+            authorizationButton.cornerRadius = 10
+            //Add button on some view or stack
+            //self.signInButtonStack.addArrangedSubview(authorizationButton)
+            self.btnGPlus.addSubview(authorizationButton)
+        } else {
+            // Fallback on earlier versions
+        }
+    }
+    
+    @objc func handleAppleIdRequest() {
+        if #available(iOS 13.0, *) {
+            let appleIDProvider = ASAuthorizationAppleIDProvider()
+            let request = appleIDProvider.createRequest()
+            request.requestedScopes = [.fullName, .email]
+            let authorizationController = ASAuthorizationController(authorizationRequests: [request])
+            authorizationController.delegate = self
+            authorizationController.performRequests()
+        } else {
+            // Fallback on earlier versions
+        }
+    }
+    
+    @available(iOS 13.0, *)
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+        if let appleIDCredential = authorization.credential as?  ASAuthorizationAppleIDCredential {
+            
+            let userIdentifier = appleIDCredential.user
+            //let appleToken = appleIDCredential.identityToken
+            let fullName = appleIDCredential.fullName
+            let email = appleIDCredential.email
+            
+            print("User id is \(userIdentifier) \n Full Name is \(String(describing: fullName)) \n Email id is \(String(describing: email))")
+         
+        
+            //self.fireWebServiceForFbLogin(userName:"\(String(describing: fullName?.givenName))", socialId: "\(String(describing: appleToken))", email: "\(String(describing: email))", strProfile: "",strFbOrGp: "apple")
+            
+            self.fireWebServiceForFbLogin(userName: "\(fullName?.givenName ?? "") \(fullName?.familyName ?? "")", socialId: userIdentifier, email: email ?? "", strProfile: "", strFbOrGp: "apple")
+            
+        }
+    }
+    
+    @available(iOS 13.0, *)
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+        // Handle error.
+        Alert.showAlertWithError(strMessage: "oops,something went wrong".localized(lang: langCode) as NSString, Onview: self)
+    }
+    
+    
     //MARK:Google SignIn Delegate
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,
               withError error: Error!) {
         
         if let error = error {
-            
+            print(error.localizedDescription)
         } else {
             if self.reachability?.connection.description != "No Connection"{
                 var strFinalUserName  = ""
@@ -570,7 +640,7 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
                 var email = ""
                 var imageUrl = ""
                 
-                if (user?.profile.name != nil){
+                if (user?.profile.name != nil) {
                     strFinalUserName = (user?.profile.name)!
                     
                     CustomUserDefault.removeUserName()
@@ -717,7 +787,7 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
     
     func fireWebServiceForFbLogin(userName:String, socialId:String, email:String, strProfile:String, strFbOrGp:String)
     {
-        if reachability?.connection.description != "No Connection"{
+        if reachability?.connection.description != "No Connection" {
             
             var strGCMToken = ""
             
@@ -749,6 +819,19 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
                     "profileData":[:]
                 ]
                 
+            }else if strFbOrGp == "apple" {
+                strUrl = strBaseURL + "customerLoginApple"
+                
+                parameters  = [
+                    "userName" : apiAuthenticateUserName,
+                    "apiKey" : key,
+                    "appleId" : socialId,
+                    "GCMId" : strGCMToken,
+                    "name" : userName,
+                    "email" : email
+                ]
+                
+                print(parameters)
             }
             else{
                 strUrl = strBaseURL + "customerLoginFacebook"
@@ -1445,3 +1528,4 @@ extension String {
         return isValidPhone
     }
 }
+

@@ -23,6 +23,7 @@ class TWCashVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UITex
     let reachability: Reachability? = Reachability()
     var quatationId = String()
     var selectedPaymentType = String()
+    var selectedCurrency = String()
     var itemID = String()
     var orderID = String()
     var strSelectedBankName = String()
@@ -126,6 +127,7 @@ class TWCashVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UITex
             vc.orderID = placedOrderId
             vc.finalPrice = self.finalPriced
             vc.selectPaymentType = self.selectedPaymentType
+            vc.selectCurrency = self.selectedCurrency
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -137,6 +139,7 @@ class TWCashVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UITex
             vc.orderID = self.placedOrderId
             vc.finalPrice = self.finalPriced
             vc.selectPaymentType = self.selectedPaymentType
+            vc.selectCurrency = self.selectedCurrency
             self.navigationController?.pushViewController(vc, animated: true)
         }else {
             
@@ -276,6 +279,7 @@ class TWCashVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UITex
                             vc.orderID = self.placedOrderId
                             vc.finalPrice = self.finalPriced
                             vc.selectPaymentType = self.selectedPaymentType
+                            vc.selectCurrency = self.selectedCurrency
                             self.navigationController?.pushViewController(vc, animated: true)
                         }else {
                             //let actualHTML = ((responseObject?.value(forKey: "msg") as! NSDictionary)["html"] as! NSArray)[3] as? String
@@ -704,6 +708,7 @@ class TWCashVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UITex
                             vc.orderID = self.placedOrderId
                             vc.finalPrice = self.finalPriced
                             vc.selectPaymentType = self.selectedPaymentType
+                            vc.selectCurrency = self.selectedCurrency
                             self.navigationController?.pushViewController(vc, animated: true)
                             
                         }

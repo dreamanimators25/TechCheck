@@ -43,6 +43,7 @@ class PaymentsModeVC: UIViewController,UITableViewDataSource,UITableViewDelegate
     var quatationId3 = String()
     var userDetails3 = [String:Any]()
     var selectePaymentType = String()
+    var selecteCurrency = String()
     var donationMoney = String()
     
 
@@ -226,6 +227,7 @@ class PaymentsModeVC: UIViewController,UITableViewDataSource,UITableViewDelegate
                             self.lblSelectedPaymentMode.text = (self.arrWalletGroup[0]["typeCode"] as! String).localized(lang: langCode)
                             
                             self.selectePaymentType = self.arrWalletGroup[0]["typeCode"] as? String ?? ""
+                            self.selecteCurrency = self.arrWalletGroup[0]["currency"] as? String ?? ""
                             
                             let gateWayCharge = self.arrWalletGroup[0]["gatewayCharge"] as? Int ?? 0
                             let finalCharge = self.getFinalPrice3 + gateWayCharge
@@ -243,6 +245,7 @@ class PaymentsModeVC: UIViewController,UITableViewDataSource,UITableViewDelegate
                             self.lblSelectedPaymentMode.text = (self.arrOtherGroup[0]["typeCode"] as! String).localized(lang: langCode)
                             
                             self.selectePaymentType = self.arrOtherGroup[0]["typeCode"] as? String ?? ""
+                            self.selecteCurrency = self.arrOtherGroup[0]["currency"] as? String ?? ""
                             
                             let gateWayCharge = self.arrOtherGroup[0]["gatewayCharge"] as? Int ?? 0
                             let finalCharge = self.getFinalPrice3 + gateWayCharge
@@ -260,6 +263,7 @@ class PaymentsModeVC: UIViewController,UITableViewDataSource,UITableViewDelegate
                             self.lblSelectedPaymentMode.text = (self.arrBankGroup[0]["typeCode"] as! String).localized(lang: langCode)
                             
                             self.selectePaymentType = self.arrBankGroup[0]["typeCode"] as? String ?? ""
+                            self.selecteCurrency = self.arrBankGroup[0]["currency"] as? String ?? ""
                             
                             let gateWayCharge = self.arrBankGroup[0]["gatewayCharge"] as? Int ?? 0
                             let finalCharge = self.getFinalPrice3 + gateWayCharge
@@ -330,6 +334,7 @@ class PaymentsModeVC: UIViewController,UITableViewDataSource,UITableViewDelegate
             vc.quatationId4 = self.quatationId3
             vc.userDetails4 = self.userDetails3
             vc.selectePaymentType4 = self.selectePaymentType
+            vc.selectedCurrency = self.selecteCurrency
             vc.selectedPaymentType = self.selectePaymentType
             self.navigationController?.pushViewController(vc, animated: true)
         
@@ -492,11 +497,20 @@ class PaymentsModeVC: UIViewController,UITableViewDataSource,UITableViewDelegate
                                 
                 footCell.lblPayable.text = "Payable".localized(lang: langCode)
                 
-                if (self.arrOtherGroup[indexPath.row - 1]["paymentType"] as? String) == "UUPON (Points Only)" || (self.arrOtherGroup[indexPath.row - 1]["paymentType"] as? String) == "HamiPoints" {
+                /*
+                if (self.arrOtherGroup[indexPath.row - 1]["paymentType"] as? String) == "UUPON (Points Only)" {
                     footCell.lblTotalPayment.text = " 點數 " + String(bankCharge.formattedWithSeparator)
                 }else{
                     footCell.lblTotalPayment.text = CustomUserDefault.getCurrency() + String(bankCharge.formattedWithSeparator)
+                }*/
+                
+                
+                if CustomUserDefault.getCurrency() == "NT$" {
+                    footCell.lblTotalPayment.text = (self.arrOtherGroup[indexPath.row - 1]["currency"] as? String ?? "") + String(bankCharge.formattedWithSeparator)
+                }else {
+                    footCell.lblTotalPayment.text = CustomUserDefault.getCurrency() + String(bankCharge.formattedWithSeparator)
                 }
+                
                                 
                 return footCell
             }
@@ -603,6 +617,7 @@ class PaymentsModeVC: UIViewController,UITableViewDataSource,UITableViewDelegate
                 }
                 
                 selectePaymentType = (arrBankGroup[indexPath.row - 1]["typeCode"] as? String ?? "")
+                selecteCurrency = (arrBankGroup[indexPath.row - 1]["currency"] as? String ?? "")
                 
                 //To Calculate Final Price After Selected payment type
                 let gateWayCharge = arrBankGroup[indexPath.row - 1]["gatewayCharge"] as? Int ?? 0
@@ -649,6 +664,7 @@ class PaymentsModeVC: UIViewController,UITableViewDataSource,UITableViewDelegate
                 }
                 
                 selectePaymentType = (arrOtherGroup[indexPath.row - 1]["typeCode"] as? String ?? "")
+                selecteCurrency = (arrOtherGroup[indexPath.row - 1]["currency"] as? String ?? "")
                 
                 //To Calculate Final Price After Selected payment type
                 let gateWayCharge = arrOtherGroup[indexPath.row - 1]["gatewayCharge"] as? Int ?? 0
@@ -695,6 +711,7 @@ class PaymentsModeVC: UIViewController,UITableViewDataSource,UITableViewDelegate
                 }
                 
                 selectePaymentType = (arrWalletGroup[indexPath.row - 1]["typeCode"] as? String ?? "")
+                selecteCurrency = (arrWalletGroup[indexPath.row - 1]["currency"] as? String ?? "")
                 
                 //To Calculate Final Price After Selected payment type
                 let gateWayCharge = arrWalletGroup[indexPath.row - 1]["gatewayCharge"] as? Int ?? 0
@@ -878,9 +895,7 @@ class PaymentsModeVC: UIViewController,UITableViewDataSource,UITableViewDelegate
                     if responseObject?["status"] as! String == "Success" {
                         
                         //Sameer 2/6/2020
-                        Analytics.logEvent("purchase", parameters: ["currency" : CustomUserDefault.getCurrency(),
-                                                                      "item_id" : CustomUserDefault.getProductId(),
-                                                                      "item_name" : self.strProductName3 ])
+                        Analytics.logEvent("purchase", parameters: ["currency" : CustomUserDefault.getCurrency(), "item_id" : CustomUserDefault.getProductId(), "item_name" : self.strProductName3])
                         
                         
                         let orderPlaceID = responseObject?["msg"] as? String
@@ -892,6 +907,7 @@ class PaymentsModeVC: UIViewController,UITableViewDataSource,UITableViewDelegate
                         vc.orderID = orderID ?? ""
                         vc.itemID = itemID ?? ""
                         vc.selectedPaymentType = self.selectePaymentType
+                        vc.selectedCurrency = self.selecteCurrency
                         
                         vc.finalPriced = self.finalPriceSet3
                         vc.placedOrderId = orderPlaceID ?? ""

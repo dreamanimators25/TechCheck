@@ -20,6 +20,7 @@ class OrderFinalVC: UIViewController {
     var finalPrice = 0
     var orderID = ""
     var selectPaymentType = ""
+    var selectCurrency = ""
     var str3 = NSAttributedString()
 
     override func viewDidLoad() {
@@ -73,9 +74,11 @@ class OrderFinalVC: UIViewController {
             
         }else if CustomUserDefault.getCurrency() == "NT$" {
                         
-            if selectPaymentType == "UUPON (Points Only)" || selectPaymentType == "HamiPoints" {
-                lbl1.text = "Get ready to be ".localized(lang: langCode) + " 點數 " + " \(finalPrice.formattedWithSeparator)" + " richer!".localized(lang: langCode)
-            }
+//            if selectPaymentType == "UUPON (Points Only)" || selectPaymentType == "HamiPoints" {
+//                lbl1.text = "Get ready to be ".localized(lang: langCode) + " 點數 " + " \(finalPrice.formattedWithSeparator)" + " richer!".localized(lang: langCode)
+//            }
+            
+            lbl1.text = "Get ready to be ".localized(lang: langCode) + self.selectCurrency + " \(finalPrice.formattedWithSeparator)" + " richer!".localized(lang: langCode)
             
             self.str3 = NSAttributedString.init(string: " Our team will get in touch with you shortly to verify the order and schedule the pickup. For any queries please call +886-277300795 (09:00am - 06:00pm.)".localized(lang: langCode))
             
