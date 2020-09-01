@@ -54,6 +54,7 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
     @IBOutlet weak var btnChina: UIButton!
     @IBOutlet weak var btnHindi: UIButton!
     
+    @IBOutlet weak var signInButtonStack: UIStackView!
     @IBOutlet weak var LanguageStackView: UIStackView!
     
     let reachability: Reachability? = Reachability()
@@ -75,8 +76,8 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
         
         //Sameer 4/5/2020
         if #available(iOS 13.0, *) {
-            self.btnApple.isHidden = false
-            
+            self.btnApple.isHidden = true
+            self.setUpSignInAppleButton()
             
             let app = UIApplication.shared
             let statusBarHeight: CGFloat = app.statusBarFrame.size.height
@@ -139,7 +140,7 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        //self.setUpSignInAppleButton()
+        
     }
     
     func changeLanguageOfUI() {
@@ -156,7 +157,7 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
         self.chinaLbl.text = "Chinese".localized(lang: langCode)
         self.hindiLbl.text = "Hindi".localized(lang: langCode)
         self.btnGPlus.setTitle("Login with Google".localized(lang: langCode), for: UIControlState.normal)
-        self.btnApple.setTitle("Login with Apple".localized(lang: langCode), for: UIControlState.normal)
+        //self.btnApple.setTitle("Login with Apple".localized(lang: langCode), for: UIControlState.normal)
         //self.txtPhoneNumer.placeholder = "Enter Number".localized(lang: langCode)
         self.txtPhoneNumer.placeholder = "Enter Mobile Number".localized(lang: langCode)        
         //self.lblOrLoginWith.text = "or login with mobile".localized(lang: langCode)
@@ -578,11 +579,11 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
     func setUpSignInAppleButton() {
         if #available(iOS 13.0, *) {
             let authorizationButton = ASAuthorizationAppleIDButton()
+            authorizationButton.frame = self.btnApple.frame
             authorizationButton.addTarget(self, action: #selector(handleAppleIdRequest), for: .touchUpInside)
-            authorizationButton.cornerRadius = 10
+            authorizationButton.cornerRadius = 5
             //Add button on some view or stack
-            //self.signInButtonStack.addArrangedSubview(authorizationButton)
-            self.btnGPlus.addSubview(authorizationButton)
+            self.signInButtonStack.addArrangedSubview(authorizationButton)
         } else {
             // Fallback on earlier versions
         }
@@ -590,12 +591,18 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
     
     @objc func handleAppleIdRequest() {
         if #available(iOS 13.0, *) {
-            let appleIDProvider = ASAuthorizationAppleIDProvider()
-            let request = appleIDProvider.createRequest()
-            request.requestedScopes = [.fullName, .email]
-            let authorizationController = ASAuthorizationController(authorizationRequests: [request])
-            authorizationController.delegate = self
-            authorizationController.performRequests()
+            if self.reachability?.connection.description != "No Connection" {
+                let appleIDProvider = ASAuthorizationAppleIDProvider()
+                let request = appleIDProvider.createRequest()
+                request.requestedScopes = [.fullName, .email]
+                let authorizationController = ASAuthorizationController(authorizationRequests: [request])
+                authorizationController.delegate = self
+                authorizationController.performRequests()
+            }
+            else {
+                Alert.showAlertWithError(strMessage: "No connection found".localized(lang: langCode) as NSString, Onview: self)
+            }
+            
         } else {
             // Fallback on earlier versions
         }
