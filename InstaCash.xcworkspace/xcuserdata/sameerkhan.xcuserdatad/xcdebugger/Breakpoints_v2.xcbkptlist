@@ -95,14 +95,14 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "3C7FEAE5-C523-40AD-97E1-A9CB019262E1 - 3626dee02c092afa"
+                  uuid = "3C7FEAE5-C523-40AD-97E1-A9CB019262E1 - 7be7544d226c0d3c"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "InstaCash.LoginVC.fireWebServiceForFbLogin(userName: Swift.String, socialId: Swift.String, email: Swift.String, strProfile: Swift.String, strFbOrGp: Swift.String) -&gt; ()"
                   moduleName = "InstaCash"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/Sam%20HD/InstaCash/Sept-2020/1:9:20/Insta_iOS/InstaCash/ViewController/LoginVC/LoginVC.swift"
+                  urlString = "file:///Volumes/Sam%20HD/InstaCash/Sept-2020/10:9:20/Insta_iOS/InstaCash/ViewController/LoginVC/LoginVC.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "357"
@@ -110,14 +110,14 @@
                   offsetFromSymbolStart = "4868">
                </Location>
                <Location
-                  uuid = "3C7FEAE5-C523-40AD-97E1-A9CB019262E1 - 355af9b7202ef0d8"
+                  uuid = "3C7FEAE5-C523-40AD-97E1-A9CB019262E1 - 789b731a2e4bd71e"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "closure #1 (Swift.Optional&lt;__C.NSDictionary&gt;, Swift.Optional&lt;__C.NSError&gt;) -&gt; () in InstaCash.LoginVC.fireWebServiceForFbLogin(userName: Swift.String, socialId: Swift.String, email: Swift.String, strProfile: Swift.String, strFbOrGp: Swift.String) -&gt; ()"
                   moduleName = "InstaCash"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/Sam%20HD/InstaCash/Sept-2020/1:9:20/Insta_iOS/InstaCash/ViewController/LoginVC/LoginVC.swift"
+                  urlString = "file:///Volumes/Sam%20HD/InstaCash/Sept-2020/10:9:20/Insta_iOS/InstaCash/ViewController/LoginVC/LoginVC.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "358"
@@ -466,22 +466,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6F409CB2-1FBF-4E84-AAC5-37E768466818"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "InstaCash/ViewController/BlueToothTestingVC/BlueToothTestingVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "263"
-            endingLineNumber = "263"
-            landmarkName = "getIFAddresses()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "82996DF8-22F8-467A-834B-EF5214AC833E"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -722,22 +706,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "384F50C6-6AF5-489A-B2A3-5EF8651F664F"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "InstaCash/ViewController/BlueToothTestingVC/BlueToothTestingVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "232"
-            endingLineNumber = "232"
-            landmarkName = "btnBeginTestPressed(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "78CA17D8-81A6-4821-9926-56FDBF4C967F"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -847,14 +815,14 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "CEFDCC4A-9577-4159-A1E9-1C368B0E7F69 - 7a2a6d0dbfbfa57c"
+                  uuid = "CEFDCC4A-9577-4159-A1E9-1C368B0E7F69 - c87ffc953ed1b7be"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "closure #2 (BiometricAuthentication.AuthenticationError) -&gt; () in InstaCash.FingerPrintDevice.btnScanFingrtPreint(__C.UIButton) -&gt; ()"
                   moduleName = "InstaCash"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/Sam%20HD/InstaCash/Sept-2020/1:9:20/Insta_iOS/InstaCash/ViewController/FingerPrintVC/FingerPrintDevice.swift"
+                  urlString = "file:///Volumes/Sam%20HD/InstaCash/Sept-2020/10:9:20/Insta_iOS/InstaCash/ViewController/FingerPrintVC/FingerPrintDevice.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "194"
@@ -862,14 +830,14 @@
                   offsetFromSymbolStart = "4908">
                </Location>
                <Location
-                  uuid = "CEFDCC4A-9577-4159-A1E9-1C368B0E7F69 - 7a2a6d0dbfbfa57c"
+                  uuid = "CEFDCC4A-9577-4159-A1E9-1C368B0E7F69 - c87ffc953ed1b7be"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "closure #2 (BiometricAuthentication.AuthenticationError) -&gt; () in InstaCash.FingerPrintDevice.btnScanFingrtPreint(__C.UIButton) -&gt; ()"
                   moduleName = "InstaCash"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/Sam%20HD/InstaCash/Sept-2020/1:9:20/Insta_iOS/InstaCash/ViewController/FingerPrintVC/FingerPrintDevice.swift"
+                  urlString = "file:///Volumes/Sam%20HD/InstaCash/Sept-2020/10:9:20/Insta_iOS/InstaCash/ViewController/FingerPrintVC/FingerPrintDevice.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "194"
@@ -1327,14 +1295,14 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "6C9764FB-3202-4CB5-BB30-76ECD57B569E - df4e3348ece16878"
+                  uuid = "6C9764FB-3202-4CB5-BB30-76ECD57B569E - 6e9b6b4c79ec6d97"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "InstaCash.MisMatchVC.fireWebServiceForMetchingData() -&gt; ()"
                   moduleName = "InstaCash"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/Sam%20HD/InstaCash/Sept-2020/1:9:20/Insta_iOS/InstaCash/ViewController/MisMatchVC/MisMatchVC.swift"
+                  urlString = "file:///Volumes/Sam%20HD/InstaCash/Sept-2020/10:9:20/Insta_iOS/InstaCash/ViewController/MisMatchVC/MisMatchVC.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "286"
@@ -1342,14 +1310,14 @@
                   offsetFromSymbolStart = "11196">
                </Location>
                <Location
-                  uuid = "6C9764FB-3202-4CB5-BB30-76ECD57B569E - ae02ca61263c9fa8"
+                  uuid = "6C9764FB-3202-4CB5-BB30-76ECD57B569E - 1fd79265b3319a47"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "closure #2 (__C.UIAlertAction) -&gt; () in InstaCash.MisMatchVC.fireWebServiceForMetchingData() -&gt; ()"
                   moduleName = "InstaCash"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/Sam%20HD/InstaCash/Sept-2020/1:9:20/Insta_iOS/InstaCash/ViewController/MisMatchVC/MisMatchVC.swift"
+                  urlString = "file:///Volumes/Sam%20HD/InstaCash/Sept-2020/10:9:20/Insta_iOS/InstaCash/ViewController/MisMatchVC/MisMatchVC.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "288"
@@ -1371,24 +1339,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "832"
             endingLineNumber = "832"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "CD3077BB-7E05-4739-8CAB-D69E93359D5C"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "InstaCash/ViewController/CountryVC/CountryVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "863"
-            endingLineNumber = "863"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "fireWebServiceForFbLogin(userName:socialId:email:strProfile:strFbOrGp:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1403,8 +1355,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "840"
             endingLineNumber = "840"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "fireWebServiceForFbLogin(userName:socialId:email:strProfile:strFbOrGp:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1419,8 +1371,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "922"
             endingLineNumber = "922"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "fireWebServiceForFbLogin(userName:socialId:email:strProfile:strFbOrGp:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1435,8 +1387,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "938"
             endingLineNumber = "938"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "fireWebServiceForFbLogin(userName:socialId:email:strProfile:strFbOrGp:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1451,8 +1403,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1178"
             endingLineNumber = "1178"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "fireWebServiceForMobileNumberLogin(isResend:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1467,8 +1419,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1183"
             endingLineNumber = "1183"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "fireWebServiceForMobileNumberLogin(isResend:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1483,24 +1435,280 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "620"
             endingLineNumber = "620"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "authorizationController(controller:didCompleteWithAuthorization:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "455AD082-A1FE-4727-B797-8C3EE44FDBF9"
+            uuid = "73895341-A296-4202-BF8E-370B9406FD81"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "InstaCash/ViewController/CountryVC/CountryVC.swift"
+            filePath = "Pods/Luminous/Luminous/Classes/Luminous.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "858"
-            endingLineNumber = "858"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "isConnectedViaWiFi"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7353505A-4F31-4320-89E6-8EDC68AD9F08"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/Luminous/Luminous/Classes/Luminous.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "isConnectedViaWiFi"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6B036965-A9CF-435B-AE8A-77C3907E3EA3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/Luminous/Luminous/Classes/Luminous.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "SSID"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "32D3F977-A377-468D-8184-9B18FA0026D6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/Luminous/Luminous/Classes/Luminous.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "SSID"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "30920BA6-672F-48A8-82CA-1490A54287E8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/Luminous/Luminous/Classes/Luminous.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
+            landmarkName = "SSID"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D8BCA9EB-082B-4108-ADE2-64723F0DFED5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/Luminous/Luminous/Classes/Luminous.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "isConnectedViaCellular"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D33A51BE-0398-4339-AF45-CA209A7918B7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/Luminous/Luminous/Classes/Luminous.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "isInternetAvailable"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FAB8E833-DC5B-4A32-ACDC-AC208F999FB3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/Luminous/Luminous/Classes/Luminous.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "System"
+            landmarkType = "14">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DCE14F09-7B68-44FC-B983-F5C90676F346"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "InstaCash/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "438"
+            endingLineNumber = "438"
+            landmarkName = "application(_:continue:restorationHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A2A2CF41-A6BB-48AD-AC9F-9C056044EDC8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "InstaCash/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "394"
+            endingLineNumber = "394"
+            landmarkName = "application(_:open:sourceApplication:annotation:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EF661381-9BDD-4A63-ACF5-2962EF34A052"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "InstaCash/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "353"
+            endingLineNumber = "353"
+            landmarkName = "application(_:continue:restorationHandler:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "EF661381-9BDD-4A63-ACF5-2962EF34A052 - 728d3f00db19e27"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "InstaCash.AppDelegate.application(_: __C.UIApplication, continue: __C.NSUserActivity, restorationHandler: (Swift.Optional&lt;Swift.Array&lt;__C.UIUserActivityRestoring&gt;&gt;) -&gt; ()) -&gt; Swift.Bool"
+                  moduleName = "InstaCash"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Sam%20HD/InstaCash/Sept-2020/10:9:20/Insta_iOS/InstaCash/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "353"
+                  endingLineNumber = "353"
+                  offsetFromSymbolStart = "232">
+               </Location>
+               <Location
+                  uuid = "EF661381-9BDD-4A63-ACF5-2962EF34A052 - 3e9e68538d10260b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRDynamicLink&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in InstaCash.AppDelegate.application(_: __C.UIApplication, continue: __C.NSUserActivity, restorationHandler: (Swift.Optional&lt;Swift.Array&lt;__C.UIUserActivityRestoring&gt;&gt;) -&gt; ()) -&gt; Swift.Bool"
+                  moduleName = "InstaCash"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Sam%20HD/InstaCash/Sept-2020/10:9:20/Insta_iOS/InstaCash/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "356"
+                  endingLineNumber = "356"
+                  offsetFromSymbolStart = "400">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "646D1946-B503-47B3-8A6C-64C32411D358"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "InstaCash/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "485"
+            endingLineNumber = "485"
+            landmarkName = "application(_:continue:restorationHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FE3EE86E-F2A4-4B79-BCB5-F301E3197F40"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "InstaCash/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "536"
+            endingLineNumber = "536"
+            landmarkName = "application(_:continue:restorationHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5612CE25-92C0-494E-B880-3E103FF1E029"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "InstaCash/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "543"
+            endingLineNumber = "543"
+            landmarkName = "application(_:continue:restorationHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AE7E40AC-E5EA-44A5-9B52-762E76A70D9F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "InstaCash/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "524"
+            endingLineNumber = "524"
+            landmarkName = "application(_:continue:restorationHandler:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

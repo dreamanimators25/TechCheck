@@ -62,7 +62,7 @@ public struct Luminous {
         public struct Network {
             
             /// Check if the device is connected to the WiFi network
-            public static var isConnectedViaWiFi: Bool {
+            public static var  isConnectedViaWiFi: Bool {
                 let reachability = Reachability()!
                 
                 if reachability.isReachableViaWiFi {

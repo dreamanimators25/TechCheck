@@ -238,7 +238,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
        
         NSLog("Welcome")
        
-        // Sameeer 25/7/2020
+        //Sameeer 25/7/2020 & 10/09/2020 //Universal Link
         /*
         if let scheme = url.scheme,
             scheme.localizedCaseInsensitiveCompare("com.zerowaste.instacash") == .orderedSame, let _ = url.host {
@@ -436,6 +436,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     //MARK:- true caller active method
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Swift.Void) -> Bool {
         
+        //Sameer 10/09/2020 //Firebase Dynamic Link
+        /*
         let handled = DynamicLinks.dynamicLinks().handleUniversalLink(userActivity.webpageURL!) { (dynamiclink, error) in
             // ...
             print("Continue User Activity called: ")
@@ -475,11 +477,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
             }
             
         }
-
         return handled
+        */
         
         //Sameer 25/7/2020
-        /*
+        //*
         print("Continue User Activity called: ")
         
         if userActivity.activityType == NSUserActivityTypeBrowsingWeb {
@@ -564,7 +566,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         }
         else{
             return TCTrueSDK.sharedManager().application(application, continue: userActivity, restorationHandler: restorationHandler)
-        }*/
+        }//*/
     }
     
     func daysBetweenDates(startDate: Date, endDate: Date) -> Int {
