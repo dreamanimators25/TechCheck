@@ -531,15 +531,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
                 let selectedCountry = (userDefaults.value(forKey: "selectedCountrySymbol") as? String) ?? ""
                 print(selectedCountry)
                 
-                if let keyExists = parameters["country"] {
+                //if let keyExists = parameters["country"] {
+                    //print(keyExists)
                     //if keyExists == "tw" {
-                    if keyExists == selectedCountry {
-                        var urlResponse = [String: String]()
-                        urlResponse = parameters
-                        userDefaults.removeObject(forKey: "paymodeResponse")
-                        let myData = NSKeyedArchiver.archivedData(withRootObject: urlResponse)
-                        userDefaults.set(myData, forKey: "paymodeResponse")
-                    }
+                    //if keyExists == selectedCountry {
+                    
+                if parameters["country"] != nil {
+                    var urlResponse = [String: String]()
+                    urlResponse = parameters
+                    userDefaults.removeObject(forKey: "paymodeResponse")
+                    let myData = NSKeyedArchiver.archivedData(withRootObject: urlResponse)
+                    userDefaults.set(myData, forKey: "paymodeResponse")
+                    //}
                 }else {
                     var urlResponse = [String: String]()
                     urlResponse = parameters
