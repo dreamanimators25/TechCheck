@@ -529,6 +529,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
                 
                 // Set Dictionary for InstaCashInformation
                 let selectedCountry = (userDefaults.value(forKey: "selectedCountrySymbol") as? String) ?? ""
+                print(selectedCountry)
                 
                 if let keyExists = parameters["country"] {
                     //if keyExists == "tw" {

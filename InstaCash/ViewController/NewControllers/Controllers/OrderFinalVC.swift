@@ -31,7 +31,7 @@ class OrderFinalVC: UIViewController {
         userDefaults.removeObject(forKey: "promoter")
         userDefaults.removeObject(forKey: "promotionCouponCode")
         userDefaults.removeObject(forKey: "urlResponse")
-        userDefaults.removeObject(forKey: "selectedCountrySymbol")
+
         userDefaults.removeObject(forKey: "additionalInfo")
         
         //Sameer - 17/6/2020
