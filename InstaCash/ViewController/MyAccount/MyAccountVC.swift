@@ -178,6 +178,7 @@ class MyAccountVC: UIViewController {
         userDefaults.removeObject(forKey: "promoter")
         userDefaults.removeObject(forKey: "promotionCouponCode")
         userDefaults.removeObject(forKey: "urlResponse")
+        userDefaults.removeObject(forKey: "selectedCountrySymbol")
         userDefaults.removeObject(forKey: "paymodeResponse")
         userDefaults.removeObject(forKey: "additionalInfo")
         //

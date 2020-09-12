@@ -323,6 +323,11 @@ class TWCashVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UITex
                                 let val = self.responseDict[item as? String ?? ""]
                                 self.arrDictValues.append([val ?? []])
                             }
+                            
+                            if CustomUserDefault.getCurrency() == "NT$" {
+                                self.arrDictValues = self.arrDictValues.reversed()
+                                self.arrDictKeys = self.arrDictKeys.reversed()
+                            }
 
                             //print(self.arrDictKeys)
                             //print(self.arrDictValues)

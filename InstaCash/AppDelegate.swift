@@ -528,9 +528,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
                 }
                 
                 // Set Dictionary for InstaCashInformation
+                let selectedCountry = (userDefaults.value(forKey: "selectedCountrySymbol") as? String) ?? ""
                 
                 if let keyExists = parameters["country"] {
-                    if keyExists == "tw" {
+                    //if keyExists == "tw" {
+                    if keyExists == selectedCountry {
                         var urlResponse = [String: String]()
                         urlResponse = parameters
                         userDefaults.removeObject(forKey: "paymodeResponse")

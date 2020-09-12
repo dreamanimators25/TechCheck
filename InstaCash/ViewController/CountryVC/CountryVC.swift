@@ -262,6 +262,7 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
             
             self.btnEnglish.sendActions(for: .touchUpInside)
             
+            userDefaults.set("in", forKey: "selectedCountrySymbol")
         }
         else if(str == "Malaysia")
         {
@@ -273,6 +274,7 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
             
             self.btnEnglish.sendActions(for: .touchUpInside)
             
+            userDefaults.set("my", forKey: "selectedCountrySymbol")
         }
         else if(str == "Singapore")
         {
@@ -284,6 +286,7 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
             
             self.btnEnglish.sendActions(for: .touchUpInside)
             
+            userDefaults.set("sg", forKey: "selectedCountrySymbol")
         }
         else if(str == "Taiwan")
         {
@@ -294,7 +297,7 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
             self.hindiBaseView.isHidden = true
             
             self.btnChina.sendActions(for: .touchUpInside)
-            
+            userDefaults.set("tw", forKey: "selectedCountrySymbol")
         }
         else
         {
@@ -326,6 +329,7 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
             self.hindiBaseView.isHidden = true
             self.btnEnglish.sendActions(for: .touchUpInside)
             
+            userDefaults.set("in", forKey: "selectedCountrySymbol")
         }
         else if(btn == btnMalaysia) {
             btnIndia.isSelected = false
@@ -347,6 +351,7 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
             self.hindiBaseView.isHidden = true
             self.btnEnglish.sendActions(for: .touchUpInside)
             
+            userDefaults.set("my", forKey: "selectedCountrySymbol")
         }
         else if(btn == btnSingapore) {
             btnIndia.isSelected = false
@@ -368,6 +373,7 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
             self.hindiBaseView.isHidden = true
             self.btnEnglish.sendActions(for: .touchUpInside)
             
+            userDefaults.set("sg", forKey: "selectedCountrySymbol")
         }
         else if(btn == btnTaiwan) {
             btnIndia.isSelected = false
@@ -389,6 +395,7 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
             self.hindiBaseView.isHidden = true
             self.btnChina.sendActions(for: .touchUpInside)
             
+            userDefaults.set("tw", forKey: "selectedCountrySymbol")
         }
         else {
             /*
