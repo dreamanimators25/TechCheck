@@ -1015,6 +1015,9 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
         }
         */
         
+        //let straseUrl = self.arrCountry[self.idBaseUrl].strEndPoint
+        //userDefaults.set(straseUrl, forKey: "baseURL")
+        
         // Sameer 23/4/2020
         userDefaults.set(arrCountry[idBaseUrl].strName, forKey: "countryName")
         userDefaults.set(arrCountry[idBaseUrl].strCountryCode, forKey: "countryCode")
@@ -1406,6 +1409,8 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
                             }
                             else{
                                 self.arrCountry[index].isSelected = false
+                                
+                                
                             }
                         }
                     }

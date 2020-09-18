@@ -42,11 +42,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     }
     
     //MARK:- Set root view
-    func setRootViewController(){
-        let vc = CountryVC()
-        nav = UINavigationController.init(rootViewController: vc)
-        self.window?.rootViewController = nav
-        self.window?.makeKeyAndVisible()
+    func setRootViewController() {
+        
+        if UIDevice.current.model.hasPrefix("iPad") {
+            let vc = IPadVC()
+            nav = UINavigationController.init(rootViewController: vc)
+            self.window?.rootViewController = nav
+            self.window?.makeKeyAndVisible()
+        }else {
+            let vc = CountryVC()
+            nav = UINavigationController.init(rootViewController: vc)
+            self.window?.rootViewController = nav
+            self.window?.makeKeyAndVisible()
+        }
+        
     }
     
     //When need to navigate to HomeVC
@@ -592,7 +601,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
 //        }
 //        return queryParams
 //    }
-    
    
     
     //MARK:- App lifecycle
@@ -745,7 +753,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         //sleep(3)
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window!.backgroundColor = UIColor.white
-        if userDefaults.value(forKey: "baseURL") == nil{
+        if userDefaults.value(forKey: "baseURL") == nil {
             setRootViewController()
         }
         else{

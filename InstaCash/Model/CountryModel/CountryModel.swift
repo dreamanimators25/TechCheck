@@ -10,7 +10,7 @@ import Foundation
 import Firebase
 import FirebaseDatabase
 
-class CountryModel{
+class CountryModel {
     
     var strCountryCode:String?
     var strCurrency:String?

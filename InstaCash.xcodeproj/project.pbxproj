@@ -139,6 +139,8 @@
 		594D331024826D720081B7CE /* ZDCChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 594D330C24826D630081B7CE /* ZDCChat.framework */; };
 		594D331124826D720081B7CE /* ZDCChatAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 594D330D24826D6B0081B7CE /* ZDCChatAPI.framework */; };
 		594D331224826D720081B7CE /* ZDCChatStrings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 594D330E24826D710081B7CE /* ZDCChatStrings.bundle */; };
+		599C78842513D25200EA3728 /* IPadVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599C78822513D25200EA3728 /* IPadVC.swift */; };
+		599C78852513D25200EA3728 /* IPadVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 599C78832513D25200EA3728 /* IPadVC.xib */; };
 		59B67ACC2438FA3E00F4B321 /* LanguagePopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B67ACA2438FA3E00F4B321 /* LanguagePopUpVC.swift */; };
 		59B67ACD2438FA3E00F4B321 /* LanguagePopUpVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59B67ACB2438FA3E00F4B321 /* LanguagePopUpVC.xib */; };
 		59B68C52245EE59900731FAD /* TWCashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B68C50245EE59900731FAD /* TWCashVC.swift */; };
@@ -578,6 +580,8 @@
 		594D330C24826D630081B7CE /* ZDCChat.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZDCChat.framework; sourceTree = "<group>"; };
 		594D330D24826D6B0081B7CE /* ZDCChatAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZDCChatAPI.framework; sourceTree = "<group>"; };
 		594D330E24826D710081B7CE /* ZDCChatStrings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ZDCChatStrings.bundle; sourceTree = "<group>"; };
+		599C78822513D25200EA3728 /* IPadVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPadVC.swift; sourceTree = "<group>"; };
+		599C78832513D25200EA3728 /* IPadVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IPadVC.xib; sourceTree = "<group>"; };
 		59B67ACA2438FA3E00F4B321 /* LanguagePopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagePopUpVC.swift; sourceTree = "<group>"; };
 		59B67ACB2438FA3E00F4B321 /* LanguagePopUpVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LanguagePopUpVC.xib; sourceTree = "<group>"; };
 		59B68C50245EE59900731FAD /* TWCashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TWCashVC.swift; path = InstaCash/ViewController/PaymentMode/TWPaymentMode/TWCashVC.swift; sourceTree = SOURCE_ROOT; };
@@ -936,8 +940,10 @@
 		35F8ADDC234F13BD0004F3CF /* CountryVC */ = {
 			isa = PBXGroup;
 			children = (
-				35F8ADDD234F13BD0004F3CF /* CountryVC.xib */,
 				35F8ADDF234F13BD0004F3CF /* CountryVC.swift */,
+				35F8ADDD234F13BD0004F3CF /* CountryVC.xib */,
+				599C78822513D25200EA3728 /* IPadVC.swift */,
+				599C78832513D25200EA3728 /* IPadVC.xib */,
 			);
 			path = CountryVC;
 			sourceTree = "<group>";
@@ -2647,6 +2653,7 @@
 				FBFCA37921C22B75006A016E /* right-arrow.svg in Resources */,
 				FBF35E0D215E29390052DAF7 /* MyAddresses.xib in Resources */,
 				FB32CB6C21D0F36B00464AAA /* OrderPlacePopUp.xib in Resources */,
+				599C78852513D25200EA3728 /* IPadVC.xib in Resources */,
 				FBFCA37721C22B75006A016E /* Earphone.svg in Resources */,
 				FB3A47EE219AC960003F5B89 /* HeaderCell.xib in Resources */,
 				FB18F96E2224024B00FDD884 /* PromoterOTPVC.xib in Resources */,
@@ -2988,6 +2995,7 @@
 				FB3CC404215CFBBE0037DC7C /* OrderListModel.swift in Sources */,
 				FBFB3E4F21512935002924A3 /* IQKeyboardReturnKeyHandler.swift in Sources */,
 				525C2B3723ABB30E006A1237 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
+				599C78842513D25200EA3728 /* IPadVC.swift in Sources */,
 				52160CC023FBD22800A09035 /* AboutPageVC.swift in Sources */,
 				FBFB0E1D215F582500E81EF4 /* ContactUsVC.swift in Sources */,
 				FBFB3E4A21512935002924A3 /* IQUIView+IQKeyboardToolbar.swift in Sources */,
