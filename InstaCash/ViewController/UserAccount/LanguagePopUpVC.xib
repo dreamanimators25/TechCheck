@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -8,15 +8,15 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Roboto-Medium.ttf">
-            <string>Roboto-Medium</string>
+        <array key="Supply-Medium.otf">
+            <string>Supply-Medium</string>
         </array>
-        <array key="Roboto-Regular.ttf">
-            <string>Roboto-Regular</string>
+        <array key="Supply-Regular.otf">
+            <string>Supply-Regular</string>
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LanguagePopUpVC" customModule="InstaCash" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LanguagePopUpVC" customModule="TechCheck" customModuleProvider="target">
             <connections>
                 <outlet property="cancelBtn" destination="V63-4t-huz" id="bGA-gc-gdu"/>
                 <outlet property="chinaImgView" destination="sUN-GI-wz6" id="Xor-6A-fRM"/>
@@ -34,54 +34,53 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="7Lc-Ca-U4I">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qkF-IA-DS0">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <state key="normal" title="Button"/>
                 </button>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Z7-NK-TMb" customClass="TPKeyboardAvoidingScrollView">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <subviews>
                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fPr-z7-QY5">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
                             <subviews>
-                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="emD-VN-Ic3" customClass="cornerView" customModule="InstaCash" customModuleProvider="target">
-                                    <rect key="frame" x="20" y="243.5" width="335" height="180"/>
+                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="emD-VN-Ic3" customClass="cornerView" customModule="TechCheck" customModuleProvider="target">
+                                    <rect key="frame" x="20" y="319" width="374" height="180"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="pQL-Io-aIb">
-                                            <rect key="frame" x="10" y="10" width="315" height="100"/>
+                                            <rect key="frame" x="10" y="10" width="354" height="100"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jAx-Am-vtF">
-                                                    <rect key="frame" x="0.0" y="0.0" width="315" height="45"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="354" height="45"/>
                                                     <subviews>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BeG-u2-xHX" customClass="cornerView" customModule="InstaCash" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="315" height="45"/>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BeG-u2-xHX" customClass="cornerView" customModule="TechCheck" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="354" height="45"/>
                                                             <subviews>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Selected" translatesAutoresizingMaskIntoConstraints="NO" id="QWF-Ok-pcl">
-                                                                    <rect key="frame" x="10" y="15" width="15" height="15"/>
+                                                                    <rect key="frame" x="10" y="12.5" width="20" height="20"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="width" constant="15" id="6Tu-Sr-t8P"/>
-                                                                        <constraint firstAttribute="height" constant="15" id="RK1-gK-07p"/>
+                                                                        <constraint firstAttribute="width" constant="20" id="6Tu-Sr-t8P"/>
+                                                                        <constraint firstAttribute="height" constant="20" id="RK1-gK-07p"/>
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="English" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wmz-8d-b3W">
-                                                                    <rect key="frame" x="40" y="13.5" width="48.5" height="18"/>
-                                                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                                                                    <rect key="frame" x="45" y="13.5" width="63" height="18"/>
+                                                                    <fontDescription key="fontDescription" name="Supply-Regular" family="Supply" pointSize="15"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bFH-T9-UhC">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="315" height="45"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="354" height="45"/>
                                                                     <state key="selected" image="indiaSelected"/>
                                                                     <connections>
                                                                         <action selector="btnEnglishLanguagePressed:" destination="-1" eventType="touchUpInside" id="rXn-Xa-cpM"/>
                                                                     </connections>
                                                                 </button>
                                                             </subviews>
-                                                            <color key="backgroundColor" red="0.094117647060000004" green="0.60784313729999995" blue="0.17254901959999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="backgroundColor" red="0.34901960780000002" green="0.062745098040000002" blue="0.56862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstItem="bFH-T9-UhC" firstAttribute="leading" secondItem="BeG-u2-xHX" secondAttribute="leading" id="8zJ-f4-pz0"/>
                                                                 <constraint firstItem="wmz-8d-b3W" firstAttribute="leading" secondItem="QWF-Ok-pcl" secondAttribute="trailing" constant="15" id="Bff-eE-ZO0"/>
@@ -113,26 +112,27 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LJg-Gn-25u">
-                                                    <rect key="frame" x="0.0" y="55" width="315" height="45"/>
+                                                    <rect key="frame" x="0.0" y="55" width="354" height="45"/>
                                                     <subviews>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iqn-gz-Fx6" customClass="cornerView" customModule="InstaCash" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="315" height="45"/>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iqn-gz-Fx6" customClass="cornerView" customModule="TechCheck" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="354" height="45"/>
                                                             <subviews>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Selected" translatesAutoresizingMaskIntoConstraints="NO" id="SJC-1T-dZm">
-                                                                    <rect key="frame" x="10" y="15" width="15" height="15"/>
+                                                                    <rect key="frame" x="10" y="12.5" width="20" height="20"/>
+                                                                    <color key="tintColor" red="0.35686274509803922" green="0.094117647058823528" blue="0.54509803921568623" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="height" constant="15" id="DoT-fY-nE6"/>
-                                                                        <constraint firstAttribute="width" constant="15" id="Gh8-SF-aPU"/>
+                                                                        <constraint firstAttribute="height" constant="20" id="DoT-fY-nE6"/>
+                                                                        <constraint firstAttribute="width" constant="20" id="Gh8-SF-aPU"/>
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hindi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zMc-qM-0HL">
-                                                                    <rect key="frame" x="40" y="13.5" width="35" height="18"/>
-                                                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                                                                    <rect key="frame" x="45" y="13.5" width="45" height="18"/>
+                                                                    <fontDescription key="fontDescription" name="Supply-Regular" family="Supply" pointSize="15"/>
                                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2C6-Pb-ba1">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="315" height="45"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="354" height="45"/>
                                                                     <state key="selected" image="indiaSelected"/>
                                                                     <connections>
                                                                         <action selector="btnHindiLanguagePressed:" destination="-1" eventType="touchUpInside" id="dah-6s-8fN"/>
@@ -171,10 +171,10 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OO0-yr-KeQ">
-                                                    <rect key="frame" x="0.0" y="100" width="315" height="0.0"/>
+                                                    <rect key="frame" x="0.0" y="100" width="354" height="0.0"/>
                                                     <subviews>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0d4-bv-bxM" customClass="cornerView" customModule="InstaCash" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="315" height="0.0"/>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0d4-bv-bxM" customClass="cornerView" customModule="TechCheck" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="354" height="0.0"/>
                                                             <subviews>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Selected" translatesAutoresizingMaskIntoConstraints="NO" id="sUN-GI-wz6">
                                                                     <rect key="frame" x="10" y="-7.5" width="15" height="15"/>
@@ -184,13 +184,13 @@
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chinese" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s5Z-p0-qyf">
-                                                                    <rect key="frame" x="40" y="-9" width="54" height="18"/>
-                                                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                                                                    <rect key="frame" x="40" y="-9" width="63" height="18"/>
+                                                                    <fontDescription key="fontDescription" name="Supply-Regular" family="Supply" pointSize="15"/>
                                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6iC-ZA-ALL">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="315" height="0.0"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="354" height="0.0"/>
                                                                     <state key="selected" image="indiaSelected"/>
                                                                     <connections>
                                                                         <action selector="btnChineseLanguagePressed:" destination="-1" eventType="touchUpInside" id="N5C-OF-I8H"/>
@@ -234,12 +234,12 @@
                                             </constraints>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="avX-ke-kq9">
-                                            <rect key="frame" x="10" y="130" width="315" height="40"/>
+                                            <rect key="frame" x="10" y="130" width="354" height="40"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V63-4t-huz" customClass="shadowCornerButton" customModule="InstaCash" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="152.5" height="40"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V63-4t-huz" customClass="shadowCornerButton" customModule="TechCheck" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="172" height="40"/>
                                                     <color key="backgroundColor" red="0.81568627450980391" green="0.0" blue="0.066666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" name="Supply-Medium" family="Supply" pointSize="15"/>
                                                     <state key="normal" title="Cancel"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -250,10 +250,10 @@
                                                         <action selector="btnCancelPressed:" destination="-1" eventType="touchUpInside" id="huk-hC-w5c"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wD4-5g-9vj" customClass="shadowCornerButton" customModule="InstaCash" customModuleProvider="target">
-                                                    <rect key="frame" x="162.5" y="0.0" width="152.5" height="40"/>
-                                                    <color key="backgroundColor" red="0.1581287384" green="0.68859356640000002" blue="0.237049073" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wD4-5g-9vj" customClass="shadowCornerButton" customModule="TechCheck" customModuleProvider="target">
+                                                    <rect key="frame" x="182" y="0.0" width="172" height="40"/>
+                                                    <color key="backgroundColor" red="0.34901960780000002" green="0.062745098040000002" blue="0.56862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" name="Supply-Medium" family="Supply" pointSize="15"/>
                                                     <state key="normal" title="Save"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -328,7 +328,7 @@
         </view>
     </objects>
     <resources>
-        <image name="Selected" width="15" height="15"/>
+        <image name="Selected" width="16" height="16"/>
         <image name="indiaSelected" width="45" height="45"/>
     </resources>
 </document>

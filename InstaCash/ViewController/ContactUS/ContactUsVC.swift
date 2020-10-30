@@ -1,8 +1,8 @@
 //
 //  ContactUsVC.swift
-//  InstaCash
+//  TechCheck
 //
-//  Created by InstaCash on 29/09/18.
+//  Created by TechCheck on 29/09/18.
 //  Copyright © 2018 Prakhar Gupta. All rights reserved.
 //
 
@@ -31,7 +31,7 @@ class ContactUsVC: UIViewController,MFMailComposeViewControllerDelegate {
 
         //if (userDefaults.value(forKey: "countryName") as? String)?.contains("India") != nil {
             
-        if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+        if CustomUserDefault.getCurrency() == "£" {
             
             if let url = URL(string: "tel://\("0141-4232323")"), UIApplication.shared.canOpenURL(url) {
                 if #available(iOS 10, *) {
@@ -65,7 +65,7 @@ class ContactUsVC: UIViewController,MFMailComposeViewControllerDelegate {
         
         //if (userDefaults.value(forKey: "countryName") as? String)?.contains("India") != nil {
             
-        if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+        if CustomUserDefault.getCurrency() == "£" {
             
             emailAddress = "support@getinstacash.in"
         }

@@ -2,12 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "dead pixel.png",
+      "filename" : "ic_dead_pixel-1.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "dead pixel@2x.png",
+      "filename" : "ic_dead_pixel.png",
       "scale" : "2x"
     },
     {

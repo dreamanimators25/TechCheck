@@ -1,6 +1,6 @@
 //
 //  OrderFinalVC.swift
-//  InstaCash
+//  TechCheck
 //
 //  Created by Sameer's MacBook Pro on 29/12/19.
 //  Copyright © 2019 Prakhar Gupta. All rights reserved.
@@ -59,7 +59,7 @@ class OrderFinalVC: UIViewController {
         
         let str1 = NSAttributedString.init(string: "Your order has been placed successfully. Your Order ID is ".localized(lang: langCode))
         
-        if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+        if CustomUserDefault.getCurrency() == "£" {
             
             str3 = NSAttributedString.init(string: " Our team will get in touch with you shortly to verify the order and schedule the pickup. For any queries please call 0141-4232323 (10:00am - 07:00pm.)".localized(lang: langCode))
             
@@ -125,7 +125,7 @@ class OrderFinalVC: UIViewController {
             let str3a = NSAttributedString.init(string: "\n2) Our team will get in touch with you shortly to verify your order and schedule the pick-up.")
             let str4 = NSAttributedString.init(string: "\n3) ")
             let str5 = NSAttributedString.init(string: dnd, attributes: myAttribute)
-            let str6 = NSAttributedString.init(string: " 'Instacash' or ")
+            let str6 = NSAttributedString.init(string: " 'TechCheck' or ")
             let str7 = NSAttributedString.init(string: factoryReset, attributes: myAttribute)
             let str8 = NSAttributedString.init(string: " your device before the collection.")
             let str9 = NSAttributedString.init(string: "\n4) The final trade-in value will be quoted to you by our logistic personnel.")

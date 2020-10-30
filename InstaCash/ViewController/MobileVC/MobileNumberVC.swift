@@ -1,8 +1,8 @@
 //
 //  MobileNumberVC.swift
-//  InstaCash
+//  TechCheck
 //
-//  Created by InstaCash on 15/09/18.
+//  Created by TechCheck on 15/09/18.
 //  Copyright © 2018 Prakhar Gupta. All rights reserved.
 //
 
@@ -163,7 +163,7 @@ class MobileNumberVC: UIViewController,UITextFieldDelegate {
                 
                 //if (userDefaults.value(forKey: "countryName") as? String)?.contains("India") != nil {
                     
-                if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+                if CustomUserDefault.getCurrency() == "£" {
                     internalOTP = "1"
                 }
                 else{
@@ -336,7 +336,7 @@ class MobileNumberVC: UIViewController,UITextFieldDelegate {
             
             //if (userDefaults.value(forKey: "countryName") as? String)?.contains("India") != nil {
                 
-            if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+            if CustomUserDefault.getCurrency() == "£" {
                 
                 internalOTP = "1"
             }

@@ -1,8 +1,8 @@
 //
 //  EarPhoneVC.swift
-//  InstaCash
+//  TechCheck
 //
-//  Created by InstaCash on 25/09/18.
+//  Created by TechCheck on 25/09/18.
 //  Copyright © 2018 Prakhar Gupta. All rights reserved.
 //
 
@@ -58,8 +58,8 @@ class EarPhoneVC: UIViewController {
     
     func changeLanguageOfUI() {
         
-        self.lblCheckEarphone.text = "Checking earphone".localized(lang: langCode)
-        self.lblPressStart.text = "Press “Start’ and follow instructions.".localized(lang: langCode)
+        self.lblCheckEarphone.text = "Checking earphone socket".localized(lang: langCode)
+        self.lblPressStart.text = "Press “Start“ and follow instructions.".localized(lang: langCode)
         self.btnSkip.setTitle("Skip".localized(lang: langCode), for: UIControlState.normal)
     }
     
@@ -173,12 +173,12 @@ class EarPhoneVC: UIViewController {
         popup.dismiss(animated: true, completion: nil)
         // Customize dialog appearance
         let pv = PopupDialogDefaultView.appearance()
-        pv.titleFont    = UIFont(name: "HelveticaNeue-Medium", size: 20)!
-        pv.messageFont  = UIFont(name: "HelveticaNeue", size: 16)!
+        pv.titleFont    = UIFont(name: fontNameMedium, size: 20)!
+        pv.messageFont  = UIFont(name: fontNameRegular, size: 16)!
         
         // Customize the container view appearance
         let pcv = PopupDialogContainerView.appearance()
-        pcv.cornerRadius    = 2
+        pcv.cornerRadius    = 10
         pcv.shadowEnabled   = true
         pcv.shadowColor     = .black
         // Customize overlay appearance
@@ -190,13 +190,11 @@ class EarPhoneVC: UIViewController {
         
         // Customize default button appearance
         let db = DefaultButton.appearance()
-        db.titleFont      = UIFont(name: "HelveticaNeue-Medium", size: 16)!
-        
+        db.titleFont      = UIFont(name: fontNameMedium, size: 16)!
         
         // Customize cancel button appearance
         let cb = CancelButton.appearance()
-        cb.titleFont      = UIFont(name: "HelveticaNeue-Medium", size: 16)!
-        
+        cb.titleFont      = UIFont(name: fontNameMedium, size: 16)!
         
         // Present dialog
         self.present(popup, animated: true, completion: nil)

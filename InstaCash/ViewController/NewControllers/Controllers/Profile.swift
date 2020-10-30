@@ -1,6 +1,6 @@
 //
 //  Profile.swift
-//  InstaCash
+//  TechCheck
 //
 //  Created by CULT OF PERSONALITY on 05/11/19.
 //  Copyright © 2019 Prakhar Gupta. All rights reserved.
@@ -160,7 +160,7 @@ class Profile: UIViewController, UITextFieldDelegate {
      
             //if (userDefaults.value(forKey: "countryName") as? String)?.contains("India") != nil {
      
-            if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+            if CustomUserDefault.getCurrency() == "£" {
             
             //if (userDefaults.value(forKey: "countryName") as! String).contains("India"){ //s.
                 

@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_0" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Supply-Regular.otf">
+            <string>Supply-Regular</string>
+        </array>
+    </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IMEIVC" customModule="InstaCash" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IMEIVC" customModule="TechCheck" customModuleProvider="target">
             <connections>
                 <outlet property="imeiEditText" destination="9C2-69-xnU" id="mmg-mk-jfD"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -22,7 +25,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="53y-Kv-FNF">
-                    <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jYm-RT-MMH">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="580"/>
@@ -34,42 +37,41 @@
                                         <constraint firstAttribute="width" constant="120" id="S25-Zr-ZOk"/>
                                     </constraints>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please Enter IMEI of your device" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bwb-nP-gaJ">
-                                    <rect key="frame" x="21" y="175" width="278.5" height="23"/>
-                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please Enter IMEI of your device" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bwb-nP-gaJ">
+                                    <rect key="frame" x="10" y="175" width="300" height="41"/>
+                                    <fontDescription key="fontDescription" name="Supply-Regular" family="Supply" pointSize="17"/>
                                     <color key="textColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textField opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="IMEI Number" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="13" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="9C2-69-xnU">
-                                    <rect key="frame" x="20" y="223" width="280" height="40"/>
+                                    <rect key="frame" x="20" y="241" width="280" height="40"/>
                                     <color key="tintColor" red="0.0" green="0.5624732375" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <accessibility key="accessibilityConfiguration" label="Please Enter IMEI"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="SsJ-tV-ce1"/>
                                     </constraints>
-                                    <nil key="textColor"/>
-                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                    <fontDescription key="fontDescription" name="Supply-Regular" family="Supply" pointSize="17"/>
                                     <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done" smartDashesType="yes"/>
                                     <connections>
                                         <outlet property="delegate" destination="-1" id="7Jn-kq-6OW"/>
                                     </connections>
                                 </textField>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nyz-El-Iuj">
-                                    <rect key="frame" x="20" y="313" width="280" height="40"/>
-                                    <color key="backgroundColor" red="0.0" green="0.49803921569999998" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <rect key="frame" x="20" y="331" width="280" height="40"/>
+                                    <color key="backgroundColor" red="0.34901960784313724" green="0.062745098039215685" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="gd3-xM-jov"/>
                                     </constraints>
-                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                    <fontDescription key="fontDescription" name="Supply-Regular" family="Supply" pointSize="17"/>
                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <state key="normal" title="CONTINUE"/>
                                     <connections>
                                         <action selector="btnContinuePressed:" destination="-1" eventType="touchUpInside" id="r4V-yC-4oi"/>
                                     </connections>
                                 </button>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dial *#06# from the device to get the IMEI number of the device." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IjA-UN-Mzf">
-                                    <rect key="frame" x="20" y="271" width="280" height="29"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dial *#06# from the device to get the IMEI number of the device." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IjA-UN-Mzf">
+                                    <rect key="frame" x="20" y="289" width="280" height="61.5"/>
+                                    <fontDescription key="fontDescription" name="Supply-Regular" family="Supply" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -81,7 +83,9 @@
                                 <constraint firstItem="Bwb-nP-gaJ" firstAttribute="top" secondItem="gg1-wZ-51G" secondAttribute="bottom" constant="30" id="9Jj-pk-rGJ"/>
                                 <constraint firstItem="IjA-UN-Mzf" firstAttribute="leading" secondItem="9C2-69-xnU" secondAttribute="leading" id="JUc-wj-AYZ"/>
                                 <constraint firstAttribute="height" constant="580" id="MB3-mN-Wni"/>
+                                <constraint firstAttribute="trailing" secondItem="Bwb-nP-gaJ" secondAttribute="trailing" constant="10" id="Srv-3P-UWy"/>
                                 <constraint firstItem="Bwb-nP-gaJ" firstAttribute="centerX" secondItem="gg1-wZ-51G" secondAttribute="centerX" id="ZNk-B1-RHv"/>
+                                <constraint firstItem="Bwb-nP-gaJ" firstAttribute="leading" secondItem="jYm-RT-MMH" secondAttribute="leading" constant="10" id="aA1-ND-zGx"/>
                                 <constraint firstItem="9C2-69-xnU" firstAttribute="top" secondItem="Bwb-nP-gaJ" secondAttribute="bottom" constant="25" id="beh-di-m81"/>
                                 <constraint firstItem="IjA-UN-Mzf" firstAttribute="top" secondItem="9C2-69-xnU" secondAttribute="bottom" constant="8" id="fWD-Iz-PqS"/>
                                 <constraint firstAttribute="trailing" secondItem="9C2-69-xnU" secondAttribute="trailing" constant="20" id="ffj-E8-vPo"/>
@@ -110,9 +114,10 @@
                 <constraint firstItem="53y-Kv-FNF" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="gSV-NZ-Pa4"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="139" y="154"/>
         </view>
     </objects>
     <resources>
-        <image name="splashIcon" width="128" height="128"/>
+        <image name="splashIcon" width="43.5" height="43.5"/>
     </resources>
 </document>

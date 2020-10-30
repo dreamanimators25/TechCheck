@@ -1,6 +1,6 @@
 //
 //  MyOrdersCell.swift
-//  InstaCash
+//  TechCheck
 //
 //  Created by Sameer Khan on 12/04/20.
 //  Copyright © 2020 Prakhar Gupta. All rights reserved.

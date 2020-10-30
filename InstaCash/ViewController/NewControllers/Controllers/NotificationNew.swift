@@ -1,6 +1,6 @@
 //
 //  Notification.swift
-//  InstaCash
+//  TechCheck
 //
 //  Created by CULT OF PERSONALITY on 05/11/19.
 //  Copyright © 2019 Prakhar Gupta. All rights reserved.
@@ -13,6 +13,11 @@ class NotificationNew: UIViewController,UITableViewDelegate,UITableViewDataSourc
     @IBOutlet weak var tblViewNotifcation: UITableView!
     @IBOutlet weak var lblNotification: UILabel!
     
+    @IBOutlet weak var homeLbl: UILabel!
+    @IBOutlet weak var orderLbl: UILabel!
+    @IBOutlet weak var notiLbl: UILabel!
+    @IBOutlet weak var userLbl: UILabel!
+    
     var arrNotification = [NSDictionary]()
 
     override func viewDidLoad() {
@@ -22,17 +27,22 @@ class NotificationNew: UIViewController,UITableViewDelegate,UITableViewDataSourc
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.changeLanguageOfUI()
+        
+        self.homeLbl.text = ""
+        self.orderLbl.text = ""
+        self.notiLbl.text = "Notifications"
+        self.userLbl.text = ""
+    }
+    
     func changeLanguageOfUI() {
         
         self.lblNotification.text = "Notifications".localized(lang: langCode)
         
         //self.btnProceed.setTitle("PROCEED".localized(lang: langCode), for: UIControlState.normal)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        self.changeLanguageOfUI()
     }
     
     //MARK:- Tableview delegate/Source methods

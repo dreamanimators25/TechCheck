@@ -1,8 +1,8 @@
 //
 //  PlaceOrderVC.swift
-//  InstaCash
+//  TechCheck
 //
-//  Created by InstaCash on 20/09/18.
+//  Created by TechCheck on 20/09/18.
 //  Copyright © 2018 Prakhar Gupta. All rights reserved.
 //
 
@@ -56,8 +56,12 @@ class PlaceOrderVC: UIViewController,UITextFieldDelegate,CLLocationManagerDelega
         
         setNavigationBar()
         
-        if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+        if CustomUserDefault.getCurrency() == "£" {
             totalNumberCount = 6
+            
+            self.isMatchPincode = true
+            self.txtPincode.text = CustomUserDefault.getUserPinCode()
+            
         }else if CustomUserDefault.getCurrency() == "NT$" {
             totalNumberCount = 3
             self.isMatchPincode = true
@@ -79,7 +83,7 @@ class PlaceOrderVC: UIViewController,UITextFieldDelegate,CLLocationManagerDelega
         
         //if (userDefaults.value(forKey: "countryName") as? String)?.contains("India") != nil {
             
-        if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+        if CustomUserDefault.getCurrency() == "£" {
             //btnPaymentMode.setTitle("PICK PAYMENT MODE", for: .normal) //s.
         }
         else {
@@ -97,6 +101,8 @@ class PlaceOrderVC: UIViewController,UITextFieldDelegate,CLLocationManagerDelega
             
         }else {
             
+            //Sameer 4/10/20
+            /*
             //Check for Location Services
             if (CLLocationManager.locationServicesEnabled()) {
                 
@@ -109,7 +115,7 @@ class PlaceOrderVC: UIViewController,UITextFieldDelegate,CLLocationManagerDelega
             
             if CLLocationManager.locationServicesEnabled() {
                 locationManager.startUpdatingLocation()
-            }
+            }*/
             
         }
         
@@ -126,9 +132,10 @@ class PlaceOrderVC: UIViewController,UITextFieldDelegate,CLLocationManagerDelega
     func changeLanguageOfUI() {
      
         self.lblLocation.text = "Location".localized(lang: langCode)
-        self.lblPickUpDetail.text = "Pick up details".localized(lang: langCode)
-        self.lblWeCome.text = "We come to you and pick up your device. We also pay you on the spot.".localized(lang: langCode)
-        self.btnGetMyLocation.setTitle("Get my location".localized(lang: langCode), for: UIControlState.normal)
+        //self.lblPickUpDetail.text = "Pick up details".localized(lang: langCode)
+        self.lblPickUpDetail.text = "Collection details".localized(lang: langCode)
+        self.lblWeCome.text = "We will come to you and collect your phone.Once we have confirmed the TechCheck payment will be processed immediately.".localized(lang: langCode)
+        self.btnGetMyLocation.setTitle("GET MY LOCATION".localized(lang: langCode), for: UIControlState.normal)
         self.txtAddressLin1.placeholder = "Address Line 1".localized(lang: langCode)
         self.txtAddressLine2.placeholder = "Address Line 2".localized(lang: langCode)
         self.txtCity.placeholder = "City".localized(lang: langCode)
@@ -352,7 +359,7 @@ class PlaceOrderVC: UIViewController,UITextFieldDelegate,CLLocationManagerDelega
         
         if textField == txtMobileNumber {
             //if (userDefaults.value(forKey: "countryName") as? String)?.contains("India") != nil {
-        if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+        if CustomUserDefault.getCurrency() == "£" {
                 if (textField.text?.utf8CString.count)! > 10
                 {
                     let  char = string.cString(using: String.Encoding.utf8)!
@@ -403,6 +410,7 @@ class PlaceOrderVC: UIViewController,UITextFieldDelegate,CLLocationManagerDelega
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
         locationManager.startMonitoringSignificantLocationChanges()
+        
         // Here you can check whether you have allowed the permission or not.
         if CLLocationManager.locationServicesEnabled()
         {

@@ -2,12 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Sell-Selected.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Sell-Selected@2x.png",
+      "filename" : "GSell.png",
       "scale" : "2x"
     },
     {

@@ -1,8 +1,8 @@
 //
 //  ChangeModePopUpVC.swift
-//  InstaCash
+//  TechCheck
 //
-//  Created by InstaCash on 17/10/18.
+//  Created by TechCheck on 17/10/18.
 //  Copyright © 2018 Prakhar Gupta. All rights reserved.
 //
 

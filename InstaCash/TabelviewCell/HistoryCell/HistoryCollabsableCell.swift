@@ -1,8 +1,8 @@
 //
 //  HistoryCollabsableCell.swift
-//  InstaCash
+//  TechCheck
 //
-//  Created by InstaCash on 28/09/18.
+//  Created by TechCheck on 28/09/18.
 //  Copyright © 2018 Prakhar Gupta. All rights reserved.
 //
 

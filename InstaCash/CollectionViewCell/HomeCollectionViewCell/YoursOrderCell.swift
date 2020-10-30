@@ -1,8 +1,8 @@
 //
 //  YoursOrderCell.swift
-//  InstaCash
+//  TechCheck
 //
-//  Created by InstaCash on 13/09/18.
+//  Created by TechCheck on 13/09/18.
 //  Copyright © 2018 Prakhar Gupta. All rights reserved.
 //
 

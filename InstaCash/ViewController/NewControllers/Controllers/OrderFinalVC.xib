@@ -8,12 +8,12 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Roboto-Medium.ttf">
-            <string>Roboto-Medium</string>
+        <array key="Supply-Medium.otf">
+            <string>Supply-Medium</string>
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OrderFinalVC" customModule="InstaCash" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OrderFinalVC" customModule="TechCheck" customModuleProvider="target">
             <connections>
                 <outlet property="btnSeeOrderStatus" destination="zZN-60-Az2" id="T9w-Fx-2BJ"/>
                 <outlet property="lbl1" destination="pV3-sF-hpQ" id="swo-bn-W7I"/>
@@ -53,30 +53,30 @@
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get ready to be 37,492 richer!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pV3-sF-hpQ">
                     <rect key="frame" x="20" y="225" width="280" height="21"/>
-                    <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="18"/>
-                    <color key="textColor" red="0.15686274510000001" green="0.69019607839999997" blue="0.23921568630000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" name="Supply-Medium" family="Supply" pointSize="18"/>
+                    <color key="textColor" red="0.34901960780000002" green="0.062745098040000002" blue="0.56862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Now isn't that easy? :)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kxX-rP-ZMl">
                     <rect key="frame" x="20" y="248" width="280" height="19"/>
-                    <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
-                    <color key="textColor" red="0.15686274510000001" green="0.69019607839999997" blue="0.23921568630000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" name="Supply-Medium" family="Supply" pointSize="16"/>
+                    <color key="textColor" red="0.34901960780000002" green="0.062745098040000002" blue="0.56862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T5I-a5-We1">
                     <rect key="frame" x="15" y="287" width="290" height="105"/>
                     <string key="text">Your order has been placed successfully. Your Order ID is ZWJA117217 Our team will get in touch with you shortly to verity the order and schedule the pickup.For any queries please call 0141-4232323 (10:00am - 07:00 pm.)</string>
-                    <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
+                    <fontDescription key="fontDescription" name="Supply-Medium" family="Supply" pointSize="15"/>
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zZN-60-Az2">
                     <rect key="frame" x="10" y="503" width="300" height="45"/>
-                    <color key="backgroundColor" red="0.15686274510000001" green="0.69019607839999997" blue="0.23921568630000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.34901960780000002" green="0.062745098040000002" blue="0.56862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="45" id="n6A-tw-ofQ"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                    <fontDescription key="fontDescription" name="Supply-Medium" family="Supply" pointSize="17"/>
                     <state key="normal" title="SEE ORDER STATUS"/>
                     <connections>
                         <action selector="orderListBtnTapped:" destination="-1" eventType="touchUpInside" id="N3i-MS-hKb"/>
@@ -114,6 +114,6 @@
     </objects>
     <resources>
         <image name="closeGray" width="24" height="24"/>
-        <image name="component" width="184" height="88"/>
+        <image name="component" width="735" height="352"/>
     </resources>
 </document>

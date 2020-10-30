@@ -1,6 +1,6 @@
 //
 //  OrderDetailSummaryVC.swift
-//  InstaCash
+//  TechCheck
 //
 //  Created by Sameer's MacBook Pro on 10/01/20.
 //  Copyright © 2020 Prakhar Gupta. All rights reserved.
@@ -87,10 +87,12 @@ class OrderDetailSummaryVC: UIViewController,UITableViewDataSource,UITableViewDe
             }
         }
         
-        self.summaryTableView.contentSize = CGSize(width: self.summaryTableView.frame.width, height: ((CGFloat(self.arrKey.count)) * 50))
-        self.ViewHeight.constant = (CGFloat(self.arrKey.count) * 50) + 40
+        //self.summaryTableView.contentSize = CGSize(width: self.summaryTableView.frame.width, height: ((CGFloat(self.arrKey.count)) * 50))
+        //self.ViewHeight.constant = (CGFloat(self.arrKey.count) * 50) + 40
+        
         self.summaryTableView.reloadData()
-
+        self.ViewHeight.constant = self.summaryTableView.contentSize.height + 40.0
+        
     }
     
     @IBAction func onClickDismissButton(_ sender: Any) {

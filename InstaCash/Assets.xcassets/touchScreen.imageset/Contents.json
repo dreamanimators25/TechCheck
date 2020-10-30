@@ -2,12 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "touch screen.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "touch screen@2x.png",
+      "filename" : "touchscreen.png",
       "scale" : "2x"
     },
     {

@@ -1,6 +1,6 @@
 //
 //  ItemPickUpVC.swift
-//  InstaCash
+//  TechCheck
 //
 //  Created by Sameer's MacBook Pro on 07/02/20.
 //  Copyright © 2020 Prakhar Gupta. All rights reserved.
@@ -40,7 +40,7 @@ class ItemPickUpVC: UIViewController {
             sender.isSelected = !sender.isSelected
             
             self.deviceBtn.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
-            self.deviceView.backgroundColor = #colorLiteral(red: 0.1581287384, green: 0.6885935664, blue: 0.237049073, alpha: 1)
+            self.deviceView.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
             self.deviceImageView.image = #imageLiteral(resourceName: "smallRight")
         }
         
@@ -59,7 +59,7 @@ class ItemPickUpVC: UIViewController {
             sender.isSelected = !sender.isSelected
             
             self.validBillBtn.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
-            self.validBillView.backgroundColor = #colorLiteral(red: 0.1581287384, green: 0.6885935664, blue: 0.237049073, alpha: 1)
+            self.validBillView.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
             self.validBillImageView.image = #imageLiteral(resourceName: "smallRight")
         }
         

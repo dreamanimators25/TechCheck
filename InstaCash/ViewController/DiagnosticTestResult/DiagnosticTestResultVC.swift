@@ -1,8 +1,8 @@
 //
 //  DiagnosticTestResultVC.swift
-//  InstaCash
+//  TechCheck
 //
-//  Created by InstaCash on 25/09/18.
+//  Created by TechCheck on 25/09/18.
 //  Copyright © 2018 Prakhar Gupta. All rights reserved.
 //
 
@@ -180,7 +180,7 @@ class DiagnosticTestResultVC: UIViewController,UITableViewDelegate,UITableViewDa
             arrFunctionalTest.append(model)
         }
         
-        if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+        if CustomUserDefault.getCurrency() == "£" {
         
         //if (userDefaults.value(forKey: "countryName") as! String).contains("India"){
             
@@ -367,7 +367,7 @@ class DiagnosticTestResultVC: UIViewController,UITableViewDelegate,UITableViewDa
             section = ["Functional Checks".localized(lang: langCode)]
         }
         
-        if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+        if CustomUserDefault.getCurrency() == "£" {
             self.lblTests.text = "Your device passed".localized(lang: langCode) + " \(arrFunctionalTest.count)" + "/15 tests!".localized(lang: langCode)
         }else {
             self.lblTests.text = "Your device passed".localized(lang: langCode) + " \(arrFunctionalTest.count)" + "/13 tests!".localized(lang: langCode)
@@ -519,7 +519,6 @@ class DiagnosticTestResultVC: UIViewController,UITableViewDelegate,UITableViewDa
         let title = "Quit Diagnosis".localized(lang: langCode)
         let message = "Are you sure you want to quit?".localized(lang: langCode)
         
-        
         // Create the dialog
         let popup = PopupDialog(title: title, message: message,buttonAlignment: .horizontal, transitionStyle: .bounceDown, tapGestureDismissal: false, panGestureDismissal :false)
         
@@ -542,13 +541,13 @@ class DiagnosticTestResultVC: UIViewController,UITableViewDelegate,UITableViewDa
         popup.dismiss(animated: true, completion: nil)
         // Customize dialog appearance
         let pv = PopupDialogDefaultView.appearance()
-        pv.titleFont    = UIFont(name: "HelveticaNeue-Medium", size: 20)!
-        pv.messageFont  = UIFont(name: "HelveticaNeue", size: 16)!
+        pv.titleFont    = UIFont(name: fontNameMedium, size: 20)!
+        pv.messageFont  = UIFont(name: fontNameRegular, size: 16)!
         
         
         // Customize the container view appearance
         let pcv = PopupDialogContainerView.appearance()
-        pcv.cornerRadius    = 2
+        pcv.cornerRadius    = 10
         pcv.shadowEnabled   = true
         pcv.shadowColor     = .black
         
@@ -561,12 +560,12 @@ class DiagnosticTestResultVC: UIViewController,UITableViewDelegate,UITableViewDa
         
         // Customize default button appearance
         let db = DefaultButton.appearance()
-        db.titleFont      = UIFont(name: "HelveticaNeue-Medium", size: 16)!
+        db.titleFont      = UIFont(name: fontNameMedium, size: 16)!
         
         
         // Customize cancel button appearance
         let cb = CancelButton.appearance()
-        cb.titleFont      = UIFont(name: "HelveticaNeue-Medium", size: 16)!
+        cb.titleFont      = UIFont(name: fontNameMedium, size: 16)!
         
         
         // Present dialog

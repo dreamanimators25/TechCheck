@@ -2,12 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "last step.png",
+      "filename" : "last_step.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "last step@2x.png",
+      "filename" : "last_step-1.png",
       "scale" : "2x"
     },
     {

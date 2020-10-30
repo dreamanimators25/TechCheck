@@ -1,8 +1,8 @@
 //
 //  BankDetailVC.swift
-//  InstaCash
+//  TechCheck
 //
-//  Created by InstaCash on 24/09/18.
+//  Created by TechCheck on 24/09/18.
 //  Copyright © 2018 Prakhar Gupta. All rights reserved.
 //
 
@@ -98,7 +98,7 @@ class BankDetailVC: UIViewController,UITextFieldDelegate {
                     
                     //if (userDefaults.value(forKey: "countryName") as? String)?.contains("India") != nil {
                         
-                    if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+                    if CustomUserDefault.getCurrency() == "£" {
                         
                     for obj in 0..<allTextFiled.count{
                         let model =  self.arrUiComponents[obj]
@@ -354,7 +354,7 @@ class BankDetailVC: UIViewController,UITextFieldDelegate {
                                     else{
                                         //if (userDefaults.value(forKey: "countryName") as? String)?.contains("India") != nil {
                                             
-                                        if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+                                        if CustomUserDefault.getCurrency() == "£" {
                                             
                                             model.strKeyName = keyValue
                                             model.strUIType = arrData[0] as! String

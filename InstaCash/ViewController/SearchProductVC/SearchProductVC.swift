@@ -1,8 +1,8 @@
 //
 //  SearchProductVC.swift
-//  InstaCash
+//  TechCheck
 //
-//  Created by InstaCash on 16/10/18.
+//  Created by TechCheck on 16/10/18.
 //  Copyright © 2018 Prakhar Gupta. All rights reserved.
 //
 
@@ -38,7 +38,7 @@ class SearchProductVC: UIViewController,UICollectionViewDelegate,UICollectionVie
     {
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.isNavigationBarHidden = false
-        self.title = "InstaCash".localized(lang: langCode)
+        self.title = "TechCheck".localized(lang: langCode)
         let btnBack = UIButton(frame: CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: 25, height: 25)))
         let widthConstraint = btnBack.widthAnchor.constraint(equalToConstant: 25)
         let heightConstraint = btnBack.heightAnchor.constraint(equalToConstant: 25)

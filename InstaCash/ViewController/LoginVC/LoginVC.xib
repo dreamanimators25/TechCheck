@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_0" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,7 +13,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginVC" customModule="InstaCash" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginVC" customModule="TechCheck" customModuleProvider="target">
             <connections>
                 <outlet property="btnFb" destination="hcp-6i-o0q" id="NN2-wU-sjd"/>
                 <outlet property="btnGPlus" destination="NIJ-kV-U68" id="AkQ-Ic-vTr"/>
@@ -30,14 +28,14 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splashIcon" translatesAutoresizingMaskIntoConstraints="NO" id="EYZ-eC-On6">
-                    <rect key="frame" x="115" y="55" width="90" height="90"/>
+                    <rect key="frame" x="115" y="35" width="90" height="90"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="90" id="R0i-74-Pea"/>
                         <constraint firstAttribute="height" constant="90" id="sQH-6g-Jo7"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="InstaCash" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uir-16-nc3">
-                    <rect key="frame" x="86.5" y="155" width="147" height="31.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TechCheck" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uir-16-nc3">
+                    <rect key="frame" x="81" y="135" width="158" height="31.5"/>
                     <fontDescription key="fontDescription" name="Comfortaa-Bold" family="Comfortaa" pointSize="28"/>
                     <color key="textColor" red="0.0" green="0.49019607843137253" blue="0.30980392156862746" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
@@ -179,6 +177,7 @@
                 <constraint firstItem="7Qq-FZ-jo7" firstAttribute="trailing" secondItem="a96-mM-387" secondAttribute="trailing" id="wNU-h1-7wW"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="139" y="146"/>
         </view>
     </objects>
     <resources>
@@ -580,7 +579,7 @@ AAAAAAAAAAAALHU
         </image>
         <image name="fb" width="32" height="32"/>
         <image name="gPlus" width="32" height="32"/>
-        <image name="splashIcon" width="128" height="128"/>
+        <image name="splashIcon" width="43.5" height="43.5"/>
         <image name="trueCaller" width="32" height="32"/>
     </resources>
 </document>

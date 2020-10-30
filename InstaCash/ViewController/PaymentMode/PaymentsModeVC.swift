@@ -1,8 +1,8 @@
 //
 //  PaymentsModeVC.swift
-//  InstaCash
+//  TechCheck
 //
-//  Created by InstaCash on 20/09/18.
+//  Created by TechCheck on 20/09/18.
 //  Copyright © 2018 Prakhar Gupta. All rights reserved.
 //
 
@@ -60,15 +60,16 @@ class PaymentsModeVC: UIViewController,UITableViewDataSource,UITableViewDelegate
 
     func changeLanguageOfUI() {
       
-        self.lblTitlePaymentMode.text = "Payment Mode".localized(lang: langCode)
-        self.lblHeadSelectedPaymentMode.text = "Select Payment Mode".localized(lang: langCode)
-        self.lblChooseOnePayment.text = "Choose one payment option".localized(lang: langCode)
+        self.lblTitlePaymentMode.text = "Payment Modes".localized(lang: langCode)
+        //"Select Payment Mode"
+        self.lblHeadSelectedPaymentMode.text = "Your Payment".localized(lang: langCode)
+        //"Choose one payment option"
+        self.lblChooseOnePayment.text = "Select how you will get paid".localized(lang: langCode)
         self.lblPayableAmount.text = "Payable amount".localized(lang: langCode)
     
         self.lblSelPayMode.text = "Selected Payment Mode".localized(lang: langCode)
         
         self.btnNext.setTitle("NEXT".localized(lang: langCode), for: UIControlState.normal)
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -315,7 +316,7 @@ class PaymentsModeVC: UIViewController,UITableViewDataSource,UITableViewDelegate
         
     @IBAction func btnNextTapped(_ sender: UIButton) {
         
-        if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+        if CustomUserDefault.getCurrency() == "£" {
             
             /*
             guard btnSelect else {

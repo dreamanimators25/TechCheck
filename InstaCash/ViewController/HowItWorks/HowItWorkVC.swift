@@ -1,8 +1,8 @@
 //
 //  HowItWorkVC.swift
-//  InstaCash
+//  TechCheck
 //
-//  Created by InstaCash on 27/09/18.
+//  Created by TechCheck on 27/09/18.
 //  Copyright © 2018 Prakhar Gupta. All rights reserved.
 //
 
@@ -19,7 +19,7 @@ class HowItWorkVC: UIViewController {
     // MARK:- navigation bar setup.
     func setNavigationBar() -> Void
     {
-        self.title = "InstaCash"
+        self.title = "TechCheck"
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.isNavigationBarHidden = false
         self.navigationController?.navigationBar.barTintColor = navColor

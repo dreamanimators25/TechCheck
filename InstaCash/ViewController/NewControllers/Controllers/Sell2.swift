@@ -1,6 +1,6 @@
 //
 //  Sell2.swift
-//  InstaCash
+//  TechCheck
 //
 //  Created by CULT OF PERSONALITY on 08/10/19.
 //  Copyright © 2019 Prakhar Gupta. All rights reserved.
@@ -16,6 +16,11 @@ class Sell2: UIViewController {
     @IBOutlet weak var lblGetMore: UILabel!
     @IBOutlet weak var lblGetMore1: UILabel!
     
+    @IBOutlet weak var homeLbl: UILabel!
+    @IBOutlet weak var orderLbl: UILabel!
+    @IBOutlet weak var notiLbl: UILabel!
+    @IBOutlet weak var userLbl: UILabel!
+    
     var strDevie = String()
     var imgView = UIImageView()
     
@@ -29,4 +34,13 @@ class Sell2: UIViewController {
         lblGetMore1.text = "Get" + " \(CustomUserDefault.getCurrency()) " + "50 more when you pass failed tests. Retry now"
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        self.homeLbl.text = "Home"
+        self.orderLbl.text = ""
+        self.notiLbl.text = ""
+        self.userLbl.text = ""
+    }
+    
 }

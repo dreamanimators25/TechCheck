@@ -1,6 +1,6 @@
 //
 //  StartDeviceCondition.swift
-//  InstaCash
+//  TechCheck
 //
 //  Created by CULT OF PERSONALITY on 10/10/19.
 //  Copyright © 2019 Prakhar Gupta. All rights reserved.
@@ -17,7 +17,7 @@ class StartDevice1: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+        if CustomUserDefault.getCurrency() == "£" {
             lbl.isHidden = false
         }else {
             lbl.isHidden = true
@@ -27,8 +27,8 @@ class StartDevice1: UIViewController {
     
     func changeLanguageOfUI() {
         
-        self.lbl.text = "You will need your charger and earphones.".localized(lang: langCode)
-        self.lblHii.text = "Hi! You’re about to diagnose your phone to help us give you an exact quote.".localized(lang: langCode)
+        self.lbl.text = "You will need your charger and earphones".localized(lang: langCode)
+        self.lblHii.text = "Hi! You’re about to run the TechCheck on your phone to give you an accurate quote".localized(lang: langCode)
         
         self.btnReady.setTitle("I’m Ready".localized(lang: langCode), for: UIControlState.normal)
     }

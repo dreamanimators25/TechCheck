@@ -1,8 +1,8 @@
 //
 //  SideMenuVC.swift
-//  InstaCash
+//  TechCheck
 //
-//  Created by InstaCash on 12/09/18.
+//  Created by TechCheck on 12/09/18.
 //  Copyright © 2018 Prakhar Gupta. All rights reserved.
 //
 
@@ -35,7 +35,7 @@ class SideMenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     func viewSetDynamic(){
         //if (userDefaults.value(forKey: "countryName") as? String)?.contains("India") != nil {
         
-        if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+        if CustomUserDefault.getCurrency() == "£" {
             
              arrLogoImage = [
                 UIImage(named: "myOrders")!,UIImage(named: "home")!,UIImage(named: "myAccount")!,UIImage(named: "myOrders")!,UIImage(named: "History")!,UIImage(named: "promoters")!,UIImage(named: "works")!,UIImage(named: "aboutUs")!,UIImage(named: "termsCondition")!,UIImage(named: "faq")!,UIImage(named: "contactUs")!,UIImage(named: "share")!,
@@ -133,7 +133,7 @@ class SideMenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         
         //if (userDefaults.value(forKey: "countryName") as? String)?.contains("India") != nil {
         
-        if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+        if CustomUserDefault.getCurrency() == "£" {
             
             if indexPath.row == 0{
                 DispatchQueue.main.async {
@@ -316,7 +316,7 @@ class SideMenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     {
         //if (userDefaults.value(forKey: "countryName") as? String)?.contains("India") != nil {
         
-        if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+        if CustomUserDefault.getCurrency() == "£" {
             
             guard let url = URL(string: "https://getinstacash.in/terms-conditions.php") else {
                 return //be safe
@@ -343,7 +343,7 @@ class SideMenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     {
         //if (userDefaults.value(forKey: "countryName") as? String)?.contains("India") != nil {
             
-        if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+        if CustomUserDefault.getCurrency() == "£" {
             
             guard let url = URL(string: "https://getinstacash.in/faq.php") else {
                 return //be safe

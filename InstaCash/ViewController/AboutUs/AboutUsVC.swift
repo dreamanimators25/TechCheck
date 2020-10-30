@@ -1,8 +1,8 @@
 //
 //  AboutUsVC.swift
-//  InstaCash
+//  TechCheck
 //
-//  Created by InstaCash on 28/09/18.
+//  Created by TechCheck on 28/09/18.
 //  Copyright © 2018 Prakhar Gupta. All rights reserved.
 //
 
@@ -94,7 +94,7 @@ class AboutUsVC: UIViewController,MFMailComposeViewControllerDelegate,PushToHome
     @IBAction func btnYouTubePressed(_ sender: UIButton) {
         //if (userDefaults.value(forKey: "countryName") as? String)?.contains("India") != nil {
             
-        if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+        if CustomUserDefault.getCurrency() == "£" {
             
             guard let url = URL(string: "https://www.youtube.com/channel/UCUEYdVx2ftX2NhPjgQ5qVlA") else {
                 return //be safe
@@ -122,7 +122,7 @@ class AboutUsVC: UIViewController,MFMailComposeViewControllerDelegate,PushToHome
     @IBAction func btnInstagramPressed(_ sender: UIButton) {
         //if (userDefaults.value(forKey: "countryName") as? String)?.contains("India") != nil {
             
-        if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+        if CustomUserDefault.getCurrency() == "£" {
             
             guard let url = URL(string: "https://www.instagram.com/get_instacash/") else {
                 return //be safe
@@ -150,7 +150,7 @@ class AboutUsVC: UIViewController,MFMailComposeViewControllerDelegate,PushToHome
     @IBAction func btnFollowOnTwitterPressed(_ sender: UIButton) {
         //if (userDefaults.value(forKey: "countryName") as? String)?.contains("India") != nil {
             
-        if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+        if CustomUserDefault.getCurrency() == "£" {
             
             guard let url = URL(string: "https://twitter.com/GetInstaCash") else {
                 return //be safe
@@ -178,7 +178,7 @@ class AboutUsVC: UIViewController,MFMailComposeViewControllerDelegate,PushToHome
     @IBAction func btnFaceBookPressed(_ sender: UIButton) {
         //if (userDefaults.value(forKey: "countryName") as? String)?.contains("India") != nil {
             
-        if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+        if CustomUserDefault.getCurrency() == "£" {
             
             guard let url = URL(string: "https://www.facebook.com/GetInstaCash/") else {
                 return //be safe
@@ -206,7 +206,7 @@ class AboutUsVC: UIViewController,MFMailComposeViewControllerDelegate,PushToHome
     @IBAction func btnWesitePressed(_ sender: UIButton) {
         //if (userDefaults.value(forKey: "countryName") as? String)?.contains("India") != nil {
         
-        if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+        if CustomUserDefault.getCurrency() == "£" {
             
             guard let url = URL(string: "https://getinstacash.in/") else {
                 return //be safe
@@ -236,7 +236,7 @@ class AboutUsVC: UIViewController,MFMailComposeViewControllerDelegate,PushToHome
         
         //if (userDefaults.value(forKey: "countryName") as? String)?.contains("India") != nil {
         
-        if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+        if CustomUserDefault.getCurrency() == "£" {
             emailAddress = "support@getinstacash.in"
         }
         else{

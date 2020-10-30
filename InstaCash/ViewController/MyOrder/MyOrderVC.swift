@@ -1,8 +1,8 @@
 //
 //  MyOrderVC.swift
-//  InstaCash
+//  TechCheck
 //
-//  Created by InstaCash on 27/09/18.
+//  Created by TechCheck on 27/09/18.
 //  Copyright © 2018 Prakhar Gupta. All rights reserved.
 //
 
@@ -19,6 +19,11 @@ class MyOrderVC: UIViewController,UITableViewDelegate,UITableViewDataSource,Upda
     @IBOutlet weak var lbl2: UILabel!
     @IBOutlet weak var lbl3: UILabel!
     
+    @IBOutlet weak var homeLbl: UILabel!
+    @IBOutlet weak var orderLbl: UILabel!
+    @IBOutlet weak var notiLbl: UILabel!
+    @IBOutlet weak var userLbl: UILabel!
+    
     //@IBOutlet weak var lblMessages: UILabel!
     @IBOutlet weak var tblViewOrderLust: UITableView!
 
@@ -29,6 +34,11 @@ class MyOrderVC: UIViewController,UITableViewDelegate,UITableViewDataSource,Upda
     
     override func viewWillAppear(_ animated: Bool) {
         self.changeLanguageOfUI()
+        
+        self.homeLbl.text = ""
+        self.orderLbl.text = "Orders"
+        self.notiLbl.text = ""
+        self.userLbl.text = ""
     }
     
     func changeLanguageOfUI() {
@@ -82,7 +92,7 @@ class MyOrderVC: UIViewController,UITableViewDelegate,UITableViewDataSource,Upda
         if reachability?.connection.description != "No Connection"{
             self.arrOrderList.removeAll()
             OrderListModel.fetchOrderListFromServer(isInterNet:true,getController: self) { (arrOrderList) in
-                if arrOrderList.count > 0{
+                if arrOrderList.count > 0 {
                     self.arrOrderList = arrOrderList
                     self.arrOrderListCopy = arrOrderList //s.
                     //self.lblMessages.isHidden = true
@@ -152,11 +162,11 @@ class MyOrderVC: UIViewController,UITableViewDelegate,UITableViewDataSource,Upda
         
         if(btn == btnAll)
         {
-            btnAll.setTitleColor(UIColor().gradientGreenFirstColor(), for: .normal)
+            btnAll.setTitleColor(UIColor().gradientTechCheckFirstColor(), for: .normal)
             btnProgress.setTitleColor(UIColor().HexToColor(hexString:"C7C7C7"), for: .normal)
             btnCompleted.setTitleColor(UIColor().HexToColor(hexString:"C7C7C7"), for: .normal)
-            
-            lbl1.backgroundColor = UIColor().gradientGreenFirstColor()
+                        
+            lbl1.backgroundColor = UIColor().gradientTechCheckFirstColor()
             lbl2.backgroundColor = UIColor.white
             lbl3.backgroundColor = UIColor.white
             
@@ -165,11 +175,11 @@ class MyOrderVC: UIViewController,UITableViewDelegate,UITableViewDataSource,Upda
         }
         else if(btn == btnProgress)
         {
-            btnProgress.setTitleColor(UIColor().gradientGreenFirstColor(), for: .normal)
+            btnProgress.setTitleColor(UIColor().gradientTechCheckFirstColor(), for: .normal)
             btnAll.setTitleColor(UIColor().HexToColor(hexString:"C7C7C7"), for: .normal)
             btnCompleted.setTitleColor(UIColor().HexToColor(hexString:"C7C7C7"), for: .normal)
             
-            lbl2.backgroundColor = UIColor().gradientGreenFirstColor()
+            lbl2.backgroundColor = UIColor().gradientTechCheckFirstColor()
             lbl1.backgroundColor = UIColor.white
             lbl3.backgroundColor = UIColor.white
             
@@ -201,11 +211,11 @@ class MyOrderVC: UIViewController,UITableViewDelegate,UITableViewDataSource,Upda
         }
         else
         {
-            btnCompleted.setTitleColor(UIColor().gradientGreenFirstColor(), for: .normal)
+            btnCompleted.setTitleColor(UIColor().gradientTechCheckFirstColor(), for: .normal)
             btnAll.setTitleColor(UIColor().HexToColor(hexString:"C7C7C7"), for: .normal)
             btnProgress.setTitleColor(UIColor().HexToColor(hexString:"C7C7C7"), for: .normal)
             
-            lbl3.backgroundColor = UIColor().gradientGreenFirstColor()
+            lbl3.backgroundColor = UIColor().gradientTechCheckFirstColor()
             lbl2.backgroundColor = UIColor.white
             lbl1.backgroundColor = UIColor.white
             
@@ -233,9 +243,7 @@ class MyOrderVC: UIViewController,UITableViewDelegate,UITableViewDataSource,Upda
                 self.arrOrderList = arrComplete
                 self.tblViewOrderLust.reloadData()
                 
-            }
-            
-            
+            }            
 
         }
     }

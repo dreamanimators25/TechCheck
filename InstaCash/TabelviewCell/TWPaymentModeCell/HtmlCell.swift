@@ -1,6 +1,6 @@
 //
 //  HtmlCell.swift
-//  InstaCash
+//  TechCheck
 //
 //  Created by sameer khan on 31/05/20.
 //  Copyright © 2020 Prakhar Gupta. All rights reserved.

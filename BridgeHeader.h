@@ -1,8 +1,8 @@
 //
 //  BridgeHeader.h
-//  InstaCash
+//  TechCheck
 //
-//  Created by InstaCash on 12/01/19.
+//  Created by TechCheck on 12/01/19.
 //  Copyright © 2019 Prakhar Gupta. All rights reserved.
 //
 
@@ -17,5 +17,7 @@
 #import "UIScrollView+TPKeyboardAvoidingAdditions.h"
 
 #import "CAPSPageMenu.h"
+
+#include<ifaddrs.h>
 
 

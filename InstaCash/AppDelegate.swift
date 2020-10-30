@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  InstaCash
+//  TechCheck
 //
 //  Created by Prakhar Gupta on 9/5/18.
 //  Copyright © 2018 Prakhar Gupta. All rights reserved.
@@ -19,13 +19,15 @@ import LocalAuthentication
 //import Crashlytics
 //import Fabric
 import FirebaseMessaging
-import ZDCChat
-
+import Intercom
 
 var lang_code = String()
 var languageCode = String()
 var translation = String()
 var langCode = String()
+
+let UKBabseUrl = "https://icat.reboxed.co/instaCash/api/v5/public/"
+//let UKBabseUrl = "https://stage.getinstacash.in/instaCash/api/v5/public/"
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDelegate,MessagingDelegate {
@@ -44,17 +46,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     //MARK:- Set root view
     func setRootViewController() {
         
-        if UIDevice.current.model.hasPrefix("iPad") {
-            let vc = IPadVC()
+        //if UIDevice.current.model.hasPrefix("iPad") {
+            //let vc = IPadVC()
+            //nav = UINavigationController.init(rootViewController: vc)
+            //self.window?.rootViewController = nav
+            //self.window?.makeKeyAndVisible()
+        //}else {
+            //let vc = CountryVC()
+            let vc = LaunchScreenVC()
             nav = UINavigationController.init(rootViewController: vc)
+            nav?.navigationBar.isHidden = true
             self.window?.rootViewController = nav
             self.window?.makeKeyAndVisible()
-        }else {
-            let vc = CountryVC()
-            nav = UINavigationController.init(rootViewController: vc)
-            self.window?.rootViewController = nav
-            self.window?.makeKeyAndVisible()
-        }
+        //}
         
     }
     
@@ -105,7 +109,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
                 completionHandler: {_, _ in })
             // For iOS 10 data message (sent via FCM)
             Messaging.messaging().delegate = self
-
 
         } else {
             let settings: UIUserNotificationSettings =
@@ -158,7 +161,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         //        })
         //
         let content = UNMutableNotificationContent()
-        content.title = "InstaCash Message"
+        content.title = "TechCheck Message"
         content.subtitle = name
         content.body = message
         content.sound = UNNotificationSound.default()
@@ -373,7 +376,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
                 
                 print(parameters)
                 
-                // Set Dictionary for InstaCashInformation
+                // Set Dictionary for TechCheckInformation
                 
                 if let keyExists = parameters["country"] {
                     if keyExists == "tw" {
@@ -416,7 +419,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
                 
                 print(parameters)
                 
-                // Set Dictionary for InstaCashInformation
+                // Set Dictionary for TechCheckInformation
                 
                 if let keyExists = parameters["country"] {
                     if keyExists == "tw" {
@@ -606,12 +609,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     //MARK:- App lifecycle
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-    //print(URL(string:"https://sbox.getinstacash.in/ic-web/re.php?utm_source=gPay&utm_medium=link&utm_campaign=gPayAffiliate&utm_term=GPAY250")?.params())
-                
+        
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         
+        //Sameer 06/10/2020
+        //Intercom.setApiKey("<Your iOS API Key>", forAppId: "<Your App ID>")
+        Intercom.setApiKey("ios_sdk-877b0a9a1daaef87e1fe73862fe33dab0e14912f", forAppId:"nv6ywlh7")
+        
         //Sameer 30/5/2020
-        ZDCChat.initialize(withAccountKey: "2xn7hyX7VWiVkouAyGvhXQo9DHaDqONS")
+        //ZDCChat.initialize(withAccountKey: "2xn7hyX7VWiVkouAyGvhXQo9DHaDqONS")
         
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         
@@ -753,6 +759,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         //sleep(3)
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window!.backgroundColor = UIColor.white
+        
+        
         if userDefaults.value(forKey: "baseURL") == nil {
             setRootViewController()
         }
@@ -760,7 +768,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
             if CustomUserDefault.getCityId().isEmpty {
                 setRootViewController()
             }else {
-                setRotControllersWithSideMenu(sendMyOrderArray: [HomeModel](), sendBrandArray: [HomeModel](), SendPupularDevoice: [HomeModel](), SendMyCurrentDevice: [HomeModel](), isComingFromWelcome: false, strAppCodeGet:"")
+                // Sameer 5/10/20
+                //setRotControllersWithSideMenu(sendMyOrderArray: [HomeModel](), sendBrandArray: [HomeModel](), SendPupularDevoice: [HomeModel](), SendMyCurrentDevice: [HomeModel](), isComingFromWelcome: false, strAppCodeGet:"")
+         
+                setRootViewController()
             }
         }
         connectToFcm()

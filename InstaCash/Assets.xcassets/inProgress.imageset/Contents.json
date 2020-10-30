@@ -2,12 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "In progress.png",
+      "filename" : "ic_in_progress-1.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "In progress@2x.png",
+      "filename" : "ic_in_progress.png",
       "scale" : "2x"
     },
     {

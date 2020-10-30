@@ -1,8 +1,8 @@
 //
 //  HomeModel.swift
-//  InstaCash
+//  TechCheck
 //
-//  Created by InstaCash on 11/09/18.
+//  Created by TechCheck on 11/09/18.
 //  Copyright © 2018 Prakhar Gupta. All rights reserved.
 //
 
@@ -143,9 +143,15 @@ class HomeModel{
             "isFrequentDevice" : "" ,
             "isCurrentDevice" : "",
             "isOrderData" : ""
-            ]
+        ]
+        
+        print(strUrl)
+        print(parametersHome)
         
         self.homeApiPost(strURL: strUrl, parameters: parametersHome as NSDictionary, completionHandler: {responseObject , error in
+            
+            print(responseObject ?? [:])
+            
             if error == nil {
                 
                 if responseObject?["status"] as! String == "Success" {

@@ -1,6 +1,6 @@
 //
 //  CountrySelection.swift
-//  InstaCash
+//  TechCheck
 //
 //  Created by CULT OF PERSONALITY on 06/10/19.
 //  Copyright © 2019 Prakhar Gupta. All rights reserved.
@@ -21,7 +21,7 @@ class CountrySelection: UIViewController, UICollectionViewDelegate, UICollection
     let reachability: Reachability? = Reachability()
     var isSelectedIndex = -1
     var stateSelection = 0
-    var selectedState = "Delhi"
+    var selectedState = "England"
     
     func changeLanguageOfUI() {
         

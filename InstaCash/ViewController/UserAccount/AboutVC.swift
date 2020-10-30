@@ -1,6 +1,6 @@
 //
 //  AboutUsVC.swift
-//  InstaCash
+//  TechCheck
 //
 //  Created by Sameer's MacBook Pro on 18/02/20.
 //  Copyright © 2020 Prakhar Gupta. All rights reserved.
@@ -32,7 +32,7 @@ class AboutVC: UIViewController,CAPSPageMenuDelegate {
     
     func changeLanguageOfUI() {
         
-        self.lblInstacash.text = "InstaCash".localized(lang: langCode)
+        self.lblInstacash.text = "TechCheck".localized(lang: langCode)
         
         //self.searchBarProduct.placeholder = "Search for your Device...".localized(lang: langCode)
         //self.btnSeeOrderStatus.setTitle("SEE ORDER STATUS".localized(lang: langCode), for: UIControlState.normal)
@@ -94,11 +94,11 @@ class AboutVC: UIViewController,CAPSPageMenuDelegate {
         let parameters  = [
             CAPSPageMenuOptionScrollMenuBackgroundColor : UIColor.clear,
             CAPSPageMenuOptionViewBackgroundColor : UIColor.clear,
-            CAPSPageMenuOptionSelectionIndicatorColor : #colorLiteral(red: 0.1581287384, green: 0.6885935664, blue: 0.237049073, alpha: 1),
+            CAPSPageMenuOptionSelectionIndicatorColor : #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1),
             CAPSPageMenuOptionUnselectedMenuItemLabelColor:UIColor.gray,
             CAPSPageMenuOptionBottomMenuHairlineColor : UIColor.white,
-            CAPSPageMenuOptionSelectedMenuItemLabelColor : #colorLiteral(red: 0.1581287384, green: 0.6885935664, blue: 0.237049073, alpha: 1),
-            CAPSPageMenuOptionMenuItemFont : UIFont(name: "Roboto-Medium", size: 15.0)!,
+            CAPSPageMenuOptionSelectedMenuItemLabelColor : #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1),
+            CAPSPageMenuOptionMenuItemFont : UIFont(name: fontNameMedium, size: 15.0)!,
             
             CAPSPageMenuOptionMenuItemWidthBasedOnTitleTextWidth : true,
             CAPSPageMenuOptionCenterMenuItems : true,

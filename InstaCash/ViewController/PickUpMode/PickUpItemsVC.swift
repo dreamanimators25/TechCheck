@@ -1,8 +1,8 @@
 //
 //  PickUpItemsVC.swift
-//  InstaCash
+//  TechCheck
 //
-//  Created by InstaCash on 23/10/18.
+//  Created by TechCheck on 23/10/18.
 //  Copyright © 2018 Prakhar Gupta. All rights reserved.
 //
 
@@ -260,7 +260,7 @@ class PickUpItemsVC: UIViewController,UITextFieldDelegate {
         else{
             sender.isSelected = true
             isDeviceSelected = true
-            viewDevice.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+            viewDevice.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
             btnDevice.titleLabel?.textColor = UIColor.white
             
             totalSelectedButton += 1
@@ -284,7 +284,7 @@ class PickUpItemsVC: UIViewController,UITextFieldDelegate {
         }
         else{
             sender.isSelected = true
-            viewValidBill.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+            viewValidBill.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
             btnValidBill.titleLabel?.textColor = UIColor.white
             
             totalSelectedButton += 1
@@ -308,7 +308,7 @@ class PickUpItemsVC: UIViewController,UITextFieldDelegate {
         }
         else{
             sender.isSelected = true
-            viewBox.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+            viewBox.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
             btnBox.titleLabel?.textColor = UIColor.white
             
             totalSelectedButton += 1
@@ -332,7 +332,7 @@ class PickUpItemsVC: UIViewController,UITextFieldDelegate {
         }
         else{
             sender.isSelected = true
-            viewEarPhones.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+            viewEarPhones.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
             btnEarPhones.titleLabel?.textColor = UIColor.white
             
             totalSelectedButton += 1
@@ -356,7 +356,7 @@ class PickUpItemsVC: UIViewController,UITextFieldDelegate {
         }
         else{
             sender.isSelected = true
-            viewOriginalCharger.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+            viewOriginalCharger.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
             btnOriginalCharger.titleLabel?.textColor = UIColor.white
             
             totalSelectedButton += 1
@@ -483,7 +483,7 @@ class PickUpItemsVC: UIViewController,UITextFieldDelegate {
                 }
                 else
                 {
-                    let alertController = UIAlertController(title: "InstaCash".localized(lang: langCode), message:"Seems connection loss from server".localized(lang: langCode), preferredStyle: .alert)
+                    let alertController = UIAlertController(title: "TechCheck".localized(lang: langCode), message:"Seems connection loss from server".localized(lang: langCode), preferredStyle: .alert)
                     
                     let sendButton = UIAlertAction(title: "Ok".localized(lang: langCode), style: .default, handler: { (action) -> Void in
                         
@@ -497,7 +497,7 @@ class PickUpItemsVC: UIViewController,UITextFieldDelegate {
         }
         else
         {
-            let alertController = UIAlertController(title: "InstaCash".localized(lang: langCode), message:"No connection found".localized(lang: langCode), preferredStyle: .alert)
+            let alertController = UIAlertController(title: "TechCheck".localized(lang: langCode), message:"No connection found".localized(lang: langCode), preferredStyle: .alert)
             
             let sendButton = UIAlertAction(title: "Ok".localized(lang: langCode), style: .default, handler: { (action) -> Void in
                 

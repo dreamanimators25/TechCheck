@@ -1,6 +1,6 @@
 //
 //  FaqVC.swift
-//  InstaCash
+//  TechCheck
 //
 //  Created by Sameer's MacBook Pro on 18/02/20.
 //  Copyright © 2020 Prakhar Gupta. All rights reserved.

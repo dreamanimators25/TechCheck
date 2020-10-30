@@ -1,8 +1,8 @@
 //
 //  ScreenTestingVC.swift
-//  InstaCash
+//  TechCheck
 //
-//  Created by InstaCash on 25/09/18.
+//  Created by TechCheck on 25/09/18.
 //  Copyright © 2018 Prakhar Gupta. All rights reserved.
 //
 
@@ -102,12 +102,14 @@ class ScreenTestingVC: UIViewController,RecorderDelegate {
     func changeLanguageOfUI() {
         
         self.lblCheckingScreenCalibration.text = "Checking screen calibration".localized(lang: langCode)
-        self.lblPressStart.text = "Press “Start’ and follow the path".localized(lang: langCode)
+        self.lblPressStart.text = "Press “Start“ and follow the path".localized(lang: langCode)
         
         //self.btnGuideMe.setTitle("Guide me".localized(lang: langCode), for: UIControlState.normal)
         
         let myAttribute = [NSAttributedString.Key.foregroundColor: navColor, NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 17.0)] as [NSAttributedStringKey : Any]
-        let str = NSAttributedString.init(string: "Guide me".localized(lang: langCode), attributes: myAttribute)
+        //"Guide me"
+        let str = NSAttributedString.init(string: "Total time for test 60sec".localized(lang: langCode), attributes: myAttribute)
+        
         self.btnGuideMe.setAttributedTitle(str, for: .normal)
         
         self.btnStart1.setTitle("Start".localized(lang: langCode), for: UIControlState.normal)
@@ -128,7 +130,7 @@ class ScreenTestingVC: UIViewController,RecorderDelegate {
 
         //if (userDefaults.value(forKey: "countryName") as? String)?.contains("India") != nil {
         
-        if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+        if CustomUserDefault.getCurrency() == "£" {
             userDefaults.setValue(true, forKey: "earphone_complete")
             userDefaults.setValue(true, forKey: "charger_complete")
         }
@@ -231,7 +233,7 @@ class ScreenTestingVC: UIViewController,RecorderDelegate {
     // MARK:- navigation bar setup.
     func setNavigationBar() -> Void
     {
-        self.title = "InstaCash".localized(lang: langCode)
+        self.title = "TechCheck".localized(lang: langCode)
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.isNavigationBarHidden = false
         let btnBack = UIButton(frame: CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: 25, height: 25)))
@@ -335,7 +337,8 @@ class ScreenTestingVC: UIViewController,RecorderDelegate {
                                                                    width: obstacleViewFrame.width ,
                                                                    height: obstacleViewFrame.height),
                                                cornerRadius: 0).cgPath
-                levelLayer.fillColor = UIColor.green.cgColor
+                //levelLayer.fillColor = UIColor.green.cgColor
+                levelLayer.fillColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1).cgColor
                 obstacleView.layer.addSublayer(levelLayer)
                 
             }
@@ -487,13 +490,13 @@ class ScreenTestingVC: UIViewController,RecorderDelegate {
             popup.dismiss(animated: true, completion: nil)
             // Customize dialog appearance
             let pv = PopupDialogDefaultView.appearance()
-            pv.titleFont    = UIFont(name: "HelveticaNeue-Medium", size: 20)!
-            pv.messageFont  = UIFont(name: "HelveticaNeue", size: 16)!
+            pv.titleFont    = UIFont(name: fontNameMedium, size: 20)!
+            pv.messageFont  = UIFont(name: fontNameRegular, size: 16)!
             
             
             // Customize the container view appearance
             let pcv = PopupDialogContainerView.appearance()
-            pcv.cornerRadius    = 2
+            pcv.cornerRadius    = 10
             pcv.shadowEnabled   = true
             pcv.shadowColor     = .black
             
@@ -506,12 +509,12 @@ class ScreenTestingVC: UIViewController,RecorderDelegate {
             
             // Customize default button appearance
             let db = DefaultButton.appearance()
-            db.titleFont      = UIFont(name: "HelveticaNeue-Medium", size: 16)!
+            db.titleFont      = UIFont(name: fontNameMedium, size: 16)!
             
             
             // Customize cancel button appearance
             let cb = CancelButton.appearance()
-            cb.titleFont      = UIFont(name: "HelveticaNeue-Medium", size: 16)!
+            cb.titleFont      = UIFont(name: fontNameMedium, size: 16)!
             
             
             // Present dialog

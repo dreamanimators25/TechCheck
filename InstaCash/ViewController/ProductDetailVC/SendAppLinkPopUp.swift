@@ -1,8 +1,8 @@
 //
 //  SendAppLinkPopUp.swift
-//  InstaCash
+//  TechCheck
 //
-//  Created by InstaCash on 24/12/18.
+//  Created by TechCheck on 24/12/18.
 //  Copyright © 2018 Prakhar Gupta. All rights reserved.
 //
 
@@ -38,7 +38,7 @@ class SendAppLinkPopUp: UIViewController,UITextFieldDelegate {
         }
         //if (userDefaults.value(forKey: "countryName") as? String)?.contains("India") != nil {
         
-        if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+        if CustomUserDefault.getCurrency() == "£" {
             
             txtEmailAddress.isHidden = true
             txtMobileNumber.isHidden = false
@@ -57,7 +57,7 @@ class SendAppLinkPopUp: UIViewController,UITextFieldDelegate {
         if userDefaults.value(forKey: "countryCode") == nil {
             //if (userDefaults.value(forKey: "countryName") as? String)?.contains("India") != nil {
             
-            if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+            if CustomUserDefault.getCurrency() == "£" {
                 txtCountryCode.text = "+91"
             }
             //else if (userDefaults.value(forKey: "countryName") as? String)?.contains("Malaysia") != nil {
@@ -80,7 +80,7 @@ class SendAppLinkPopUp: UIViewController,UITextFieldDelegate {
     }
     
     func showAlertMessage(strMessage:String){
-        let alertController = UIAlertController(title: "InstaCash", message: strMessage, preferredStyle: .alert)
+        let alertController = UIAlertController(title: "TechCheck", message: strMessage, preferredStyle: .alert)
         let okButton = UIAlertAction(title: "Ok", style: .cancel, handler: { (action) -> Void in
         })
         
@@ -92,7 +92,7 @@ class SendAppLinkPopUp: UIViewController,UITextFieldDelegate {
     @IBAction func btnSendAppLink(_ sender: UIButton) {
         //if (userDefaults.value(forKey: "countryName") as? String)?.contains("India") != nil {
             
-        if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+        if CustomUserDefault.getCurrency() == "£" {
             
             if (txtMobileNumber.text?.count)! < 10 {
                 showAlertMessage(strMessage: "Enter valid mobile number")
@@ -154,7 +154,7 @@ class SendAppLinkPopUp: UIViewController,UITextFieldDelegate {
       if textField == txtMobileNumber{
             //if (userDefaults.value(forKey: "countryName") as? String)?.contains("India") != nil {
             
-            if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+            if CustomUserDefault.getCurrency() == "£" {
                 
                 if (textField.text?.utf8CString.count)! > 10
                 {
@@ -213,7 +213,7 @@ class SendAppLinkPopUp: UIViewController,UITextFieldDelegate {
 
         //if (userDefaults.value(forKey: "countryName") as? String)?.contains("India") != nil {
         
-        if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+        if CustomUserDefault.getCurrency() == "£" {
             senderId = txtMobileNumber.text!
             strType = "sms"
         }

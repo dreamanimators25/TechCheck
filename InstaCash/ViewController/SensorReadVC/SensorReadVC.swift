@@ -1,7 +1,7 @@
 //
 //  SensorReadVC.swift
-//  InstaCash
-//  Created by InstaCash on 25/09/18.
+//  TechCheck
+//  Created by TechCheck on 25/09/18.
 //  Copyright © 2018 Prakhar Gupta. All rights reserved.
 
 import UIKit
@@ -59,7 +59,7 @@ class SensorReadVC: UIViewController {
     func changeLanguageOfUI() {
         
         self.lblCheckingProximity.text = "Checking proximity sensors".localized(lang: langCode)
-        self.lblWaveHand.text = "Wave your hand on the device’s screen.".localized(lang: langCode)
+        self.lblWaveHand.text = "Wave your hand close to the screen.".localized(lang: langCode)
         
         //self.btnGuideMe.setTitle("Guide me".localized(lang: langCode), for: UIControlState.normal)
         
@@ -192,13 +192,13 @@ class SensorReadVC: UIViewController {
         popup.dismiss(animated: true, completion: nil)
         // Customize dialog appearance
         let pv = PopupDialogDefaultView.appearance()
-        pv.titleFont    = UIFont(name: "HelveticaNeue-Medium", size: 20)!
-        pv.messageFont  = UIFont(name: "HelveticaNeue", size: 16)!
+        pv.titleFont    = UIFont(name: fontNameMedium, size: 20)!
+        pv.messageFont  = UIFont(name: fontNameRegular, size: 16)!
         
         
         // Customize the container view appearance
         let pcv = PopupDialogContainerView.appearance()
-        pcv.cornerRadius    = 2
+        pcv.cornerRadius    = 10
         pcv.shadowEnabled   = true
         pcv.shadowColor     = .black
         
@@ -211,11 +211,11 @@ class SensorReadVC: UIViewController {
         
         // Customize default button appearance
         let db = DefaultButton.appearance()
-        db.titleFont      = UIFont(name: "HelveticaNeue-Medium", size: 16)!
+        db.titleFont      = UIFont(name: fontNameMedium, size: 16)!
         
         // Customize cancel button appearance
         let cb = CancelButton.appearance()
-        cb.titleFont      = UIFont(name: "HelveticaNeue-Medium", size: 16)!
+        cb.titleFont      = UIFont(name: fontNameMedium, size: 16)!
         
         
         // Present dialog

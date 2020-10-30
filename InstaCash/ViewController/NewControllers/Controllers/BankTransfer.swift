@@ -1,6 +1,6 @@
 //
 //  BankTransfer.swift
-//  InstaCash
+//  TechCheck
 //
 //  Created by CULT OF PERSONALITY on 04/11/19.
 //  Copyright © 2019 Prakhar Gupta. All rights reserved.
@@ -71,7 +71,7 @@ class BankTransfer: UIViewController,UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+        if CustomUserDefault.getCurrency() == "£" {
             totalNumberCount = 10
         }else if CustomUserDefault.getCurrency() == "RM" {
             totalNumberCount = 8
@@ -591,7 +591,7 @@ class BankTransfer: UIViewController,UITextFieldDelegate {
                 if error == nil {
                     if responseObject?["status"] as! String == "Success"{
                         /*
-                         UIViewController().showAlert("InstaCash", message: "Your order has been successfully placed.", alertButtonTitles: ["OK"], alertButtonStyles: [.default], vc: self
+                         UIViewController().showAlert("TechCheck", message: "Your order has been successfully placed.", alertButtonTitles: ["OK"], alertButtonStyles: [.default], vc: self
                          , completion: { (ind) in
                          
                          //let vc = HomeVC()

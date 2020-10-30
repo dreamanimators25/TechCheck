@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_0" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Roboto-Bold.ttf">
-            <string>Roboto-Bold</string>
+        <array key="Supply-Bold.otf">
+            <string>Supply-Bold</string>
         </array>
-        <array key="Roboto-Regular.ttf">
-            <string>Roboto-Regular</string>
+        <array key="Supply-Regular.otf">
+            <string>Supply-Regular</string>
         </array>
     </customFonts>
     <objects>
@@ -28,20 +26,20 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iLO-6E-2FJ">
-                    <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                     <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RG9-oz-c6I" customClass="shadowCornerButton" customModule="InstaCash" customModuleProvider="target">
-                    <rect key="frame" x="20" y="494" width="280" height="44"/>
-                    <color key="backgroundColor" red="0.094117647060000004" green="0.60784313729999995" blue="0.17254901959999999" alpha="1" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="18"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RG9-oz-c6I" customClass="shadowCornerButton" customModule="TechCheck" customModuleProvider="target">
+                    <rect key="frame" x="15" y="800.5" width="384" height="65.5"/>
+                    <color key="backgroundColor" red="0.34901960780000002" green="0.062745098040000002" blue="0.56862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" name="Supply-Bold" family="Supply" pointSize="18"/>
                     <state key="normal" title="Start device condition reporting">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
@@ -55,22 +53,22 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We’re almost there. The final thing we need from you is an honest self-report of the device condition." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HJW-fH-9iM">
-                    <rect key="frame" x="20" y="343.5" width="280" height="28.5"/>
-                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
+                    <rect key="frame" x="20" y="458" width="374" height="43.5"/>
+                    <fontDescription key="fontDescription" name="Supply-Regular" family="Supply" pointSize="12"/>
                     <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Awesome! One last thing…" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rWS-fS-Cft">
-                    <rect key="frame" x="58.5" y="313.5" width="203" height="20"/>
-                    <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="17"/>
+                    <rect key="frame" x="76.5" y="428" width="261.5" height="20"/>
+                    <fontDescription key="fontDescription" name="Supply-Bold" family="Supply" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eye" translatesAutoresizingMaskIntoConstraints="NO" id="IP9-sQ-ecw">
-                    <rect key="frame" x="55.5" y="94.5" width="209" height="209"/>
+                    <rect key="frame" x="102.5" y="209" width="209" height="209"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rTK-qy-0dg">
-                    <rect key="frame" x="10" y="30" width="40" height="40"/>
+                    <rect key="frame" x="10" y="54" width="40" height="40"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="40" id="Eek-qi-bed"/>
                     </constraints>
@@ -84,7 +82,7 @@
             <constraints>
                 <constraint firstItem="iLO-6E-2FJ" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="0Uw-OD-Bta"/>
                 <constraint firstItem="RG9-oz-c6I" firstAttribute="height" secondItem="vUN-kp-3ea" secondAttribute="height" multiplier="0.08" id="3vf-Vf-26p"/>
-                <constraint firstAttribute="trailing" secondItem="RG9-oz-c6I" secondAttribute="trailing" constant="20" id="GHE-UK-MtS"/>
+                <constraint firstAttribute="trailing" secondItem="RG9-oz-c6I" secondAttribute="trailing" constant="15" id="GHE-UK-MtS"/>
                 <constraint firstItem="HJW-fH-9iM" firstAttribute="top" secondItem="rWS-fS-Cft" secondAttribute="bottom" constant="10" id="H3m-ok-S13"/>
                 <constraint firstItem="IP9-sQ-ecw" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" multiplier="0.7" id="OFu-jh-o6L"/>
                 <constraint firstAttribute="bottom" secondItem="iLO-6E-2FJ" secondAttribute="bottom" id="PY2-O0-ZhU"/>
@@ -97,7 +95,7 @@
                 <constraint firstItem="iLO-6E-2FJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="mta-y5-NIv"/>
                 <constraint firstItem="rTK-qy-0dg" firstAttribute="width" secondItem="rTK-qy-0dg" secondAttribute="height" multiplier="1:1" id="oHl-UO-1Hn"/>
                 <constraint firstAttribute="trailing" secondItem="HJW-fH-9iM" secondAttribute="trailing" constant="20" id="oVf-8F-8HD"/>
-                <constraint firstItem="RG9-oz-c6I" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="qWD-KK-NAd"/>
+                <constraint firstItem="RG9-oz-c6I" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="qWD-KK-NAd"/>
                 <constraint firstItem="rTK-qy-0dg" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="rL0-t0-h9P"/>
                 <constraint firstItem="rWS-fS-Cft" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="vaj-QP-RUk"/>
             </constraints>

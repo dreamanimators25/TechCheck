@@ -17,7 +17,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>4.1.2</string>
+	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -29,7 +29,7 @@
 			<array>
 				<string>InstaCashC2BDeepLink</string>
 				<string>com.googleusercontent.apps.923206721363-bt9d6f1vq711p02hkppqhc7q5itj8of4</string>
-				<string>fb234758716862711</string>
+				<string>fb1229589207413440</string>
 			</array>
 		</dict>
 		<dict>
@@ -42,9 +42,19 @@
 				<string>com.zerowaste.instacash</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>Bundle Id</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb234758716862711</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>4.0.40</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -60,11 +70,11 @@
 		</array>
 	</dict>
 	<key>FacebookAppID</key>
-	<string>234758716862711</string>
+	<string>1229589207413440</string>
 	<key>FacebookAutoLogAppEventsEnabled</key>
 	<false/>
 	<key>FacebookDisplayName</key>
-	<string>Instant Consumer Tech</string>
+	<string>TechCheck</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>truesdk</string>
@@ -92,6 +102,8 @@
 	<string>Contacts Permission needed </string>
 	<key>NSFaceIDUsageDescription</key>
 	<string>Face Id access required to test FaceId functionality</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Gather location updates to get SSID information</string>
 	<key>NSLocationUsageDescription</key>
 	<string>This app requires access to your location for country selection and displayed to complete the GPS Test</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
@@ -119,6 +131,11 @@
 		<string>Roboto-Regular.ttf</string>
 		<string>Roboto-Thin.ttf</string>
 		<string>Roboto-ThinItalic.ttf</string>
+		<string>Supply-Bold.otf</string>
+		<string>Supply-Light.otf</string>
+		<string>Supply-Medium.otf</string>
+		<string>Supply-Regular.otf</string>
+		<string>Supply-UltraLight.otf</string>
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>

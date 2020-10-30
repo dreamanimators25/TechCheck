@@ -1,8 +1,8 @@
 //
 //  IMEIVC.swift
-//  InstaCash
+//  TechCheck
 //
-//  Created by InstaCash on 18/09/18.
+//  Created by TechCheck on 18/09/18.
 //  Copyright © 2018 Prakhar Gupta. All rights reserved.
 //
 
@@ -48,7 +48,7 @@ class IMEIVC: UIViewController,UITextFieldDelegate {
     //MARK:- button action methods
     @IBAction func btnContinuePressed(_ sender: UIButton) {
         if (imeiEditText.text?.isEmpty)!{
-            let alertController = UIAlertController(title: "InstaCash", message: "IMEI of your device will be required to identify device at the time of order pickup, so it will be synced with our server.", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "TechCheck", message: "IMEI of your device will be required to identify device at the time of order pickup, so it will be synced with our server.", preferredStyle: .alert)
             
             let sendButton = UIAlertAction(title: "Agree", style: .default, handler: { (action) -> Void in
                 if self.imeiEditText.text?.count == 15{

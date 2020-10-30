@@ -1,8 +1,8 @@
 //
 //  SideMenuListingCell.swift
-//  InstaCash
+//  TechCheck
 //
-//  Created by InstaCash on 12/09/18.
+//  Created by TechCheck on 12/09/18.
 //  Copyright © 2018 Prakhar Gupta. All rights reserved.
 //
 

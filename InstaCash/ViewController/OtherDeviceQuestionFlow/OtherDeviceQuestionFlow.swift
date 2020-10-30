@@ -1,8 +1,8 @@
 //
 //  OtherDeviceQuestionFlow.swift
-//  InstaCash
+//  TechCheck
 //
-//  Created by InstaCash on 06/12/18.
+//  Created by TechCheck on 06/12/18.
 //  Copyright © 2018 Prakhar Gupta. All rights reserved.
 //
 
@@ -91,21 +91,31 @@ class OtherDeviceQuestionFlow: UIViewController,UITableViewDelegate,UITableViewD
         cell.collectionViewQuestionValues.tag = indexPath.row
         cell.collectionViewQuestionValues.reloadData()
         cell.lblQuestion.text = arrQuestionForOtherDevices[indexPath.row].strQuestionName //.localized(lang: langCode)
-        
-       
-        
+                
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
+                
         if(arrQuestionForOtherDevices[indexPath.row].arrQuestionTypes.count <= 2 )
         {
-            return 170
+            if arrQuestionForOtherDevices[indexPath.row].strQuestionName.count > 32 {
+                return 190
+            }else {
+                return 170
+            }
+            
+            //return 170
         }
         else
         {
-            return CGFloat(70 + (arrQuestionForOtherDevices[indexPath.row].arrQuestionTypes.count * 50))
+            if arrQuestionForOtherDevices[indexPath.row].strQuestionName.count > 32 {
+                return CGFloat(90 + (arrQuestionForOtherDevices[indexPath.row].arrQuestionTypes.count * 50))
+            }else {
+                return CGFloat(70 + (arrQuestionForOtherDevices[indexPath.row].arrQuestionTypes.count * 50))
+            }
+            
+            //return CGFloat(70 + (arrQuestionForOtherDevices[indexPath.row].arrQuestionTypes.count * 50))
         }
         
         /*if arrQuestionForOtherDevices[indexPath.row].arrQuestionTypes.count <= 2 {
@@ -167,8 +177,13 @@ class OtherDeviceQuestionFlow: UIViewController,UITableViewDelegate,UITableViewD
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "pickUpQuestionCollectionViewCell", for: indexPath as IndexPath) as! PickUpQuestionCollectionViewCell
-        cell.layer.cornerRadius = 5.0
+        //cell.layer.cornerRadius = 5.0
         cell.clipsToBounds = true
+        
+        DispatchQueue.main.async {
+            cell.layer.borderColor = UIColor.lightGray.cgColor
+            cell.layer.borderWidth = 0.7
+        }
         
         if arrQuestionForOtherDevices[collectionView.tag].arrQuestionTypes[indexPath.row].strQuestionValueImage.isEmpty {
             cell.imgValues.image = UIImage(named: "phonePlaceHolder")
@@ -187,14 +202,12 @@ class OtherDeviceQuestionFlow: UIViewController,UITableViewDelegate,UITableViewD
             cell.circleImageView.image = #imageLiteral(resourceName: "Selected")
         }
         else{
-            cell.viewMain.backgroundColor = UIColor.init(red: 218.0/255.0, green: 215.0/255.0, blue: 215.0/255.0, alpha: 1.0)
+            //cell.viewMain.backgroundColor = UIColor.init(red: 218.0/255.0, green: 215.0/255.0, blue: 215.0/255.0, alpha: 1.0)
+            cell.viewMain.backgroundColor = UIColor.clear
             cell.lblValues.textColor = UIColor.black
-            
             
             cell.circleImageView.image = #imageLiteral(resourceName: "circle")
         }
-        
-       
         
         return cell
     }

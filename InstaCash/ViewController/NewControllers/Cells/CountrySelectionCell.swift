@@ -1,6 +1,6 @@
 //
 //  CountrySelectionCell.swift
-//  InstaCash
+//  TechCheck
 //
 //  Created by CULT OF PERSONALITY on 06/10/19.
 //  Copyright © 2019 Prakhar Gupta. All rights reserved.

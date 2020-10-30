@@ -1,8 +1,8 @@
 //
 //  VolumeCheckerVC.swift
-//  InstaCash
+//  TechCheck
 //
-//  Created by InstaCash on 25/09/18.
+//  Created by TechCheck on 25/09/18.
 //  Copyright © 2018 Prakhar Gupta. All rights reserved.
 //
 
@@ -86,7 +86,7 @@ class VolumeCheckerVC: UIViewController {
                     }
                     else{
                         
-                        if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+                        if CustomUserDefault.getCurrency() == "£" {
                             let vc = EarPhoneVC()
                             self.resultJSON["Hardware Buttons"].int = 1
                             vc.resultJSON = self.resultJSON
@@ -146,7 +146,7 @@ class VolumeCheckerVC: UIViewController {
                     self.dismiss(animated: true, completion: nil)
                 }
                 else{
-                    if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+                    if CustomUserDefault.getCurrency() == "£" {
                         let vc = EarPhoneVC()
                         self.resultJSON["Hardware Buttons"].int = 1
                         vc.resultJSON = self.resultJSON
@@ -191,7 +191,6 @@ class VolumeCheckerVC: UIViewController {
         handler!.start(true)
         
         lblPrice.text = CustomUserDefault.getCurrency()
-        
     }
     
     @IBAction func onClickBack(_ sender: Any) {
@@ -225,7 +224,7 @@ class VolumeCheckerVC: UIViewController {
                 self.dismiss(animated: true, completion: nil)
             }
             else{
-                if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+                if CustomUserDefault.getCurrency() == "£" {
                     let vc = EarPhoneVC()
                     self.resultJSON["Hardware Buttons"].int = -1
                     vc.resultJSON = self.resultJSON
@@ -262,9 +261,7 @@ class VolumeCheckerVC: UIViewController {
             //Do Nothing
             popup.dismiss(animated: true, completion: nil)
         }
-        
-        
-        
+                
         // Add buttons to dialog
         // Alternatively, you can use popup.addButton(buttonOne)
         // to add a single button
@@ -272,13 +269,13 @@ class VolumeCheckerVC: UIViewController {
         popup.dismiss(animated: true, completion: nil)
         // Customize dialog appearance
         let pv = PopupDialogDefaultView.appearance()
-        pv.titleFont    = UIFont(name: "HelveticaNeue-Medium", size: 20)!
-        pv.messageFont  = UIFont(name: "HelveticaNeue", size: 16)!
+        pv.titleFont    = UIFont(name: fontNameMedium, size: 20)!
+        pv.messageFont  = UIFont(name: fontNameRegular, size: 16)!
         
         
         // Customize the container view appearance
         let pcv = PopupDialogContainerView.appearance()
-        pcv.cornerRadius    = 2
+        pcv.cornerRadius    = 10
         pcv.shadowEnabled   = true
         pcv.shadowColor     = .black
         
@@ -291,19 +288,20 @@ class VolumeCheckerVC: UIViewController {
         
         // Customize default button appearance
         let db = DefaultButton.appearance()
-        db.titleFont      = UIFont(name: "HelveticaNeue-Medium", size: 16)!
+        db.titleFont      = UIFont(name: fontNameMedium, size: 16)!
         
         
         
         // Customize cancel button appearance
         let cb = CancelButton.appearance()
-        cb.titleFont      = UIFont(name: "HelveticaNeue-Medium", size: 16)!
+        cb.titleFont      = UIFont(name: fontNameMedium, size: 16)!
         
         
         // Present dialog
         self.present(popup, animated: true, completion: nil)
         
     }
+    
     var action: (() -> Void) = {} {
         didSet {
             // Is the handler already there, that is, is this module already in use?..
@@ -315,14 +313,17 @@ class VolumeCheckerVC: UIViewController {
             // Otherwise, just save the action here and see it added when the handler is created when the module goes into use (isInUse = true).
         }
     }
+    
     func tearDown() {
         if let handler = volumeButtonHandler {
             handler.stop()
             volumeButtonHandler = nil
         }
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
 }

@@ -1,6 +1,6 @@
 //
 //  SocialMobileRegisterVC.swift
-//  InstaCash
+//  TechCheck
 //
 //  Created by Sameer Khan on 23/04/20.
 //  Copyright © 2020 Prakhar Gupta. All rights reserved.
@@ -40,13 +40,13 @@ class SocialMobileRegisterVC: UIViewController {
         
         self.trimmedStr = self.txtMobileNumber.text ?? ""
         
-        if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+        if CustomUserDefault.getCurrency() == "£" {
             
             if self.trimmedStr.hasPrefix("0") && self.trimmedStr.length > 1 {
                 trimmedStr = txtMobileNumber.text?.substring(fromIndex: 1) ?? ""
             }
             
-            if self.trimmedStr.hasPrefix("91") && self.trimmedStr.length > 1 {
+            if self.trimmedStr.hasPrefix("+44") && self.trimmedStr.length > 1 {
                 trimmedStr = txtMobileNumber.text?.substring(fromIndex: 2) ?? ""
             }
             
@@ -140,7 +140,7 @@ class SocialMobileRegisterVC: UIViewController {
                 strGCMToken = ""
             }
             
-            if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+            if CustomUserDefault.getCurrency() == "£" {
                 internalOTP = "1"
             }
             else{
@@ -204,7 +204,7 @@ class SocialMobileRegisterVC: UIViewController {
                             CustomUserDefault.setUserName(data: dictUser.value(forKey: "name") as! String)
                         }                        
                         
-                        if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+                        if CustomUserDefault.getCurrency() == "£" {
                             
                             DispatchQueue.main.async {
                                 let vc = MobileNumberVC()
@@ -223,13 +223,13 @@ class SocialMobileRegisterVC: UIViewController {
                                                 
                     }
                     else{
-                        Alert.showAlertWithError(strMessage: responseObject?["msg"] as! NSString, Onview: self)
+                        Alert.showAlertWithError(strMessage: responseObject?["msg"] as? NSString ?? "", Onview: self)
                     }
                     
                 }
                 else
                 {
-                    Alert.showAlertWithError(strMessage:responseObject?["msg"] as! NSString , Onview: self)
+                    Alert.showAlertWithError(strMessage:responseObject?["msg"] as? NSString ?? "" , Onview: self)
                 }
             })
         }

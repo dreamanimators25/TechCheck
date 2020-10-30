@@ -1,7 +1,7 @@
 //
 //  Alert.swift
 //
-//  InstaCash
+//  TechCheck
 //
 //  Created by Prakhar Gupta on 9/5/18.
 //  Copyright © 2018 Prakhar Gupta. All rights reserved.
@@ -23,7 +23,7 @@ class Alert: NSObject {
             
             DispatchQueue.main.async {
                 
-                let alertController = UIAlertController(title: "InstaCash".localized(lang: langCode) as String, message: strMessage as String, preferredStyle: UIAlertControllerStyle.alert)
+                let alertController = UIAlertController(title: "TechCheck".localized(lang: langCode) as String, message: strMessage as String, preferredStyle: UIAlertControllerStyle.alert)
                 
                 alertController.addAction(UIAlertAction(title: "OK".localized(lang: langCode), style: UIAlertActionStyle.default,handler: nil))
                 
@@ -32,7 +32,7 @@ class Alert: NSObject {
         }else {
             DispatchQueue.main.async {
                 
-                let alertController = UIAlertController(title: "InstaCash".localized(lang: langCode) as String, message: strMessage as String, preferredStyle: UIAlertControllerStyle.alert)
+                let alertController = UIAlertController(title: "TechCheck".localized(lang: langCode) as String, message: strMessage as String, preferredStyle: UIAlertControllerStyle.alert)
                 
                 alertController.addAction(UIAlertAction(title: "OK".localized(lang: langCode), style: UIAlertActionStyle.default,handler: nil))
                 
@@ -89,7 +89,7 @@ class Alert: NSObject {
         DispatchQueue.main.async {
             let hud = MBProgressHUD.showAdded(to: Onview, animated: true)
             hud.mode = .customView
-            let imageView = UIImageView(image: UIImage(named: "appLogo"))
+            let imageView = UIImageView(image: UIImage(named: "splashIcon"))
             imageView.frame = CGRect(x: 0, y: 0, width: 77, height: 77)
             hud.customView  = imageView
             hud.backgroundView.backgroundColor = UIColor.clear

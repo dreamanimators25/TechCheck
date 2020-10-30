@@ -1,6 +1,6 @@
 //
 //  OffersAndPromotionsVC.swift
-//  InstaCash
+//  TechCheck
 //
 //  Created by Sameer Khan on 23/03/20.
 //  Copyright © 2020 Prakhar Gupta. All rights reserved.

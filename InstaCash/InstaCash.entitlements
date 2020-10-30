@@ -6,13 +6,5 @@
 	<array>
 		<string>Default</string>
 	</array>
-	<key>com.apple.developer.associated-domains</key>
-	<array>
-		<string>applinks:getinstacash.in</string>
-		<string>applinks:getinstacash.com.tw</string>
-		<string>applinks:getinstacash.com.my</string>
-		<string>applinks:getinstacash.com.sg</string>
-		<string>applinks:imageread.page.link</string>
-	</array>
 </dict>
 </plist>

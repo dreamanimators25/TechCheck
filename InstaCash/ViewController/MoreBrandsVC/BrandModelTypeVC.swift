@@ -1,8 +1,8 @@
 //
 //  BrandModelTypeVC.swift
-//  InstaCash
+//  TechCheck
 //
-//  Created by InstaCash on 18/09/18.
+//  Created by TechCheck on 18/09/18.
 //  Copyright © 2018 Prakhar Gupta. All rights reserved.
 //
 
@@ -221,7 +221,7 @@ class BrandModelTypeVC: UIViewController,UICollectionViewDelegate,UICollectionVi
                 
                 var currency = ""
                 //if (userDefaults.value(forKey: "countryName") as? String)?.contains("India") != nil {
-                if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+                if CustomUserDefault.getCurrency() == "£" {
                     currency = "INR"
                 }
                 //else if (userDefaults.value(forKey: "countryName") as? String)?.contains("Malaysia") != nil {
@@ -329,7 +329,7 @@ class BrandModelTypeVC: UIViewController,UICollectionViewDelegate,UICollectionVi
                 var currency = ""
                 //if (userDefaults.value(forKey: "countryName") as? String)?.contains("India") != nil {
                 
-                if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+                if CustomUserDefault.getCurrency() == "£" {
                     currency = "INR"
                 }
                 //else if (userDefaults.value(forKey: "countryName") as? String)?.contains("Malaysia") != nil {

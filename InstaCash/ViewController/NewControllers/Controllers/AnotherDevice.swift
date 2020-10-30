@@ -1,6 +1,6 @@
 //
 //  AnotherDevice.swift
-//  InstaCash
+//  TechCheck
 //
 //  Created by CULT OF PERSONALITY on 09/10/19.
 //  Copyright © 2019 Prakhar Gupta. All rights reserved.
@@ -19,6 +19,11 @@ class AnotherDevice: UIViewController, UICollectionViewDelegate, UICollectionVie
     @IBOutlet weak var lblSearchAnother: UILabel!
     @IBOutlet weak var lblSearchByManufacture: UILabel!
     @IBOutlet weak var lblPopularDevice: UILabel!
+    
+    @IBOutlet weak var homeLbl: UILabel!
+    @IBOutlet weak var orderLbl: UILabel!
+    @IBOutlet weak var notiLbl: UILabel!
+    @IBOutlet weak var userLbl: UILabel!
     
     var arrBrandDeviceGetData = [HomeModel]()
     var arrMyOderGetData = [HomeModel]()
@@ -52,6 +57,11 @@ class AnotherDevice: UIViewController, UICollectionViewDelegate, UICollectionVie
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.changeLanguageOfUI()
+                    
+        self.homeLbl.text = "Home"
+        self.orderLbl.text = ""
+        self.notiLbl.text = ""
+        self.userLbl.text = ""
         
         userDefaults.removeObject(forKey: "ChangeModeComingFromDiadnosis")
         userDefaults.setValue("", forKey: "ChangeModeComingFromDiadnosis")
@@ -160,8 +170,8 @@ class AnotherDevice: UIViewController, UICollectionViewDelegate, UICollectionVie
                 var currency = ""
                 //if (userDefaults.value(forKey: "countryName") as? String)?.contains("India") != nil {
                     
-                if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
-                    currency = "INR"
+                if CustomUserDefault.getCurrency() == "£" {
+                    currency = "UK"
                 }
                 //else if (userDefaults.value(forKey: "countryName") as? String)?.contains("Malaysia") != nil {
                 else if CustomUserDefault.getCurrency() == "MY" {
@@ -237,8 +247,8 @@ class AnotherDevice: UIViewController, UICollectionViewDelegate, UICollectionVie
                 
                 //if (userDefaults.value(forKey: "countryName") as? String)?.contains("India") != nil {
                     
-                if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
-                    currency = "INR"
+                if CustomUserDefault.getCurrency() == "£" {
+                    currency = "UK"
                 }
                 //else if (userDefaults.value(forKey: "countryName") as? String)?.contains("Malaysia") != nil {
                     

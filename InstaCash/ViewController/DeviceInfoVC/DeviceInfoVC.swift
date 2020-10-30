@@ -1,8 +1,8 @@
 //
 //  DeviceInfoVC.swift
-//  InstaCash
+//  TechCheck
 //
-//  Created by InstaCash on 25/09/18.
+//  Created by TechCheck on 25/09/18.
 //  Copyright © 2018 Prakhar Gupta. All rights reserved.
 //
 
@@ -42,7 +42,7 @@ class DeviceInfoVC: UIViewController {
     func changeLanguageOfUI() {
         
         self.lblMarketPrice.text = "Market Price".localized(lang: langCode)
-        self.lblInstacashPrice.text = "InstaCash Price".localized(lang: langCode)
+        self.lblInstacashPrice.text = "TechCheck Price".localized(lang: langCode)
         self.lblTheInsta.text = "The price stated above depends on the condition of the device. A final price offer will be quoted after you run the device diagnosis.".localized(lang: langCode)
         self.lblGettingAn.text = "Getting an exact quote takes 5 mins. Ready to roll? Just grab your earphone and data cable for respective diagnosis.".localized(lang: langCode)
         

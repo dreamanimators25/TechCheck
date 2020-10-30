@@ -1,8 +1,8 @@
 //
 //  CameraVC.swift
-//  InstaCash
+//  TechCheck
 //
-//  Created by InstaCash on 25/09/18.
+//  Created by TechCheck on 25/09/18.
 //  Copyright © 2018 Prakhar Gupta. All rights reserved.
 //
 
@@ -52,10 +52,10 @@ class CameraVC: UIViewController {
     
     func changeLanguageOfUI() {
         
-        self.lblCheckCamera.text = "Checking cameras".localized(lang: langCode)
-        self.lblGetReady.text = "Get ready to smile. We’re making sure this device is selfie-ready!".localized(lang: langCode)
+        self.lblCheckCamera.text = "Checking camera".localized(lang: langCode)
+        self.lblGetReady.text = "Get ready to smile - we're making sure your phone is selfie ready!".localized(lang: langCode)
         self.lblTap.text = "1. Tap anywhere on the screen to autofocus".localized(lang: langCode)
-        self.lblPressCapture.text = "2. Press capture to take a shot!".localized(lang: langCode)
+        self.lblPressCapture.text = "2. Press capture to take the shot".localized(lang: langCode)
         
         self.btnStartCamera.setTitle("Start Camera Check".localized(lang: langCode), for: UIControlState.normal)
         self.btnSkip.setTitle("Skip".localized(lang: langCode), for: UIControlState.normal)
@@ -224,12 +224,12 @@ class CameraVC: UIViewController {
         popup.dismiss(animated: true, completion: nil)
         // Customize dialog appearance
         let pv = PopupDialogDefaultView.appearance()
-        pv.titleFont    = UIFont(name: "HelveticaNeue-Medium", size: 20)!
-        pv.messageFont  = UIFont(name: "HelveticaNeue", size: 16)!
+        pv.titleFont    = UIFont(name: fontNameMedium, size: 20)!
+        pv.messageFont  = UIFont(name: fontNameRegular, size: 16)!
         
         // Customize the container view appearance
         let pcv = PopupDialogContainerView.appearance()
-        pcv.cornerRadius    = 2
+        pcv.cornerRadius    = 10
         pcv.shadowEnabled   = true
         pcv.shadowColor     = .black
         
@@ -242,12 +242,12 @@ class CameraVC: UIViewController {
         
         // Customize default button appearance
         let db = DefaultButton.appearance()
-        db.titleFont      = UIFont(name: "HelveticaNeue-Medium", size: 16)!
+        db.titleFont      = UIFont(name: fontNameMedium, size: 16)!
         
         
         // Customize cancel button appearance
         let cb = CancelButton.appearance()
-        cb.titleFont      = UIFont(name: "HelveticaNeue-Medium", size: 16)!
+        cb.titleFont      = UIFont(name: fontNameMedium, size: 16)!
         
         
         // Present dialog

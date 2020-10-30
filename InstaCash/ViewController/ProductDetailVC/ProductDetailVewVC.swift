@@ -1,8 +1,8 @@
 //
 //  ProductDetailVewVC.swift
-//  InstaCash
+//  TechCheck
 //
-//  Created by InstaCash on 13/12/18.
+//  Created by TechCheck on 13/12/18.
 //  Copyright © 2018 Prakhar Gupta. All rights reserved.
 //
 
@@ -22,6 +22,8 @@ class ModelSkippedData: NSObject {
 }
 
 class ProductDetailVewVC: UIViewController, UIViewControllerTransitioningDelegate, UITableViewDataSource, UITableViewDelegate {
+    
+    var deviceImgView = UIImageView()
     
     /*
     @IBOutlet weak var lblPromoter: UILabel!
@@ -200,6 +202,10 @@ class ProductDetailVewVC: UIViewController, UIViewControllerTransitioningDelegat
         self.viewForBorder.layer.borderColor = UIColor.gray.cgColor
         
         self.changeLanguageOfUI()
+        
+        let city = CustomUserDefault.getCityName()
+        self.btnChangeCity.setTitle(city, for: .normal)
+        
     }
     
     func changeLanguageOfUI() {
@@ -244,6 +250,9 @@ class ProductDetailVewVC: UIViewController, UIViewControllerTransitioningDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let imgURL = URL.init(string: self.deviceImageUrl)
+        self.imgProduct.sd_setImage(with: imgURL)
         
         if userDefaults.value(forKey: "promoter_id") == nil {
            //lblPromoter.text = ""
@@ -305,7 +314,7 @@ class ProductDetailVewVC: UIViewController, UIViewControllerTransitioningDelegat
              lblDiagnosticPending.isHidden = false
              imgDiagnisticPending.isHidden = false
              lblOtherDEviceName.isHidden = false
-             lblCollectionviewTitle.text = "run InstaCash app on your"
+             lblCollectionviewTitle.text = "run TechCheck app on your"
              btnSendAppLink.isHidden = false
              lblPriceTitleScroolup.isHidden = true
              lblPlaceOrderNote.text = "I'll run the diagnostics later"
@@ -474,7 +483,7 @@ class ProductDetailVewVC: UIViewController, UIViewControllerTransitioningDelegat
  
         //if (userDefaults.value(forKey: "countryName") as? String)?.contains("India") != nil {
             
-        if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+        if CustomUserDefault.getCurrency() == "£" {
             
             if getReturnJson["Earphone"].int == -1{
                 let model = ModelSkippedData()
@@ -582,7 +591,7 @@ class ProductDetailVewVC: UIViewController, UIViewControllerTransitioningDelegat
                 lblCollectionviewTitle.isHidden = false
                 imgDiagnisticPending.image = UIImage(named: "skipped")
                 lblDiagnosticPending.text = "Diagnostic Pending"
-                lblCollectionviewTitle.text = "run InstaCash app on your"
+                lblCollectionviewTitle.text = "run TechCheck app on your"
                 if UIScreen.main.bounds.size.height <= 568{
                     tbleviewHeightConstraint.constant = UIScreen.main.bounds.size.height * 0.48
                     imgMainDeviceWidhConstraint.constant = UIScreen.main.bounds.size.height * 0.08
@@ -947,7 +956,7 @@ class ProductDetailVewVC: UIViewController, UIViewControllerTransitioningDelegat
     @objc func btnBackPressedDone() -> Void {
         //self.navigationController?.popViewController(animated: true)
         // Prepare the popup assets
-        let title = "InstaCash"
+        let title = "TechCheck"
         let message = "Are you sure you want to quit?"
         // Create the dialog
         let popup = PopupDialog(title: title, message: message,buttonAlignment: .horizontal, transitionStyle: .bounceDown, tapGestureDismissal: false, panGestureDismissal :false)
@@ -968,12 +977,12 @@ class ProductDetailVewVC: UIViewController, UIViewControllerTransitioningDelegat
         popup.dismiss(animated: true, completion: nil)
         // Customize dialog appearance
         let pv = PopupDialogDefaultView.appearance()
-        pv.titleFont    = UIFont(name: "HelveticaNeue-Medium", size: 20)!
-        pv.messageFont  = UIFont(name: "HelveticaNeue", size: 16)!
+        pv.titleFont    = UIFont(name: fontNameMedium, size: 20)!
+        pv.messageFont  = UIFont(name: fontNameRegular, size: 16)!
         
         // Customize the container view appearance
         let pcv = PopupDialogContainerView.appearance()
-        pcv.cornerRadius    = 2
+        pcv.cornerRadius    = 10
         pcv.shadowEnabled   = true
         pcv.shadowColor     = .black
         
@@ -986,13 +995,13 @@ class ProductDetailVewVC: UIViewController, UIViewControllerTransitioningDelegat
         
         // Customize default button appearance
         let db = DefaultButton.appearance()
-        db.titleFont      = UIFont(name: "HelveticaNeue-Medium", size: 16)!
+        db.titleFont      = UIFont(name: fontNameMedium, size: 16)!
         
         
         
         // Customize cancel button appearance
         let cb = CancelButton.appearance()
-        cb.titleFont      = UIFont(name: "HelveticaNeue-Medium", size: 16)!
+        cb.titleFont      = UIFont(name: fontNameMedium, size: 16)!
         
         
         // Present dialog
@@ -1606,7 +1615,7 @@ class ProductDetailVewVC: UIViewController, UIViewControllerTransitioningDelegat
                     
                     
                     
-                    if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+                    if CustomUserDefault.getCurrency() == "£" {
                         self.btnPlaceOrder.isHidden = false
                     }
                     else{
@@ -1960,7 +1969,7 @@ class ProductDetailVewVC: UIViewController, UIViewControllerTransitioningDelegat
                     userDefaults.setValue(responseObject?["diagnosisId"] as? NSString, forKey: "diagnosisId")
                     
                     /*
-                    if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+                    if CustomUserDefault.getCurrency() == "£" {
                         userDefaults.setValue(responseObject?["diagnosisId"] as? NSString, forKey: "diagnosisId")
                     }else if CustomUserDefault.getCurrency() == "RM" {
                         userDefaults.setValue(responseObject?["diagnosisId"] as? NSString, forKey: "diagnosisId")
@@ -2041,7 +2050,7 @@ class ProductDetailVewVC: UIViewController, UIViewControllerTransitioningDelegat
         
         //if (userDefaults.value(forKey: "countryName") as? String)?.contains("India") != nil {
             
-        if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+        if CustomUserDefault.getCurrency() == "£" {
             
             if getReturnJson["Earphone"].int == 1{
                 returnDictionary.setValue("1", forKey: "Earphone")

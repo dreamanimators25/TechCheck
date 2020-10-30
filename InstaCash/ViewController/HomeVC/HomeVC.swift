@@ -1,8 +1,8 @@
 //
 //  HomeVC.swift
-//  InstaCash
+//  TechCheck
 //
-//  Created by InstaCash on 12/09/18.
+//  Created by TechCheck on 12/09/18.
 //  Copyright © 2018 Prakhar Gupta. All rights reserved.
 //
 
@@ -14,8 +14,10 @@ import FacebookCore
 import SwiftyJSON
 import SystemServices
 import MessageUI
-import ZDCChat
+import Intercom
 import FirebaseAnalytics
+
+import SystemConfiguration.CaptiveNetwork
 
 class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, ShowVerificationCodeDelegate, UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate {
     
@@ -80,6 +82,11 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
     @IBOutlet weak var btnStartDiagnose: UIButton!
     
     
+    @IBOutlet weak var homeLbl: UILabel!
+    @IBOutlet weak var orderLbl: UILabel!
+    @IBOutlet weak var notiLbl: UILabel!
+    @IBOutlet weak var userLbl: UILabel!
+    
     // Localized
     @IBOutlet weak var lblSell: UILabel!
     @IBOutlet weak var lblFindOut: UILabel!
@@ -137,6 +144,67 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
     var phoneNumber = String()
     
     //MARK:- show custom delegate methods
+    // Return IP address of WiFi interface (en0) as a String, or `nil`
+    func getIFAddresses() -> [String] {
+        var addresses = [String]()
+
+        // Get list of all interfaces on the local machine:
+        var ifaddr : UnsafeMutablePointer<ifaddrs>?
+        guard getifaddrs(&ifaddr) == 0 else { return [] }
+        guard let firstAddr = ifaddr else { return [] }
+
+        // For each interface ...
+        for ptr in sequence(first: firstAddr, next: { $0.pointee.ifa_next }) {
+            let flags = Int32(ptr.pointee.ifa_flags)
+            let addr = ptr.pointee.ifa_addr.pointee
+
+            // Check for running IPv4, IPv6 interfaces. Skip the loopback interface.
+            if (flags & (IFF_UP|IFF_RUNNING|IFF_LOOPBACK)) == (IFF_UP|IFF_RUNNING) {
+                if addr.sa_family == UInt8(AF_INET) || addr.sa_family == UInt8(AF_INET6) {
+
+                    // Convert interface address to a human readable string:
+                    var hostname = [CChar](repeating: 0, count: Int(NI_MAXHOST))
+                    if (getnameinfo(ptr.pointee.ifa_addr, socklen_t(addr.sa_len), &hostname, socklen_t(hostname.count),
+                                    nil, socklen_t(0), NI_NUMERICHOST) == 0) {
+                        let address = String(cString: hostname)
+                        addresses.append(address)
+                    }
+                }
+            }
+        }
+
+        freeifaddrs(ifaddr)
+        return addresses
+    }
+    
+    func getIP()-> String? {
+        
+        var address: String?
+        var ifaddr: UnsafeMutablePointer<ifaddrs>? = nil
+        if getifaddrs(&ifaddr) == 0 {
+            
+            var ptr = ifaddr
+            while ptr != nil {
+                defer { ptr = ptr?.pointee.ifa_next } // memory has been renamed to pointee in swift 3 so changed memory to pointee
+                
+                let interface = ptr?.pointee
+                let addrFamily = interface?.ifa_addr.pointee.sa_family
+                if addrFamily == UInt8(AF_INET) || addrFamily == UInt8(AF_INET6) {
+                    
+                    if let name: String = String(cString: (interface?.ifa_name)!), name == "en0" {  // String.fromCString() is deprecated in Swift 3. So use the following code inorder to get the exact IP Address.
+                        var hostname = [CChar](repeating: 0, count: Int(NI_MAXHOST))
+                        getnameinfo(interface?.ifa_addr, socklen_t((interface?.ifa_addr.pointee.sa_len)!), &hostname, socklen_t(hostname.count), nil, socklen_t(0), NI_NUMERICHOST)
+                        address = String(cString: hostname)
+                    }
+                    
+                }
+            }
+            freeifaddrs(ifaddr)
+        }
+        
+        return address
+    }
+    
     func showVerificationCodePopUp(processFor: String) {
         var strTitle = ""
         
@@ -320,6 +388,36 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        print(getIP() ?? "")
+//        let arrSSIDs = self.getIFAddresses()
+//        print(arrSSIDs)
+        
+        //Sameer 30/9/2020
+        if #available(iOS 13.0, *) {
+            let app = UIApplication.shared
+            let statusBarHeight: CGFloat = app.statusBarFrame.size.height
+            
+            let statusbarView = UIView()
+            //statusbarView.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+            statusbarView.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+            view.addSubview(statusbarView)
+          
+            statusbarView.translatesAutoresizingMaskIntoConstraints = false
+            statusbarView.heightAnchor
+                .constraint(equalToConstant: statusBarHeight).isActive = true
+            statusbarView.widthAnchor
+                .constraint(equalTo: view.widthAnchor, multiplier: 1.0).isActive = true
+            statusbarView.topAnchor
+                .constraint(equalTo: view.topAnchor).isActive = true
+            statusbarView.centerXAnchor
+                .constraint(equalTo: view.centerXAnchor).isActive = true
+        } else {        
+            //let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView
+            let statusBar = UIApplication.shared.value(forKeyPath: "statusBar") as? UIView
+            //statusBar?.backgroundColor = UIColor.init(red: 89.0/255.0, green: 16.0/255.0, blue: 145.0/255.0, alpha: 1.0)
+            statusBar?.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+        }
+
         //userDefaults.removeObject(forKey: "Diagnosis_DataSave")
         
         ////////////////////////////////////////////////////////////////////
@@ -348,9 +446,8 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
         
         floatTableView.register(UINib(nibName: "FloatingItemCell", bundle: nil), forCellReuseIdentifier: "FloatingItemCell")
         
-        
-        if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
-            promotionAndOfferView.isHidden = false
+        if CustomUserDefault.getCurrency() == "£" {
+            promotionAndOfferView.isHidden = true
         }else {
             promotionAndOfferView.isHidden = true
         }
@@ -365,7 +462,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
         
         
         userDefaults.setValue(false, forKey: "isSkippedRotation")
-        //self.title = "InstaCash"
+        //self.title = "TechCheck"
         scrlViewHome.alwaysBounceVertical = true
         scrlViewHome.bounces  = true
         //refreshControl = UIRefreshControl()
@@ -876,7 +973,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
     func sendToLastVCToCompletediagnosisProcess() {
         var sendJson = JSON()
         
-        if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+        if CustomUserDefault.getCurrency() == "£" {
             if userDefaults.value(forKey: "Diagnosis_DataSave") == nil {
                 
             }else {
@@ -1003,7 +1100,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
         
         //if (userDefaults.value(forKey: "countryName") as? String)?.contains("India") != nil {
         
-        if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+        if CustomUserDefault.getCurrency() == "£" {
             
             if userDefaults.value(forKey: "screen_complete") == nil || self.strAppModeCode == "1" || self.strAppModeCode == "2" {
                 btnDiagnostic.setTitle("Run Diagnostics".localized(lang: langCode), for: .normal)
@@ -1068,11 +1165,12 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                 btnStartFromBegning.isHidden = true
                 btnDiagnosticwidthConstraints.constant = 180
             }
-            else{
+            else {
                 var btntitle = ""
                 var btnImage = ""
                 btnDiagnosticwidthConstraints.constant = 230
                 btnStartFromBegning.isHidden = true
+                
                 if (userDefaults.value(forKey: "rotation_complete") as? Bool != nil) == false {
                     btntitle = "Continue Rotation Test".localized(lang: langCode)
                     btnImage = "rotateTest"
@@ -1101,8 +1199,8 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                     btnImage = "dignostic"
                     btnStartFromBegning.isHidden = true
                     btnDiagnosticwidthConstraints.constant = 180
-                    
                 }
+                
                 btnDiagnostic.setTitle(btntitle, for: .normal)
                 btnDiagnostic.setImage(UIImage(named: btnImage), for: .normal)
             }
@@ -1138,7 +1236,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
         self.lblFindOut.text = "Find out how much cash you’ll get by selling this device.".localized(lang: langCode)
         self.lblNoBargaining.text = "No bargaining. No headaches!".localized(lang: langCode)
         self.lblTakeMinute.text = "Takes 5 mins. Save time.".localized(lang: langCode)
-        self.lblGetAQuote.text = "Get a quote from anywhere. Convenient and casual.".localized(lang: langCode)
+        //self.lblGetAQuote.text = "Get a quote from anywhere. Convenient and casual.".localized(lang: langCode)
         self.lblAccurate.text = "Accurate and market-leading prices. Scam-free.".localized(lang: langCode)
         self.lblGetAnotherDevice.text = "Got another device to sell? See how much its worth.".localized(lang: langCode)
         self.lblOfferPromotions.text = "See Promotions and Offers".localized(lang: langCode)
@@ -1160,6 +1258,11 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
     
     override func viewWillAppear(_ animated: Bool) {
         
+        self.homeLbl.text = "Home"
+        self.orderLbl.text = ""
+        self.notiLbl.text = ""
+        self.userLbl.text = ""
+        
         //Sameer - 27/4/2020
         userDefaults.removeObject(forKey: "promoterID")
         userDefaults.removeObject(forKey: "promoter")
@@ -1179,14 +1282,18 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
         
         if CustomUserDefault.getCityId().isEmpty
         {
-            /*let vc  = CityVC()
+             //*
+             let vc  = CityVC()
              vc.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-             self.navigationController?.present(vc, animated: true, completion: nil)*/
+             self.navigationController?.present(vc, animated: true, completion: nil)
+             //*/
             
+            
+            /*
             let vc  = CountrySelection()
             vc.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
             self.navigationController?.present(vc, animated: true, completion: nil)
-            
+            */
         }
         //self.menuContainerViewController.panMode = MFSideMenuPanMode(rawValue: 0)
         if isComingFromWelcomeScreen{
@@ -1325,7 +1432,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
         //            viewBrand9.isHidden = false
         //        }
         // if arrBrandDeviceGetData.count <= 3{
-        viewMiddleHeightConstraint.constant = 150
+        //viewMiddleHeightConstraint.constant = 150
         //            mainViewHeightConstraint.constant = 850
         // }
         //        else if arrBrandDeviceGetData.count > 3 && arrBrandDeviceGetData.count <= 6{
@@ -1428,11 +1535,11 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
         
         DispatchQueue.main.async {
             var strDiagnosisSend = ""
-            if self.strAppModeCode == "1"{
-                if self.isDiagnosisModeCheck == "Yes"{
+            if self.strAppModeCode == "1" {
+                if self.isDiagnosisModeCheck == "Yes" {
                     strDiagnosisSend = "Yes"
                 }
-                else if self.isDiagnosisModeCheck == "No"{
+                else if self.isDiagnosisModeCheck == "No" {
                     strDiagnosisSend = "No"
                     
                 }
@@ -1447,12 +1554,12 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                 self.navigationController?.present(vc, animated: true, completion: nil)
                 
             }
-            else if self.strAppModeCode == "2"{
+            else if self.strAppModeCode == "2" {
                 
-                if self.isDiagnosisModeCheck == "Yes"{
+                if self.isDiagnosisModeCheck == "Yes" {
                     strDiagnosisSend = "Yes"
                 }
-                else if self.isDiagnosisModeCheck == "No"{
+                else if self.isDiagnosisModeCheck == "No" {
                     strDiagnosisSend = "No"
                     
                 }
@@ -1467,7 +1574,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                 self.navigationController?.present(vc, animated: true, completion: nil)
             }
             else{
-                if self.isDiagnosisModeCheck == "Yes"{
+                if self.isDiagnosisModeCheck == "Yes" {
                     strDiagnosisSend = "Yes"
                     let vc = ChangeModePopUpVC()
                     vc.strProcessForDiagnosis = strDiagnosisSend
@@ -1475,7 +1582,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                     vc.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
                     self.navigationController?.present(vc, animated: true, completion: nil)
                 }
-                else if self.isDiagnosisModeCheck == "No"{
+                else if self.isDiagnosisModeCheck == "No" {
                     strDiagnosisSend = "No"
                     let vc = ChangeModePopUpVC()
                     vc.strProcessForDiagnosis = strDiagnosisSend
@@ -1538,7 +1645,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
             self.floatTableView.alpha = 0
             UIView.animate(withDuration: 0.3, animations: {
                 
-                if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" || CustomUserDefault.getCurrency() == "RM" {
+                if CustomUserDefault.getCurrency() == "£" || CustomUserDefault.getCurrency() == "RM" {
                     self.floatTableViewHeightConstraint.constant = 150.0
                 }else {
                     self.floatTableViewHeightConstraint.constant = 150.0
@@ -1658,9 +1765,8 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
     }
     
     @objc func btnSideMenuPressed() -> Void {
-        
-        //        let vc = ProductDetailVewVC()
-        //        self.navigationController?.pushViewController(vc, animated: true)
+        //let vc = ProductDetailVewVC()
+        //self.navigationController?.pushViewController(vc, animated: true)
         self.menuContainerViewController.toggleLeftSideMenuCompletion({() -> Void in
         })
     }
@@ -1670,7 +1776,6 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
         
         let vc  = AnotherDevice()
         self.navigationController?.pushViewController(vc, animated: true)
-        
     }
     
     @IBAction func btnPromotionAndOfferPressed(_ sender:UIButton){
@@ -1702,12 +1807,11 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
             // facebook analysis event
             var currency = ""
             //if (userDefaults.value(forKey: "countryName") as? String)?.contains("India") != nil {
-            if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+            if CustomUserDefault.getCurrency() == "£" {
                 currency = "INR"
             }
-                //else if (userDefaults.value(forKey: "countryName") as? String)?.contains("Malaysia") != nil {
+            //else if (userDefaults.value(forKey: "countryName") as? String)?.contains("Malaysia") != nil {
             else if CustomUserDefault.getCurrency() == "MY" {
-                
                 currency = "MYR"
             }
             else{
@@ -1766,7 +1870,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
     func sendToControllerToCompletediagnosisProcess(){
         //if (userDefaults.value(forKey: "countryName") as? String)?.contains("India") != nil {
         
-        if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+        if CustomUserDefault.getCurrency() == "£" {
             
             if userDefaults.value(forKey: "screen_complete") == nil || self.strAppModeCode == "1" || self.strAppModeCode == "2" {
                 pushToControllerToProceedDiagnosos()
@@ -2014,7 +2118,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                 
                 switch dict.strStatus ?? "" {
                 case "未驗證":
-                    cellOrders.imgPlaced.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                    cellOrders.imgPlaced.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
                     cellOrders.imgVerify.backgroundColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
                     cellOrders.imgOutFor.backgroundColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
                     cellOrders.imgPacman.backgroundColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
@@ -2026,93 +2130,93 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                     cellOrders.lblOutForRight.backgroundColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
                     cellOrders.lblPacmanLeft.backgroundColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
                 case "已驗證":
-                    cellOrders.imgPlaced.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.imgVerify.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                    cellOrders.imgPlaced.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.imgVerify.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
                     cellOrders.imgOutFor.backgroundColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
                     cellOrders.imgPacman.backgroundColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
                     cellOrders.imgPacman.image = #imageLiteral(resourceName: "packman waiting")
                     
-                    cellOrders.lblVerifyLeft.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.lblVerifyRight.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                    cellOrders.lblVerifyLeft.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.lblVerifyRight.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
                     cellOrders.lblOutForLeft.backgroundColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
                     cellOrders.lblOutForRight.backgroundColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
                     cellOrders.lblPacmanLeft.backgroundColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
                 case "外出取貨":
-                    cellOrders.imgPlaced.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.imgVerify.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.imgOutFor.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                    cellOrders.imgPlaced.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.imgVerify.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.imgOutFor.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
                     cellOrders.imgPacman.backgroundColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
                     cellOrders.imgPacman.image = #imageLiteral(resourceName: "packman waiting")
                     
-                    cellOrders.lblVerifyLeft.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.lblVerifyRight.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.lblOutForLeft.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.lblOutForRight.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                    cellOrders.lblVerifyLeft.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.lblVerifyRight.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.lblOutForLeft.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.lblOutForRight.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
                     cellOrders.lblPacmanLeft.backgroundColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
                 case "吃豆人取消":
-                    cellOrders.imgPlaced.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.imgVerify.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.imgOutFor.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                    cellOrders.imgPlaced.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.imgVerify.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.imgOutFor.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
                     cellOrders.imgPacman.backgroundColor = #colorLiteral(red: 0.8156862745, green: 0, blue: 0.06666666667, alpha: 1)
                     cellOrders.imgPacman.image = #imageLiteral(resourceName: "pacman cancel")
                     cellOrders.lblPacman.text = "Pacman cancelled".localized(lang: langCode)
                     
-                    cellOrders.lblVerifyLeft.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.lblVerifyRight.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.lblOutForLeft.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.lblOutForRight.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                    cellOrders.lblVerifyLeft.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.lblVerifyRight.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.lblOutForLeft.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.lblOutForRight.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
                     cellOrders.lblPacmanLeft.backgroundColor = #colorLiteral(red: 0.8156862745, green: 0, blue: 0.06666666667, alpha: 1)
                 case "待付款":
-                    cellOrders.imgPlaced.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.imgVerify.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.imgOutFor.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                    cellOrders.imgPlaced.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.imgVerify.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.imgOutFor.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
                     cellOrders.imgPacman.backgroundColor = #colorLiteral(red: 0.8156862745, green: 0, blue: 0.06666666667, alpha: 1)
-                    cellOrders.imgPacman.image = #imageLiteral(resourceName: "pacman cancel")
+                    cellOrders.imgPacman.image = #imageLiteral(resourceName: "packman waiting")
                     cellOrders.lblPacman.text = "Pending Payment".localized(lang: langCode)
                     
-                    cellOrders.lblVerifyLeft.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.lblVerifyRight.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.lblOutForLeft.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.lblOutForRight.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                    cellOrders.lblVerifyLeft.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.lblVerifyRight.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.lblOutForLeft.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.lblOutForRight.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
                     cellOrders.lblPacmanLeft.backgroundColor = #colorLiteral(red: 0.8156862745, green: 0, blue: 0.06666666667, alpha: 1)
                 case "已完成":
-                    cellOrders.imgPlaced.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.imgVerify.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.imgOutFor.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                    cellOrders.imgPlaced.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.imgVerify.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.imgOutFor.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
                     cellOrders.imgPacman.backgroundColor = #colorLiteral(red: 0.8156862745, green: 0, blue: 0.06666666667, alpha: 1)
                     cellOrders.imgPacman.image = #imageLiteral(resourceName: "pacman cancel")
                     cellOrders.lblPacman.text = "Completed".localized(lang: langCode)
                     
-                    cellOrders.lblVerifyLeft.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.lblVerifyRight.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.lblOutForLeft.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.lblOutForRight.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                    cellOrders.lblVerifyLeft.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.lblVerifyRight.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.lblOutForLeft.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.lblOutForRight.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
                     cellOrders.lblPacmanLeft.backgroundColor = #colorLiteral(red: 0.8156862745, green: 0, blue: 0.06666666667, alpha: 1)
                 case "被拒絕":
-                    cellOrders.imgPlaced.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.imgVerify.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.imgOutFor.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                    cellOrders.imgPlaced.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.imgVerify.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.imgOutFor.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
                     cellOrders.imgPacman.backgroundColor = #colorLiteral(red: 0.8156862745, green: 0, blue: 0.06666666667, alpha: 1)
                     cellOrders.imgPacman.image = #imageLiteral(resourceName: "pacman cancel")
                     cellOrders.lblPacman.text = "Rejected".localized(lang: langCode)
                     
-                    cellOrders.lblVerifyLeft.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.lblVerifyRight.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.lblOutForLeft.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.lblOutForRight.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                    cellOrders.lblVerifyLeft.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.lblVerifyRight.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.lblOutForLeft.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.lblOutForRight.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
                     cellOrders.lblPacmanLeft.backgroundColor = #colorLiteral(red: 0.8156862745, green: 0, blue: 0.06666666667, alpha: 1)
                 case "用戶已取消":
-                    cellOrders.imgPlaced.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.imgVerify.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.imgOutFor.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                    cellOrders.imgPlaced.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.imgVerify.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.imgOutFor.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
                     cellOrders.imgPacman.backgroundColor = #colorLiteral(red: 0.8156862745, green: 0, blue: 0.06666666667, alpha: 1)
                     cellOrders.imgPacman.image = #imageLiteral(resourceName: "pacman cancel")
                     cellOrders.lblPacman.text = "User cancelled".localized(lang: langCode)
                     
-                    cellOrders.lblVerifyLeft.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.lblVerifyRight.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.lblOutForLeft.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.lblOutForRight.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                    cellOrders.lblVerifyLeft.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.lblVerifyRight.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.lblOutForLeft.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.lblOutForRight.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
                     cellOrders.lblPacmanLeft.backgroundColor = #colorLiteral(red: 0.8156862745, green: 0, blue: 0.06666666667, alpha: 1)
                 default:
                     print("Nothing to do")
@@ -2122,7 +2226,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                 
                 switch dict.strStatus ?? "" {
                 case "Unverified":
-                    cellOrders.imgPlaced.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                    cellOrders.imgPlaced.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
                     cellOrders.imgVerify.backgroundColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
                     cellOrders.imgOutFor.backgroundColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
                     cellOrders.imgPacman.backgroundColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
@@ -2134,93 +2238,93 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                     cellOrders.lblOutForRight.backgroundColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
                     cellOrders.lblPacmanLeft.backgroundColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
                 case "Verified":
-                    cellOrders.imgPlaced.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.imgVerify.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                    cellOrders.imgPlaced.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.imgVerify.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
                     cellOrders.imgOutFor.backgroundColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
                     cellOrders.imgPacman.backgroundColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
                     cellOrders.imgPacman.image = #imageLiteral(resourceName: "packman waiting")
                     
-                    cellOrders.lblVerifyLeft.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.lblVerifyRight.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                    cellOrders.lblVerifyLeft.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.lblVerifyRight.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
                     cellOrders.lblOutForLeft.backgroundColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
                     cellOrders.lblOutForRight.backgroundColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
                     cellOrders.lblPacmanLeft.backgroundColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
                 case "Out for pickup":
-                    cellOrders.imgPlaced.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.imgVerify.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.imgOutFor.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                    cellOrders.imgPlaced.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.imgVerify.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.imgOutFor.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
                     cellOrders.imgPacman.backgroundColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
                     cellOrders.imgPacman.image = #imageLiteral(resourceName: "packman waiting")
                     
-                    cellOrders.lblVerifyLeft.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.lblVerifyRight.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.lblOutForLeft.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.lblOutForRight.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                    cellOrders.lblVerifyLeft.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.lblVerifyRight.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.lblOutForLeft.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.lblOutForRight.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
                     cellOrders.lblPacmanLeft.backgroundColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
                 case "Pacman cancelled":
-                    cellOrders.imgPlaced.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.imgVerify.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.imgOutFor.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                    cellOrders.imgPlaced.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.imgVerify.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.imgOutFor.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
                     cellOrders.imgPacman.backgroundColor = #colorLiteral(red: 0.8156862745, green: 0, blue: 0.06666666667, alpha: 1)
                     cellOrders.imgPacman.image = #imageLiteral(resourceName: "pacman cancel")
                     cellOrders.lblPacman.text = "Pacman cancelled".localized(lang: langCode)
                     
-                    cellOrders.lblVerifyLeft.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.lblVerifyRight.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.lblOutForLeft.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.lblOutForRight.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                    cellOrders.lblVerifyLeft.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.lblVerifyRight.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.lblOutForLeft.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.lblOutForRight.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
                     cellOrders.lblPacmanLeft.backgroundColor = #colorLiteral(red: 0.8156862745, green: 0, blue: 0.06666666667, alpha: 1)
                 case "Pending Payment":
-                    cellOrders.imgPlaced.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.imgVerify.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.imgOutFor.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                    cellOrders.imgPlaced.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.imgVerify.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.imgOutFor.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
                     cellOrders.imgPacman.backgroundColor = #colorLiteral(red: 0.8156862745, green: 0, blue: 0.06666666667, alpha: 1)
-                    cellOrders.imgPacman.image = #imageLiteral(resourceName: "pacman cancel")
+                    cellOrders.imgPacman.image = #imageLiteral(resourceName: "packman waiting")
                     cellOrders.lblPacman.text = "Pending Payment".localized(lang: langCode)
                     
-                    cellOrders.lblVerifyLeft.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.lblVerifyRight.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.lblOutForLeft.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.lblOutForRight.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                    cellOrders.lblVerifyLeft.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.lblVerifyRight.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.lblOutForLeft.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.lblOutForRight.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
                     cellOrders.lblPacmanLeft.backgroundColor = #colorLiteral(red: 0.8156862745, green: 0, blue: 0.06666666667, alpha: 1)
                 case "Completed":
-                    cellOrders.imgPlaced.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.imgVerify.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.imgOutFor.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                    cellOrders.imgPlaced.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.imgVerify.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.imgOutFor.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
                     cellOrders.imgPacman.backgroundColor = #colorLiteral(red: 0.8156862745, green: 0, blue: 0.06666666667, alpha: 1)
                     cellOrders.imgPacman.image = #imageLiteral(resourceName: "pacman cancel")
                     cellOrders.lblPacman.text = "Completed".localized(lang: langCode)
                     
-                    cellOrders.lblVerifyLeft.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.lblVerifyRight.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.lblOutForLeft.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.lblOutForRight.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                    cellOrders.lblVerifyLeft.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.lblVerifyRight.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.lblOutForLeft.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.lblOutForRight.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
                     cellOrders.lblPacmanLeft.backgroundColor = #colorLiteral(red: 0.8156862745, green: 0, blue: 0.06666666667, alpha: 1)
                 case "Rejected":
-                    cellOrders.imgPlaced.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.imgVerify.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.imgOutFor.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                    cellOrders.imgPlaced.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.imgVerify.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.imgOutFor.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
                     cellOrders.imgPacman.backgroundColor = #colorLiteral(red: 0.8156862745, green: 0, blue: 0.06666666667, alpha: 1)
                     cellOrders.imgPacman.image = #imageLiteral(resourceName: "pacman cancel")
                     cellOrders.lblPacman.text = "Rejected".localized(lang: langCode)
                     
-                    cellOrders.lblVerifyLeft.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.lblVerifyRight.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.lblOutForLeft.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.lblOutForRight.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                    cellOrders.lblVerifyLeft.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.lblVerifyRight.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.lblOutForLeft.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.lblOutForRight.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
                     cellOrders.lblPacmanLeft.backgroundColor = #colorLiteral(red: 0.8156862745, green: 0, blue: 0.06666666667, alpha: 1)
                 case "User cancelled":
-                    cellOrders.imgPlaced.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.imgVerify.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.imgOutFor.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                    cellOrders.imgPlaced.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.imgVerify.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.imgOutFor.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
                     cellOrders.imgPacman.backgroundColor = #colorLiteral(red: 0.8156862745, green: 0, blue: 0.06666666667, alpha: 1)
                     cellOrders.imgPacman.image = #imageLiteral(resourceName: "pacman cancel")
                     cellOrders.lblPacman.text = "User cancelled".localized(lang: langCode)
                     
-                    cellOrders.lblVerifyLeft.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.lblVerifyRight.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.lblOutForLeft.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
-                    cellOrders.lblOutForRight.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+                    cellOrders.lblVerifyLeft.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.lblVerifyRight.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.lblOutForLeft.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    cellOrders.lblOutForRight.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
                     cellOrders.lblPacmanLeft.backgroundColor = #colorLiteral(red: 0.8156862745, green: 0, blue: 0.06666666667, alpha: 1)
                 default:
                     print("Nothing to do")
@@ -2264,9 +2368,9 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                 var currency = ""
                 //if (userDefaults.value(forKey: "countryName") as? String)?.contains("India") != nil {
                 
-                if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+                if CustomUserDefault.getCurrency() == "£" {
                     
-                    currency = "INR"
+                    currency = "UK"
                 }
                     //else if (userDefaults.value(forKey: "countryName") as? String)?.contains("Malaysia") != nil {
                 else if CustomUserDefault.getCurrency() == "MY" {
@@ -2340,7 +2444,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                 var currency = ""
                 //if (userDefaults.value(forKey: "countryName") as? String)?.contains("India") != nil {
                 
-                if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+                if CustomUserDefault.getCurrency() == "£" {
                     
                     currency = "INR"
                 }
@@ -2764,7 +2868,7 @@ extension HomeVC {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+        if CustomUserDefault.getCurrency() == "£" {
             return self.floatingItemsArrayIN.count
         }else if CustomUserDefault.getCurrency() == "RM" {
             return self.floatingItemsArrayMY.count
@@ -2777,7 +2881,7 @@ extension HomeVC {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let floatingItemCell = tableView.dequeueReusableCell(withIdentifier: "FloatingItemCell", for: indexPath) as! FloatingItemCell
         
-        if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+        if CustomUserDefault.getCurrency() == "£" {
             
             floatingItemCell.itemImgView.image = floatingImageArrayIN[indexPath.row]
             floatingItemCell.itemDescriptionLbl.text = floatingItemsArrayIN[indexPath.row].localized(lang: langCode)
@@ -2802,7 +2906,7 @@ extension HomeVC {
         //var floatingItemsArrayIN:[String] = ["  Call  ","  Mail  ","  Zopim Chat  "]
         //var floatingItemsArrayMY:[String] = ["  WhatsApp  ","  Call  ","  Mail  "]
         
-        if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+        if CustomUserDefault.getCurrency() == "£" {
             
             switch indexPath.row {
             case 0:
@@ -2811,6 +2915,16 @@ extension HomeVC {
                 self.onClickEmailButton()
             default:
                 
+                Intercom.registerUser(withUserId: CustomUserDefault.getUserId(), email: CustomUserDefault.getUserEmail() ?? "")
+                
+//                let userAttributes = ICMUserAttributes()
+//                userAttributes.name = CustomUserDefault.getUserName()
+//                userAttributes.email = CustomUserDefault.getUserEmail()
+//                Intercom.updateUser(userAttributes)
+                    
+                Intercom.presentMessenger()
+                
+                
                 //ZDCChat.initialize(withAccountKey: "your_account_key")
                 
                 /*
@@ -2818,8 +2932,7 @@ extension HomeVC {
                     config?.preChatDataRequirements.name = .optionalEditable
                     config?.preChatDataRequirements.email = .required
                     config?.preChatDataRequirements.phone = .optional
-                })*/
-                
+                })
                 
                 //ZDCChat.start(in: self.navigationController, withConfig: nil)
                 ZDCChat.start(nil)
@@ -2829,6 +2942,7 @@ extension HomeVC {
                     user?.name = CustomUserDefault.getUserName()
                     user?.email = CustomUserDefault.getUserEmail()
                 }
+                */
                 
             }
             
@@ -2897,7 +3011,7 @@ extension HomeVC {
             /*
             var emailAddress = String()
             
-            if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+            if CustomUserDefault.getCurrency() == "£" {
                 
                 emailAddress = "support@getinstacash.in"
                 
@@ -2943,7 +3057,7 @@ extension HomeVC {
         
         /*
         var phoneNumber = String()
-        if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+        if CustomUserDefault.getCurrency() == "£" {
             
             phoneNumber = "0141-4232323"
             

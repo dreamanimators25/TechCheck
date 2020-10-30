@@ -1,6 +1,6 @@
 //
 //  MisMatchVC.swift
-//  InstaCash
+//  TechCheck
 //
 //  Created by Sameer's MacBook Pro on 26/02/20.
 //  Copyright © 2020 Prakhar Gupta. All rights reserved.
@@ -56,7 +56,7 @@ class MisMatchVC: UIViewController {
         
         //if (userDefaults.value(forKey: "countryName") as? String)?.contains("India") != nil {
             
-        if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+        if CustomUserDefault.getCurrency() == "£" {
             
             btnCancel.setTitle("Swipe Here To Disagree This Order".localized(lang: langCode), for: .normal)
         }
@@ -171,7 +171,7 @@ class MisMatchVC: UIViewController {
                             self.btnAgree.isHidden = true
                             self.btnCancel.isHidden = true
                             
-                            let alertController = UIAlertController(title: "InstaCash".localized(lang: langCode), message: "Daignosis successfully completed!".localized(lang: langCode), preferredStyle: .alert)
+                            let alertController = UIAlertController(title: "TechCheck".localized(lang: langCode), message: "Daignosis successfully completed!".localized(lang: langCode), preferredStyle: .alert)
                             
                             let sendButton = UIAlertAction(title: "OK".localized(lang: langCode), style: .default, handler: { (action) -> Void in
                                 
@@ -266,7 +266,7 @@ class MisMatchVC: UIViewController {
                     self.btnAgree.isHidden = true
                     self.btnCancel.isHidden = true
                     
-                    let alertController = UIAlertController(title: "InstaCash".localized(lang: langCode), message:"Seems connection loss from server".localized(lang: langCode), preferredStyle: .alert)
+                    let alertController = UIAlertController(title: "TechCheck".localized(lang: langCode), message:"Seems connection loss from server".localized(lang: langCode), preferredStyle: .alert)
                     
                     let sendButton = UIAlertAction(title: "Ok".localized(lang: langCode), style: .default, handler: { (action) -> Void in
                         
@@ -281,7 +281,7 @@ class MisMatchVC: UIViewController {
         }
         else
         {
-            let alertController = UIAlertController(title: "InstaCash".localized(lang: langCode), message:"No connection found".localized(lang: langCode), preferredStyle: .alert)
+            let alertController = UIAlertController(title: "TechCheck".localized(lang: langCode), message:"No connection found".localized(lang: langCode), preferredStyle: .alert)
             
             let sendButton = UIAlertAction(title: "Ok".localized(lang: langCode), style: .default, handler: { (action) -> Void in
             
@@ -307,7 +307,7 @@ class MisMatchVC: UIViewController {
             
             //if (userDefaults.value(forKey: "countryName") as? String)?.contains("India") != nil {
                 
-            if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+            if CustomUserDefault.getCurrency() == "£" {
                 
                 if strAppCodes.contains("CACC01;CACC02;CACC03;"){
                     UserDefaults.standard.set(true, forKey: "isShowEarPhone")
@@ -607,7 +607,7 @@ class MisMatchVC: UIViewController {
                 }
                 else
                 {
-                    let alertController = UIAlertController(title: "InstaCash".localized(lang: langCode), message:"Seems connection loss from server".localized(lang: langCode), preferredStyle: .alert)
+                    let alertController = UIAlertController(title: "TechCheck".localized(lang: langCode), message:"Seems connection loss from server".localized(lang: langCode), preferredStyle: .alert)
                     
                     let sendButton = UIAlertAction(title: "Ok".localized(lang: langCode), style: .default, handler: { (action) -> Void in
                         print("OK")
@@ -619,7 +619,7 @@ class MisMatchVC: UIViewController {
         }
         else
         {
-            let alertController = UIAlertController(title: "InstaCash".localized(lang: langCode), message:"No connection found".localized(lang: langCode), preferredStyle: .alert)
+            let alertController = UIAlertController(title: "TechCheck".localized(lang: langCode), message:"No connection found".localized(lang: langCode), preferredStyle: .alert)
             
             let sendButton = UIAlertAction(title: "Ok".localized(lang: langCode), style: .default, handler: { (action) -> Void in
                 print("OK")
@@ -683,7 +683,7 @@ class MisMatchVC: UIViewController {
             
             
             
-            if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+            if CustomUserDefault.getCurrency() == "£" {
                 
                 if strAppCodes.contains("CACC01;CACC02;CACC03;"){
                     UserDefaults.standard.set(true, forKey: "isShowEarPhone")
@@ -945,7 +945,7 @@ class MisMatchVC: UIViewController {
                    }
                    else
                    {
-                       let alertController = UIAlertController(title: "InstaCash".localized(lang: langCode), message:"Seems connection loss from server".localized(lang: langCode), preferredStyle: .alert)
+                       let alertController = UIAlertController(title: "TechCheck".localized(lang: langCode), message:"Seems connection loss from server".localized(lang: langCode), preferredStyle: .alert)
                        
                        let sendButton = UIAlertAction(title: "Ok".localized(lang: langCode), style: .default, handler: { (action) -> Void in
                            print("OK")
@@ -957,7 +957,7 @@ class MisMatchVC: UIViewController {
            }
            else
            {
-               let alertController = UIAlertController(title: "InstaCash".localized(lang: langCode), message:"No connection found".localized(lang: langCode), preferredStyle: .alert)
+               let alertController = UIAlertController(title: "TechCheck".localized(lang: langCode), message:"No connection found".localized(lang: langCode), preferredStyle: .alert)
                
                let sendButton = UIAlertAction(title: "Ok".localized(lang: langCode), style: .default, handler: { (action) -> Void in
                    print("OK")
@@ -1005,7 +1005,7 @@ class MisMatchVC: UIViewController {
             
             //if (userDefaults.value(forKey: "countryName") as? String)?.contains("India") != nil {
                 
-            if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+            if CustomUserDefault.getCurrency() == "£" {
                 
                 if userDefaults.value(forKey: "ChangeModeComingFromDiadnosis") as? String == "Pickup" {
                     self.fireWebServiceForAgreePrice(isforCancel: false,isShowLiveProcess:true)
@@ -1140,7 +1140,7 @@ class MisMatchVC: UIViewController {
                         }
                         else {
                             //userDefaults.removeObject(forKey: "ChangeModeOrderId")
-                            let alertController = UIAlertController(title: "InstaCash".localized(lang: langCode), message:mesasge.localized(lang: langCode), preferredStyle: .alert)
+                            let alertController = UIAlertController(title: "TechCheck".localized(lang: langCode), message:mesasge.localized(lang: langCode), preferredStyle: .alert)
                             let sendButton = UIAlertAction(title: "Ok".localized(lang: langCode), style: .default, handler: { (action) -> Void in
                                 
                             if userDefaults.value(forKey: "ChangeModeComingFromDiadnosis") as? String == "Pickup" {
@@ -1292,7 +1292,7 @@ class MisMatchVC: UIViewController {
                         strDiagnosisFailed = strDiagnosisFailed + "CISS02,"
                     }
                                         
-                    if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+                    if CustomUserDefault.getCurrency() == "£" {
                         
                         if resultJSONGet["Earphone"].int == 1 {
                             returnDictionary.setValue("1", forKey: "Earphone")
@@ -1461,7 +1461,7 @@ class MisMatchVC: UIViewController {
             
             //if (userDefaults.value(forKey: "countryName") as? String)?.contains("India") != nil {
             
-            if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+            if CustomUserDefault.getCurrency() == "£" {
                 
                 if resultJSONGet["Earphone"].int == 1 {
                     returnDictionary.setValue("1", forKey: "Earphone")

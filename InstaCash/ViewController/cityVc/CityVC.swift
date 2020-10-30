@@ -1,8 +1,8 @@
 //
 //  CityVC.swift
-//  InstaCash
+//  TechCheck
 //
-//  Created by InstaCash on 18/09/18.
+//  Created by TechCheck on 18/09/18.
 //  Copyright © 2018 Prakhar Gupta. All rights reserved.
 //
 
@@ -29,7 +29,7 @@ class CityVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UITex
     let reachability: Reachability? = Reachability()
     var isSelectedIndex = -1
     var stateSelection = 0
-    var selectedState = "Delhi"
+    var selectedState = "England"
     
     //Mark:- notfify method when internet off
     @objc func reachabilityChanged(_ note: Notification) {
@@ -42,7 +42,6 @@ class CityVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UITex
             btnCancel.isHidden = false
         }
     }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -80,6 +79,9 @@ class CityVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UITex
 
         if reachability?.connection.description != "No Connection" {
             CityModel.fetchCityFromServer(isInterNet:true,getController: self) { (arrCityData) in
+                
+                print(arrCityData.count,arrCityData[0])
+                
                 if arrCityData.count > 0 {
                     
                     self.arrCityData = arrCityData
@@ -132,6 +134,15 @@ class CityVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UITex
                             }
                         }
                     }else{
+                        
+                        // Sameer 4/10/20
+                        if let pin = arrCityData[0].strCityCode {
+                            self.txtPinCode.text = pin
+                            CustomUserDefault.setUserPinCode(data: pin)
+                            CustomUserDefault.setCityName(data: arrCityData[0].strCityName ?? "")
+                            CustomUserDefault.setCityId(data: arrCityData[0].strCityId ?? "")
+                        }
+                        
                         for city in arrCityData {
                             let state = city.strStateName ?? ""
                             
@@ -153,7 +164,7 @@ class CityVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UITex
                         
                         
                         for city in arrCityData {
-                                self.cities.append(city.strCityName ?? "")
+                            self.cities.append(city.strCityName ?? "")
                         }
                         
                     }else {
@@ -216,7 +227,7 @@ class CityVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UITex
             for index in 0..<arrCityData.count {
                 let strCodeget = arrCityData[index].strCityCode
                 if strCodeget == textField.text {
-                    selectedState = arrCityData[index].strStateName ?? "Delhi"
+                    selectedState = arrCityData[index].strStateName ?? "England"
                     for counter in 0..<states.count{
                         if self.selectedState == states[counter]{
                             self.stateSelection = counter
@@ -225,7 +236,7 @@ class CityVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UITex
                     
                     self.cities.removeAll()
                     var pins = [String]()
-                    for city in arrCityData{
+                    for city in arrCityData {
                         let state = city.strStateName ?? ""
                         
                         if self.selectedState == state {
@@ -236,7 +247,7 @@ class CityVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UITex
                     
                     self.cityPicker.selectRow(self.stateSelection, inComponent: 0, animated: true)
                     for i in 0..<pins.count {
-                        if strCodeget == pins[i]{
+                        if strCodeget == pins[i] {
                             self.cityPicker.selectRow(i, inComponent: 1, animated: true)
                         }
                     }

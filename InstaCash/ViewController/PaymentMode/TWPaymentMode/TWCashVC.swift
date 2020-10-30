@@ -1,6 +1,6 @@
 //
 //  TWCashVC.swift
-//  InstaCash
+//  TechCheck
 //
 //  Created by Sameer Khan on 03/05/20.
 //  Copyright © 2020 Prakhar Gupta. All rights reserved.
@@ -62,7 +62,7 @@ class TWCashVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UITex
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+        if CustomUserDefault.getCurrency() == "£" {
             self.getPaymentStructureFromServer()
             totalNumberCount = 10
         }else {
@@ -104,7 +104,7 @@ class TWCashVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UITex
     
     @IBAction func btnSkipTapped(_ sender: UIButton) {
         
-        if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+        if CustomUserDefault.getCurrency() == "£" {
             
             let vc = UploadDocumentVC()
             vc.getFinalPrice5 = self.getFinalPrice4
@@ -524,7 +524,7 @@ class TWCashVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UITex
             cellTextBox.txtField.tag = indexPath.row
             cellTextBox.txtField.delegate = self
             
-            if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+            if CustomUserDefault.getCurrency() == "£" {
                 
                 if (self.arrDictKeys[indexPath.row] as? String) == "Bank Branch" {
                     cellTextBox.txtField.isUserInteractionEnabled = false
@@ -572,7 +572,7 @@ class TWCashVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UITex
                 cellMobNum.paymentImgView.sd_setImage(with: imgURL)
             }
             
-            if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+            if CustomUserDefault.getCurrency() == "£" {
             
             }else {
                 cellMobNum.mobileNumberTxtField.layer.cornerRadius = 5.0
@@ -605,7 +605,7 @@ class TWCashVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UITex
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         
-        if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+        if CustomUserDefault.getCurrency() == "£" {
             
             if textField.placeholder == "IFSC" {
                 let ndx = IndexPath(row:textField.tag, section: 0)
@@ -628,7 +628,7 @@ class TWCashVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UITex
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         /*
-        if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+        if CustomUserDefault.getCurrency() == "£" {
             
             for (index,_) in (arrDictKeys as! [String]).enumerated() {
                 
@@ -703,7 +703,7 @@ class TWCashVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UITex
                 if error == nil {
                     if responseObject?["status"] as! String == "Success" {
                         
-                        if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+                        if CustomUserDefault.getCurrency() == "£" {
                             
                             self.fetchOrderFromServer(isRefreshPrice: true) //Scenario Change
                             

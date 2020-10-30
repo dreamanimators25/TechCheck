@@ -1,22 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina4_0" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Comfortaa-Bold.ttf">
-            <string>Comfortaa-Bold</string>
-        </array>
-        <array key="Comfortaa-Regular.ttf">
-            <string>Comfortaa-Regular</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
@@ -26,45 +16,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splashIcon" translatesAutoresizingMaskIntoConstraints="NO" id="WJX-5j-3N2">
-                                <rect key="frame" x="115" y="235" width="90" height="90"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="90" id="etv-u5-hs6"/>
-                                    <constraint firstAttribute="height" constant="90" id="vYv-FL-KSa"/>
-                                </constraints>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WJX-5j-3N2">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="insta" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PJ4-W6-TDB">
-                                <rect key="frame" x="71" y="345" width="92" height="38"/>
-                                <fontDescription key="fontDescription" name="Comfortaa-Bold" family="Comfortaa" pointSize="34"/>
-                                <color key="textColor" red="0.0" green="0.70588235294117641" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cash" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LG1-i6-Kdc">
-                                <rect key="frame" x="164" y="345" width="92" height="38"/>
-                                <fontDescription key="fontDescription" name="Comfortaa-Bold" family="Comfortaa" pointSize="34"/>
-                                <color key="textColor" red="0.0" green="0.49803921569999998" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sell smart" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="spN-ma-pHO">
-                                <rect key="frame" x="195" y="382.5" width="60.5" height="13.5"/>
-                                <fontDescription key="fontDescription" name="Comfortaa-Regular" family="Comfortaa" pointSize="12"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="spN-ma-pHO" firstAttribute="top" secondItem="LG1-i6-Kdc" secondAttribute="bottom" id="3o8-cA-GEi"/>
-                            <constraint firstItem="spN-ma-pHO" firstAttribute="leading" secondItem="LG1-i6-Kdc" secondAttribute="leading" constant="31.5" id="AcO-X3-AuL"/>
-                            <constraint firstItem="LG1-i6-Kdc" firstAttribute="leading" secondItem="PJ4-W6-TDB" secondAttribute="trailing" constant="1" id="B8x-Uz-2ka"/>
-                            <constraint firstItem="LG1-i6-Kdc" firstAttribute="trailing" secondItem="WJX-5j-3N2" secondAttribute="trailing" constant="51" id="Dnl-q9-C4H"/>
-                            <constraint firstItem="LG1-i6-Kdc" firstAttribute="top" secondItem="WJX-5j-3N2" secondAttribute="bottom" constant="20" id="SIq-nO-dS9"/>
-                            <constraint firstItem="PJ4-W6-TDB" firstAttribute="top" secondItem="WJX-5j-3N2" secondAttribute="bottom" constant="20" id="Xvo-ru-dT9"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="spN-ma-pHO" secondAttribute="trailing" constant="20" symbolic="YES" id="Zfe-pF-gjH"/>
-                            <constraint firstItem="PJ4-W6-TDB" firstAttribute="leading" secondItem="WJX-5j-3N2" secondAttribute="leading" constant="-44" id="fzf-FK-Be6"/>
-                            <constraint firstItem="LG1-i6-Kdc" firstAttribute="width" secondItem="PJ4-W6-TDB" secondAttribute="width" id="j0O-OB-e85"/>
-                            <constraint firstItem="WJX-5j-3N2" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="mDh-TP-88q"/>
-                            <constraint firstItem="WJX-5j-3N2" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-4" id="vmh-if-ajp"/>
+                            <constraint firstItem="WJX-5j-3N2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="1ee-s5-Vkw"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WJX-5j-3N2" secondAttribute="trailing" id="9Ik-65-28J"/>
+                            <constraint firstAttribute="bottom" secondItem="WJX-5j-3N2" secondAttribute="bottom" id="e2a-f4-FUL"/>
+                            <constraint firstItem="WJX-5j-3N2" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="l02-A3-Q1F"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -74,7 +35,4 @@
             <point key="canvasLocation" x="52.5" y="375"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="splashIcon" width="128" height="128"/>
-    </resources>
 </document>

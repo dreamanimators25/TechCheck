@@ -1,8 +1,8 @@
 //
 //  QuriesVC.swift
-//  InstaCash
+//  TechCheck
 //
-//  Created by InstaCash on 26/09/18.
+//  Created by TechCheck on 26/09/18.
 //  Copyright © 2018 Prakhar Gupta. All rights reserved.
 //
 
@@ -60,7 +60,6 @@ class QuriesVC: UIViewController {
     }
     
     //MARK:- button action methods
-    
     @IBAction func onClickBack(_ sender: Any) {
         //_ = self.navigationController?.popViewController(animated: true)
         self.navigationController?.dismiss(animated: true, completion: nil)

@@ -116,6 +116,9 @@
 		52BD9A5123CA0A19004CCCD6 /* CustomerSupportVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52BD9A4F23CA0A19004CCCD6 /* CustomerSupportVC.xib */; };
 		59057666242E5DB900FEF541 /* OfferPromotionPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59057664242E5DB900FEF541 /* OfferPromotionPopUpVC.swift */; };
 		59057667242E5DB900FEF541 /* OfferPromotionPopUpVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59057665242E5DB900FEF541 /* OfferPromotionPopUpVC.xib */; };
+		5906749E252C7630008C2838 /* splash_loader.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5906749C252C7630008C2838 /* splash_loader.gif */; };
+		590674A1252C8793008C2838 /* Intercom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5906749F252C8692008C2838 /* Intercom.framework */; };
+		590674A2252C8793008C2838 /* Intercom.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5906749F252C8692008C2838 /* Intercom.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5907A3BD24880EF1005C153C /* MYSwitchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5907A3BB24880EF1005C153C /* MYSwitchVC.swift */; };
 		5907A3BE24880EF1005C153C /* MYSwitchVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5907A3BC24880EF1005C153C /* MYSwitchVC.xib */; };
 		5907E17A242CD5500038CD47 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5907E17C242CD5500038CD47 /* Localizable.strings */; };
@@ -132,19 +135,24 @@
 		5920E5DE2489679B00456F35 /* PaymentModeHeaderTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5920E5DC2489679B00456F35 /* PaymentModeHeaderTblCell.xib */; };
 		5920E5E12489681000456F35 /* PaymentModeFooterTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5920E5DF2489681000456F35 /* PaymentModeFooterTblCell.swift */; };
 		5920E5E22489681000456F35 /* PaymentModeFooterTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5920E5E02489681000456F35 /* PaymentModeFooterTblCell.xib */; };
+		592F581D252B231300EBEFB1 /* LaunchScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592F581C252B231300EBEFB1 /* LaunchScreenVC.swift */; };
 		5943AEE92443507400A49C3D /* MyOrdersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5943AEE72443507400A49C3D /* MyOrdersCell.swift */; };
 		5943AEEA2443507400A49C3D /* MyOrdersCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5943AEE82443507400A49C3D /* MyOrdersCell.xib */; };
 		594D330A24826AB80081B7CE /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 594D330924826AB80081B7CE /* MobileCoreServices.framework */; };
-		594D330F24826D720081B7CE /* ZDCChat.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 594D330B24826D5B0081B7CE /* ZDCChat.bundle */; };
-		594D331024826D720081B7CE /* ZDCChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 594D330C24826D630081B7CE /* ZDCChat.framework */; };
-		594D331124826D720081B7CE /* ZDCChatAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 594D330D24826D6B0081B7CE /* ZDCChatAPI.framework */; };
-		594D331224826D720081B7CE /* ZDCChatStrings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 594D330E24826D710081B7CE /* ZDCChatStrings.bundle */; };
+		5954567A252B481700A6E68B /* LaunchScreenVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59545678252B481600A6E68B /* LaunchScreenVC.xib */; };
+		5974361B25289FE700C8854B /* Supply-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5974361625289FDE00C8854B /* Supply-Bold.otf */; };
+		5974361C25289FE700C8854B /* Supply-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5974361725289FE000C8854B /* Supply-Light.otf */; };
+		5974361D25289FE700C8854B /* Supply-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5974361825289FE300C8854B /* Supply-Medium.otf */; };
+		5974361E25289FE700C8854B /* Supply-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5974361925289FE500C8854B /* Supply-Regular.otf */; };
+		5974361F25289FE700C8854B /* Supply-UltraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5974361A25289FE700C8854B /* Supply-UltraLight.otf */; };
 		599C78842513D25200EA3728 /* IPadVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599C78822513D25200EA3728 /* IPadVC.swift */; };
 		599C78852513D25200EA3728 /* IPadVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 599C78832513D25200EA3728 /* IPadVC.xib */; };
+		59A0378D2517851F0008FE62 /* Splash.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 59A0378C2517851D0008FE62 /* Splash.jpg */; };
 		59B67ACC2438FA3E00F4B321 /* LanguagePopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B67ACA2438FA3E00F4B321 /* LanguagePopUpVC.swift */; };
 		59B67ACD2438FA3E00F4B321 /* LanguagePopUpVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59B67ACB2438FA3E00F4B321 /* LanguagePopUpVC.xib */; };
 		59B68C52245EE59900731FAD /* TWCashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B68C50245EE59900731FAD /* TWCashVC.swift */; };
 		59B68C53245EE59900731FAD /* TWCashVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59B68C51245EE59900731FAD /* TWCashVC.xib */; };
+		59C57D7C252B8A42008D9930 /* iOSDevCenters+GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C57D7B252B8A41008D9930 /* iOSDevCenters+GIF.swift */; };
 		59E4BE862429202100F59107 /* OffersAndPromotionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E4BE842429202100F59107 /* OffersAndPromotionsVC.swift */; };
 		59E4BE872429202100F59107 /* OffersAndPromotionsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59E4BE852429202100F59107 /* OffersAndPromotionsVC.xib */; };
 		59F8C154248C1B330091A14A /* DropDownCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59F8C14B248C1B320091A14A /* DropDownCell.xib */; };
@@ -315,8 +323,6 @@
 		FBFA194D21771A3B00A17E68 /* ChangeAppModeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBFA194B21771A3B00A17E68 /* ChangeAppModeVC.xib */; };
 		FBFA84A5214A72F500179452 /* YoursOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFA84A3214A72F500179452 /* YoursOrderCell.swift */; };
 		FBFA84A6214A72F500179452 /* YoursOrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBFA84A4214A72F500179452 /* YoursOrderCell.xib */; };
-		FBFB0E19215F512E00E81EF4 /* TermsConditionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFB0E17215F512E00E81EF4 /* TermsConditionVC.swift */; };
-		FBFB0E1A215F512E00E81EF4 /* TermsConditionVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBFB0E18215F512E00E81EF4 /* TermsConditionVC.xib */; };
 		FBFB0E1D215F582500E81EF4 /* ContactUsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFB0E1B215F582500E81EF4 /* ContactUsVC.swift */; };
 		FBFB0E1E215F582500E81EF4 /* ContactUsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBFB0E1C215F582500E81EF4 /* ContactUsVC.xib */; };
 		FBFB3E222151095F002924A3 /* CityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFB3E202151095F002924A3 /* CityVC.swift */; };
@@ -433,6 +439,20 @@
 			remoteInfo = InstaCash;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		590674A3252C8793008C2838 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				590674A2252C8793008C2838 /* Intercom.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		17645B1D07485CE1714A95A2 /* Pods_InstaCashUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstaCashUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -553,6 +573,8 @@
 		52BD9A4F23CA0A19004CCCD6 /* CustomerSupportVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomerSupportVC.xib; sourceTree = "<group>"; };
 		59057664242E5DB900FEF541 /* OfferPromotionPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferPromotionPopUpVC.swift; sourceTree = "<group>"; };
 		59057665242E5DB900FEF541 /* OfferPromotionPopUpVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OfferPromotionPopUpVC.xib; sourceTree = "<group>"; };
+		5906749C252C7630008C2838 /* splash_loader.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = splash_loader.gif; sourceTree = "<group>"; };
+		5906749F252C8692008C2838 /* Intercom.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Intercom.framework; sourceTree = "<group>"; };
 		5907A3BB24880EF1005C153C /* MYSwitchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYSwitchVC.swift; sourceTree = "<group>"; };
 		5907A3BC24880EF1005C153C /* MYSwitchVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MYSwitchVC.xib; sourceTree = "<group>"; };
 		5907E17B242CD5500038CD47 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -573,19 +595,24 @@
 		5920E5DC2489679B00456F35 /* PaymentModeHeaderTblCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentModeHeaderTblCell.xib; sourceTree = "<group>"; };
 		5920E5DF2489681000456F35 /* PaymentModeFooterTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentModeFooterTblCell.swift; sourceTree = "<group>"; };
 		5920E5E02489681000456F35 /* PaymentModeFooterTblCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentModeFooterTblCell.xib; sourceTree = "<group>"; };
+		592F581C252B231300EBEFB1 /* LaunchScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenVC.swift; sourceTree = "<group>"; };
 		5943AEE72443507400A49C3D /* MyOrdersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrdersCell.swift; sourceTree = "<group>"; };
 		5943AEE82443507400A49C3D /* MyOrdersCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyOrdersCell.xib; sourceTree = "<group>"; };
 		594D330924826AB80081B7CE /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
-		594D330B24826D5B0081B7CE /* ZDCChat.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ZDCChat.bundle; sourceTree = "<group>"; };
-		594D330C24826D630081B7CE /* ZDCChat.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZDCChat.framework; sourceTree = "<group>"; };
-		594D330D24826D6B0081B7CE /* ZDCChatAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZDCChatAPI.framework; sourceTree = "<group>"; };
-		594D330E24826D710081B7CE /* ZDCChatStrings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ZDCChatStrings.bundle; sourceTree = "<group>"; };
+		59545678252B481600A6E68B /* LaunchScreenVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchScreenVC.xib; sourceTree = "<group>"; };
+		5974361625289FDE00C8854B /* Supply-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Supply-Bold.otf"; sourceTree = "<group>"; };
+		5974361725289FE000C8854B /* Supply-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Supply-Light.otf"; sourceTree = "<group>"; };
+		5974361825289FE300C8854B /* Supply-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Supply-Medium.otf"; sourceTree = "<group>"; };
+		5974361925289FE500C8854B /* Supply-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Supply-Regular.otf"; sourceTree = "<group>"; };
+		5974361A25289FE700C8854B /* Supply-UltraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Supply-UltraLight.otf"; sourceTree = "<group>"; };
 		599C78822513D25200EA3728 /* IPadVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPadVC.swift; sourceTree = "<group>"; };
 		599C78832513D25200EA3728 /* IPadVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IPadVC.xib; sourceTree = "<group>"; };
+		59A0378C2517851D0008FE62 /* Splash.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Splash.jpg; sourceTree = "<group>"; };
 		59B67ACA2438FA3E00F4B321 /* LanguagePopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagePopUpVC.swift; sourceTree = "<group>"; };
 		59B67ACB2438FA3E00F4B321 /* LanguagePopUpVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LanguagePopUpVC.xib; sourceTree = "<group>"; };
 		59B68C50245EE59900731FAD /* TWCashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TWCashVC.swift; path = InstaCash/ViewController/PaymentMode/TWPaymentMode/TWCashVC.swift; sourceTree = SOURCE_ROOT; };
 		59B68C51245EE59900731FAD /* TWCashVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TWCashVC.xib; path = InstaCash/ViewController/PaymentMode/TWPaymentMode/TWCashVC.xib; sourceTree = SOURCE_ROOT; };
+		59C57D7B252B8A41008D9930 /* iOSDevCenters+GIF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "iOSDevCenters+GIF.swift"; sourceTree = "<group>"; };
 		59E4BE842429202100F59107 /* OffersAndPromotionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffersAndPromotionsVC.swift; sourceTree = "<group>"; };
 		59E4BE852429202100F59107 /* OffersAndPromotionsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OffersAndPromotionsVC.xib; sourceTree = "<group>"; };
 		59F8C14B248C1B320091A14A /* DropDownCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DropDownCell.xib; sourceTree = "<group>"; };
@@ -599,7 +626,7 @@
 		59FA616A2451C59E00D4147F /* SocialMobileRegisterVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SocialMobileRegisterVC.xib; sourceTree = "<group>"; };
 		71F0D5EC54E113DB020910AA /* Pods-InstaCashUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaCashUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstaCashUITests/Pods-InstaCashUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9359F43AE0E298EB730D42DF /* Pods-InstaCashTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaCashTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstaCashTests/Pods-InstaCashTests.release.xcconfig"; sourceTree = "<group>"; };
-		951EC7EA213FC64F006BD4B2 /* InstaCash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstaCash.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		951EC7EA213FC64F006BD4B2 /* TechCheck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TechCheck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		951EC7ED213FC64F006BD4B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		951EC7F4213FC651006BD4B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		951EC7F7213FC651006BD4B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -886,11 +913,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E59BBEF2466787000D8C3CE /* CoreLocation.framework in Frameworks */,
-				594D331124826D720081B7CE /* ZDCChatAPI.framework in Frameworks */,
 				5E59BBF12466787200D8C3CE /* CoreTelephony.framework in Frameworks */,
 				594D330A24826AB80081B7CE /* MobileCoreServices.framework in Frameworks */,
-				594D331024826D720081B7CE /* ZDCChat.framework in Frameworks */,
 				5E59BBED2466786A00D8C3CE /* Pods_InstaCash.framework in Frameworks */,
+				590674A1252C8793008C2838 /* Intercom.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -962,12 +988,12 @@
 			children = (
 				35F8ADF1234F3EFE0004F3CF /* SearchManufactureCell.swift */,
 				35F8ADF2234F3EFE0004F3CF /* SearchManufactureCell.xib */,
-				35F8ADF3234F3EFE0004F3CF /* CountrySelectionCell.xib */,
 				35F8ADF4234F3EFE0004F3CF /* CountrySelectionCell.swift */,
+				35F8ADF3234F3EFE0004F3CF /* CountrySelectionCell.xib */,
 				35F8ADF5234F3EFE0004F3CF /* AnotherDeviceCell.swift */,
 				35F8ADF6234F3EFE0004F3CF /* AnotherDeviceCell.xib */,
-				35E284F023715E42002F3C70 /* NotificationCell.xib */,
 				35E284F223715E59002F3C70 /* NotificationCell.swift */,
+				35E284F023715E42002F3C70 /* NotificationCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1250,10 +1276,7 @@
 		951EC7E1213FC64F006BD4B2 = {
 			isa = PBXGroup;
 			children = (
-				594D330B24826D5B0081B7CE /* ZDCChat.bundle */,
-				594D330C24826D630081B7CE /* ZDCChat.framework */,
-				594D330D24826D6B0081B7CE /* ZDCChatAPI.framework */,
-				594D330E24826D710081B7CE /* ZDCChatStrings.bundle */,
+				5906749F252C8692008C2838 /* Intercom.framework */,
 				5907E17C242CD5500038CD47 /* Localizable.strings */,
 				FB57273C21E9BDC100CE1FC2 /* BridgeHeader.h */,
 				951EC7EC213FC64F006BD4B2 /* InstaCash */,
@@ -1268,7 +1291,7 @@
 		951EC7EB213FC64F006BD4B2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				951EC7EA213FC64F006BD4B2 /* InstaCash.app */,
+				951EC7EA213FC64F006BD4B2 /* TechCheck.app */,
 				951EC7FE213FC652006BD4B2 /* InstaCashTests.xctest */,
 				951EC809213FC652006BD4B2 /* InstaCashUITests.xctest */,
 			);
@@ -1293,6 +1316,7 @@
 				951EC81B213FC9F8006BD4B2 /* ViewController */,
 				951EC7ED213FC64F006BD4B2 /* AppDelegate.swift */,
 				951EC7F4213FC651006BD4B2 /* Assets.xcassets */,
+				59A0378C2517851D0008FE62 /* Splash.jpg */,
 				951EC7F6213FC651006BD4B2 /* LaunchScreen.storyboard */,
 				951EC7F9213FC651006BD4B2 /* Info.plist */,
 				FBCC7AA92162386C002A48A3 /* GoogleService-Info.plist */,
@@ -1439,6 +1463,7 @@
 				3536EDEE23427A2900C7052C /* GradientView.swift */,
 				358EC3902354527D004BF2F8 /* FloatRatingView.swift */,
 				FB01857F214B96E800DD827B /* DeviceModel.swift */,
+				59C57D7B252B8A41008D9930 /* iOSDevCenters+GIF.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1454,6 +1479,11 @@
 		951EC823213FCB85006BD4B2 /* Fontsfile */ = {
 			isa = PBXGroup;
 			children = (
+				5974361625289FDE00C8854B /* Supply-Bold.otf */,
+				5974361725289FE000C8854B /* Supply-Light.otf */,
+				5974361825289FE300C8854B /* Supply-Medium.otf */,
+				5974361925289FE500C8854B /* Supply-Regular.otf */,
+				5974361A25289FE700C8854B /* Supply-UltraLight.otf */,
 				FB04EFE521D4A25400DD1D73 /* Roboto-Black.ttf */,
 				FB04EFE321D4A25300DD1D73 /* Roboto-BlackItalic.ttf */,
 				FB04EFEB21D4A25800DD1D73 /* Roboto-Bold.ttf */,
@@ -1507,6 +1537,8 @@
 			children = (
 				951EC83E213FF4A4006BD4B2 /* WelcomeVC.swift */,
 				951EC83F213FF4A4006BD4B2 /* WelcomeVC.xib */,
+				592F581C252B231300EBEFB1 /* LaunchScreenVC.swift */,
+				59545678252B481600A6E68B /* LaunchScreenVC.xib */,
 			);
 			path = WelcomeVC;
 			sourceTree = "<group>";
@@ -1753,6 +1785,7 @@
 		FB9C6FE3215A196900F93B85 /* GifImages */ = {
 			isa = PBXGroup;
 			children = (
+				5906749C252C7630008C2838 /* splash_loader.gif */,
 				FB9C6FE9215A197900F93B85 /* charging.gif */,
 				FB9C6FEA215A197900F93B85 /* dead_pixel.gif */,
 				FB9C6FE7215A197900F93B85 /* earphone_jack.gif */,
@@ -2365,6 +2398,8 @@
 				2A25F0CE478543943160C5EC /* [CP] Copy Pods Resources */,
 				FBCC7AA82161F25D002A48A3 /* ShellScript */,
 				59FE629A2481187700D26810 /* ShellScript */,
+				590674A3252C8793008C2838 /* Embed Frameworks */,
+				590674A4252C9141008C2838 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -2372,7 +2407,7 @@
 			);
 			name = InstaCash;
 			productName = InstaCash;
-			productReference = 951EC7EA213FC64F006BD4B2 /* InstaCash.app */;
+			productReference = 951EC7EA213FC64F006BD4B2 /* TechCheck.app */;
 			productType = "com.apple.product-type.application";
 		};
 		951EC7FD213FC652006BD4B2 /* InstaCashTests */ = {
@@ -2474,6 +2509,7 @@
 				FB04EFEC21D4BED200DD1D73 /* Roboto-Light.ttf in Resources */,
 				5916FE1E24C5B68D00B4952E /* GoogleService-Info-sampleApp.plist in Resources */,
 				35F8AE0A234F3EFE0004F3CF /* CountrySelectionCell.xib in Resources */,
+				5906749E252C7630008C2838 /* splash_loader.gif in Resources */,
 				35F8AE11234F3EFE0004F3CF /* AnotherDevice.xib in Resources */,
 				FB04EFED21D4BED200DD1D73 /* Roboto-Medium.ttf in Resources */,
 				FB04EFEE21D4BED200DD1D73 /* Roboto-Regular.ttf in Resources */,
@@ -2521,8 +2557,6 @@
 				951EC827213FCB9D006BD4B2 /* Comfortaa-Regular.ttf in Resources */,
 				521A28A423C87CA9002DAC7D /* OrderDetailSummaryVC.xib in Resources */,
 				FBFB0E1E215F582500E81EF4 /* ContactUsVC.xib in Resources */,
-				594D330F24826D720081B7CE /* ZDCChat.bundle in Resources */,
-				FBFB0E1A215F512E00E81EF4 /* TermsConditionVC.xib in Resources */,
 				59F8C154248C1B330091A14A /* DropDownCell.xib in Resources */,
 				FB3A47E9219AC4CD003F5B89 /* TimeLineVC.xib in Resources */,
 				FB3997392170B2E2008B0AC6 /* UploadDocumentVC.xib in Resources */,
@@ -2560,6 +2594,7 @@
 				FBFDA80D2153864300667DC6 /* PaymentCell.xib in Resources */,
 				52160CC923FBD24B00A09035 /* HowItWorkPageVC.xib in Resources */,
 				FB07E09121DA0467002A04AD /* PromoCodeVC.xib in Resources */,
+				5974361E25289FE700C8854B /* Supply-Regular.otf in Resources */,
 				FBFCA37521C22B75006A016E /* fingerprint.svg in Resources */,
 				FB9C7012215A510A00F93B85 /* DeviceChargerVC.xib in Resources */,
 				FB3CC3F3215CE6C30037DC7C /* MyAccountVC.xib in Resources */,
@@ -2573,6 +2608,7 @@
 				FBFCA37321C22B75006A016E /* phone-of-rounded-shape-from-side-and-front-view.svg in Resources */,
 				35E284F7237161DA002F3C70 /* OrderDetail.xib in Resources */,
 				FB9C6FEC215A197900F93B85 /* final_touch.gif in Resources */,
+				59A0378D2517851F0008FE62 /* Splash.jpg in Resources */,
 				5218FE5323EDC6BF00996808 /* ItemPickUpVC.xib in Resources */,
 				FBFB3E5E215133A2002924A3 /* BrandModelTypeVC.xib in Resources */,
 				FBF7545A217DC1F0002DC44A /* ScreenTestPickUp.xib in Resources */,
@@ -2591,6 +2627,7 @@
 				5920E5E22489681000456F35 /* PaymentModeFooterTblCell.xib in Resources */,
 				FBF35E12215E2A260052DAF7 /* MyAddressesCell.xib in Resources */,
 				FBD42BA62175D5F000E7EF86 /* SearchProductVC.xib in Resources */,
+				5974361C25289FE700C8854B /* Supply-Light.otf in Resources */,
 				35E284ED23715CE4002F3C70 /* NotificationNew.xib in Resources */,
 				35E284F123715E42002F3C70 /* NotificationCell.xib in Resources */,
 				FB9C7004215A4A5600F93B85 /* VolumeCheckerVC.xib in Resources */,
@@ -2609,6 +2646,7 @@
 				35E284E7236FF844002F3C70 /* Wallet.xib in Resources */,
 				FBFB3E6D21514431002924A3 /* IMEIVC.xib in Resources */,
 				FB18F96A2223FC5100FDD884 /* PramotterVC.xib in Resources */,
+				5974361F25289FE700C8854B /* Supply-UltraLight.otf in Resources */,
 				35F8AE0F234F3EFE0004F3CF /* ChangeModePopUpVC.xib in Resources */,
 				FBFCA37821C22B75006A016E /* rupee-indian.svg in Resources */,
 				FBFCA37E21C22C78006A016E /* ProductDetailVewVC.xib in Resources */,
@@ -2616,7 +2654,9 @@
 				52211F5B23D5D4BC00FE0CFD /* SGFastPayVC.xib in Resources */,
 				5920E5DE2489679B00456F35 /* PaymentModeHeaderTblCell.xib in Resources */,
 				35E284DF236FF660002F3C70 /* Voucher.xib in Resources */,
+				5974361D25289FE700C8854B /* Supply-Medium.otf in Resources */,
 				FBFCA37221C22B75006A016E /* Sensor.svg in Resources */,
+				5954567A252B481700A6E68B /* LaunchScreenVC.xib in Resources */,
 				FB9C6FF2215A197900F93B85 /* dead_pixel.gif in Resources */,
 				FB9C6FEF215A197900F93B85 /* earphone_jack.gif in Resources */,
 				FB9C6FF1215A197900F93B85 /* charging.gif in Resources */,
@@ -2628,6 +2668,7 @@
 				FBFDA8162153891C00667DC6 /* FillDetailLater.xib in Resources */,
 				52160CCD23FBD25900A09035 /* FaqPageVC.xib in Resources */,
 				FB3CC3FF215CE7060037DC7C /* HowItWorkVC.xib in Resources */,
+				5974361B25289FE700C8854B /* Supply-Bold.otf in Resources */,
 				FB9C702A215A650600F93B85 /* DiagnosticTestResultVC.xib in Resources */,
 				FB9C6FF3215A197900F93B85 /* proximity.gif in Resources */,
 				FB9C6FD9215A046F00F93B85 /* DeviceInfoVC.xib in Resources */,
@@ -2640,7 +2681,6 @@
 				FB324C54214D3D9A00D18398 /* MobileNumberVC.xib in Resources */,
 				C3CC35C3224B4ACE00289D4E /* face-id.svg in Resources */,
 				FBFC83782152749C00562D42 /* DeviceOldVC.xib in Resources */,
-				594D331224826D720081B7CE /* ZDCChatStrings.bundle in Resources */,
 				522BF1A923B8A2060070655D /* OrderFinalVC.xib in Resources */,
 				52BD9A5123CA0A19004CCCD6 /* CustomerSupportVC.xib in Resources */,
 				951EC7F5213FC651006BD4B2 /* Assets.xcassets in Resources */,
@@ -2714,6 +2754,23 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-InstaCash/Pods-InstaCash-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		590674A4252C9141008C2838 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Intercom.framework/strip-frameworks.sh\"\n";
 		};
 		59FE629A2481187700D26810 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2823,7 +2880,6 @@
 				951EC7EE213FC64F006BD4B2 /* AppDelegate.swift in Sources */,
 				FB01857D214B86E400DD827B /* TrandingDeviceCell.swift in Sources */,
 				FB9C701F215A580C00F93B85 /* FingerPrintDevice.swift in Sources */,
-				FBFB0E19215F512E00E81EF4 /* TermsConditionVC.swift in Sources */,
 				FB9C7016215A535600F93B85 /* CameraVC.swift in Sources */,
 				35F8AE0C234F3EFE0004F3CF /* AnotherDeviceCell.swift in Sources */,
 				FBFFCED72149146B00B0CBC1 /* SideMenuVC.swift in Sources */,
@@ -2911,6 +2967,7 @@
 				35E284E9237149AC002F3C70 /* Profile.swift in Sources */,
 				5943AEE92443507400A49C3D /* MyOrdersCell.swift in Sources */,
 				FBF75459217DC1F0002DC44A /* ScreenTestPickUp.swift in Sources */,
+				59C57D7C252B8A42008D9930 /* iOSDevCenters+GIF.swift in Sources */,
 				FBD42BA52175D5F000E7EF86 /* SearchProductVC.swift in Sources */,
 				FB9C7029215A650600F93B85 /* DiagnosticTestResultVC.swift in Sources */,
 				FBF75461217DF6D4002DC44A /* UploadIDVC.swift in Sources */,
@@ -2944,6 +3001,7 @@
 				52210BC423FBA71900C87FDB /* CAPSPageMenu.m in Sources */,
 				52211F5E23D5D4CF00FE0CFD /* SGPaynowVC.swift in Sources */,
 				5920E5E12489681000456F35 /* PaymentModeFooterTblCell.swift in Sources */,
+				592F581D252B231300EBEFB1 /* LaunchScreenVC.swift in Sources */,
 				FB63090221562F00003DA09F /* LockPricePopUp.swift in Sources */,
 				FBFE678821A28B5F00B598F3 /* LiveOfferVC.swift in Sources */,
 				5920E5DD2489679B00456F35 /* PaymentModeHeaderTblCell.swift in Sources */,
@@ -3198,11 +3256,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = InstaCash/InstaCash.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1.1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = FPA74MVT87;
-				ENABLE_BITCODE = YES;
+				DEVELOPMENT_TEAM = 7K4XK5DWUY;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -3215,6 +3274,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -3386,9 +3446,9 @@
 					"-weak_framework",
 					"\"UserNotifications\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.zerowaste.instacash;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PRODUCT_BUNDLE_IDENTIFIER = com.techcheck.rebox;
+				PRODUCT_NAME = TechCheck;
+				PROVISIONING_PROFILE_SPECIFIER = TechCheck_AppStore_Dist;
 				SWIFT_OBJC_BRIDGING_HEADER = "/Volumes/Sam HD/InstaCash/May-2020/26:5:20/Insta_iOS/BridgeHeader.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -3401,10 +3461,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = InstaCash/InstaCash.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FPA74MVT87;
-				ENABLE_BITCODE = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1.1;
+				DEVELOPMENT_TEAM = 7K4XK5DWUY;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -3417,6 +3478,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -3588,9 +3650,9 @@
 					"-weak_framework",
 					"\"UserNotifications\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.zerowaste.instacash;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PRODUCT_BUNDLE_IDENTIFIER = com.techcheck.rebox;
+				PRODUCT_NAME = TechCheck;
+				PROVISIONING_PROFILE_SPECIFIER = TechCheck_AppStore_Dist;
 				SWIFT_OBJC_BRIDGING_HEADER = "/Volumes/Sam HD/InstaCash/May-2020/26:5:20/Insta_iOS/BridgeHeader.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;

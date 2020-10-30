@@ -1,8 +1,8 @@
 //
 //  RatingVC.swift
-//  InstaCash
+//  TechCheck
 //
-//  Created by InstaCash on 23/10/18.
+//  Created by TechCheck on 23/10/18.
 //  Copyright © 2018 Prakhar Gupta. All rights reserved.
 //
 

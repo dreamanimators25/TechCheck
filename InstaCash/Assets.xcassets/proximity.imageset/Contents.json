@@ -2,12 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "proximity.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "proximity@2x.png",
+      "filename" : "proximity.png",
       "scale" : "2x"
     },
     {

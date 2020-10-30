@@ -1,6 +1,6 @@
 /* 
   Localizable.strings
-  InstaCash
+  TechCheck
 
   Created by Sameer Khan on 26/03/20.
   Copyright © 2020 Prakhar Gupta. All rights reserved.
@@ -50,7 +50,7 @@
 
 // 4. LoginVC
 "Please login in truecaller app " = "Please login in truecaller app ";
-"InstaCash" = "InstaCash";
+"TechCheck" = "TechCheck";
 "Continue with Facebook" = "Continue with Facebook";
 "Continue with Truecaller" = "Continue with Truecaller";
 "Continue with Mobile Number" = "Continue with Mobile Number";
@@ -374,7 +374,7 @@
 
 // 33. DeviceInfoVC
 "Market Price" = "Market Price";
-"InstaCash Price" = "InstaCash Price";
+"TechCheck Price" = "TechCheck Price";
 "The price stated above depends on the condition of the device. A final price offer will be quoted after you run the device diagnosis." = "The price stated above depends on the condition of the device. A final price offer will be quoted after you run the device diagnosis.";
 "Getting an exact quote takes 5 mins. Ready to roll? Just grab your earphone and data cable for respective diagnosis." = "Getting an exact quote takes 5 mins. Ready to roll? Just grab your earphone and data cable for respective diagnosis.";
 "Get exact quote" = "Get exact quote";

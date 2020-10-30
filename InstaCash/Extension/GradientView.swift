@@ -201,6 +201,13 @@ extension UIColor
         return hexInt
     }
     
+    
+    func gradientTechCheckFirstColor() -> UIColor
+    {
+        return UIColor().HexToColor(hexString:"591091")
+    }
+    
+    
     func gradientGreenFirstColor() -> UIColor
     {
         return UIColor().HexToColor(hexString:"73DC95")

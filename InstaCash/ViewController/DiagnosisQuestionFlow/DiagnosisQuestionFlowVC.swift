@@ -1,8 +1,8 @@
 //
 //  DiagnosisQuestionFlowVC.swift
-//  InstaCash
+//  TechCheck
 //
-//  Created by InstaCash on 05/12/18.
+//  Created by TechCheck on 05/12/18.
 //  Copyright © 2018 Prakhar Gupta. All rights reserved.
 //
 
@@ -112,37 +112,38 @@ class DiagnosisQuestionFlowVC: UIViewController,UITableViewDelegate,UITableViewD
                     //s.
                     
                     let arrData = responseObject?.value(forKeyPath: "msg.questions") as! NSArray
-                    for index in 0..<arrData.count{
+                    for index in 0..<arrData.count {
                         let dict = arrData[index] as? NSDictionary
                         if dict?.value(forKeyPath: "isInput") as! String == "1"{
                             count = count + 1
-                           // self.arrShowQuestion.insert(dict!, at: count)
+                            // self.arrShowQuestion.insert(dict!, at: count)
                             let modelQuestion = PickUpQuestionModel()
                             var arrQuestionValue = [PickUpQuestionTypesModel]()
                             modelQuestion.strViewType = dict?.value(forKey: "viewType") as! String
                             modelQuestion.strAppViewType = dict?.value(forKey: "appViewType") as! String
-                                // put questionvalue here
+                            
+                            // put questionvalue here
                             var  arrQuestionValues = NSArray()
-                            if dict?.value(forKey: "type") as! String == "specification"{
-                                    arrQuestionValues = dict?.value(forKey: "specificationValue") as! NSArray
-                                    modelQuestion.strQuestionName = dict?.value(forKey: "specificationName") as! String
+                            if dict?.value(forKey: "type") as! String == "specification" {
+                                arrQuestionValues = dict?.value(forKey: "specificationValue") as! NSArray
+                                modelQuestion.strQuestionName = dict?.value(forKey: "specificationName") as! String
                             }
                             else{
-                                    arrQuestionValues = dict?.value(forKey: "conditionValue") as! NSArray
-                                    modelQuestion.strQuestionName = dict?.value(forKey: "conditionSubHead") as! String
-                                }
+                                arrQuestionValues = dict?.value(forKey: "conditionValue") as! NSArray
+                                modelQuestion.strQuestionName = dict?.value(forKey: "conditionSubHead") as! String
+                            }
                             if arrQuestionValues.count > 0{
-                                    for obj in 0..<arrQuestionValues.count{
-                                        let dictValue = arrQuestionValues[obj] as! NSDictionary
-                                        let modelQuestionVal = PickUpQuestionTypesModel()
-                                        modelQuestionVal.strQuestionValue = dictValue.value(forKey: "value") as! String
-                                        modelQuestionVal.strQuestionValueImage = dictValue.value(forKey: "image") as! String
-                                        modelQuestionVal.strQuestionValueAppCodde = dictValue.value(forKey: "appCode") as! String
-                                        modelQuestionVal.isSelected = false
-                                        arrQuestionValue.insert(modelQuestionVal, at: obj)
-                                    }
+                                for obj in 0..<arrQuestionValues.count{
+                                    let dictValue = arrQuestionValues[obj] as! NSDictionary
+                                    let modelQuestionVal = PickUpQuestionTypesModel()
+                                    modelQuestionVal.strQuestionValue = dictValue.value(forKey: "value") as! String
+                                    modelQuestionVal.strQuestionValueImage = dictValue.value(forKey: "image") as! String
+                                    modelQuestionVal.strQuestionValueAppCodde = dictValue.value(forKey: "appCode") as! String
+                                    modelQuestionVal.isSelected = false
+                                    arrQuestionValue.insert(modelQuestionVal, at: obj)
                                 }
-                                modelQuestion.arrQuestionTypes = arrQuestionValue
+                            }
+                            modelQuestion.arrQuestionTypes = arrQuestionValue
                             self.arrQuestionForQuestion.insert(modelQuestion, at: count)
                         }
                         
@@ -207,26 +208,38 @@ class DiagnosisQuestionFlowVC: UIViewController,UITableViewDelegate,UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "questionPickUpCell", for: indexPath) as! QuestionPickUpCell
+        
         cell.collectionViewQuestionValues.delegate = self
         cell.collectionViewQuestionValues.dataSource = self
         cell.collectionViewQuestionValues.tag = indexPath.row
         cell.collectionViewQuestionValues.reloadData()
         cell.lblQuestion.text = arrQuestionForQuestion[indexPath.row].strQuestionName //.localized(lang: langCode)
-        
-        
-        
+                
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
+        
         if(arrQuestionForQuestion[indexPath.row].arrQuestionTypes.count <= 2 )
         {
-            return 170
+            if arrQuestionForQuestion[indexPath.row].strQuestionName.count > 32 {
+                return 190
+            }else {
+                return 170
+            }
+            
+            //return 170
         }
         else
         {
-            return CGFloat(70 + (arrQuestionForQuestion[indexPath.row].arrQuestionTypes.count * 50))
+            if arrQuestionForQuestion[indexPath.row].strQuestionName.count > 32 {
+                return CGFloat(90 + (arrQuestionForQuestion[indexPath.row].arrQuestionTypes.count * 50))
+            }else {
+                return CGFloat(70 + (arrQuestionForQuestion[indexPath.row].arrQuestionTypes.count * 50))
+            }
+            
+            //return CGFloat(70 + (arrQuestionForQuestion[indexPath.row].arrQuestionTypes.count * 50))
         }
         
         /*if arrQuestionForQuestion[indexPath.row].arrQuestionTypes.count <= 2 {
@@ -283,6 +296,7 @@ class DiagnosisQuestionFlowVC: UIViewController,UITableViewDelegate,UITableViewD
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "pickUpQuestionCollectionViewCell", for: indexPath as IndexPath) as! PickUpQuestionCollectionViewCell
+        
         //cell.layer.cornerRadius = 5.0 //s.
         cell.layer.borderWidth = 0.5 //s.
         cell.layer.borderColor = UIColor.gray.cgColor //s.
@@ -313,9 +327,7 @@ class DiagnosisQuestionFlowVC: UIViewController,UITableViewDelegate,UITableViewD
             
             cell.circleImageView.image = #imageLiteral(resourceName: "circle")
         }
-        
-        
-        
+                
         return cell
     }
     

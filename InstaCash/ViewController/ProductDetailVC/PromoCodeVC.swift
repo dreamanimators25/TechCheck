@@ -1,8 +1,8 @@
 //
 //  PromoCodeVC.swift
-//  InstaCash
+//  TechCheck
 //
-//  Created by InstaCash on 31/12/18.
+//  Created by TechCheck on 31/12/18.
 //  Copyright © 2018 Prakhar Gupta. All rights reserved.
 
 import UIKit
@@ -134,14 +134,25 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
         self.btnCouponRemove.isHidden = true
         
         DispatchQueue.main.async {
-            if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+            if CustomUserDefault.getCurrency() == "£" {
                 
+                /*
                 self.lblDonateDest.text = "I want to donate ₹".localized(lang: langCode) + " \(self.Donation) " + "to Narayan Seva Sansthan.".localized(lang: langCode)
                 self.NssImageViewHeight.constant = 80.0
                 self.stkView1.isHidden = false
                 //self.stkView2.isHidden = true
                 //self.stkViewHeightConstraint.constant = 45.0
                 self.stkViewHeightConstraint.constant = 90.0
+                */
+                
+                //Sameer 4/10/20
+                self.stkViewHeightConstraint.constant = 0.0
+                self.NssImageViewHeight.constant = 0.0
+                
+                self.stkView1.isHidden = true
+                self.stkView2.isHidden = true
+                self.stkViewHeightConstraint.constant = 0.0
+                self.donateAmount = 0
                 
             }else if CustomUserDefault.getCurrency() == "NT$" {
                 
@@ -217,21 +228,21 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
         txtAmount.delegate = self
                 
         self.changeLanguageOfUI()
-        
     }
     
     func changeLanguageOfUI() {
    
         self.lblTitleSummary.text = "Summary".localized(lang: langCode)
-        self.lblSummary.text = "Summary".localized(lang: langCode)
+        self.lblSummary.text = "Summary Details".localized(lang: langCode)
         self.lblSubTotal.text = "Subtotal Amount".localized(lang: langCode)
-        self.lblPickUpCharge.text = "Pickup Charge".localized(lang: langCode)
+        //self.lblPickUpCharge.text = "Pickup Charge".localized(lang: langCode)
+        self.lblPickUpCharge.text = "Collection fee".localized(lang: langCode)
         self.lblPromoOffer.text = "Promo offer".localized(lang: langCode)
         self.lblTotal.text = "Total".localized(lang: langCode)
         self.btnPromoCode.setTitle("Have a promo code? Click here.".localized(lang: langCode), for: UIControlState.normal)
         
         //self.lblDonateDest.text = "I want to donate ₹ 30 to Narayan Sewa Sansthan.".localized(lang: langCode)
-        if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+        if CustomUserDefault.getCurrency() == "£" {
             lblDonateDest.text =  "I want to donate ₹".localized(lang: langCode) + " \(self.donateAmount) " + "to Narayan Seva Sansthan.".localized(lang: langCode)
         }else {
             lblDonateDest.text = "I want to donate".localized(lang: langCode) + " \(CustomUserDefault.getCurrency()) \(self.donateAmount) " + "to World Wide Fund for Nature.".localized(lang: langCode)
@@ -251,7 +262,7 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
     {
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.isNavigationBarHidden = false
-        self.title = "InstaCash".localized(lang: langCode)
+        self.title = "TechCheck".localized(lang: langCode)
         let btnBack = UIButton(frame: CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: 25, height: 25)))
         let widthConstraint = btnBack.widthAnchor.constraint(equalToConstant: 25)
         let heightConstraint = btnBack.heightAnchor.constraint(equalToConstant: 25)
@@ -271,7 +282,7 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
             if (txtAmount.text?.isEmpty)!{
                 //lblDonateDest.text = "I want to donate ₹ \(Donation) to Narayan Sewa Sansthan."
                 
-                if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+                if CustomUserDefault.getCurrency() == "£" {
                     
                     lblDonateDest.text =  "I want to donate ₹".localized(lang: langCode) + " \(self.Donation) " + "to Narayan Seva Sansthan.".localized(lang: langCode)
                     
@@ -296,7 +307,7 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
                 }
                 
                 
-                if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+                if CustomUserDefault.getCurrency() == "£" {
                     
                     lblDonateDest.text = "I want to donate ₹".localized(lang: langCode) + " \(txtAmount.text ?? "0") " + "to Narayan Seva Sansthan.".localized(lang: langCode)
                     //lblDonateDest.text = "I want to donate ₹ \(txtAmount.text ?? "0") to Narayan Seva Sansthan."
@@ -341,7 +352,7 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
             //finalPriceSet = finalPriceSet - 30
             //btnChangeHeight.constant = 35
             
-            if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+            if CustomUserDefault.getCurrency() == "£" {
                 
                 stkView2.isHidden = false
                 stkViewHeightConstraint.constant = 90.0
@@ -368,7 +379,7 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
             //finalPriceSet = finalPriceSet + 30
             //btnChangeHeight.constant = 0
             
-            if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+            if CustomUserDefault.getCurrency() == "£" {
                 //stkView2.isHidden = true
                 //stkViewHeightConstraint.constant = 45.0
                 stkViewHeightConstraint.constant = 90.0
@@ -479,7 +490,7 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
             var currency = ""
             //if (userDefaults.value(forKey: "countryName") as? String)?.contains("India") != nil {
             
-            if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+            if CustomUserDefault.getCurrency() == "£" {
                 currency = "INR"
             }
                 //else if (userDefaults.value(forKey: "countryName") as? String)?.contains("Malaysia") != nil {

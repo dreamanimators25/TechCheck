@@ -1,6 +1,6 @@
 //
 //  DeadPixelVC.swift
-//  InstaCash
+//  TechCheck
 //
 //  Created by Sameer's MacBook Pro on 02/03/20.
 //  Copyright © 2020 Prakhar Gupta. All rights reserved.
@@ -145,13 +145,13 @@ class DeadPixelVC: UIViewController {
             
             // Customize dialog appearance
             let pv = PopupDialogDefaultView.appearance()
-            pv.titleFont    = UIFont(name: "HelveticaNeue-Medium", size: 20)!
-            pv.messageFont  = UIFont(name: "HelveticaNeue", size: 16)!
+            pv.titleFont    = UIFont(name: fontNameMedium, size: 20)!
+            pv.messageFont  = UIFont(name: fontNameRegular, size: 16)!
             
             
             // Customize the container view appearance
             let pcv = PopupDialogContainerView.appearance()
-            pcv.cornerRadius    = 2
+            pcv.cornerRadius    = 10
             pcv.shadowEnabled   = true
             pcv.shadowColor     = .black
             
@@ -164,12 +164,12 @@ class DeadPixelVC: UIViewController {
             
             // Customize default button appearance
             let db = DefaultButton.appearance()
-            db.titleFont      = UIFont(name: "HelveticaNeue-Medium", size: 16)!
+            db.titleFont      = UIFont(name: fontNameMedium, size: 16)!
             
             
             // Customize cancel button appearance
             let cb = CancelButton.appearance()
-            cb.titleFont      = UIFont(name: "HelveticaNeue-Medium", size: 16)!
+            cb.titleFont      = UIFont(name: fontNameMedium, size: 16)!
             
             
             // Present dialog

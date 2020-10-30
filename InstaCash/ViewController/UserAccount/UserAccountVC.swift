@@ -1,6 +1,6 @@
 //
 //  UserAccountVC.swift
-//  InstaCash
+//  TechCheck
 //
 //  Created by Sameer's MacBook Pro on 05/02/20.
 //  Copyright © 2020 Prakhar Gupta. All rights reserved.
@@ -37,6 +37,11 @@ class UserAccountVC: UIViewController {
     @IBOutlet weak var diagnoseModeLbl: UILabel!
     @IBOutlet weak var pickupModeLbl: UILabel!
     @IBOutlet weak var logoutLbl: UILabel!
+    
+    @IBOutlet weak var homeLbl: UILabel!
+    @IBOutlet weak var orderLbl: UILabel!
+    @IBOutlet weak var notiLbl: UILabel!
+    @IBOutlet weak var userLbl: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +50,11 @@ class UserAccountVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        self.homeLbl.text = ""
+        self.orderLbl.text = ""
+        self.notiLbl.text = ""
+        self.userLbl.text = "User"
         
         if let name = CustomUserDefault.getUserName() {
             self.userNameLbl.text = name
@@ -94,7 +104,7 @@ class UserAccountVC: UIViewController {
         self.pickupModeLbl.text = "PICKUP MODE".localized(lang: langCode)
         self.logoutLbl.text = "LOGOUT".localized(lang: langCode)
         
-        if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+        if CustomUserDefault.getCurrency() == "£" {
             self.languageView.isHidden = true
         }else {
             self.languageView.isHidden = true

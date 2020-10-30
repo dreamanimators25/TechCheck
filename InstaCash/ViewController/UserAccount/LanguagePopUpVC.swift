@@ -1,6 +1,6 @@
 //
 //  LanguagePopUpVC.swift
-//  InstaCash
+//  TechCheck
 //
 //  Created by Sameer Khan on 04/04/20.
 //  Copyright © 2020 Prakhar Gupta. All rights reserved.
@@ -86,7 +86,7 @@ class LanguagePopUpVC: UIViewController {
         self.selectedLanguage = "en"
         
         //English Language
-        self.engView.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+        self.engView.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
         self.engLbl.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         self.engImgView.image = #imageLiteral(resourceName: "Selected")
         
@@ -111,7 +111,7 @@ class LanguagePopUpVC: UIViewController {
         self.engImgView.image = #imageLiteral(resourceName: "unCheck")
         
         //Hindi Language
-        self.hindiView.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+        self.hindiView.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
         self.hindiLbl.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         self.hindiImgView.image = #imageLiteral(resourceName: "Selected")
         
@@ -136,7 +136,7 @@ class LanguagePopUpVC: UIViewController {
         self.hindiImgView.image = #imageLiteral(resourceName: "unCheck")
         
         //Chinese Language
-        self.chinaView.backgroundColor = #colorLiteral(red: 0.04828050733, green: 0.656562984, blue: 0.2261204422, alpha: 1)
+        self.chinaView.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
         self.chinaLbl.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         self.chinaImgView.image = #imageLiteral(resourceName: "Selected")
     }

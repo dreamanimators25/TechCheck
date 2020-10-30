@@ -1,8 +1,8 @@
 //
 //  LiveOfferVC.swift
-//  InstaCash
+//  TechCheck
 //
-//  Created by InstaCash on 19/11/18.
+//  Created by TechCheck on 19/11/18.
 //  Copyright © 2018 Prakhar Gupta. All rights reserved.
 //
 
@@ -165,7 +165,7 @@ class LiveOfferVC: UIViewController {
                             mesasge = "Order successfully updated!"
                         }
                         //userDefaults.removeObject(forKey: "ChangeModeOrderId")
-                        let alertController = UIAlertController(title: "InstaCash".localized(lang: langCode), message:mesasge.localized(lang: langCode), preferredStyle: .alert)
+                        let alertController = UIAlertController(title: "TechCheck".localized(lang: langCode), message:mesasge.localized(lang: langCode), preferredStyle: .alert)
                         
                         let sendButton = UIAlertAction(title: "Ok".localized(lang: langCode), style: .default, handler: { (action) -> Void in
                             if userDefaults.value(forKey: "ChangeModeComingFromDiadnosis") as? String == "Pickup" {

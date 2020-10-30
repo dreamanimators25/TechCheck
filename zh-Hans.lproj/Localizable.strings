@@ -1,6 +1,6 @@
 /*
   Localizable.strings
-  InstaCash
+  TechCheck
 
   Created by Sameer Khan on 26/03/20.
   Copyright © 2020 Prakhar Gupta. All rights reserved.
@@ -50,7 +50,7 @@
 
 // 4. LoginVC
 "Please login in truecaller app " = "请登录真实呼叫者应用";
-"InstaCash" = "InstaCash"; //"现金";
+"TechCheck" = "TechCheck"; //"现金";
 "Continue with Facebook" = "继续使用脸书";
 "Continue with Truecaller" = "继续真实呼叫者";
 "Continue with Mobile Number" = "继续使用手机号码";
@@ -383,7 +383,7 @@
 
 // 33. DeviceInfoVC
 "Market Price" = "市场价";
-"InstaCash Price" = "现金 价钱";
+"TechCheck Price" = "现金 价钱";
 "The price stated above depends on the condition of the device. A final price offer will be quoted after you run the device diagnosis." = "上述價格取決於手機的狀況。進行手機檢測後，將獲得最終報價。"; //"上述价格取决于设备的状况。运行设备诊断后，将报价最终报价。";
 "Getting an exact quote takes 5 mins. Ready to roll? Just grab your earphone and data cable for respective diagnosis." = "获得准确的报价需要5分钟。准备好了吗？只需抓住耳机和数据线进行相应的诊断即可。";
 "Get exact quote" = "獲取準確的回收報價"; //"获取确切报价";

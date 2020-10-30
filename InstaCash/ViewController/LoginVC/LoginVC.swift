@@ -1,6 +1,6 @@
 //
 //  LoginVC.swift
-//  InstaCash
+//  TechCheck
 //  Created by Prakhar Gupta on 9/6/18.
 //  Copyright © 2018 Prakhar Gupta. All rights reserved.
 //
@@ -68,7 +68,7 @@ class LoginVC: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate,TCTrueSDKD
     func viewSetDynamic(){
         //if (userDefaults.value(forKey: "countryName") as? String)?.contains("India") != nil {
             
-        if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+        if CustomUserDefault.getCurrency() == "£" {
             
             if userDefaults.value(forKey: "isTrueCallerSupported")  as! Bool == true{
                 btnTrueCaller.isHidden = false

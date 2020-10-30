@@ -1,6 +1,6 @@
 //
 //  MyHistoryListVC.swift
-//  InstaCash
+//  TechCheck
 //
 //  Created by Sameer's MacBook Pro on 18/02/20.
 //  Copyright © 2020 Prakhar Gupta. All rights reserved.
@@ -18,7 +18,7 @@ class MyHistoryListVC: UIViewController,UITableViewDataSource,UITableViewDelegat
     
     func changeLanguageOfUI() {
         
-        self.lblMyHistory.text = "My History".localized(lang: langCode)
+        self.lblMyHistory.text = "My Transaction History".localized(lang: langCode)
         
         //self.searchBarProduct.placeholder = "Search for your Device...".localized(lang: langCode)
         //self.btnSeeOrderStatus.setTitle("SEE ORDER STATUS".localized(lang: langCode), for: UIControlState.normal)

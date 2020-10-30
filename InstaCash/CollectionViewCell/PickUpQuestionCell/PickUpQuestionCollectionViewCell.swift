@@ -1,8 +1,8 @@
 //
 //  PickUpQuestionCollectionViewCell.swift
-//  InstaCash
+//  TechCheck
 //
-//  Created by InstaCash on 01/12/18.
+//  Created by TechCheck on 01/12/18.
 //  Copyright © 2018 Prakhar Gupta. All rights reserved.
 //
 
@@ -20,6 +20,7 @@ class PickUpQuestionCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
        
         // Initialization code
+        
     }
 
 }

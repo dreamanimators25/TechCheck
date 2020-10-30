@@ -1,8 +1,8 @@
 //
 //  FingerPrintDevice.swift
-//  InstaCash
+//  TechCheck
 //
-//  Created by InstaCash on 25/09/18.
+//  Created by TechCheck on 25/09/18.
 //  Copyright © 2018 Prakhar Gupta. All rights reserved.
 //
 
@@ -66,8 +66,8 @@ class FingerPrintDevice: UIViewController {
     func changeLanguageOfUI() {
         
         self.lblCheckScanner.text = "Checking fingerprint scanner".localized(lang: langCode)
-        self.lblThenYou.text = "Then you will place your finger on the fingerprint scanner like you normally would during unlock.".localized(lang: langCode)
-        self.lblFirst.text = "First, please enable fingerprint function.".localized(lang: langCode)
+        self.lblThenYou.text = "During the test place your finger on the scanner as you normally would to unlock your phone".localized(lang: langCode)
+        self.lblFirst.text = "First, enable the fingerprint function on your phone.".localized(lang: langCode)
         
         //self.btnGuideme.setTitle("Guide me".localized(lang: langCode), for: UIControlState.normal)
         
@@ -274,12 +274,12 @@ class FingerPrintDevice: UIViewController {
         popup.dismiss(animated: true, completion: nil)
         // Customize dialog appearance
         let pv = PopupDialogDefaultView.appearance()
-        pv.titleFont    = UIFont(name: "HelveticaNeue-Medium", size: 20)!
-        pv.messageFont  = UIFont(name: "HelveticaNeue", size: 16)!
+        pv.titleFont    = UIFont(name: fontNameMedium, size: 20)!
+        pv.messageFont  = UIFont(name: fontNameRegular, size: 16)!
         
         // Customize the container view appearance
         let pcv = PopupDialogContainerView.appearance()
-        pcv.cornerRadius    = 2
+        pcv.cornerRadius    = 10
         pcv.shadowEnabled   = true
         pcv.shadowColor     = .black
         
@@ -292,12 +292,12 @@ class FingerPrintDevice: UIViewController {
         
         // Customize default button appearance
         let db = DefaultButton.appearance()
-        db.titleFont      = UIFont(name: "HelveticaNeue-Medium", size: 16)!
+        db.titleFont      = UIFont(name: fontNameMedium, size: 16)!
         
         
         // Customize cancel button appearance
         let cb = CancelButton.appearance()
-        cb.titleFont      = UIFont(name: "HelveticaNeue-Medium", size: 16)!
+        cb.titleFont      = UIFont(name: fontNameMedium, size: 16)!
         
         // Present dialog
         self.present(popup, animated: true, completion: nil)

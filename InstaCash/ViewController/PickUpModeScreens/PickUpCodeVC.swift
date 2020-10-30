@@ -1,6 +1,6 @@
 //
 //  PickUpCodeVC.swift
-//  InstaCash
+//  TechCheck
 //
 //  Created by Sameer's MacBook Pro on 06/02/20.
 //  Copyright © 2020 Prakhar Gupta. All rights reserved.
@@ -52,11 +52,11 @@ class PickUpCodeVC: UIViewController {
         self.changeLanguageOfUI()
         
         DispatchQueue.main.async {
-            self.cancelBtn.titleLabel?.textColor = #colorLiteral(red: 0.1581287384, green: 0.6885935664, blue: 0.237049073, alpha: 1)
+            self.cancelBtn.titleLabel?.textColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
             self.cancelBtn.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
             
             self.submitBtn.titleLabel?.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-            self.submitBtn.backgroundColor = #colorLiteral(red: 0.1581287384, green: 0.6885935664, blue: 0.237049073, alpha: 1)
+            self.submitBtn.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
         }
         
     }
@@ -76,10 +76,10 @@ class PickUpCodeVC: UIViewController {
         self.view.endEditing(true)
         
         DispatchQueue.main.async {
-            self.cancelBtn.backgroundColor = #colorLiteral(red: 0.1581287384, green: 0.6885935664, blue: 0.237049073, alpha: 1)
+            self.cancelBtn.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
             self.cancelBtn.titleLabel?.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
             
-            self.submitBtn.titleLabel?.textColor = #colorLiteral(red: 0.1581287384, green: 0.6885935664, blue: 0.237049073, alpha: 1)
+            self.submitBtn.titleLabel?.textColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
             self.submitBtn.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         }
         
@@ -91,11 +91,11 @@ class PickUpCodeVC: UIViewController {
         self.view.endEditing(true)
         
         DispatchQueue.main.async {
-            self.cancelBtn.titleLabel?.textColor = #colorLiteral(red: 0.1581287384, green: 0.6885935664, blue: 0.237049073, alpha: 1)
+            self.cancelBtn.titleLabel?.textColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
             self.cancelBtn.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
             
             self.submitBtn.titleLabel?.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-            self.submitBtn.backgroundColor = #colorLiteral(red: 0.1581287384, green: 0.6885935664, blue: 0.237049073, alpha: 1)
+            self.submitBtn.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
         }
         
         if (txtFPickUpCode.text?.count ?? 0) < 8 {
@@ -201,7 +201,7 @@ class PickUpCodeVC: UIViewController {
                                     
                                 //}
                             }else {
-                                Alert.showAlertWithTitle(strTitle: "InstaCash".localized(lang: langCode) as NSString, strMessage: "Device doesn't Match! Please change your device, through which you place the order.".localized(lang: langCode) as NSString, Onview: self)
+                                Alert.showAlertWithTitle(strTitle: "TechCheck".localized(lang: langCode) as NSString, strMessage: "Device doesn't Match! Please change your device, through which you place the order.".localized(lang: langCode) as NSString, Onview: self)
                             }
                         }else {
                             //run flow of PickUp Mode
@@ -218,7 +218,7 @@ class PickUpCodeVC: UIViewController {
                                     let myData = NSKeyedArchiver.archivedData(withRootObject: arrPickUpQuestion)
                                     userDefaults.set(myData, forKey: "PickUpQuestions")
                                 
-                                if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+                                if CustomUserDefault.getCurrency() == "£" {
                                     
                                     if let keyExists = responseObject?["diagnose"] as? Bool {
                                         if keyExists {
@@ -237,7 +237,7 @@ class PickUpCodeVC: UIViewController {
                                 }
                                 
                             }else {
-                                Alert.showAlertWithTitle(strTitle: "InstaCash".localized(lang: langCode) as NSString, strMessage: "Device doesn't Match! Please change your device, through which you place the order.".localized(lang: langCode) as NSString, Onview: self)
+                                Alert.showAlertWithTitle(strTitle: "TechCheck".localized(lang: langCode) as NSString, strMessage: "Device doesn't Match! Please change your device, through which you place the order.".localized(lang: langCode) as NSString, Onview: self)
                             }
                         }
                     }else {

@@ -1,8 +1,8 @@
 //
 //  PramotterVC.swift
-//  InstaCash
+//  TechCheck
 //
-//  Created by InstaCash on 25/02/19.
+//  Created by TechCheck on 25/02/19.
 //  Copyright © 2019 Prakhar Gupta. All rights reserved.
 //
 

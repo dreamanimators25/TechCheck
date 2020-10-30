@@ -1,24 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_0" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Roboto-Bold.ttf">
-            <string>Roboto-Bold</string>
+        <array key="Supply-Bold.otf">
+            <string>Supply-Bold</string>
         </array>
-        <array key="Roboto-Regular.ttf">
-            <string>Roboto-Regular</string>
+        <array key="Supply-Regular.otf">
+            <string>Supply-Regular</string>
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PickUpItemsVC" customModule="InstaCash" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PickUpItemsVC" customModule="TechCheck" customModuleProvider="target">
             <connections>
                 <outlet property="btnBox" destination="Hkd-97-sAS" id="eh7-LA-JJN"/>
                 <outlet property="btnDevice" destination="7ev-Zw-ESr" id="dwk-Zy-JDj"/>
@@ -41,51 +39,51 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="Us9-eU-wvE">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hGW-pX-8S3">
-                    <rect key="frame" x="10" y="30" width="30" height="30"/>
+                    <rect key="frame" x="10" y="54" width="30" height="30"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="30" id="NBB-35-9Bv"/>
                     </constraints>
                     <state key="normal" image="back"/>
                 </button>
                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="sRX-xO-2gY">
-                    <rect key="frame" x="20" y="65" width="250" height="2"/>
+                    <rect key="frame" x="20" y="89" width="339.5" height="2"/>
                     <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <color key="progressTintColor" red="0.094117647060000004" green="0.60784313729999995" blue="0.17254901959999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="progressTintColor" red="0.34901960784313724" green="0.062745098039215685" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="trackTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </progressView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3/4" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A7T-q4-QSz">
-                    <rect key="frame" x="290" y="58.5" width="20" height="15.5"/>
-                    <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="13"/>
-                    <color key="textColor" red="0.15686274510000001" green="0.69019607839999997" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <rect key="frame" x="379.5" y="82" width="24.5" height="16"/>
+                    <fontDescription key="fontDescription" name="Supply-Bold" family="Supply" pointSize="13"/>
+                    <color key="textColor" red="0.34901960784313724" green="0.062745098039215685" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Eq-c4-RpM">
-                    <rect key="frame" x="0.0" y="84" width="320" height="484"/>
+                    <rect key="frame" x="0.0" y="108" width="414" height="754"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="01y-hY-l5c">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="684"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="684.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Click the Items Picked Up" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zyN-z8-oXc">
-                                    <rect key="frame" x="30" y="30" width="260" height="20"/>
-                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                    <rect key="frame" x="30" y="30" width="354" height="20.5"/>
+                                    <fontDescription key="fontDescription" name="Supply-Regular" family="Supply" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="kEf-pq-wed">
-                                    <rect key="frame" x="30" y="80" width="260" height="265"/>
+                                    <rect key="frame" x="30" y="80.5" width="354" height="265"/>
                                     <subviews>
-                                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ql8-lh-SSe" customClass="cornerView" customModule="InstaCash" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="260" height="45"/>
+                                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ql8-lh-SSe" customClass="cornerView" customModule="TechCheck" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="354" height="45"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ev-Zw-ESr">
-                                                    <rect key="frame" x="10" y="0.0" width="250" height="45"/>
+                                                    <rect key="frame" x="10" y="0.0" width="344" height="45"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" name="Supply-Regular" family="Supply" pointSize="15"/>
                                                     <state key="normal" title="   Device" image="unCheck">
                                                         <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
@@ -108,13 +106,13 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </view>
-                                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vul-Co-9Ar" customClass="cornerView" customModule="InstaCash" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="55" width="260" height="45"/>
+                                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vul-Co-9Ar" customClass="cornerView" customModule="TechCheck" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="55" width="354" height="45"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Our-g6-bbB">
-                                                    <rect key="frame" x="10" y="0.0" width="250" height="45"/>
+                                                    <rect key="frame" x="10" y="0.0" width="344" height="45"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" name="Supply-Regular" family="Supply" pointSize="15"/>
                                                     <state key="normal" title="   Valid Bill" image="unCheck">
                                                         <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
@@ -137,13 +135,13 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </view>
-                                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dL0-zg-Da8" customClass="cornerView" customModule="InstaCash" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="110" width="260" height="45"/>
+                                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dL0-zg-Da8" customClass="cornerView" customModule="TechCheck" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="110" width="354" height="45"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hkd-97-sAS">
-                                                    <rect key="frame" x="10" y="0.0" width="250" height="45"/>
+                                                    <rect key="frame" x="10" y="0.0" width="344" height="45"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" name="Supply-Regular" family="Supply" pointSize="15"/>
                                                     <state key="normal" title="   Box" image="unCheck">
                                                         <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
@@ -166,13 +164,13 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </view>
-                                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hEI-OX-bj8" customClass="cornerView" customModule="InstaCash" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="165" width="260" height="45"/>
+                                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hEI-OX-bj8" customClass="cornerView" customModule="TechCheck" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="165" width="354" height="45"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Tc-bT-qbw">
-                                                    <rect key="frame" x="10" y="0.0" width="250" height="45"/>
+                                                    <rect key="frame" x="10" y="0.0" width="344" height="45"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" name="Supply-Regular" family="Supply" pointSize="15"/>
                                                     <state key="normal" title="   Earphone" image="unCheck">
                                                         <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
@@ -195,13 +193,13 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </view>
-                                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PNe-iC-s7z" customClass="cornerView" customModule="InstaCash" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="220" width="260" height="45"/>
+                                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PNe-iC-s7z" customClass="cornerView" customModule="TechCheck" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="220" width="354" height="45"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="coO-Wc-kk8">
-                                                    <rect key="frame" x="10" y="0.0" width="250" height="45"/>
+                                                    <rect key="frame" x="10" y="0.0" width="344" height="45"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" name="Supply-Regular" family="Supply" pointSize="15"/>
                                                     <state key="normal" title="   Original Charger" image="unCheck">
                                                         <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
@@ -230,12 +228,12 @@
                                     </constraints>
                                 </stackView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GjY-S5-4bT">
-                                    <rect key="frame" x="16" y="365" width="288" height="47"/>
+                                    <rect key="frame" x="20.5" y="365.5" width="373" height="47"/>
                                     <attributedString key="attributedText">
                                         <fragment content="Please make sure to package all the items listed below carefully and properly before dispatching it to the return center.">
                                             <attributes>
-                                                <color key="NSColor" red="0.35686274509999999" green="0.73725490199999999" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" metaFont="system"/>
+                                                <color key="NSColor" red="0.34901960784313724" green="0.062745098039215685" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="13" name="Supply-Regular"/>
                                                 <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 <integer key="NSUnderline" value="1"/>
                                             </attributes>
@@ -244,25 +242,25 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SVd-Xk-SwO">
-                                    <rect key="frame" x="16" y="432" width="288" height="76.5"/>
+                                    <rect key="frame" x="20.5" y="432.5" width="373" height="94"/>
                                     <string key="text">Please click YES in the box below to accept that this device is not stolen and that the details of the device provided by you are correct to the best of your knowledge and that you’ve read our terms and conditions and fully agree with them</string>
-                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
+                                    <fontDescription key="fontDescription" name="Supply-Regular" family="Supply" pointSize="13"/>
                                     <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jWC-u3-tOY">
-                                    <rect key="frame" x="48" y="528.5" width="224" height="40"/>
+                                    <rect key="frame" x="62" y="546.5" width="290" height="40"/>
                                     <subviews>
                                         <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Please type YES here to verify" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="964-6E-fIe">
-                                            <rect key="frame" x="0.0" y="0.0" width="224" height="40"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="290" height="40"/>
                                             <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
-                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
+                                            <fontDescription key="fontDescription" name="Supply-Regular" family="Supply" pointSize="18"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
                                         <label opaque="NO" clipsSubviews="YES" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YES" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b9i-en-cow">
-                                            <rect key="frame" x="0.0" y="0.0" width="224" height="40"/>
-                                            <color key="backgroundColor" red="0.094117647060000004" green="0.60784313729999995" blue="0.17254901959999999" alpha="1" colorSpace="calibratedRGB"/>
-                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="290" height="40"/>
+                                            <color key="backgroundColor" red="0.34901960780000002" green="0.062745098040000002" blue="0.56862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="fontDescription" name="Supply-Regular" family="Supply" pointSize="18"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -332,7 +330,7 @@
         </view>
     </objects>
     <resources>
-        <image name="back" width="51.200000762939453" height="51.200000762939453"/>
+        <image name="back" width="32" height="32"/>
         <image name="check" width="11.5" height="8.5"/>
         <image name="unCheck" width="12" height="12"/>
     </resources>

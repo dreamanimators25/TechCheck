@@ -7,13 +7,21 @@ let screenSize: CGRect = UIScreen.main.bounds
 let screenWidth = screenSize.width
 let screenHeight = screenSize.height
 //let navColor = UIColor.init(red: 0.0/255.0, green: 127.0/255.0, blue: 66.0/255.0, alpha: 1.0) //s.
-let navColor = UIColor.init(red: 40.0/255.0, green: 176.0/255.0, blue: 61.0/255.0, alpha: 1.0) //s.
+//let navColor = UIColor.init(red: 40.0/255.0, green: 176.0/255.0, blue: 61.0/255.0, alpha: 1.0) //s.
+let navColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
 let placeHolderColor = UIColor.white
 let btnCornerRadius = 5.0
 let viewCornerRadius = 2.0
-let fontNameLight = "Roboto-Light"
-let fontNameMedium = "Roboto-Medium"
-let fontNameRegular = "Roboto-Regular"
+
+//InstaCash
+//let fontNameLight = "Roboto-Light"
+//let fontNameMedium = "Roboto-Medium"
+//let fontNameRegular = "Roboto-Regular"
+
+//TechCheck
+let fontNameLight = "Supply-Light"
+let fontNameMedium = "Supply-Medium"
+let fontNameRegular = "Supply-Regular"
 
 let fontSizeHeading = UIScreen.main.bounds.height * 0.03
 let fontSizeSubHeading = UIScreen.main.bounds.height * 0.025
@@ -69,7 +77,6 @@ public var Manager: Alamofire.SessionManager = {
 func checkForNull(value : Any)->Any{
     
     if value is NSNull {
-        
         return ""
     }
     else {
@@ -80,7 +87,6 @@ func checkForNull(value : Any)->Any{
 func checkForNullDouble(value : Any)->Any{
     
     if value is NSNull {
-        
         return 0.0
     }
     else {
@@ -91,7 +97,6 @@ func checkForNullDouble(value : Any)->Any{
 func checkForDictNull(value : Any)->Bool{
     
     if value is NSNull {
-        
         return true
     }
     else {
@@ -103,7 +108,6 @@ func checkForDictNull(value : Any)->Bool{
 func checkForNullInt(value : Any)->Any{
     
     if value is NSNull {
-        
         return 0
     }
     else {

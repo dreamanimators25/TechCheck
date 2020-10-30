@@ -1,8 +1,8 @@
 //
 //  UploadDocumentVC.swift
-//  InstaCash
+//  TechCheck
 //
-//  Created by InstaCash on 12/10/18.
+//  Created by TechCheck on 12/10/18.
 //  Copyright © 2018 Prakhar Gupta. All rights reserved.
 //
 
@@ -21,13 +21,16 @@ class UploadDocumentVC: UIViewController,UIImagePickerControllerDelegate,UINavig
     @IBOutlet weak var imgViewPhoneFront: UIImageView!
     @IBOutlet weak var imgViewPhoneBack: UIImageView!
     @IBOutlet weak var imgViewPhoneBill: UIImageView!
+    @IBOutlet weak var imgVPhoneFront: UIImageView!
+    @IBOutlet weak var imgVPhoneBack: UIImageView!
+    @IBOutlet weak var imgVPhoneBill: UIImageView!
     
     @IBOutlet weak var lblUploadImages: UILabel!
     @IBOutlet weak var lblUploadImage: UILabel!
-    @IBOutlet weak var lblPhoneImage: UILabel!
+    //@IBOutlet weak var lblPhoneImage: UILabel!
     @IBOutlet weak var lblPhoneFrontImage: UILabel!
     @IBOutlet weak var lblPhoneBackImage: UILabel!
-    @IBOutlet weak var lblBillImage: UILabel!
+    //@IBOutlet weak var lblBillImage: UILabel!
     @IBOutlet weak var lblPhoneBillImage: UILabel!
     @IBOutlet weak var btnSkip: UIButton!
     @IBOutlet weak var btnProceed: UIButton!
@@ -71,17 +74,37 @@ class UploadDocumentVC: UIViewController,UIImagePickerControllerDelegate,UINavig
     
     
     override func viewWillAppear(_ animated: Bool) {
-        self.changeLanguageOfUI()
+        //self.changeLanguageOfUI()
+        
+        DispatchQueue.main.async {
+            self.btnSkip.layer.cornerRadius = 10.0
+            self.btnProceed.layer.cornerRadius = 10.0
+            
+            self.addDashedBorder()
+        }
+    }
+    
+    func addDashedBorder() {
+        
+        self.imgVPhoneFront.layer.borderColor = UIColor.lightGray.cgColor
+        self.imgVPhoneFront.layer.borderWidth = 1.0
+        
+        self.imgVPhoneBack.layer.borderColor = UIColor.lightGray.cgColor
+        self.imgVPhoneBack.layer.borderWidth = 1.0
+        
+        self.imgVPhoneBill.layer.borderColor = UIColor.lightGray.cgColor
+        self.imgVPhoneBill.layer.borderWidth = 1.0
+
     }
     
     func changeLanguageOfUI() {
         
         self.lblUploadImages.text = "Upload Images".localized(lang: langCode)
         self.lblUploadImage.text = "Upload Image".localized(lang: langCode)
-        self.lblPhoneImage.text = "Phone Image".localized(lang: langCode)
+        //self.lblPhoneImage.text = "Phone Image".localized(lang: langCode)
         self.lblPhoneFrontImage.text = "Upload Your phone front  Image".localized(lang: langCode)
         self.lblPhoneBackImage.text = "Upload Your phone back  Image".localized(lang: langCode)
-        self.lblBillImage.text = "Bill Image".localized(lang: langCode)
+        //self.lblBillImage.text = "Bill Image".localized(lang: langCode)
         self.lblPhoneBillImage.text = "Upload Your phone bill  Image".localized(lang: langCode)
         
         self.btnSkip.setTitle("SKIP".localized(lang: langCode), for: UIControlState.normal)
@@ -651,7 +674,7 @@ class UploadDocumentVC: UIViewController,UIImagePickerControllerDelegate,UINavig
                     if responseObject?["status"] as! String == "Success" {
                         
                         /*
-                         UIViewController().showAlert("InstaCash", message: "Your order has been successfully placed.", alertButtonTitles: ["OK"], alertButtonStyles: [.default], vc: self
+                         UIViewController().showAlert("TechCheck", message: "Your order has been successfully placed.", alertButtonTitles: ["OK"], alertButtonStyles: [.default], vc: self
                          , completion: { (ind) in
                          
                          //let vc = HomeVC()

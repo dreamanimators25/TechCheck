@@ -1,6 +1,6 @@
 //
 //  MYBankDetailVC.swift
-//  InstaCash
+//  TechCheck
 //
 //  Created by Sameer's MacBook Pro on 20/01/20.
 //  Copyright © 2020 Prakhar Gupta. All rights reserved.

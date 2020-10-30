@@ -1,6 +1,6 @@
 //
 //  SellerDetailsVC.swift
-//  InstaCash
+//  TechCheck
 //
 //  Created by Sameer's MacBook Pro on 19/12/19.
 //  Copyright © 2019 Prakhar Gupta. All rights reserved.
@@ -42,7 +42,7 @@ class SellerDetailsVC: UIViewController,UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+        if CustomUserDefault.getCurrency() == "£" {
             txtCountryCode.text = "+91"
             totalNumberCount1 = 10
             totalNumberCount2 = 10
@@ -69,7 +69,8 @@ class SellerDetailsVC: UIViewController,UITextFieldDelegate {
         self.lblDeviceName.text = self.strProductName1
         //self.lblDevicePrice.text = "\(self.getFinalPrice1)"
         
-        self.lblDevicePrice.text = "Device quoted is: ".localized(lang: langCode) + CustomUserDefault.getCurrency() + getFinalPrice1.formattedWithSeparator //s.
+        //"Device quoted is: "
+        self.lblDevicePrice.text = "Your phone quote is ".localized(lang: langCode) + CustomUserDefault.getCurrency() + getFinalPrice1.formattedWithSeparator //s.
         
         let borderWidth = CGFloat(0.5)
         let borderColor = UIColor.darkGray.cgColor
@@ -129,7 +130,7 @@ class SellerDetailsVC: UIViewController,UITextFieldDelegate {
     func changeLanguageOfUI() {
        
         self.lblUserDetail.text = "User Detail".localized(lang: langCode)
-        self.lblYourDetail.text = "Your details".localized(lang: langCode)
+        self.lblYourDetail.text = "Enter Your Details".localized(lang: langCode)
         self.txtName.placeholder = "Enter Name".localized(lang: langCode)
         self.txtEmail.placeholder = "Enter Email Id".localized(lang: langCode)
         self.txtMobile.placeholder = "Enter Mobile Number".localized(lang: langCode)

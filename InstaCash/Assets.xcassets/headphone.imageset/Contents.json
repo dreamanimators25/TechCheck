@@ -2,12 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Group 5940.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Group 5940@2x.png",
+      "filename" : "ic_earphone.png",
       "scale" : "2x"
     },
     {

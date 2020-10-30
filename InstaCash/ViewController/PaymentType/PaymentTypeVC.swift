@@ -1,8 +1,8 @@
 //
 //  PaymentTypeVC.swift
-//  InstaCash
+//  TechCheck
 //
-//  Created by InstaCash on 20/09/18.
+//  Created by TechCheck on 20/09/18.
 //  Copyright © 2018 Prakhar Gupta. All rights reserved.
 //
 
@@ -351,8 +351,8 @@ class PaymentTypeVC: UIViewController,UITableViewDelegate,UITableViewDataSource 
                         currency = "MYR"
                     }
                     //else if (userDefaults.value(forKey: "countryName") as?  String)?.contains("India") != nil {
-                    else if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
-                        currency = "INR"
+                    else if CustomUserDefault.getCurrency() == "£" {
+                        currency = "UK"
                     }
                     else{
                         currency = "SGD"

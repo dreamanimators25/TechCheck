@@ -1,8 +1,8 @@
 //
 //  SignatureVC.swift
-//  InstaCash
+//  TechCheck
 //
-//  Created by InstaCash on 22/10/18.
+//  Created by TechCheck on 22/10/18.
 //  Copyright © 2018 Prakhar Gupta. All rights reserved.
 //
 
@@ -167,7 +167,7 @@ class SignatureVC: UIViewController,YPSignatureDelegate {
                 }
                 else
                 {
-                    let alertController = UIAlertController(title: "InstaCash".localized(lang: langCode), message:"Seems connection loss from server".localized(lang: langCode), preferredStyle: .alert)
+                    let alertController = UIAlertController(title: "TechCheck".localized(lang: langCode), message:"Seems connection loss from server".localized(lang: langCode), preferredStyle: .alert)
                     
                     let sendButton = UIAlertAction(title: "Ok".localized(lang: langCode), style: .default, handler: { (action) -> Void in
                         
@@ -181,7 +181,7 @@ class SignatureVC: UIViewController,YPSignatureDelegate {
         }
         else
         {
-            let alertController = UIAlertController(title: "InstaCash".localized(lang: langCode), message:"No connection found".localized(lang: langCode), preferredStyle: .alert)
+            let alertController = UIAlertController(title: "TechCheck".localized(lang: langCode), message:"No connection found".localized(lang: langCode), preferredStyle: .alert)
             
             let sendButton = UIAlertAction(title: "Ok".localized(lang: langCode), style: .default, handler: { (action) -> Void in
                 
@@ -218,7 +218,7 @@ class SignatureVC: UIViewController,YPSignatureDelegate {
                
                 //if (userDefaults.value(forKey: "countryName") as? String)?.contains("India") != nil {
                     
-                if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+                if CustomUserDefault.getCurrency() == "£" {
                     
                     Alert.HideProgressHud(Onview: self.view)
                 }
@@ -233,7 +233,7 @@ class SignatureVC: UIViewController,YPSignatureDelegate {
                             
                             //if (userDefaults.value(forKey: "countryName") as? String)?.contains("India") != nil {
                                 
-                            if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+                            if CustomUserDefault.getCurrency() == "£" {
                                 
                                 let vc = PickUpItemsVC()
                                 vc.strGetAccountNumber = responseObject?["accountNumber"] as! String
@@ -256,7 +256,7 @@ class SignatureVC: UIViewController,YPSignatureDelegate {
                 }
                 else
                 {
-                    let alertController = UIAlertController(title: "InstaCash".localized(lang: langCode), message:"Seems connection loss from server".localized(lang: langCode), preferredStyle: .alert)
+                    let alertController = UIAlertController(title: "TechCheck".localized(lang: langCode), message:"Seems connection loss from server".localized(lang: langCode), preferredStyle: .alert)
                     
                     let sendButton = UIAlertAction(title: "Ok".localized(lang: langCode), style: .default, handler: { (action) -> Void in
                         
@@ -270,7 +270,7 @@ class SignatureVC: UIViewController,YPSignatureDelegate {
         }
         else
         {
-            let alertController = UIAlertController(title: "InstaCash".localized(lang: langCode), message:"No connection found".localized(lang: langCode), preferredStyle: .alert)
+            let alertController = UIAlertController(title: "TechCheck".localized(lang: langCode), message:"No connection found".localized(lang: langCode), preferredStyle: .alert)
             
             let sendButton = UIAlertAction(title: "Ok".localized(lang: langCode), style: .default, handler: { (action) -> Void in
                 

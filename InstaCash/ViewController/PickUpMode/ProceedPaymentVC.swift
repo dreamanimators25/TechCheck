@@ -1,8 +1,8 @@
 //
 //  ProceedPaymentVC.swift
-//  InstaCash
+//  TechCheck
 //
-//  Created by InstaCash on 23/10/18.
+//  Created by TechCheck on 23/10/18.
 //  Copyright © 2018 Prakhar Gupta. All rights reserved.
 //
 
@@ -147,7 +147,7 @@ class ProceedPaymentVC: UIViewController {
                     }
                     else{
                         let strMessage = responseObject?["msg"] as! String
-                        let alertController = UIAlertController(title: "InstaCash".localized(lang: langCode), message:strMessage, preferredStyle: .alert)
+                        let alertController = UIAlertController(title: "TechCheck".localized(lang: langCode), message:strMessage, preferredStyle: .alert)
                         
                         let sendButton = UIAlertAction(title: "Ok".localized(lang: langCode), style: .default, handler: { (action) -> Void in
                             
@@ -159,7 +159,7 @@ class ProceedPaymentVC: UIViewController {
                 }
                 else
                 {
-                    let alertController = UIAlertController(title: "InstaCash".localized(lang: langCode), message:"Seems connection loss from server".localized(lang: langCode), preferredStyle: .alert)
+                    let alertController = UIAlertController(title: "TechCheck".localized(lang: langCode), message:"Seems connection loss from server".localized(lang: langCode), preferredStyle: .alert)
                     
                     let sendButton = UIAlertAction(title: "Ok".localized(lang: langCode), style: .default, handler: { (action) -> Void in
                         
@@ -173,7 +173,7 @@ class ProceedPaymentVC: UIViewController {
         }
         else
         {
-            let alertController = UIAlertController(title: "InstaCash".localized(lang: langCode), message:"No connection found".localized(lang: langCode), preferredStyle: .alert)
+            let alertController = UIAlertController(title: "TechCheck".localized(lang: langCode), message:"No connection found".localized(lang: langCode), preferredStyle: .alert)
             
             let sendButton = UIAlertAction(title: "Ok".localized(lang: langCode), style: .default, handler: { (action) -> Void in
                 

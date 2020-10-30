@@ -1,6 +1,6 @@
 //
 //  CustomerSupportVC.swift
-//  InstaCash
+//  TechCheck
 //
 //  Created by Sameer's MacBook Pro on 11/01/20.
 //  Copyright © 2020 Prakhar Gupta. All rights reserved.
@@ -8,7 +8,7 @@
 
 import UIKit
 import MessageUI
-import ZDCChat
+import Intercom
 
 class CustomerSupportVC: UIViewController,MFMailComposeViewControllerDelegate {
     
@@ -122,7 +122,16 @@ class CustomerSupportVC: UIViewController,MFMailComposeViewControllerDelegate {
     
     @IBAction func onClickChatButton(_ sender: Any) {
         
-        if CustomUserDefault.getCurrency() == "₹ " || CustomUserDefault.getCurrency() == "₹" {
+        if CustomUserDefault.getCurrency() == "£" {
+            
+            Intercom.registerUser(withUserId: CustomUserDefault.getUserId(), email: CustomUserDefault.getUserEmail() ?? "")
+                        
+//            let userAttributes = ICMUserAttributes()
+//            userAttributes.name = CustomUserDefault.getUserName()
+//            userAttributes.email = CustomUserDefault.getUserEmail()
+//            Intercom.updateUser(userAttributes)
+                
+            Intercom.presentMessenger()
                         
             //ZDCChat.initialize(withAccountKey: "your_account_key")
             
@@ -131,8 +140,7 @@ class CustomerSupportVC: UIViewController,MFMailComposeViewControllerDelegate {
                 config?.preChatDataRequirements.name = .optionalEditable
                 config?.preChatDataRequirements.email = .required
                 config?.preChatDataRequirements.phone = .optional
-            })*/
-            
+            })
             
             ZDCChat.start(nil)
             
@@ -140,7 +148,7 @@ class CustomerSupportVC: UIViewController,MFMailComposeViewControllerDelegate {
                 user?.phone = CustomUserDefault.getPhoneNumber()
                 user?.name = CustomUserDefault.getUserName()
                 user?.email = CustomUserDefault.getUserEmail()
-            }
+            }*/
         
         }else if CustomUserDefault.getCurrency() == "NT$" {
             

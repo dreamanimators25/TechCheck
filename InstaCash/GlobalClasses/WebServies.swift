@@ -1,5 +1,5 @@
 //
-//  InstaCash
+//  TechCheck
 //
 //  Created by Prakhar Gupta on 9/5/18.
 //  Copyright © 2018 Prakhar Gupta. All rights reserved.

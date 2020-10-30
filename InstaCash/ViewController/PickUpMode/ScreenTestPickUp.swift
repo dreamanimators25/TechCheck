@@ -1,6 +1,6 @@
 //
 //  ScreenTestPickUp.swift
-//  InstaCash
+//  TechCheck
 //
 //  Created by Sameer's MacBook Pro on 02/03/20.
 //  Copyright © 2020 Prakhar Gupta. All rights reserved.
@@ -63,12 +63,12 @@ class ScreenTestPickUp: UIViewController {
     func changeLanguageOfUI() {
        
         self.lblCheckScreen.text = "Checking screen calibration".localized(lang: langCode)
-        self.lblPressStart.text = "Press “Start’ and follow the path".localized(lang: langCode)
+        self.lblPressStart.text = "Press “Start“ and follow the path".localized(lang: langCode)
         
         //self.btnGuideMe.setTitle("Guide me".localized(lang: langCode), for: UIControlState.normal)
         
         let myAttribute = [NSAttributedString.Key.foregroundColor: navColor, NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 17.0)] as [NSAttributedStringKey : Any]
-        let str = NSAttributedString.init(string: "Guide me".localized(lang: langCode), attributes: myAttribute)
+        let str = NSAttributedString.init(string: "Total time for test 60sec".localized(lang: langCode), attributes: myAttribute)
         self.btnGuideMe.setAttributedTitle(str, for: .normal)
         
         self.btnStartScreenTest.setTitle("Start".localized(lang: langCode), for: UIControlState.normal)
@@ -131,7 +131,7 @@ class ScreenTestPickUp: UIViewController {
     // MARK:- navigation bar setup.
     func setNavigationBar() -> Void
     {
-        self.title = "InstaCash".localized(lang: langCode)
+        self.title = "TechCheck".localized(lang: langCode)
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.isNavigationBarHidden = false
         let btnBack = UIButton(frame: CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: 25, height: 25)))
@@ -219,7 +219,8 @@ class ScreenTestPickUp: UIViewController {
                                                                    width: obstacleViewFrame.width ,
                                                                    height: obstacleViewFrame.height),
                                                cornerRadius: 0).cgPath
-                levelLayer.fillColor = UIColor.green.cgColor
+                //levelLayer.fillColor = UIColor.green.cgColor
+                levelLayer.fillColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1).cgColor
                 obstacleView.layer.addSublayer(levelLayer)
                 
             }
@@ -299,13 +300,13 @@ class ScreenTestPickUp: UIViewController {
             popup.dismiss(animated: true, completion: nil)
             // Customize dialog appearance
             let pv = PopupDialogDefaultView.appearance()
-            pv.titleFont    = UIFont(name: "HelveticaNeue-Medium", size: 20)!
-            pv.messageFont  = UIFont(name: "HelveticaNeue", size: 16)!
+            pv.titleFont    = UIFont(name: fontNameMedium, size: 20)!
+            pv.messageFont  = UIFont(name: fontNameRegular, size: 16)!
             
             
             // Customize the container view appearance
             let pcv = PopupDialogContainerView.appearance()
-            pcv.cornerRadius    = 2
+            pcv.cornerRadius    = 10
             pcv.shadowEnabled   = true
             pcv.shadowColor     = .black
             
@@ -318,12 +319,12 @@ class ScreenTestPickUp: UIViewController {
             
             // Customize default button appearance
             let db = DefaultButton.appearance()
-            db.titleFont      = UIFont(name: "HelveticaNeue-Medium", size: 16)!
+            db.titleFont      = UIFont(name: fontNameMedium, size: 16)!
             
             
             // Customize cancel button appearance
             let cb = CancelButton.appearance()
-            cb.titleFont      = UIFont(name: "HelveticaNeue-Medium", size: 16)!
+            cb.titleFont      = UIFont(name: fontNameMedium, size: 16)!
             
             
             // Present dialog

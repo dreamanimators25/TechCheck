@@ -1,8 +1,8 @@
 //
 //  CountryModel.swift
-//  InstaCash
+//  TechCheck
 //
-//  Created by InstaCash on 11/09/18.
+//  Created by TechCheck on 11/09/18.
 //  Copyright © 2018 Prakhar Gupta. All rights reserved.
 //
 
