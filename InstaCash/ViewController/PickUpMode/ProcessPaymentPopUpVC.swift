@@ -30,7 +30,7 @@ class ProcessPaymentPopUpVC: UIViewController {
     var strGetPaymentAmount = ""
     
     override func viewWillAppear(_ animated: Bool) {
-        self.changeLanguageOfUI()
+        //self.changeLanguageOfUI()
     }
     
     func changeLanguageOfUI() {
@@ -51,6 +51,8 @@ class ProcessPaymentPopUpVC: UIViewController {
         self.lblStatus.text = strGetPaymentStatus
         self.lblTransactionId.text = strGetTransactionId
         self.lblAmount.text = strGetPaymentAmount
+        
+        self.setStatusBarColor()
     }
 
     @IBAction func btnRefreshStatusPressed(_ sender: UIButton) {

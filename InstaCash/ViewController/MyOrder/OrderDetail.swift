@@ -43,6 +43,8 @@ class OrderDetail: UIViewController,UIPopoverPresentationControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setStatusBarColor()
+        
         //lblPrice.text = "Quoted price:  \(CustomUserDefault.getCurrency())"
         
         let imgURL = URL.init(string: orderDetail.strProductImageURL ?? "")
@@ -76,7 +78,7 @@ class OrderDetail: UIViewController,UIPopoverPresentationControllerDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.changeLanguageOfUI()
+        //self.changeLanguageOfUI()
     }
     
     func changeLanguageOfUI() {

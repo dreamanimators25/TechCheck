@@ -39,6 +39,8 @@ class BlueToothTestingVC: UIViewController,CBCentralManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setStatusBarColor()
+        
         //Sameer 14/4/2020
         userDefaults.removeObject(forKey: "bluetooth_complete")
         userDefaults.setValue(false, forKey: "bluetooth_complete")
@@ -59,7 +61,7 @@ class BlueToothTestingVC: UIViewController,CBCentralManagerDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.changeLanguageOfUI()
+        //self.changeLanguageOfUI()
     }
     
     func changeLanguageOfUI() {

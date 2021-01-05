@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -29,21 +29,38 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ki2-HV-nVQ">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quote" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BF4-wD-QVr">
+                            <rect key="frame" x="132" y="11" width="56" height="22"/>
+                            <fontDescription key="fontDescription" name="Supply-Medium" family="Supply" pointSize="18"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.34901960780000002" green="0.062745098040000002" blue="0.56862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="9pP-Sj-ioh"/>
+                        <constraint firstItem="BF4-wD-QVr" firstAttribute="centerX" secondItem="Ki2-HV-nVQ" secondAttribute="centerX" id="bes-iB-PMP"/>
+                        <constraint firstItem="BF4-wD-QVr" firstAttribute="centerY" secondItem="Ki2-HV-nVQ" secondAttribute="centerY" id="hvs-5Z-Owo"/>
+                    </constraints>
+                </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iLO-6E-2FJ">
-                    <rect key="frame" x="0.0" y="44" width="414" height="852"/>
-                    <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RG9-oz-c6I" customClass="shadowCornerButton" customModule="TechCheck" customModuleProvider="target">
-                    <rect key="frame" x="20" y="800.5" width="374" height="65.5"/>
+                    <rect key="frame" x="20" y="492.5" width="280" height="45.5"/>
                     <color key="backgroundColor" red="0.34901960780000002" green="0.062745098040000002" blue="0.56862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <fontDescription key="fontDescription" name="Supply-Bold" family="Supply" pointSize="18"/>
-                    <state key="normal" title="I’m Ready">
+                    <fontDescription key="fontDescription" name="Supply-Bold" family="Supply" pointSize="16"/>
+                    <state key="normal" title="I’M READY">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <userDefinedRuntimeAttributes>
@@ -55,20 +72,26 @@
                         <action selector="startDeviceCondition:" destination="-1" eventType="touchUpInside" id="Usu-ck-gv3"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You will need your charger and earphones." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HJW-fH-9iM">
-                    <rect key="frame" x="20" y="489" width="374" height="14.5"/>
-                    <fontDescription key="fontDescription" name="Supply-Regular" family="Supply" pointSize="12"/>
-                    <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test takes less than 5 minutes. Ready to roll?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A8T-YM-atK">
+                    <rect key="frame" x="20" y="451" width="280" height="31.5"/>
+                    <fontDescription key="fontDescription" name="Supply-Regular" family="Supply" pointSize="13"/>
+                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hi! You’re about to run the TechCheck on your phone to give you an accurate quote" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rWS-fS-Cft">
-                    <rect key="frame" x="62" y="417.5" width="290" height="61.5"/>
-                    <fontDescription key="fontDescription" name="Supply-Medium" family="Supply" pointSize="17"/>
-                    <nil key="textColor"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You will need your charger and earphones" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HJW-fH-9iM">
+                    <rect key="frame" x="20" y="337.5" width="280" height="31.5"/>
+                    <fontDescription key="fontDescription" name="Supply-Regular" family="Supply" pointSize="13"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rTK-qy-0dg">
-                    <rect key="frame" x="10" y="54" width="40" height="40"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hi! You’re about to run the TechCheck ® on your phone to get an accurate quote" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rWS-fS-Cft">
+                    <rect key="frame" x="48" y="241" width="224" height="86.5"/>
+                    <fontDescription key="fontDescription" name="Supply-Medium" family="Supply" pointSize="18"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rTK-qy-0dg">
+                    <rect key="frame" x="10" y="10" width="40" height="40"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="40" id="Eek-qi-bed"/>
                     </constraints>
@@ -78,14 +101,19 @@
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="iLO-6E-2FJ" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="0Uw-OD-Bta"/>
                 <constraint firstItem="RG9-oz-c6I" firstAttribute="height" secondItem="vUN-kp-3ea" secondAttribute="height" multiplier="0.08" id="3vf-Vf-26p"/>
+                <constraint firstItem="RG9-oz-c6I" firstAttribute="leading" secondItem="A8T-YM-atK" secondAttribute="leading" id="8WH-J7-xnO"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Ki2-HV-nVQ" secondAttribute="trailing" id="Cmy-PO-7q8"/>
                 <constraint firstAttribute="trailing" secondItem="RG9-oz-c6I" secondAttribute="trailing" constant="20" id="GHE-UK-MtS"/>
                 <constraint firstItem="HJW-fH-9iM" firstAttribute="top" secondItem="rWS-fS-Cft" secondAttribute="bottom" constant="10" id="H3m-ok-S13"/>
+                <constraint firstItem="Ki2-HV-nVQ" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="Khs-20-7CH"/>
                 <constraint firstAttribute="bottom" secondItem="iLO-6E-2FJ" secondAttribute="bottom" id="PY2-O0-ZhU"/>
+                <constraint firstItem="RG9-oz-c6I" firstAttribute="trailing" secondItem="A8T-YM-atK" secondAttribute="trailing" id="Qxk-BT-xE4"/>
                 <constraint firstItem="HJW-fH-9iM" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="Utz-pH-uAV"/>
+                <constraint firstItem="Ki2-HV-nVQ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="ahm-0Z-Zzh"/>
                 <constraint firstAttribute="bottom" secondItem="RG9-oz-c6I" secondAttribute="bottom" constant="30" id="fiW-tx-Uoj"/>
                 <constraint firstItem="rWS-fS-Cft" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="h3m-sq-IIj"/>
                 <constraint firstItem="rWS-fS-Cft" firstAttribute="width" secondItem="vUN-kp-3ea" secondAttribute="width" multiplier="0.7" id="jBp-gZ-Ijr"/>
@@ -96,6 +124,7 @@
                 <constraint firstAttribute="trailing" secondItem="HJW-fH-9iM" secondAttribute="trailing" constant="20" id="oVf-8F-8HD"/>
                 <constraint firstItem="RG9-oz-c6I" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="qWD-KK-NAd"/>
                 <constraint firstItem="rTK-qy-0dg" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="rL0-t0-h9P"/>
+                <constraint firstItem="RG9-oz-c6I" firstAttribute="top" secondItem="A8T-YM-atK" secondAttribute="bottom" constant="10" id="vKY-SC-cBt"/>
                 <constraint firstItem="rWS-fS-Cft" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="vaj-QP-RUk"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

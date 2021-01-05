@@ -20,6 +20,7 @@ class HowItWorkPageVC: UIViewController {
         combination.append(howitWorkHTML?.htmlToAttributedString ?? NSMutableAttributedString())
         self.howWorkTextView.attributedText = combination
        
+        //self.setStatusBarColor()
     }
 
     override func viewWillAppear(_ animated: Bool) {

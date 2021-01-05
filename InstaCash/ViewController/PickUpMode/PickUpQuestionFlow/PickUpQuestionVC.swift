@@ -18,7 +18,7 @@ class PickUpQuestionVC: UIViewController,UITableViewDelegate,UITableViewDataSour
     var resultJSON = JSON()
     
     override func viewWillAppear(_ animated: Bool) {
-        self.changeLanguageOfUI()
+        //self.changeLanguageOfUI()
     }
     
     func changeLanguageOfUI() {
@@ -29,6 +29,8 @@ class PickUpQuestionVC: UIViewController,UITableViewDelegate,UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationBar()
+        
+        self.setStatusBarColor()
         
         //Register tableview cell
         tblViewPickUpQuestion.register(UINib(nibName: "QuestionPickUpCell", bundle: nil), forCellReuseIdentifier: "questionPickUpCell")

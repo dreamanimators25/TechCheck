@@ -22,6 +22,8 @@ class PaymentModeHeaderTblCell: UITableViewCell {
         DispatchQueue.main.async {
             self.baseView.layer.borderWidth = 1.0
             self.baseView.layer.borderColor = UIColor.gray.cgColor
+            
+            self.baseView.layer.cornerRadius = 10.0
         }
         
     }

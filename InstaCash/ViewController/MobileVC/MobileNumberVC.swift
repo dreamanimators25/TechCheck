@@ -12,6 +12,10 @@ class MobileNumberVC: UIViewController,UITextFieldDelegate {
     
     @IBOutlet weak var btnResend: UIButton!
     @IBOutlet weak var btnSend: UIButton!
+    @IBOutlet weak var txtV1: UIView!
+    @IBOutlet weak var txtV2: UIView!
+    @IBOutlet weak var txtV3: UIView!
+    @IBOutlet weak var txtV4: UIView!
     @IBOutlet weak var txt1: UITextField!
     @IBOutlet weak var txt2: UITextField!
     @IBOutlet weak var txt3: UITextField!
@@ -30,23 +34,38 @@ class MobileNumberVC: UIViewController,UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setStatusBarColor()
+        
         txt1.autocorrectionType = .no
         txt2.autocorrectionType = .no
         txt3.autocorrectionType = .no
         txt4.autocorrectionType = .no
         
+        DispatchQueue.main.async {
+            self.txtV1.layer.borderWidth = 1.0
+            self.txtV1.layer.borderColor = UIColor.lightGray.cgColor
+            
+            self.txtV2.layer.borderWidth = 1.0
+            self.txtV2.layer.borderColor = UIColor.lightGray.cgColor
+            
+            self.txtV3.layer.borderWidth = 1.0
+            self.txtV3.layer.borderColor = UIColor.lightGray.cgColor
+            
+            self.txtV4.layer.borderWidth = 1.0
+            self.txtV4.layer.borderColor = UIColor.lightGray.cgColor
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.changeLanguageOfUI()
+        //self.changeLanguageOfUI()
     }
     
     func changeLanguageOfUI() {
         
-        self.btnSend.setTitle("Confirm verification code".localized(lang: langCode), for: UIControlState.normal)
-        self.btnResend.setTitle("Resend verification code".localized(lang: langCode), for: UIControlState.normal)
+        //self.btnSend.setTitle("Confirm verification code".localized(lang: langCode), for: UIControlState.normal)
+        //self.btnResend.setTitle("Resend verification code".localized(lang: langCode), for: UIControlState.normal)
         
     }
     

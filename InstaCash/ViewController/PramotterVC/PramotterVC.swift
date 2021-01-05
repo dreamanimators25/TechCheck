@@ -20,7 +20,10 @@ class PramotterVC: UIViewController,UITextFieldDelegate {
         btnSend.layer.cornerRadius = CGFloat(btnCornerRadius)
         btnSend.clipsToBounds = true
         // Do any additional setup after loading the view.
+        
+        self.setStatusBarColor()
     }
+    
     // MARK:- navigation bar setup.
     func setNavigationBar() -> Void
     {

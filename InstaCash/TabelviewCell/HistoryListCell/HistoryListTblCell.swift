@@ -26,7 +26,7 @@ class HistoryListTblCell: UITableViewCell {
         }
         
         DispatchQueue.main.async {
-            self.lblSeeDetail.layer.cornerRadius = 5.0
+            //self.lblSeeDetail.layer.cornerRadius = 5.0
         }
         
     }

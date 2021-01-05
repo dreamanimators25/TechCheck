@@ -25,16 +25,17 @@ class NotificationNew: UIViewController,UITableViewDelegate,UITableViewDataSourc
         
         tblViewNotifcation.register(UINib(nibName: "NotificationCell", bundle: nil), forCellReuseIdentifier: "notification")
         
+        self.setStatusBarColor()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.changeLanguageOfUI()
+        //self.changeLanguageOfUI()
         
         self.homeLbl.text = ""
         self.orderLbl.text = ""
-        self.notiLbl.text = "Notifications"
+        self.notiLbl.text = ""
         self.userLbl.text = ""
     }
     

@@ -42,6 +42,8 @@ class SellerDetailsVC: UIViewController,UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setStatusBarColor()
+        
         if CustomUserDefault.getCurrency() == "£" {
             txtCountryCode.text = "+91"
             totalNumberCount1 = 10
@@ -72,14 +74,15 @@ class SellerDetailsVC: UIViewController,UITextFieldDelegate {
         //"Device quoted is: "
         self.lblDevicePrice.text = "Your phone quote is ".localized(lang: langCode) + CustomUserDefault.getCurrency() + getFinalPrice1.formattedWithSeparator //s.
         
-        let borderWidth = CGFloat(0.5)
-        let borderColor = UIColor.darkGray.cgColor
+        let borderWidth = CGFloat(1.0)
+        let borderColor = UIColor.lightGray.cgColor
         txtViewName.layer.borderWidth = borderWidth
         txtViewName.layer.borderColor = borderColor
         
         txtViewEmail.layer.borderWidth = borderWidth
         txtViewEmail.layer.borderColor = borderColor
         
+        txtCountryCode.layer.cornerRadius = 5.0
         txtCountryCode.layer.borderWidth = borderWidth
         txtCountryCode.layer.borderColor = borderColor
         
@@ -103,7 +106,7 @@ class SellerDetailsVC: UIViewController,UITextFieldDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
                 
-        self.changeLanguageOfUI()
+        //self.changeLanguageOfUI()
         
         //Sameer 2/6/2020
         var sourceValue = ""

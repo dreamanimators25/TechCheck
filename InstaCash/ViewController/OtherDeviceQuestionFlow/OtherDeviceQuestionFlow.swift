@@ -8,7 +8,7 @@
 
 import UIKit
 import SwiftyJSON
-import  Firebase
+import Firebase
 
 class OtherDeviceQuestionFlow: UIViewController,UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UIScrollViewDelegate {
     
@@ -25,7 +25,7 @@ class OtherDeviceQuestionFlow: UIViewController,UITableViewDelegate,UITableViewD
     var selectedImageUrl = String() //s.
     
     override func viewWillAppear(_ animated: Bool) {
-        self.changeLanguageOfUI()
+        //self.changeLanguageOfUI()
     }
     
     func changeLanguageOfUI() {
@@ -37,6 +37,8 @@ class OtherDeviceQuestionFlow: UIViewController,UITableViewDelegate,UITableViewD
         super.viewDidLoad()
         btnSubmit.isHidden = true
         setNavigationBar()
+        
+        self.setStatusBarColor()
         
         /*
         //Register tableview cell
@@ -176,14 +178,16 @@ class OtherDeviceQuestionFlow: UIViewController,UITableViewDelegate,UITableViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "pickUpQuestionCollectionViewCell", for: indexPath as IndexPath) as! PickUpQuestionCollectionViewCell
+        
         //cell.layer.cornerRadius = 5.0
         cell.clipsToBounds = true
         
-        DispatchQueue.main.async {
-            cell.layer.borderColor = UIColor.lightGray.cgColor
-            cell.layer.borderWidth = 0.7
-        }
+        //DispatchQueue.main.async {
+            //cell.layer.borderColor = UIColor.lightGray.cgColor
+            //cell.layer.borderWidth = 1.0
+        //}
         
         if arrQuestionForOtherDevices[collectionView.tag].arrQuestionTypes[indexPath.row].strQuestionValueImage.isEmpty {
             cell.imgValues.image = UIImage(named: "phonePlaceHolder")
@@ -196,17 +200,29 @@ class OtherDeviceQuestionFlow: UIViewController,UITableViewDelegate,UITableViewD
         cell.lblValues.text  = arrQuestionForOtherDevices[collectionView.tag].arrQuestionTypes[indexPath.row].strQuestionValue //.localized(lang: langCode)
         
         if arrQuestionForOtherDevices[collectionView.tag].arrQuestionTypes[indexPath.row].isSelected == true{
-            cell.viewMain.backgroundColor = navColor
-            cell.lblValues.textColor = UIColor.white
+            //cell.viewMain.backgroundColor = navColor
+            //cell.lblValues.textColor = UIColor.white
             
-            cell.circleImageView.image = #imageLiteral(resourceName: "Selected")
+            cell.viewMain.layer.borderWidth = 1.0
+            cell.viewMain.layer.borderColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+            cell.lblValues.textColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+            
+            //cell.circleImageView.image = #imageLiteral(resourceName: "Selected")
+            cell.circleImageView.image = nil
+            cell.circleImageView.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+            cell.circleImageView.layer.cornerRadius = cell.circleImageView.bounds.width/2
         }
         else{
-            //cell.viewMain.backgroundColor = UIColor.init(red: 218.0/255.0, green: 215.0/255.0, blue: 215.0/255.0, alpha: 1.0)
-            cell.viewMain.backgroundColor = UIColor.clear
-            cell.lblValues.textColor = UIColor.black
+            //cell.viewMain.backgroundColor = UIColor.clear
+            //cell.lblValues.textColor = UIColor.black
+            
+            cell.viewMain.layer.borderWidth = 1.0
+            cell.viewMain.layer.borderColor = UIColor.lightGray.cgColor
+            cell.lblValues.textColor = UIColor.lightGray
             
             cell.circleImageView.image = #imageLiteral(resourceName: "circle")
+            cell.circleImageView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            cell.circleImageView.layer.cornerRadius = cell.circleImageView.bounds.width/2
         }
         
         return cell
@@ -378,7 +394,7 @@ class OtherDeviceQuestionFlow: UIViewController,UITableViewDelegate,UITableViewD
                 print(responseObject ?? [])
                 
                 if error == nil {
-                    if responseObject?["status"] as! String == "Success"{
+                    if responseObject?["status"] as! String == "Success" {
                         let dictQuestion = responseObject?["msg"] as! NSDictionary
                         self.title = dictQuestion.value(forKey: "name") as? String
                         
@@ -412,8 +428,8 @@ class OtherDeviceQuestionFlow: UIViewController,UITableViewDelegate,UITableViewD
                                     let dictValue = arrQuestionValues[obj] as! NSDictionary
                                     let modelQuestionVal = PickUpQuestionTypesModel()
                                     modelQuestionVal.strQuestionValue = dictValue.value(forKey: "value") as! String
-                                    modelQuestionVal.strQuestionValueImage = dictValue.value(forKey: "image") as! String
-                                    modelQuestionVal.strQuestionValueAppCodde = dictValue.value(forKey: "appCode") as! String
+                                    modelQuestionVal.strQuestionValueImage = dictValue.value(forKey: "image") as? String ?? ""
+                                    modelQuestionVal.strQuestionValueAppCodde = dictValue.value(forKey: "appCode") as? String ?? ""
                                     modelQuestionVal.isSelected = false
                                     arrQuestionValue.insert(modelQuestionVal, at: obj)
                                 }

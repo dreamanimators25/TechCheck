@@ -35,6 +35,7 @@ class LockPricePopUp: UIViewController {
         lblPrice.text = CustomUserDefault.getCurrency()
         didPullToRefresh()
         
+        self.setStatusBarColor()
     }
     
     func didPullToRefresh(){

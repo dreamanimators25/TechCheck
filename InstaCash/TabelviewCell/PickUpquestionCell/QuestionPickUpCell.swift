@@ -17,8 +17,8 @@ class QuestionPickUpCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        self.viewData.layer.cornerRadius = 5.0
-        self.viewData.clipsToBounds = true
+        //self.viewData.layer.cornerRadius = 5.0
+        //self.viewData.clipsToBounds = true
         self.collectionViewQuestionValues.register(UINib.init(nibName: "PickUpQuestionCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "pickUpQuestionCollectionViewCell")
     }
 

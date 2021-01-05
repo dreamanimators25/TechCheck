@@ -39,6 +39,8 @@ class DiagnosticTestResultVC: UIViewController,UITableViewDelegate,UITableViewDa
     let reachability: Reachability? = Reachability()
     
     override func viewDidLoad() {
+        
+        self.setStatusBarColor()
     
         //self.btnPlaceOrder.setTitle("Place order at \(CustomUserDefault.getCurrency())\(350) instead", for:.normal)
         
@@ -53,7 +55,7 @@ class DiagnosticTestResultVC: UIViewController,UITableViewDelegate,UITableViewDa
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.changeLanguageOfUI()
+        //self.changeLanguageOfUI()
     }
     
     func changeLanguageOfUI() {

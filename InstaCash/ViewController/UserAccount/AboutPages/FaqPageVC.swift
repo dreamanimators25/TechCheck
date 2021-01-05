@@ -20,6 +20,8 @@ class FaqPageVC: UIViewController {
         combination.append(faqHTML?.htmlToAttributedString ?? NSMutableAttributedString())
         self.faqTextView.attributedText = combination
         
+        //self.setStatusBarColor()
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {

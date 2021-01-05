@@ -41,6 +41,8 @@ class BankDetailVC: UIViewController,UITextFieldDelegate {
         setNavigationBar()
         //setViewDynamic()
         
+        self.setStatusBarColor()
+        
         if reachability?.connection.description != "No Connection" {
             getUIComponentsToCreateUIDynamic()
         }
@@ -390,11 +392,14 @@ class BankDetailVC: UIViewController,UITextFieldDelegate {
                             else{
                                 orderItemId = self.getDictOderCreated.value(forKey: "itemId") as? String ?? ""
                             }
+                            
+                            /* Sameer 4/11/20
                             AppEventsLogger.log(
                                 .addedToCart(
                                     contentType: self.lblProductName.text,
                                     contentId: orderItemId,
                                     currency: "INR"))
+                            */
                             
                             /*
                             Analytics.logEvent(AnalyticsEventEcommercePurchase, parameters: [

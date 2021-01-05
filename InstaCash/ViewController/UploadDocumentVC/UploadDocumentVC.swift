@@ -114,6 +114,8 @@ class UploadDocumentVC: UIViewController,UIImagePickerControllerDelegate,UINavig
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setStatusBarColor()
+        
         //btnUpload.isEnabled = false //s.
         //btnUpload.alpha = 0.2 //s.
         //setNavigationBar() //s.
@@ -584,13 +586,11 @@ class UploadDocumentVC: UIViewController,UIImagePickerControllerDelegate,UINavig
                               "paymentType" : selectePaymentType5,
                               ]
             
-            
             smallParam["Account_Holders_Name"] = bankDETAILS["Account_Holders_Name"] ?? ""
             smallParam["Bank_Name"] = bankDETAILS["Bank_Name"] ?? ""
             smallParam["Account_Number"] = bankDETAILS["Account_Number"] ?? ""
             smallParam["Confirm_Account_Number"] = bankDETAILS["Account_Number"] ?? ""
             smallParam["IFSC"] = bankDETAILS["IFSC"] ?? ""
-            
             
             smallParam["type"] = "createOrder"
             smallParam["isNewAddress"] = "1"
@@ -627,7 +627,7 @@ class UploadDocumentVC: UIViewController,UIImagePickerControllerDelegate,UINavig
                 ////////////////////////////////////////////////////////////
                 "productId":producdID, //1
                 "conditionString":converComaToSemocolumForProductValues, //1
-                "diagnosisId":userDefaults.value(forKey: "diagnosisId") as! String, //1
+                "diagnosisId":userDefaults.value(forKey: "diagnosisId") as? String ?? "", //1
                 "processMode":self.strPaymentProcessMode, //1
                 ////////////////////////////////////////////////////////////
                 
@@ -670,7 +670,7 @@ class UploadDocumentVC: UIViewController,UIImagePickerControllerDelegate,UINavig
                 Alert.HideProgressHud(Onview: self.view)
                 print("\(String(describing: responseObject) ) , \(String(describing: error))")
                 
-                if error == nil {
+                //if error == nil {
                     if responseObject?["status"] as! String == "Success" {
                         
                         /*
@@ -709,11 +709,11 @@ class UploadDocumentVC: UIViewController,UIImagePickerControllerDelegate,UINavig
                         // failed
                         Alert.showAlertWithError(strMessage: responseObject?["msg"]  as! NSString, Onview: self)
                     }
-                }
-                else{
-                    debugPrint(error as Any)
-                    Alert.showAlertWithError(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
-                }
+                //}
+                //else{
+                    //debugPrint(error as Any)
+                    //Alert.showAlertWithError(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
+                //}
             })
             
         }else{

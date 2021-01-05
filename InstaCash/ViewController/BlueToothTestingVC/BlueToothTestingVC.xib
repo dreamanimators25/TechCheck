@@ -35,16 +35,16 @@
                         <constraint firstAttribute="height" constant="88" id="Iih-LF-OST"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="Supply-Regular" family="Supply" pointSize="17"/>
-                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KBq-JU-dPH">
+                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KBq-JU-dPH" customClass="shadowCornerButton" customModule="TechCheck" customModuleProvider="target">
                     <rect key="frame" x="15" y="508" width="290" height="45"/>
                     <color key="backgroundColor" red="0.34901960780000002" green="0.062745098040000002" blue="0.56862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="45" id="u90-BD-M5p"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="Supply-Medium" family="Supply" pointSize="17"/>
+                    <fontDescription key="fontDescription" name="Supply-Medium" family="Supply" pointSize="16"/>
                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <state key="normal" title="Begin Tests">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

@@ -16,10 +16,12 @@ class UploadIDVC: UIViewController,UIImagePickerControllerDelegate,UINavigationC
     override func viewDidLoad() {
         super.viewDidLoad()
         //setNavigationBar()
+        
+        self.setStatusBarColor()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.changeLanguageOfUI()
+        //self.changeLanguageOfUI()
     }
     
     func changeLanguageOfUI() {

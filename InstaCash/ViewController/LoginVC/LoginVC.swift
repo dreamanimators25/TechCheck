@@ -12,7 +12,7 @@ import GoogleSignIn
 import TrueSDK
 
 //MARK: Error display
-class LoginVC: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate,TCTrueSDKDelegate,UITextFieldDelegate {
+class LoginVC: UIViewController,GIDSignInDelegate,TCTrueSDKDelegate,UITextFieldDelegate {
     
     @IBOutlet weak var btnMobileNumber: UIButton!
     @IBOutlet weak var btnGPlus: UIButton!
@@ -32,6 +32,9 @@ class LoginVC: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate,TCTrueSDKD
     override func viewDidLoad() {
         super.viewDidLoad()
         //Set navigation Bar
+        
+        self.setStatusBarColor()
+        
         setNavBar()
         //setViewDynamically
         viewSetDynamic()
@@ -109,13 +112,13 @@ class LoginVC: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate,TCTrueSDKD
     }
     
     @IBAction func btnFbPressed(_ sender: UIButton) {
-        let fbLoginManager : FBSDKLoginManager = FBSDKLoginManager()
-        fbLoginManager.logIn(withReadPermissions: ["email"], from: self) { (result, error) -> Void in
+        let fbLoginManager : LoginManager = LoginManager()
+        fbLoginManager.logIn(permissions: ["email"], from: self) { (result, error) -> Void in
             if (error == nil){
                 if (result?.isCancelled)!{
                 }
                 else{
-                    let fbloginresult : FBSDKLoginManagerLoginResult = result!
+                    let fbloginresult : LoginManagerLoginResult = result!
                     if(fbloginresult.grantedPermissions.contains("email"))
                     {
                         self.getFBUserData()
@@ -127,7 +130,8 @@ class LoginVC: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate,TCTrueSDKD
     
     @IBAction func btnGPlusPressed(_ sender: UIButton) {
         GIDSignIn.sharedInstance().delegate = self
-        GIDSignIn.sharedInstance().uiDelegate = self
+        //GIDSignIn.sharedInstance().uiDelegate = self
+        GIDSignIn.sharedInstance()?.delegate = self
         GIDSignIn.sharedInstance().signIn()
     }
     
@@ -137,8 +141,8 @@ class LoginVC: UIViewController,GIDSignInDelegate,GIDSignInUIDelegate,TCTrueSDKD
     
     //MARK:- get fbUser data
     func getFBUserData(){
-        if((FBSDKAccessToken.current()) != nil){
-            FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, picture.type(large), email"]).start(completionHandler: { (connection, result, error) -> Void in
+        if((AccessToken.current) != nil){
+            GraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, picture.type(large), email"]).start(completionHandler: { (connection, result, error) -> Void in
                 if (error == nil){
                     //everything works print the user data
                     if self.reachability?.connection.description != "No Connection"{

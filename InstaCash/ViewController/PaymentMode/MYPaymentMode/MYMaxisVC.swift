@@ -40,6 +40,8 @@ class MYMaxisVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.getPaymentDetailsFromServer()
+        
+        self.setStatusBarColor()
     }
     
     func changeLanguageOfUI() {
@@ -61,7 +63,7 @@ class MYMaxisVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.changeLanguageOfUI()
+        //self.changeLanguageOfUI()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             

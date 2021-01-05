@@ -14,6 +14,7 @@ class HowItWorkVC: UIViewController {
         super.viewDidLoad()
         setNavigationBar()
         
+        self.setStatusBarColor()
     }
     
     // MARK:- navigation bar setup.

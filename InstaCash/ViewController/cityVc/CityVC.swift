@@ -54,7 +54,7 @@ class CityVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UITex
             
         }
         
-        self.changeLanguageOfUI()
+        //self.changeLanguageOfUI()
     }
     
     func changeLanguageOfUI() {
@@ -76,6 +76,8 @@ class CityVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UITex
         self.cityPicker.delegate = self
         self.cityPicker.dataSource = self
         cityPicker.selectRow(0, inComponent: 0, animated: false)
+        
+        self.setStatusBarColor()
 
         if reachability?.connection.description != "No Connection" {
             CityModel.fetchCityFromServer(isInterNet:true,getController: self) { (arrCityData) in

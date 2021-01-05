@@ -39,7 +39,7 @@ class ExactQuote: UIViewController {
         lblPriceSecond.text = CustomUserDefault.getCurrency()
         lblPriceThird.text = CustomUserDefault.getCurrency()
         
-        // Do any additional setup after loading the view.
+        self.setStatusBarColor()
     }
     
     @IBAction func onClickBack(_ sender: Any) {

@@ -55,7 +55,7 @@
                                 <constraint firstAttribute="height" constant="40" id="Elz-4R-nKo"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="Supply-Regular" family="Supply" pointSize="17"/>
-                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            <textInputTraits key="textInputTraits"/>
                             <connections>
                                 <outlet property="delegate" destination="-1" id="C3Q-Ku-N05"/>
                             </connections>

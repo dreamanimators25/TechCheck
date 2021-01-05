@@ -11,6 +11,8 @@
 
 #endif /* BridgeHeader_h */
 
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+
 #import "TPKeyboardAvoidingCollectionView.h"
 #import "TPKeyboardAvoidingScrollView.h"
 #import "TPKeyboardAvoidingTableView.h"

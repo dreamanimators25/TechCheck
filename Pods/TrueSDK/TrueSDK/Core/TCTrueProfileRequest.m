@@ -16,6 +16,8 @@ static NSString *kAppIdKey = @"appId";
 static NSString *kRequestNonceKey = @"requestNonce";
 static NSString *kApiVersion = @"apiVersion";
 static NSString *kSdkVersion = @"sdkVersion";
+static NSString *kTitleType = @"titleType";
+static NSString *kLocale = @"locale";
 
 @implementation TCTrueProfileRequest 
 
@@ -28,6 +30,8 @@ static NSString *kSdkVersion = @"sdkVersion";
     [aCoder encodeObject:self.requestNonce forKey:kRequestNonceKey];
     [aCoder encodeObject:self.apiVersion forKey:kApiVersion];
     [aCoder encodeObject:self.sdkVersion forKey:kSdkVersion];
+    [aCoder encodeObject:@(self.titleType) forKey:kTitleType];
+    [aCoder encodeObject:self.locale forKey:kLocale];
 }
 
 -(instancetype) initWithCoder:(NSCoder *)aDecoder
@@ -41,6 +45,8 @@ static NSString *kSdkVersion = @"sdkVersion";
         _requestNonce = [aDecoder decodeObjectForKey:kRequestNonceKey];
         _apiVersion = [aDecoder decodeObjectForKey:kApiVersion];
         _sdkVersion = [aDecoder decodeObjectForKey:kSdkVersion];
+        _titleType = [[aDecoder decodeObjectForKey:kTitleType] intValue];
+        _locale = [aDecoder decodeObjectForKey:kLocale];
     }
     return self;
 }

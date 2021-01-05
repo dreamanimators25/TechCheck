@@ -12,10 +12,14 @@ import FirebaseAnalytics
 class PaymentsModeVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
     @IBOutlet weak var lblTitlePaymentMode: UILabel!
-    @IBOutlet weak var lblHeadSelectedPaymentMode: UILabel!
-    @IBOutlet weak var lblChooseOnePayment: UILabel!
-    @IBOutlet weak var lblPayableAmount: UILabel!
-    @IBOutlet weak var lblTotalPrice: UILabel!
+    @IBOutlet weak var lblTotalAmount: UILabel!
+    
+    @IBOutlet weak var UIView1: UIView!
+    
+    //@IBOutlet weak var lblHeadSelectedPaymentMode: UILabel!
+    //@IBOutlet weak var lblChooseOnePayment: UILabel!
+    //@IBOutlet weak var lblPayableAmount: UILabel!
+    
     @IBOutlet weak var lblSelPayMode: UILabel!
     @IBOutlet weak var lblSelectedPaymentMode: UILabel!
     @IBOutlet weak var paymentModeTableView: UITableView!
@@ -50,10 +54,17 @@ class PaymentsModeVC: UIViewController,UITableViewDataSource,UITableViewDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setStatusBarColor()
+        
+        DispatchQueue.main.async {
+            self.UIView1.roundCorners([.topLeft,.topRight], radius: 10.0)
+            //self.paymentModeTableView.roundCorners([.bottomLeft,.bottomRight], radius: 10.0)
+        }
+        
         paymentModeTableView.register(UINib(nibName: "PaymentModeHeaderTblCell", bundle: nil), forCellReuseIdentifier: "PaymentModeHeaderTblCell")
         paymentModeTableView.register(UINib(nibName: "PaymentModeFooterTblCell", bundle: nil), forCellReuseIdentifier: "PaymentModeFooterTblCell")
         
-        lblTotalPrice.text = CustomUserDefault.getCurrency() + getFinalPrice3.formattedWithSeparator
+        lblTotalAmount.text = CustomUserDefault.getCurrency() + getFinalPrice3.formattedWithSeparator
         self.getPaymentType()
                 
     }
@@ -62,10 +73,10 @@ class PaymentsModeVC: UIViewController,UITableViewDataSource,UITableViewDelegate
       
         self.lblTitlePaymentMode.text = "Payment Modes".localized(lang: langCode)
         //"Select Payment Mode"
-        self.lblHeadSelectedPaymentMode.text = "Your Payment".localized(lang: langCode)
+        //self.lblHeadSelectedPaymentMode.text = "Your Payment".localized(lang: langCode)
         //"Choose one payment option"
-        self.lblChooseOnePayment.text = "Select how you will get paid".localized(lang: langCode)
-        self.lblPayableAmount.text = "Payable amount".localized(lang: langCode)
+        //self.lblChooseOnePayment.text = "Select how you will get paid".localized(lang: langCode)
+        //self.lblPayableAmount.text = "Payable amount".localized(lang: langCode)
     
         self.lblSelPayMode.text = "Selected Payment Mode".localized(lang: langCode)
         
@@ -75,7 +86,7 @@ class PaymentsModeVC: UIViewController,UITableViewDataSource,UITableViewDelegate
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.changeLanguageOfUI()
+        //self.changeLanguageOfUI()
     }
     
     // MARK:- navigation bar setup.
@@ -279,6 +290,11 @@ class PaymentsModeVC: UIViewController,UITableViewDataSource,UITableViewDelegate
                             }
                             
                             self.paymentModeTableView.reloadData()
+                            
+                            DispatchQueue.main.async {
+                                self.paymentModeTableView.roundCorners([.bottomLeft,.bottomRight], radius: 10.0)
+                            }
+                            
                         }) { (true) in
                             self.view.layoutIfNeeded()
                         }
@@ -361,6 +377,18 @@ class PaymentsModeVC: UIViewController,UITableViewDataSource,UITableViewDelegate
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
+            return arrBankGroup.count
+        case 1:
+            return arrOtherGroup.count
+        default:
+            return arrWalletGroup.count
+        }
+    }
+    
+    /*
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch section {
+        case 0:
             
             if arrBankGroup.count > 0 && openSectionNumber == section {
                 return arrBankGroup.count + 1
@@ -389,13 +417,14 @@ class PaymentsModeVC: UIViewController,UITableViewDataSource,UITableViewDelegate
                 return 0
             }
         }
-    }
+    }*/
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         switch indexPath.section {
         case 0:
             
+            /*
             if indexPath.row == 0 {
                 let headCell = tableView.dequeueReusableCell(withIdentifier: "PaymentModeHeaderTblCell", for: indexPath) as! PaymentModeHeaderTblCell
                 headCell.paymentGroupImgView.image = #imageLiteral(resourceName: "bank")
@@ -413,39 +442,60 @@ class PaymentsModeVC: UIViewController,UITableViewDataSource,UITableViewDelegate
                 
                 return headCell
             }else {
+                */
                 let footCell = tableView.dequeueReusableCell(withIdentifier: "PaymentModeFooterTblCell", for: indexPath) as! PaymentModeFooterTblCell
                                 
                 if self.selectedPaymentModeIndex == indexPath.row && openSectionNumber == indexPath.section && paymentTypeBankSelect {
-                    footCell.selectionImgView.image = #imageLiteral(resourceName: "smallRight")
-                }else {
+                    //footCell.selectionImgView.image = #imageLiteral(resourceName: "smallRight")
+                    
+                    footCell.baseView.layer.borderColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    
                     footCell.selectionImgView.image = nil
+                    footCell.selectionImgView.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    
+                    footCell.lblPaymentType.textColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    footCell.lblTotalPayment.textColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                }else {
+                    //footCell.selectionImgView.image = nil
+                    
+                    footCell.baseView.layer.borderColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
+                    
+                    footCell.selectionImgView.image = #imageLiteral(resourceName: "circle")
+                    footCell.selectionImgView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                    
+                    footCell.lblPaymentType.textColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
+                    footCell.lblTotalPayment.textColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
                 }
                 
-                let imgURL = URL.init(string: self.arrBankGroup[indexPath.row - 1]["image"] as! String)
+                let imgURL = URL.init(string: self.arrBankGroup[indexPath.row]["image"] as! String)
                 footCell.paymentTypeImgView.sd_setImage(with: imgURL)
                 
-                footCell.lblPaymentType.text = (self.arrBankGroup[indexPath.row - 1]["paymentType"] as? String)?.localized(lang: langCode)
+                footCell.lblPaymentType.text = (self.arrBankGroup[indexPath.row]["paymentType"] as? String)?.localized(lang: langCode)
                 
-                let gateWayCharge = self.arrBankGroup[indexPath.row - 1].value(forKey: "gatewayCharge") as? Int ?? 0
+                let gateWayCharge = self.arrBankGroup[indexPath.row].value(forKey: "gatewayCharge") as? Int ?? 0
                 let bankCharge = self.getFinalPrice3 + gateWayCharge
                 //self.finalPriceSet3 = bankCharge
                 
                 if CustomUserDefault.getCurrency() == "NT$" {
                     //footCell.lblGatewayCharge.text = ""
-                    footCell.lblGatewayCharge.isHidden = true
+                    // Sameer 14/11/20
+                    //footCell.lblGatewayCharge.isHidden = true
                 }else {
-                    footCell.lblGatewayCharge.text = "Gateway charges".localized(lang: langCode) + "-" + CustomUserDefault.getCurrency() + String(gateWayCharge)
+                    // Sameer 14/11/20
+                    //footCell.lblGatewayCharge.text = "Gateway charges".localized(lang: langCode) + "-" + CustomUserDefault.getCurrency() + String(gateWayCharge)
                 }
                 
-                footCell.lblPayable.text = "Payable".localized(lang: langCode)
+                // Sameer 14/11/20
+                //footCell.lblPayable.text = "Payable".localized(lang: langCode)
                 
                 footCell.lblTotalPayment.text = CustomUserDefault.getCurrency() + String(bankCharge.formattedWithSeparator)
             
                 return footCell
-            }
+            //}
             
         case 1:
             
+            /*
             if indexPath.row == 0 {
                 let headCell = tableView.dequeueReusableCell(withIdentifier: "PaymentModeHeaderTblCell", for: indexPath) as! PaymentModeHeaderTblCell
                 headCell.paymentGroupImgView.image = #imageLiteral(resourceName: "voucher")
@@ -463,40 +513,52 @@ class PaymentsModeVC: UIViewController,UITableViewDataSource,UITableViewDelegate
                 
                 return headCell
             }else {
+                */
                 let footCell = tableView.dequeueReusableCell(withIdentifier: "PaymentModeFooterTblCell", for: indexPath) as! PaymentModeFooterTblCell
                 
                 if self.selectedPaymentModeIndex == indexPath.row && openSectionNumber == indexPath.section && paymentTypeOtherSelect {
-                    footCell.selectionImgView.image = #imageLiteral(resourceName: "smallRight")
-                }else {
+                    //footCell.selectionImgView.image = #imageLiteral(resourceName: "smallRight")
+                    
+                    footCell.baseView.layer.borderColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    
                     footCell.selectionImgView.image = nil
+                    footCell.selectionImgView.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    
+                    footCell.lblPaymentType.textColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    footCell.lblTotalPayment.textColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                }else {
+                    //footCell.selectionImgView.image = nil
+                    
+                    footCell.baseView.layer.borderColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
+                    
+                    footCell.selectionImgView.image = #imageLiteral(resourceName: "circle")
+                    footCell.selectionImgView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                    
+                    footCell.lblPaymentType.textColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
+                    footCell.lblTotalPayment.textColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
                 }
                 
-                let imgURL = URL.init(string: self.arrOtherGroup[indexPath.row - 1]["image"] as! String)
+                let imgURL = URL.init(string: self.arrOtherGroup[indexPath.row]["image"] as! String)
                 footCell.paymentTypeImgView.sd_setImage(with: imgURL)
                 
-                footCell.lblPaymentType.text = (self.arrOtherGroup[indexPath.row - 1]["paymentType"] as? String)?.localized(lang: langCode)
+                //footCell.lblPaymentType.text = (self.arrOtherGroup[indexPath.row - 1]["paymentType"] as? String)?.localized(lang: langCode)
+                footCell.lblPaymentType.text = (self.arrOtherGroup[indexPath.row]["paymentType"] as? String)?.localized(lang: langCode)
                 
-                /*
-                var strPayType = (self.arrOtherGroup[indexPath.row - 1]["paymentType"] as? String)?.localized(lang: langCode)
-                if strPayType?.contains("PChome") ?? false {
-                    //strPayType = strPayType?.replacingOccurrences(of: "PChome", with: "")
-                    strPayType = " 現金 "
-                }
-                footCell.lblPaymentType.text = strPayType
-                */
-                
-                let gateWayCharge = self.arrOtherGroup[indexPath.row - 1].value(forKey: "gatewayCharge") as? Int ?? 0
+                let gateWayCharge = self.arrOtherGroup[indexPath.row].value(forKey: "gatewayCharge") as? Int ?? 0
                 let bankCharge = self.getFinalPrice3 + gateWayCharge
                 //self.finalPriceSet3 = bankCharge
                 
                 if CustomUserDefault.getCurrency() == "NT$" {
                     //footCell.lblGatewayCharge.text = ""
-                    footCell.lblGatewayCharge.isHidden = true
+                    // Sameer 14/11/20
+                    //footCell.lblGatewayCharge.isHidden = true
                 }else {
-                    footCell.lblGatewayCharge.text = "Gateway charges".localized(lang: langCode) + "-" + CustomUserDefault.getCurrency() + String(gateWayCharge)
+                    // Sameer 14/11/20
+                    //footCell.lblGatewayCharge.text = "Gateway charges".localized(lang: langCode) + "-" + CustomUserDefault.getCurrency() + String(gateWayCharge)
                 }
-                                
-                footCell.lblPayable.text = "Payable".localized(lang: langCode)
+                    
+                // Sameer 14/11/20
+                //footCell.lblPayable.text = "Payable".localized(lang: langCode)
                 
                 /*
                 if (self.arrOtherGroup[indexPath.row - 1]["paymentType"] as? String) == "UUPON (Points Only)" {
@@ -507,17 +569,18 @@ class PaymentsModeVC: UIViewController,UITableViewDataSource,UITableViewDelegate
                 
                 
                 if CustomUserDefault.getCurrency() == "NT$" {
-                    footCell.lblTotalPayment.text = (self.arrOtherGroup[indexPath.row - 1]["currency"] as? String ?? "") + String(bankCharge.formattedWithSeparator)
+                    footCell.lblTotalPayment.text = (self.arrOtherGroup[indexPath.row]["currency"] as? String ?? "") + String(bankCharge.formattedWithSeparator)
                 }else {
                     footCell.lblTotalPayment.text = CustomUserDefault.getCurrency() + String(bankCharge.formattedWithSeparator)
                 }
                 
                                 
                 return footCell
-            }
+            //}
             
         default:
             
+            /*
             if indexPath.row == 0 {
                 let headCell = tableView.dequeueReusableCell(withIdentifier: "PaymentModeHeaderTblCell", for: indexPath) as! PaymentModeHeaderTblCell
                 headCell.paymentGroupImgView.image = #imageLiteral(resourceName: "wallet")
@@ -535,36 +598,57 @@ class PaymentsModeVC: UIViewController,UITableViewDataSource,UITableViewDelegate
                 
                 return headCell
             }else {
+                */
+            
                 let footCell = tableView.dequeueReusableCell(withIdentifier: "PaymentModeFooterTblCell", for: indexPath) as! PaymentModeFooterTblCell
                 
                 if self.selectedPaymentModeIndex == indexPath.row && openSectionNumber == indexPath.section && paymentTypeWalletSelect {
-                    footCell.selectionImgView.image = #imageLiteral(resourceName: "smallRight")
-                }else {
+                    //footCell.selectionImgView.image = #imageLiteral(resourceName: "smallRight")
+                    
+                    footCell.baseView.layer.borderColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    
                     footCell.selectionImgView.image = nil
+                    footCell.selectionImgView.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    
+                    footCell.lblPaymentType.textColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                    footCell.lblTotalPayment.textColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+                }else {
+                    //footCell.selectionImgView.image = nil
+                    
+                    footCell.baseView.layer.borderColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
+                    
+                    footCell.selectionImgView.image = #imageLiteral(resourceName: "circle")
+                    footCell.selectionImgView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                    
+                    footCell.lblPaymentType.textColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
+                    footCell.lblTotalPayment.textColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
                 }
                 
-                let imgURL = URL.init(string: self.arrWalletGroup[indexPath.row - 1]["image"] as! String)
+                let imgURL = URL.init(string: self.arrWalletGroup[indexPath.row]["image"] as! String)
                 footCell.paymentTypeImgView.sd_setImage(with: imgURL)
                 
-                footCell.lblPaymentType.text = (self.arrWalletGroup[indexPath.row - 1]["paymentType"] as? String)?.localized(lang: langCode)
+                footCell.lblPaymentType.text = (self.arrWalletGroup[indexPath.row]["paymentType"] as? String)?.localized(lang: langCode)
                 
-                let gateWayCharge = self.arrWalletGroup[indexPath.row - 1].value(forKey: "gatewayCharge") as? Int ?? 0
+                let gateWayCharge = self.arrWalletGroup[indexPath.row].value(forKey: "gatewayCharge") as? Int ?? 0
                 let bankCharge = self.getFinalPrice3 + gateWayCharge
                 //self.finalPriceSet3 = bankCharge
                 
                 if CustomUserDefault.getCurrency() == "NT$" {
                     //footCell.lblGatewayCharge.text = ""
-                    footCell.lblGatewayCharge.isHidden = true
+                    // Sameer 14/11/20
+                    //footCell.lblGatewayCharge.isHidden = true
                 }else {
-                    footCell.lblGatewayCharge.text = "Gateway charges".localized(lang: langCode) + "-" + CustomUserDefault.getCurrency() + String(gateWayCharge)
+                    // Sameer 14/11/20
+                    //footCell.lblGatewayCharge.text = "Gateway charges".localized(lang: langCode) + "-" + CustomUserDefault.getCurrency() + String(gateWayCharge)
                 }
-                                
-                footCell.lblPayable.text = "Payable".localized(lang: langCode)
+                  
+                // Sameer 14/11/20
+                //footCell.lblPayable.text = "Payable".localized(lang: langCode)
                 
                 footCell.lblTotalPayment.text = CustomUserDefault.getCurrency() + String(bankCharge.formattedWithSeparator)
                 
                 return footCell
-            }
+            //}
             
         }
     }
@@ -582,6 +666,7 @@ class PaymentsModeVC: UIViewController,UITableViewDataSource,UITableViewDelegate
         switch indexPath.section {
         case 0:
             
+            /*
             if indexPath.row == 0 {
                 openSectionNumber = indexPath.section
                 
@@ -592,9 +677,14 @@ class PaymentsModeVC: UIViewController,UITableViewDataSource,UITableViewDelegate
                 }
                 
             }else {
-                print(arrBankGroup[indexPath.row - 1]["typeCode"] as? String ?? "")
+                */
+            
+            
+                openSectionNumber = indexPath.section
                 
-                self.lblSelectedPaymentMode.text = (arrBankGroup[indexPath.row - 1]["typeCode"] as? String ?? "").localized(lang: langCode)
+                print(arrBankGroup[indexPath.row]["typeCode"] as? String ?? "")
+                
+                self.lblSelectedPaymentMode.text = (arrBankGroup[indexPath.row]["typeCode"] as? String ?? "").localized(lang: langCode)
                 
                 DispatchQueue.main.async {
                     UIView.animate(withDuration: 0.4, animations: {
@@ -617,18 +707,19 @@ class PaymentsModeVC: UIViewController,UITableViewDataSource,UITableViewDelegate
                     }
                 }
                 
-                selectePaymentType = (arrBankGroup[indexPath.row - 1]["typeCode"] as? String ?? "")
-                selecteCurrency = (arrBankGroup[indexPath.row - 1]["currency"] as? String ?? "")
+                selectePaymentType = (arrBankGroup[indexPath.row]["typeCode"] as? String ?? "")
+                selecteCurrency = (arrBankGroup[indexPath.row]["currency"] as? String ?? "")
                 
                 //To Calculate Final Price After Selected payment type
-                let gateWayCharge = arrBankGroup[indexPath.row - 1]["gatewayCharge"] as? Int ?? 0
+                let gateWayCharge = arrBankGroup[indexPath.row]["gatewayCharge"] as? Int ?? 0
                 let finalCharge = self.getFinalPrice3 + gateWayCharge
                 self.finalPriceSet3 = finalCharge
                 print(self.finalPriceSet3)
-            }
+            //}
             
         case 1:
             
+            /*
             if indexPath.row == 0 {
                 openSectionNumber = indexPath.section
                 
@@ -639,9 +730,13 @@ class PaymentsModeVC: UIViewController,UITableViewDataSource,UITableViewDelegate
                 }
                 
             }else {
-                print(arrOtherGroup[indexPath.row - 1]["typeCode"] as? String ?? "")
+                */
+            
+                openSectionNumber = indexPath.section
                 
-                self.lblSelectedPaymentMode.text = (arrOtherGroup[indexPath.row - 1]["typeCode"] as? String ?? "").localized(lang: langCode)
+                print(arrOtherGroup[indexPath.row]["typeCode"] as? String ?? "")
+                
+                self.lblSelectedPaymentMode.text = (arrOtherGroup[indexPath.row]["typeCode"] as? String ?? "").localized(lang: langCode)
                 
                 DispatchQueue.main.async {
                     UIView.animate(withDuration: 0.4, animations: {
@@ -664,18 +759,19 @@ class PaymentsModeVC: UIViewController,UITableViewDataSource,UITableViewDelegate
                     }
                 }
                 
-                selectePaymentType = (arrOtherGroup[indexPath.row - 1]["typeCode"] as? String ?? "")
-                selecteCurrency = (arrOtherGroup[indexPath.row - 1]["currency"] as? String ?? "")
+                selectePaymentType = (arrOtherGroup[indexPath.row]["typeCode"] as? String ?? "")
+                selecteCurrency = (arrOtherGroup[indexPath.row]["currency"] as? String ?? "")
                 
                 //To Calculate Final Price After Selected payment type
-                let gateWayCharge = arrOtherGroup[indexPath.row - 1]["gatewayCharge"] as? Int ?? 0
+                let gateWayCharge = arrOtherGroup[indexPath.row]["gatewayCharge"] as? Int ?? 0
                 let finalCharge = self.getFinalPrice3 + gateWayCharge
                 self.finalPriceSet3 = finalCharge
                 print(self.finalPriceSet3)
-            }
+            //}
             
         default:
             
+            /*
             if indexPath.row == 0 {
                 openSectionNumber = indexPath.section
                 
@@ -686,9 +782,13 @@ class PaymentsModeVC: UIViewController,UITableViewDataSource,UITableViewDelegate
                 }
                 
             }else {
-                print(arrWalletGroup[indexPath.row - 1]["typeCode"] as? String ?? "")
+                */
+            
+                openSectionNumber = indexPath.section
+                
+                print(arrWalletGroup[indexPath.row]["typeCode"] as? String ?? "")
                                 
-                self.lblSelectedPaymentMode.text = (arrWalletGroup[indexPath.row - 1]["typeCode"] as? String ?? "").localized(lang: langCode)
+                self.lblSelectedPaymentMode.text = (arrWalletGroup[indexPath.row]["typeCode"] as? String ?? "").localized(lang: langCode)
                 
                 DispatchQueue.main.async {
                     UIView.animate(withDuration: 0.4, animations: {
@@ -711,15 +811,15 @@ class PaymentsModeVC: UIViewController,UITableViewDataSource,UITableViewDelegate
                     }
                 }
                 
-                selectePaymentType = (arrWalletGroup[indexPath.row - 1]["typeCode"] as? String ?? "")
-                selecteCurrency = (arrWalletGroup[indexPath.row - 1]["currency"] as? String ?? "")
+                selectePaymentType = (arrWalletGroup[indexPath.row]["typeCode"] as? String ?? "")
+                selecteCurrency = (arrWalletGroup[indexPath.row]["currency"] as? String ?? "")
                 
                 //To Calculate Final Price After Selected payment type
-                let gateWayCharge = arrWalletGroup[indexPath.row - 1]["gatewayCharge"] as? Int ?? 0
+                let gateWayCharge = arrWalletGroup[indexPath.row]["gatewayCharge"] as? Int ?? 0
                 let finalCharge = self.getFinalPrice3 + gateWayCharge
                 self.finalPriceSet3 = finalCharge
                 print(self.finalPriceSet3)
-            }
+            //}
             
         }
         

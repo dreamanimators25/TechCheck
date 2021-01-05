@@ -27,11 +27,13 @@ class MyHistoryListVC: UIViewController,UITableViewDataSource,UITableViewDelegat
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        self.changeLanguageOfUI()
+        //self.changeLanguageOfUI()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.setStatusBarColor()
 
         historyListTableView.register(UINib(nibName: "HistoryListTblCell", bundle: nil), forCellReuseIdentifier: "HistoryListTblCell")
         
@@ -68,12 +70,16 @@ class MyHistoryListVC: UIViewController,UITableViewDataSource,UITableViewDelegat
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
+        /*
         let model = arrHistoryList[section]
         if model.isCollapsable == true {
             return 2
         }else {
             return 1
         }
+        */
+        
+        return 1
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -89,7 +95,7 @@ class MyHistoryListVC: UIViewController,UITableViewDataSource,UITableViewDelegat
             
             historyListCell.lblPhoneName.text = modelOrder.strOrderName
             historyListCell.lblDate.text = modelOrder.orderDate
-            historyListCell.lblSeeDetail.text = "See Detail".localized(lang: langCode)
+            //historyListCell.lblSeeDetail.text = "See Detail".localized(lang: langCode)
             
             let amount = Int(modelOrder.strOrderAmount!)
             let strAmount = amount!.formattedWithSeparator
@@ -132,6 +138,7 @@ class MyHistoryListVC: UIViewController,UITableViewDataSource,UITableViewDelegat
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        /*
         if indexPath.row == 0 {
             let model = arrHistoryList[indexPath.section]
             
@@ -153,6 +160,13 @@ class MyHistoryListVC: UIViewController,UITableViewDataSource,UITableViewDelegat
                 self.historyListTableView.scrollToRow(at: indexPath, at: .top, animated: true)
             }
         }
+        */
+        
+        let model = arrHistoryList[indexPath.section]
+        
+        let vc = HistoryDetailVC()
+        vc.historyData = model.strSumaryHistory ?? ""
+        self.navigationController?.pushViewController(vc, animated: true)
         
     }
     

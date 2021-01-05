@@ -20,6 +20,8 @@ class ContactUsVC: UIViewController,MFMailComposeViewControllerDelegate {
 
         viewMiddle.layer.cornerRadius = CGFloat(btnCornerRadius)
         viewMiddle.clipsToBounds = true
+        
+        self.setStatusBarColor()
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

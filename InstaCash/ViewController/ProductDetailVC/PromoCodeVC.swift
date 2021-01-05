@@ -98,6 +98,9 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.setStatusBarColor()
+        
         reSetDiagnosHomeUIProcessForMaintainCache()
         userDefaults.set(0, forKey: "couponCodePrice")
         setNavigationBar()
@@ -218,7 +221,7 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
         super.viewWillAppear(animated)
         
         DispatchQueue.main.async {
-            UIView.addShadowOn4side(baseView: self.viewBG)
+            //UIView.addShadowOn4side(baseView: self.viewBG)
             self.promoCodeView.layer.cornerRadius = 5.0
             self.btnPromoCode.layer.cornerRadius = 5.0
             
@@ -227,7 +230,7 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
         
         txtAmount.delegate = self
                 
-        self.changeLanguageOfUI()
+        //self.changeLanguageOfUI()
     }
     
     func changeLanguageOfUI() {
@@ -514,11 +517,14 @@ class PromoCodeVC: UIViewController,UpdateUIForOrderDelegate,UITextFieldDelegate
             else{
                 producdID = userDefaults.value(forKey: "otherProductDeviceID") as! String
             }
+            
+            /* Sameer 4/11/20
             AppEventsLogger.log(
                 .addedToCart(
                     contentType: productName,
                     contentId: producdID,
                     currency: currency))
+            */
             
             /* //Sameer 2/6/2020
             Analytics.logEvent(AnalyticsEventAddToCart, parameters: [

@@ -22,6 +22,7 @@ class AboutPageVC: UIViewController {
         combination.append(aboutHTML?.htmlToAttributedString ?? NSMutableAttributedString())
         self.aboutTextView.attributedText = combination
      
+        //self.setStatusBarColor()
     }
     
     override func viewWillAppear(_ animated: Bool) {

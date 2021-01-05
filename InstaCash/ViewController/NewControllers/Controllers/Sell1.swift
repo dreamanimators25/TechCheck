@@ -15,6 +15,7 @@ class Sell1: UIViewController {
     @IBOutlet weak var lblPhoneName: UILabel!
     @IBOutlet weak var lblPhonePrice: UILabel!
     @IBOutlet weak var viewBG: UIView!
+    @IBOutlet weak var priceView: UIView!
     
     @IBOutlet weak var lblQuote: UILabel!
     @IBOutlet weak var lblGetUpto: UILabel!
@@ -34,8 +35,18 @@ class Sell1: UIViewController {
         
         self.didPullToRefresh()
         
+        self.setStatusBarColor()
+        
         self.lblPhoneName.text = strDevie
         self.imgPhone.image = imgView.image
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+            UIView.addShadowOn4side(baseView: self.viewBG)
+            
+            self.priceView.layer.borderWidth = 1.0
+            self.priceView.layer.borderColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+        }
+        
     }
     
     func changeLanguageOfUI() {
@@ -51,12 +62,7 @@ class Sell1: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.changeLanguageOfUI()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
-            UIView.addShadowOn4side(baseView: self.viewBG)
-        }
-        
+        //self.changeLanguageOfUI()
     }
     
     //MARK : Web Service

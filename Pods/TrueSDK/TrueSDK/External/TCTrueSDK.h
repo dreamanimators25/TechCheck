@@ -57,6 +57,7 @@
 
 @property (nonatomic, weak, nullable) id<TCTrueSDKDelegate> delegate;
 @property (nonatomic) TitleType titleType;
+@property (nonatomic, nullable) NSString* locale;
 
 + (nonnull TCTrueSDK *)sharedManager;
 
@@ -98,5 +99,12 @@
  * @return true if TrueSDK can handle the URL request
  */
 - (BOOL)application:(nonnull UIApplication *)application continueUserActivity:(nonnull NSUserActivity *)userActivity restorationHandler:(nullable void (^)(NSArray * _Nullable restorableObjects))restorationHandler;
+
+/*!
+ * @brief Call this method in scene:continueUserActivity of the Scene Delegate class.
+ */
+
+- (void)scene:(nonnull UIScene *)scene
+continueUserActivity:(nonnull NSUserActivity *)userActivity API_AVAILABLE(ios(13.0));
 
 @end

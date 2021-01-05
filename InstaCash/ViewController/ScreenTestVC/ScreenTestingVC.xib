@@ -11,6 +11,9 @@
         <array key="Supply-Bold.otf">
             <string>Supply-Bold</string>
         </array>
+        <array key="Supply-Medium.otf">
+            <string>Supply-Medium</string>
+        </array>
         <array key="Supply-Regular.otf">
             <string>Supply-Regular</string>
         </array>
@@ -34,23 +37,42 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0sx-0n-6E2">
-                    <rect key="frame" x="10" y="5" width="40" height="40"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P4d-Vs-kfx">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <subviews>
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Zn-l5-l7c">
+                            <rect key="frame" x="10" y="2" width="40" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="usc-ru-qpm"/>
+                                <constraint firstAttribute="width" constant="40" id="zho-2X-3kn"/>
+                            </constraints>
+                            <state key="normal" image="backBlack"/>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TechCheck® Diagnostics" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MFx-3K-o2g">
+                            <rect key="frame" x="57.5" y="13" width="205" height="18"/>
+                            <fontDescription key="fontDescription" name="Supply-Medium" family="Supply" pointSize="15"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.34901960780000002" green="0.062745098040000002" blue="0.56862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="40" id="QDV-j2-bHV"/>
-                        <constraint firstAttribute="width" constant="40" id="St1-TI-dny"/>
+                        <constraint firstItem="9Zn-l5-l7c" firstAttribute="leading" secondItem="P4d-Vs-kfx" secondAttribute="leading" constant="10" id="0kf-mr-AL2"/>
+                        <constraint firstAttribute="height" constant="44" id="XUS-z2-B6H"/>
+                        <constraint firstItem="9Zn-l5-l7c" firstAttribute="centerY" secondItem="P4d-Vs-kfx" secondAttribute="centerY" id="uta-VT-JLq"/>
+                        <constraint firstItem="MFx-3K-o2g" firstAttribute="centerY" secondItem="P4d-Vs-kfx" secondAttribute="centerY" id="wea-gT-aUi"/>
+                        <constraint firstItem="MFx-3K-o2g" firstAttribute="centerX" secondItem="P4d-Vs-kfx" secondAttribute="centerX" id="xNz-Uq-s4v"/>
                     </constraints>
-                    <state key="normal" image="backBlack"/>
-                </button>
+                </view>
                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.33000001311302185" translatesAutoresizingMaskIntoConstraints="NO" id="gtC-3x-9gU">
-                    <rect key="frame" x="20" y="50" width="245.5" height="2"/>
+                    <rect key="frame" x="20" y="64" width="245.5" height="2"/>
                     <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="progressTintColor" red="0.34901960784313724" green="0.062745098039215685" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="trackTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </progressView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1/3" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eV9-Xe-HO4">
-                    <rect key="frame" x="285.5" y="43" width="24.5" height="16"/>
+                    <rect key="frame" x="285.5" y="57" width="24.5" height="16"/>
                     <fontDescription key="fontDescription" name="Supply-Bold" family="Supply" pointSize="13"/>
                     <color key="textColor" red="0.34901960784313724" green="0.062745098039215685" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -58,13 +80,13 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checking screen calibration" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rYn-g5-vlb">
                     <rect key="frame" x="22.5" y="132" width="275.5" height="20"/>
                     <fontDescription key="fontDescription" name="Supply-Regular" family="Supply" pointSize="17"/>
-                    <nil key="textColor"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press “Start’ and follow the path" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uz9-DB-iaG">
                     <rect key="frame" x="48" y="162" width="224" height="31.5"/>
                     <fontDescription key="fontDescription" name="Supply-Regular" family="Supply" pointSize="13"/>
-                    <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YEo-3I-j21">
@@ -84,7 +106,7 @@
                     </state>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="touchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="dA5-0k-uYs">
-                    <rect key="frame" x="55.5" y="236.5" width="209" height="209"/>
+                    <rect key="frame" x="100.5" y="281.5" width="119" height="119"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4oN-gl-yal" customClass="shadowCornerButton" customModule="TechCheck" customModuleProvider="target">
                     <rect key="frame" x="20" y="458.5" width="280" height="45.5"/>
@@ -135,7 +157,7 @@
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="ZLh-lZ-gdg" firstAttribute="centerY" secondItem="SaO-t7-oeB" secondAttribute="centerY" id="Kp3-sO-OGW"/>
                         <constraint firstAttribute="bottom" secondItem="uB7-Ib-02i" secondAttribute="bottom" constant="10" id="VfD-0P-GFf"/>
@@ -145,7 +167,7 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="SaO-t7-oeB" firstAttribute="top" secondItem="5gz-3o-TFP" secondAttribute="top" id="2s8-Pu-VcW"/>
                 <constraint firstItem="eV9-Xe-HO4" firstAttribute="leading" secondItem="gtC-3x-9gU" secondAttribute="trailing" constant="20" id="3Pe-Rc-1TD"/>
@@ -156,22 +178,23 @@
                 <constraint firstItem="4oN-gl-yal" firstAttribute="height" secondItem="5gz-3o-TFP" secondAttribute="height" multiplier="0.08" id="OaM-pq-JpF"/>
                 <constraint firstItem="gtC-3x-9gU" firstAttribute="leading" secondItem="9G8-BM-tDn" secondAttribute="leading" constant="20" id="SNm-vT-1dx"/>
                 <constraint firstItem="5gz-3o-TFP" firstAttribute="bottom" secondItem="SaO-t7-oeB" secondAttribute="bottom" id="Swb-SL-rWE"/>
+                <constraint firstItem="gtC-3x-9gU" firstAttribute="top" secondItem="P4d-Vs-kfx" secondAttribute="bottom" constant="20" id="U5o-c2-EqP"/>
                 <constraint firstItem="uz9-DB-iaG" firstAttribute="top" secondItem="rYn-g5-vlb" secondAttribute="bottom" constant="10" id="UDM-a6-CFy"/>
-                <constraint firstItem="gtC-3x-9gU" firstAttribute="top" secondItem="0sx-0n-6E2" secondAttribute="bottom" constant="5" id="bIU-97-WxI"/>
+                <constraint firstItem="P4d-Vs-kfx" firstAttribute="trailing" secondItem="5gz-3o-TFP" secondAttribute="trailing" id="VKm-Ix-dAL"/>
                 <constraint firstItem="0uk-vV-QGy" firstAttribute="centerX" secondItem="9G8-BM-tDn" secondAttribute="centerX" id="dw7-2n-cbH"/>
-                <constraint firstItem="0sx-0n-6E2" firstAttribute="top" secondItem="5gz-3o-TFP" secondAttribute="top" constant="5" id="fFE-IT-THt"/>
                 <constraint firstItem="dA5-0k-uYs" firstAttribute="centerY" secondItem="9G8-BM-tDn" secondAttribute="centerY" multiplier="1.2" id="fIm-Ow-CB8"/>
                 <constraint firstItem="dA5-0k-uYs" firstAttribute="centerX" secondItem="9G8-BM-tDn" secondAttribute="centerX" id="gKb-8V-DUt"/>
                 <constraint firstItem="SaO-t7-oeB" firstAttribute="leading" secondItem="5gz-3o-TFP" secondAttribute="leading" id="iLT-hb-72w"/>
                 <constraint firstItem="uz9-DB-iaG" firstAttribute="width" secondItem="5gz-3o-TFP" secondAttribute="width" multiplier="0.7" id="icN-TC-CuV"/>
                 <constraint firstItem="5gz-3o-TFP" firstAttribute="trailing" secondItem="4oN-gl-yal" secondAttribute="trailing" constant="20" id="icU-Dg-cas"/>
                 <constraint firstItem="5gz-3o-TFP" firstAttribute="trailing" secondItem="eV9-Xe-HO4" secondAttribute="trailing" constant="10" id="j9G-bE-sbZ"/>
-                <constraint firstItem="0sx-0n-6E2" firstAttribute="leading" secondItem="5gz-3o-TFP" secondAttribute="leading" constant="10" id="p0o-ou-oW0"/>
                 <constraint firstItem="0uk-vV-QGy" firstAttribute="bottom" secondItem="5gz-3o-TFP" secondAttribute="bottom" constant="-20" id="p8y-bn-rbt"/>
                 <constraint firstItem="eV9-Xe-HO4" firstAttribute="centerY" secondItem="gtC-3x-9gU" secondAttribute="centerY" id="r0s-01-ifU"/>
                 <constraint firstItem="SaO-t7-oeB" firstAttribute="trailing" secondItem="5gz-3o-TFP" secondAttribute="trailing" id="s50-Xi-WLH"/>
                 <constraint firstItem="4oN-gl-yal" firstAttribute="leading" secondItem="9G8-BM-tDn" secondAttribute="leading" constant="20" id="sd4-Ty-gse"/>
                 <constraint firstItem="YEo-3I-j21" firstAttribute="centerY" secondItem="9G8-BM-tDn" secondAttribute="centerY" multiplier="0.7" id="utQ-Im-Kx1"/>
+                <constraint firstItem="P4d-Vs-kfx" firstAttribute="leading" secondItem="5gz-3o-TFP" secondAttribute="leading" id="xeD-Tn-a73"/>
+                <constraint firstItem="P4d-Vs-kfx" firstAttribute="top" secondItem="5gz-3o-TFP" secondAttribute="top" id="yDW-Ls-Rhf"/>
                 <constraint firstItem="uz9-DB-iaG" firstAttribute="centerX" secondItem="9G8-BM-tDn" secondAttribute="centerX" id="yLg-tp-cFA"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="5gz-3o-TFP"/>
@@ -181,6 +204,6 @@
     <resources>
         <image name="backBlack" width="16" height="16"/>
         <image name="final_touch.gif" width="230" height="385"/>
-        <image name="touchScreen" width="209" height="209"/>
+        <image name="touchScreen" width="119" height="119"/>
     </resources>
 </document>

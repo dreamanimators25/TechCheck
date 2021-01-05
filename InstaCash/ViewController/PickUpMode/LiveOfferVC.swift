@@ -34,7 +34,7 @@ class LiveOfferVC: UIViewController {
     var strOfferID = ""
     
     override func viewWillAppear(_ animated: Bool) {
-        self.changeLanguageOfUI()
+        //self.changeLanguageOfUI()
     }
     
     func changeLanguageOfUI() {
@@ -61,6 +61,8 @@ class LiveOfferVC: UIViewController {
         swipeCancelButton.direction = .right
         self.btnCancel.addGestureRecognizer(swipeCancelButton)
         fireWebServiceForRefreshData()
+        
+        self.setStatusBarColor()
     }
 
     @IBAction func btnRefreshPressed(_ sender: UIButton) {

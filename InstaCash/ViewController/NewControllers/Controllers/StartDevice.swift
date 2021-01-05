@@ -17,6 +17,7 @@ class StartDevice: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.setStatusBarColor()
     }
     
     func changeLanguageOfUI() {
@@ -30,7 +31,7 @@ class StartDevice: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.changeLanguageOfUI()
+        //self.changeLanguageOfUI()
     }
     
     @IBAction func onClickBack(_ sender: Any) {

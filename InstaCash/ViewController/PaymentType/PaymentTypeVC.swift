@@ -28,6 +28,8 @@ class PaymentTypeVC: UIViewController,UITableViewDelegate,UITableViewDataSource 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setStatusBarColor()
+        
         tblViewPaymentType.register(UINib(nibName: "PaymentTypeHeader", bundle: nil), forCellReuseIdentifier: "paymentTypeHeader")
         tblViewPaymentType.register(UINib(nibName: "PaymentCell", bundle: nil), forCellReuseIdentifier: "paymentCell")
         tblViewPaymentType.register(UINib(nibName: "PaymentTypeFooter", bundle: nil), forCellReuseIdentifier: "paymentTypeFooter")
@@ -360,10 +362,13 @@ class PaymentTypeVC: UIViewController,UITableViewDelegate,UITableViewDataSource 
                     
                     
                     let amount = Double((userDefaults.value(forKeyPath: "productPriceFromAPI") as? Int)!)
+                    
+                    /* Sameer 4/11/20
                     AppEventsLogger.log(
                         .purchased(
                         amount:  amount,
                             currency: currency, extraParameters: [:]))
+                    */
                     
                     /* //Sameer 2/6/2020
                     Analytics.logEvent("order_placed", parameters: [

@@ -36,6 +36,8 @@ class PickUpCodeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setStatusBarColor()
+        
         if let strVC = isComeFromVC {
             if strVC == "pickupmode" {
                 codeTitle_lbl.text = "Pickup Code".localized(lang: langCode)
@@ -49,7 +51,7 @@ class PickUpCodeVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.changeLanguageOfUI()
+        //self.changeLanguageOfUI()
         
         DispatchQueue.main.async {
             self.cancelBtn.titleLabel?.textColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)

@@ -16,19 +16,17 @@ class HistoryVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     let reachability: Reachability? = Reachability()
     var arrHistoryList = [HistoryModel]()
     
-    override func viewWillAppear(_ animated: Bool) {
-        self.changeLanguageOfUI()
-    }
     
     func changeLanguageOfUI() {
         
         self.lblMessage.text = "No History Found".localized(lang: langCode)
-        
         //self.btnAll.setTitle("ALL".localized(lang: langCode), for: UIControlState.normal)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.setStatusBarColor()
         
         setNavigationBar()
         tblViewHistory.register(UINib(nibName: "OrderHeaderCell", bundle: nil), forCellReuseIdentifier: "orderHeaderCell")
@@ -44,7 +42,6 @@ class HistoryVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
                 }
                 else{
                     self.lblMessage.isHidden = false
-                    
                 }
                 
             }
@@ -53,6 +50,10 @@ class HistoryVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
             Alert.showAlertWithError(strMessage: "No Connection found".localized(lang: langCode) as NSString, Onview: self)
         }
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        //self.changeLanguageOfUI()
     }
 
     // MARK:- navigation bar setup.
@@ -87,34 +88,39 @@ class HistoryVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        /*
         let model = arrHistoryList[section]
+        
         if model.isCollapsable == true {
             return 2
         }
         else {
             return 1
         }
+        */
+        
+        return 1
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 0{
-            return 200
-        }
-        else{
+        //if indexPath.row == 0 {
+          //  return 200
+        //}
+        //else{
             return  UITableViewAutomaticDimension
-        }
+        //}
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
-            let cellOrderHeader = tableView.dequeueReusableCell(withIdentifier: "orderHeaderCell", for: indexPath) as! OrderHeaderCell
+            let cellOrderHeader = tableView.dequeueReusableCell(withIdentifier: "OrderHeaderCell", for: indexPath) as! OrderHeaderCell
             let modelOrder = arrHistoryList[indexPath.section]
             
-            if modelOrder.isCollapsable == true{
-                cellOrderHeader.downArrow.image = UIImage(named: "upArrow")
+            if modelOrder.isCollapsable == true {
+                //cellOrderHeader.downArrow.image = UIImage(named: "upArrow")
             }
             else{
-                cellOrderHeader.downArrow.image = UIImage(named: "downArrow")
+                //cellOrderHeader.downArrow.image = UIImage(named: "downArrow")
             }
             
             cellOrderHeader.lblDate.text = modelOrder.orderDate
@@ -133,9 +139,11 @@ class HistoryVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
             let cellOrderHeader = tableView.dequeueReusableCell(withIdentifier: "historyCollabsableCell", for: indexPath) as! HistoryCollabsableCell
             let modelOrder = arrHistoryList[indexPath.section]
             let data = Data(modelOrder.strSumaryHistory!.utf8)
+            
             if let attributedString = try? NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil) {
                 cellOrderHeader.lblTitle.attributedText = attributedString
             }
+            
             //cellOrderHeader.lblAnswer.text = modelOrder.strSumary?.htmlToString
             return cellOrderHeader
         }
@@ -143,10 +151,11 @@ class HistoryVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if indexPath.row == 0{
+        /*
+        if indexPath.row == 0 {
             let model = arrHistoryList[indexPath.section]
             
-            if model.isCollapsable == true{
+            if model.isCollapsable == true {
                 model.isCollapsable = false
                 let section = IndexSet.init(integer: indexPath.section)
                 tableView.reloadSections(section, with: .fade)
@@ -158,12 +167,19 @@ class HistoryVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
             }
         }
         
-        if  arrHistoryList.count - 1 == indexPath.section{
+        if  arrHistoryList.count - 1 == indexPath.section {
             DispatchQueue.main.async {
                 let indexPath = IndexPath(item:0, section: indexPath.section)
                 self.tblViewHistory.scrollToRow(at: indexPath, at: .top, animated: true)
             }
         }
+        */
+        
+        let model = arrHistoryList[indexPath.section]
+        
+        let vc = HistoryDetailVC()
+        vc.historyData = model.strSumaryHistory ?? ""
+        self.navigationController?.pushViewController(vc, animated: true)
         
     }
     

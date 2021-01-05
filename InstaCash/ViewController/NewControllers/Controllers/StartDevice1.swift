@@ -23,6 +23,8 @@ class StartDevice1: UIViewController {
             lbl.isHidden = true
         }
         
+        self.setStatusBarColor()
+        
     }
     
     func changeLanguageOfUI() {
@@ -36,7 +38,7 @@ class StartDevice1: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.changeLanguageOfUI()
+        //self.changeLanguageOfUI()
     }
     
     @IBAction func onClickBack(_ sender: Any) {

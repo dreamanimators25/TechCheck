@@ -32,22 +32,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="379" height="170"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apple iPhone 6s (16 GB)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o9v-hw-j4L">
-                                <rect key="frame" x="10" y="10" width="142.5" height="15.5"/>
-                                <fontDescription key="fontDescription" name="Supply-Bold" family="Supply" pointSize="13"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="10" y="10" width="177" height="14.5"/>
+                                <fontDescription key="fontDescription" name="Supply-Bold" family="Supply" pointSize="12"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MYCA011536" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wgp-Pr-4b9">
-                                <rect key="frame" x="10" y="29.5" width="62.5" height="11.5"/>
+                                <rect key="frame" x="10" y="28.5" width="64" height="12"/>
                                 <fontDescription key="fontDescription" name="Supply-Bold" family="Supply" pointSize="10"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ZAZ-Md-SkI">
-                                <rect key="frame" x="10" y="46" width="359" height="93.5"/>
+                                <rect key="frame" x="10" y="45.5" width="359" height="94"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ur-dI-NZU">
-                                        <rect key="frame" x="0.0" y="0.0" width="90" height="93.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="90" height="94"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placed" translatesAutoresizingMaskIntoConstraints="NO" id="fKs-FP-64n" customClass="cornerImageView" customModule="TechCheck" customModuleProvider="target">
                                                 <rect key="frame" x="25" y="5" width="40" height="40"/>
@@ -63,9 +63,9 @@
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Placed" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IhZ-Lz-exI">
-                                                <rect key="frame" x="29.5" y="55" width="31" height="12"/>
+                                                <rect key="frame" x="26" y="55" width="37.5" height="12"/>
                                                 <fontDescription key="fontDescription" name="Supply-Medium" family="Supply" pointSize="10"/>
-                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c8s-eG-T4U">
@@ -91,7 +91,7 @@
                                         </constraints>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FRX-YS-Jg0">
-                                        <rect key="frame" x="90" y="0.0" width="89.5" height="93.5"/>
+                                        <rect key="frame" x="90" y="0.0" width="89.5" height="94"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="verify" translatesAutoresizingMaskIntoConstraints="NO" id="SQz-qq-CnZ" customClass="cornerImageView" customModule="InstaCash">
                                                 <rect key="frame" x="24.5" y="5" width="40" height="40"/>
@@ -107,9 +107,9 @@
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Verify" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rbj-P5-2nb">
-                                                <rect key="frame" x="32.5" y="55" width="24.5" height="12"/>
+                                                <rect key="frame" x="26" y="55" width="37.5" height="12"/>
                                                 <fontDescription key="fontDescription" name="Supply-Medium" family="Supply" pointSize="10"/>
-                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z8E-fs-F5u">
@@ -148,7 +148,7 @@
                                         </constraints>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5AW-C8-jL9">
-                                        <rect key="frame" x="179.5" y="0.0" width="90" height="93.5"/>
+                                        <rect key="frame" x="179.5" y="0.0" width="90" height="94"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="out for pickup" translatesAutoresizingMaskIntoConstraints="NO" id="bgi-w7-pgm" customClass="cornerImageView" customModule="TechCheck" customModuleProvider="target">
                                                 <rect key="frame" x="25" y="5" width="40" height="40"/>
@@ -164,9 +164,9 @@
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Out For Pickup" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vkJ-lA-j6T">
-                                                <rect key="frame" x="5" y="55" width="80" height="12"/>
+                                                <rect key="frame" x="5" y="55" width="80" height="24"/>
                                                 <fontDescription key="fontDescription" name="Supply-Medium" family="Supply" pointSize="10"/>
-                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0LT-vn-olM">
@@ -207,7 +207,7 @@
                                         </constraints>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o5a-ut-4Jh">
-                                        <rect key="frame" x="269.5" y="0.0" width="89.5" height="93.5"/>
+                                        <rect key="frame" x="269.5" y="0.0" width="89.5" height="94"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pacman cancel" translatesAutoresizingMaskIntoConstraints="NO" id="gAA-c2-IYl" customClass="cornerImageView" customModule="TechCheck" customModuleProvider="target">
                                                 <rect key="frame" x="24.5" y="5" width="40" height="40"/>
@@ -223,9 +223,9 @@
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pacman Cancelled" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hv0-U6-Uk3">
-                                                <rect key="frame" x="5" y="55" width="79.5" height="23.5"/>
+                                                <rect key="frame" x="5" y="55" width="79.5" height="24"/>
                                                 <fontDescription key="fontDescription" name="Supply-Medium" family="Supply" pointSize="10"/>
-                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cIb-ip-vL8">
@@ -255,7 +255,7 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pzP-bt-DVb">
-                                <rect key="frame" x="295" y="144" width="59" height="12"/>
+                                <rect key="frame" x="270.5" y="144" width="83.5" height="12"/>
                                 <fontDescription key="fontDescription" name="Supply-Bold" family="Supply" pointSize="10"/>
                                 <color key="textColor" red="0.89411764705882346" green="0.31764705882352939" blue="0.30980392156862746" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>

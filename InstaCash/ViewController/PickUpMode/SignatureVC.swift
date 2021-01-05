@@ -22,7 +22,7 @@ class SignatureVC: UIViewController,YPSignatureDelegate {
     var strGetUploadBill = ""
     
     override func viewWillAppear(_ animated: Bool) {
-        self.changeLanguageOfUI()
+        //self.changeLanguageOfUI()
     }
     
     func changeLanguageOfUI() {
@@ -38,6 +38,8 @@ class SignatureVC: UIViewController,YPSignatureDelegate {
 
     
     override func viewDidLoad() {
+        
+        self.setStatusBarColor()
         
         DispatchQueue.main.async {
             self.signatureBaseView.layer.borderWidth = 1.0

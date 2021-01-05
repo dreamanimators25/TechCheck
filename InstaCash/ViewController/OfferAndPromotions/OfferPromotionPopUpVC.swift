@@ -23,6 +23,8 @@ class OfferPromotionPopUpVC: UIViewController,UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setStatusBarColor()
+        
         //self.promoTextField.delegate = self
 
         if isComeFromVC == "oppoMode" {
@@ -48,7 +50,7 @@ class OfferPromotionPopUpVC: UIViewController,UITextFieldDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.changeLanguageOfUI()
+        //self.changeLanguageOfUI()
     }
     
     //MARK: IBActions

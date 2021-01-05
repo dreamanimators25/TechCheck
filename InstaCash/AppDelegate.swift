@@ -46,19 +46,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     //MARK:- Set root view
     func setRootViewController() {
         
-        //if UIDevice.current.model.hasPrefix("iPad") {
-            //let vc = IPadVC()
-            //nav = UINavigationController.init(rootViewController: vc)
-            //self.window?.rootViewController = nav
-            //self.window?.makeKeyAndVisible()
-        //}else {
+        if UIDevice.current.model.hasPrefix("iPad") {
+            let vc = IPadVC()
+            nav = UINavigationController.init(rootViewController: vc)
+            self.window?.rootViewController = nav
+            self.window?.makeKeyAndVisible()
+        }else {
             //let vc = CountryVC()
             let vc = LaunchScreenVC()
             nav = UINavigationController.init(rootViewController: vc)
             nav?.navigationBar.isHidden = true
             self.window?.rootViewController = nav
             self.window?.makeKeyAndVisible()
-        //}
+        }
         
     }
     
@@ -243,6 +243,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
     }
     
+     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
+        
+        let sourceApplication =  options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String
+        let annotation = options[UIApplicationOpenURLOptionsKey.annotation]
+
+        let googleHandler = GIDSignIn.sharedInstance().handle(url)
+
+        let facebookHandler = ApplicationDelegate.shared.application (
+            app,
+            open: url,
+            sourceApplication: sourceApplication,
+            annotation: annotation )
+
+        return googleHandler || facebookHandler
+    }
+
+    
+    /* Sameer 4/11/20
     //MARK:- openUrl method for social integration
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         
@@ -333,7 +351,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         return false
         */
         
-    }
+    }*/
     
    
 //    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
@@ -609,6 +627,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     //MARK:- App lifecycle
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        // Initialize sign-in
+        GIDSignIn.sharedInstance().clientID = "923206721363-8p6b0f773q5m6bomaf11ge7giq0jrtrl.apps.googleusercontent.com"
+        //GIDSignIn.sharedInstance().delegate = self
         
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         
@@ -718,7 +739,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
 //            }
 //        }
         IQKeyboardManager.sharedManager().enable = true
+        
+        /* Sameer 4/11/20
         SDKSettings.enableLoggingBehavior(.appEvents)
+        */
+        
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         
         //Setup TruecallerSDK
@@ -741,11 +766,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         registerAPNS(application: application)
         NotificationCenter.default.addObserver(self, selector: #selector(self.tokenRefreshNotificaiton),
                                                name: NSNotification.Name.InstanceIDTokenRefresh, object: nil)
+        
+        // 5/11/20
         //configure for social media integration
-        GIDSignIn.sharedInstance().clientID = "923206721363-bt9d6f1vq711p02hkppqhc7q5itj8of4.apps.googleusercontent.com"
+        //GIDSignIn.sharedInstance().clientID = "923206721363-bt9d6f1vq711p02hkppqhc7q5itj8of4.apps.googleusercontent.com"
         
         // Override point for customization after application launch.
-        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         
         /* Sameer 4/5/2020
         // set status bar color
@@ -794,7 +821,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
+        
+        /* Sameer 4/11/20
         AppEventsLogger.activate()
+        */
+        
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     }
 

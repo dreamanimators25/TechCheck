@@ -10,22 +10,68 @@ import UIKit
 import CoreLocation
 import Firebase
 import FacebookCore
+import DropDown
 
-class PlaceOrderVC: UIViewController,UITextFieldDelegate,CLLocationManagerDelegate {
+class PlaceOrderVC: UIViewController,UITextFieldDelegate,CLLocationManagerDelegate,UITableViewDataSource, UITableViewDelegate {
+    
+    @IBOutlet weak var btnPickUp: UIButton!
+    @IBOutlet weak var btnDropOff: UIButton!
+    @IBOutlet weak var btnPostIt: UIButton!
+  
+    @IBOutlet weak var allBtnView: UIView!
+    @IBOutlet weak var UIView1: UIView!
+    @IBOutlet weak var UIView2: UIView!
+    @IBOutlet weak var UIView3: UIView!
+    @IBOutlet weak var pickUpView: UIView!
+    @IBOutlet weak var dropOffView: UIView!
+    @IBOutlet weak var innerDropOffView: UIView!
+    @IBOutlet weak var postItView: UIView!
+    //@IBOutlet weak var innerPostItView: UIView!
 
     var strPaymentProcessMode = "1"
     var strGetAppCodes = ""
     
     @IBOutlet weak var lblLocation: UILabel!
-    @IBOutlet weak var lblPickUpDetail: UILabel!
+    //@IBOutlet weak var lblPickUpDetail: UILabel!
     @IBOutlet weak var lblWeCome: UILabel!
     @IBOutlet weak var btnGetMyLocation: UIButton!
     @IBOutlet weak var txtAddressLin1: UITextField!
     @IBOutlet weak var txtAddressLine2: UITextField!
     @IBOutlet weak var txtCity: UITextField!
+    @IBOutlet weak var txtState: UITextField!
+    @IBOutlet weak var txtDate: UITextField!
+    @IBOutlet weak var txtTime: UITextField!
     @IBOutlet weak var txtPincode: UITextField!
     @IBOutlet weak var btnPaymentMode: UIButton!
     @IBOutlet weak var btnGetMyLocationHeightConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var streetView: UIView!
+    @IBOutlet weak var cityView: UIView!
+    @IBOutlet weak var stateView: UIView!
+    @IBOutlet weak var countryView: UIView!
+    @IBOutlet weak var postCodeView: UIView!
+    @IBOutlet weak var dateView: UIView!
+    @IBOutlet weak var timeView: UIView!
+    
+    @IBOutlet weak var dropOffSubView1: UIView!
+    @IBOutlet weak var dropOffSubView2: UIView!
+    @IBOutlet weak var dropOffSubView3: UIView!
+    @IBOutlet weak var dropOffLocationView: UIView!
+    @IBOutlet weak var dropOffDateView: UIView!
+    @IBOutlet weak var dropOffTimeView: UIView!
+    @IBOutlet weak var txtDateDropOff: UITextField!
+    @IBOutlet weak var txtTimeDropOff: UITextField!
+    @IBOutlet weak var lblDropOffAddress: UILabel!
+
+    var selectedAddressIndex = -1
+    var segmentIndex = 0
+    var selectedAddress = ""
+    
+    @IBOutlet weak var scrlView: UIScrollView!
+    @IBOutlet weak var txtSearchDevice: UITextField!
+    @IBOutlet weak var addressTableView: UITableView!
+    @IBOutlet weak var heightOftbl: NSLayoutConstraint!
+    
     
     //@IBOutlet weak var txtMobileNumber: UITextField! //s.
     //@IBOutlet weak var txtEmail: UITextField! //s.
@@ -39,6 +85,8 @@ class PlaceOrderVC: UIViewController,UITextFieldDelegate,CLLocationManagerDelega
     var isMatchPincode = false
     var strMessage = String()
     
+    var arrAddress = [String]()
+    
     //S.
     var getFinalPrice2 = 0
     var pickUpChargeGet2 = 0
@@ -47,13 +95,34 @@ class PlaceOrderVC: UIViewController,UITextFieldDelegate,CLLocationManagerDelega
     var strProductImg2 = ""
     var quatationId2 = String()
     var userPersonalDetails = [String:Any]()
-    //S.
     
     var totalNumberCount = 0
+    
+    let timeDropDown = DropDown()
+    let timeDropOffDropDown = DropDown()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.getDropOffAddressByAPI()
+        
+        self.addressTableView.register(UINib(nibName: "DropOffAddTVCell", bundle: nil), forCellReuseIdentifier: "DropOffAddTVCell")
+        
+        self.setStatusBarColor()
+        self.txtDate.text = self.convertDateFormatter()
+        self.txtDateDropOff.text = self.convertDateFormatter()
+        
+        DispatchQueue.main.async {
+            self.btnPickUp.roundCorners([.topLeft,.bottomLeft], radius: 10.0)
+            self.btnPostIt.roundCorners([.topRight,.bottomRight], radius: 10.0)
+            
+            self.allBtnView.roundCorners([.topLeft,.topRight], radius: 10.0)
+            
+            self.pickUpView.roundCorners([.bottomLeft,.bottomRight], radius: 10.0)
+            self.dropOffView.roundCorners([.bottomLeft,.bottomRight], radius: 10.0)
+            self.postItView.roundCorners([.bottomLeft,.bottomRight], radius: 10.0)
+        }
+       
         setNavigationBar()
         
         if CustomUserDefault.getCurrency() == "£" {
@@ -118,7 +187,53 @@ class PlaceOrderVC: UIViewController,UITextFieldDelegate,CLLocationManagerDelega
             }*/
             
         }
+     
         
+        // Set border
+        let borderWidth = CGFloat(1.0)
+        let borderColor = UIColor.lightGray.cgColor
+        
+        streetView.layer.borderWidth = borderWidth
+        streetView.layer.borderColor = borderColor
+        
+        cityView.layer.borderWidth = borderWidth
+        cityView.layer.borderColor = borderColor
+        
+        stateView.layer.borderWidth = borderWidth
+        stateView.layer.borderColor = borderColor
+        
+        countryView.layer.borderWidth = borderWidth
+        countryView.layer.borderColor = borderColor
+        
+        postCodeView.layer.borderWidth = borderWidth
+        postCodeView.layer.borderColor = borderColor
+        
+        dateView.layer.borderWidth = borderWidth
+        dateView.layer.borderColor = borderColor
+        
+        timeView.layer.borderWidth = borderWidth
+        timeView.layer.borderColor = borderColor
+
+        innerDropOffView.layer.borderWidth = borderWidth
+        innerDropOffView.layer.borderColor = borderColor
+        
+        //innerPostItView.layer.borderWidth = borderWidth
+        //innerPostItView.layer.borderColor = borderColor
+        
+        dropOffLocationView.layer.borderWidth = borderWidth
+        dropOffLocationView.layer.borderColor = borderColor
+        
+        dropOffDateView.layer.borderWidth = borderWidth
+        dropOffDateView.layer.borderColor = borderColor
+        
+        dropOffTimeView.layer.borderWidth = borderWidth
+        dropOffTimeView.layer.borderColor = borderColor
+        
+        
+        
+        //self.arrAddress = ["Brixton 49 Brixton Station Rd, Brixton London-NW789","Brixton 49 Brixton Station Rd, Brixton London-NW123","Brixton 49 Brixton Station Rd, Brixton London-NW456"]
+        //self.addressTableView.reloadData()
+        //self.heightOftbl.constant = self.addressTableView.contentSize.height + (self.arrAddress.count * 10)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -126,14 +241,87 @@ class PlaceOrderVC: UIViewController,UITextFieldDelegate,CLLocationManagerDelega
         
         txtPincode.delegate = self
         
-        self.changeLanguageOfUI()
+        // Initialization code
+        timeDropDown.anchorView = self.txtTime
+        timeDropDown.dataSource = ["10 AM to 1 PM","1 PM to 4 PM","4 PM to 7 PM"]
+        timeDropDown.cellConfiguration = { (index, item) in return "\(item)" }
+        
+        timeDropOffDropDown.anchorView = self.txtTimeDropOff
+        timeDropOffDropDown.dataSource = ["10 AM to 1 PM","1 PM to 4 PM","4 PM to 7 PM"]
+        timeDropOffDropDown.cellConfiguration = { (index, item) in return "\(item)" }
+        
+        //self.changeLanguageOfUI()
+        
+        self.txtTime.addTarget(self, action: #selector(tapTimeField), for: .allEditingEvents)
+        self.txtTimeDropOff.addTarget(self, action: #selector(tapTimeFieldDropOff), for: .allEditingEvents)
+        
+        let datePickerView = UIDatePicker()
+        datePickerView.datePickerMode = .date
+        txtDate.inputView = datePickerView
+        datePickerView.addTarget(self, action: #selector(handleDatePicker(sender:)), for: .valueChanged)
+        
+        let datePickerViewDropOff = UIDatePicker()
+        datePickerViewDropOff.datePickerMode = .date
+        txtDateDropOff.inputView = datePickerViewDropOff
+        datePickerViewDropOff.addTarget(self, action: #selector(handleDatePickerDropOff(sender:)), for: .valueChanged)
+        
+    }
+    
+    func convertDateFormatter() -> String {
+      let date = Date()
+      let formatter = DateFormatter()
+      formatter.dateFormat = "dd-MM-yyyy" // change format as per needs
+      let result = formatter.string(from: date)
+      return result
+    }
+    
+    @objc func handleDatePicker(sender: UIDatePicker) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+        txtDate.text = dateFormatter.string(from: sender.date)
+    }
+    
+    @objc func handleDatePickerDropOff(sender: UIDatePicker) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+        txtDateDropOff.text = dateFormatter.string(from: sender.date)
+    }
+    
+    @objc func tapTimeField() {
+        
+        self.view.endEditing(true)
+        
+        // Drop Down on pickUp time field
+        timeDropDown.selectionAction = { (index: Int, item: String) in
+            print("Selected item: \(item) at index: \(index)")
+            self.txtTime.text = item
+        }
+
+        timeDropDown.width = self.txtTime.bounds.width
+        timeDropDown.bottomOffset = CGPoint(x: 0, y:(timeDropDown.anchorView?.plainView.bounds.height)!)
+        timeDropDown.show()
+    }
+    
+    @objc func tapTimeFieldDropOff() {
+        
+        self.view.endEditing(true)
+        
+        // Drop Down on Drop off time field
+        timeDropOffDropDown.selectionAction = { (index: Int, item: String) in
+            print("Selected item: \(item) at index: \(index)")
+            self.txtTimeDropOff.text = item
+        }
+
+        timeDropOffDropDown.width = self.txtTimeDropOff.bounds.width
+        timeDropOffDropDown.bottomOffset = CGPoint(x: 0, y:(timeDropDown.anchorView?.plainView.bounds.height)!)
+        timeDropOffDropDown.show()
     }
 
     func changeLanguageOfUI() {
      
         self.lblLocation.text = "Location".localized(lang: langCode)
         //self.lblPickUpDetail.text = "Pick up details".localized(lang: langCode)
-        self.lblPickUpDetail.text = "Collection details".localized(lang: langCode)
+        //self.lblPickUpDetail.text = "Collection details".localized(lang: langCode)
         self.lblWeCome.text = "We will come to you and collect your phone.Once we have confirmed the TechCheck payment will be processed immediately.".localized(lang: langCode)
         self.btnGetMyLocation.setTitle("GET MY LOCATION".localized(lang: langCode), for: UIControlState.normal)
         self.txtAddressLin1.placeholder = "Address Line 1".localized(lang: langCode)
@@ -170,6 +358,109 @@ class PlaceOrderVC: UIViewController,UITextFieldDelegate,CLLocationManagerDelega
         
     }
     
+    @IBAction func nearMeClickAction(_ sender: Any) {
+    
+    }
+    
+    @IBAction func printYourOwnPack(_ sender: Any) {
+        
+    }
+    
+    @IBAction func printYourOwnPackMoreInfo(_ sender: Any) {
+        DispatchQueue.main.async {
+            let vc = OwnPackVC()
+            let nav = UINavigationController(rootViewController: vc)
+            nav.navigationBar.isHidden = true
+            nav.modalPresentationStyle = .overCurrentContext
+            nav.modalTransitionStyle = .crossDissolve
+            self.present(nav, animated: true, completion: nil)
+        }
+    }
+    
+    @IBAction func requestSalesPack(_ sender: Any) {
+        DispatchQueue.main.async {
+            let vc = SalesPackVC()
+            let nav = UINavigationController(rootViewController: vc)
+            nav.navigationBar.isHidden = true
+            nav.modalPresentationStyle = .overCurrentContext
+            nav.modalTransitionStyle = .crossDissolve
+            self.present(nav, animated: true, completion: nil)
+        }
+    }
+    
+    @IBAction func requestSalesPackMoreInfo(_ sender: Any) {
+        DispatchQueue.main.async {
+            let vc = SalesPackVC()
+            let nav = UINavigationController(rootViewController: vc)
+            nav.navigationBar.isHidden = true
+            nav.modalPresentationStyle = .overCurrentContext
+            nav.modalTransitionStyle = .crossDissolve
+            self.present(nav, animated: true, completion: nil)
+        }
+    }
+    
+    @IBAction func onClickAction(_ sender: Any) {
+        let btn = sender as! UIButton
+        
+        if(btn == btnPickUp)
+        {
+            segmentIndex = 0
+            self.dropOffSubView1.isHidden = false
+            self.dropOffSubView2.isHidden = false
+            self.dropOffSubView3.isHidden = true
+            
+            btnPickUp.setTitleColor(UIColor().gradientTechCheckFirstColor(), for: .normal)
+            btnDropOff.setTitleColor(UIColor().HexToColor(hexString:"C7C7C7"), for: .normal)
+            btnPostIt.setTitleColor(UIColor().HexToColor(hexString:"C7C7C7"), for: .normal)
+            
+            self.UIView1.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+            self.UIView2.backgroundColor = #colorLiteral(red: 0.7803921569, green: 0.7803921569, blue: 0.7803921569, alpha: 1)
+            self.UIView3.backgroundColor = #colorLiteral(red: 0.7803921569, green: 0.7803921569, blue: 0.7803921569, alpha: 1)
+            
+            self.pickUpView.isHidden = false
+            self.dropOffView.isHidden = true
+            self.postItView.isHidden = true
+           
+        }
+        else if(btn == btnDropOff)
+        {
+            segmentIndex = 1
+            
+            btnPickUp.setTitleColor(UIColor().gradientTechCheckFirstColor(), for: .normal)
+            btnDropOff.setTitleColor(UIColor().HexToColor(hexString:"C7C7C7"), for: .normal)
+            btnPostIt.setTitleColor(UIColor().HexToColor(hexString:"C7C7C7"), for: .normal)
+            
+            self.UIView1.backgroundColor = #colorLiteral(red: 0.7803921569, green: 0.7803921569, blue: 0.7803921569, alpha: 1)
+            self.UIView2.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+            self.UIView3.backgroundColor = #colorLiteral(red: 0.7803921569, green: 0.7803921569, blue: 0.7803921569, alpha: 1)
+            
+            self.pickUpView.isHidden = true
+            self.dropOffView.isHidden = false
+            self.postItView.isHidden = true
+            
+        }
+        else
+        {
+            segmentIndex = 2
+            self.dropOffSubView1.isHidden = false
+            self.dropOffSubView2.isHidden = false
+            self.dropOffSubView3.isHidden = true
+            
+            btnPickUp.setTitleColor(UIColor().gradientTechCheckFirstColor(), for: .normal)
+            btnDropOff.setTitleColor(UIColor().HexToColor(hexString:"C7C7C7"), for: .normal)
+            btnPostIt.setTitleColor(UIColor().HexToColor(hexString:"C7C7C7"), for: .normal)
+            
+            self.UIView1.backgroundColor = #colorLiteral(red: 0.7803921569, green: 0.7803921569, blue: 0.7803921569, alpha: 1)
+            self.UIView2.backgroundColor = #colorLiteral(red: 0.7803921569, green: 0.7803921569, blue: 0.7803921569, alpha: 1)
+            self.UIView3.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+            
+            self.pickUpView.isHidden = true
+            self.dropOffView.isHidden = true
+            self.postItView.isHidden = false
+            
+        }
+    }
+    
     @IBAction func onClickBack(_ sender: UIButton) {
         
         if isComingFromLogin{
@@ -198,28 +489,33 @@ class PlaceOrderVC: UIViewController,UITextFieldDelegate,CLLocationManagerDelega
     
     @IBAction func btnPickUpPressed(_ sender: UIButton) {
         
-        if Validation() {
-            userDefaults.setValue(txtPincode.text!, forKey: "orderPinCode")
-            userDefaults.set(txtAddressLin1.text, forKey: "placeOrderAddress")
-            //userDefaults.setValue(txtIMEI.text!, forKey: "orderOtherIMEINumber")
-          //  if (userDefaults.value(forKey: "countryName") as! String).contains("India"){
+        if segmentIndex == 1 {
+            self.lblDropOffAddress.text = self.selectedAddress
+            
+            self.dropOffSubView1.isHidden = true
+            self.dropOffSubView2.isHidden = true
+            self.dropOffSubView3.isHidden = false
+        }else {
+            
+            if Validation() {
+                userDefaults.setValue(txtPincode.text!, forKey: "orderPinCode")
+                userDefaults.set(txtAddressLin1.text, forKey: "placeOrderAddress")
+                //userDefaults.setValue(txtIMEI.text!, forKey: "orderOtherIMEINumber")
+                //  if (userDefaults.value(forKey: "countryName") as! String).contains("India"){
                 //CustomUserDefault.setPhoneNumber(data: txtMobileNumber.text!) //s.
                 //CustomUserDefault.setUserNmae(data: txtName.text!) //s.
                 //CustomUserDefault.setUserEmail(data: txtEmail.text!) //s.
-//            if userDefaults.value(forKeyPath: "OrderPlaceFordiagnosis") as! Bool  == true {
-//                userDefaults.setValue(self.txtIMEI.text!, forKey: "imei_number")
-//            }
-
+                //            if userDefaults.value(forKeyPath: "OrderPlaceFordiagnosis") as! Bool  == true {
+                //                userDefaults.setValue(self.txtIMEI.text!, forKey: "imei_number")
+                //            }
+                
                 //let vc = PaymentTypeVC() //s.
                 //vc.strLandMark = "" //s.
                 //self.navigationController?.pushViewController(vc, animated: true) //s.
+                
+                self.getProcessPaymentMode()
+            }
             
-            self.getProcessPaymentMode()
-            
-//            }
-//            else{
-//                self.getProcessPaymentMode()
-//            }
         }
     }
     
@@ -250,6 +546,71 @@ class PlaceOrderVC: UIViewController,UITextFieldDelegate,CLLocationManagerDelega
     }
     
     //MARK:- web service methods
+    func getAddressPost(strURL : String , parameters:NSDictionary, completionHandler: @escaping (NSDictionary?, NSError?) -> ()) {
+        
+        let web = WebServies()
+        web.postRequest(urlString: strURL, paramDict: (parameters as! Dictionary<String, AnyObject>), completionHandler: completionHandler)
+    }
+    
+    func getDropOffAddressByAPI() {
+                
+        let strBaseURL = userDefaults.value(forKey: "baseURL") as! String
+        let strUrl = strBaseURL + "getDropOffAddress"
+        
+        let parametersHome : [String : Any] = [
+            "apiKey" : key,
+            "userName" : apiAuthenticateUserName
+        ]
+        
+        print(parametersHome)
+        
+      self.getAddressPost(strURL: strUrl, parameters: parametersHome as NSDictionary, completionHandler: {responseObject , error in
+        
+        print(responseObject ?? [:])
+            
+            if error == nil {
+                if responseObject?["status"] as! String == "Success"{
+                    
+                    let arrAddressData = responseObject?["msg"] as? NSArray
+                    
+                    for index in 0..<arrAddressData!.count {
+                        let dict = arrAddressData![index] as? NSDictionary
+                        
+                        let addStr1 = (dict?["address"] as? String ?? "") + "\n" + (dict?["addressHead"] as? String ?? "") + "\n"
+                        
+                        let addStr2 = (dict?["city"] as? String ?? "") + "\n" + (dict?["pincode"] as? String ?? "")
+                        
+                        let addressStr = addStr1 + addStr2
+                        
+                        self.arrAddress.append(addressStr)
+                        
+                    }
+                    
+                    self.addressTableView.reloadData()
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+                        self.heightOftbl.constant = (self.addressTableView.contentSize.height)
+                    }
+                    
+                    
+                  //self.arrAddress = ["Brixton 49 Brixton Station Rd, Brixton London-NW789","Brixton 49 Brixton Station Rd, Brixton London-NW123","Brixton 49 Brixton Station Rd, Brixton London-NW456"]
+                  //self.addressTableView.reloadData()
+                  //self.heightOftbl.constant = self.addressTableView.contentSize.height + (self.arrAddress.count * 10)
+                }
+                else{
+                    // failed
+                    self.strMessage = (responseObject?["msg"] as! String)
+                    Alert.showAlertWithError(strMessage: self.strMessage as NSString, Onview: self)
+                }
+                
+            }
+            else{
+                Alert.showAlertWithError(strMessage: "Seems connection loss from server".localized(lang: langCode) as NSString, Onview: self)
+            }
+            
+        })
+        
+    }
     
     func cityMatchiPost(strURL : String , parameters:NSDictionary, completionHandler: @escaping (NSDictionary?, NSError?) -> ()) {
         let web = WebServies()
@@ -299,6 +660,44 @@ class PlaceOrderVC: UIViewController,UITextFieldDelegate,CLLocationManagerDelega
             
         })
         
+    }
+    
+    //MARK: UITableView DataSource & Delegates
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 0.0
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return arrAddress.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let DropOffAddTVCell = tableView.dequeueReusableCell(withIdentifier: "DropOffAddTVCell", for: indexPath) as! DropOffAddTVCell
+        DropOffAddTVCell.lblAddress.text = arrAddress[indexPath.row]
+        
+        if self.selectedAddressIndex == indexPath.row {
+            DropOffAddTVCell.imgViewCircle.image = #imageLiteral(resourceName: "testPass")
+        }else {
+            DropOffAddTVCell.imgViewCircle.image = #imageLiteral(resourceName: "unchk")
+        }
+        
+        return DropOffAddTVCell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.selectedAddressIndex = indexPath.row
+        self.selectedAddress = self.arrAddress[indexPath.row]
+        self.addressTableView.reloadData()
     }
     
     //MARK:- textfield delegate
@@ -437,6 +836,8 @@ class PlaceOrderVC: UIViewController,UITextFieldDelegate,CLLocationManagerDelega
                             
                             self.txtAddressLin1.text = placemarks?.first?.addressDictionary?["SubLocality"] as? String
                             self.txtAddressLine2.text = placemarks?.first?.addressDictionary?["Street"] as? String
+                            self.txtState.text = placemarks?.first?.addressDictionary?["State"] as? String
+                            self.txtCity.text = placemarks?.first?.addressDictionary?["Country"] as? String
                             self.txtPincode.text = placemarks?.first?.addressDictionary?["ZIP"] as? String
                             
                             
@@ -505,6 +906,8 @@ class PlaceOrderVC: UIViewController,UITextFieldDelegate,CLLocationManagerDelega
 
                     self.txtAddressLin1.text = placemarks?.first?.addressDictionary?["SubLocality"] as? String
                     self.txtAddressLine2.text = placemarks?.first?.addressDictionary?["Street"] as? String
+                    self.txtState.text = placemarks?.first?.addressDictionary?["State"] as? String
+                    self.txtCity.text = placemarks?.first?.addressDictionary?["Country"] as? String
                     self.txtPincode.text = placemarks?.first?.addressDictionary?["ZIP"] as? String
                     
                     if let placemark = placemarks?.last
@@ -778,9 +1181,7 @@ class PlaceOrderVC: UIViewController,UITextFieldDelegate,CLLocationManagerDelega
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    
+        
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation

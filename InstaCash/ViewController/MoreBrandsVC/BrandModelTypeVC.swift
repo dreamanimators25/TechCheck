@@ -38,6 +38,8 @@ class BrandModelTypeVC: UIViewController,UICollectionViewDelegate,UICollectionVi
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.setStatusBarColor()
     
         arrBrandTemp = arrBrand
         selectedIndexTemp = selectedIndex
@@ -74,7 +76,7 @@ class BrandModelTypeVC: UIViewController,UICollectionViewDelegate,UICollectionVi
     override func viewWillAppear(_ animated: Bool) {
         self.isSearch = false
         
-        self.changeLanguageOfUI()
+        //self.changeLanguageOfUI()
     }
     
     @IBAction func btnBackPressed(_ sender: UIButton) {
@@ -231,11 +233,14 @@ class BrandModelTypeVC: UIViewController,UICollectionViewDelegate,UICollectionVi
                 else{
                     currency = "SGD"
                 }
+                
+                /* Sameer 4/11/20
                 AppEventsLogger.log(
                     .addedToCart(
                         contentType: self.arrBrandModelType[indexPath.row].strBrandModeName,
                         contentId: idPoduct,
                         currency: currency))
+                */
                 
                 /* //Sameer 2/6/2020
                 // analysis event
@@ -339,11 +344,14 @@ class BrandModelTypeVC: UIViewController,UICollectionViewDelegate,UICollectionVi
                 else{
                     currency = "SGD"
                 }
+                
+                /* Sameer 4/11/20
                 AppEventsLogger.log(
                     .addedToCart(
                         contentType: arrBrandModelType[indexPath.row].strBrandModeName,
                         contentId: idPoduct,
                         currency: currency))
+                */
                 
                 /* //Sameer 2/6/2020
                 // analysis event
@@ -490,7 +498,10 @@ class BrandModelTypeVC: UIViewController,UICollectionViewDelegate,UICollectionVi
                                 }
                                 
                                 if self.arrBrandModelTypeSearch.count > 0{
+                                    
+                                    /* Sameer 4/11/20
                                     AppEventsLogger.log(self.searchBarBrand.text!)
+                                    */
 
                                     //self.tblViewSelectBrand.reloadData() //s.
                                     self.collectionViewSelectModel.reloadData() //s.

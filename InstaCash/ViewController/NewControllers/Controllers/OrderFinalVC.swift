@@ -25,6 +25,8 @@ class OrderFinalVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.setStatusBarColor()
                 
         //Sameer - 28/3/2020
         userDefaults.removeObject(forKey: "promoterID")
@@ -53,7 +55,7 @@ class OrderFinalVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        self.changeLanguageOfUI()
+        //self.changeLanguageOfUI()
                 
         lbl1.text = "Get ready to be ".localized(lang: langCode) + CustomUserDefault.getCurrency() + " \(finalPrice.formattedWithSeparator)" + " richer!".localized(lang: langCode)
         

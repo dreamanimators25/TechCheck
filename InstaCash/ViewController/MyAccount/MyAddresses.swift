@@ -22,8 +22,9 @@ class MyAddresses: UIViewController,UITableViewDelegate,UITableViewDataSource {
         tblViewAddresses.register(UINib(nibName: "MyAddressesCell", bundle: nil), forCellReuseIdentifier: "myAddressesCell")
 
         
-        // Do any additional setup after loading the view.
+        self.setStatusBarColor()
     }
+    
     // MARK:- navigation bar setup.
     func setNavigationBar() -> Void
     {

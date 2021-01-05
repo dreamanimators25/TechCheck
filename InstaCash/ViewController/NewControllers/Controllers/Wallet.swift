@@ -16,6 +16,7 @@ class Wallet: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.setStatusBarColor()
     }
     
     @IBAction func onClickBack(_ sender: Any) {

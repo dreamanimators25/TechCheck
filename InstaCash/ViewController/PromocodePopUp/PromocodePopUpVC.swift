@@ -27,6 +27,8 @@ class PromocodePopUpVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setStatusBarColor()
+        
         for obj in 0..<arrTermsCondition.count{
 
             if obj == 0{
@@ -51,7 +53,7 @@ class PromocodePopUpVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.changeLanguageOfUI()
+        //self.changeLanguageOfUI()
     }
     
     func changeLanguageOfUI() {

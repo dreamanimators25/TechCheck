@@ -30,6 +30,8 @@ class LevelViewPickUp : UIView {
         
         levelLayer.fillColor = UIColor.white.cgColor
         self.layer.addSublayer(levelLayer)
+        
+        self.layer.borderColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -57,7 +59,7 @@ class ScreenTestPickUp: UIViewController {
     var audioPlayer: AVAudioPlayer?
     
     override func viewWillAppear(_ animated: Bool) {
-        self.changeLanguageOfUI()
+        //self.changeLanguageOfUI()
     }
     
     func changeLanguageOfUI() {
@@ -77,6 +79,8 @@ class ScreenTestPickUp: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.setStatusBarColor()
 
         /*
         Analytics.logEvent("start_diagnosis_test", parameters: [
@@ -220,7 +224,8 @@ class ScreenTestPickUp: UIViewController {
                                                                    height: obstacleViewFrame.height),
                                                cornerRadius: 0).cgPath
                 //levelLayer.fillColor = UIColor.green.cgColor
-                levelLayer.fillColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1).cgColor
+                //levelLayer.fillColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1).cgColor
+                levelLayer.fillColor = #colorLiteral(red: 0.6784313725, green: 0.5019607843, blue: 0.8352941176, alpha: 1).cgColor
                 obstacleView.layer.addSublayer(levelLayer)
                 
             }

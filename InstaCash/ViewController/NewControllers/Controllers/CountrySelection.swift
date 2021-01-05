@@ -34,11 +34,13 @@ class CountrySelection: UIViewController, UICollectionViewDelegate, UICollection
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.changeLanguageOfUI()
+        //self.changeLanguageOfUI()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.setStatusBarColor()
         
         collectionForCountry.register(UINib(nibName: "CountrySelectionCell", bundle: nil), forCellWithReuseIdentifier: "countryCell")
         

@@ -86,6 +86,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
     @IBOutlet weak var orderLbl: UILabel!
     @IBOutlet weak var notiLbl: UILabel!
     @IBOutlet weak var userLbl: UILabel!
+    @IBOutlet weak var lblYourOrder: UILabel!
     
     // Localized
     @IBOutlet weak var lblSell: UILabel!
@@ -112,6 +113,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
     @IBOutlet weak var FloatBGView: UIView!
     @IBOutlet weak var orderDetailHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var orderDetailTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var orderDetailBottomConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var lblAwesomeOne: UILabel!
     @IBOutlet weak var btnConfirmLater: UIButton!
@@ -393,31 +395,8 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
 //        print(arrSSIDs)
         
         //Sameer 30/9/2020
-        if #available(iOS 13.0, *) {
-            let app = UIApplication.shared
-            let statusBarHeight: CGFloat = app.statusBarFrame.size.height
-            
-            let statusbarView = UIView()
-            //statusbarView.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
-            statusbarView.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
-            view.addSubview(statusbarView)
-          
-            statusbarView.translatesAutoresizingMaskIntoConstraints = false
-            statusbarView.heightAnchor
-                .constraint(equalToConstant: statusBarHeight).isActive = true
-            statusbarView.widthAnchor
-                .constraint(equalTo: view.widthAnchor, multiplier: 1.0).isActive = true
-            statusbarView.topAnchor
-                .constraint(equalTo: view.topAnchor).isActive = true
-            statusbarView.centerXAnchor
-                .constraint(equalTo: view.centerXAnchor).isActive = true
-        } else {        
-            //let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView
-            let statusBar = UIApplication.shared.value(forKeyPath: "statusBar") as? UIView
-            //statusBar?.backgroundColor = UIColor.init(red: 89.0/255.0, green: 16.0/255.0, blue: 145.0/255.0, alpha: 1.0)
-            statusBar?.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
-        }
-
+        self.setStatusBarColor()
+        
         //userDefaults.removeObject(forKey: "Diagnosis_DataSave")
         
         ////////////////////////////////////////////////////////////////////
@@ -443,13 +422,14 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
         
         self.orderDetailHeightConstraint.constant = 0
         self.orderDetailTopConstraint.constant = 0
+        self.orderDetailBottomConstraint.constant = 0
         
         floatTableView.register(UINib(nibName: "FloatingItemCell", bundle: nil), forCellReuseIdentifier: "FloatingItemCell")
         
         if CustomUserDefault.getCurrency() == "£" {
-            promotionAndOfferView.isHidden = true
+            //promotionAndOfferView.isHidden = true
         }else {
-            promotionAndOfferView.isHidden = true
+            //promotionAndOfferView.isHidden = true
         }
         
         userDefaults.removeObject(forKey: "promoter_id")
@@ -897,14 +877,21 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                                 
                                 DispatchQueue.main.async {
                                     self.orderDetailHeightConstraint.constant = 160
-                                    self.orderDetailTopConstraint.constant = 20
+                                    self.orderDetailTopConstraint.constant = 10
+                                    self.orderDetailBottomConstraint.constant = 10
+                                    
                                     self.collectionViewOrderDetails.reloadData()
                                 }
+                                
+                                self.lblYourOrder.text = "Your Order"
                                 
                             }
                             else{
                                 self.orderDetailHeightConstraint.constant = 0
                                 self.orderDetailTopConstraint.constant = 0
+                                self.orderDetailBottomConstraint.constant = 0
+                                
+                                self.lblYourOrder.text = ""
                             }
                             
                         }
@@ -1225,13 +1212,13 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
     func changeLanguageOfUI() {
         
         if userDefaults.value(forKey: "Diagnosis_DataSave") == nil {
-            self.btnGetQuoteDevice.setTitle("Get quote for this device".localized(lang: langCode), for: UIControlState.normal)
+            self.btnGetQuoteDevice.setTitle("Get a quote for this device".localized(lang: langCode), for: UIControlState.normal)
         }
         else{
             self.btnGetQuoteDevice.setTitle("RESUME TEST".localized(lang: langCode), for: UIControlState.normal)
         }
         
-        self.btnStartDiagnose.setTitle("Start from the beginning".localized(lang: langCode), for: UIControlState.normal)
+        self.btnStartDiagnose.setTitle("Start from beginning".localized(lang: langCode), for: UIControlState.normal)
         self.lblSell.text = "Sell".localized(lang: langCode)
         self.lblFindOut.text = "Find out how much cash you’ll get by selling this device.".localized(lang: langCode)
         self.lblNoBargaining.text = "No bargaining. No headaches!".localized(lang: langCode)
@@ -1258,7 +1245,12 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
     
     override func viewWillAppear(_ animated: Bool) {
         
-        self.homeLbl.text = "Home"
+        DispatchQueue.main.async {
+            self.btnStartDiagnose.layer.borderWidth = 1.0
+            self.btnStartDiagnose.layer.borderColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+        }
+        
+        self.homeLbl.text = ""
         self.orderLbl.text = ""
         self.notiLbl.text = ""
         self.userLbl.text = ""
@@ -1269,7 +1261,7 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
         userDefaults.removeObject(forKey: "promotionCouponCode")
         userDefaults.removeObject(forKey: "additionalInfo")
         
-        self.changeLanguageOfUI()
+        //self.changeLanguageOfUI()
         
         touchGest = UITapGestureRecognizer(target: self, action: #selector(HomeVC.myviewTapped(_:)))
         touchGest.numberOfTapsRequired = 1
@@ -1818,11 +1810,14 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                 currency = "SGD"
             }
             
+            /* Sameer 4/11/20
             AppEventsLogger.log(
                 .addedToCart(
                     contentType: arrMyCurrentDeviceSend[0].strCurrentDeviceName,
                     contentId: CustomUserDefault.getProductId(),
                     currency: currency))
+            */
+            
             let strMaxAmount  = String(format: "%d", arrMyCurrentDeviceSend[0].currentDeviceMaximumTotal!)
             
             /* //Sameer 2/6/2020
@@ -2379,11 +2374,14 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                 else{
                     currency = "SGD"
                 }
+                
+                /* Sameer 4/11/20
                 AppEventsLogger.log(
                     .addedToCart(
                         contentType: arrMyCurrentDeviceSend[0].strCurrentDeviceName,
                         contentId: CustomUserDefault.getProductId(),
                         currency: currency))
+                */
                 
                 let strMaxAmount  = String(format: "%d", arrMyCurrentDeviceSend[0].currentDeviceMaximumTotal!)
                 
@@ -2455,11 +2453,14 @@ class HomeVC: UIViewController, UIScrollViewDelegate, UICollectionViewDelegate, 
                 else{
                     currency = "SGD"
                 }
+                
+                /* Sameer 4/11/20
                 AppEventsLogger.log(
                     .addedToCart(
                         contentType: arrPopularDeviceGetData[indexPath.row].strPopularName!,
                         contentId: arrPopularDeviceGetData[indexPath.row].strPopularId!,
                         currency: currency))
+                */
                 
                 /* //Sameer 2/6/2020
                 // analysis event

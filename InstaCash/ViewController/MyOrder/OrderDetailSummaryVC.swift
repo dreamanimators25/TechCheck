@@ -21,7 +21,7 @@ class OrderDetailSummaryVC: UIViewController,UITableViewDataSource,UITableViewDe
     var arrValue = [String]()
     
     override func viewWillAppear(_ animated: Bool) {
-        self.changeLanguageOfUI()
+        //self.changeLanguageOfUI()
     }
     
     func changeLanguageOfUI() {
@@ -30,6 +30,8 @@ class OrderDetailSummaryVC: UIViewController,UITableViewDataSource,UITableViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.setStatusBarColor()
         
 //        if #available(iOS 13.0, *) {
 //            overrideUserInterfaceStyle = .light

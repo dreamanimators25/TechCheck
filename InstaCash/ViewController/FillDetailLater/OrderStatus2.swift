@@ -24,6 +24,8 @@ class OrderStatus2: UIViewController {
         super.viewDidLoad()
         //setNavigationBar()
         
+        self.setStatusBarColor()
+        
         lblPrice.text = "Get ready to be \(CustomUserDefault.getCurrency()) richer"
         
         /*lblName.text = CustomUserDefault.getUserName()

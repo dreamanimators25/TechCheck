@@ -16,6 +16,8 @@ class Speaker: UIViewController {
         super.viewDidLoad()
         
         lblPrice.text = CustomUserDefault.getCurrency()
+        
+        self.setStatusBarColor()
     }
     
     @IBAction func onClickGuideMe(sender: AnyObject) {

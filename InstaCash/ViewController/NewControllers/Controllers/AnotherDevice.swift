@@ -48,6 +48,8 @@ class AnotherDevice: UIViewController, UICollectionViewDelegate, UICollectionVie
         
         didPullToRefresh()
         
+        self.setStatusBarColor()
+        
         collectionViewDevice.register(UINib(nibName: "AnotherDeviceCell", bundle: nil), forCellWithReuseIdentifier: "anotherCell")
         
         collectionViewCompany.register(UINib(nibName: "SearchManufactureCell", bundle: nil), forCellWithReuseIdentifier: "searchCell")
@@ -56,9 +58,9 @@ class AnotherDevice: UIViewController, UICollectionViewDelegate, UICollectionVie
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.changeLanguageOfUI()
+        //self.changeLanguageOfUI()
                     
-        self.homeLbl.text = "Home"
+        self.homeLbl.text = ""
         self.orderLbl.text = ""
         self.notiLbl.text = ""
         self.userLbl.text = ""
@@ -181,11 +183,13 @@ class AnotherDevice: UIViewController, UICollectionViewDelegate, UICollectionVie
                     currency = "SGD"
                 }
                 
+                /* Sameer 4/11/20
                 AppEventsLogger.log(
                     .addedToCart(
                         contentType: arrMyCurrentDeviceSend[0].strCurrentDeviceName,
                         contentId: CustomUserDefault.getProductId(),
                         currency: currency))
+                */
                 
                 let strMaxAmount  = String(format: "%d", arrMyCurrentDeviceSend[0].currentDeviceMaximumTotal ?? 0)
                 
@@ -260,11 +264,13 @@ class AnotherDevice: UIViewController, UICollectionViewDelegate, UICollectionVie
                     currency = "SGD"
                 }
                 
+                /* Sameer 4/11/20
                 AppEventsLogger.log(
                     .addedToCart(
                         contentType: arrPopularDeviceGetData[indexPath.row].strPopularName!,
                         contentId: arrPopularDeviceGetData[indexPath.row].strPopularId!,
                         currency: currency))
+                */
                 
                 /* //Sameer 2/6/2020
                 // analysis event

@@ -24,6 +24,7 @@ class SearchProductVC: UIViewController,UICollectionViewDelegate,UICollectionVie
         
          collectionViewProduct.register(UINib(nibName: "SearchProductCell", bundle: nil), forCellWithReuseIdentifier: "searchProductCell")
         
+        self.setStatusBarColor()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -148,7 +149,10 @@ class SearchProductVC: UIViewController,UICollectionViewDelegate,UICollectionVie
             if reachability?.connection.description != "No Connection"{
             SearchProduct.fetchProductSearchListFromServer(isInterNet: true, getController: self, getStrSearchString: searchBar.text!, completion: {(arrSearchData) in
                 if arrSearchData.count > 0 {
-                AppEventsLogger.log(searchBar.text!)
+                
+                    /* Sameer 4/11/20
+                    AppEventsLogger.log(searchBar.text!)
+                    */
                     
                     /* //Sameer 2/6/2020
                     Analytics.logEvent(AnalyticsEventSearch, parameters: [

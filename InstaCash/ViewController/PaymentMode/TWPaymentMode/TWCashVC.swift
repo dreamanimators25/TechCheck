@@ -62,6 +62,8 @@ class TWCashVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UITex
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setStatusBarColor()
+        
         if CustomUserDefault.getCurrency() == "£" {
             self.getPaymentStructureFromServer()
             totalNumberCount = 10
@@ -74,7 +76,7 @@ class TWCashVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UITex
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.changeLanguageOfUI()
+        //self.changeLanguageOfUI()
         
         tableView.register(UINib(nibName: "TextBoxCell", bundle: nil), forCellReuseIdentifier: "TextBoxCell")
         tableView.register(UINib(nibName: "HtmlCell", bundle: nil), forCellReuseIdentifier: "HtmlCell")

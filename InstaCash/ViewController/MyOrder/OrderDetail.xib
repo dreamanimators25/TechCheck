@@ -62,8 +62,8 @@
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="phone" translatesAutoresizingMaskIntoConstraints="NO" id="gKb-6W-rZV">
                     <rect key="frame" x="143" y="74" width="128" height="179"/>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="afs-s0-ZNw">
-                    <rect key="frame" x="207" y="263" width="0.0" height="0.0"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="afs-s0-ZNw">
+                    <rect key="frame" x="10" y="263" width="394" height="0.0"/>
                     <fontDescription key="fontDescription" name="Supply-Bold" family="Supply" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -309,6 +309,7 @@
                 <constraint firstItem="NcA-WK-oXR" firstAttribute="leading" secondItem="9rM-KV-pMC" secondAttribute="leading" id="Jrw-6j-Gfj"/>
                 <constraint firstItem="wHY-U5-nPV" firstAttribute="centerX" secondItem="9rM-KV-pMC" secondAttribute="centerX" id="Mby-fj-EdK"/>
                 <constraint firstItem="4n9-sa-GfD" firstAttribute="width" secondItem="REe-Hg-EjH" secondAttribute="width" multiplier="0.8" id="N0l-Ac-0BP"/>
+                <constraint firstItem="afs-s0-ZNw" firstAttribute="leading" secondItem="9rM-KV-pMC" secondAttribute="leading" constant="10" id="NDB-ui-fc0"/>
                 <constraint firstItem="ShY-ul-372" firstAttribute="centerX" secondItem="9rM-KV-pMC" secondAttribute="centerX" id="SJx-YL-tel"/>
                 <constraint firstItem="uUG-sL-2TN" firstAttribute="top" secondItem="wHY-U5-nPV" secondAttribute="bottom" constant="5" id="TVO-zi-ZFP"/>
                 <constraint firstItem="PQb-Bh-zpZ" firstAttribute="centerX" secondItem="9rM-KV-pMC" secondAttribute="centerX" id="WaE-zx-Jez"/>
@@ -320,6 +321,7 @@
                 <constraint firstItem="4n9-sa-GfD" firstAttribute="top" secondItem="ShY-ul-372" secondAttribute="bottom" constant="10" id="bIz-xy-cLq"/>
                 <constraint firstItem="NcA-WK-oXR" firstAttribute="top" secondItem="PQb-Bh-zpZ" secondAttribute="bottom" constant="5" id="cGI-MF-p6G"/>
                 <constraint firstItem="PQb-Bh-zpZ" firstAttribute="top" secondItem="4n9-sa-GfD" secondAttribute="bottom" constant="10" id="e13-ra-htm"/>
+                <constraint firstAttribute="trailing" secondItem="afs-s0-ZNw" secondAttribute="trailing" constant="10" id="lYF-Na-Sa0"/>
                 <constraint firstItem="afs-s0-ZNw" firstAttribute="centerX" secondItem="9rM-KV-pMC" secondAttribute="centerX" id="lg1-wY-GVB"/>
                 <constraint firstItem="gKb-6W-rZV" firstAttribute="height" secondItem="9rM-KV-pMC" secondAttribute="height" multiplier="0.2" id="q7A-VA-axs"/>
                 <constraint firstItem="PQb-Bh-zpZ" firstAttribute="height" secondItem="REe-Hg-EjH" secondAttribute="height" multiplier="0.07" id="sx7-9w-fIz"/>

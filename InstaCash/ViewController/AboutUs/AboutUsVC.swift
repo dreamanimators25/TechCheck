@@ -13,6 +13,7 @@ import MessageUI
 class AboutUsVC: UIViewController,MFMailComposeViewControllerDelegate,PushToHomeForDiagnosisModeDelegate {
 
     @IBOutlet weak var lblVersion: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationBar()
@@ -20,6 +21,7 @@ class AboutUsVC: UIViewController,MFMailComposeViewControllerDelegate,PushToHome
 
         lblVersion.text = "Version " + version!
         
+        self.setStatusBarColor()
     }
     
     //MARK:- custom delegate metthods

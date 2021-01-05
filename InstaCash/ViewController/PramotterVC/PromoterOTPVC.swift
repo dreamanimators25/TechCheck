@@ -30,6 +30,8 @@ class PromoterOTPVC: UIViewController,UITextFieldDelegate {
         btnSend.clipsToBounds = true
         self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.updateCounter), userInfo: nil, repeats: true)
         // Do any additional setup after loading the view.
+        
+        self.setStatusBarColor()
     }
 
     // MARK:- navigation bar setup.

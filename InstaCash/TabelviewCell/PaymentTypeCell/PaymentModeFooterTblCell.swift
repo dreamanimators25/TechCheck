@@ -12,10 +12,10 @@ class PaymentModeFooterTblCell: UITableViewCell {
     
     @IBOutlet weak var baseView: UIView!
     @IBOutlet weak var selectionImgView: UIImageView!
-    @IBOutlet weak var paymentTypeImgView: UIImageView!
     @IBOutlet weak var lblPaymentType: UILabel!
-    @IBOutlet weak var lblGatewayCharge: UILabel!
-    @IBOutlet weak var lblPayable: UILabel!
+    @IBOutlet weak var paymentTypeImgView: UIImageView!
+    //@IBOutlet weak var lblGatewayCharge: UILabel!
+    //@IBOutlet weak var lblPayable: UILabel!
     @IBOutlet weak var lblTotalPayment: UILabel!
 
     override func awakeFromNib() {
@@ -25,6 +25,8 @@ class PaymentModeFooterTblCell: UITableViewCell {
         DispatchQueue.main.async {
             self.baseView.layer.borderWidth = 1.0
             self.baseView.layer.borderColor = UIColor.gray.cgColor
+            
+            self.baseView.layer.cornerRadius = 10.0
         }
         
     }

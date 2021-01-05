@@ -27,6 +27,8 @@ class Sell2: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setStatusBarColor()
+        
         self.lblPhoneName.text = strDevie
         self.imgPhone.image = imgView.image
         

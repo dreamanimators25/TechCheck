@@ -15,7 +15,7 @@ import AuthenticationServices
 import FacebookCore
 import FBSDKLoginKit
 
-class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GIDSignInUIDelegate,UITextFieldDelegate, ASAuthorizationControllerDelegate {
+class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,UITextFieldDelegate, ASAuthorizationControllerDelegate {
     
     @IBOutlet weak var txtPhoneNumer: UITextField!
     @IBOutlet weak var btnGPlus: UIButton!
@@ -40,6 +40,11 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
     //MARK:- view life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        GIDSignIn.sharedInstance()?.presentingViewController = self
+        // Automatically sign in the user.
+        //GIDSignIn.sharedInstance()?.restorePreviousSignIn()
+        // ...
         
         //Sameer 4/5/2020
         if #available(iOS 13.0, *) {
@@ -73,7 +78,7 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
             statusBar?.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
         }
         
-        self.changeLanguageOfUI()
+        //self.changeLanguageOfUI()
                 
         txtPhoneNumer.autocorrectionType = .no
         //getCountryBySimCard()
@@ -179,19 +184,22 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
     }
 
     //MARK:- button action methods
-    
     @IBAction func btnFacebookPressed(_ sender: Any) {
         
         if self.reachability?.connection.description != "No Connection" {
-            let fbLoginManager : FBSDKLoginManager = FBSDKLoginManager()
-            fbLoginManager.logIn(withReadPermissions: ["email"], from: self) { (result, error) in
+    
+            let fbLoginManager : LoginManager = LoginManager()
+            
+            fbLoginManager.logOut()
+            
+            fbLoginManager.logIn(permissions: ["email"], from: self) { (result, error) in
                 
                 if (error == nil){
-                    let fbloginresult : FBSDKLoginManagerLoginResult = result!
+                    let fbloginresult : LoginManagerLoginResult = result!
                     if fbloginresult.grantedPermissions != nil {
                         if(fbloginresult.grantedPermissions.contains("email")) {
-                            if((FBSDKAccessToken.current()) != nil){
-                                FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, picture.type(large), email, gender "]).start(completionHandler: { (connection, result, error) -> Void in
+                            if((AccessToken.current) != nil){
+                                GraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, picture.type(large), email, gender "]).start(completionHandler: { (connection, result, error) -> Void in
                                     
                                     if (error == nil) {
                                         
@@ -260,8 +268,9 @@ class CountryVC: UIViewController,CLLocationManagerDelegate,GIDSignInDelegate,GI
     }
     
     @IBAction func btnGPlusPressed(_ sender: UIButton) {
+        
         GIDSignIn.sharedInstance().delegate = self
-        GIDSignIn.sharedInstance().uiDelegate = self
+        //GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().signIn()
     }
     

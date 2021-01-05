@@ -33,24 +33,24 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L7Q-Oa-5v0">
-                    <rect key="frame" x="0.0" y="44" width="414" height="65"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notifications" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ach-KB-tAL">
-                            <rect key="frame" x="20" y="15" width="275" height="40"/>
-                            <fontDescription key="fontDescription" name="Supply-Bold" family="Supply" pointSize="33"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NOTIFICATIONS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ach-KB-tAL">
+                            <rect key="frame" x="140.5" y="12.5" width="133.5" height="19.5"/>
+                            <fontDescription key="fontDescription" name="Supply-Bold" family="Supply" pointSize="16"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
                     <color key="backgroundColor" red="0.34901960780000002" green="0.062745098040000002" blue="0.56862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstItem="ach-KB-tAL" firstAttribute="top" secondItem="L7Q-Oa-5v0" secondAttribute="top" constant="15" id="0vb-Lm-Zqh"/>
-                        <constraint firstAttribute="bottom" secondItem="ach-KB-tAL" secondAttribute="bottom" constant="10" id="TDh-UA-M7O"/>
-                        <constraint firstItem="ach-KB-tAL" firstAttribute="leading" secondItem="L7Q-Oa-5v0" secondAttribute="leading" constant="20" id="jvt-e4-fk4"/>
+                        <constraint firstItem="ach-KB-tAL" firstAttribute="centerX" secondItem="L7Q-Oa-5v0" secondAttribute="centerX" id="H0Y-Yu-uvO"/>
+                        <constraint firstAttribute="height" constant="44" id="Wls-nQ-Mab"/>
+                        <constraint firstItem="ach-KB-tAL" firstAttribute="centerY" secondItem="L7Q-Oa-5v0" secondAttribute="centerY" id="XaO-Xq-jo7"/>
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="70K-fy-juG">
-                    <rect key="frame" x="0.0" y="109" width="414" height="687.5"/>
+                    <rect key="frame" x="0.0" y="88" width="414" height="708.5"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="Kur-rJ-C8i"/>
@@ -220,9 +220,9 @@
         </view>
     </objects>
     <resources>
-        <image name="GAccount" width="20" height="20"/>
-        <image name="GNoti" width="20" height="22"/>
-        <image name="GOrder" width="17.5" height="20.5"/>
-        <image name="GSell" width="14" height="22"/>
+        <image name="GAccount" width="16" height="20"/>
+        <image name="GNoti" width="16" height="20"/>
+        <image name="GOrder" width="16" height="20"/>
+        <image name="GSell" width="20" height="19"/>
     </resources>
 </document>

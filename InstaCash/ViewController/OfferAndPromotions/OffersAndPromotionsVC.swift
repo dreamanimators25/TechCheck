@@ -24,6 +24,8 @@ class OffersAndPromotionsVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.setStatusBarColor()
 
         self.fireWebServiceForOfferAndPromotions()
     }
@@ -35,7 +37,7 @@ class OffersAndPromotionsVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.changeLanguageOfUI()
+        //self.changeLanguageOfUI()
     }
     
     //MARK : IBActions

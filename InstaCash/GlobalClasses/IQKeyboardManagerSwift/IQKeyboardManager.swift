@@ -964,7 +964,7 @@ open class IQKeyboardManager: NSObject, UIGestureRecognizerDelegate {
     /* Adjusting RootViewController's frame according to interface orientation. */
     fileprivate func adjustFrame() {
         
-        //  We are unable to get textField object while keyboard showing on UIWebView's textField.  (Bug ID: #11)
+        //  We are unable to get textField object while keyboard showing on  textField.  (Bug ID: #11)
         if _textFieldView == nil {
             return
         }
@@ -1591,8 +1591,8 @@ open class IQKeyboardManager: NSObject, UIGestureRecognizerDelegate {
         let startTime = CACurrentMediaTime()
         showLog("****** \(#function) started ******")
 
-        //Commented due to #56. Added all the conditions below to handle UIWebView's textFields.    (Bug ID: #56)
-        //  We are unable to get textField object while keyboard showing on UIWebView's textField.  (Bug ID: #11)
+        //Commented due to #56. Added all the conditions below to handle  textFields.    (Bug ID: #56)
+        //  We are unable to get textField object while keyboard showing on  textField.  (Bug ID: #11)
         //    if (_textFieldView == nil)   return
 
         //Restoring the contentOffset of the lastScrollView

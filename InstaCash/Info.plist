@@ -27,9 +27,7 @@
 			<string>Bundle Id</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>InstaCashC2BDeepLink</string>
-				<string>com.googleusercontent.apps.923206721363-bt9d6f1vq711p02hkppqhc7q5itj8of4</string>
-				<string>fb1229589207413440</string>
+				<string>com.googleusercontent.apps.923206721363-8p6b0f773q5m6bomaf11ge7giq0jrtrl</string>
 			</array>
 		</dict>
 		<dict>

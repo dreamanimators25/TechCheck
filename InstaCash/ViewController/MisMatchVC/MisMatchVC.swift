@@ -35,7 +35,7 @@ class MisMatchVC: UIViewController {
     var returnDictionary : NSMutableDictionary = [:]
     
     override func viewWillAppear(_ animated: Bool) {
-        self.changeLanguageOfUI()
+        //self.changeLanguageOfUI()
     }
     
     func changeLanguageOfUI() {
@@ -50,6 +50,8 @@ class MisMatchVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.setStatusBarColor()
         
         self.lblOldCond.isHidden = true
         self.lblNewCond.isHidden = true

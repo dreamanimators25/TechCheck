@@ -21,6 +21,8 @@ class IMEIVC: UIViewController,UITextFieldDelegate {
         setNavigationBar()
 //        Alert.showAlert(strMessage: "IMEI number is required to identifying a device,Dial *#06# from the device to get the IMEI number of the device.", Onview: self)
         // Do any additional setup after loading the view.
+        
+        self.setStatusBarColor()
     }
 
     // MARK:- navigation bar setup.

@@ -15,9 +15,13 @@ class MyOrderVC: UIViewController,UITableViewDelegate,UITableViewDataSource,Upda
     @IBOutlet weak var btnProgress: UIButton!
     @IBOutlet weak var btnCompleted: UIButton!
     
-    @IBOutlet weak var lbl1: UILabel!
-    @IBOutlet weak var lbl2: UILabel!
-    @IBOutlet weak var lbl3: UILabel!
+//    @IBOutlet weak var lbl1: UILabel!
+//    @IBOutlet weak var lbl2: UILabel!
+//    @IBOutlet weak var lbl3: UILabel!
+
+    @IBOutlet weak var UIView1: UIView!
+    @IBOutlet weak var UIView2: UIView!
+    @IBOutlet weak var UIView3: UIView!
     
     @IBOutlet weak var homeLbl: UILabel!
     @IBOutlet weak var orderLbl: UILabel!
@@ -33,10 +37,10 @@ class MyOrderVC: UIViewController,UITableViewDelegate,UITableViewDataSource,Upda
     let reachability: Reachability? = Reachability()
     
     override func viewWillAppear(_ animated: Bool) {
-        self.changeLanguageOfUI()
+        //self.changeLanguageOfUI()
         
         self.homeLbl.text = ""
-        self.orderLbl.text = "Orders"
+        self.orderLbl.text = ""
         self.notiLbl.text = ""
         self.userLbl.text = ""
     }
@@ -44,7 +48,6 @@ class MyOrderVC: UIViewController,UITableViewDelegate,UITableViewDataSource,Upda
     func changeLanguageOfUI() {
         
         self.lblOrders.text = "Orders".localized(lang: langCode)
-        
         self.btnAll.setTitle("ALL".localized(lang: langCode), for: UIControlState.normal)
         self.btnProgress.setTitle("IN PROGRESS".localized(lang: langCode), for: UIControlState.normal)
         self.btnCompleted.setTitle("COMPLETED".localized(lang: langCode), for: UIControlState.normal)
@@ -54,7 +57,15 @@ class MyOrderVC: UIViewController,UITableViewDelegate,UITableViewDataSource,Upda
         super.viewDidLoad()
         //setNavigationBar()
         
-        tblViewOrderLust.register(UINib(nibName: "OrderHeaderCell", bundle: nil), forCellReuseIdentifier: "orderHeaderCell")
+        self.setStatusBarColor()
+        
+        DispatchQueue.main.async {
+            self.btnAll.roundCorners([.topLeft,.bottomLeft], radius: 10.0)
+            self.btnCompleted.roundCorners([.topRight,.bottomRight], radius: 10.0)
+        }
+        
+        
+        tblViewOrderLust.register(UINib(nibName: "OrderHeaderCell", bundle: nil), forCellReuseIdentifier: "OrderHeaderCell")
         tblViewOrderLust.register(UINib(nibName: "OrderListCollapsableCell", bundle: nil), forCellReuseIdentifier: "orderListCollapsableCell")
        
         if iscomingFromMyAccount {
@@ -101,7 +112,6 @@ class MyOrderVC: UIViewController,UITableViewDelegate,UITableViewDataSource,Upda
                 }
                 else{
                     //self.lblMessages.isHidden = false
-                    
                 }
                 
             }
@@ -165,10 +175,14 @@ class MyOrderVC: UIViewController,UITableViewDelegate,UITableViewDataSource,Upda
             btnAll.setTitleColor(UIColor().gradientTechCheckFirstColor(), for: .normal)
             btnProgress.setTitleColor(UIColor().HexToColor(hexString:"C7C7C7"), for: .normal)
             btnCompleted.setTitleColor(UIColor().HexToColor(hexString:"C7C7C7"), for: .normal)
-                        
-            lbl1.backgroundColor = UIColor().gradientTechCheckFirstColor()
-            lbl2.backgroundColor = UIColor.white
-            lbl3.backgroundColor = UIColor.white
+            
+            self.UIView1.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+            self.UIView2.backgroundColor = #colorLiteral(red: 0.7803921569, green: 0.7803921569, blue: 0.7803921569, alpha: 1)
+            self.UIView3.backgroundColor = #colorLiteral(red: 0.7803921569, green: 0.7803921569, blue: 0.7803921569, alpha: 1)
+            
+            //lbl1.backgroundColor = UIColor().gradientTechCheckFirstColor()
+            //lbl2.backgroundColor = UIColor.white
+            //lbl3.backgroundColor = UIColor.white
             
             self.arrOrderList = self.arrOrderListCopy //s.
             self.tblViewOrderLust.reloadData() //s.
@@ -179,9 +193,13 @@ class MyOrderVC: UIViewController,UITableViewDelegate,UITableViewDataSource,Upda
             btnAll.setTitleColor(UIColor().HexToColor(hexString:"C7C7C7"), for: .normal)
             btnCompleted.setTitleColor(UIColor().HexToColor(hexString:"C7C7C7"), for: .normal)
             
-            lbl2.backgroundColor = UIColor().gradientTechCheckFirstColor()
-            lbl1.backgroundColor = UIColor.white
-            lbl3.backgroundColor = UIColor.white
+            self.UIView1.backgroundColor = #colorLiteral(red: 0.7803921569, green: 0.7803921569, blue: 0.7803921569, alpha: 1)
+            self.UIView2.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+            self.UIView3.backgroundColor = #colorLiteral(red: 0.7803921569, green: 0.7803921569, blue: 0.7803921569, alpha: 1)
+            
+            //lbl2.backgroundColor = UIColor().gradientTechCheckFirstColor()
+            //lbl1.backgroundColor = UIColor.white
+            //lbl3.backgroundColor = UIColor.white
             
             //s.
             /*
@@ -215,9 +233,13 @@ class MyOrderVC: UIViewController,UITableViewDelegate,UITableViewDataSource,Upda
             btnAll.setTitleColor(UIColor().HexToColor(hexString:"C7C7C7"), for: .normal)
             btnProgress.setTitleColor(UIColor().HexToColor(hexString:"C7C7C7"), for: .normal)
             
-            lbl3.backgroundColor = UIColor().gradientTechCheckFirstColor()
-            lbl2.backgroundColor = UIColor.white
-            lbl1.backgroundColor = UIColor.white
+            self.UIView1.backgroundColor = #colorLiteral(red: 0.7803921569, green: 0.7803921569, blue: 0.7803921569, alpha: 1)
+            self.UIView2.backgroundColor = #colorLiteral(red: 0.7803921569, green: 0.7803921569, blue: 0.7803921569, alpha: 1)
+            self.UIView3.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+            
+            //lbl3.backgroundColor = UIColor().gradientTechCheckFirstColor()
+            //lbl2.backgroundColor = UIColor.white
+            //lbl1.backgroundColor = UIColor.white
             
             //s.
             /*
@@ -277,7 +299,7 @@ class MyOrderVC: UIViewController,UITableViewDelegate,UITableViewDataSource,Upda
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //if indexPath.row == 0 {
         
-        let cellOrderHeader = tableView.dequeueReusableCell(withIdentifier: "orderHeaderCell", for: indexPath) as! OrderHeaderCell
+        let cellOrderHeader = tableView.dequeueReusableCell(withIdentifier: "OrderHeaderCell", for: indexPath) as! OrderHeaderCell
         let modelOrder = arrOrderList[indexPath.section]
         
         let date =  CustomUserDefault.strinToDateConvertor(strGetDate:modelOrder.orderDate!)
@@ -299,10 +321,8 @@ class MyOrderVC: UIViewController,UITableViewDelegate,UITableViewDataSource,Upda
         
         // cellOrderHeader.lblPrice.text = CustomUserDefault.getCurrency() + modelOrder.strProductAmount!
         
+        /* Sameer 12/11/20
         cellOrderHeader.lblVerified.text = modelOrder.strStatus?.localized(lang: langCode)
-        
-        print(modelOrder.strStatus ?? "")
-        print(modelOrder.strStatus?.localized(lang: langCode) ?? "")
         
         if CustomUserDefault.getCurrency() == "NT$" {
             
@@ -350,13 +370,16 @@ class MyOrderVC: UIViewController,UITableViewDelegate,UITableViewDataSource,Upda
                 print("no color")
             }
             
-        }
+        }*/
                 
         
         cellOrderHeader.phoneName.text = modelOrder.strProductName
-        cellOrderHeader.lblPaymentMode.text = "Payment Mode: ".localized(lang: langCode) + (modelOrder.strPaymentName?.localized(lang: langCode) ?? "") //s.
+        //* Sameer 12/11/20
+        //cellOrderHeader.lblPaymentMode.text = "Payment Mode: ".localized(lang: langCode) + (modelOrder.strPaymentName?.localized(lang: langCode) ?? "") //s.
         //cellOrderHeader.lblOrderID.text = "Order ID: " + (modelOrder.strOrderId ?? "") //s.
-        cellOrderHeader.lblOrderID.text = "Order ID: ".localized(lang: langCode) + (modelOrder.strRefrenceNumber ?? "") //s.
+        
+        //* Sameer 12/11/20
+        //cellOrderHeader.lblOrderID.text = "Order ID: ".localized(lang: langCode) + (modelOrder.strRefrenceNumber ?? "") //s.
         let imgURL = URL(string:modelOrder.strProductImageURL!)
         cellOrderHeader.imgPhone.sd_setImage(with: imgURL)
         //let imgURLBank = URL(string:modelOrder.strPaymentImage!)
@@ -494,4 +517,15 @@ class MyOrderVC: UIViewController,UITableViewDelegate,UITableViewDataSource,Upda
         
     }
 
+}
+
+extension UIView {
+   func roundCorners(corners: UIRectCorner, radius: CGFloat) {
+        let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        let mask = CAShapeLayer()
+        mask.frame = bounds
+        mask.path = path.cgPath
+        layer.mask = mask
+        mask.masksToBounds = true
+    }
 }

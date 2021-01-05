@@ -20,6 +20,8 @@ class TnCPageVC: UIViewController {
         combination.append(tncHTML?.htmlToAttributedString ?? NSMutableAttributedString())
         self.tncTextView.attributedText = combination
         
+        //self.setStatusBarColor()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

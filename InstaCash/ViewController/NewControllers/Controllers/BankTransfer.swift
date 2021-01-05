@@ -65,11 +65,13 @@ class BankTransfer: UIViewController,UITextFieldDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.changeLanguageOfUI()
+        //self.changeLanguageOfUI()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.setStatusBarColor()
         
         if CustomUserDefault.getCurrency() == "£" {
             totalNumberCount = 10

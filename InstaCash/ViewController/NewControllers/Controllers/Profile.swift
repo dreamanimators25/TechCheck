@@ -29,6 +29,7 @@ class Profile: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setStatusBarColor()
     }
     
     override func viewWillAppear(_ animated: Bool) {

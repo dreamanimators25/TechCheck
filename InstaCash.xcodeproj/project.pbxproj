@@ -130,12 +130,21 @@
 		591313CF2483A932007184DC /* HtmlCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 591313CD2483A932007184DC /* HtmlCell.xib */; };
 		591313D22483A944007184DC /* SelectTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591313D02483A944007184DC /* SelectTextCell.swift */; };
 		591313D32483A944007184DC /* SelectTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 591313D12483A944007184DC /* SelectTextCell.xib */; };
-		5916FE1E24C5B68D00B4952E /* GoogleService-Info-sampleApp.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5916FE1D24C5B68D00B4952E /* GoogleService-Info-sampleApp.plist */; };
+		591472D32565208C007FC3A8 /* HistoryDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591472D12565208C007FC3A8 /* HistoryDetailVC.swift */; };
+		591472D42565208C007FC3A8 /* HistoryDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 591472D22565208C007FC3A8 /* HistoryDetailVC.xib */; };
+		591876D32593BAFD00898A6F /* OwnPackVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591876D12593BAFC00898A6F /* OwnPackVC.swift */; };
+		591876D42593BAFD00898A6F /* OwnPackVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 591876D22593BAFC00898A6F /* OwnPackVC.xib */; };
+		591876D72593BB4D00898A6F /* SalesPackVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591876D52593BB4D00898A6F /* SalesPackVC.swift */; };
+		591876D82593BB4D00898A6F /* SalesPackVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 591876D62593BB4D00898A6F /* SalesPackVC.xib */; };
 		5920E5DD2489679B00456F35 /* PaymentModeHeaderTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5920E5DB2489679B00456F35 /* PaymentModeHeaderTblCell.swift */; };
 		5920E5DE2489679B00456F35 /* PaymentModeHeaderTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5920E5DC2489679B00456F35 /* PaymentModeHeaderTblCell.xib */; };
 		5920E5E12489681000456F35 /* PaymentModeFooterTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5920E5DF2489681000456F35 /* PaymentModeFooterTblCell.swift */; };
 		5920E5E22489681000456F35 /* PaymentModeFooterTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5920E5E02489681000456F35 /* PaymentModeFooterTblCell.xib */; };
 		592F581D252B231300EBEFB1 /* LaunchScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592F581C252B231300EBEFB1 /* LaunchScreenVC.swift */; };
+		59314ECB259782290090EDB3 /* OwnPackTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59314EC9259782290090EDB3 /* OwnPackTVCell.swift */; };
+		59314ECC259782290090EDB3 /* OwnPackTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59314ECA259782290090EDB3 /* OwnPackTVCell.xib */; };
+		59314ECF2597A64D0090EDB3 /* SeperatorTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59314ECD2597A64D0090EDB3 /* SeperatorTVCell.swift */; };
+		59314ED02597A64D0090EDB3 /* SeperatorTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59314ECE2597A64D0090EDB3 /* SeperatorTVCell.xib */; };
 		5943AEE92443507400A49C3D /* MyOrdersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5943AEE72443507400A49C3D /* MyOrdersCell.swift */; };
 		5943AEEA2443507400A49C3D /* MyOrdersCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5943AEE82443507400A49C3D /* MyOrdersCell.xib */; };
 		594D330A24826AB80081B7CE /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 594D330924826AB80081B7CE /* MobileCoreServices.framework */; };
@@ -145,6 +154,8 @@
 		5974361D25289FE700C8854B /* Supply-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5974361825289FE300C8854B /* Supply-Medium.otf */; };
 		5974361E25289FE700C8854B /* Supply-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5974361925289FE500C8854B /* Supply-Regular.otf */; };
 		5974361F25289FE700C8854B /* Supply-UltraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5974361A25289FE700C8854B /* Supply-UltraLight.otf */; };
+		597B224B2594C6C7007596DE /* DropOffAddTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597B22492594C6C7007596DE /* DropOffAddTVCell.swift */; };
+		597B224C2594C6C7007596DE /* DropOffAddTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 597B224A2594C6C7007596DE /* DropOffAddTVCell.xib */; };
 		599C78842513D25200EA3728 /* IPadVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599C78822513D25200EA3728 /* IPadVC.swift */; };
 		599C78852513D25200EA3728 /* IPadVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 599C78832513D25200EA3728 /* IPadVC.xib */; };
 		59A0378D2517851F0008FE62 /* Splash.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 59A0378C2517851D0008FE62 /* Splash.jpg */; };
@@ -590,12 +601,21 @@
 		591313CD2483A932007184DC /* HtmlCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HtmlCell.xib; sourceTree = "<group>"; };
 		591313D02483A944007184DC /* SelectTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTextCell.swift; sourceTree = "<group>"; };
 		591313D12483A944007184DC /* SelectTextCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectTextCell.xib; sourceTree = "<group>"; };
-		5916FE1D24C5B68D00B4952E /* GoogleService-Info-sampleApp.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-sampleApp.plist"; sourceTree = "<group>"; };
+		591472D12565208C007FC3A8 /* HistoryDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetailVC.swift; sourceTree = "<group>"; };
+		591472D22565208C007FC3A8 /* HistoryDetailVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryDetailVC.xib; sourceTree = "<group>"; };
+		591876D12593BAFC00898A6F /* OwnPackVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnPackVC.swift; sourceTree = "<group>"; };
+		591876D22593BAFC00898A6F /* OwnPackVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OwnPackVC.xib; sourceTree = "<group>"; };
+		591876D52593BB4D00898A6F /* SalesPackVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesPackVC.swift; sourceTree = "<group>"; };
+		591876D62593BB4D00898A6F /* SalesPackVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SalesPackVC.xib; sourceTree = "<group>"; };
 		5920E5DB2489679B00456F35 /* PaymentModeHeaderTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentModeHeaderTblCell.swift; sourceTree = "<group>"; };
 		5920E5DC2489679B00456F35 /* PaymentModeHeaderTblCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentModeHeaderTblCell.xib; sourceTree = "<group>"; };
 		5920E5DF2489681000456F35 /* PaymentModeFooterTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentModeFooterTblCell.swift; sourceTree = "<group>"; };
 		5920E5E02489681000456F35 /* PaymentModeFooterTblCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentModeFooterTblCell.xib; sourceTree = "<group>"; };
 		592F581C252B231300EBEFB1 /* LaunchScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenVC.swift; sourceTree = "<group>"; };
+		59314EC9259782290090EDB3 /* OwnPackTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnPackTVCell.swift; sourceTree = "<group>"; };
+		59314ECA259782290090EDB3 /* OwnPackTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OwnPackTVCell.xib; sourceTree = "<group>"; };
+		59314ECD2597A64D0090EDB3 /* SeperatorTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeperatorTVCell.swift; sourceTree = "<group>"; };
+		59314ECE2597A64D0090EDB3 /* SeperatorTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeperatorTVCell.xib; sourceTree = "<group>"; };
 		5943AEE72443507400A49C3D /* MyOrdersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrdersCell.swift; sourceTree = "<group>"; };
 		5943AEE82443507400A49C3D /* MyOrdersCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyOrdersCell.xib; sourceTree = "<group>"; };
 		594D330924826AB80081B7CE /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -605,6 +625,8 @@
 		5974361825289FE300C8854B /* Supply-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Supply-Medium.otf"; sourceTree = "<group>"; };
 		5974361925289FE500C8854B /* Supply-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Supply-Regular.otf"; sourceTree = "<group>"; };
 		5974361A25289FE700C8854B /* Supply-UltraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Supply-UltraLight.otf"; sourceTree = "<group>"; };
+		597B22492594C6C7007596DE /* DropOffAddTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropOffAddTVCell.swift; sourceTree = "<group>"; };
+		597B224A2594C6C7007596DE /* DropOffAddTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DropOffAddTVCell.xib; sourceTree = "<group>"; };
 		599C78822513D25200EA3728 /* IPadVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPadVC.swift; sourceTree = "<group>"; };
 		599C78832513D25200EA3728 /* IPadVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IPadVC.xib; sourceTree = "<group>"; };
 		59A0378C2517851D0008FE62 /* Splash.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Splash.jpg; sourceTree = "<group>"; };
@@ -1087,6 +1109,8 @@
 				521B2DC823EAFC6100887C03 /* UserAccountVC.xib */,
 				5229ACBC23FC34A0002C7FB7 /* MyHistoryListVC.swift */,
 				5229ACBD23FC34A0002C7FB7 /* MyHistoryListVC.xib */,
+				591472D12565208C007FC3A8 /* HistoryDetailVC.swift */,
+				591472D22565208C007FC3A8 /* HistoryDetailVC.xib */,
 				59B67ACA2438FA3E00F4B321 /* LanguagePopUpVC.swift */,
 				59B67ACB2438FA3E00F4B321 /* LanguagePopUpVC.xib */,
 				52210BBC23FBA01E00C87FDB /* AboutVC.swift */,
@@ -1207,6 +1231,19 @@
 			path = TWPaymentModeCell;
 			sourceTree = "<group>";
 		};
+		597B22482594C5D4007596DE /* CollectionDetails */ = {
+			isa = PBXGroup;
+			children = (
+				597B22492594C6C7007596DE /* DropOffAddTVCell.swift */,
+				597B224A2594C6C7007596DE /* DropOffAddTVCell.xib */,
+				59314EC9259782290090EDB3 /* OwnPackTVCell.swift */,
+				59314ECA259782290090EDB3 /* OwnPackTVCell.xib */,
+				59314ECD2597A64D0090EDB3 /* SeperatorTVCell.swift */,
+				59314ECE2597A64D0090EDB3 /* SeperatorTVCell.xib */,
+			);
+			path = CollectionDetails;
+			sourceTree = "<group>";
+		};
 		59B68C4F245EE57100731FAD /* TWPaymentMode */ = {
 			isa = PBXGroup;
 			children = (
@@ -1320,7 +1357,6 @@
 				951EC7F6213FC651006BD4B2 /* LaunchScreen.storyboard */,
 				951EC7F9213FC651006BD4B2 /* Info.plist */,
 				FBCC7AA92162386C002A48A3 /* GoogleService-Info.plist */,
-				5916FE1D24C5B68D00B4952E /* GoogleService-Info-sampleApp.plist */,
 			);
 			path = InstaCash;
 			sourceTree = "<group>";
@@ -1420,6 +1456,7 @@
 		951EC81D213FC9F8006BD4B2 /* TabelviewCell */ = {
 			isa = PBXGroup;
 			children = (
+				597B22482594C5D4007596DE /* CollectionDetails */,
 				591313C32483A7EB007184DC /* TWPaymentModeCell */,
 				5229ACC523FC4483002C7FB7 /* HistoryListCell */,
 				5229ACC423FC4417002C7FB7 /* FloatingItemCell */,
@@ -2290,6 +2327,10 @@
 			children = (
 				FBFDA7F3215370E700667DC6 /* PlaceOrderVC.swift */,
 				FBFDA7F4215370E700667DC6 /* PlaceOrderVC.xib */,
+				591876D12593BAFC00898A6F /* OwnPackVC.swift */,
+				591876D22593BAFC00898A6F /* OwnPackVC.xib */,
+				591876D52593BB4D00898A6F /* SalesPackVC.swift */,
+				591876D62593BB4D00898A6F /* SalesPackVC.xib */,
 			);
 			path = PlaceOrderVC;
 			sourceTree = "<group>";
@@ -2406,6 +2447,8 @@
 			dependencies = (
 			);
 			name = InstaCash;
+			packageProductDependencies = (
+			);
 			productName = InstaCash;
 			productReference = 951EC7EA213FC64F006BD4B2 /* TechCheck.app */;
 			productType = "com.apple.product-type.application";
@@ -2490,6 +2533,8 @@
 				hi,
 			);
 			mainGroup = 951EC7E1213FC64F006BD4B2;
+			packageReferences = (
+			);
 			productRefGroup = 951EC7EB213FC64F006BD4B2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -2507,7 +2552,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB04EFEC21D4BED200DD1D73 /* Roboto-Light.ttf in Resources */,
-				5916FE1E24C5B68D00B4952E /* GoogleService-Info-sampleApp.plist in Resources */,
+				59314ECC259782290090EDB3 /* OwnPackTVCell.xib in Resources */,
 				35F8AE0A234F3EFE0004F3CF /* CountrySelectionCell.xib in Resources */,
 				5906749E252C7630008C2838 /* splash_loader.gif in Resources */,
 				35F8AE11234F3EFE0004F3CF /* AnotherDevice.xib in Resources */,
@@ -2526,11 +2571,13 @@
 				35F8AE0D234F3EFE0004F3CF /* AnotherDeviceCell.xib in Resources */,
 				FBF35E1E215E4BAC0052DAF7 /* AboutUsVC.xib in Resources */,
 				FB01614F21F6F7B600F55037 /* OtherDeviceQuestionFlow.xib in Resources */,
+				591876D42593BAFD00898A6F /* OwnPackVC.xib in Resources */,
 				FBCC7AAA2162386C002A48A3 /* GoogleService-Info.plist in Resources */,
 				FBFCA37421C22B75006A016E /* passed-test.svg in Resources */,
 				FBF75466217DFAC8002DC44A /* SignatureVC.xib in Resources */,
 				FBF9B3B82155091C00F80113 /* PromocodePopUpVC.xib in Resources */,
 				FBFCA37021C22B75006A016E /* skipped-test.svg in Resources */,
+				59314ED02597A64D0090EDB3 /* SeperatorTVCell.xib in Resources */,
 				FBFDA7F6215370E700667DC6 /* PlaceOrderVC.xib in Resources */,
 				FBFB3E232151095F002924A3 /* CityVC.xib in Resources */,
 				FB9C6FF8215A1E6600F93B85 /* RotationVC.xib in Resources */,
@@ -2555,6 +2602,7 @@
 				35F8ADE1234F13BD0004F3CF /* CountryVC.xib in Resources */,
 				FB3CC3F7215CE6D90037DC7C /* MyOrderVC.xib in Resources */,
 				951EC827213FCB9D006BD4B2 /* Comfortaa-Regular.ttf in Resources */,
+				591472D42565208C007FC3A8 /* HistoryDetailVC.xib in Resources */,
 				521A28A423C87CA9002DAC7D /* OrderDetailSummaryVC.xib in Resources */,
 				FBFB0E1E215F582500E81EF4 /* ContactUsVC.xib in Resources */,
 				59F8C154248C1B330091A14A /* DropDownCell.xib in Resources */,
@@ -2577,6 +2625,7 @@
 				FB9D192021478D79001C89DA /* CountryCell.xib in Resources */,
 				FBFDA8042153842800667DC6 /* PaymentTypeVC.xib in Resources */,
 				FB9C702F215A734500F93B85 /* TestResultCell.xib in Resources */,
+				591876D82593BB4D00898A6F /* SalesPackVC.xib in Resources */,
 				FBFB3E4D21512935002924A3 /* IQKeyboardManager.bundle in Resources */,
 				FB32CB6821D0BBA500464AAA /* SendAppLinkPopUp.xib in Resources */,
 				5281E90123EC76820053B2B8 /* PickUpCodeVC.xib in Resources */,
@@ -2601,6 +2650,7 @@
 				FBFFCEE521491F0400B0CBC1 /* SideMenuListingCell.xib in Resources */,
 				FBFB3E64215137CC002924A3 /* SelectBrandCell.xib in Resources */,
 				FB9C7017215A535600F93B85 /* CameraVC.xib in Resources */,
+				597B224C2594C6C7007596DE /* DropOffAddTVCell.xib in Resources */,
 				951EC838213FED04006BD4B2 /* WelcomeCollectionViewCell.xib in Resources */,
 				FB01857E214B86E400DD827B /* TrandingDeviceCell.xib in Resources */,
 				FBFDA8092153850900667DC6 /* PaymentTypeHeader.xib in Resources */,
@@ -2868,6 +2918,7 @@
 				591313CE2483A932007184DC /* HtmlCell.swift in Sources */,
 				FBFC835C2152453D00562D42 /* DisplayAndTouchScreenCell.swift in Sources */,
 				3536EDEF23427A2900C7052C /* GradientView.swift in Sources */,
+				591876D72593BB4D00898A6F /* SalesPackVC.swift in Sources */,
 				FBFDFA1A217F020D0014A2F8 /* RatingVC.swift in Sources */,
 				35F8AE10234F3EFE0004F3CF /* StartDevice1.swift in Sources */,
 				52211F5223D5D49100FE0CFD /* MYMaxisVC.swift in Sources */,
@@ -2898,6 +2949,7 @@
 				35E284F323715E59002F3C70 /* NotificationCell.swift in Sources */,
 				FBF35E11215E2A260052DAF7 /* MyAddressesCell.swift in Sources */,
 				FB3CC3FE215CE7060037DC7C /* HowItWorkVC.swift in Sources */,
+				591876D32593BAFD00898A6F /* OwnPackVC.swift in Sources */,
 				FB9C6FD8215A046F00F93B85 /* DeviceInfoVC.swift in Sources */,
 				59F8C158248C1B330091A14A /* DropDown.swift in Sources */,
 				522281F723DC1AF60072D421 /* UIDropDown.swift in Sources */,
@@ -2921,10 +2973,12 @@
 				59FA616B2451C59E00D4147F /* SocialMobileRegisterVC.swift in Sources */,
 				FBF35E1D215E4BAC0052DAF7 /* AboutUsVC.swift in Sources */,
 				FBFB3E5021512935002924A3 /* IQKeyboardManager.swift in Sources */,
+				591472D32565208C007FC3A8 /* HistoryDetailVC.swift in Sources */,
 				957D964A2140FE3700DFA2B5 /* LoginVC.swift in Sources */,
 				358EC3912354527E004BF2F8 /* FloatRatingView.swift in Sources */,
 				FB9C7011215A510A00F93B85 /* DeviceChargerVC.swift in Sources */,
 				FB3997382170B2E2008B0AC6 /* UploadDocumentVC.swift in Sources */,
+				59314ECB259782290090EDB3 /* OwnPackTVCell.swift in Sources */,
 				35E284DD236FF63F002F3C70 /* Voucher.swift in Sources */,
 				5229ACBE23FC34A0002C7FB7 /* MyHistoryListVC.swift in Sources */,
 				35E284D9236FE63D002F3C70 /* OrderStatus1.swift in Sources */,
@@ -2939,6 +2993,7 @@
 				FBFB3E4821512935002924A3 /* IQBarButtonItem.swift in Sources */,
 				FBF35E0C215E29390052DAF7 /* MyAddresses.swift in Sources */,
 				59F8C157248C1B330091A14A /* DPDUIView+Extension.swift in Sources */,
+				59314ECF2597A64D0090EDB3 /* SeperatorTVCell.swift in Sources */,
 				FBFFCEE021491AEA00B0CBC1 /* SideMenuHeaderCell.swift in Sources */,
 				FB9C6FFA215A44EA00F93B85 /* UIOrientationUtility.swift in Sources */,
 				35F8AE0E234F3EFE0004F3CF /* AnotherDevice.swift in Sources */,
@@ -2973,6 +3028,7 @@
 				FBF75461217DF6D4002DC44A /* UploadIDVC.swift in Sources */,
 				FB01615021F6F7B600F55037 /* OtherDeviceQuestionFlow.swift in Sources */,
 				FB18F9692223FC5100FDD884 /* PramotterVC.swift in Sources */,
+				597B224B2594C6C7007596DE /* DropOffAddTVCell.swift in Sources */,
 				FBD42BB22175E99A00E7EF86 /* SearchProduct.swift in Sources */,
 				52088964239FD407005B9E27 /* ListViewCollectionViewCell.swift in Sources */,
 				FB9D191F21478D79001C89DA /* CountryCell.swift in Sources */,
@@ -3258,7 +3314,7 @@
 				CODE_SIGN_ENTITLEMENTS = InstaCash/InstaCash.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.1;
+				CURRENT_PROJECT_VERSION = 1.1.4;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = FPA74MVT87;
 				ENABLE_BITCODE = NO;
@@ -3274,7 +3330,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -3350,23 +3406,17 @@
 					"-framework",
 					"\"GBDeviceInfo\"",
 					"-framework",
-					"\"GTMOAuth2\"",
-					"-framework",
 					"\"GTMSessionFetcher\"",
 					"-framework",
 					"\"GoogleAppMeasurement\"",
 					"-framework",
 					"\"GoogleDataTransport\"",
 					"-framework",
-					"\"GoogleDataTransportCCTSupport\"",
-					"-framework",
 					"\"GoogleSignIn\"",
 					"-framework",
 					"\"GoogleSymbolUtilities\"",
 					"-framework",
 					"\"GoogleTagManager\"",
-					"-framework",
-					"\"GoogleToolboxForMac\"",
 					"-framework",
 					"\"GoogleUtilities\"",
 					"-framework",
@@ -3463,7 +3513,7 @@
 				CODE_SIGN_ENTITLEMENTS = InstaCash/InstaCash.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.1;
+				CURRENT_PROJECT_VERSION = 1.1.4;
 				DEVELOPMENT_TEAM = FPA74MVT87;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3478,7 +3528,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -3554,23 +3604,17 @@
 					"-framework",
 					"\"GBDeviceInfo\"",
 					"-framework",
-					"\"GTMOAuth2\"",
-					"-framework",
 					"\"GTMSessionFetcher\"",
 					"-framework",
 					"\"GoogleAppMeasurement\"",
 					"-framework",
 					"\"GoogleDataTransport\"",
 					"-framework",
-					"\"GoogleDataTransportCCTSupport\"",
-					"-framework",
 					"\"GoogleSignIn\"",
 					"-framework",
 					"\"GoogleSymbolUtilities\"",
 					"-framework",
 					"\"GoogleTagManager\"",
-					"-framework",
-					"\"GoogleToolboxForMac\"",
 					"-framework",
 					"\"GoogleUtilities\"",
 					"-framework",

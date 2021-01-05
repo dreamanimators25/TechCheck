@@ -31,12 +31,13 @@ class DeviceInfoVC: UIViewController {
         
         //lblPrice.text = CustomUserDefault.getCurrency()
         
+        self.setStatusBarColor()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.changeLanguageOfUI()
+        //self.changeLanguageOfUI()
     }
     
     func changeLanguageOfUI() {

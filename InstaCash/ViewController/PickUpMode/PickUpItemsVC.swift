@@ -53,7 +53,7 @@ class PickUpItemsVC: UIViewController,UITextFieldDelegate {
     var isChargerSelected = true
     
     override func viewWillAppear(_ animated: Bool) {
-        self.changeLanguageOfUI()
+        //self.changeLanguageOfUI()
     }
     
     func changeLanguageOfUI() {
@@ -73,6 +73,8 @@ class PickUpItemsVC: UIViewController,UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.setStatusBarColor()
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.clickYes(sender:)))
         tapGesture.numberOfTapsRequired = 1

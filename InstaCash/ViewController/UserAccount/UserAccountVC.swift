@@ -46,6 +46,8 @@ class UserAccountVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setStatusBarColor()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,7 +56,7 @@ class UserAccountVC: UIViewController {
         self.homeLbl.text = ""
         self.orderLbl.text = ""
         self.notiLbl.text = ""
-        self.userLbl.text = "User"
+        self.userLbl.text = ""
         
         if let name = CustomUserDefault.getUserName() {
             self.userNameLbl.text = name
@@ -74,6 +76,7 @@ class UserAccountVC: UIViewController {
         
         //To set shadow on multiple views
         DispatchQueue.main.async {
+            /*
             UIView.addShadowOn4side(baseView: self.historyView)
             UIView.addShadowOn4side(baseView: self.aboutView)
             UIView.addShadowOn4side(baseView: self.shareView)
@@ -83,13 +86,28 @@ class UserAccountVC: UIViewController {
             UIView.addShadowOn4side(baseView: self.pickUpView)
             UIView.addShadowOn4side(baseView: self.diagnoseView)
             UIView.addShadowOn4side(baseView: self.logoutView)
+            */
+            
+            self.historyView.layer.borderWidth = 1.0
+            self.historyView.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+            self.aboutView.layer.borderWidth = 1.0
+            self.aboutView.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+            self.shareView.layer.borderWidth = 1.0
+            self.shareView.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+            self.diagnoseView.layer.borderWidth = 1.0
+            self.diagnoseView.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+            self.pickUpView.layer.borderWidth = 1.0
+            self.pickUpView.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+            self.logoutView.layer.borderWidth = 1.0
+            self.logoutView.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+            
         }
         
         changeLanguage = {
-            self.changeLanguageOfUI()
+            //self.changeLanguageOfUI()
         }
         
-        self.changeLanguageOfUI()
+        //self.changeLanguageOfUI()
     }
     
     //MARK: Custom Methods

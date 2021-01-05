@@ -19,12 +19,14 @@ class ProductConditionVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationBar()
+        
+        self.setStatusBarColor()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.changeLanguageOfUI()
+        //self.changeLanguageOfUI()
     }
     
     func changeLanguageOfUI() {

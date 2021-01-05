@@ -20,6 +20,7 @@ class ItemPickUpVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setStatusBarColor()
     }
     
     //MARK: IBActions

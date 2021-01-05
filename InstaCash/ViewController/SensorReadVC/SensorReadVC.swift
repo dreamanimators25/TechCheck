@@ -31,6 +31,8 @@ class SensorReadVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setStatusBarColor()
+        
         //Sameer 14/4/2020
         userDefaults.removeObject(forKey: "proximity_complete")
         userDefaults.setValue(false, forKey: "proximity_complete")
@@ -75,7 +77,7 @@ class SensorReadVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         AppOrientationUtility.lockOrientation(.portrait)
         
-        self.changeLanguageOfUI()
+        //self.changeLanguageOfUI()
     }
     
     override func viewDidAppear(_ animated: Bool) {

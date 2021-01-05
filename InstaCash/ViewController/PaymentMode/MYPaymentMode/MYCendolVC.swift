@@ -35,12 +35,14 @@ class MYCendolVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.getPaymentDetailsFromServer()
+        
+        self.setStatusBarColor()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.changeLanguageOfUI()
+        //self.changeLanguageOfUI()
     }
     
     func changeLanguageOfUI() {

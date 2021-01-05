@@ -27,6 +27,8 @@ class EarPhoneVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setStatusBarColor()
+        
         //Sameer 14/4/2020
         userDefaults.removeObject(forKey: "earphone_complete")
         userDefaults.setValue(false, forKey: "earphone_complete")
@@ -64,7 +66,7 @@ class EarPhoneVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.changeLanguageOfUI()
+        //self.changeLanguageOfUI()
     }
     
     @IBAction func onClickBack(_ sender: UIButton) {

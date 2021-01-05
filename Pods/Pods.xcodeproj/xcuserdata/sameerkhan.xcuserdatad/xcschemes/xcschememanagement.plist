@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>AppAuth.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>BiometricAuthentication.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -30,6 +35,11 @@
 			<false/>
 		</dict>
 		<key>Deviice.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>DropDown.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -64,27 +74,12 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>FirebaseAnalyticsInterop.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>FirebaseAuthInterop.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>FirebaseCore.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>FirebaseCoreDiagnostics.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>FirebaseCoreDiagnosticsInterop.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -124,7 +119,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>GTMOAuth2.xcscheme</key>
+		<key>GTMAppAuth.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -149,11 +144,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>GoogleDataTransportCCTSupport.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>GoogleSignIn.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -170,11 +160,6 @@
 			<false/>
 		</dict>
 		<key>GoogleTagManager.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>GoogleToolboxForMac.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

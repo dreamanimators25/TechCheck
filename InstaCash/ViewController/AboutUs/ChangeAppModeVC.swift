@@ -19,6 +19,8 @@ class ChangeAppModeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.setStatusBarColor()
 
         viewMiddle.layer.cornerRadius = CGFloat(btnCornerRadius)
         viewMiddle.clipsToBounds = true

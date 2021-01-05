@@ -40,12 +40,14 @@ class MYSwitchVC: UIViewController {
     override func viewDidLoad() {
          super.viewDidLoad()
          self.getPaymentDetailsFromServer()
+        
+        self.setStatusBarColor()
      }
      
      override func viewWillAppear(_ animated: Bool) {
          super.viewWillAppear(animated)
          
-         self.changeLanguageOfUI()
+         //self.changeLanguageOfUI()
          
          DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
              

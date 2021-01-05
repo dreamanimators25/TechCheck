@@ -32,11 +32,13 @@ class SellOtherDeviceSearchVC: UIViewController,UITableViewDelegate,UITableViewD
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        self.changeLanguageOfUI()
+        //self.changeLanguageOfUI()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.setStatusBarColor()
         
         let nib = UINib(nibName: "SelectModelCell", bundle: nil)
         self.tableViewProduct.register(nib, forCellReuseIdentifier: "selectModelCell")

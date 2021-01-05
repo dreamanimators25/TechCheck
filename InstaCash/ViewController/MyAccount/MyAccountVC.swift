@@ -28,6 +28,8 @@ class MyAccountVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setStatusBarColor()
+        
         setNavigationBar()
         if reachability?.connection.description != "No Connection"{
             OrderListModel.fetchOrderListFromServer(isInterNet:true,getController: self) { (arrOrderListData) in

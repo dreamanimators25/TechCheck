@@ -25,7 +25,7 @@ class RatingVC: UIViewController, FloatRatingViewDelegate {
     var ratingCount = 0
     
     override func viewWillAppear(_ animated: Bool) {
-        self.changeLanguageOfUI()
+        //self.changeLanguageOfUI()
     }
     
     func changeLanguageOfUI() {
@@ -42,6 +42,8 @@ class RatingVC: UIViewController, FloatRatingViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.setStatusBarColor()
         
         viewRating.delegate = self
         viewRating.type = .halfRatings

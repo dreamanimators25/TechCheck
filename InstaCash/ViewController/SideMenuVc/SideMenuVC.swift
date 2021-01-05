@@ -23,6 +23,8 @@ class SideMenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         super.viewDidLoad()
         setNavBar()
         viewSetDynamic()
+        
+        self.setStatusBarColor()
     }
     
     //MARK: set nav bar

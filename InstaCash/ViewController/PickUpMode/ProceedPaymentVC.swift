@@ -27,7 +27,7 @@ class ProceedPaymentVC: UIViewController {
     var getAcountMode = ""
 
     override func viewWillAppear(_ animated: Bool) {
-        self.changeLanguageOfUI()
+        //self.changeLanguageOfUI()
     }
     
     func changeLanguageOfUI() {
@@ -42,6 +42,8 @@ class ProceedPaymentVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.setStatusBarColor()
         
         //setNavigationBar() //s.
         

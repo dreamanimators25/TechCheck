@@ -22,7 +22,7 @@ class DiagnosisQuestionFlowVC: UIViewController,UITableViewDelegate,UITableViewD
     var selectedImageUrl = String() //s.
     
     override func viewWillAppear(_ animated: Bool) {
-        self.changeLanguageOfUI()
+        //self.changeLanguageOfUI()
     }
     
     func changeLanguageOfUI() {
@@ -43,6 +43,7 @@ class DiagnosisQuestionFlowVC: UIViewController,UITableViewDelegate,UITableViewD
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.isNavigationBarHidden = false //s.
         
+        self.setStatusBarColor()
     }
 
     // MARK:- navigation bar setup.
@@ -295,12 +296,13 @@ class DiagnosisQuestionFlowVC: UIViewController,UITableViewDelegate,UITableViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "pickUpQuestionCollectionViewCell", for: indexPath as IndexPath) as! PickUpQuestionCollectionViewCell
         
         //cell.layer.cornerRadius = 5.0 //s.
-        cell.layer.borderWidth = 0.5 //s.
-        cell.layer.borderColor = UIColor.gray.cgColor //s.
-        cell.clipsToBounds = true
+        //cell.layer.borderWidth = 0.5 //s.
+        //cell.layer.borderColor = UIColor.gray.cgColor //s.
+        //cell.clipsToBounds = true
         
         if arrQuestionForQuestion[collectionView.tag].arrQuestionTypes[indexPath.row].strQuestionValueImage.isEmpty{
             cell.imgValues.image = UIImage(named: "phonePlaceHolder")
@@ -313,19 +315,29 @@ class DiagnosisQuestionFlowVC: UIViewController,UITableViewDelegate,UITableViewD
         cell.lblValues.text  = arrQuestionForQuestion[collectionView.tag].arrQuestionTypes[indexPath.row].strQuestionValue //.localized(lang: langCode)
         
         if arrQuestionForQuestion[collectionView.tag].arrQuestionTypes[indexPath.row].isSelected == true{
-            cell.viewMain.backgroundColor = navColor
-            cell.lblValues.textColor = UIColor.white
+            //cell.viewMain.backgroundColor = navColor
             //cell.circleImageView.isHidden = true //s.
             
-            cell.circleImageView.image = #imageLiteral(resourceName: "Selected")
+            cell.viewMain.layer.borderWidth = 1.0
+            cell.viewMain.layer.borderColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+            cell.lblValues.textColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+            
+            //cell.circleImageView.image = #imageLiteral(resourceName: "Selected")
+            cell.circleImageView.image = nil
+            cell.circleImageView.backgroundColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
+            cell.circleImageView.layer.cornerRadius = cell.circleImageView.bounds.width/2
         }
         else{
-            //cell.viewMain.backgroundColor = UIColor.init(red: 218.0/255.0, green: 215.0/255.0, blue: 215.0/255.0, alpha: 1.0) //s.
-            cell.viewMain.backgroundColor = UIColor.white //s.
-            cell.lblValues.textColor = UIColor.black
+            //cell.viewMain.backgroundColor = UIColor.white //s.
             //cell.circleImageView.isHidden = false //s.
             
+            cell.viewMain.layer.borderWidth = 1.0
+            cell.viewMain.layer.borderColor = UIColor.lightGray.cgColor
+            cell.lblValues.textColor = UIColor.lightGray
+            
             cell.circleImageView.image = #imageLiteral(resourceName: "circle")
+            cell.circleImageView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            cell.circleImageView.layer.cornerRadius = cell.circleImageView.bounds.width/2
         }
                 
         return cell

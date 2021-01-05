@@ -25,6 +25,8 @@ class SendAppLinkPopUp: UIViewController,UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.setStatusBarColor()
 
         viewPopUp.layer.cornerRadius = 10.0
         viewPopUp.clipsToBounds = true

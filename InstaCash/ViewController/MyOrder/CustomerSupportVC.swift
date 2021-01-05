@@ -27,10 +27,12 @@ class CustomerSupportVC: UIViewController,MFMailComposeViewControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         //self.fireWebServiceForFaqDetail()
+        
+        self.setStatusBarColor()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.changeLanguageOfUI()
+        //self.changeLanguageOfUI()
         
         if (userDefaults.value(forKeyPath: "InstacashInformation") != nil) {
             

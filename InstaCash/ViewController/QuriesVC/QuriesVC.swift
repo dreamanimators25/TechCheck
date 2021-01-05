@@ -21,10 +21,11 @@ class QuriesVC: UIViewController {
         super.viewDidLoad()
         //setNavigationBar()
         
+        self.setStatusBarColor()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.changeLanguageOfUI()
+        //self.changeLanguageOfUI()
     }
     
     func changeLanguageOfUI() {

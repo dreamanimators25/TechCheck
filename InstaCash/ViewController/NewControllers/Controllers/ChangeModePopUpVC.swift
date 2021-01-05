@@ -27,6 +27,8 @@ class ChangeModePopUpVC: UIViewController {
         viewMiddle.layer.cornerRadius = CGFloat(btnCornerRadius)
         viewMiddle.clipsToBounds = true
         
+        self.setStatusBarColor()
+        
         if strProcessForDiagnosis == "Yes"{
             imgLogo.image = UIImage(named: "diagnosisMode")
             lbltile.text = "Entering Diagnosis Mode"

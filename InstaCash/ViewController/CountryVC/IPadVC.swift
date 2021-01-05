@@ -13,6 +13,8 @@ class IPadVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.setStatusBarColor()
+        self.navigationController?.navigationBar.isHidden = true
     }
 
     // MARK: - Navigation

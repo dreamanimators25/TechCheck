@@ -22,6 +22,8 @@ class OrderStatus1: UIViewController {
         super.viewDidLoad()
         //setNavigationBar()
         
+        self.setStatusBarColor()
+        
         /*lblName.text = CustomUserDefault.getUserName()
         lblOrderId.text = strGetUserID
         

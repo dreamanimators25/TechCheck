@@ -199,9 +199,11 @@ class ProductDetailVewVC: UIViewController, UIViewControllerTransitioningDelegat
         AppOrientationUtility.lockOrientation(.portrait)
         
         self.viewForBorder.layer.borderWidth = 1.0
-        self.viewForBorder.layer.borderColor = UIColor.gray.cgColor
+        self.viewForBorder.layer.borderColor = #colorLiteral(red: 0.3490196078, green: 0.06274509804, blue: 0.568627451, alpha: 1)
         
-        self.changeLanguageOfUI()
+        self.tableView.layer.cornerRadius = 10.0
+        
+        //self.changeLanguageOfUI()
         
         let city = CustomUserDefault.getCityName()
         self.btnChangeCity.setTitle(city, for: .normal)
@@ -250,6 +252,8 @@ class ProductDetailVewVC: UIViewController, UIViewControllerTransitioningDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.setStatusBarColor()
         
         let imgURL = URL.init(string: self.deviceImageUrl)
         self.imgProduct.sd_setImage(with: imgURL)
@@ -2234,7 +2238,6 @@ extension UIView {
 //        self.layer.mask?.shadowOpacity = 0.45
 //        self.layer.mask?.shadowPath = UIBezierPath(rect: bounds).cgPath
 //        self.layer.mask?.shadowRadius = 1.0
-  
 
     }
     
@@ -2287,7 +2290,8 @@ extension UIPanGestureRecognizer {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50.0
+        //return 50.0
+        return 0.0
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -2304,10 +2308,7 @@ extension UIPanGestureRecognizer {
         cellTestResult.lblQuateName.text = arrKey[indexPath.row] //.localized(lang: langCode)
         cellTestResult.lblQuateValue.text = arrValue[indexPath.row] //.localized(lang: langCode)
         
-       
-        
         return cellTestResult
-        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

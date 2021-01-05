@@ -30,12 +30,13 @@ class LanguagePopUpVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setStatusBarColor()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.changeLanguageOfUI()
+        //self.changeLanguageOfUI()
         self.setModifiedUI()
     }
     
@@ -150,7 +151,7 @@ class LanguagePopUpVC: UIViewController {
         self.dismiss(animated: true) {
             userDefaults.saveLanguageCode(langCode: self.selectedLanguage)
             langCode = self.selectedLanguage
-            self.changeLanguageOfUI()
+            //self.changeLanguageOfUI()
             
             if let chng = changeLanguage {
                 chng()

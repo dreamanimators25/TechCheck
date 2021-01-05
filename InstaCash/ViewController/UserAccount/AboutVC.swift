@@ -28,6 +28,8 @@ class AboutVC: UIViewController,CAPSPageMenuDelegate {
         super.viewDidLoad()
         //self.fireWebServiceForAboutPageDetail()
         self.setUpPageMenu()
+        
+        self.setStatusBarColor()
     }
     
     func changeLanguageOfUI() {
@@ -41,7 +43,7 @@ class AboutVC: UIViewController,CAPSPageMenuDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        self.changeLanguageOfUI()
+        //self.changeLanguageOfUI()
         
         if (userDefaults.value(forKeyPath: "InstacashInformation") != nil) {
             
@@ -112,8 +114,11 @@ class AboutVC: UIViewController,CAPSPageMenuDelegate {
             CAPSPageMenuOptionEnableHorizontalBounce : true
             ] as [String : Any]
         
+        
         // Initialize scroll menu
         var topHeight:CGFloat = 64.0
+        
+        /*
         if UIDevice().userInterfaceIdiom == .phone {
             switch UIScreen.main.nativeBounds.height {
             case 2436:
@@ -123,6 +128,16 @@ class AboutVC: UIViewController,CAPSPageMenuDelegate {
                 break
             }
         }
+        */
+        
+        if UIDevice().userInterfaceIdiom == .phone {
+            if UIScreen.main.nativeBounds.height >= 2436 {
+                topHeight = 84.0
+            }else {
+                topHeight = 64.0
+            }
+        }
+        
         
         pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: CGRect(x: 0.0, y: topHeight, width: self.view.frame.size.width, height: self.view.frame.size.height - topHeight ), options: parameters)
         pageMenu?.delegate = self

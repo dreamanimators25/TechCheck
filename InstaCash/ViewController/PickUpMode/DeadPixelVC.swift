@@ -34,6 +34,8 @@ class DeadPixelVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setStatusBarColor()
+        
         //4/4/20
         //self.deadPixelGifImage.isHidden = true
 
@@ -44,7 +46,7 @@ class DeadPixelVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.changeLanguageOfUI()
+        //self.changeLanguageOfUI()
     }
     
     func changeLanguageOfUI() {

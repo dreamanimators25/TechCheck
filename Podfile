@@ -6,14 +6,20 @@ target 'InstaCash' do
   use_frameworks!
 
 pod 'Alamofire', '~> 4.7.3'
-pod 'FBSDKLoginKit', '~> 4.36.0'
-pod 'FacebookCore', '~> 0.3.2'
+#pod 'FBSDKLoginKit', '~> 4.36.0' // 3/11/20
+#pod 'FacebookCore', '~> 0.3.2' // 3/11/20
 #pod 'FBSDKLoginKit'
-pod 'FBSDKCoreKit', '~> 4.36.0' # Added By -> Sameer
+#pod 'FBSDKCoreKit', '~> 4.36.0' # Added By -> Sameer // 3/11/20
 #pod 'FacebookCore'
-pod 'GoogleSignIn', '~> 4.2.0'
-pod 'MBProgressHUD', '~> 1.1.0'
+#pod 'GoogleSignIn', '~> 4.2.0' // 3/11/20
+pod 'GoogleSignIn'
+pod 'Bolts'
+pod 'FBSDKCoreKit'
+pod 'FBSDKLoginKit'
+pod 'FacebookCore'
 
+
+pod 'MBProgressHUD', '~> 1.1.0'
 #pod 'Firebase/Core' //S
 pod 'Firebase/Database' #, '~> 5.0.2'
 
@@ -51,6 +57,8 @@ pod 'Firebase/Analytics'
 
 #pod 'ZDCChat'
 pod 'Firebase/DynamicLinks'
+
+pod 'DropDown'
 
 # Pods for InstaCash
 

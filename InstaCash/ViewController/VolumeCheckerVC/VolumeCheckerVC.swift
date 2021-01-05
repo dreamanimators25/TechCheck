@@ -35,7 +35,7 @@ class VolumeCheckerVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.changeLanguageOfUI()
+        //self.changeLanguageOfUI()
     }
     
     func changeLanguageOfUI() {
@@ -50,6 +50,8 @@ class VolumeCheckerVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.setStatusBarColor()
         
         //Sameer 14/4/2020
         userDefaults.removeObject(forKey: "volumebutton_complete")

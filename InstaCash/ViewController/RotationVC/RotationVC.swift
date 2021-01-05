@@ -35,6 +35,8 @@ class RotationVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setStatusBarColor()
+        
         //Sameer 14/4/2020
         userDefaults.removeObject(forKey: "rotation_complete")
         userDefaults.setValue(false, forKey: "rotation_complete")
@@ -75,7 +77,7 @@ class RotationVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         AppOrientationUtility.lockOrientation(.portrait)
         
-        self.changeLanguageOfUI()
+        //self.changeLanguageOfUI()
     }
 
     // MARK:- navigation bar setup.
